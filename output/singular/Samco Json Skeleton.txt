@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "document_name": "...",
+    "file_type": "...",
+    "process_date": "..."
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "...",
+        "benchmark_index": [
+          "..."
+        ],
+        "field_location": [
+          {
+            "amc_name": "...",
+            "benchmark_index": "...",
+            "count": ...,
+            "fund_manager_managing_fund_since": "...",
+            "fund_manager_name": "...",
+            "fund_manager_total_exp": "...",
+            "load_entry": "...",
+            "load_exit": "...",
+            "main_scheme_name": "...",
+            // Other fields specific to this record (e.g. metrics_net_equity_level) go here
+            "...": "..."
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "...",
+            "name": "...",
+            "qualification": "...",
+            "total_exp": "..."
+          }
+          // Possibly more objects
+        ],
+        "load": [
+          {
+            "comment": "...",
+            "type": "..."
+          }
+          // Possibly more objects
+        ],
+        "main_scheme_name": "...",
+        "metrics": [
+          {
+            "name": "...",
+            "value": "..."
+          }
+          // Possibly more metric objects
+        ],
+        "min_addl_amt": "...",
+        "min_addl_amt_multiple": "...",
+        "min_amt": "...",
+        "min_amt_multiple": "...",
+        "monthly_aaum_date": "...",
+        "monthly_aaum_value": "...",
+        "mutual_fund_name": "...",
+        "scheme_launch_date": "..."
+      }
+    },
+    // More items in the "records" array with the same structure:
+    {
+      "value": {
+        "amc_name": "...",
+        "benchmark_index": [ "..." ],
+        "field_location": [
+          {
+            // Similar to above
+          }
+        ],
+        "fund_manager": [
+          {
+            // ...
+          }
+        ],
+        "load": [
+          {
+            // ...
+          }
+        ],
+        // ...
+      }
+    }
+    // ... (other records)
+  ]
+}
