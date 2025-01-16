@@ -1,12 +1,12 @@
 import tkinter as tk
-from tkinter import Canvas, filedialog, Frame, Scrollbar, Button
+from tkinter import Canvas, filedialog, Frame, Scrollbar, Button, Checkbutton, BooleanVar
 import fitz  # PyMuPDF
 from PIL import Image, ImageTk
 
-def pdf_to_image(pdf_path, page_number=0):
+def pdf_to_image(pdf_path, page_number=0, scale_factor=1.0):
     doc = fitz.open(pdf_path)
-    page = doc.load_page(page_number)  # Load the specific page
-    pix = page.get_pixmap()  # Render page to an image
+    page = doc.load_page(page_number)
+    pix = page.get_pixmap(matrix=fitz.Matrix(scale_factor, scale_factor))  # Scale the page
     img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
     doc.close()
     return img
@@ -27,6 +27,7 @@ class Application(tk.Frame):
         self.pdf_doc = None
         self.page_number = 0
         self.total_pages = 0
+        self.fit_to_screen = BooleanVar(value=False)
 
         self.create_widgets()
         self.rect = None
@@ -39,6 +40,7 @@ class Application(tk.Frame):
         Button(control_frame, text="Open PDF", command=self.load_pdf).pack(side="left")
         Button(control_frame, text="< Prev", command=self.prev_page).pack(side="left")
         Button(control_frame, text="Next >", command=self.next_page).pack(side="left")
+        Checkbutton(control_frame, text="Fit to Screen", variable=self.fit_to_screen, command=self.load_page).pack(side="left")
         self.page_label = tk.Label(control_frame, text="")
         self.page_label.pack(side="left")
 
@@ -59,9 +61,18 @@ class Application(tk.Frame):
             self.canvas.delete("all")
             self.canvas.pack_forget()
 
+        # Calculate scale factor for "Fit to Screen"
         img = pdf_to_image(self.pdf_path, self.page_number)
+        if self.fit_to_screen.get():
+            canvas_width = self.winfo_width()
+            canvas_height = self.winfo_height() - 50  # Account for controls
+            scale_x = canvas_width / img.width
+            scale_y = canvas_height / img.height
+            scale_factor = min(scale_x, scale_y)
+            img = pdf_to_image(self.pdf_path, self.page_number, scale_factor=scale_factor)
+
         self.canvas_image = ImageTk.PhotoImage(img)
-        self.canvas = Canvas(self, width=min(img.width, self.winfo_width()), height=min(img.height, self.winfo_height()), 
+        self.canvas = Canvas(self, width=img.width, height=img.height, 
                              xscrollcommand=self.scroll_x.set, yscrollcommand=self.scroll_y.set, bg="white")
         self.canvas.create_image(0, 0, anchor="nw", image=self.canvas_image)
         self.canvas.pack(side="left", fill="both", expand=True)
@@ -107,4 +118,3 @@ root = tk.Tk()
 root.geometry("800x600")  # Set initial size of the window
 app = Application(master=root)
 app.mainloop()
-
