@@ -118,3 +118,4 @@ root = tk.Tk()
 root.geometry("800x600")  # Set initial size of the window
 app = Application(master=root)
 app.mainloop()
+
