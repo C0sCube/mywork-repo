@@ -91,6 +91,10 @@ class Reader:
             document.save(output_path)
         document.close()
         
+        #open the file on screen
+        import subprocess
+        subprocess.Popen([output_path],shell=True)
+        
         return output_path, fund_titles, important_pages
                             
      #EXTRACT
@@ -308,12 +312,12 @@ class Reader:
                 print(f"Error while parsing fund {e}")
                 
             for item in items:
-                size,text,color,bbox = item
+                size,text,color,origin,bbox = item
     
                 #Errror in fitz font 
                 try:
                     page.insert_text(
-                        (bbox[0], bbox[1]),
+                        (origin[0], origin[1]),
                         text,
                         fontsize=size,
                         fontname="helv",
@@ -321,7 +325,7 @@ class Reader:
                     
                 except Exception:
                     page.insert_text(
-                        (bbox[0], bbox[1]),
+                        (origin[0], origin[1]),
                         text,
                         fontsize=size,
                         fontname="helv",
