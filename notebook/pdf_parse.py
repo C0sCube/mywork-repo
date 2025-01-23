@@ -91,6 +91,10 @@ class Reader:
             document.save(output_path)
         document.close()
         
+        #open the file on screen
+        # import subprocess
+        # subprocess.Popen([output_path],shell=True)
+        
         return output_path, fund_titles, important_pages
                             
      #EXTRACT
@@ -104,7 +108,7 @@ class Reader:
         
         print(f'\nDoc saved at {excel_path}')
     
-    def get_clipped_data(self,input:str, pageSelect:list, bbox:list[set], fund_names:dict):
+    def get_clipped_data(self,input:str, pageSelect:list, bboxes:list[set], fund_names:dict):
     
         document = fitz.open(input)
         finalData = []
@@ -113,8 +117,10 @@ class Reader:
             #get the page
             page = document[pgn]
             fundName = fund_names[pgn]
-        
-            blocks = page.get_text('dict', clip = bbox[0])['blocks'] #get all blocks
+
+            blocks = []
+            for bbox in bboxes:
+                blocks.extend(page.get_text('dict', clip = bbox)['blocks']) #get all blocks
             
             filtered_blocks = [block for block in blocks if block['type']==0 and 'lines' in block]
             sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
@@ -173,14 +179,14 @@ class Reader:
 
     
     #CLEAN
-    def clean_block_data(self,blocks:dict, data_conditions:list):
+    def __clean_block_data(self,blocks:dict, data_conditions:list):
         
         remove_text = ['Purchase','Amount','thereafter','.','. ',',',':','st',";","-",'st ',' ','th', 'th ', 'rd', 'rd ', 'nd', 'nd ','','`','(Date of Allotment)']
         
-        sorted_blocks = sorted(blocks, key=lambda x: (x[3][1],x[3][0]))
+        #sorted_blocks = sorted(blocks, key=lambda x: (x[3][1],x[3][0]))
         
         cleaned_blocks = []
-        for block in sorted_blocks:
+        for block in blocks:
             size, text, color, origin, bbox = block
             if text not in remove_text:
                 cleaned_blocks.append(block)
@@ -224,7 +230,7 @@ class Reader:
 
         for fund, data in text_data.items():
             blocks = data
-            cleaned_blocks = Reader.clean_block_data(self,blocks, data_conditions)
+            cleaned_blocks = self.__clean_block_data(self,blocks, data_conditions)
             updated_text_data[fund] = cleaned_blocks
 
         return updated_text_data
@@ -308,12 +314,12 @@ class Reader:
                 print(f"Error while parsing fund {e}")
                 
             for item in items:
-                size,text,color,bbox = item
+                size,text,color,origin,bbox = item
     
                 #Errror in fitz font 
                 try:
                     page.insert_text(
-                        (bbox[0], bbox[1]),
+                        (origin[0], origin[1]),
                         text,
                         fontsize=size,
                         fontname="helv",
@@ -321,7 +327,7 @@ class Reader:
                     
                 except Exception:
                     page.insert_text(
-                        (bbox[0], bbox[1]),
+                        (origin[0], origin[1]),
                         text,
                         fontsize=size,
                         fontname="helv",
