@@ -4,8 +4,13 @@ import numpy as np
 
 class Tata:
     
+    #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
     fund_data = [[25,20,0,16],r"^(samco|tata|canara).*",12,[-1]]
     content_bbox = [(0,50,160,750)]
+    
+    #CONTENT MANIPULATION PARAMS
+    data_conditions = [[5.0,6.0,8.0],-15570765,20.0]
+    
     
     def __init__(self):
         pass
