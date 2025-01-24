@@ -1,7 +1,5 @@
 import re
 import os
-import pandas as pd
-import numpy as np
 from pdfParse import Reader
 
 
@@ -298,7 +296,7 @@ class Tata(Reader):
 class FranklinTempleton(Reader):
     
     #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-    fund_data =  [[25,20],r"^(Franklin|tata).*$",20.0,[-1]]
+    fund_data =  [[25,20],r"^(Franklin|Templeton).*$",14.0,[-1]]
     content_bbox = [(0,5,180,812)]
     
     #CONTENT MANIPULATION PARAMS

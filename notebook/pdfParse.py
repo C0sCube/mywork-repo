@@ -139,8 +139,52 @@ class Reader:
                 "fundname": fundName,
                 "block": sorted_blocks,
             })
-                
+            
+        document.close()
         return finalData
+    
+    def extract_data_relative_line(self,path: str,pageSelect:list, line_x: float, side: str, fund_names:dict):
+        doc = fitz.open(path)
+        final_list = []
+
+        for pgn in pageSelect:
+            page = doc[pgn]
+            fundname = fund_names[pgn]
+
+            blocks = page.get_text("dict")["blocks"]
+            extracted_blocks = []
+
+            # Keep track of blocks
+            added_blocks = set()
+
+            for block in blocks:
+                block_id = id(block)  # Unique identifier
+
+                for line in block.get("lines", []):
+                    for span in line.get("spans", []):
+                        origin = span["origin"]
+                        x0, _ = origin
+
+                        #left or right
+                        if side == "left" and x0 < line_x and block_id not in added_blocks:
+                            extracted_blocks.append(block)
+                            added_blocks.add(block_id)  #added
+                        elif side == "right" and x0 > line_x and block_id not in added_blocks:
+                            extracted_blocks.append(block)
+                            added_blocks.add(block_id)  #
+
+            # Sort extracted blocks
+            sorted_blocks = sorted(extracted_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+
+            final_list.append({
+                "pgn": pgn,
+                "fundname": fundname,
+                "block": sorted_blocks
+            })
+
+        doc.close()
+
+        return final_list
 
     def get_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
     

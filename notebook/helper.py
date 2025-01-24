@@ -1,9 +1,8 @@
-import os, re
+import os, re, json
 import pprint
-import pandas as pd
-import numpy as np
 import fitz
-import pdfplumber
+
+
 
 class Helper:
     
@@ -139,3 +138,6 @@ class Helper:
         output_path = path.replace('.pdf', '_block_highlighted.pdf')
         doc.save(output_path)
         doc.close()
+        
+ 
+    
