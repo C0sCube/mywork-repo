@@ -172,7 +172,7 @@ class Reader:
                 for line in blocks['lines']:
                     for span in line.get('spans',[]):
                         
-                        text, size, color, origin, bbox = span['text'].strip(), span['size'], span['color'], span['origin'], span['bbox']
+                        text, size, color, origin, bbox = span['text'].strip(), round(span['size']), span['color'], span['origin'], span['bbox']
                         pgn_content.append([size,text,color,origin,bbox])
                         
             final_data[page['fundname']] = pgn_content
