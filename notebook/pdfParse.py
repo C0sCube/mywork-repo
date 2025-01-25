@@ -376,7 +376,6 @@ class Reader:
 
         pdf_doc.save(output_path)
         pdf_doc.close()
-        print(f"PDF generated at: {output_path}")
 
     @staticmethod
     def __extract_data_from_pdf(path: str):
@@ -394,10 +393,22 @@ class Reader:
         return {key: final_data_generated[key] for key in sorted(final_data_generated)}
 
     def get_generated_content(self, data:dict, path:str):
-        extracted_text = {}
+        extracted_text = dict()
+        unextracted_text = dict()
         for fund, items in data.items():
-            self.__generate_pdf_from_data(items, path)
-            extracted_text[fund] = self.__extract_data_from_pdf(path)
+            
+           try:
+               
+                self.__generate_pdf_from_data(items, path)
+                print(f'\n-----{fund}------', f'\nPDF Generated at: {path}')
+                extracted_text[fund] = self.__extract_data_from_pdf(path)
+                
+           except Exception as e:
+               
+               print(f"\nError while processing fund '{fund}': {e}")
+               continue
+                
+                
         return extracted_text
     
 

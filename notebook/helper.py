@@ -1,6 +1,7 @@
 import os, re, json
 import pprint
 import fitz
+import pickle
 
 
 
@@ -40,7 +41,7 @@ class Helper:
             
             blocks = page.get_text('dict')['blocks']
             images = page.get_images()
-            filtered_blocks = [block for block in blocks if block['type']==0]
+            filtered_blocks = [block for block in blocks if block['type']== 0]
             sorted_blocks = sorted(filtered_blocks, key=lambda x: x['bbox'][1])
             all_blocks.append({
                 "pgn":pgn,
@@ -142,5 +143,36 @@ class Helper:
         doc.save(output_path)
         doc.close()
         
- 
+    @staticmethod
+    def draw_bboxes_on_pdf(input_pdf_path:str, bbox:tuple):
+        
+        doc = fitz.open(input_pdf_path)
+        for page in doc:
+            page.draw_rect(bbox, color = (1.0,0,1.0), width = 1.5, overlay = False)
+
+        output_path = input_pdf_path.replace('.pdf', '_bbox_highlighted.pdf')
+        doc.save(output_path)
+        doc.close()
+        
+    @staticmethod
+    def dump_pickle_data(data:dict, file_path:str):
+        try:
+            with open(file_path, 'wb') as file:
+                pickle.dump(data, file)
+            print(f"Data successfully dumped to {file_path}")
+        except Exception as e:
+            print(f"Error while dumping data to {file_path}: {e}")
+
+    @staticmethod
+    def load_pickle_data(file_path:str):
+
+        try:
+            with open(file_path, 'rb') as file:
+                data = pickle.load(file)
+            print(f"Data successfully loaded from {file_path}")
+            return data
+        except Exception as e:
+            print(f"Error while loading data from {file_path}: {e}")
+            return None
+
     

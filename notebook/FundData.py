@@ -295,12 +295,12 @@ class Tata(Reader):
     
 class FranklinTempleton(Reader):
     
-    #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-    fund_data =  [[25,20],r"^(Franklin|Templeton).*$",14.0,[-1]]
-    content_bbox = [(0,5,180,812)]
-    
-    #CONTENT MANIPULATION PARAMS
-    data_conditions = [[7],-16751720,20.0] #sizes, color, set_size
+    PARAMS = {
+        'fund': [[25,20],r"^(Franklin|Templeton).*$",[16,24],[-65794]], #[flag], regex_fund_name, range(font_size), [font_color]
+        'clip_bbox': [(0,5,180,812)],
+        'line_x': 180.0,
+        'data': [[6,9],-16751720,20.0,'ZurichBT-BoldCondensed'] #sizes, color, set_size font_name
+    }
     
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)
