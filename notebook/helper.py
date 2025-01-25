@@ -15,12 +15,15 @@ class Helper:
         mutual_fund_paths = {}
 
         for root, dirs, files in os.walk(path):
+            
+            file_found = False
             for name in files:
-                if name.endswith((".pdf")):
+                if name.endswith((".pdf")) and not file_found:
                     tmp = root.split("\\")
                     key = tmp[-1]
                     value = rf'{root}\{name}'
                     mutual_fund_paths[key] = value
+                    file_found = True
         
         return mutual_fund_paths
 

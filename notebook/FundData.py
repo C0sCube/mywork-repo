@@ -5,12 +5,12 @@ from pdfParse import Reader
 
 class Samco(Reader):
     
-    #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-    fund_data =  [[25,20],r"^(samco|tata).*fund$",20.0,[-1]]
-    content_bbox = [(35,120,250,765)]
-    
-    #CONTENT MANIPULATION PARAMS
-    data_conditions = [[9.0,8.0],-1,20.0] #sizes, color, set_size
+    PARAMS = {
+        'fund': [[25,20],r"^(samco|tata).*fund$",[18,28],[-1]], #FUND NAME DETAILS order-> [flag], regex_fund_name, range(font_size), [font_color]
+        'clip_bbox': [(35,120,250,765)],
+        'line_x': 200.0,
+        'data': [[9,10],-1,20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
+    }
     
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)
@@ -224,12 +224,12 @@ class Samco(Reader):
              
 class Tata(Reader):
     
-    #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-    fund_data = [[25,20,0,16],r"^(samco|tata|canara).*",12,[-1]]
-    content_bbox = [(0,50,160,750)]
-    
-    #CONTENT MANIPULATION PARAMS
-    data_conditions = [[5.0,6.0,8.0], -15570765, 20.0]
+    PARAMS = {
+        'fund': [[25,20,0,16],r"^(samco|tata).*(fund|etf|fof|eof|funds|plan|\))$",[10,20],[-1]], #[flag], regex_fund_name, range(font_size), [font_color]
+        'clip_bbox': [(0,50,160,750)],
+        'line_x': 160.0,
+        'data': [[5,8],-15570765,20.0,['Swiss721BT-BoldCondensed']] #sizes, color, set_size font_name
+    }
     
     
     def __init__(self, path: str,dry:str,fin:str):
@@ -304,3 +304,31 @@ class FranklinTempleton(Reader):
     
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)
+        
+
+class GROWW(Reader):
+    
+    PARAMS = {
+        'fund': [[25,20,21],r'.*(FUND|FOF|EOF|ETF)$',15.0,[-14475488]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,5,225,812)],
+        'line_x': 225.0,
+        'data': [[7,6,8],-1,20.0] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+
+
+
+class Bandhan(Reader):
+    PARAMS = {
+        'fund': [[20],r"^Bandhan.*(Fund|Funds|Plan|ETF)$", [13,24],[-1361884]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,5,225,812)],
+        'line_x': 200.0,
+        'data': [[6, 8], -14475488, 20.0, 'Ubuntu-Bold'] #sizes, color, set_size font_name
+    }
+    
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)      
+#something

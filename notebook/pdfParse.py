@@ -1,9 +1,9 @@
 import os, re, math, pprint
-import pandas as pd
-import numpy as np
 import fitz
 from collections import defaultdict
 import pdfplumber
+import pandas as pd
+import numpy as np
 import subprocess, logging
 
 
@@ -65,9 +65,9 @@ class Reader:
                         if flag in fund_data[0]:   
                         #CHECK IF PAGE IS FUND
                             fund_conditons = [
-                                count in range(0,15),
+                                count in range(0,15), #check first 15 blocks only
                                 re.match(fund_data[1], text, re.IGNORECASE),
-                                size >=fund_data[2],
+                                round(size) in range(fund_data[2][0],fund_data[2][1]),
                                 #color in fund_data[3]
                             ]
                             
@@ -120,10 +120,9 @@ class Reader:
     def get_clipped_data(self,input:str, pageSelect:list, bboxes:list[set], fund_names:dict):
     
         document = fitz.open(input)
-        finalData = []
+        final_list = []
         
         for pgn in pageSelect:
-            #get the page
             page = document[pgn]
             fundName = fund_names[pgn]
 
@@ -131,17 +130,18 @@ class Reader:
             for bbox in bboxes:
                 blocks.extend(page.get_text('dict', clip = bbox)['blocks']) #get all blocks
             
-            filtered_blocks = [block for block in blocks if block['type']==0 and 'lines' in block]
+            filtered_blocks = [block for block in blocks if block['type']== 0 and 'lines' in block]
             sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
             
-            finalData.append({
-                "page": pgn,
-                "fundname": fundName,
-                "block": sorted_blocks,
+            final_list.append({
+            "pgn": pgn,
+            "fundname": fundName,
+            "block": sorted_blocks
             })
             
+            
         document.close()
-        return finalData
+        return final_list
     
     def extract_data_relative_line(self,path: str,pageSelect:list, line_x: float, side: str, fund_names:dict):
         doc = fitz.open(path)
@@ -152,12 +152,13 @@ class Reader:
             fundname = fund_names[pgn]
 
             blocks = page.get_text("dict")["blocks"]
+            filtered_blocks = [block for block in blocks if block['type']==0 and 'lines' in block]
             extracted_blocks = []
 
             # Keep track of blocks
             added_blocks = set()
 
-            for block in blocks:
+            for block in filtered_blocks:
                 block_id = id(block)  # Unique identifier
 
                 for line in block.get("lines", []):
@@ -216,8 +217,8 @@ class Reader:
                 for line in blocks['lines']:
                     for span in line.get('spans',[]):
                         
-                        text, size, color, origin, bbox = span['text'].strip(), round(span['size']), span['color'], span['origin'], span['bbox']
-                        pgn_content.append([size,text,color,origin,bbox])
+                        text, size, color, origin, bbox, font = span['text'].strip(), round(span['size']), span['color'], span['origin'], span['bbox'],span['font']
+                        pgn_content.append([size,text,color,origin,bbox,font])
                         
             final_data[page['fundname']] = pgn_content
         
@@ -225,7 +226,7 @@ class Reader:
 
     
     #CLEAN
-    def process_text_data(self, text_data: dict, data_conditions: list):
+    def process_text_data(self,text_data: dict, data_conditions: list):
         remove_text = ['Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
         updated_text_data = {}
@@ -236,18 +237,19 @@ class Reader:
             # Clean blocks
             cleaned_blocks = []
             for block in blocks:
-                size, text, color, origin, bbox = block
+                size, text, color, origin, bbox,font = block
                 if text not in remove_text:
                     cleaned_blocks.append(block)
 
             # Process blocks (adjust size based on conditions)
             processed_blocks = []
             for block in cleaned_blocks:
-                size, text, color, origin, bbox = block
+                size, text, color, origin, bbox, font = block
                 text = text.strip()
-                if size in data_conditions[0] and color == data_conditions[1]:
+                
+                if size in range(data_conditions[0][0], data_conditions[0][1]) and color == data_conditions[1] and font in data_conditions[3]:
                     size = data_conditions[2]  # Update size
-                processed_blocks.append([size, text, color, origin, bbox])
+                processed_blocks.append([size, text, color, origin, bbox,font])
 
             # Group blocks by rounded y-coordinate
             grouped_blocks = defaultdict(list)
@@ -262,13 +264,12 @@ class Reader:
                 if key[1] == data_conditions[2]:
                     combined_text = " ".join(item[1] for item in group).strip()
                     if combined_text:  # Ignore whitespace-only text
-                        size, color, origin, bbox = group[0][0], group[0][2], group[0][3], group[0][4]
-                        combined_blocks.append([size, combined_text, color, origin, bbox])
+                        size, color, origin, bbox,font = group[0][0], group[0][2], group[0][3], group[0][4], group[0][5]
+                        combined_blocks.append([size, combined_text, color, origin, bbox,font])
                 else:
                     for item in group:
                         combined_blocks.append(item)
 
-            # Add cleaned and combined blocks to the result
             updated_text_data[fund] = combined_blocks
 
         return updated_text_data
@@ -352,7 +353,7 @@ class Reader:
                 print(f"Error while parsing fund {e}")
                 
             for item in items:
-                size,text,color,origin,bbox = item
+                size,text,color,origin,bbox,font = item
     
                 #Errror in fitz font 
                 try:
@@ -375,20 +376,10 @@ class Reader:
 
         pdf_doc.save(output_path)
         pdf_doc.close()
-        logging.info(f"PDF generated at: {output_path}")
+        print(f"PDF generated at: {output_path}")
 
     @staticmethod
     def __extract_data_from_pdf(path: str):
-        def replace_main_key(string: str):
-            mapping = {
-                "nav": r'^nav',
-                "market_capitalization": r'market',
-                "assets_under_management": r'^assets_under',
-            }
-            for key, pattern in mapping.items():
-                if re.match(pattern, string, re.IGNORECASE):
-                    return key
-            return string
 
         with pdfplumber.open(path) as pdf:
             final_data_generated = {}
@@ -396,7 +387,7 @@ class Reader:
             for page in pdf.pages:
                 text = page.extract_text()
                 content = text.split('\n')
-                main_key = replace_main_key(content[0])
+                main_key = content[0]
                 values = content[1:]
                 final_data_generated[main_key] = values
 
