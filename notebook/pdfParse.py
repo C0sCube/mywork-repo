@@ -73,10 +73,11 @@ class Reader:
                             
                             if all(fund_conditons):
                                 fund_titles[dpgn] = text
+                                print(text)
                                 #highlight
                                 page.add_rect_annot(fitz.Rect(span['bbox']))
                             
-                            #CHECK IF INDICES EXISTS IN PAGE AND COUNT
+                        #CHECK IF INDICES EXISTS IN PAGE AND COUNT
                             for indice in indices:
                                 pattern = rf'\b{re.escape(indice)}\b'
                                 if re.search(pattern, text):
@@ -247,7 +248,7 @@ class Reader:
                 size, text, color, origin, bbox, font = block
                 text = text.strip()
                 
-                if size in range(data_conditions[0][0], data_conditions[0][1]) and color == data_conditions[1] and font in data_conditions[3]:
+                if size in range(data_conditions[0][0], data_conditions[0][1]) and color in data_conditions[1] and font in data_conditions[3]:
                     size = data_conditions[2]  # Update size
                 processed_blocks.append([size, text, color, origin, bbox,font])
 
