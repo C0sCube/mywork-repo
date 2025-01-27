@@ -225,10 +225,9 @@ class Reader:
         
         return final_data
 
-    
     #CLEAN
     def process_text_data(self,text_data: dict, data_conditions: list):
-        remove_text = ["2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
+        remove_text = ['Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
         updated_text_data = {}
 

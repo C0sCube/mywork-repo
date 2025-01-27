@@ -221,8 +221,7 @@ class Samco(Reader):
             return self.__return_aum_data(string, data)
         
         else:
-            return self.__return_dummy_data(string,data)
-             
+            return self.__return_dummy_data(string,data)             
 class Tata(Reader):
     
     PARAMS = {
@@ -473,7 +472,6 @@ class Kotak(Reader):
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)
 
-
 class LIC(Reader):
     
     PARAMS = {
@@ -484,7 +482,6 @@ class LIC(Reader):
     
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)            
-
 
 class MahindraManu(Reader):
     PARAMS = {
@@ -529,8 +526,7 @@ class MotilalOswal(Reader):
         'data': [[7,12], [-13948375], 30.0, ['Calibri-Bold']]}
     
     def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
-        
+        super().__init__(path,dry,fin)       
 
 class NJMF(Reader):
     PARAMS = {
@@ -552,4 +548,67 @@ class QuantMF(Reader):
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin) 
 
+class Sundaram(Reader):
+    PARAMS = {
+        'fund': [[4,0], r'^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*|Fund -)$|^Sundaram',[14,18],[-16625248]],
+        'clip_box': [(0,5,220,812)],
+        'line_x': 220.0,
+        'data': [[6,13], [-1], 30.0, ['UniversNextforMORNW02-Cn',]]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin) 
+
+class Taurus(Reader):
+    PARAMS = {
+        'fund': [[4,20], r'^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$',[16,24],[-9754846]],
+        'clip_box': [(0,65,210,812)],
+        'line_x': 210.0,
+        'data': [[6,12], [-9754846], 30.0, ['Calibri-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin) 
+
+class Trust(Reader):
+    
+    PARAMS = {
+        'fund': [[4,20], r'^(Trust).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$',[16,22],[-1]],
+        'clip_box': [(0,65,180,812)],
+        'line_x': 180.0,
+        'data': [[7,12], [-1, -14475488], 30.0, ['Roboto-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)  
+
+class UTI(Reader):
+    PARAMS = {
+        'fund': [[20], r'^(UTI).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[14,24],[-65794]],
+        'clip_box': [(0,65,200,812)],
+        'line_x': 200.0,
+        'data': [[7,10], [-65794,-1], 30.0, ['Calibri-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)  
+
+
+class WhiteOak(Reader):
+    PARAMS = {
+        'fund': [[20], r'^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[16,24],[-13159371]],
+        'clip_box': [(0, 85, 240, 812)],
+        'line_x': 240.0,
+        'data': [[7,11], [-65794,-1], 30.0, ['MyriadPro-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)  
+
+
+class BarodaBNP(Reader):
+    PARAMS = {
+        'fund': [[20], r'^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[16,24],[-13159371]],
+        'clip_box': [(0, 85, 240, 812)],
+        'line_x': 240.0,
+        'data': [[7,11], [-65794,-1], 30.0, ['MyriadPro-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)   
+    
 #something

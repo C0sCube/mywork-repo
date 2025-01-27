@@ -3,10 +3,17 @@ import pprint
 import fitz
 import pickle
 
+import nltk
+from nltk import word_tokenize, pos_tag, ne_chunk
+from nltk.tree import Tree
 
+# Download required data
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 
 class Helper:
-    
     
     def __init__(self):
         pass
@@ -29,7 +36,6 @@ class Helper:
         return mutual_fund_paths
 
     
-    @staticmethod
     def get_all_pdf_data(path:str):
     
         doc = fitz.open(path)
@@ -174,5 +180,23 @@ class Helper:
         except Exception as e:
             print(f"Error while loading data from {file_path}: {e}")
             return None
+
+    @staticmethod
+    def is_it_a_name():
+
+        # Sample text
+        text = "Aman Chopra and Luke Illingworth are working on a project with Sarah Connor."
+
+        # Tokenize, POS tagging, and Named Entity Recognition
+        def extract_names(text):
+            chunks = ne_chunk(pos_tag(word_tokenize(text)))
+            names = []
+            for chunk in chunks:
+                if isinstance(chunk, Tree) and chunk.label() == 'PERSON':
+                    names.append(' '.join(c[0] for c in chunk))
+            return names
+
+        names = extract_names(text)
+        print("Detected Names:", names)
 
     
