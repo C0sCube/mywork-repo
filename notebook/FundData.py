@@ -1,6 +1,7 @@
 import re
 import os
 from pdfParse import Reader
+import fitz
 
 
 class Samco(Reader):
@@ -303,8 +304,7 @@ class FranklinTempleton(Reader):
     }
     
     def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
-        
+        super().__init__(path,dry,fin)      
 
 class GROWW(Reader):
     
@@ -318,8 +318,6 @@ class GROWW(Reader):
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)
 
-
-
 class Bandhan(Reader):
     PARAMS = {
         'fund': [[20],r"^Bandhan.*(Fund|Funds|Plan|ETF)$", [13,24],[-1361884]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
@@ -330,8 +328,7 @@ class Bandhan(Reader):
     
     
     def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)     
-        
+        super().__init__(path,dry,fin)            
         
 class Helios(Reader):
     
@@ -349,7 +346,7 @@ class Helios(Reader):
 class Edelweiss(Reader):
     
     PARAMS = {
-        'fund': [[20], r'^(Edelweiss|Bharat)',[10,20],[-16298334]],
+        'fund': [[20], r'^(Edelweiss|Bharat)',[12,20],[-16298334]],
         'clip_box': [(0,5,410,812)],
         'line_x': 410.0,
         'data': [[5,9], [-16298334,-6204255], 20.0, ['Roboto-Bold']]
@@ -357,8 +354,202 @@ class Edelweiss(Reader):
     
     
     def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+    
+    def get_proper_fund_names(self,path:str,pages:list):
+        
+        doc = fitz.open(path)
+        
+        final_fund_names = dict()
+        final_objectives = dict()
+        
+        for pgn in range(doc.page_count):
+            fund_names = ''
+            objective_names = ''
+            
+            if pgn in pages:
+                page = doc[pgn]            
+                blocks = page.get_text("dict")['blocks']
+                for count,block in enumerate(blocks):
+                    for line in block.get("lines", []):
+                        for span in line.get("spans", []):
+                            text = span['text'].strip()
+                            if count in range(1,2):  #contains fund name        
+                                fund_names += f'{text} '
+                            
+                            if count in range(4,5): #contains objectives
+                                objective_names+= f'{text} '
+                           
+            final_fund_names[pgn] = fund_names
+            final_objectives[pgn] = objective_names
+
+        return final_fund_names, final_objectives
+                                
+class HSBC(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(HSBC|Bharat).*Fund$',[12,20],[-1237724]],
+        'clip_box': [(0,5,180,812)],
+        'line_x': 180.0,
+        'data': [[6,8], [-16777216], 30.0, ['Arial-BoldMT']]
+    }
+    
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)              
+        
+class Invesco(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(Invesco|Bharat).*Fund$',[12,20],[-16777216]],
+        'clip_box': [(0,135,185,812)],
+        'line_x': 180.0,
+        'data': [[7,9], [-16777216], 30.0, ['Graphik-Semibold']]
+    }
+    
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)   
+               
+class ITI(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(ITI|Bharat).*Fund$',[14,24],[-1]],
+        'clip_box': [(0,105,180,812)],
+        'line_x': 180.0,
+        'data': [[5,8], [-1688818,-1165277], 30.0, ['Calibri-Bold']]
+    }
+    
+    
+    def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)   
 
+class JMMF(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(JM|Bharat).*Fund$',[14,24],[-10987173]],
+        'clip_box': [(390,105,596,812)],
+        'line_x': 390.0,
+        'data': [[6,9], [-1], 30.0, ['MyriadPro-BoldCond']]
+    }
+    
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)  
 
+class DSP(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)',[14,24],[-1]],
+        'clip_box': [(0,5,120,812),[480,5,596,812]],
+        'line_x': 120.0,
+        'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']]
+    }
+    
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+class BankOfIndia(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)',[14,24],[-1]],
+        'clip_box': [(0,5,120,812),[480,5,596,812]],
+        'line_x': 120.0,
+        'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+class Kotak(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(Kotak|Bharat).*(Fund|ETF|FTF|FOF)$|^Kotak',[12,20],[-15319437]],
+        'clip_box': [(0,5,150,812),],
+        'line_x': 150.0,
+        'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+
+
+class LIC(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(LIC|Bharat).*(Fund|ETF|FTF|FOF)$',[12,20],[-15319437]],
+        'clip_box': [(0,5,150,812),],
+        'line_x': 150.0,
+        'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)            
+
+
+class MahindraManu(Reader):
+    PARAMS = {
+        'fund': [[20,16], r'',[12,20],[-15319437]],
+        'clip_box': [(0,65,200,812)],
+        'line_x': 200.0,
+        'data': [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627,], 30.0, ['QuantumRise-Bold','QuantumRise','QuantumRise-Semibold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+    def get_proper_fund_names(self,path:str,pages:list):
+        
+        doc = fitz.open(path)
+        final_fund_names = dict()
+        
+        for pgn in range(doc.page_count):
+            fund_names = ''
+            if pgn in pages:
+                page = doc[pgn]            
+                blocks = page.get_text("dict")['blocks']
+                
+                sorted_blocks = sorted(blocks,key=lambda k:(k['bbox'][1],k['bbox'][0]))
+                for count,block in enumerate(sorted_blocks):
+                    for line in block.get("lines", []):
+                        for span in line.get("spans", []):
+                            text = span['text'].strip()
+                            if count in range(0,2): #contains fund name        
+                                fund_names += f'{text} '
+            if matches:= re.search(r'\bMahindra.*?(Fund|ETF|EOF|FOF|FTF|Path)\b', fund_names, re.IGNORECASE):           
+                final_fund_names[pgn] = matches.group()
+            else:
+                final_fund_names[pgn] = ''
+
+        return final_fund_names
+
+class MotilalOswal(Reader):
+    PARAMS = {
+        'fund': [[20,16], r'^(Motilal|Oswal).*(Fund|ETF|EOF|FOF|FTF|Path)$',[20,28],[-13616547]],
+        'clip_box': [(0,65,170,812)],
+        'line_x': 170.0,
+        'data': [[7,12], [-13948375], 30.0, ['Calibri-Bold']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+
+class NJMF(Reader):
+    PARAMS = {
+        'fund': [[20,16,0], r'^(NJ).*(Fund|ETF|EOF|FOF|FTF|Path)$',[16,24],[-13604430]],
+        'clip_box': [(0,5,250,812)],
+        'line_x': 250.0,
+        'data': [[6,11], [-14475488], 30.0, ['Swiss721BT-Medium']]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+class QuantMF(Reader):
+    PARAMS = {
+        'fund': [[16,0], r'^(quant).*(Fund|ETF|EOF|FOF|FTF|Path)$',[16,24],[-13604430]],
+        'clip_box': [(0,5,180,812)],
+        'line_x': 180.0,
+        'data': [[6,11], [-16777216], 30.0, ['Calibri,Bold',]]}
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin) 
 
 #something
