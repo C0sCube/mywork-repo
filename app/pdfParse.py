@@ -36,86 +36,92 @@ class Reader:
         financial_indexes = df['indexes'].tolist()
         return set(financial_indexes)
     
-    def check_and_highlight(self, path:str, fund_data:list):
-        
+    def check_and_highlight(self, path: str, fund_data: list, count: int):
         document = fitz.open(path)
         document_page_count = document.page_count
-        
+
         indices = Reader.get_financial_indices(self.INDICEPATH)
-        
-        
-        #initialize imp datasets
+
+        # Initialize datasets
         pages = [i for i in range(document_page_count)]
-        important_pages = dict.fromkeys(pages,0)
-        fund_titles = dict.fromkeys(pages,'')
-        
+        important_pages = dict.fromkeys(pages, 0)
+        fund_titles = dict.fromkeys(pages, "")
+        detected_indices = dict.fromkeys(pages,set())
+
         for dpgn, page in enumerate(document):
-            
-            pageBlocks = page.get_text('dict')
-            pageTexts = pageBlocks['blocks']
-            
-            sortedPageTexts = sorted(pageTexts, key=lambda x:(x['bbox'][1],x['bbox'][0]))
-            
-            for count,block in enumerate(sortedPageTexts):
-                
-                if 'lines' not in block:
+            pageBlocks = page.get_text("dict")
+            pageTexts = pageBlocks["blocks"]
+
+            sortedPageTexts = sorted(pageTexts, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+
+            for block_count, block in enumerate(sortedPageTexts):
+                if "lines" not in block:
                     continue
-                for line in block['lines']:
-                    for span in line['spans']:
-                        text, size, flag, color = span['text'].strip().lower(), span['size'], span['flags'], span['color']
-                        
-                        if flag in fund_data[0]:   
-                        #CHECK IF PAGE IS FUND
-                            fund_conditons = [
-                                count in range(0,15), #check first 15 blocks only
+
+                for line in block["lines"]:
+                    for span in line["spans"]:
+                        text, size, flag, color = (
+                            span["text"].strip().lower(),
+                            span["size"],
+                            span["flags"],
+                            span["color"],
+                        )
+
+                        # Check if the page contains fund data
+                        if flag in fund_data[0]:
+                            fund_conditions = [
+                                block_count in range(0, 15),  # Check first 15 blocks only
                                 re.match(fund_data[1], text, re.IGNORECASE),
-                                round(size) in range(fund_data[2][0],fund_data[2][1]),
-                                #color in fund_data[3]
+                                round(size) in range(fund_data[2][0], fund_data[2][1]),
+                                # color in fund_data[3]
                             ]
-                            
-                            if all(fund_conditons):
+
+                            if all(fund_conditions):
                                 fund_titles[dpgn] = text
                                 print(text)
-                                #highlight
-                                page.add_rect_annot(fitz.Rect(span['bbox']))
-                            
-                        #CHECK IF INDICES EXISTS IN PAGE AND COUNT
-                            for indice in indices:
-                                pattern = rf'\b{re.escape(indice)}\b'
-                                if re.search(pattern, text):
-                                    
-                                    important_pages[dpgn]+=1
-                                    #highlight
-                                    rect = fitz.Rect(span['bbox'])
-                                    page.add_highlight_annot(rect)
-                                    break #one highlight
+                                # Highlight
+                                page.add_rect_annot(fitz.Rect(span["bbox"]))
+
+                        # Check if indices exist in the page and count
+                        for indice in indices:
+                            pattern = rf"\b{re.escape(indice)}\b"
+                            if match:= re.search(pattern, text):
+                                important_pages[dpgn] += 1
+                                detected_indices[dpgn].add(match.group())
+                                # Highlight
+                                rect = fitz.Rect(span["bbox"])
+                                page.add_highlight_annot(rect)
+                                break  # One highlight per span
+
         output_path = None
         if any(important_pages.values()):
-            output_path = path.replace('.pdf','_highlighted.pdf')
+            output_path = path.replace(".pdf", "_highlighted.pdf")
             document.save(output_path)
         document.close()
-        
-        #open the file on screen
-        
-        def save_pdf_data(highlights:dict,fund_names:dict):
-           
-            df = pd.DataFrame({"title":fund_names.values(),"highlights": highlights.values()})
+
+        # Save PDF data
+        def save_pdf_data(highlights: dict, fund_names: dict, detected:dict, threshold: int):
+            # Create a DataFrame
+            df = pd.DataFrame({"title": fund_names.values(), "highlights": highlights.values(),"detected_indices":detected.values()})
             excel_path = self.REPORTPATH
             df.to_excel(excel_path)
-            
-            pages = df.loc[(df.highlights > 7) & (df.title.str.contains(r'\w+'))].index.to_list()
-            
-            print(f'\nDoc saved at: {excel_path}')
-            
-            print(f'\nPages to extract: {pages}')
-            
-            subprocess.Popen([excel_path],shell=True)
-             
-        save_pdf_data(important_pages, fund_titles)
 
-        subprocess.Popen([output_path],shell=True)
-        
+            # Filter pages based on the threshold
+            pages = df.loc[(df.highlights > threshold) & (df.title.str.contains(r"\w+"))].index.to_list()
+
+            print(f"\nDoc saved at: {excel_path}")
+            print(f"\nPages to extract: {pages}")
+
+            # Open the file on the screen
+            subprocess.Popen([excel_path], shell=True)
+
+        save_pdf_data(important_pages, fund_titles, detected_indices, count)
+
+        if output_path:
+            subprocess.Popen([output_path], shell=True)
+
         return output_path, important_pages, fund_titles
+
                             
      #EXTRACT
     
