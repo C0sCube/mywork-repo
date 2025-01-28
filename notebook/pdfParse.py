@@ -98,7 +98,7 @@ class Reader:
         def save_pdf_data(highlights:dict,fund_names:dict):
            
             df = pd.DataFrame({"title":fund_names.values(),"highlights": highlights.values()})
-            excel_path = self.BASEPATH + r'\files\pdf_report.xlsx'
+            excel_path = self.BASEPATH + r'\output\pdf_report.xlsx'
             df.to_excel(excel_path)
             
             pages = df.loc[(df.highlights > 7) & (df.title.str.contains(r'\w+'))].index.to_list()
@@ -214,18 +214,44 @@ class Reader:
         final_data = dict()
         for pgn,page in enumerate(data):
             pgn_content = []
+            seen_entries = set()
             for blocks in page['block']:
                 for line in blocks['lines']:
                     for span in line.get('spans',[]):
                         
                         text, size, color, origin, bbox, font = span['text'].strip(), round(span['size']), span['color'], span['origin'], span['bbox'],span['font']
-                        pgn_content.append([size,text,color,origin,bbox,font])
-                        
+                        entry = (size, text, color, origin, tuple(bbox), font)
+
+                        # Check for uniqueness
+                        if entry not in seen_entries:
+                            seen_entries.add(entry)
+                            pgn_content.append([size, text, color, origin, bbox, font])
+                            
             final_data[page['fundname']] = pgn_content
         
         return final_data
 
     #CLEAN
+    
+    def combine_left_right_data(self, dataset:list):
+        
+        data = list()
+        for left, right in zip(dataset[0], dataset[1]):
+            pgn = left['pgn']
+            fund = left['fundname']
+            left_block = left['block']
+            right_block = right['block']
+            block = left_block + right_block
+            
+            data.append({
+                'pgn':pgn,
+                'fundname': fund,
+                'block': block
+            })
+        
+        return data
+ 
+        
     def process_text_data(self,text_data: dict, data_conditions: list):
         remove_text = ['Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         

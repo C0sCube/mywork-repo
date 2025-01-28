@@ -222,6 +222,7 @@ class Samco(Reader):
         
         else:
             return self.__return_dummy_data(string,data)             
+
 class Tata(Reader):
     
     PARAMS = {
@@ -291,8 +292,8 @@ class Tata(Reader):
 
 
     def match_regex_to_content(self, string:str, data:list, *args):
-        return 
-    
+        return     
+
 class FranklinTempleton(Reader):
     
     PARAMS = {
@@ -304,18 +305,6 @@ class FranklinTempleton(Reader):
     
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)      
-
-class GROWW(Reader):
-    
-    PARAMS = {
-        'fund': [[25,20,21],r'.*(FUND|FOF|EOF|ETF)$',15.0,[-14475488]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-        'clip_bbox': [(0,5,225,812)],
-        'line_x': 225.0,
-        'data': [[7,6,8],[-1],20.0,[""]] #sizes, color, set_size
-    }
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
 
 class Bandhan(Reader):
     PARAMS = {
@@ -589,7 +578,6 @@ class UTI(Reader):
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)  
 
-
 class WhiteOak(Reader):
     PARAMS = {
         'fund': [[20], r'^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[16,24],[-13159371]],
@@ -600,15 +588,88 @@ class WhiteOak(Reader):
     def __init__(self, path: str,dry:str,fin:str):
         super().__init__(path,dry,fin)  
 
-
-class BarodaBNP(Reader):
+class BajajFinServ(Reader):
+    
     PARAMS = {
-        'fund': [[20], r'^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[16,24],[-13159371]],
-        'clip_box': [(0, 85, 240, 812)],
-        'line_x': 240.0,
-        'data': [[7,11], [-65794,-1], 30.0, ['MyriadPro-Bold']]}
+        'fund': [[20],r'Bajaj.*(Fund|Path|ETF|FOF|EOF)$',[14,24],[-16753236]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(360,5,612,812)],
+        'line_x': 180.0,
+        'data': [[6,12],[-1,-15376468],30.0,['Rubik-SemiBold']] #sizes, color, set_size
+    }
     
     def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)   
+        super().__init__(path,dry,fin)
+        
+class ThreeSixtyOne(Reader):
     
+    PARAMS = {
+        'fund': [[20],r'360 ONE.*(Fund|Path|ETF|FOF|EOF)$',[18,24],[-16777216]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,5,160,812)],
+        'line_x': 160.0,
+        'data': [[6,10],[-10791002],30.0,['SpaceGrotesk-SemiBold']] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+class BarodaBNP(Reader):
+    PARAMS = {
+        'fund': [[0],r'^Baroda BNP',[12,18],[-13619152]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,65,210, 700)],
+        'line_x': 210.0,
+        'data': [[6,10],[-12566464],30.0,['Unnamed-T3']] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+        
+    def get_proper_fund_names(self, path:str, pages:list, bbox:set):
+        doc = fitz.open(path)
+        
+        fund_titles = dict()
+        for pgn in range(doc.page_count):
+            if pgn in pages:
+                page = doc[pgn]
+                blocks = page.get_text('dict', clip=bbox)['blocks']
+                combined_text = []
+        
+                for block in blocks:
+                    for line in block.get('lines', []):
+                        for span in line.get('spans', []):
+                            text = span.get('text', "")
+                            if re.search(r'^Baroda BNP', text) or re.search(r'Fund$', text):
+                                combined_text.append(text)
+                fund_titles[pgn] = " ".join(combined_text)
+            else:
+                fund_titles[pgn] = ""
+            
+            # print(f"\n----{pgn}----"," ".join(combined_text))
+
+        doc.close()
+        return fund_titles
+    
+class NAVI(Reader):
+    PARAMS = {
+        'fund': [[20],r'^NAVI.*',[23,33],[-19456]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,75,320, 700)],
+        'line_x': 320.0,
+        'data': [[14,20],[-12844976],30.0,['NaviHeadline-Bold']] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+    
+class Zerodha(Reader):
+    
+    PARAMS = {
+        'fund': [[20,0],r'^Zerodha.*',[20,30],[-16777216]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,5,300, 700)],
+        'line_x': 300.0,
+        'data': [[14,20],[-16777216],30.0,['Unnamed-T3']] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str):
+        super().__init__(path,dry,fin)
+
+  
 #something

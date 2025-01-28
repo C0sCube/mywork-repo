@@ -3,16 +3,6 @@ import pprint
 import fitz
 import pickle
 
-import nltk
-from nltk import word_tokenize, pos_tag, ne_chunk
-from nltk.tree import Tree
-
-# Download required data
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('maxent_ne_chunker')
-nltk.download('words')
-
 class Helper:
     
     def __init__(self):
@@ -35,7 +25,32 @@ class Helper:
         
         return mutual_fund_paths
 
+    @staticmethod
+    def get_clipped_data(input:str, bboxes:list[set]):
     
+        document = fitz.open(input)
+        final_list = []
+        
+        for pgn in range(document.page_count):
+            page = document[pgn]
+
+            blocks = []
+            for bbox in bboxes:
+                blocks.extend(page.get_text('dict', clip = bbox)['blocks']) #get all blocks
+            
+            filtered_blocks = [block for block in blocks if block['type']== 0 and 'lines' in block]
+            sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
+            
+            final_list.append({
+            "pgn": pgn,
+            "block": sorted_blocks
+            })
+            
+            
+        document.close()
+        return final_list
+    
+    @staticmethod
     def get_all_pdf_data(path:str):
     
         doc = fitz.open(path)
@@ -182,21 +197,9 @@ class Helper:
             return None
 
     @staticmethod
-    def is_it_a_name():
-
-        # Sample text
-        text = "Aman Chopra and Luke Illingworth are working on a project with Sarah Connor."
-
-        # Tokenize, POS tagging, and Named Entity Recognition
-        def extract_names(text):
-            chunks = ne_chunk(pos_tag(word_tokenize(text)))
-            names = []
-            for chunk in chunks:
-                if isinstance(chunk, Tree) and chunk.label() == 'PERSON':
-                    names.append(' '.join(c[0] for c in chunk))
-            return names
-
-        names = extract_names(text)
-        print("Detected Names:", names)
-
+    def quick_json_dump(extracted_text, path:str, indent=4):
+        with open(path, "w") as file:
+            json.dump(extracted_text, file, indent=indent)
+        
+        print(f'\n JSON saved at {path}')
     
