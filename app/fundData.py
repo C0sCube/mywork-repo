@@ -1,6 +1,5 @@
-import re
-import os
-from pdfParse import Reader
+import re, os
+from app.pdfParse import Reader
 import fitz
 
 
@@ -10,11 +9,11 @@ class Samco(Reader):
         'fund': [[25,20],r"^(samco|tata).*fund$",[18,28],[-1]], #FUND NAME DETAILS order-> [flag], regex_fund_name, range(font_size), [font_color]
         'clip_bbox': [(35,120,250,765)],
         'line_x': 200.0,
-        'data': [[9,10],-1,20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
+        'data': [[9,10],[-1],20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
     
     def return_required_header(self,string: str):
             replace_key = string
@@ -233,8 +232,8 @@ class Tata(Reader):
     }
     
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
     
     def return_required_header(self,string: str):
             replace_key = string
@@ -303,8 +302,8 @@ class FranklinTempleton(Reader):
         'data': [[6,9],[-16751720],20.0,['ZurichBT-BoldCondensed']] #sizes, color, set_size font_name
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)      
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)   
 
 class Bandhan(Reader):
     PARAMS = {
@@ -314,9 +313,8 @@ class Bandhan(Reader):
         'data': [[6, 8], [-14475488], 20.0, ['Ubuntu-Bold']] #sizes, color, set_size font_name
     }
     
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)            
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)           
         
 class Helios(Reader):
     
@@ -328,8 +326,8 @@ class Helios(Reader):
     }
     
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)   
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)  
 
 class Edelweiss(Reader):
     
@@ -340,9 +338,8 @@ class Edelweiss(Reader):
         'data': [[5,9], [-16298334,-6204255], 20.0, ['Roboto-Bold']]
     }
     
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
     
     def get_proper_fund_names(self,path:str,pages:list):
@@ -383,9 +380,8 @@ class HSBC(Reader):
         'data': [[6,8], [-16777216], 30.0, ['Arial-BoldMT']]
     }
     
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)              
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)            
         
 class Invesco(Reader):
     
@@ -396,10 +392,9 @@ class Invesco(Reader):
         'data': [[7,9], [-16777216], 30.0, ['Graphik-Semibold']]
     }
     
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)   
-               
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
+        
 class ITI(Reader):
     
     PARAMS = {
@@ -409,9 +404,8 @@ class ITI(Reader):
         'data': [[5,8], [-1688818,-1165277], 30.0, ['Calibri-Bold']]
     }
     
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)   
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep) 
 
 class JMMF(Reader):
     
@@ -422,9 +416,8 @@ class JMMF(Reader):
         'data': [[6,9], [-1], 30.0, ['MyriadPro-BoldCond']]
     }
     
-    
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)  
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class DSP(Reader):
     
@@ -436,8 +429,8 @@ class DSP(Reader):
     }
     
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
 class BankOfIndia(Reader):
     
@@ -447,8 +440,8 @@ class BankOfIndia(Reader):
         'line_x': 120.0,
         'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
 class Kotak(Reader):
     
@@ -458,8 +451,8 @@ class Kotak(Reader):
         'line_x': 150.0,
         'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class LIC(Reader):
     
@@ -469,8 +462,8 @@ class LIC(Reader):
         'line_x': 150.0,
         'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)            
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)          
 
 class MahindraManu(Reader):
     PARAMS = {
@@ -479,8 +472,8 @@ class MahindraManu(Reader):
         'line_x': 200.0,
         'data': [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627,], 30.0, ['QuantumRise-Bold','QuantumRise','QuantumRise-Semibold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
     def get_proper_fund_names(self,path:str,pages:list):
         
@@ -514,8 +507,8 @@ class MotilalOswal(Reader):
         'line_x': 170.0,
         'data': [[7,12], [-13948375], 30.0, ['Calibri-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)       
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)   
 
 class NJMF(Reader):
     PARAMS = {
@@ -524,8 +517,9 @@ class NJMF(Reader):
         'line_x': 250.0,
         'data': [[6,11], [-14475488], 30.0, ['Swiss721BT-Medium']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
+        
         
 class QuantMF(Reader):
     PARAMS = {
@@ -534,8 +528,8 @@ class QuantMF(Reader):
         'line_x': 180.0,
         'data': [[6,11], [-16777216], 30.0, ['Calibri,Bold',]]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin) 
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class Sundaram(Reader):
     PARAMS = {
@@ -544,8 +538,8 @@ class Sundaram(Reader):
         'line_x': 220.0,
         'data': [[6,13], [-1], 30.0, ['UniversNextforMORNW02-Cn',]]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin) 
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class Taurus(Reader):
     PARAMS = {
@@ -554,8 +548,8 @@ class Taurus(Reader):
         'line_x': 210.0,
         'data': [[6,12], [-9754846], 30.0, ['Calibri-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin) 
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class Trust(Reader):
     
@@ -565,8 +559,8 @@ class Trust(Reader):
         'line_x': 180.0,
         'data': [[7,12], [-1, -14475488], 30.0, ['Roboto-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)  
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class UTI(Reader):
     PARAMS = {
@@ -575,8 +569,8 @@ class UTI(Reader):
         'line_x': 200.0,
         'data': [[7,10], [-65794,-1], 30.0, ['Calibri-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)  
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class WhiteOak(Reader):
     PARAMS = {
@@ -585,8 +579,8 @@ class WhiteOak(Reader):
         'line_x': 240.0,
         'data': [[7,11], [-65794,-1], 30.0, ['MyriadPro-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)  
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
 class BajajFinServ(Reader):
     
@@ -597,8 +591,8 @@ class BajajFinServ(Reader):
         'data': [[6,12],[-1,-15376468],30.0,['Rubik-SemiBold']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
 class ThreeSixtyOne(Reader):
     
@@ -609,8 +603,8 @@ class ThreeSixtyOne(Reader):
         'data': [[6,10],[-10791002],30.0,['SpaceGrotesk-SemiBold']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
 class BarodaBNP(Reader):
     PARAMS = {
@@ -620,8 +614,8 @@ class BarodaBNP(Reader):
         'data': [[6,10],[-12566464],30.0,['Unnamed-T3']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
         
     def get_proper_fund_names(self, path:str, pages:list, bbox:set):
         doc = fitz.open(path)
@@ -656,8 +650,8 @@ class NAVI(Reader):
         'data': [[14,20],[-12844976],30.0,['NaviHeadline-Bold']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
     
 class Zerodha(Reader):
     
@@ -668,8 +662,8 @@ class Zerodha(Reader):
         'data': [[14,20],[-16777216],30.0,['Unnamed-T3']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str):
-        super().__init__(path,dry,fin)
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep)
 
   
 #something

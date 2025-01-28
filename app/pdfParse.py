@@ -12,11 +12,13 @@ class Reader:
     BASEPATH  = ''
     DRYPATH = ''
     INDICEPATH  = ''
+    REPORTPATH = ''
     
-    def __init__(self, path: str, dry:str, fin:str):
+    def __init__(self, path: str, dry:str, fin:str, rep:str):
         self.BASEPATH = path
         self.DRYPATH = self.BASEPATH + dry
         self.INDICEPATH = self.BASEPATH + fin
+        self.REPORTPATH = self.BASEPATH + rep
     
     def get_file_path(self, path: str):
         return self.BASEPATH + path
@@ -98,7 +100,7 @@ class Reader:
         def save_pdf_data(highlights:dict,fund_names:dict):
            
             df = pd.DataFrame({"title":fund_names.values(),"highlights": highlights.values()})
-            excel_path = self.BASEPATH + r'\output\pdf_report.xlsx'
+            excel_path = self.REPORTPATH
             df.to_excel(excel_path)
             
             pages = df.loc[(df.highlights > 7) & (df.title.str.contains(r'\w+'))].index.to_list()
