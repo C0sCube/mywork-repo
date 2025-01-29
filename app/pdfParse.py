@@ -64,12 +64,7 @@ class Reader:
 
                 for line in block["lines"]:
                     for span in line["spans"]:
-                        text, size, flag, color = (
-                            span["text"].strip().lower(),
-                            span["size"],
-                            span["flags"],
-                            span["color"],
-                        )
+                        text, size, flag, color = (span["text"].strip().lower(),span["size"],span["flags"],span["color"],)
 
                         # Check if the page contains fund data
                         if flag in fund_data[0]:
@@ -106,7 +101,7 @@ class Reader:
         # Save PDF data
         def __save_pdf_data(highlights: dict, fund_names: dict, detected:dict, threshold: int):
                 # Create a DataFrame
-                df = pd.DataFrame({"title": fund_names.values(), "highlights": highlights.values(),"detected_indices":detected.values()})
+                df = pd.DataFrame({"title": fund_names.values(), "highlights": highlights.values(),"detected_indices":",".join(detected.values())})
                 excel_path = self.REPORTPATH
                 df.to_excel(excel_path, engine="openpyxl", index=False)
 
@@ -128,10 +123,11 @@ class Reader:
      #EXTRACT
     
     
-    def get_clipped_data(self,input:str, pageSelect:list, bboxes:list[set], fund_names:dict):
+    def get_clipped_data(self,input:str, pageSelect:list, fund_names:dict):
     
         document = fitz.open(input)
         final_list = []
+        bboxes = self.PARAMS['clip_bbox']
         
         for pgn in pageSelect:
             page = document[pgn]
@@ -154,9 +150,10 @@ class Reader:
         document.close()
         return final_list
     
-    def extract_data_relative_line(self,path: str,pageSelect:list, line_x: float, side: str, fund_names:dict):
+    def extract_data_relative_line(self,path: str,pageSelect:list, side: str, fund_names:dict):
         doc = fitz.open(path)
         final_list = []
+        line_x = self.PARAMS['line_x']
 
         for pgn in pageSelect:
             page = doc[pgn]
@@ -262,10 +259,11 @@ class Reader:
         return data
  
         
-    def process_text_data(self,text_data: dict, data_conditions: list):
+    def process_text_data(self,text_data: dict):
         remove_text = ['Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
         updated_text_data = {}
+        data_conditions = self.PARAMS['data']
 
         for fund, data in text_data.items():
             blocks = data
