@@ -1,0 +1,141 @@
+{
+   "Samco Mutual Fund" : {
+        "fund": [[25,20],"^(samco|tata).*fund$",[18,28],[-1]], 
+        "clip_bbox": [(35,120,250,765)],
+        "line_x": 200.0,
+        "data": [[9,10],[-1],20.0,["Inter-SemiBold"]]},
+   "Tata Mutual Fund" : {
+        "fund": [[25,20,0,16],"^(samco|tata).*(fund|etf|fof|eof|funds|plan|\))$",[10,20],[-1]], 
+        "clip_bbox": [(0,50,160,750)],
+        "line_x": 160.0,
+        "data": [[5,8],[-15570765],20.0,["Swiss721BT-BoldCondensed"]]},
+   "Franklin Templeton Mutual Fund" : {
+        "fund": [[25,20],"^(Franklin|Templeton).*$",[16,24],[-65794]], 
+        "clip_bbox": [(0,5,180,812)],
+        "line_x": 180.0,
+        "data": [[6,9],[-16751720],20.0,["ZurichBT-BoldCondensed"]]},
+   "Bandhan Mutual Fund" : {
+        "fund": [[20],"^Bandhan.*(Fund|Funds|Plan|ETF)$", [13,24],[-1361884]], 
+        "clip_bbox": [(0,5,225,812)],
+        "line_x": 200.0,
+        "data": [[6, 8], [-14475488], 20.0, ["Ubuntu-Bold"]]},
+   "Helios Mutual Fund" : {
+        "fund": [[20], "^Helios.*Fund$",[16,24],[-1]],
+        "clip_box": [(0,5,250,812)],
+        "line_x": 250.0,
+        "data": [[7,10], [-1,-2545112], 30.0, ["Poppins-SemiBold"]]},
+   "Edelweiss Mutual Fund" : {
+        "fund": [[20], "^(Edelweiss|Bharat)",[12,20],[-16298334]],
+        "clip_box": [(0,5,410,812)],
+        "line_x": 410.0,
+        "data": [[5,9], [-16298334,-6204255], 20.0, ["Roboto-Bold"]]},
+   "HSBC Mutual Fund" : {
+        "fund": [[20,16], "^(HSBC|Bharat).*Fund$",[12,20],[-1237724]],
+        "clip_box": [(0,5,180,812)],
+        "line_x": 180.0,
+        "data": [[6,8], [-16777216], 30.0, ["Arial-BoldMT"]]},
+   "Invesco Mutual Fund" : {
+        "fund": [[20,16], "^(Invesco|Bharat).*Fund$",[12,20],[-16777216]],
+        "clip_box": [(0,135,185,812)],
+        "line_x": 180.0,
+        "data": [[7,9], [-16777216], 30.0, ["Graphik-Semibold"]]},
+   "ITI Mutual Fund" : {
+        "fund": [[20,16], "^(ITI|Bharat).*Fund$",[14,24],[-1]],
+        "clip_box": [(0,105,180,812)],
+        "line_x": 180.0,
+        "data": [[5,8], [-1688818,-1165277], 30.0, ["Calibri-Bold"]]},
+   "JM Financial Mutual Fund" : {
+        "fund": [[20,16], "^(JM|Bharat).*Fund$",[14,24],[-10987173]],
+        "clip_box": [(390,105,596,812)],
+        "line_x": 390.0,
+        "data": [[6,9], [-1], 30.0, ["MyriadPro-BoldCond"]]},
+   "DSP" : {
+        "fund": [[20,16], "^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)",[14,24],[-1]],
+        "clip_box": [(0,5,120,812),[480,5,596,812]],
+        "line_x": 120.0,
+        "data": [[7,10], [-16777216], 30.0, ["TrebuchetMS-Bold"]]},
+   "Bank of India Mutual Fund" : {
+        "fund": [[20,16], "^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)",[14,24],[-1]],
+        "clip_box": [(0,5,120,812),[480,5,596,812]],
+        "line_x": 120.0,
+        "data": [[7,10], [-16777216], 30.0, ["TrebuchetMS-Bold"]]},
+   "Kotak Mahindra Mutual Fund" : {
+        "fund": [[20,16], "^(Kotak|Bharat).*(Fund|ETF|FTF|FOF)$|^Kotak",[12,20],[-15319437]],
+        "clip_box": [(0,5,150,812)],
+        "line_x": 150.0,
+        "data": [[5,8], [-15445130,-14590595], 30.0, ["Frutiger-Bold"]]},
+   "LIC Mutual Fund" : {
+        "fund": [[20,16], "^(LIC|Bharat).*(Fund|ETF|FTF|FOF)$",[12,20],[-15319437]],
+        "clip_box": [(0,5,150,812)],
+        "line_x": 150.0,
+        "data": [[5,8], [-15445130,-14590595], 30.0, ["Frutiger-Bold"]]},
+   "Mahindra Manulife Mutual Fund" : {
+        "fund": [[20,16], "",[12,20],[-15319437]],
+        "clip_box": [(0,65,200,812)],
+        "line_x": 200.0,
+        "data": [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627], 30.0, ["QuantumRise-Bold","QuantumRise","QuantumRise-Semibold"]]},
+   "Motilal Oswal Mutual Fund" : {
+        "fund": [[20,16], "^(Motilal|Oswal).*(Fund|ETF|EOF|FOF|FTF|Path)$",[20,28],[-13616547]],
+        "clip_box": [(0,65,170,812)],
+        "line_x": 170.0,
+        "data": [[7,12], [-13948375], 30.0, ["Calibri-Bold"]]},
+   "NJ Mutual Fund" : {
+        "fund": [[20,16,0], "^(NJ).*(Fund|ETF|EOF|FOF|FTF|Path)$",[16,24],[-13604430]],
+        "clip_box": [(0,5,250,812)],
+        "line_x": 250.0,
+        "data": [[6,11], [-14475488], 30.0, ["Swiss721BT-Medium"]]},
+   "Quant Mutual Fund" : {
+        "fund": [[16,0], "^(quant).*(Fund|ETF|EOF|FOF|FTF|Path)$",[16,24],[-13604430]],
+        "clip_box": [(0,5,180,812)],
+        "line_x": 180.0,
+        "data": [[6,11], [-16777216], 30.0, ["Calibri,Bold"]]},
+   "Sundaram Mutual Fund" : {
+        "fund": [[4,0], "^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*|Fund -)$|^Sundaram",[14,18],[-16625248]],
+        "clip_box": [(0,5,220,812)],
+        "line_x": 220.0,
+        "data": [[6,13], [-1], 30.0, ["UniversNextforMORNW02-Cn"]]},
+   "Taurus Mutual Fund" : {
+        "fund": [[4,20], "^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$",[16,24],[-9754846]],
+        "clip_box": [(0,65,210,812)],
+        "line_x": 210.0,
+        "data": [[6,12], [-9754846], 30.0, ["Calibri-Bold"]]},
+   "Trust Mutual Fund" : {
+        "fund": [[4,20], "^(Trust).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$",[16,22],[-1]],
+        "clip_box": [(0,65,180,812)],
+        "line_x": 180.0,
+        "data": [[7,12], [-1, -14475488], 30.0, ["Roboto-Bold"]]},
+   "UTI Mutual Fund" : {
+        "fund": [[20], "^(UTI).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$",[14,24],[-65794]],
+        "clip_box": [(0,65,200,812)],
+        "line_x": 200.0,
+        "data": [[7,10], [-65794,-1], 30.0, ["Calibri-Bold"]]},
+   "WhiteOak Mutual Fund" : {
+        "fund": [[20], "^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$",[16,24],[-13159371]],
+        "clip_box": [(0, 85, 240, 812)],
+        "line_x": 240.0,
+        "data": [[7,11], [-65794,-1], 30.0, ["MyriadPro-Bold"]]},
+   "Bajaj finserv Mutual Fund" : {
+        "fund": [[20],"Bajaj.*(Fund|Path|ETF|FOF|EOF)$",[14,24],[-16753236]], 
+        "clip_bbox": [(360,5,612,812)],
+        "line_x": 180.0,
+        "data": [[6,12],[-1,-15376468],30.0,["Rubik-SemiBold"]]},
+   "360 ONE Mutual Fund" : {
+        "fund": [[20],"360 ONE.*(Fund|Path|ETF|FOF|EOF)$",[18,24],[-16777216]], 
+        "clip_bbox": [(0,5,160,812)],
+        "line_x": 160.0,
+        "data": [[6,10],[-10791002],30.0,["SpaceGrotesk-SemiBold"]]},
+   "Baroda BNP Paribas Mutual Fund" : {
+        "fund": [[0],"^Baroda BNP",[12,18],[-13619152]], 
+        "clip_bbox": [(0,65,210, 700)],
+        "line_x": 210.0,
+        "data": [[6,10],[-12566464],30.0,["Unnamed-T3"]]},
+   "Navi Mutual Fund" : {
+        "fund": [[20],"^NAVI.*",[23,33],[-19456]], 
+        "clip_bbox": [(0,75,320, 700)],
+        "line_x": 320.0,
+        "data": [[14,20],[-12844976],30.0,["NaviHeadline-Bold"]]},
+   "Zerodha Mutual Fund" : {
+        "fund": [[20,0],"^Zerodha.*",[20,30],[-16777216]], 
+        "clip_bbox": [(0,5,300, 700)],
+        "line_x": 300.0,
+        "data": [[14,20],[-16777216],30.0,["Unnamed-T3"]]}}

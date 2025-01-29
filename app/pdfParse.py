@@ -3,6 +3,7 @@ import fitz
 from collections import defaultdict
 import pdfplumber
 import pandas as pd
+import numpy as np
 import subprocess
 
 
@@ -28,7 +29,6 @@ class Reader:
     #HIGHLIGHT
     @staticmethod
     def get_financial_indices(path:str):
-        
         if not os.path.exists(path):
             print('File does not exists')
             return
@@ -37,26 +37,44 @@ class Reader:
         financial_indexes = df['indexes'].tolist()
         return set(financial_indexes)
 
+    @staticmethod
+    def __save_pdf_data(df,path:str, threshold: int):
+        excel_path = path
+        
     
+        df_expanded = df["detect_idx"].apply(pd.Series)
+        df_expanded.columns = [f"idx_{i+1}" for i in range(df_expanded.shape[1])]
+        df_final = pd.concat([df.drop(columns=["detect_idx"]), df_expanded], axis=1)
+        df_final.to_excel(excel_path, engine="openpyxl", index=True)
+
+        # Filter pages based on the threshold
+        pages = df.loc[ (df["highlights"] > threshold) & (df["title"].str.contains(r"\w+", na=False, regex=True))].index.to_list()
+               
+        print(f"\nDoc Saved At: {excel_path}")
+        print(f"\nPages to Extract: {pages}")
+
+        # Open the file on the screen
+        subprocess.Popen([excel_path], shell=True)
+                
     def check_and_highlight(self, path: str, count: int):
         document = fitz.open(path)
-        document_page_count = document.page_count
+        page_count = document.page_count
 
         indices = Reader.get_financial_indices(self.INDICEPATH)
-
-        # Initialize datasets
-        pages = range(document_page_count)
-        important_pages = dict.fromkeys(pages, 0)
-        fund_titles = dict.fromkeys(pages, "")
-        detected_indices = dict.fromkeys(pages,set())
-        
         fund_data = self.PARAMS['fund']
 
-        for dpgn, page in enumerate(document):
-            pageBlocks = page.get_text("dict")
-            pageTexts = pageBlocks["blocks"]
+        # Initialize datasets
+        df = pd.DataFrame({
+            "title": np.full(page_count,"", dtype = object),
+            "highlights": np.zeros(page_count, dtype = int),
+            "detect_idx": [[] for _ in range(page_count)]
+        })
+        
 
-            sortedPageTexts = sorted(pageTexts, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+        for dpgn, page in enumerate(document):
+            
+            pageBlocks = page.get_text("dict")['blocks']
+            sortedPageTexts = sorted(pageBlocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
 
             for block_count, block in enumerate(sortedPageTexts):
                 if "lines" not in block:
@@ -66,7 +84,6 @@ class Reader:
                     for span in line["spans"]:
                         text, size, flag, color = (span["text"].strip().lower(),span["size"],span["flags"],span["color"],)
 
-                        # Check if the page contains fund data
                         if flag in fund_data[0]:
                             fund_conditions = [
                                 block_count in range(0, 15),  # Check first 15 blocks only
@@ -75,59 +92,47 @@ class Reader:
                                 # color in fund_data[3]
                             ]
 
+                            # Check if the page contains fund data   
                             if all(fund_conditions):
-                                fund_titles[dpgn] = text
+                                df.loc[dpgn,"title"] = text
                                 print(text)
                                 # Highlight
                                 page.add_rect_annot(fitz.Rect(span["bbox"]))
 
-                        # Check if indices exist in the page and count
-                        for indice in indices:
-                            pattern = rf"\b{re.escape(indice)}\b"
-                            if match:= re.search(pattern, text):
-                                important_pages[dpgn] += 1
-                                detected_indices[dpgn].add(match.group())
-                                # Highlight
-                                rect = fitz.Rect(span["bbox"])
-                                page.add_highlight_annot(rect)
-                                break  # One highlight per span
+                            # Check if indices exist in the page and count
+                            for indice in indices:
+                                pattern = rf"\b{re.escape(indice)}\b"
+                                if match:= re.search(pattern, text):
+                                    df.loc[dpgn, 'highlights'] += 1
+                                    df.loc[dpgn, 'detect_idx'].append(match.group())
+                                    # Highlight
+                                    rect = fitz.Rect(span["bbox"])
+                                    page.add_highlight_annot(rect)
+                                    break  # One highlight per span
 
         output_path = None
-        if any(important_pages.values()):
-            output_path = path.replace(".pdf", "_highlighted.pdf")
+        if any(df['highlights']):
+            output_path = path.replace(".pdf", "_hltd.pdf")
             document.save(output_path)
         document.close()
 
         # Save PDF data
-        def __save_pdf_data(highlights: dict, fund_names: dict, detected:dict, threshold: int):
-                # Create a DataFrame
-                df = pd.DataFrame({"title": fund_names.values(), "highlights": highlights.values(),"detected_indices":",".join(detected.values())})
-                excel_path = self.REPORTPATH
-                df.to_excel(excel_path, engine="openpyxl", index=False)
-
-                # Filter pages based on the threshold
-                pages = df.loc[(df.highlights > threshold) & (df.title.str.contains(r"\w+"))].index.to_list()
-
-                print(f"\nDoc saved at: {excel_path}")
-                print(f"\nPages to extract: {pages}")
-
-                # Open the file on the screen
-                subprocess.Popen([excel_path], shell=True)
-        __save_pdf_data(important_pages, fund_titles, detected_indices, count)
+        Reader.__save_pdf_data(df,self.REPORTPATH, count)
+        Reader.DATAFRAME = df
 
         if output_path:
             subprocess.Popen([output_path], shell=True)
 
-        return output_path, important_pages, fund_titles
+        return output_path, df
                             
      #EXTRACT
     
-    
-    def get_clipped_data(self,input:str, pageSelect:list, fund_names:dict):
+    def extract_clipped_data(self,input:str, pageSelect:list, title:dict):
     
         document = fitz.open(input)
         final_list = []
         bboxes = self.PARAMS['clip_bbox']
+        fund_names= title
         
         for pgn in pageSelect:
             page = document[pgn]
@@ -150,11 +155,11 @@ class Reader:
         document.close()
         return final_list
     
-    def extract_data_relative_line(self,path: str,pageSelect:list, side: str, fund_names:dict):
+    def extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
         doc = fitz.open(path)
         final_list = []
         line_x = self.PARAMS['line_x']
-
+        fund_names = titles
         for pgn in pageSelect:
             page = doc[pgn]
             fundname = fund_names[pgn]
@@ -195,7 +200,7 @@ class Reader:
 
         return final_list
 
-    def get_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
+    def extract_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
     
         document = fitz.open(input)
         finalData = []
@@ -258,7 +263,6 @@ class Reader:
         
         return data
  
-        
     def process_text_data(self,text_data: dict):
         remove_text = ['Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
@@ -427,19 +431,17 @@ class Reader:
 
         return {key: final_data_generated[key] for key in sorted(final_data_generated)}
 
-    def get_generated_content(self, data:dict, path:str):
+    def get_generated_content(self, data:dict):
         extracted_text = dict()
         unextracted_text = dict()
+        output_path  = self.DRYPATH
         for fund, items in data.items():
-            
            try:
-               
-                self.__generate_pdf_from_data(items, path)
-                print(f'\n-----{fund}------', f'\nPDF Generated at: {path}')
-                extracted_text[fund] = self.__extract_data_from_pdf(path)
+                self.__generate_pdf_from_data(items, output_path)
+                print(f'\n-----{fund}------', f'\nPDF Generated at: {output_path}')
+                extracted_text[fund] = self.__extract_data_from_pdf(output_path)
                 
            except Exception as e:
-               
                print(f"\nError while processing fund '{fund}': {e}")
                continue
                 
