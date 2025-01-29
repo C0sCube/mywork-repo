@@ -1,4 +1,4 @@
-import re, os
+import re, os, pprint
 from app.pdfParse import Reader
 import fitz
 
@@ -13,7 +13,14 @@ class Samco(Reader):
     }
     
     def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep)
+        super().__init__(path,dry,fin,rep, self.PARAMS)
+        
+    @staticmethod
+    def print_factsheet_params():
+        print(f"\n<----Factsheet Params---->")
+        params = Samco.PARAMS
+        for key, value in params.items():
+            print(f'{key} : {value}')
     
     def return_required_header(self,string: str):
             replace_key = string

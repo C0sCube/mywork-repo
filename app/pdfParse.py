@@ -12,12 +12,14 @@ class Reader:
     DRYPATH = ''
     INDICEPATH  = ''
     REPORTPATH = ''
+    PARAMS = {}
     
-    def __init__(self, path: str, dry:str, fin:str, rep:str):
+    def __init__(self, path: str, dry:str, fin:str, rep:str, params:dict):
         self.BASEPATH = path
         self.DRYPATH = self.BASEPATH + dry
         self.INDICEPATH = self.BASEPATH + fin
         self.REPORTPATH = self.BASEPATH + rep
+        self.PARAMS = params
     
     def get_file_path(self, path: str):
         return self.BASEPATH + path
@@ -34,18 +36,21 @@ class Reader:
         df = pd.read_excel(path)
         financial_indexes = df['indexes'].tolist()
         return set(financial_indexes)
+
     
-    def check_and_highlight(self, path: str, fund_data: list, count: int):
+    def check_and_highlight(self, path: str, count: int):
         document = fitz.open(path)
         document_page_count = document.page_count
 
         indices = Reader.get_financial_indices(self.INDICEPATH)
 
         # Initialize datasets
-        pages = [i for i in range(document_page_count)]
+        pages = range(document_page_count)
         important_pages = dict.fromkeys(pages, 0)
         fund_titles = dict.fromkeys(pages, "")
         detected_indices = dict.fromkeys(pages,set())
+        
+        fund_data = self.PARAMS['fund']
 
         for dpgn, page in enumerate(document):
             pageBlocks = page.get_text("dict")
@@ -99,28 +104,26 @@ class Reader:
         document.close()
 
         # Save PDF data
-        def save_pdf_data(highlights: dict, fund_names: dict, detected:dict, threshold: int):
-            # Create a DataFrame
-            df = pd.DataFrame({"title": fund_names.values(), "highlights": highlights.values(),"detected_indices":detected.values()})
-            excel_path = self.REPORTPATH
-            df.to_excel(excel_path)
+        def __save_pdf_data(highlights: dict, fund_names: dict, detected:dict, threshold: int):
+                # Create a DataFrame
+                df = pd.DataFrame({"title": fund_names.values(), "highlights": highlights.values(),"detected_indices":detected.values()})
+                excel_path = self.REPORTPATH
+                df.to_excel(excel_path, engine="openpyxl", index=False)
 
-            # Filter pages based on the threshold
-            pages = df.loc[(df.highlights > threshold) & (df.title.str.contains(r"\w+"))].index.to_list()
+                # Filter pages based on the threshold
+                pages = df.loc[(df.highlights > threshold) & (df.title.str.contains(r"\w+"))].index.to_list()
 
-            print(f"\nDoc saved at: {excel_path}")
-            print(f"\nPages to extract: {pages}")
+                print(f"\nDoc saved at: {excel_path}")
+                print(f"\nPages to extract: {pages}")
 
-            # Open the file on the screen
-            subprocess.Popen([excel_path], shell=True)
-
-        save_pdf_data(important_pages, fund_titles, detected_indices, count)
+                # Open the file on the screen
+                subprocess.Popen([excel_path], shell=True)
+        __save_pdf_data(important_pages, fund_titles, detected_indices, count)
 
         if output_path:
             subprocess.Popen([output_path], shell=True)
 
         return output_path, important_pages, fund_titles
-
                             
      #EXTRACT
     
