@@ -3,8 +3,7 @@ import fitz
 from collections import defaultdict
 import pdfplumber
 import pandas as pd
-import numpy as np
-import subprocess, logging
+import subprocess
 
 
 class Reader:
@@ -419,7 +418,8 @@ class Reader:
 
             for page in pdf.pages:
                 text = page.extract_text()
-                content = text.split('\n')
+                clean_text = text.encode("ascii", "ignore").decode()
+                content = clean_text.split('\n')
                 main_key = content[0]
                 values = content[1:]
                 final_data_generated[main_key] = values

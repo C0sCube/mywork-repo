@@ -180,9 +180,9 @@ class Helper:
         try:
             with open(file_path, 'wb') as file:
                 pickle.dump(data, file)
-            print(f"Data successfully dumped to {file_path}")
+            print(f"\nData successfully dumped to {file_path}")
         except Exception as e:
-            print(f"Error while dumping data to {file_path}: {e}")
+            print(f"\nError while dumping data to {file_path}: {e}")
 
     @staticmethod
     def load_pickle_data(file_path:str):
@@ -190,10 +190,10 @@ class Helper:
         try:
             with open(file_path, 'rb') as file:
                 data = pickle.load(file)
-            print(f"Data successfully loaded from {file_path}")
+            print(f"\nData successfully loaded from {file_path}")
             return data
         except Exception as e:
-            print(f"Error while loading data from {file_path}: {e}")
+            print(f"\nError while loading data from {file_path}: {e}")
             return None
 
     @staticmethod

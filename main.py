@@ -28,7 +28,7 @@ line_x = object.PARAMS['line_x']
 data_cond = object.PARAMS['data']
 bbox = object.PARAMS['clip_bbox']
 
-path, imp, fund_titles = object.check_and_highlight(file_path, fund_data)
+path, imp, fund_titles = object.check_and_highlight(file_path, fund_data, 7)
 
 pages =  [3, 5, 7, 9, 11, 13, 15, 17, 18]
 

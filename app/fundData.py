@@ -9,7 +9,7 @@ class Samco(Reader):
         'fund': [[25,20],r"^(samco|tata).*fund$",[18,28],[-1]], #FUND NAME DETAILS order-> [flag], regex_fund_name, range(font_size), [font_color]
         'clip_bbox': [(35,120,250,765)],
         'line_x': 200.0,
-        'data': [[9,10],[-1],20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
+        'data': [[7,10],[-1],20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
     }
     
     def __init__(self, path: str,dry:str,fin:str, rep:str):
@@ -239,59 +239,163 @@ class Tata(Reader):
             replace_key = string
             if re.match(r'^nav.*', string, re.IGNORECASE):
                 replace_key = "nav"
-            elif re.match(r"^market", string, re.IGNORECASE):
-                replace_key = "market_capital"  
-            elif re.match(r"^assets", string, re.IGNORECASE):
-                replace_key = "assets_under_management"
-            elif re.match(r"^fund", string, re.IGNORECASE):
-                replace_key = "fund_manager" 
-            elif re.match(r"^scheme", string, re.IGNORECASE):
-                replace_key = "scheme_details" 
-            elif re.match(r"^investment", string, re.IGNORECASE):
-                replace_key = "investment_objective"
-            elif re.match(r"^quanti", string, re.IGNORECASE):
-                replace_key = "quantitative_data"
-            elif re.match(r"^portfolio", string, re.IGNORECASE):
-                replace_key = "portfilio" 
-            elif re.match(r"^industry", string, re.IGNORECASE):
-                replace_key = "industry_allocation_of_equity"       
+            elif re.match(r"^expense.*", string, re.IGNORECASE):
+                replace_key = "expense_ratio"
+            elif re.match(r"^volatility.*", string, re.IGNORECASE):
+                replace_key = "volatility_measures"
+            elif re.match(r"^.*investors$", string, re.IGNORECASE):
+                replace_key = "add_investment"
+            elif re.match(r".*investment$", string, re.IGNORECASE):
+                replace_key = "min_investment"
             return replace_key
     
     
     #REGEX FUNCTIONS
-    def __extract_inv_data(self,key:str, data:list):
-        return
+    def __extract_inv_data(self,key:str, data:list):            
+        return {key: ' '.join(data)}
     
-    def __extract_fund_data(self,key:str, data:list):
-        return
+    def __extract_nav_data(self,main_key:str, data:list):
+        nav_data = data
+        final_dict = {}
+        value_pattern = r"\d+\.\d+"
+        for text in nav_data:
+            if "direct" and "idcw" in text.lower():
+                matches = re.search(value_pattern,text,re.IGNORECASE)
+                final_dict['direct_idcw'] = matches[0]
+            elif "direct" and "growth" in text.lower():
+                matches = re.search(value_pattern,text,re.IGNORECASE)
+                final_dict['direct_growth'] = matches[0]
+            elif "regular" and "growth" in text.lower():
+                matches = re.search(value_pattern,text,re.IGNORECASE)
+                final_dict['regular_growth'] = matches[0]
+            elif "regular" and "idcw" in text.lower():
+                matches = re.search(value_pattern,text,re.IGNORECASE)
+                final_dict['regular_idcw'] = matches[0]
+        
+        return {main_key: final_dict}
     
-    def __extract_nav_data(self,key:str, data:list):
-        return
-    
-    def __extract_turn_data(self,key:str, data:list):
-        return
-    
-    def __extract_bench_data(self,key:str, data:list):
-        return
+    def __extract_turn_data(self,main_key:str, data:list):
+        turn_data = data
+        final_dict = {}
+        for text in turn_data:
+            if re.match(r'^Portfolio.*',text, re.IGNORECASE):
+                if matches := re.search(r"\d+\.\d+", text):
+                    final_dict['portfolio_turnover_ratio(%)'] = matches.group()
+        return {main_key:final_dict}
     
     def __extract_load_data(self,key:str, data:list):
-        return
+        return {key:data}
     
-    def __extract_aum_data(self,key:str, data:list):
-        return
+    def __extract_manager_data(self,main_key:str, data:list):
+        # Pattern to match content outside ()
+        outside_pattern = r"^[^(]+"
+        # Pattern to match content inside ()
+        inside_pattern = r"\((.*?)\)"
+        final_list = []
+        manager_data = " ".join(data).split(',') #contains , seperated manager data
+        for text in manager_data:
+            text = text.lower()
+            # Extract outside parentheses
+            outside_match = re.search(outside_pattern, text)
+            outside_text = outside_match.group().strip() if outside_match else ""
+
+            # Extract inside parentheses
+            inside_match = re.search(inside_pattern, text)
+            inside_text = inside_match.group(1).strip() if inside_match else ""
+            final_list.append({
+                'name': outside_text,
+                "experience": inside_text
+            })
+        
+        return {main_key:final_list}  
+        
+        return {key:data}
     
-    def __extract_trkerr_data(self,key:str, data:list):
-        return
+    def __extract_volat_data(self,main_key:str, data:list):
+        volat_data = data
+        final_dict = {}
+        final_dict['comment'] = ""
+        for text in volat_data:
+            text = text.lower()
+            if re.match(r'^std.*',text, re.IGNORECASE):
+                content = [float(value) if value not in ['NA','na',r'N\A',r'n\a'] else value for value in text.split(" ")[-2:]]
+                final_dict['std_deviaton'] = {
+                    "fund": content[0],
+                    "benchmark": content[1]
+                }
+            elif re.match(r'^sharpe.*',text, re.IGNORECASE):
+                content = [float(value) if value not in ['NA','na',r'N\A',r'n\a'] else value for value in text.split(" ")[-2:]]
+                final_dict['sharpe_ratio'] = {
+                    "fund": content[0],
+                    "benchmark": content[1]
+                }
+            elif re.match(r'^r squared.*',text, re.IGNORECASE):
+                content = [float(value) if value not in ['NA','na',r'N\A',r'n\a'] else value for value in text.split(" ")[-2:]]
+                final_dict['r_squared_ratio'] = {
+                    "fund": content[0],
+                    "benchmark": content[1]
+                }
+            elif re.match(r'^treynor.*',text, re.IGNORECASE):
+                content = text.split(" ")[-2:]
+                final_dict['treynor_ratio'] = {
+                    "fund": content[0],
+                    "benchmark": content[1]
+                }
+            elif re.match(r'^jenson.*',text, re.IGNORECASE):
+                content = text.split(" ")[-2:]
+                final_dict['jenson_ratio'] = {
+                    "fund": content[0],
+                    "benchmark": content[1]
+                }
+            elif re.match(r'^portfolio.*',text, re.IGNORECASE):
+                content = text.split(" ")[-2:]
+                final_dict['portfolio_beta'] = {
+                    "fund": content[0],
+                    "benchmark": content[1]
+                }
+            else:
+                final_dict['comment']+= text
+        
+        return {main_key:final_dict}
     
-    def __extract_volat_data(self,key:str, data:list):
-        return
+    def __extract_exp_data(self,main_key:str, data:list):
+        exp_data = data
+        final_dict = {}
+        for text in exp_data:
+            key, value = "",""
+            if "direct" in text.lower():
+                key, value = text.split(" ")
+                final_dict[key.lower()] = float(value) if value not in ['NA','na',r'N\A',r'n\a'] else value
+            elif "regular" in text.lower():
+                key, value = text.split(" ")
+                final_dict[key.lower()] = float(value) if value not in ['NA','na',r'N\A',r'n\a'] else value
+        return {main_key:final_dict}
     
     def __extract_dum_data(self,key,data:list):
-        return
+        return {key:data}
 
 
     def match_regex_to_content(self, string:str, data:list, *args):
-        return     
+        check_header = string
+        
+        if re.match(r"^investment.*", check_header, re.IGNORECASE):
+            return self.__extract_inv_data(string,data)
+        elif re.match(r"^nav.*", check_header, re.IGNORECASE):
+            return self.__extract_nav_data(string, data)
+        elif re.match(r"^turn.*", check_header, re.IGNORECASE):
+            return self.__extract_turn_data(string, data)
+        elif re.match(r"^volat.*", check_header, re.IGNORECASE):
+            return self.__extract_volat_data(string, data)
+        elif re.match(r"^load.*", check_header, re.IGNORECASE):
+            return self.__extract_load_data(string, data)
+        elif re.match(r"^turn.*", check_header, re.IGNORECASE):
+            return self.__extract_turn_data(string, data)
+        elif re.match(r".*(manager|managers)$", check_header, re.IGNORECASE):
+            return self.__extract_manager_data(string, data)
+        elif re.match(r"^expense.*", check_header, re.IGNORECASE):
+            return self.__extract_exp_data(string, data)
+        else:
+            return self.__extract_dum_data(string,data)    
 
 class FranklinTempleton(Reader):
     
@@ -519,8 +623,7 @@ class NJMF(Reader):
     
     def __init__(self, path: str,dry:str,fin:str, rep:str):
         super().__init__(path,dry,fin,rep)
-        
-        
+                
 class QuantMF(Reader):
     PARAMS = {
         'fund': [[16,0], r'^(quant).*(Fund|ETF|EOF|FOF|FTF|Path)$',[16,24],[-13604430]],
@@ -657,13 +760,149 @@ class Zerodha(Reader):
     
     PARAMS = {
         'fund': [[20,0],r'^Zerodha.*',[20,30],[-16777216]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-        'clip_bbox': [(0,5,300, 700)],
-        'line_x': 300.0,
+        'clip_bbox': [(0,5,340, 700)],
+        'line_x': 340.0,
         'data': [[14,20],[-16777216],30.0,['Unnamed-T3']] #sizes, color, set_size
     }
     
     def __init__(self, path: str,dry:str,fin:str, rep:str):
         super().__init__(path,dry,fin,rep)
+        
+    def return_required_header(self,string: str):
+            replace_key = string
+            if re.match(r'^fund_size', string, re.IGNORECASE):
+                replace_key = "fund_size"
+            elif re.match(r"^fund_manager", string, re.IGNORECASE):
+                replace_key = "fund_manager" 
+            elif re.match(r"^scheme", string, re.IGNORECASE):
+                replace_key = "scheme_details" 
+            elif re.match(r"^investment", string, re.IGNORECASE):
+                replace_key = "investment_objective"
+            elif re.match(r"^quali", string, re.IGNORECASE):
+                replace_key = "qualitative_data"
+            elif re.match(r"^past", string, re.IGNORECASE):
+                replace_key = "past_performance"
+            else:
+                replace_key = "dummy"      
+            return replace_key
+        
+    def __return_invest_data(self,key:str,data:list):
+        investment_objective = data
+        values = " ".join(txt for txt in investment_objective)
 
+        data = {
+            key:values
+        }
+
+        return data
+
+    def __return_scheme_data(self, main_key:str, data:list):
+        scheme_details = data
+        final_dict = {}
+        for text in scheme_details:
+            key, value = '',''
+            if match:= re.match(r'^allotment.*', text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^expense.*', text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^benchmark.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^nav.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+                value = float(value)
+            elif match:= re.match(r'^launched.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^lock-in.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^exit.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^creation.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^expense.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            
+            key = "_".join(key.lower().split(" "))   
+            if key not in final_dict and key !="":
+                final_dict[key] = value
+        
+        return {main_key:final_dict}
+
+    def __return_aum_data(self,main_key:str, data:list):
+        aum_data = data
+        final_dict = {}
+        for text in aum_data:
+            key,value = '',''
+            if match:= re.match(r'^Month.*', text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^Monthly.*', text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            elif match:= re.match(r'^Quarterly.*',text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            key +='(crs)'
+            key = "_".join(key.lower().split(" "))
+            value = float(value.split(" ")[0])
+            if key not in final_dict and key !="":
+                final_dict[key] = value
+
+        return {main_key:final_dict}
+    
+    def __return_quant_data(self,main_key:str, data:list):
+        quant_data = data
+        final_dict = {}
+        for text in quant_data:
+            key,value = '',''
+            if match:= re.match(r'^Portfolio.*', text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+                value = float(value)
+            elif match:= re.match(r'^Tracking.*', text, re.IGNORECASE):
+                key,value = [i.strip() for i in text.split(':')]
+            
+            key = "_".join(key.lower().split(" "))   
+            
+            if key not in final_dict and key !="":
+                final_dict[key] = value
+        return {main_key:final_dict}
+    
+    def __return_manager_data(self,main_key:str,data:list):
+        manager_data = data
+        final_list = []
+        for c, text in enumerate(manager_data):
+            if re.match(r'^Total.*', text,re.IGNORECASE):
+                name = manager_data[c-1]
+                exp_key,exp_val = manager_data[c].split(':')
+                since_key,since_val =  manager_data[c+1].split(':')
+                
+                final_list.append({
+                    'name': name,
+                    'designation': '',
+                    exp_key.lower():exp_val.strip(),
+                    since_key.lower():since_val.strip()
+                })
+        return {main_key: final_list}
+
+    def __return_dummy_data(self,main_key:str,data:list):
+        return{main_key:data}
+    
+    #REGEX MAPPING FUNCTION
+    def match_regex_to_content(self,string:str, data:list, *args):
+        
+        check_header = string
+        
+        if re.match(r"^investment.*", check_header, re.IGNORECASE):
+            return self.__return_invest_data(string,data)
+        elif re.match(r"^scheme.*", check_header, re.IGNORECASE):
+            return self.__return_scheme_data(string, data)
+        
+        elif re.match(r"^(quant|qual).*", check_header, re.IGNORECASE):
+            return self.__return_quant_data(string, data)
+        
+        elif re.match(r".*(managers|manager)$", check_header, re.IGNORECASE):
+            return self.__return_manager_data(string, data)
+        
+        elif re.match(r"^fund.*size$", check_header, re.IGNORECASE):
+            return self.__return_aum_data(string, data)
+        
+        else:
+            return self.__return_dummy_data(string,data)   
   
 #something
