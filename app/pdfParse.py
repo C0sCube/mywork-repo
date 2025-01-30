@@ -429,7 +429,7 @@ class Reader:
                 values = content[1:]
                 final_data_generated[main_key] = values
 
-        return {key: final_data_generated[key] for key in sorted(final_data_generated)}
+        return final_data_generated
 
     def get_generated_content(self, data:dict):
         extracted_text = dict()
@@ -443,11 +443,23 @@ class Reader:
                 
            except Exception as e:
                print(f"\nError while processing fund '{fund}': {e}")
-               continue
-                
-                
+               continue      
         return extracted_text
     
+    #REFINE
+    
+    def refine_extracted_data(self,extracted_text:dict):
+        
+        final_text = {}
+        for fund, items in extracted_text.items():
+            content_dict = {}
+            for head, content in items.items():
+                head = self.return_required_header(head)
+                content = self.match_regex_to_content(head, content)
+                content_dict.update(content)
+            final_text[fund] = content_dict
+        
+        return final_text
 
 
 

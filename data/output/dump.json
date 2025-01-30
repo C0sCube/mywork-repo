@@ -1,316 +1,698 @@
 {
-    "samco active momentum fund": {
-        "assets_under_management": {
-            "aum (crs)": 920.14,
-            "avg_aum (crs)": 917.6
-        },
-        "fund_manager": [
-            {
-                "name": "mr. paras matalia",
-                "designation": "fund manager & head - research equity",
-                "managing_since": "inception",
-                "total_experience": "around 9 years"
-            },
-            {
-                "name": "mr. umeshkumar mehta",
-                "designation": "director cio & fund manager",
-                "managing_since": "August 01, 2023",
-                "total_experience": "over 20 years"
-            },
-            {
-                "name": "mr. dhawal ghanshyam dhanani",
-                "designation": "",
-                "managing_since": "inception",
-                "total_experience": "around 6 years"
-            }
+    "navi ni\ue01fy 50 index fund": {
+        "investment_objective": "The investment objective of the scheme is to achieve return equivalent to Niy 50 Index by investing in stocks of companies comprising Niy 50 Index, subject to tracking error. There is no assurance that the investment objective of the scheme will be achieved.",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 18th March, 2022.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 01st August, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
         ],
-        "investment_objective": "The investment objective of the Scheme is to seek to generate long-term capital appreciation by investing in stocks showing strong momentum. Momentum stocks are such that exhibit positive price momentum  based on the phenomenon that stocks which have performed well in the past relative to other stocks (winners) continue to perform well in the future, and stocks that have performed relatively poorly (losers) continue to perform poorly. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "nav": {},
-        "quantitative_data": {
-            "portfolio turnover ratio": "5.47 times",
-            "comment": "Lower of sales or purchases divided by average AUM for last rolling 12 months"
-        },
-        "scheme_details": {
-            "Inception Date": "05-Jul-2023",
-            "Benchmark": "Nifty 500 TRI",
-            "min_appl_amt": [
-                "5000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
-    },
-    "samco dynamic asset allocation fund": {
-        "assets_under_management": {
-            "aum (crs)": 612.82,
-            "avg_aum (crs)": 624.15
-        },
-        "fund_manager": [
-            {
-                "name": "mr. umeshkumar mehta",
-                "designation": "director cio & fund manager",
-                "managing_since": "inception",
-                "total_experience": "over 20 years"
-            },
-            {
-                "name": "mr. paras matalia",
-                "designation": "fund manager & head - research equity",
-                "managing_since": "inception",
-                "total_experience": "around 9 years"
-            },
-            {
-                "name": "mr. dhawal ghanshyam dhanani",
-                "designation": "",
-                "managing_since": "inception",
-                "total_experience": "around 6 years"
-            }
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 15 July, 2021",
+            "Index:Niy 50 TRI",
+            "Minimum Application Amount:: 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity and equity related securities",
+            "covered by Niy 50 Index : 95% to 100%",
+            "Debt and Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) :#Regular Plan: 0.26% | Direct Plan: 0.06%",
+            "Portfolio Turnover Ratio (Times): 0.21",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 28",
+            "Expense structure for Direct & Regular Plan may vary. 1.90%",
+            "Scheme NAV (in )"
         ],
-        "investment_objective": "The investment objective of the Scheme is to generate income/long-term capital appreciation by investing in equity, equity derivatives, fixed income instruments and foreign securities. The allocation between equity instruments and fixed income will be managed dynamically so as to provide investors with long term capital appreciation while managing downside risk. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "nav": {},
-        "quantitative_data": {
-            "portfolio turnover ratio": "6.89 times",
-            "comment": "Lower of sales or purchases divided by average AUM for last rolling 12 months"
+        "nav": {
+            "direct plan - growth option": 15.3196,
+            "regular plan - growth option": 15.2115
         },
-        "scheme_details": {
-            "Inception Date": "28-Dec-2023",
-            "Benchmark": "NIFTY50 Hybrid Composite Debt",
-            "min_appl_amt": [
-                "5000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
-    },
-    "samco flexi cap fund": {
-        "assets_under_management": {
-            "aum (crs)": 601.47,
-            "avg_aum (crs)": 610.93
+        "aum": {
+            "aum": 2579.73,
+            "monthly average aum": 2611.7
         },
-        "investment_objective": "The investment objective of the Scheme is to seek to generate long-term capital growth from an actively managed portfolio of Indian & foreign equity instruments across market capitalisation. However, there is no assurance or guarantee that the investment objective of the Scheme will be achieved.",
-        "nav": {},
-        "quantitative_data": {
-            "portfolio turnover ratio": "2.06 times",
-            "comment": "Lower of sales or purchases divided by average AUM for last rolling 12 months"
-        },
-        "scheme_details": {
-            "Inception Date": "04-Feb-2022",
-            "Benchmark": "Nifty 500 TRI",
-            "min_appl_amt": [
-                "5,000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
-    },
-    "samco multi cap fund": {
-        "assets_under_management": {
-            "aum (crs)": 356.44,
-            "avg_aum (crs)": 360.43
-        },
-        "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation by investing in a portfolio of equity and equity related securities of large cap, midcap and small cap companies. There is no assurance that the investment objective of the scheme will be achieved.",
-        "nav": {},
-        "scheme_details": {
-            "Inception Date": "30-Oct-2024",
-            "Benchmark": "Nifty 500 Multicap 50:25:25 Total Returns Index",
-            "min_appl_amt": [
-                "5,000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
-    },
-    "samco special opportunities fund": {
-        "assets_under_management": {
-            "aum (crs)": 193.25,
-            "avg_aum (crs)": 196.78
-        },
-        "fund_manager": [
-            {
-                "name": "mr. paras matalia",
-                "designation": "fund manager & head - research equity",
-                "managing_since": "inception",
-                "total_experience": "around 9 years"
-            },
-            {
-                "name": "mr. umeshkumar mehta",
-                "designation": "director cio & fund manager",
-                "managing_since": "inception",
-                "total_experience": "over 20 years"
-            },
-            {
-                "name": "mr. dhawal ghanshyam dhanani",
-                "designation": "",
-                "managing_since": "inception",
-                "total_experience": "around 6 years"
-            }
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.04% -0.23%"
         ],
-        "investment_objective": "The investment objective of the scheme is to achieve long-term capital appreciation by investing in a portfolio of securities that are involved in special situations such as restructurings, turnarounds, spin-offs, mergers & acquisitions, new trends, new & emerging sectors, digitization, premiumization, and other special corporate actions. These situations often create mispricings and undervalued opportunities that the fund aims to exploit for potential capital appreciation. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "nav": {},
-        "scheme_details": {
-            "Inception Date": "06-Jun-2024",
-            "Benchmark": "Nifty 500 TRI",
-            "min_appl_amt": [
-                "5000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
+        "industry_allocation": [],
+        "equity": [
+            "0 10 20 30 40",
+            "Equity 100.08%",
+            "BANKS 30.03%",
+            "IT - SOFTWARE 14.06%",
+            "PETROLEUM PRODUCTS 8.31%",
+            "AUTOMOBILES 7.38%",
+            "DIVERSIFIED FMCG 6.19%",
+            "TELECOM - SERVICES 4.01%",
+            "CONSTRUCTION 4.00%",
+            "PHARMACEUTICALS & 3.51%",
+            "BIOTECHNOLOGY",
+            "3.37%",
+            "FINANCE",
+            "2.81%",
+            "POWER",
+            "CONSUMER DURABLES 2.24%",
+            "CEMENT & CEMENT PRODUCTS 2.09%",
+            "FERROUS METALS",
+            "RETAILING 1.49%",
+            "FOOD PRODUCTS 1.26%",
+            "INSURANCE 1.21%",
+            "AEROSPACE & DEFENSE 0.99%",
+            "OIL 0.87%",
+            "TRANSPORT INFRASTRUCTURE 0.86%",
+            "NON - FERROUS METALS 0.83%",
+            "CONSUMABLE FUELS 0.82%",
+            "HEALTHCARE SERVICES 0.70%",
+            "METALS & MINERALS TRADING 0.59%",
+            "AGRICULTURAL FOOD & OTHER 0.56%",
+            "PRODUCTS"
+        ]
     },
-    "samco elss tax saver fund": {
-        "assets_under_management": {
-            "aum (crs)": 123.31,
-            "avg_aum (crs)": 125.31
-        },
-        "fund_manager": [
-            {
-                "name": "ms. nirali bhansali fund manager",
-                "designation": "",
-                "managing_since": "inception",
-                "total_experience": "around 9 years"
-            },
-            {
-                "name": "mr. umeshkumar mehta",
-                "designation": "director cio & fund manager",
-                "managing_since": "August 01, 2023",
-                "total_experience": "over 20 years"
-            }
+    "navi ni\ue01fy next 50": {
+        "investment_objective": "The investment objective of the Scheme is to invest in companies whose securities are included in Niy Next 50 Index and to endeavour to achieve the returns of the index, though subject to tracking error. The objective is that the performance of the NAV of the Scheme should track the performance of the Niy Next 50 Index over the same period subject to tracking error. There is no assurance that the investment objective of the Scheme will be achieved.",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 18th March, 2022.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 01st August, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
         ],
-        "investment_objective": "The investment objective of the scheme is to generate long-term capital appreciation through investments made predominantly in equity and equity related instruments. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "nav": {},
-        "quantitative_data": {
-            "portfolio turnover ratio": "1.77 times",
-            "comment": "Lower of sales or purchases divided by average AUM for last rolling 12 months"
-        },
-        "scheme_details": {
-            "Inception Date": "22-Dec-2022",
-            "Benchmark": "Nifty 500 TRI",
-            "min_appl_amt": [
-                "500/-",
-                "500/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "500/-"
-            ]
-        }
-    },
-    "samco multi asset allocation fund": {
-        "assets_under_management": {
-            "aum (crs)": 173.96,
-            "avg_aum (crs)": 173.58
-        },
-        "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation by investing in a diversified portfolio of equity and equity related instruments, debt and money market instruments, Exchange Traded Commodity Derivatives / Units of Gold ETFs, Silver ETF & units of REITs/InvITs. There is no assurance that the investment objective of the scheme will be achieved.",
-        "nav": {},
-        "quantitative_data": {
-            "annualised portfolio ytm": "6.19%",
-            "macaulay duration": "0.36 years",
-            "residual maturity": "0.37 years",
-            "modified duration": "0.35 years",
-            "comment": ""
-        },
-        "scheme_details": {
-            "Inception Date": "24-Dec-2024",
-            "Benchmark": "65% Nifty 50 TRI + 20% CRISIL Short Term",
-            "min_appl_amt": [
-                "5,000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
-    },
-    "samco overnight fund": {
-        "assets_under_management": {
-            "aum (crs)": 50.1,
-            "avg_aum (crs)": 58.99
-        },
-        "fund_manager": [
-            {
-                "name": "mr. dhawal ghanshyam dhanani",
-                "designation": "",
-                "managing_since": "inception",
-                "total_experience": "around 6 years"
-            },
-            {
-                "name": "mr. umeshkumar mehta",
-                "designation": "director cio & fund manager",
-                "managing_since": "April 03, 2024",
-                "total_experience": "over 20 years"
-            }
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 20th January, 2022",
+            "Index:Niy Next 50 TRI",
+            "Minimum Application Amount: 100/- and in multiples of 1/-",
+            "thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity and equity related securities covered",
+            "by Niy Next 50 Index: 95% to 100%",
+            "Debt and Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) : #Regular Plan: 0.58% | Direct Plan: 0.12%",
+            "Portfolio Turnover Ratio (Times): 0.82",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 28 2.98%",
+            "Expense structure for Direct & Regular Plan may vary."
         ],
-        "investment_objective": "The investment objective of the Scheme is to provide reasonable returns commensurate with very low risk and providing a high level of liquidity, through investments made primarily in overnight securities having maturity/ residual maturity of 1 day. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "nav": {},
-        "quantitative_data": {
-            "annualised portfolio ytm": "5.75%",
-            "macaulay duration": "1 day",
-            "residual maturity": "1 day",
-            "modified duration": "1 day",
-            "comment": ""
+        "nav": {
+            "direct plan - growth option": 16.0669,
+            "regular plan - growth option": 15.8361
         },
-        "scheme_details": {
-            "Inception Date": "12-Oct-2022",
-            "Benchmark": "CRISIL Liquid Overnight Index",
-            "min_appl_amt": [
-                "5,000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
-    },
-    "samco arbitrage fund": {
-        "fund_manager": [
-            {
-                "name": "mr. umeshkumar mehta",
-                "designation": "director cio & fund manager",
-                "managing_since": "inception",
-                "total_experience": "over 20 years"
-            },
-            {
-                "name": "mr. paras matalia",
-                "designation": "fund manager & head - research equity",
-                "managing_since": "inception",
-                "total_experience": "around 9 years"
-            },
-            {
-                "name": "mr. dhawal ghanshyam dhanani",
-                "designation": "",
-                "managing_since": "inception",
-                "total_experience": "around 6 years"
-            }
+        "aum": {
+            "aum": 719.6,
+            "monthly average aum": 737.97
+        },
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.43% -0.34%"
         ],
-        "investment_objective": "The investment objective of the Scheme is to generate capital appreciation and income by predominantly investing in arbitrage opportunities in the cash and the derivative segments of the equity markets and the arbitrage opportunities available within the derivative segment and by investing the balance in debt and money market instruments. There is no assurance that the investment objective of the scheme will be achieved.",
-        "nav": {},
-        "scheme_details": {
-            "Inception Date": "27-Nov-2024",
-            "Benchmark": "Nifty 50 Arbitrage TRI",
-            "min_appl_amt": [
-                "5000/-",
-                "1/-"
-            ],
-            "additional_amt": [
-                "500/-",
-                "1/-"
-            ]
-        }
+        "industry_allocation": [],
+        "equity": [
+            "0 3 6 9 12 15",
+            "Equity 100.15%",
+            "FINANCE 14.49%",
+            "RETAILING 12.86%",
+            "POWER 9.40%",
+            "BANKS 5.62%",
+            "BEVERAGES 5.48%",
+            "PHARMACEUTICALS & 5.47%",
+            "BIOTECHNOLOGY",
+            "5.07%",
+            "ELECTRICAL EQUIPMENT",
+            "3.76%",
+            "REALTY",
+            "3.67%",
+            "TRANSPORT SERVICES",
+            "3.61%",
+            "INSURANCE",
+            "3.26%",
+            "AEROSPACE & DEFENSE",
+            "3.10%",
+            "AUTO COMPONENTS",
+            "3.09%",
+            "DIVERSIFIED METALS",
+            "GAS",
+            "2.90%",
+            "CEMENT & CEMENT PRODUCTS",
+            "2.90%",
+            "PERSONAL PRODUCTS",
+            "2.28%",
+            "AUTOMOBILES",
+            "2.12%",
+            "IT - SOFTWARE",
+            "2.10%",
+            "PETROLEUM PRODUCTS",
+            "1.83%",
+            "1.74%",
+            "CONSUMER DURABLES",
+            "1.45%",
+            "FERROUS METALS",
+            "0.97%",
+            "LEISURE SERVICES"
+        ]
+    },
+    "navi ni\ue01fy bank": {
+        "investment_objective": "The investment objective of the scheme is to achieve return equivalent to Niy Bank Index by investing in stocks of companies comprising Niy Bank Index, subject to tracking error. There is no assurance that the investment objective of the scheme will be achieved.",
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 04th February, 2022",
+            "Index:Niy Bank TRI",
+            "Minimum Application Amount: 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity and equity related securities covered",
+            "by Niy Bank Index: 95% to 100%",
+            "Debt and Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) : #Regular Plan: 0.80% | Direct Plan: 0.10%",
+            "Portfolio Turnover Ratio (Times): 0.52",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 28",
+            "Expense structure for Direct & Regular Plan may vary."
+        ],
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 18th March, 2022.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 01st August, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
+        ],
+        "aum": {
+            "aum": 523.51,
+            "monthly average aum": 537.29
+        },
+        "fund_performance": [
+            "Navi Niy Bank Navi Niy Bank",
+            "Niy Bank Niy Bank",
+            "Period Index Fund - Index Fund -",
+            "TRI *@ TRI*@",
+            "Regular Growth Direct Growth",
+            "1 Year CAGR % 5.20% 6.20% 5.96% 6.20%",
+            "Since Inception CAGR %",
+            "9.51% 10.73% 10.29% 10.73%",
+            "Current Value of investment if 10000/- was invested on",
+            "Inception date (in ) 13022 13449 13294 13449",
+            "Current Value of Investment if 10000/- was invested 1 year 10524 10626 10601 10626",
+            "ago",
+            "*In case, the start date or the end date of the concerned period is a non-business day, the NAV of the previous business day is considered for computation of returns. Past performance may or may not",
+            "be sustained in future. The Direct Plan has a lower expense ratio as compared to the Regular/ Other than Direct Plan to the extent of distribution expenses, commission, etc. and no commission or",
+            "distribution expenses for distribution of Units or distribution expenses are paid / charged under the Direct Plan. Standard TRIs prescribed are as per the applicable circular by SEBI. The performance of",
+            "the Scheme is TRIed to the Total Return variant of the Index TRI. @- TRI ."
+        ],
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.07% -0.39%"
+        ],
+        "nav": {
+            "direct plan - growth option": 13.2944,
+            "regular plan - growth option": 13.0217
+        },
+        "industry_allocation": [],
+        "equity": [
+            "0 20 40 60 80 100",
+            "Equity 100.14%",
+            "BANKS 100.14%"
+        ]
+    },
+    "navi ni\ue01fy midcap 150": {
+        "investment_objective": "The investment objective of the scheme is to achieve return equivalent to Niy Midcap 150 Index by investing in stocks of companies comprising Niy Midcap 150 Index, subject to tracking error. There is no assurance that the investment objective of the scheme will be achieved. .",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 18th March, 2022.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 01st August, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund 5.58%"
+        ],
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 11th March, 2022",
+            "Index:Niy Midcap 150 TRI",
+            "Minimum Application Amount : ` 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity and equity related securities covered FINANCIAL TECHNOLOGY (FINTECH)",
+            "by Niy Midcap 150 Index : 95% to 100%",
+            "Debt and Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) :#Regular Plan: 1.00% | Direct Plan: 0.22%",
+            "Portfolio Turnover Ratio (Times): 0.44",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 28",
+            "Expense structure for Direct & Regular Plan may vary."
+        ],
+        "nav": {
+            "direct plan - growth option": 19.9813,
+            "regular plan - growth option": 19.4873
+        },
+        "aum": {
+            "aum": 229.76,
+            "monthly average aum": 228.55
+        },
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.24% -0.66%"
+        ],
+        "industry_allocation": [],
+        "equity": [
+            "25 50 75 100",
+            "Equity 99.93%",
+            "AUTO COMPONENTS 7.48%",
+            "PHARMACEUTICALS & 7.16%",
+            "BIOTECHNOLOGY",
+            "7.15%",
+            "IT - SOFTWARE",
+            "7.15%",
+            "INDUSTRIAL PRODUCTS",
+            "6.46%",
+            "BANKS",
+            "FINANCE",
+            "4.46%",
+            "ELECTRICAL EQUIPMENT",
+            "CONSUMER DURABLES 4.42%",
+            "HEALTHCARE SERVICES 4.30%",
+            "CAPITAL MARKETS 3.75%",
+            "REALTY 3.57%",
+            "CHEMICALS & PETROCHEMICALS 3.53%",
+            "LEISURE SERVICES 3.08%",
+            "2.99%",
+            "FERTILIZERS & AGROCHEMICALS 2.71%",
+            "TELECOM - SERVICES 2.64%",
+            "PERSONAL PRODUCTS 1.81%",
+            "INSURANCE 1.65%",
+            "AGRICULTURAL FOO PD R & O DO UT CH TE SR 1.65%",
+            "FERROUS METALS 1.62%",
+            "GAS 1.44%",
+            "CEMENT & CEMENT PRODUCTS 1.40%",
+            "AGRICULTURAL, COMMERCIAL & 1.26%",
+            "CONSTRUCTION VEHICLES",
+            "1.24%",
+            "PETROLEUM PRODUCTS",
+            "1.23%",
+            "POWER",
+            "1.12%",
+            "TEXTILES & APPARELS",
+            "TRANSPORT SERVICES 1.11%",
+            "TRANSPORT INFRASTRUCTURE 1.08%",
+            "CONSTRUCTION 1.04%",
+            "INDUSTRIAL MANUFACTURING 1.00%",
+            "RETAILING 0.99%",
+            "IT - SERVICES 0.70%",
+            "OIL 0.69%",
+            "MINERALS & MINING 0.67%",
+            "DIVERSIFIED 0.48%",
+            "BEVERAGES 0.45%",
+            "NON - FERROUS METALS 0.39%",
+            "AEROSPACE & DEFENSE 0.31%",
+            "ENTERTAINMENT 0.17%"
+        ]
+    },
+    "navi ni\ue01fy india": {
+        "investment_objective": "The investment objective of the scheme is to achieve return equivalent to Niy India Manufacturing Index by investing in stocks of companies comprising Niy India Manufacturing Index, subject to tracking error. There is no assurance that the investment objective of the scheme will be achieved. .",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 29th August, 2022.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 01st August, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
+        ],
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 29th August, 2022",
+            "Index:Niy India Manufacturing TRI",
+            "Minimum Application Amount: 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity & equity related securities covered by",
+            "Niy India Manufacturing Index: 95% to 100%",
+            "Debt & Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) :#Regular Plan: 1.00% | Direct Plan: 0.22%",
+            "Portfolio Turnover Ratio (Times): 0.52",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 28",
+            "CHEMICALS & PETROCHEMICALS",
+            "Expense structure for Direct & Regular Plan may vary."
+        ],
+        "nav": {
+            "direct plan - growth option": 16.6936,
+            "regular plan - growth option": 16.367
+        },
+        "aum": {
+            "aum": 51.85,
+            "monthly average aum": 52.42
+        },
+        "tracking_error": [
+            "PAPER, FOREST & JUTE PRODUCTS",
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.24% -0.61%"
+        ],
+        "industry_allocation": [],
+        "equity": [
+            "0 5 10 15 20 25",
+            "Equity 99.70%",
+            "AUTOMOBILES 21.39%",
+            "PHARMACEUTICALS & 16.46%",
+            "BIOTECHNOLOGY",
+            "8.34%",
+            "PETROLEUM PRODUCTS",
+            "7.35%",
+            "AUTO COMPONENTS",
+            "7.19%",
+            "FERROUS METALS",
+            "6.54%",
+            "ELECTRICAL EQUIPMENT",
+            "6.35%",
+            "INDUSTRIAL PRODUCTS",
+            "CONSUMER DURABLES 5.20%",
+            "AEROSPACE & DEFENSE 4.95%",
+            "4.70%",
+            "NON - FERROUS METALS 3.12%",
+            "FERTILIZERS & AGROCHEMICALS 2.25%",
+            "DIVERSIFIED METALS 2.16%",
+            "AGRICULTURAL, COMMERCIAL & 1.15%",
+            "CONSTRUCTION VEHICLES",
+            "1.13%",
+            "TEXTILES & APPARELS",
+            "INDUSTRIAL MANUFACTURING 0.78%",
+            "0.38%",
+            "TELECOM - EQUIPMENT & 0.26%",
+            "ACCESSORIES"
+        ]
+    },
+    "navi elss tax saver": {
+        "investment_objective": "The investment objective of the Scheme is to invest in companies whose securities are included in Niy 50 Index (the Index) and to endeavour to achieve the returns of the index, though subject to tracking error. Investment in this scheme would be subject to statutory lock-in period of 3 years from the date of allotment to be eligible for income tax benet under section 80 C. There is no assurance that the investment objective of the Scheme will be realized.",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f2.0th March, 2023",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 01st August, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
+        ],
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 20th March, 2023",
+            "Index:Niy 50 TRI",
+            "Minimum Application Amount: 500/- and in multiples of",
+            "500/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity & equity related securities covered by",
+            "Niy 50 Index: 95% to 100%",
+            "Debt & Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) : #Regular Plan: 1.00% | Direct Plan: 0.10%",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 28",
+            "Portfolio Turnover Ratio (Times): 0.06",
+            "Expense structure for Direct & Regular Plan may vary."
+        ],
+        "nav": {
+            "direct plan - growth option": 14.1376,
+            "regular plan - growth option": 13.8758
+        },
+        "aum": {
+            "aum": 75.25,
+            "monthly average aum": 75.49
+        },
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.O5% -0.39%"
+        ],
+        "industry_allocation": [],
+        "equity": [
+            "0 10 20 30 40",
+            "100.17%",
+            "BANKS 30.07%",
+            "IT - SOFTWARE 14.08%",
+            "PETROLEUM PRODUCTS 8.31%",
+            "AUTOMOBILES 7.38%",
+            "DIVERSIFIED FMCG 6.19%",
+            "TELECOM - SERVICES 4.02%",
+            "CONSTRUCTION 4.01%",
+            "PHARMACEUTICALS & 3.51%",
+            "BIOTECHNOLOGY",
+            "3.37%",
+            "FINANCE",
+            "2.81%",
+            "POWER",
+            "2.24%",
+            "CONSUMER DURABLES",
+            "2.09%",
+            "CEMENT & CEMENT PRODUCTS",
+            "1.90%",
+            "FERROUS METALS",
+            "1.49%",
+            "RETAILING",
+            "1.26%",
+            "FOOD PRODUCTS",
+            "1.21%",
+            "INSURANCE",
+            "AEROSPACE & DEFENSE 0.99%",
+            "OIL 0.88%",
+            "TRANSPORT INFRASTRUCTURE 0.86%",
+            "NON - FERROUS METALS 0.83%",
+            "CONSUMABLE FUELS 0.82%",
+            "HEALTHCARE SERVICES 0.70%",
+            "METALS & MINERALS TRADING 0.59%",
+            "AGRICULTURAL FOOD & OTHER 0.56%",
+            "PRODUCTS"
+        ]
+    },
+    "navi bse sensex": {
+        "investment_objective": "The investment objective of the Scheme is to generate returns that are commensurate with the performance of the BSE SENSEX Index, subject to tracking errors. There is no assurance that the investment objective of the Scheme will be achieved.",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f0.4th September, 2023",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 04th September, 2023",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
+        ],
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 04th September, 2023",
+            "Index:BSE SENSEX TRI",
+            "Minimum Application Amount: 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity and Equity related securities of",
+            "companies constituting the underlying index i.e. BSE Sensex",
+            "Index:- 95% to 100%",
+            "Debt and Money Market instruments: 0% to 5%",
+            "Total Expense Ratio (TER) : #Regular Plan: 0.90% | Direct Plan: 0.14%",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 29 3.29%",
+            "Portfolio Turnover Ratio (Times): 0.38",
+            "Expense structure for Direct & Regular Plan may vary.",
+            "Scheme NAV (in )"
+        ],
+        "nav": {
+            "direct plan - growth option": 12.0034,
+            "regular plan - growth option": 11.8827
+        },
+        "aum": {
+            "aum": 14.65,
+            "monthly average aum": 14.48
+        },
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.12% -0.34%"
+        ],
+        "industry_allocation": [],
+        "equity": [
+            "0 10 20 30 40",
+            "Equity 99.79%",
+            "BANKS",
+            "34.90%",
+            "IT - SOFTWARE 15.42%",
+            "PETROLEUM PRODUCTS 9.03%",
+            "DIVERSIFIED FMCG 7.22%",
+            "AUTOMOBILES 6.19%",
+            "TELECOM - SERVICES 4.67%",
+            "4.62%",
+            "CONSTRUCTION",
+            "POWER",
+            "3.03%",
+            "FINANCE",
+            "2.62%",
+            "CONSUMER DURABLES",
+            "PHARMACEUTICALS & 2.23%",
+            "BIOTECHNOLOGY",
+            "2.07%",
+            "RETAILING",
+            "1.41%",
+            "CEMENT & CEMENT PRODUCTS",
+            "1.25%",
+            "FERROUS METALS",
+            "TRANSPORT INFRASTRUCTURE 0.99%",
+            "FOOD PRODUCTS 0.85%"
+        ]
+    },
+    "navi ni\ue01fy it index fund": {
+        "investment_objective": "The investment objective of the scheme is to achieve return equivalent to Niy IT Index by investing in stocks of companies comprising Niy IT Index, subject to tracking error. There is no assurance that the investment objective of the Scheme will be achieved.",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 11th March, 2024.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 11th March, 2024",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
+        ],
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 11th March, 2024",
+            "Index:Niy IT TRI",
+            "Minimum Application Amount: 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity & equity related securities covered by",
+            "Niy IT Index: 95% to 100%",
+            "Debt & Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) :#Regular Plan: 1.00% | Direct Plan:0.22%",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 29",
+            "Expense structure for Direct & Regular Plan may vary.",
+            "Portfolio Turnover Ratio (Times) : 0.79",
+            "Expense structure for Direct & Regular Plan may vary."
+        ],
+        "nav": {
+            "direct plan - growth option": 12.5232,
+            "regular plan - growth option": 12.4486
+        },
+        "aum": {
+            "aum": 14.72,
+            "monthly average aum": 14.67
+        },
+        "tracking_error": [
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.11% -0.97"
+        ],
+        "this_product_is_suitable_for_investors_who_are_seeking^": [
+            "Capital appreciation over the long term.",
+            "Scheme Riskometer Nifty IT TRI",
+            "Equity and equity related securities covered by Niy IT Index",
+            "Return that corresponds to the performance of Niy IT index, subject to Moderate Risk Moderately High Risk Moderate Risk",
+            "tracking error.",
+            "Low to Moderate Risk High Risk High Risk",
+            "^ Investors should consult their nancial advisers if in doubt about whether Low Risk Very High Risk Low Risk Very High Risk",
+            "the product is suitable for them.",
+            "RSIScKhOeMmETEeR",
+            "The risk of the scheme is Very High"
+        ],
+        "industry_allocation": [],
+        "equity": [
+            "0 20 40 60 80 100",
+            "Equity 100.39%",
+            "IT - SOFTWARE 99.21%",
+            "IT - SERVICES",
+            "1.18%",
+            "Portfolio Holdings Sector % of Net Assets",
+            "EQUITY SHARES 100.39%",
+            "INFOSYS LIMITED IT - SOFTWARE 27.95%",
+            "TATA CONSULTANCY SERVICES LIMITED IT - SOFTWARE 22.93%",
+            "HCL TECHNOLOGIES LIMITED IT - SOFTWARE 11.12%",
+            "TECH MAHINDRA LIMITED IT - SOFTWARE 9.83%",
+            "WIPRO LIMITED IT - SOFTWARE 7.76%",
+            "PERSISTENT SYSTEMS LTD IT - SOFTWARE 6.18%",
+            "COFORGE LIMITED IT - SOFTWARE 5.83%",
+            "LTIMINDTREE LTD IT - SOFTWARE 4.69%",
+            "MPHASIS LIMITED IT - SOFTWARE 2.92%",
+            "L&T TECHNOLOGY SERVICES LTD IT - SERVICES 1.18%",
+            "TREPS (including TBILL held as Collateral)/",
+            "Reverse Repo/Net Current Assets/Cash/Cash Equivalent -0.39%",
+            "Total 100.00%",
+            "The simple annualized returns shall be provided once the scheme has completed 6 months.",
+            "As per AMFI Tier I TRI i.e",
+            "TRI Riskometer",
+            "Moderately High Risk",
+            "Low to Moderate Risk",
+            "RSIScKhOeMmETEeR",
+            "The risk of the TRI is Very High"
+        ]
+    },
+    "navi ni\ue01fy 500 multicap 50:25:25": {
+        "investment_objective": "The investment objective of the scheme is to achieve return equivalent to Niy 500 Multicap 50:25:25 Index by investing in stocks of companies comprising Niy 500 Multicap 50:25:25 Index, subject to tracking error. There is no assurance that the investment objective of the Scheme will be achieved.",
+        "fund_manager(s)": [
+            "Mr. Aditya Mulkiis managing this fund w.e.f. 1st August 2024.",
+            "Mr. Aditya Mulki manages 16 schemes of the concerned Mutual Fund",
+            "Mr. Ashutosh Shirwaikaras a co fund manager is managing this fund",
+            "w.e.f. 1st August 2024.",
+            "Mr. Ashutosh Shirwaikar manages 14 number of schemes of the concerned Mutual Fund"
+        ],
+        "scheme_details": [
+            "Inception Date (Date of Allotment): 1st August 2024.",
+            "Index:Niy 500 Multicap 50:25:25 TRI",
+            "Minimum Application Amount: 10/- and in multiples of 1/- thereaer",
+            "Load Structure: Exit Load : NIL",
+            "Asset Allocation Pattern: Equity & equity related securities covered by",
+            "Niy 500 Multicap 50:25:25 Index Index: 95% to 100%",
+            "Debt & Money Market Instruments: 0% to 5%",
+            "Total Expense Ratio (TER) :#Regular Plan: 0.99% | Direct Plan:0.25%",
+            "# - Above TER includes additional expenses but excludes GST. For TER",
+            "inclusive of GST please refer to page no. 29",
+            "Expense structure for Direct & Regular Plan may vary.",
+            "Portfolio Turnover Ratio (Times) : 0.25",
+            "Expense structure for Direct & Regular Plan may vary."
+        ],
+        "nav": {
+            "direct plan - growth option": 9.7051,
+            "regular plan - growth option": 9.6751
+        },
+        "aum": {
+            "aum": 18.84,
+            "monthly average aum": 18.99
+        },
+        "tracking_error": [
+            "TELECOM - EQUIPMENT & ACCESSORIES",
+            "(Annualised as on December 31, 2024)",
+            "Tracking Error Tracking Dierence",
+            "0.25% -0.71%"
+        ],
+        "industry_allocation": [],
+        "equity": [
+            "0 03 06 09 12 15",
+            "Equity 99.36%",
+            "BANKS 14.91%",
+            "IT - SOFTWARE 8.47%",
+            "PHARMACEUTICALS & BIOTECHNOLOGY 5.87%",
+            "FINANCE 5.79%",
+            "PETROLEUM PRODUCTS 3.97%",
+            "CONSUMER DURABLES 3.85%",
+            "CAPITAL MARKETS 3.56%",
+            "INDUSTRIAL PRODUCTS 3.26%",
+            "AUTOMOBILES 3.23%",
+            "AUTO COMPONENTS 3.09%",
+            "CONSTRUCTION 3.03%",
+            "POWER 2.57%",
+            "TELECOM - SERVICES 2.54%",
+            "DIVERSIFIED FMCG 2.48%",
+            "ELECTRICAL EQUIPMENT 2.37%",
+            "CHEMICALS & PETROCHEMICALS 2.31%",
+            "RETAILING 2.28%",
+            "HEALTHCARE SERVICES 2.17%",
+            "REALTY 1.96%",
+            "CEMENT & CEMENT PRODUCTS 1.81%",
+            "LEISURE SERVICES 1.56%",
+            "FERROUS METALS 1.35%",
+            "INSURANCE 1.32%",
+            "INDUSTRIAL MANUFACTURING 1.11%",
+            "FERTILIZERS & AGROCHEMICALS 1.04%",
+            "GAS 0.98%",
+            "AEROSPACE & DEFENSE 0.93%",
+            "AGRICULTURAL FO PO RD O & D UO CT TH SER 0.90%",
+            "TRANSPORT SERVICES 0.87%",
+            "BEVERAGES 0.87%",
+            "PERSONAL PRODUCTS 0.85%",
+            "NON - FERROUS METALS 0.77%",
+            "FINANCIAL TECHNOLOGY (FINTECH) 0.75%",
+            "FOOD PRODUCTS 0.68%",
+            "TRANSPORT INFRASTRUCTURE 0.66%",
+            "IT - SERVICES 0.53%",
+            "OIL 0.52%",
+            "AGRIC CU OL NT SU TR RA UL C, TC IO OM N M VE ER HC ICIA LEL S& 0.49%",
+            "TEXTILES & APPARELS 0.48%",
+            "COMMERCIAL SERVICES & SUPPLIES 0.45%",
+            "ENTERTAINMENT 0.40%",
+            "CONSUMABLE FUELS 0.33%",
+            "DIVERSIFIED METALS 0.28%",
+            "METALS & MINERALS TRADING 0.24%",
+            "DIVERSIFIED 0.24%",
+            "MINERALS & MINING 0.19%",
+            "PAPER, FOREST & JUTE PRODUCTS 0.17%",
+            "0.17%",
+            "HEALTHCARE EQUIPMENT & SUPPLIES 0.13%",
+            "HOUSEHOLD PRODUCTS 0.12%",
+            "CIGARETTES & TOBACCO PRODUCTS 0.09%",
+            "HARDWARE 0.05%"
+        ]
     }
 }
