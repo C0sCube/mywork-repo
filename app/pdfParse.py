@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import subprocess
 
+from app.fundRegex import *
 
 class Reader:
     
@@ -454,8 +455,8 @@ class Reader:
         for fund, items in extracted_text.items():
             content_dict = {}
             for head, content in items.items():
-                head = self.return_required_header(head)
-                content = self.match_regex_to_content(head, content)
+                clean_head = FundRegex.header_mapper(head)
+                content = self.match_regex_to_content(clean_head, content)
                 content_dict.update(content)
             final_text[fund] = content_dict
         

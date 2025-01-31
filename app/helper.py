@@ -2,6 +2,7 @@ import os, re, json
 import pprint
 import fitz
 import pickle
+from datetime import datetime
 
 class Helper:
     
@@ -120,7 +121,6 @@ class Helper:
         import subprocess
         subprocess.Popen([output_path],shell=True)
     
-   
     """Open the pdf , get all text data and blocks and draw a boundary along each boundary boxes
     Args:input_pdf_path(str) , output_pdf_path (str)
     Returns: nothing, a new pdf created"""
@@ -198,8 +198,12 @@ class Helper:
 
     @staticmethod
     def quick_json_dump(extracted_text, path:str, indent=4):
-        with open(path, "w") as file:
+        
+        current = str(datetime.now().strftime('%H_%M'))
+        fund_name = list(extracted_text.keys())[0].split(" ")[0]
+        output_path = path.replace(".json",f'_{fund_name}_{current}.json')
+        with open(output_path, "w") as file:
             json.dump(extracted_text, file, indent=indent)
         
-        print(f'\n JSON saved at {path}')
+        print(f'\n JSON saved at {output_path}')
     
