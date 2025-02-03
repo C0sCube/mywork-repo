@@ -207,3 +207,13 @@ class Helper:
         
         print(f'\n JSON saved at {output_path}')
     
+    @staticmethod
+    def drop_dict(final_dict:dict):
+        finally_dict = {}
+        for fund, content in final_dict.items():
+            non_empty_dict = {}
+            for key, value in content.items():
+                if len(value)>=1:
+                    non_empty_dict[key] = value
+            finally_dict[fund] = non_empty_dict
+        return finally_dict

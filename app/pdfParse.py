@@ -439,11 +439,11 @@ class Reader:
         for fund, items in data.items():
            try:
                 self.__generate_pdf_from_data(items, output_path)
-                print(f'\n-----{fund}------', f'\nPDF Generated at: {output_path}')
+                print(f'\n-----{fund}------', f'\nPDF at: {output_path}')
                 extracted_text[fund] = self.__extract_data_from_pdf(output_path)
                 
            except Exception as e:
-               print(f"\nError while processing fund '{fund}': {e}")
+               print(f"\nError while processing '{fund}': {e}")
                continue      
         return extracted_text
     
