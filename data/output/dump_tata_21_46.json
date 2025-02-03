@@ -12,7 +12,7 @@
                 "experience": "managing since 19-dec-23 and overall experience of 14 years"
             }
         ],
-        "benchmark": "Nifty 100 TRI",
+        "benchmark_index": "Nifty 100 TRI",
         "nav": {
             "direct - growth": 550.0406,
             "direct - idcw": 124.9639,
@@ -24,27 +24,39 @@
         ],
         "monthly_average_aum": 2460.3,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 34.0
+            "portfolio_turnover_ratio": 34.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.16 13.33",
-            "Sharpe Ratio 0.47 0.44",
-            "Portfolio Beta 0.94 NA",
-            "R Squared 0.97 NA",
-            "Treynor 0.56 NA",
-            "Jenson 0.06 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.16",
+                "benchmark": "13.33"
+            },
+            "sharpe_ratio": {
+                "fund": "0.47",
+                "benchmark": "0.44"
+            },
+            "portfolio_beta": {
+                "fund": "0.94",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.56",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.06",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": ": 1) On or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment: NIL 2) On or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment: 1% 3) Redemption after expiry of 365 days from the date of allotment: NIL (w.e.f 5th November, 2018) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -65,7 +77,7 @@
                 "experience": "managing since 03-oct-23 and overall experience of 11 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - idcw": 24.9036,
             "direct - growth": 24.9036
@@ -75,27 +87,39 @@
         ],
         "monthly_average_aum": 2970.72,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 46.0
+            "portfolio_turnover_ratio": 46.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 12.23 13.57",
-            "Sharpe Ratio 0.37 0.60",
-            "Portfolio Beta 0.83 NA",
-            "R Squared 0.90 NA",
-            "Treynor 0.47 NA",
-            "Jenson -0.18 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "12.23",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.37",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.83",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.90",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.47",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.18",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) Redemption/Switch-out/SWP/STP on or before expiry of 12 Months from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment - NIL 2) Redemption/Switch-out/SWP/STP on or before expiry of 12 Months from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment - 1% 3) Redemption/Switch-out/SWP/STP after expiry of 12 Months from the date of allotment - NIL (w.e.f. 03 June, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -116,7 +140,7 @@
                 "experience": "managing since 1-nov-19 and overall experience of 17 years"
             }
         ],
-        "benchmark": "Nifty Large Midcap 250 TRI",
+        "benchmark_index": "Nifty Large Midcap 250 TRI",
         "nav": {
             "direct - growth": 582.5036,
             "direct - idcw": 114.1316,
@@ -128,27 +152,39 @@
         ],
         "monthly_average_aum": 8391.13,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 12.0
+            "portfolio_turnover_ratio": 12.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 12.23 14.02",
-            "Sharpe Ratio 0.73 0.75",
-            "Portfolio Beta 0.81 NA",
-            "R Squared 0.92 NA",
-            "Treynor 0.92 NA",
-            "Jenson 0.03 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "12.23",
+                "benchmark": "14.02"
+            },
+            "sharpe_ratio": {
+                "fund": "0.73",
+                "benchmark": "0.75"
+            },
+            "portfolio_beta": {
+                "fund": "0.81",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.03",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": ": 1) On or before expiry of 90 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment: NIL. 2) On or before expiry of 90 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment: 1%. 3) Redemption after expiry of 90 days from the date of allotment: NIL. (w.e.f 26 December, 2022) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -167,7 +203,7 @@
                 "experience": "managing since 01-jul-23 and overall experience of 16 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - growth": 393.0323,
             "reg - growth": 350.891
@@ -177,28 +213,39 @@
         ],
         "monthly_average_aum": 8692.72,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 84.0
+            "portfolio_turnover_ratio": 84.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.43 13.57",
-            "Sharpe Ratio 0.96 0.60",
-            "Portfolio Beta 0.93 NA",
-            "R Squared 0.94 NA",
-            "Treynor 1.15 NA",
-            "Jenson 0.43 NA",
-            "PE 29.76 22.66",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "pe 29.76 22.66^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "13.43",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.96",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.93",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.94",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "1.15",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.43",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) On or before expiry of 12 months from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment: NIL 2) On or before expiry of 12 months from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment: 1% 3) Redemption after expiry of 12 months from the date of allotment: NIL (w.e.f. 3rd May, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -213,7 +260,7 @@
                 "experience": "managing since 09-mar-21 and overall experience of 17 years"
             }
         ],
-        "benchmark": "Nifty Midcap 150 TRI",
+        "benchmark_index": "Nifty Midcap 150 TRI",
         "nav": {
             "direct - growth": 481.4496,
             "direct - idcw": 158.9222,
@@ -225,27 +272,39 @@
         ],
         "monthly_average_aum": 4554.19,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 32.0
+            "portfolio_turnover_ratio": 32.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 14.05 15.64",
-            "Sharpe Ratio 0.87 0.96",
-            "Portfolio Beta 0.85 NA",
-            "R Squared 0.95 NA",
-            "Treynor 1.21 NA",
-            "Jenson -0.05 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "14.05",
+                "benchmark": "15.64"
+            },
+            "sharpe_ratio": {
+                "fund": "0.87",
+                "benchmark": "0.96"
+            },
+            "portfolio_beta": {
+                "fund": "0.85",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.95",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "1.21",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.05",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": ": 1) On or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment: NIL 2) On or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment: 1% 3) Redemption after expiry of 365 days from the date of allotment: NIL (w.e.f 5th November, 2018) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -266,7 +325,7 @@
                 "experience": "managing since 16-dec-21 and overall experience of 17 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct- idcw": 229.0504,
             "reg - idcw": 102.5706,
@@ -278,27 +337,39 @@
         ],
         "monthly_average_aum": 4719.17,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 14.0
+            "portfolio_turnover_ratio": 14.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.41 13.57",
-            "Sharpe Ratio 0.63 0.60",
-            "Portfolio Beta 0.93 NA",
-            "R Squared 0.94 NA",
-            "Treynor 0.76 NA",
-            "Jenson 0.07 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.41",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.63",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.93",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.94",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.76",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.07",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 500/- and in multiples of Rs. 500/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 500/- and in multiples of Rs. 500/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 500/- and multiples of Rs. 500/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 500/- and multiples of Rs. 500/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil (Compulsory lock-in period for 3 years) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -319,7 +390,7 @@
                 "experience": "managing since 03-oct-23 and overall experience of 16 years"
             }
         ],
-        "benchmark": "Nifty Smallcap 250 TRI",
+        "benchmark_index": "Nifty Smallcap 250 TRI",
         "nav": {
             "direct - idcw": 46.8314,
             "direct - growth": 46.8314
@@ -329,27 +400,39 @@
         ],
         "monthly_average_aum": 9761.55,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 19.0
+            "portfolio_turnover_ratio": 19.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.63 18.02",
-            "Sharpe Ratio 1.13 0.83",
-            "Portfolio Beta 0.67 NA",
-            "R Squared 0.82 NA",
-            "Treynor 1.93 NA",
-            "Jenson 0.45 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.63",
+                "benchmark": "18.02"
+            },
+            "sharpe_ratio": {
+                "fund": "1.13",
+                "benchmark": "0.83"
+            },
+            "portfolio_beta": {
+                "fund": "0.67",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.82",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "1.93",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.45",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) Redemption/Switch-out/SWP/STP on or before expiry of 12 Months from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment - NIL 2) Redemption/Switch-out/SWP/STP on or before expiry of 12 Months from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment - 1% 3) Redemption/Switch-out/SWP/STP after expiry of 12 Months from the date of allotment - NIL (w.e.f. 03 June, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -368,7 +451,7 @@
                 "experience": "overseas portfolio"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - idcw": 25.9081,
             "direct - growth": 25.9081
@@ -378,27 +461,39 @@
         ],
         "monthly_average_aum": 1889.12,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 40.0
+            "portfolio_turnover_ratio": 40.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.38 13.57",
-            "Sharpe Ratio 0.68 0.60",
-            "Portfolio Beta 0.94 NA",
-            "R Squared 0.95 NA",
-            "Treynor 0.82 NA",
-            "Jenson 0.12 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.38",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.68",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.94",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.95",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.82",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.12",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_inv_estment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_inv_estment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "is Nil, if the withdrawal amount or switched out amount is not more than 12% of the original cost of investment on or before expiry of 365 days from the date of allotment. Exit load is 1% of the applicable NAV if the withdrawal amount or switched out amount is more than 12% of the original cost of investment on or before expiry of 365 days from the date of allotment. No Exit load will be charged for redemption or switch out after expiry of 365 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -419,7 +514,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty 50 TRI",
+        "benchmark_index": "Nifty 50 TRI",
         "nav": {
             "direct - growth": 158.2554
         },
@@ -428,30 +523,42 @@
         ],
         "monthly_average_aum": 1096.65,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 6.0
+            "portfolio_turnover_ratio": 6.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 12.67 12.72",
-            "Sharpe Ratio 0.36 0.41",
-            "Portfolio Beta 0.97 NA",
-            "R Squared 1.00 NA",
-            "Treynor 0.40 NA",
-            "Jenson -0.04 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "12.67",
+                "benchmark": "12.72"
+            },
+            "sharpe_ratio": {
+                "fund": "0.36",
+                "benchmark": "0.41"
+            },
+            "portfolio_beta": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "1.00",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.40",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.04",
+                "benchmark": "na"
+            }
+        },
         "tracking_error": [
             "0.11%"
         ],
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter"
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of the applicable NAV, if redeemed on or before 7 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -472,7 +579,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty Auto TRI",
+        "benchmark_index": "Nifty Auto TRI",
         "nav": {
             "direct - growth": 10.3321,
             "direct - idcw": 10.3321,
@@ -484,26 +591,15 @@
         ],
         "monthly_average_aum": 76.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 9.0
+            "portfolio_turnover_ratio": 9.0
         },
-        "metrics": [
-            "Direct 0.45",
-            "Regular 1.10",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024"
-        ],
+        "metrics": {
+            "comment": "direct 0.45regular 1.10**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -524,7 +620,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty India Tourism TRI",
+        "benchmark_index": "Nifty India Tourism TRI",
         "nav": {
             "direct - growth": 10.5413,
             "direct - idcw": 10.5413,
@@ -536,26 +632,15 @@
         ],
         "monthly_average_aum": 302.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 31.0
+            "portfolio_turnover_ratio": 31.0
         },
-        "metrics": [
-            "Direct 0.34",
-            "Regular 1.09",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024"
-        ],
+        "metrics": {
+            "comment": "direct 0.34regular 1.09**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -576,7 +661,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty Financial Services TRI",
+        "benchmark_index": "Nifty Financial Services TRI",
         "nav": {
             "direct - growth": 11.0201,
             "direct - idcw": 11.0201,
@@ -588,27 +673,15 @@
         ],
         "monthly_average_aum": 47.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 20.0
+            "portfolio_turnover_ratio": 20.0
         },
-        "metrics": [
-            "Direct 0.39",
-            "Regular 1.04",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.39regular 1.04**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -629,7 +702,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty MidSmall Healthcare TRI",
+        "benchmark_index": "Nifty MidSmall Healthcare TRI",
         "nav": {
             "direct - growth": 13.0152,
             "direct - idcw": 13.0152,
@@ -641,27 +714,15 @@
         ],
         "monthly_average_aum": 128.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 10.0
+            "portfolio_turnover_ratio": 10.0
         },
-        "metrics": [
-            "Direct 0.48",
-            "Regular 1.11",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.48regular 1.11**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -682,7 +743,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty Realty TRI",
+        "benchmark_index": "Nifty Realty TRI",
         "nav": {
             "direct - growth": 10.8404,
             "direct - idcw": 10.8404,
@@ -694,27 +755,15 @@
         ],
         "monthly_average_aum": 57.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 86.0
+            "portfolio_turnover_ratio": 86.0
         },
-        "metrics": [
-            "Direct 0.43",
-            "Regular 1.10",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.43regular 1.10**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -735,7 +784,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": [
+        "benchmark_index": [
             "Nifty500 Multicap India Manufacturing 50:30:20 Index",
             "(TRI)"
         ],
@@ -750,27 +799,15 @@
         ],
         "monthly_average_aum": 120.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 20.0
+            "portfolio_turnover_ratio": 20.0
         },
-        "metrics": [
-            "Direct 0.48",
-            "Regular 1.11",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.48regular 1.11**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -791,7 +828,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty500 Multicap Infrastructure 50:30:20 Index (TRI)",
+        "benchmark_index": "Nifty500 Multicap Infrastructure 50:30:20 Index (TRI)",
         "nav": {
             "direct - growth": 10.4421,
             "direct - idcw": 10.4421,
@@ -803,27 +840,15 @@
         ],
         "monthly_average_aum": 80.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 32.0
+            "portfolio_turnover_ratio": 32.0
         },
-        "metrics": [
-            "Direct 0.45",
-            "Regular 1.10",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.45regular 1.10**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -844,7 +869,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "BSE Sensex TRI",
+        "benchmark_index": "BSE Sensex TRI",
         "nav": {
             "direct - growth": 206.2824
         },
@@ -853,30 +878,42 @@
         ],
         "monthly_average_aum": 369.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 11.0
+            "portfolio_turnover_ratio": 11.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 12.34 12.40",
-            "Sharpe Ratio 0.33 0.38",
-            "Portfolio Beta 0.97 NA",
-            "R Squared 1.00 NA",
-            "Treynor 0.36 NA",
-            "Jenson -0.04 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "12.34",
+                "benchmark": "12.40"
+            },
+            "sharpe_ratio": {
+                "fund": "0.33",
+                "benchmark": "0.38"
+            },
+            "portfolio_beta": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "1.00",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.36",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.04",
+                "benchmark": "na"
+            }
+        },
         "tracking_error": [
             "0.06%"
         ],
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of the applicable NAV, if redeemed on or before 7 days from the date of allotment Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -897,7 +934,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "BSE Select Businesses Group Index",
+        "benchmark_index": "BSE Select Businesses Group Index",
         "nav": {
             "direct - growth": 9.4635,
             "direct - idcw": 9.4635,
@@ -909,27 +946,15 @@
         ],
         "monthly_average_aum": 120.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 2.0
+            "portfolio_turnover_ratio": 2.0
         },
-        "metrics": [
-            "Direct 0.28",
-            "Regular 1.08",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.28regular 1.08**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of the applicable NAV, if redeemed on or before 15 days from the date of allotment Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -950,7 +975,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty 50 TRI",
+        "benchmark_index": "Nifty 50 TRI",
         "nav": {
             "direct - growth": 252.5041
         },
@@ -959,39 +984,39 @@
         ],
         "monthly_average_aum": 689.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 9.0
+            "portfolio_turnover_ratio": 9.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 12.67 12.72",
-            "Sharpe Ratio 0.40 0.41",
-            "Portfolio Beta 0.97 NA",
-            "R Squared 1.00 NA",
-            "Treynor 0.44 NA",
-            "Jenson 0.01 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "12.67",
+                "benchmark": "12.72"
+            },
+            "sharpe_ratio": {
+                "fund": "0.40",
+                "benchmark": "0.41"
+            },
+            "portfolio_beta": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "1.00",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.44",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.01",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_new_investment": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_existing_investors": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1012,7 +1037,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty Private Bank TRI",
+        "benchmark_index": "Nifty Private Bank TRI",
         "nav": {
             "direct - growth": 254.6445
         },
@@ -1021,39 +1046,39 @@
         ],
         "monthly_average_aum": 11.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 38.0
+            "portfolio_turnover_ratio": 38.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 15.35 15.43",
-            "Sharpe Ratio 0.33 0.35",
-            "Portfolio Beta 0.97 NA",
-            "R Squared 1.00 NA",
-            "Treynor 0.44 NA",
-            "Jenson -0.01 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of",
-            "7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of7.15% as on dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "15.35",
+                "benchmark": "15.43"
+            },
+            "sharpe_ratio": {
+                "fund": "0.33",
+                "benchmark": "0.35"
+            },
+            "portfolio_beta": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "1.00",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.44",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.01",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Transactions by Market Makers: in creation unit size (refer SID",
-            "for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1 unit",
-            "and in multiple thereof"
-        ],
+        "multiples_for_new_investment": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Transactions by Market Makers: in creation unit size (refer SID",
-            "for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1 unit",
-            "and in multiple thereof"
-        ],
+        "multiples_for_existing_investors": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1076,7 +1101,7 @@
                 "experience": "managing since 19-dec-23 and overall experience of 14 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - growth": 18.5458,
             "direct - idcw": 18.5458,
@@ -1088,27 +1113,39 @@
         ],
         "monthly_average_aum": 989.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 23.0
+            "portfolio_turnover_ratio": 23.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.83 13.57",
-            "Sharpe Ratio 0.58 0.60",
-            "Portfolio Beta 0.95 NA",
-            "R Squared 0.92 NA",
-            "Treynor 0.71 NA",
-            "Jenson 0.02 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.83",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.58",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.95",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.71",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.02",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption/Switch-out/SWP/STP on or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment - NIL Redemption/Switch-out/SWP/STP on or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12%of the original cost of investment-1% Redemption/Switch-out/SWP/STP after expiry of 365 days from the date of allotment - NIL Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1129,7 +1166,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty India Digital TRI",
+        "benchmark_index": "Nifty India Digital TRI",
         "nav": {
             "direct - growth": 15.6692,
             "direct - idcw": 15.6692,
@@ -1141,25 +1178,13 @@
         ],
         "monthly_average_aum": 105.0,
         "turn_over": {},
-        "metrics": [
-            "Direct 0.07",
-            "Regular 0.48",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.07regular 0.48**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption/Switch-out/SWP/STP on or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment- Nil Redemption/Switch-out/SWP/STP on or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment-1% Redemption/Switch-out/SWP/STaPfter expiry of 365 days from the date of allotment-Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1180,7 +1205,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty India Digital TRI",
+        "benchmark_index": "Nifty India Digital TRI",
         "nav": {
             "direct - growth": 99.9853
         },
@@ -1189,39 +1214,15 @@
         ],
         "monthly_average_aum": 168.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 35.0
+            "portfolio_turnover_ratio": 35.0
         },
-        "metrics": [
-            "Direct 0.40",
-            "Regular NA",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "direct 0.40regular na**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_new_investment": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_existing_investors": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1240,7 +1241,7 @@
                 "experience": "managing since 26-apr-24 and overall experience of 20 years"
             }
         ],
-        "benchmark": "Domestic Price of Silver",
+        "benchmark_index": "Domestic Price of Silver",
         "nav": {
             "direct - growth": 8.5494
         },
@@ -1249,37 +1250,13 @@
         ],
         "monthly_average_aum": 128.0,
         "turn_over": {},
-        "metrics": [
-            "Direct 0.47",
-            "Regular NA",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "direct 0.47regular na**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_new_investment": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_existing_investors": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1294,7 +1271,7 @@
                 "experience": "managing since 19-jan-24 and overall experience of 16 years"
             }
         ],
-        "benchmark": "Domestic Price of Silver",
+        "benchmark_index": "Domestic Price of Silver",
         "nav": {
             "direct - growth": 11.8384,
             "direct - idcw": 11.8384,
@@ -1306,27 +1283,15 @@
         ],
         "monthly_average_aum": 74.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 7.0
+            "portfolio_turnover_ratio": 7.0
         },
-        "metrics": [
-            "Direct 0.14",
-            "Regular 0.61",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "direct 0.14regular 0.61**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption / Switch-out / SWP / STP on or before expiry of 7 days from the date of allotment: 0.5% Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1345,7 +1310,7 @@
                 "experience": "managing since 26-apr-24 and overall experience of 20 years"
             }
         ],
-        "benchmark": "Domestic Price of Gold",
+        "benchmark_index": "Domestic Price of Gold",
         "nav": {
             "direct - growth": 7.5111
         },
@@ -1354,37 +1319,13 @@
         ],
         "monthly_average_aum": 306.0,
         "turn_over": {},
-        "metrics": [
-            "Direct 0.38",
-            "Regular NA",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.38regular na**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_new_investment": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Transactions by Market Makers: in creation unit size (refer",
-            "SID for creation unit size)",
-            "Transactions by Investors:",
-            " Amount greater than 25 Crs: Directly through AMC or",
-            "through exchange",
-            " Amount less than 25 Crs: Through exchange, min 1",
-            "unit and in multiple thereof"
-        ],
+        "multiples_for_existing_investors": "Transactions by Market Makers: in creation unit size (refer SID for creation unit size) Transactions by Investors:  Amount greater than 25 Crs: Directly through AMC or through exchange  Amount less than 25 Crs: Through exchange, min 1 unit and in multiple thereof",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1399,7 +1340,7 @@
                 "experience": "fund manager for commodities"
             }
         ],
-        "benchmark": "Domestic Price of Gold",
+        "benchmark_index": "Domestic Price of Gold",
         "nav": {
             "direct - growth": 12.0566,
             "direct - idcw": 12.0566,
@@ -1411,27 +1352,15 @@
         ],
         "monthly_average_aum": 125.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 2.0
+            "portfolio_turnover_ratio": 2.0
         },
-        "metrics": [
-            "Direct 0.18",
-            "Regular 0.70",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.18regular 0.70**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption / Switch-out / SWP / STP on or before expiry of 7 days from the date of allotment: 0.5% Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1452,7 +1381,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty Midcap150 Momentum 50 TRI",
+        "benchmark_index": "Nifty Midcap150 Momentum 50 TRI",
         "nav": {
             "direct - growth": 19.0056,
             "direct - idcw": 19.0056,
@@ -1464,27 +1393,15 @@
         ],
         "monthly_average_aum": 725.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 76.0
+            "portfolio_turnover_ratio": 76.0
         },
-        "metrics": [
-            "Direct 0.43",
-            "Regular 1.06",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable."
-        ],
+        "metrics": {
+            "comment": "direct 0.43regular 1.06^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs.5,000/- and in multiple of Re.1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs.5,000/- and in multiple of Re.1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1,000/- and in multiples of Re.1/-thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs.1,000/- and in multiples of Re.1/-thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 % of the applicable NAV, if redeemed on or before 90 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1505,7 +1422,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty 200 Alpha 30 TRI",
+        "benchmark_index": "Nifty 200 Alpha 30 TRI",
         "nav": {
             "direct - growth": 9.04,
             "direct - idcw": 9.04,
@@ -1517,27 +1434,15 @@
         ],
         "monthly_average_aum": 187.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 86.0
+            "portfolio_turnover_ratio": 86.0
         },
-        "metrics": [
-            "Direct 0.34",
-            "Regular 1.09",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104.",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable."
-        ],
+        "metrics": {
+            "comment": "direct 0.34regular 1.09^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104.**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs.5,000/- and in multiple of Re.1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs.5,000/- and in multiple of Re.1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1,000/- and in multiples of Re.1/-thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs.1,000/- and in multiples of Re.1/-thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of the applicable NAV, if redeemed on or before 15 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1558,7 +1463,7 @@
                 "experience": "managing since 20-dec-24 and overall experience of 19 years"
             }
         ],
-        "benchmark": "Nifty Capital Markets TRI",
+        "benchmark_index": "Nifty Capital Markets TRI",
         "nav": {
             "direct - growth": 10.9494,
             "direct - idcw": 10.9494,
@@ -1570,27 +1475,15 @@
         ],
         "monthly_average_aum": 111.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 18.0
+            "portfolio_turnover_ratio": 18.0
         },
-        "metrics": [
-            "Direct 0.34",
-            "Regular 1.09",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "direct 0.34regular 1.09**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs.5,000/- and in multiple of Re.1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs.5,000/- and in multiple of Re.1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1,000/- and in multiples of Re.1/-thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs.1,000/- and in multiples of Re.1/-thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of the applicable NAV, if redeemed on or before 15 days from the date of allotment Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1617,7 +1510,7 @@
                 "experience": "managing since 19-dec-23 and overall experience of 14 years"
             }
         ],
-        "benchmark": "NIFTY 500 Multicap 50:25:25 TRI",
+        "benchmark_index": "NIFTY 500 Multicap 50:25:25 TRI",
         "nav": {
             "direct - growth": 14.8168,
             "direct - idcw": 14.8168,
@@ -1629,27 +1522,15 @@
         ],
         "monthly_average_aum": 3206.03,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 32.0
+            "portfolio_turnover_ratio": 32.0
         },
-        "metrics": [
-            "Direct 0.49",
-            "Regular 1.89",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "direct 0.49regular 1.89**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104."
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs.5,000/- and in multiple of Re.1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs.5,000/- and in multiple of Re.1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1,000/- and in multiples of Re.1/-thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs.1,000/- and in multiples of Re.1/-thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption/Switch-out/SWP/STP on or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment-NIL Redemption/Switch-out/SWP/STP on or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment-1% Redemption/Switch-out/SWP/STaPfter expiry of 365 days from the date of allotment-NIL Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1678,7 +1559,7 @@
                 "experience": "managing since 16-dec-21 and overall experience of 17 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - growth": 19.9297,
             "direct - idcw": 19.9297,
@@ -1690,27 +1571,39 @@
         ],
         "monthly_average_aum": 2902.52,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 49.0
+            "portfolio_turnover_ratio": 49.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.41 13.57",
-            "Sharpe Ratio 1.01 0.60",
-            "Portfolio Beta 0.92 NA",
-            "R Squared 0.92 NA",
-            "Treynor 1.23 NA",
-            "Jenson 0.50 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "13.41",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "1.01",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "1.23",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.50",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption/Switch-out/SWP/STP/non-SIP on or before expiry of 90 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment: NIL. on or before expiry of 90 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment: 1%. after expiry of 90 days from the date of allotment: NIL. (w.e.f 26 December, 2022) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1725,7 +1618,7 @@
                 "experience": "managing since 06-sep-21 and overall experience of 22 years"
             }
         ],
-        "benchmark": "Nifty 500 Shariah TRI",
+        "benchmark_index": "Nifty 500 Shariah TRI",
         "nav": {
             "direct - growth": 447.122,
             "direct - idcw": 245.4555,
@@ -1737,27 +1630,39 @@
         ],
         "monthly_average_aum": 3323.02,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 30.0
+            "portfolio_turnover_ratio": 30.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.16 14.48",
-            "Sharpe Ratio 0.27 0.36",
-            "Portfolio Beta 0.85 NA",
-            "R Squared 0.93 NA",
-            "Treynor 0.35 NA",
-            "Jenson -0.08 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "13.16",
+                "benchmark": "14.48"
+            },
+            "sharpe_ratio": {
+                "fund": "0.27",
+                "benchmark": "0.36"
+            },
+            "portfolio_beta": {
+                "fund": "0.85",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.93",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.35",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.08",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.50% of NAV if redeemed/switched out on or before 90 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1772,7 +1677,7 @@
                 "experience": "managing since 14-oct-2021 and overall experience of 16 years"
             }
         ],
-        "benchmark": "Nifty Financial Services TRI",
+        "benchmark_index": "Nifty Financial Services TRI",
         "nav": {
             "direct - idcw": 44.4759,
             "direct - growth": 44.4759
@@ -1782,27 +1687,39 @@
         ],
         "monthly_average_aum": 2391.14,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 22.0
+            "portfolio_turnover_ratio": 22.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 14.67 14.41",
-            "Sharpe Ratio 0.59 0.35",
-            "Portfolio Beta 0.92 NA",
-            "R Squared 0.87 NA",
-            "Treynor 0.79 NA",
-            "Jenson 0.34 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "14.67",
+                "benchmark": "14.41"
+            },
+            "sharpe_ratio": {
+                "fund": "0.59",
+                "benchmark": "0.35"
+            },
+            "portfolio_beta": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.87",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.79",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.34",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of NAV if redeemed/switched out before 30 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1821,7 +1738,7 @@
                 "experience": "managing since 19-dec-23 and overall experience of 14 years"
             }
         ],
-        "benchmark": "NIFTY IT TRI",
+        "benchmark_index": "NIFTY IT TRI",
         "nav": {
             "direct - idcw": 62.3986,
             "direct - growth": 62.3986
@@ -1831,27 +1748,39 @@
         ],
         "monthly_average_aum": 13194.43,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 20.0
+            "portfolio_turnover_ratio": 20.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 18.72 20.97",
-            "Sharpe Ratio 0.21 0.03",
-            "Portfolio Beta 0.85 NA",
-            "R Squared 0.96 NA",
-            "Treynor 0.39 NA",
-            "Jenson 0.27 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "18.72",
+                "benchmark": "20.97"
+            },
+            "sharpe_ratio": {
+                "fund": "0.21",
+                "benchmark": "0.03"
+            },
+            "portfolio_beta": {
+                "fund": "0.85",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.96",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.39",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.27",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of NAV if redeemed/switched out before 30 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1872,7 +1801,7 @@
                 "experience": "managing since 03-oct-23 and overall experience of 11 years"
             }
         ],
-        "benchmark": "Nifty India Consumption TRI",
+        "benchmark_index": "Nifty India Consumption TRI",
         "nav": {
             "direct - idcw": 52.9999,
             "direct - growth": 52.9999
@@ -1882,27 +1811,39 @@
         ],
         "monthly_average_aum": 2460.98,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 54.0
+            "portfolio_turnover_ratio": 54.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 14.45 14.85",
-            "Sharpe Ratio 0.86 0.74",
-            "Portfolio Beta 0.88 NA",
-            "R Squared 0.86 NA",
-            "Treynor 1.19 NA",
-            "Jenson 0.23 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104."
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104.",
+            "std_deviaton": {
+                "fund": "14.45",
+                "benchmark": "14.85"
+            },
+            "sharpe_ratio": {
+                "fund": "0.86",
+                "benchmark": "0.74"
+            },
+            "portfolio_beta": {
+                "fund": "0.88",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.86",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "1.19",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.23",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of NAV if redeemed/switched out before 30 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1923,7 +1864,7 @@
                 "experience": "managing since 16-sep-24 and overall experience of 10 years"
             }
         ],
-        "benchmark": "Nifty Pharma TRI",
+        "benchmark_index": "Nifty Pharma TRI",
         "nav": {
             "direct - idcw": 36.6424,
             "direct - growth": 36.6424
@@ -1933,27 +1874,39 @@
         ],
         "monthly_average_aum": 1239.14,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 8.0
+            "portfolio_turnover_ratio": 8.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 15.20 16.30",
-            "Sharpe Ratio 0.86 0.71",
-            "Portfolio Beta 0.89 NA",
-            "R Squared 0.97 NA",
-            "Treynor 1.22 NA",
-            "Jenson 0.22 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "15.20",
+                "benchmark": "16.30"
+            },
+            "sharpe_ratio": {
+                "fund": "0.86",
+                "benchmark": "0.71"
+            },
+            "portfolio_beta": {
+                "fund": "0.89",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "1.22",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.22",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of NAV if redeemed/switched out before 30 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -1968,7 +1921,7 @@
                 "experience": "managing since 09-mar-21 and overall experience of 17 years"
             }
         ],
-        "benchmark": "Nifty Commodities TRI",
+        "benchmark_index": "Nifty Commodities TRI",
         "nav": {
             "direct - idcw": 48.6555,
             "direct - growth": 48.6555
@@ -1978,27 +1931,39 @@
         ],
         "monthly_average_aum": 1053.9,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 16.0
+            "portfolio_turnover_ratio": 16.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 16.23 19.16",
-            "Sharpe Ratio 0.42 0.44",
-            "Portfolio Beta 0.79 NA",
-            "R Squared 0.91 NA",
-            "Treynor 0.74 NA",
-            "Jenson 0.03 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "16.23",
+                "benchmark": "19.16"
+            },
+            "sharpe_ratio": {
+                "fund": "0.42",
+                "benchmark": "0.44"
+            },
+            "portfolio_beta": {
+                "fund": "0.79",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.91",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.74",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.03",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment_/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of NAV if redeemed/switched out before 30 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2013,7 +1978,7 @@
                 "experience": "managing since 09-mar-21 and overall experience of 22 years"
             }
         ],
-        "benchmark": "BSE India Infrastructure TRI",
+        "benchmark_index": "BSE India Infrastructure TRI",
         "nav": {
             "direct - growth": 193.3398,
             "direct - idcw": 101.3066,
@@ -2025,27 +1990,39 @@
         ],
         "monthly_average_aum": 2405.13,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 21.0
+            "portfolio_turnover_ratio": 21.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 15.33 23.59",
-            "Sharpe Ratio 1.04 1.07",
-            "Portfolio Beta 0.51 NA",
-            "R Squared 0.66 NA",
-            "Treynor 2.60 NA",
-            "Jenson 0.25 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of",
-            "7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "15.33",
+                "benchmark": "23.59"
+            },
+            "sharpe_ratio": {
+                "fund": "1.04",
+                "benchmark": "1.07"
+            },
+            "portfolio_beta": {
+                "fund": "0.51",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.66",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "2.60",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.25",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25% of NAV if redeemed/switched out before 30 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2060,7 +2037,7 @@
                 "experience": "managing since 22-jan-20 and overall experience of 21 years"
             }
         ],
-        "benchmark": "BSE 200 TRI",
+        "benchmark_index": "BSE 200 TRI",
         "nav": {
             "direct - idcw": 16.3844,
             "direct - growth": 16.3844
@@ -2070,28 +2047,39 @@
         ],
         "monthly_average_aum": 68.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 95.0
+            "portfolio_turnover_ratio": 95.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.47 13.49",
-            "Sharpe Ratio 0.48 0.56",
-            "Portfolio Beta 0.87 NA",
-            "R Squared 0.80 NA",
-            "Treynor 0.63 NA",
-            "Jenson 0.00 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.47",
+                "benchmark": "13.49"
+            },
+            "sharpe_ratio": {
+                "fund": "0.48",
+                "benchmark": "0.56"
+            },
+            "portfolio_beta": {
+                "fund": "0.87",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.80",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.63",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.00",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Growth option: Rs 5,000/- and in multiple of Re.1/-",
-            "IDCW (payout): Rs 5,000/- and in multiple of Re.1/-"
-        ],
+        "multiples_for_new_investment": "Growth option: Rs 5,000/- and in multiple of Re.1/- IDCW (payout): Rs 5,000/- and in multiple of Re.1/-",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1000/-& in multiples of Re.1/-thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs.1000/-& in multiples of Re.1/-thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "is Nil, if the withdrawal amount or switched out amount is not more than 12% of the original cost of investment on or before expiry of 365 days from the date of allotment. Exit load is 1% of the applicable NAV if the withdrawal amount or switched out amount is more than 12% of the original cost of investment on or before expiry of 365 days from the date of allotment. No Exit load will be charged for redemption or switch out after expiry of 365 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2114,7 +2102,7 @@
                 "experience": "overseas portfolio"
             }
         ],
-        "benchmark": "NIFTY Housing Index TRI",
+        "benchmark_index": "NIFTY Housing Index TRI",
         "nav": {
             "direct - growth": 16.1874,
             "direct - idcw": 16.1874,
@@ -2126,27 +2114,15 @@
         ],
         "monthly_average_aum": 578.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 10.0
+            "portfolio_turnover_ratio": 10.0
         },
-        "metrics": [
-            "Direct 0.71",
-            "Regular 2.36",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.71regular 2.36**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs.5,000/- and in multiple of Re.1/- thereafter"
-        ],
+        "multiples_for_new_investment": "Rs.5,000/- and in multiple of Re.1/- thereafter",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1,000/- and in multiples of Re.1/-thereafter"
-        ],
+        "multiples_for_existing_investors": "Rs.1,000/- and in multiples of Re.1/-thereafter",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption / Switch-out / SWP / STP on or before expiry of 30 days from the date of allotment: 1% Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2165,7 +2141,7 @@
                 "experience": "managing since 28-nov-24 and overall experience of 14 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - growth": 10.0934,
             "direct - idcw": 10.0934,
@@ -2177,25 +2153,13 @@
         ],
         "monthly_average_aum": 1699.9,
         "turn_over": {},
-        "metrics": [
-            "Direct 0.48",
-            "Regular 1.70",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.48regular 1.70**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104"
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs.5,000/- and in multiple of Re.1/- thereafter"
-        ],
+        "multiples_for_new_investment": "Rs.5,000/- and in multiple of Re.1/- thereafter",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1,000/- and in multiples of Re.1/-thereafter"
-        ],
+        "multiples_for_existing_investors": "Rs.1,000/- and in multiples of Re.1/-thereafter",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1% of the applicable NAV, if redeemed on or before 90 days from the date of allotment. Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2214,7 +2178,7 @@
                 "experience": "debt portfolio"
             }
         ],
-        "benchmark": "CRISIL Hybrid 35+65 Aggressive Index",
+        "benchmark_index": "CRISIL Hybrid 35+65 Aggressive Index",
         "nav": {
             "direct - growth": 477.4835,
             "direct - idcw": 112.122,
@@ -2226,34 +2190,39 @@
         ],
         "monthly_average_aum": 4157.83,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 32.0
+            "portfolio_turnover_ratio": 32.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 9.50 9.15",
-            "Sharpe Ratio 0.53 0.49",
-            "Portfolio Beta 0.97 NA",
-            "R Squared 0.92 NA",
-            "Treynor 0.45 NA",
-            "Jenson 0.06 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104",
-            "Portfolio Macaulay Duration 4.55 Years",
-            "Modified Duration 4.35 Years",
-            "Average Maturity 7.77 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.42%",
-            "* Computed on the invested amount for debt portfolio.",
-            "Total stock in Portfolio 44"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104modified duration 4.35 yearsaverage maturity 7.77 yearsannualized yield to maturity (for debt component)*- including net current assets 7.42%* computed on the invested amount for debt portfolio.total stock in portfolio 44",
+            "std_deviaton": {
+                "fund": "9.50",
+                "benchmark": "9.15"
+            },
+            "sharpe_ratio": {
+                "fund": "0.53",
+                "benchmark": "0.49"
+            },
+            "portfolio_beta": {
+                "fund": "4.55",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.45",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.06",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) On or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment: NIL 2) On or before expiry of 365 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment: 1% 3) Redemption after expiry of 365 days from the date of allotment: NIL (w.e.f 5th November, 2018) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2272,7 +2241,7 @@
                 "experience": "managing since 01-apr-17 and overall experience of 27 years"
             }
         ],
-        "benchmark": "NIFTY Equity Savings Index",
+        "benchmark_index": "NIFTY Equity Savings Index",
         "nav": {
             "direct - growth": 59.5967
         },
@@ -2281,35 +2250,39 @@
         ],
         "monthly_average_aum": 230.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 28.0
+            "portfolio_turnover_ratio": 28.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 3.97 4.57",
-            "Sharpe Ratio 0.35 0.28",
-            "Portfolio Beta 0.81 NA",
-            "R Squared 0.92 NA",
-            "Treynor 0.15 NA",
-            "Jenson 0.03 NA",
-            "Portfolio Macaulay Duration 3.70 Years",
-            "Modified Duration 3.58 Years",
-            "Average Maturity 4.88 Years",
-            "Annualized Yield to Maturity (For Debt Component)* 6.98%",
-            "- Including Net Current Assets",
-            "* Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15%",
-            "as on Dec 31, 2024",
-            "For calculation methodology please refer Pg 104",
-            "Total stock in Portfolio 36"
-        ],
+        "metrics": {
+            "comment": "modified duration 3.58 yearsaverage maturity 4.88 yearsannualized yield to maturity (for debt component)* 6.98%- including net current assets* computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15%as on dec 31, 2024for calculation methodology please refer pg 104total stock in portfolio 36",
+            "std_deviaton": {
+                "fund": "3.97",
+                "benchmark": "4.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.35",
+                "benchmark": "0.28"
+            },
+            "portfolio_beta": {
+                "fund": "3.70",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.15",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.03",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Growth Option: Rs 5,000/- and in multiple of Re.1/- thereafter",
-            "IDCW Option : Rs 5,000/- and in multiple of Re.1/- thereafter"
-        ],
+        "multiples_for_new_investment": "Growth Option: Rs 5,000/- and in multiple of Re.1/- thereafter IDCW Option : Rs 5,000/- and in multiple of Re.1/- thereafter",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Redemption / Switch out / SWP / STP before expiry of 7 days from the date of allotment - 0.25% of NAV, Redemption / Switch out / SWP / STP after expiry of 7 days from the date of allotment - NIL Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2332,7 +2305,7 @@
                 "experience": "fixed income portfolio"
             }
         ],
-        "benchmark": "CRISIL Hybrid 50+50 - Moderate Index",
+        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index",
         "nav": {
             "direct - idcw": 21.8395,
             "direct - growth": 21.8395
@@ -2342,34 +2315,39 @@
         ],
         "monthly_average_aum": 10307.3,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 29.0
+            "portfolio_turnover_ratio": 29.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 6.47 7.31",
-            "Sharpe Ratio 0.54 0.44",
-            "Portfolio Beta 0.84 NA",
-            "R Squared 0.95 NA",
-            "Treynor 0.36 NA",
-            "Jenson 0.07 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104",
-            "Portfolio Macaulay Duration 3.91 Years",
-            "Modified Duration 3.76 Years",
-            "Average Maturity 7.97 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.27%",
-            "* Computed on the invested amount for debt portfolio.",
-            "Total stock in Portfolio 74"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104modified duration 3.76 yearsaverage maturity 7.97 yearsannualized yield to maturity (for debt component)*- including net current assets 7.27%* computed on the invested amount for debt portfolio.total stock in portfolio 74",
+            "std_deviaton": {
+                "fund": "6.47",
+                "benchmark": "7.31"
+            },
+            "sharpe_ratio": {
+                "fund": "0.54",
+                "benchmark": "0.44"
+            },
+            "portfolio_beta": {
+                "fund": "3.91",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.95",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.36",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.07",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) Redemption/Switch-out/SWP/STP on orbefore expiry of 90 days from the date of allotment: If the withdrawal amount or switched out amount is not more than 12% of the original cost of investment - NIL. 2) Redemption/Switch-out/SWP/STP on or before expiry of 90 days from the date of allotment: If the withdrawal amount or switched out amount is more than 12% of the original cost of investment - 1%. 3) Redemption / Switch-out/SWP/STP after expiry of 90 days from the date of allotment - NIL. w.e.f. 07 Jan, 2022 Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2497,7 +2475,7 @@
                 "experience": "managing since 16-aug-23 and overall experience of 16 years"
             }
         ],
-        "benchmark": [
+        "benchmark_index": [
             "65% BSE 200 TRI + 15% CRISIL Short Term Bond Index + 20%",
             "iCOMDEX Composite Index"
         ],
@@ -2510,35 +2488,39 @@
         ],
         "monthly_average_aum": 3494.53,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 15.0
+            "portfolio_turnover_ratio": 15.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 7.64 9.57",
-            "Sharpe Ratio 0.73 0.50",
-            "Portfolio Beta 0.74 NA",
-            "R Squared 0.90 NA",
-            "Treynor 0.64 NA",
-            "Jenson 0.17 NA",
-            "Portfolio Macaulay Duration 3.19 Years",
-            "Modified Duration 3.06 Years",
-            "Average Maturity 5.95 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.19%",
-            "* Computed on the invested amount for debt portfolio.",
-            "Total stock in Portfolio 72",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 3.06 yearsaverage maturity 5.95 yearsannualized yield to maturity (for debt component)*- including net current assets 7.19%* computed on the invested amount for debt portfolio.total stock in portfolio 72^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "7.64",
+                "benchmark": "9.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.73",
+                "benchmark": "0.50"
+            },
+            "portfolio_beta": {
+                "fund": "3.19",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.90",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.64",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.17",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Growth option: Rs 5,000/- and in multiple of Re.1/- thereafter",
-            "IDCW (payout): Rs 5,000/- and in multiple of Re.1/- thereafter"
-        ],
+        "multiples_for_new_investment": "Growth option: Rs 5,000/- and in multiple of Re.1/- thereafter IDCW (payout): Rs 5,000/- and in multiple of Re.1/- thereafter",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs.1000/-& in multiples of Re.1/-thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs.1000/-& in multiples of Re.1/-thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "is Nil, if the withdrawal amount or switched out amount is not more than 12% of the original cost of investment on or before expiry of 365 days from the date of allotment. Exit load is 1% of the applicable NAV if the withdrawal amount or switched out amount is more than 12% of the original cost of investment on or before expiry of 365 days from the date of allotment. No Exit load will be charged for redemption or switch out after expiry of 365 days from the date of allotment Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2553,7 +2535,7 @@
                 "experience": "managing since 01-apr-17 and overall experience of 27 years"
             }
         ],
-        "benchmark": "CRISIL Short Duration Debt A-II Index",
+        "benchmark_index": "CRISIL Short Duration Debt A-II Index",
         "nav": {
             "direct - growth": 50.6138,
             "direct -idcw": 26.8561,
@@ -2564,30 +2546,33 @@
             "Rs. 2735.94 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 2816.02,
-        "metrics": [
-            "Std. Dev (Annualised) 1.10 1.11",
-            "Portfolio Beta 0.88 NA",
-            "R Squared 0.84 NA",
-            "Treynor -0.14 NA",
-            "Jenson -0.05 NA",
-            "Portfolio Macaulay Duration 2.79 Years",
-            "Modified Duration 2.67 Years",
-            "Average Maturity 3.65 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.49%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer Pg 104."
-        ],
+        "metrics": {
+            "comment": "modified duration 2.67 yearsaverage maturity 3.65 yearsannualized yield to maturity (for debt component)*- including net current assets 7.49%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer pg 104.",
+            "std_deviaton": {
+                "fund": "1.10",
+                "benchmark": "1.11"
+            },
+            "portfolio_beta": {
+                "fund": "2.79",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.84",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.14",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.05",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil (w.e.f 24th January, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2602,7 +2587,7 @@
                 "experience": "managing since 26-jun-14 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL Low Duration Debt A-I Index",
+        "benchmark_index": "CRISIL Low Duration Debt A-I Index",
         "nav": {
             "direct - growth": 3881.14,
             "direct - idcw": 2461.1945,
@@ -2613,30 +2598,33 @@
             "Rs. 2327.19 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 2589.75,
-        "metrics": [
-            "Std. Dev (Annualised) 0.58 0.61",
-            "Portfolio Beta 0.92 NA",
-            "R Squared 0.96 NA",
-            "Treynor -0.10 NA",
-            "Jenson -0.04 NA",
-            "Portfolio Macaulay Duration 11.95 Months",
-            "Modified Duration 11.32 Months",
-            "Average Maturity 13.08 Months",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.52%",
-            "* Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 11.32 monthsaverage maturity 13.08 monthsannualized yield to maturity (for debt component)*- including net current assets 7.52%* computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer pg 104",
+            "std_deviaton": {
+                "fund": "0.58",
+                "benchmark": "0.61"
+            },
+            "portfolio_beta": {
+                "fund": "11.95",
+                "benchmark": "months"
+            },
+            "r_squared_ratio": {
+                "fund": "0.96",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.10",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.04",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not ApplicableNot Applicable",
             "exit_load": "NIL Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2651,7 +2639,7 @@
                 "experience": "managing since 16-oct-13 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL Money Market A-I Index",
+        "benchmark_index": "CRISIL Money Market A-I Index",
         "nav": {
             "direct - growth": 4618.9462,
             "reg - growth": 4539.5331
@@ -2660,30 +2648,33 @@
             "Rs. 24751.04 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 27296.8,
-        "metrics": [
-            "Std. Dev (Annualised) 0.51 0.40",
-            "Portfolio Beta 1.19 NA",
-            "R Squared 0.95 NA",
-            "Treynor -0.04 NA",
-            "Jenson 0.01 NA",
-            "Portfolio Macaulay Duration 4.54 Months",
-            "Modified Duration 4.53 Months",
-            "Average Maturity 4.54 Months",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.46%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 4.53 monthsaverage maturity 4.54 monthsannualized yield to maturity (for debt component)*- including net current assets 7.46%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "0.51",
+                "benchmark": "0.40"
+            },
+            "portfolio_beta": {
+                "fund": "4.54",
+                "benchmark": "months"
+            },
+            "r_squared_ratio": {
+                "fund": "0.95",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.04",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.01",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil (w.e.f 24th January, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2702,38 +2693,41 @@
                 "experience": "co fund manager"
             }
         ],
-        "benchmark": "CRISIL Ultra Short Duration Debt A-I Index",
+        "benchmark_index": "CRISIL Ultra Short Duration Debt A-I Index",
         "nav": {
             "direct - growth": 14.3186
         },
         "aum": [
             "Rs. 3961.05 (Rs. in Cr.)"
         ],
-        "monthly_average_aum": 3750.0,
-        "metrics": [
-            "Std. Dev (Annualised) 0.45 0.46",
-            "Portfolio Beta 0.94 NA",
-            "R Squared 0.97 NA",
-            "Treynor -0.12 NA",
-            "Jenson -0.07 NA",
-            "Portfolio Macaulay Duration 5.27 Months",
-            "Modified Duration 5.09 Months",
-            "Average Maturity 5.40 Months",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.71%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer Pg 104"
-        ],
+        "monthly_average_aum": "NA",
+        "metrics": {
+            "comment": "modified duration 5.09 monthsaverage maturity 5.40 monthsannualized yield to maturity (for debt component)*- including net current assets 7.71%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer pg 104",
+            "std_deviaton": {
+                "fund": "0.45",
+                "benchmark": "0.46"
+            },
+            "portfolio_beta": {
+                "fund": "5.27",
+                "benchmark": "months"
+            },
+            "r_squared_ratio": {
+                "fund": "0.97",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.12",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.07",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2748,7 +2742,7 @@
                 "experience": "managing since 22-nov-21 and overall experience of 15 years"
             }
         ],
-        "benchmark": "CRISIL Corporate Bond A-II Index",
+        "benchmark_index": "CRISIL Corporate Bond A-II Index",
         "nav": {
             "direct - growth": 12.066,
             "reg - growth": 11.8534
@@ -2757,31 +2751,17 @@
             "Rs. 2790.52 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 2804.82,
-        "metrics": [
-            "Direct 0.32",
-            "Regular 0.86",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "Portfolio Macaulay Duration 4.27 Years",
-            "Modified Duration 4.06 Years",
-            "Average Maturity 6.92 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.66%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer Pg 104"
-        ],
+        "metrics": {
+            "comment": "direct 0.32regular 0.86**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.modified duration 4.06 yearsaverage maturity 6.92 yearsannualized yield to maturity (for debt component)*- including net current assets 7.66%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer pg 104",
+            "portfolio_beta": {
+                "fund": "4.27",
+                "benchmark": "years"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and in multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2796,7 +2776,7 @@
                 "experience": "managing since 21-jun-21 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL Short Duration Debt A-II Index",
+        "benchmark_index": "CRISIL Short Duration Debt A-II Index",
         "nav": {
             "direct- growth": 12.4223,
             "reg - growth": 12.2347
@@ -2805,30 +2785,33 @@
             "Rs. 167.76 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 151.0,
-        "metrics": [
-            "Std. Dev (Annualised) 0.59 1.11",
-            "Portfolio Beta 0.38 NA",
-            "R Squared 0.54 NA",
-            "Treynor -0.18 NA",
-            "Jenson -0.03 NA",
-            "Portfolio Macaulay Duration 3.49 Years",
-            "Modified Duration 3.34 Years",
-            "Average Maturity 7.22 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.68%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024.",
-            "For calculation methodology please refer Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 3.34 yearsaverage maturity 7.22 yearsannualized yield to maturity (for debt component)*- including net current assets 7.68%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024.for calculation methodology please refer pg 104",
+            "std_deviaton": {
+                "fund": "0.59",
+                "benchmark": "1.11"
+            },
+            "portfolio_beta": {
+                "fund": "3.49",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.54",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.18",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.03",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2843,7 +2826,7 @@
                 "experience": "managing since 30-mar-2022 and overall experience of 22 years"
             }
         ],
-        "benchmark": "Nifty SDL Plus AAA PSU Bond Dec 2027 60: 40 Index TRI",
+        "benchmark_index": "Nifty SDL Plus AAA PSU Bond Dec 2027 60: 40 Index TRI",
         "nav": {
             "direct - growth": 11.9116,
             "direct - idcw": 11.9116,
@@ -2854,34 +2837,17 @@
             "Rs. 863.07 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 862.0,
-        "metrics": [
-            "Direct 0.22",
-            "Regular 0.47",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "For calculation methodology please refer Pg 104",
-            "Portfolio Macaulay Duration 2.51 Years",
-            "Modified Duration 2.4 Years",
-            "Average Maturity 2.75 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.23%",
-            "*Computed on the invested amount for debt portfolio.",
-            "YTM, Macaulay Duration and Modified Duration is post adjustment of",
-            "IRS positions in the Fund. For details of IRS positions please refer to",
-            "Monthly Portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024"
-        ],
+        "metrics": {
+            "comment": "direct 0.22regular 0.47**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.for calculation methodology please refer pg 104modified duration 2.4 yearsaverage maturity 2.75 yearsannualized yield to maturity (for debt component)*- including net current assets 7.23%*computed on the invested amount for debt portfolio.ytm, macaulay duration and modified duration is post adjustment ofirs positions in the fund. for details of irs positions please refer tomonthly portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024",
+            "portfolio_beta": {
+                "fund": "2.51",
+                "benchmark": "years"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "NIl Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2896,7 +2862,7 @@
                 "experience": "managing since 30-sep-2022 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL-IBX Gilt Index  April 2026 TRI",
+        "benchmark_index": "CRISIL-IBX Gilt Index  April 2026 TRI",
         "nav": {
             "direct - growth": 11.7736,
             "direct - idcw": 11.7736,
@@ -2907,34 +2873,17 @@
             "Rs. 1031.39 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 1029.51,
-        "metrics": [
-            "Direct 0.13",
-            "Regular 0.36",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "For calculation methodology please refer Pg 104",
-            "Portfolio Macaulay Duration 1.17 Years",
-            "Modified Duration 1.13 Years",
-            "Average Maturity 1.21 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 6.80%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "YTM, Macaulay Duration and Modified Duration is post adjustment of",
-            "IRS positions in the Fund. For details of IRS positions please refer to",
-            "Monthly Portfolio."
-        ],
+        "metrics": {
+            "comment": "direct 0.13regular 0.36**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.for calculation methodology please refer pg 104modified duration 1.13 yearsaverage maturity 1.21 yearsannualized yield to maturity (for debt component)*- including net current assets 6.80%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024ytm, macaulay duration and modified duration is post adjustment ofirs positions in the fund. for details of irs positions please refer tomonthly portfolio.",
+            "portfolio_beta": {
+                "fund": "1.17",
+                "benchmark": "years"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -2949,7 +2898,7 @@
                 "experience": "managing since 16-jan-2023 and overall experience of 22 years"
             }
         ],
-        "benchmark": "Nifty G-Sec Dec 2026 Index (TRI)",
+        "benchmark_index": "Nifty G-Sec Dec 2026 Index (TRI)",
         "nav": {
             "direct - growth": 11.5173,
             "direct - idcw": 11.5173,
@@ -2960,34 +2909,17 @@
             "Rs. 106.74 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 107.0,
-        "metrics": [
-            "Direct 0.14",
-            "Regular 0.45",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "For calculation methodology please refer Pg 104",
-            "Portfolio Macaulay Duration 1.76 Years",
-            "Modified Duration 1.7 Years",
-            "Average Maturity 1.85 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 6.82%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024.",
-            "YTM, Macaulay Duration and Modified Duration is post",
-            "adjustment of IRS positions in the Fund. For details of IRS",
-            "positions please refer to Monthly Portfolio."
-        ],
+        "metrics": {
+            "comment": "direct 0.14regular 0.45**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.for calculation methodology please refer pg 104modified duration 1.7 yearsaverage maturity 1.85 yearsannualized yield to maturity (for debt component)*- including net current assets 6.82%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024.ytm, macaulay duration and modified duration is postadjustment of irs positions in the fund. for details of irspositions please refer to monthly portfolio.",
+            "portfolio_beta": {
+                "fund": "1.76",
+                "benchmark": "years"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3002,7 +2934,7 @@
                 "experience": "managing since 13-jan-2023 and overall experience of 22 years"
             }
         ],
-        "benchmark": "Nifty G-Sec Dec 2029 Index (TRI)",
+        "benchmark_index": "Nifty G-Sec Dec 2029 Index (TRI)",
         "nav": {
             "direct - growth": 11.6821,
             "direct - idcw": 11.6821,
@@ -3013,34 +2945,17 @@
             "Rs. 180.56 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 180.0,
-        "metrics": [
-            "Direct 0.14",
-            "Regular 0.46",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "For calculation methodology please refer Pg 104",
-            "Portfolio Macaulay Duration 3.84 Years",
-            "Modified Duration 3.71 Years",
-            "Average Maturity 4.43 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 6.85%",
-            "*Computed on the invested amount for debt portfolio.",
-            "YTM, Macaulay Duration and Modified Duration is post adjustment of",
-            "IRS positions in the Fund. For details of IRS positions please refer to",
-            "Monthly Portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024."
-        ],
+        "metrics": {
+            "comment": "direct 0.14regular 0.46**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.for calculation methodology please refer pg 104modified duration 3.71 yearsaverage maturity 4.43 yearsannualized yield to maturity (for debt component)*- including net current assets 6.85%*computed on the invested amount for debt portfolio.ytm, macaulay duration and modified duration is post adjustment ofirs positions in the fund. for details of irs positions please refer tomonthly portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024.",
+            "portfolio_beta": {
+                "fund": "3.84",
+                "benchmark": "years"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3055,7 +2970,7 @@
                 "experience": "managing since 05-dec-24 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL Liquid Debt A-I Index",
+        "benchmark_index": "CRISIL Liquid Debt A-I Index",
         "nav": {
             "direct - growth": 10.0502,
             "direct - idcw": 10.0502,
@@ -3066,34 +2981,17 @@
             "Rs. 209.75 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 209.0,
-        "metrics": [
-            "Direct 0.05",
-            "Regular 0.15",
-            "**Note: The rates specified are actual month end expenses charged",
-            "as on Dec 31, 2024. The above ratio includes the GST on Investment",
-            "Management Fees. The above ratio excludes, borrowing cost,",
-            "wherever applicable.",
-            "For calculation methodology please refer Pg 104",
-            "Portfolio Macaulay Duration 1.99 Months",
-            "Modified Duration 1.99 Months",
-            "Average Maturity 1.99 Months",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.32%",
-            "*Computed on the invested amount for debt portfolio.",
-            "YTM, Macaulay Duration and Modified Duration is post adjustment of",
-            "IRS positions in the Fund. For details of IRS positions please refer to",
-            "Monthly Portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024"
-        ],
+        "metrics": {
+            "comment": "direct 0.05regular 0.15**note: the rates specified are actual month end expenses chargedas on dec 31, 2024. the above ratio includes the gst on investmentmanagement fees. the above ratio excludes, borrowing cost,wherever applicable.for calculation methodology please refer pg 104modified duration 1.99 monthsaverage maturity 1.99 monthsannualized yield to maturity (for debt component)*- including net current assets 7.32%*computed on the invested amount for debt portfolio.ytm, macaulay duration and modified duration is post adjustment ofirs positions in the fund. for details of irs positions please refer tomonthly portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024",
+            "portfolio_beta": {
+                "fund": "1.99",
+                "benchmark": "months"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "NA"
-        ],
+        "multiples_for_existing_investors": "NA",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3108,7 +3006,7 @@
                 "experience": "managing since 16-oct-13 and overall experience of 22 years"
             }
         ],
-        "benchmark": [],
+        "benchmark_index": [],
         "nav": {
             "direct - growth": 4018.9477,
             "reg - growth": 3973.4223
@@ -3117,30 +3015,33 @@
             "Rs. 23173.10 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 23441.85,
-        "metrics": [
-            "Std. Dev (Annualised) 0.38 0.35",
-            "Portfolio Beta 1.06 NA",
-            "R Squared 0.99 NA",
-            "Treynor -0.07 NA",
-            "Jenson -0.01 NA",
-            "Portfolio Macaulay Duration 40 Days",
-            "Modified Duration 40 Days",
-            "Average Maturity 40 Days",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.26%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of",
-            "7.15% as on Dec 31, 2024.",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 40 daysaverage maturity 40 daysannualized yield to maturity (for debt component)*- including net current assets 7.26%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of7.15% as on dec 31, 2024.for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "0.38",
+                "benchmark": "0.35"
+            },
+            "portfolio_beta": {
+                "fund": "40",
+                "benchmark": "days"
+            },
+            "r_squared_ratio": {
+                "fund": "0.99",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.07",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.01",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 day - 0.0070% of redemption proceeds 2 days - 0.0065% of redemption proceeds 3 days - 0.0060% of redemption proceeds 4 days - 0.0055% of redemption proceeds 5 days - 0.0050% of redemption proceeds 6 days - 0.0045% of redemption proceeds 7 days or more - Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3155,7 +3056,7 @@
                 "experience": "managing since 26-mar-19 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL Liquid Overnight Index (AI)",
+        "benchmark_index": "CRISIL Liquid Overnight Index (AI)",
         "nav": {
             "direct - idcw": 1000.0018,
             "direct - growth": 1326.3221
@@ -3164,30 +3065,33 @@
             "Rs. 3944.57 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 4673.47,
-        "metrics": [
-            "Std. Dev (Annualised) 0.32 0.32",
-            "Portfolio Beta 0.98 NA",
-            "R Squared 1.00 NA",
-            "Treynor -0.11 NA",
-            "Jenson -0.01 NA",
-            "Portfolio Macaulay Duration 1 Day",
-            "Modified Duration 1 Day",
-            "Average Maturity 1 Day",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 6.73%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 1 dayaverage maturity 1 dayannualized yield to maturity (for debt component)*- including net current assets 6.73%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "0.32",
+                "benchmark": "0.32"
+            },
+            "portfolio_beta": {
+                "fund": "1",
+                "benchmark": "day"
+            },
+            "r_squared_ratio": {
+                "fund": "1.00",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.11",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.01",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3202,7 +3106,7 @@
                 "experience": "managing since 01-mar-22 and overall experience of 22 years"
             }
         ],
-        "benchmark": "CRISIL Dynamic Gilt Index (AIII)",
+        "benchmark_index": "CRISIL Dynamic Gilt Index (AIII)",
         "nav": {
             "direct - growth": 83.4485,
             "direct - idcw": 23.4965,
@@ -3213,30 +3117,33 @@
             "Rs. 1079.82 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 1052.75,
-        "metrics": [
-            "Std. Dev (Annualised) 2.08 2.82",
-            "Portfolio Beta 0.63 NA",
-            "R Squared 0.77 NA",
-            "Treynor -0.16 NA",
-            "Jenson -0.06 NA",
-            "Portfolio Macaulay Duration 10.49 Years",
-            "Modified Duration 10.14 Years",
-            "Average Maturity 23.81 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.05%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate",
-            "of 7.15% as on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 10.14 yearsaverage maturity 23.81 yearsannualized yield to maturity (for debt component)*- including net current assets 7.05%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rateof 7.15% as on dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "2.08",
+                "benchmark": "2.82"
+            },
+            "portfolio_beta": {
+                "fund": "10.49",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.77",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "-0.16",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.06",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil (w.e.f. 2nd November, 2018) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3251,7 +3158,7 @@
                 "experience": "managing since 01-apr-16 and overall experience of 26 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {
             "direct - growth": 79.8253,
             "reg - growth": 66.2631
@@ -3261,27 +3168,39 @@
         ],
         "monthly_average_aum": 2145.95,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 66.0
+            "portfolio_turnover_ratio": 66.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 12.09 13.57",
-            "Sharpe Ratio 0.60 0.60",
-            "Portfolio Beta 0.80 NA",
-            "R Squared 0.86 NA",
-            "Treynor 0.77 NA",
-            "Jenson 0.07 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "12.09",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.60",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.80",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.86",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.77",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.07",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) Nil  If redemption or switch out on or after attainment of retirement age i.e. 60years. 2) Nil  In case of Auto switch out of units on occurrence of Auto switch trigger event. 3)  is 1%  If redeemed before 61 months from the date of allotment. The above condtions applicable (w.e.f. 3rd May, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3296,7 +3215,7 @@
                 "experience": "managing since 01-apr-16 and overall experience of 26 years"
             }
         ],
-        "benchmark": "Crisil Hybrid 25+75 - Aggressive Index",
+        "benchmark_index": "Crisil Hybrid 25+75 - Aggressive Index",
         "nav": {
             "direct - growth": 75.9862,
             "reg - growth": 64.2968
@@ -3306,27 +3225,39 @@
         ],
         "monthly_average_aum": 2203.07,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 53.0
+            "portfolio_turnover_ratio": 53.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 10.24 10.38",
-            "Sharpe Ratio 0.61 0.52",
-            "Portfolio Beta 0.87 NA",
-            "R Squared 0.82 NA",
-            "Treynor 0.61 NA",
-            "Jenson 0.13 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "10.24",
+                "benchmark": "10.38"
+            },
+            "sharpe_ratio": {
+                "fund": "0.61",
+                "benchmark": "0.52"
+            },
+            "portfolio_beta": {
+                "fund": "0.87",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.82",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.61",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "0.13",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) Nil  If redemption or switch out on or after attainment of retirement age i.e. 60years. 2) Nil  In case of Auto switch out of units on occurrence of Auto switch trigger event. 3)  is 1%  If redeemed before 61 months from the date of allotment. The above condtions applicable (w.e.f. 3rd May, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3341,7 +3272,7 @@
                 "experience": "managing since 01-apr-16 and overall experience of 26 years"
             }
         ],
-        "benchmark": "CRISIL Short Term Debt Hybrid 75+25 Index",
+        "benchmark_index": "CRISIL Short Term Debt Hybrid 75+25 Index",
         "nav": {
             "direct - growth": 35.9264,
             "reg - growth": 30.8835
@@ -3350,30 +3281,33 @@
             "Rs. 174.42 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 175.0,
-        "metrics": [
-            "Std. Dev (Annualised) 4.13 3.85",
-            "Portfolio Beta 0.98 NA",
-            "R Squared 0.88 NA",
-            "Treynor 0.00 NA",
-            "Jenson -0.09 NA",
-            "Portfolio Macaulay Duration 2.28 Years",
-            "Modified Duration 2.2 Years",
-            "Average Maturity 3.76 Years",
-            "Annualized Yield to Maturity (For Debt Component)*",
-            "- Including Net Current Assets 7.06%",
-            "*Computed on the invested amount for debt portfolio.",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "modified duration 2.2 yearsaverage maturity 3.76 yearsannualized yield to maturity (for debt component)*- including net current assets 7.06%*computed on the invested amount for debt portfolio.^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "4.13",
+                "benchmark": "3.85"
+            },
+            "portfolio_beta": {
+                "fund": "2.28",
+                "benchmark": "years"
+            },
+            "r_squared_ratio": {
+                "fund": "0.88",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.00",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.09",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
-        "multiples_for_new_investment": [
-            "Rs. 5,000/- and in multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_new_investment": "Rs. 5,000/- and in multiples of Re. 1/- thereafter.",
         "additional_investment/": [],
-        "multiples_for_existing_investors": [
-            "Rs. 1,000/- and multiples of Re. 1/- thereafter."
-        ],
+        "multiples_for_existing_investors": "Rs. 1,000/- and multiples of Re. 1/- thereafter.",
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1) Nil  If redemption or switch out on or after attainment of retirement age i.e. 60years. 2) Nil  In case of Auto switch out of units on occurrence of Auto switch trigger event. 3)  is 1%  If redeemed before 61 months from the date of allotment. The above condtions applicable (w.e.f. 3rd May, 2019) Please refer to our Tata Mutual Fund website for fundamental changes, wherever applicable"
@@ -3388,26 +3322,42 @@
                 "experience": "managing since 09-mar-21 and overall experience of 16 years"
             }
         ],
-        "benchmark": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI",
         "nav": {},
         "aum": [
             "Rs. 361.58 (Rs. in Cr.)"
         ],
         "monthly_average_aum": 367.0,
         "turn_over": {
-            "portfolio_turnover_ratio(%)": 42.0
+            "portfolio_turnover_ratio": 42.0
         },
-        "metrics": [
-            "Std. Dev (Annualised) 13.07 13.57",
-            "Sharpe Ratio 0.45 0.60",
-            "Portfolio Beta 0.90 NA",
-            "R Squared 0.92 NA",
-            "Treynor 0.55 NA",
-            "Jenson -0.12 NA",
-            "^Risk-free rate based on the FBIL Overnight MIBOR rate of 7.15% as",
-            "on Dec 31, 2024",
-            "For calculation methodology please refer to Pg 104"
-        ],
+        "metrics": {
+            "comment": "^risk-free rate based on the fbil overnight mibor rate of 7.15% ason dec 31, 2024for calculation methodology please refer to pg 104",
+            "std_deviaton": {
+                "fund": "13.07",
+                "benchmark": "13.57"
+            },
+            "sharpe_ratio": {
+                "fund": "0.45",
+                "benchmark": "0.60"
+            },
+            "portfolio_beta": {
+                "fund": "0.90",
+                "benchmark": "na"
+            },
+            "r_squared_ratio": {
+                "fund": "0.92",
+                "benchmark": "na"
+            },
+            "treynor_ratio": {
+                "fund": "0.55",
+                "benchmark": "na"
+            },
+            "jenson_ratio": {
+                "fund": "-0.12",
+                "benchmark": "na"
+            }
+        },
         "minimum_investment/": [],
         "mul_tiples_for_new_investment": [
             "Rs. 500/- and in multiples of Rs. 500/- thereafter."

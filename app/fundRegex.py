@@ -10,7 +10,6 @@ class FundRegex():
             r"^fund_mana.*": "fund_manager",
             r'co-_fund_manager.*': "co_fund_manager",
             r"^(fund_infor|scheme|fund_details|fund_snapshot|fund_feat).*": "scheme_details",
-            r'^portfolio.*': "portfolio",
             r"^(investment|about_the|data_as)": "investment_objective",
             r"^(expense_ratio|scheme_statistics|portfolio_stats|risk|ratio|maturity|qualitative|quantitative|volatility|debt_quant|other_parameter|performance_attri|performance).*": "metrics",
             r"^expense.*": "expense_ratio",

@@ -208,7 +208,7 @@ class Helper:
         print(f'\n JSON saved at {output_path}')
     
     @staticmethod
-    def drop_dict(final_dict:dict):
+    def drop_empty_dict_values(final_dict:dict):
         finally_dict = {}
         for fund, content in final_dict.items():
             non_empty_dict = {}
@@ -217,3 +217,8 @@ class Helper:
                     non_empty_dict[key] = value
             finally_dict[fund] = non_empty_dict
         return finally_dict
+    
+    @staticmethod
+    def quick_construct_str(data:list):
+        
+        return " ".join(data)

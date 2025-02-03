@@ -17,36 +17,9 @@ class Samco(Reader):
         super().__init__(path,dry,fin,rep, self.PARAMS)
 
     
-    def return_required_header(self,string: str):
-            replace_key = string
-            if re.match(r'^nav.*', string, re.IGNORECASE):
-                replace_key = "nav"
-            elif re.match(r"^market", string, re.IGNORECASE):
-                replace_key = "market_capital"  
-            elif re.match(r"^assets", string, re.IGNORECASE):
-                replace_key = "assets_under_management"
-            elif re.match(r"^fund", string, re.IGNORECASE):
-                replace_key = "fund_manager" 
-            elif re.match(r"^scheme", string, re.IGNORECASE):
-                replace_key = "scheme_details" 
-            elif re.match(r"^investment", string, re.IGNORECASE):
-                replace_key = "investment_objective"
-            elif re.match(r"^quanti", string, re.IGNORECASE):
-                replace_key = "metrics"
-            elif re.match(r"^portfolio", string, re.IGNORECASE):
-                replace_key = "portfilio"       
-            return replace_key
-    
     #FundRegex FUNCTIONS
-    def __return_invest_data(self,key:str,data:list):
-        investment_objective = data
-        values = " ".join(txt for txt in investment_objective)
-
-        data = {
-            key:values
-        }
-
-        return data
+    def __return_invest_data(self,main_key:str,data:list):
+       return {main_key: " ".join(data)}
 
     def __return_scheme_data(self,key:str,data:list):
         scheme_data = data
@@ -208,16 +181,16 @@ class Samco(Reader):
         elif re.match(r"^Scheme", check_header, re.IGNORECASE):
             return self.__return_scheme_data(string, data)
         
-        elif re.match(r"^NAV", check_header, re.IGNORECASE):
+        elif re.match(r"^nav", check_header, re.IGNORECASE):
             return self.__return_nav_data(string, data)
         
-        elif re.match(r"^Quant", check_header, re.IGNORECASE):
+        elif re.match(r"^metrics.*", check_header, re.IGNORECASE):
             return self.__return_quant_data(string, data)
         
-        elif re.match(r"^Fund", check_header, re.IGNORECASE):
+        elif re.match(r"fund_manager.*", check_header, re.IGNORECASE):
             return self.__return_fund_data(string, data)
         
-        elif re.match(r"^Assets", check_header, re.IGNORECASE):
+        elif re.match(r"^aum", check_header, re.IGNORECASE):
             return self.__return_aum_data(string, data)
         
         else:
@@ -276,7 +249,7 @@ class Tata(Reader):
         for text in turn_data:
             if re.match(r'^Portfolio.*',text, re.IGNORECASE):
                 if matches := re.search(r"\d+\.\d+", text):
-                    final_dict['portfolio_turnover_ratio(%)'] = FundRegex.extract_decimals(matches.group())
+                    final_dict['portfolio_turnover_ratio'] = FundRegex.extract_decimals(matches.group())
         return {main_key:final_dict}
     
     def __extract_load_data(self,main_key:str, data:list):
@@ -337,37 +310,37 @@ class Tata(Reader):
         for text in volat_data:
             text = text.lower()
             if re.match(r'^std.*',text, re.IGNORECASE):
-                content = [FundRegex.extract_decimals(value) for value in text.split(" ")[-2:]]
+                content = [value for value in text.split(" ")[-2:]]
                 final_dict['std_deviaton'] = {
                     "fund": content[0],
                     "benchmark": content[1]
                 }
             elif re.match(r'^sharpe.*',text, re.IGNORECASE):
-                content = [FundRegex.extract_decimals(value) for value in text.split(" ")[-2:]]
+                content = [value for value in text.split(" ")[-2:]]
                 final_dict['sharpe_ratio'] = {
                     "fund": content[0],
                     "benchmark": content[1]
                 }
             elif re.match(r'^r squared.*',text, re.IGNORECASE):
-                content = [FundRegex.extract_decimals(value) for value in text.split(" ")[-2:]]
+                content = [value for value in text.split(" ")[-2:]]
                 final_dict['r_squared_ratio'] = {
                     "fund": content[0],
                     "benchmark": content[1]
                 }
             elif re.match(r'^treynor.*',text, re.IGNORECASE):
-                content = [FundRegex.extract_decimals(value) for value in text.split(" ")[-2:]]
+                content = [value for value in text.split(" ")[-2:]]
                 final_dict['treynor_ratio'] = {
                     "fund": content[0],
                     "benchmark": content[1]
                 }
             elif re.match(r'^jenson.*',text, re.IGNORECASE):
-                content = [FundRegex.extract_decimals(value) for value in text.split(" ")[-2:]]
+                content = [value for value in text.split(" ")[-2:]]
                 final_dict['jenson_ratio'] = {
                     "fund": content[0],
                     "benchmark": content[1]
                 }
             elif re.match(r'^portfolio.*',text, re.IGNORECASE):
-                content = [FundRegex.extract_decimals(value) for value in text.split(" ")[-2:]]
+                content = [value for value in text.split(" ")[-2:]]
                 final_dict['portfolio_beta'] = {
                     "fund": content[0],
                     "benchmark": content[1]
@@ -402,13 +375,13 @@ class Tata(Reader):
     def match_regex_to_content(self, string:str, data:list, *args):
         check_header = string
         
-        if re.match(r"^investment.*", check_header, re.IGNORECASE):
+        if re.match(r"^(investment|multiples).*", check_header, re.IGNORECASE):
             return self.__extract_inv_data(string,data)
         elif re.match(r"^nav.*", check_header, re.IGNORECASE):
             return self.__extract_nav_data(string, data)
         elif re.match(r"^turn.*", check_header, re.IGNORECASE):
             return self.__extract_turn_data(string, data)
-        elif re.match(r"^volat.*", check_header, re.IGNORECASE):
+        elif re.match(r"^metrics.*", check_header, re.IGNORECASE):
             return self.__extract_volat_data(string, data)
         elif re.match(r"^load.*", check_header, re.IGNORECASE):
             return self.__extract_load_data(string, data)
@@ -694,13 +667,6 @@ class Helios(Reader):
     def __init__(self, path: str,dry:str,fin:str, rep:str):
         super().__init__(path,dry,fin,rep, self.PARAMS) 
         
-    def return_required_header(self,string: str):
-        replace_key = string
-        if re.match(r'^nav.*', string, re.IGNORECASE):
-            replace_key = "nav"
-        elif re.match(r'.*objective$', string, re.IGNORECASE):
-            replace_key = "investment_objective"
-        return replace_key
     #FundRegex
     
     def __extract_dum_data(self,key,data:list):
@@ -739,14 +705,17 @@ class Helios(Reader):
         aum_data = data
         final_dict = {}
         pattern = r'(Monthly Avg AUM|Month end AUM)[\s]+([\d]+\.\d+)'
-        
-        final_dict = {}
         for text in aum_data:
             text = text.lower()
             matches = re.findall(pattern, text, re.IGNORECASE)
             for key, value in matches:
                 final_dict[key.strip()] = FundRegex.extract_decimals(value)
         return {main_key:final_dict}
+    
+    def __extract_scheme_data(self, main_key:str, data:list):
+        scheme_data = data
+        final_dict = {}
+        return {main_key:data}
     
     def match_regex_to_content(self, string:str, data:list):
         check_header = string
@@ -756,6 +725,8 @@ class Helios(Reader):
             return self.__extract_total_expense_data(string, data)
         elif re.match(r"^nav.*", check_header, re.IGNORECASE):
             return self.__extract_nav_data(string, data)
+        elif re.match(r"^portfolio.*", check_header, re.IGNORECASE): #error here portfolio is read
+            return self.__extract_scheme_data(string, data)
         return self.__extract_dum_data(string,data) 
           
 class Edelweiss(Reader):
