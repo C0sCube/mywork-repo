@@ -49,7 +49,7 @@ class Reader:
         df_final.to_excel(excel_path, engine="openpyxl", index=True)
 
         # Filter pages based on the threshold
-        pages = df.loc[ (df["highlights"] > threshold) & (df["title"].str.contains(r"\w+", na=False, regex=True))].index.to_list()
+        pages = df.loc[ (df["highlights"] >= threshold) & (df["title"].str.contains(r"\w+", na=False, regex=True))].index.to_list()
                
         print(f"\nDoc Saved At: {excel_path}")
         print(f"\nPages to Extract: {pages}")
@@ -133,26 +133,33 @@ class Reader:
         document = fitz.open(input)
         final_list = []
         bboxes = self.PARAMS['clip_bbox']
-        fund_names= title
-        
+        fund_names = title
+
         for pgn in pageSelect:
             page = document[pgn]
             fundName = fund_names[pgn]
 
             blocks = []
+            seen_blocks = set()  # To store unique blocks based on content and bbox
+
             for bbox in bboxes:
-                blocks.extend(page.get_text('dict', clip = bbox)['blocks']) #get all blocks
-            
-            filtered_blocks = [block for block in blocks if block['type']== 0 and 'lines' in block]
-            sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
-            
+                page_blocks = page.get_text('dict', clip=bbox)['blocks']
+                for block in page_blocks:
+                    if block['type'] == 0 and 'lines' in block:
+                        #hash_key
+                        block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
+                        if block_key not in seen_blocks:
+                            seen_blocks.add(block_key)
+                            blocks.append(block)
+
+            sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
+
             final_list.append({
-            "pgn": pgn,
-            "fundname": fundName,
-            "block": sorted_blocks
+                "pgn": pgn,
+                "fundname": fundName,
+                "block": sorted_blocks
             })
-            
-            
+
         document.close()
         return final_list
     
@@ -265,7 +272,7 @@ class Reader:
         return data
  
     def process_text_data(self,text_data: dict):
-        remove_text = ['Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
+        remove_text = ["*",'Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
         updated_text_data = {}
         data_conditions = self.PARAMS['data']

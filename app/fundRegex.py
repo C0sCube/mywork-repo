@@ -6,19 +6,20 @@ class FundRegex():
     HEADER_PATTERNS = {
             r"^(nav|net_asset).*": "nav",
             r"^market": "market_capital",
-            r"^(\*aum|assets|fund_aum|aum|fund_size|aum_detail|portfolio_details).*": "aum",
+            r"^(\*aum|assets|fund_aum|aum|fund_size|aum_detail|portfolio_details|fund_size).*": "aum",
             r"^fund_mana.*": "fund_manager",
             r'co-_fund_manager.*': "co_fund_manager",
             r"^(fund_infor|scheme|fund_details|fund_snapshot|fund_feat).*": "scheme_details",
             r"^(investment|about_the|data_as)": "investment_objective",
-            r"^(expense_ratio|scheme_statistics|portfolio_stats|risk|ratio|maturity|qualitative|quantitative|volatility|debt_quant|other_parameter|performance_attri|performance).*": "metrics",
+            r"^(portfolio_statistics|scheme_statistics|portfolio_stats|risk|ratio|maturity|qualitative|quantitative|volatility|debt_quant|other_parameter|performance_attri|performance).*": "metrics",
             r"^expense.*": "expense_ratio",
             r'^load.*': "load",
-            r"^total_exp.*": "total_expense_ratio",
+            r"^(total_exp|weighted_average).*": "total_expense_ratio",
             r'^portfolio_turnover.*': "portfolio_turover_ratio",
-            r'^(date|allotment|inception).*': 'scheme_launch_date',
+            # r'^(date|allotment|inception).*': 'scheme_launch_date',
             r'^benchmark.*': "benchmark_index",
-            r'^composition.*': "compositon_by_industry"
+            r'^composition.*': "compositon_by_industry",
+            r'^minimum_investment': "minimum_investment"
         }
     
     DECIMAL_PATTERN = r'\b-?(?:\d{1,3}(?:,\d{3})*|\.\d+|\d+\.\d+)\b'
