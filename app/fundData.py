@@ -1220,13 +1220,24 @@ class Kotak(Reader):
                     final_dict[key] = value
         return {main_key: final_dict}
     
+    def __extract_ter_data(self, main_key:str, data:list):
+        ter_data = data
+        final_dict = {}
+        pattern = r'(?:Regular Plan|Direct Plan):\s*([\d.]+)%'
+        for text in ter_data:
+            text = text.strip()
+            if matches:= re.findall(pattern, text, re.IGNORECASE):
+                for key, value in matches:
+                    final_dict[key] = value
+        return{main_key:final_dict}
+    
     #MAPPING
     def match_regex_to_content(self, string:str, data:list):
         check_header = string
-        if re.match(r"^(aaum|aum|allotment|folio_count|entry|exit|initial|systemic|ideal).*", check_header, re.IGNORECASE):
+        if re.match(r"^(sip|aaum|aum|allotment|folio_count|entry|exit|initial|systemic|ideal).*", check_header, re.IGNORECASE):
             return self.__extract_inv_data(string,data)
-        # elif re.match(r"^aum.*", check_header, re.IGNORECASE):
-        #     return self.__extract_aum_data(string, data)
+        elif re.match(r"^total.*", check_header, re.IGNORECASE):
+            return self.__extract_ter_data(string, data)
         elif re.match(r"^fund_mana.*", check_header, re.IGNORECASE):
             return self.__extract_inv_data(string, data)
         elif re.match(r"^metrics.*", check_header, re.IGNORECASE):

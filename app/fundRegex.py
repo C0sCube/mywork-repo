@@ -19,7 +19,8 @@ class FundRegex():
             # r'^(date|allotment|inception).*': 'scheme_launch_date',
             r'^benchmark.*': "benchmark_index",
             r'^composition.*': "compositon_by_industry",
-            r'^minimum_investment': "minimum_investment"
+            r'^minimum_investment': "minimum_investment",
+            r'systematic_investment_plan_': "sip"
         }
     
     DECIMAL_PATTERN = r'\b-?(?:\d{1,3}(?:,\d{3})*|\.\d+|\d+\.\d+)\b'
