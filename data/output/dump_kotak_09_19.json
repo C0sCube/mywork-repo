@@ -13,12 +13,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 547.1680 625.5220",
-            "IDCW 70.6300 82.7270",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "547.1680",
+            "Direct Growth": "625.5220",
+            "Regular IDCW": "70.6300",
+            "Direct IDCW": "82.7270"
+        },
         "metrics": {
             "Portfolio Turnover": "30.99",
             "Beta": "0.90",
@@ -27,24 +27,14 @@
             "P/E": "24.83",
             "P/BV": "3.90"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.75%",
-            "Direct Plan: 0.61%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.75",
+            "Direct Plan": "0.61"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - December 29, 1998. The returns are calcula outflows and taking the time of investment into consideration. different expense structure. # Benchmark; ^ Additional Benchma variant (TRI) of the Benchmark Index instead of Price Return Varia ***As per para 1.9 of of SEBI Master circular No. SEBI/HO/IMD/IM Manager within the category. *For Fund Manager experience, please refer page 122-126 & 138 F l t th IDCW l f 143 145 F h"
+        "investment_objective": []
     },
     "kotak flexicap fund": {
         "fund_manager": "Mr. Harsha Upadhyaya",
@@ -60,12 +50,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 79.5870 89.2460",
-            "IDCW 48.0580 54.5030",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "79.5870",
+            "Direct Growth": "89.2460",
+            "Regular IDCW": "48.0580",
+            "Direct IDCW": "54.5030"
+        },
         "metrics": {
             "Portfolio Turnover": "17.26",
             "Beta": "0.92",
@@ -74,24 +64,14 @@
             "P/E": "24.37",
             "P/BV": "3.89"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.47%",
-            "Direct Plan: 0.62%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.47",
+            "Direct Plan": "0.62"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - September 11, 2009. The returns are calcula inflows and outflows and taking the time of investment into cons plans have different expense structure. # Benchmark; ^ Additiona the Total Return variant (TRI) of the Benchmark Index instead of P ICRA MFI Explorer. ***As per para 1.9 of of SEBI Master circular style / strategy of the Fund Manager within the category. *For Fu"
+        "investment_objective": []
     },
     "kotak multicap fund": {
         "fund_manager": "Mr. Devender Singhal & Mr. Abhishek Bisen",
@@ -107,12 +87,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 18.9530 19.9170",
-            "IDCW 18.9530 19.9170",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "18.9530",
+            "Direct Growth": "19.9170",
+            "Regular IDCW": "18.9530",
+            "Direct IDCW": "19.9170"
+        },
         "metrics": {
             "Portfolio Turnover": "57.13",
             "Beta": "0.99",
@@ -121,25 +101,14 @@
             "P/E": "19.57",
             "P/BV": "3.19"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.65%",
-            "Direct Plan: 0.40%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment) (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.65",
+            "Direct Plan": "0.40"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - September 29,202T1h.e returns are calculate outflows and taking the time of investment into consideration. Sin expense structure. # Benchmark; ^ Additional Benchmark. TRI  To (TRI) of the Benchmark Index instead of Price Return Variant (PRI). A"
+        "investment_objective": []
     },
     "kotak equity opportunities fund": {
         "fund_manager": "Mr. Harsha Upadhyaya",
@@ -157,12 +126,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 333.7500 380.9660",
-            "IDCW 58.2270 67.2250",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "333.7500",
+            "Direct Growth": "380.9660",
+            "Regular IDCW": "58.2270",
+            "Direct IDCW": "67.2250"
+        },
         "metrics": {
             "Portfolio Turnover": "25.22",
             "Beta": "0.87",
@@ -171,24 +140,14 @@
             "P/E": "24.48",
             "P/BV": "3.91"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.59%",
-            "Direct Plan: 0.52%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.59",
+            "Direct Plan": "0.52"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - September 09, 2004. The returns are calculate outflows and taking the time of investment into consideration. Si different expense structure. # Benchmark; ^ Additional Benchmark variant (TRI) of the Benchmark Index instead of Price Return Variant ***As per para 1.9 of of SEBI Master circular No. SEBI/HO/IMD/IMD Manager within the category. *For Fund Manager experience, please refer page 122-126 & 138- h f R l Pl l f 109 121 F"
+        "investment_objective": []
     },
     "kotak emerging equity fund": {
         "fund_manager": "Mr. Atul Bhole",
@@ -205,12 +164,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 134.1150 154.3800",
-            "IDCW 73.6600 91.9770",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "134.1150",
+            "Direct Growth": "154.3800",
+            "Regular IDCW": "73.6600",
+            "Direct IDCW": "91.9770"
+        },
         "metrics": {
             "Portfolio Turnover": "47.70",
             "Beta": "0.80",
@@ -219,24 +178,14 @@
             "P/E": "38.34",
             "P/BV": "5.88"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.42%",
-            "Direct Plan: 0.38%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.42",
+            "Direct Plan": "0.38"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - March 30, 2007. The returns are calculated b outflows and taking the time of investment into consideration. S different expense structure. # Benchmark; ^ Additional Benchmar variant (TRI) of the Benchmark Index instead of Price Return Variant ***As per para 1.9 of of SEBI Master circular No. SEBI/HO/IMD/IMD Manager within the category"
+        "investment_objective": []
     },
     "kotak small cap fund": {
         "fund_manager": "Mr. Harish Bihani",
@@ -253,12 +202,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 274.6630 320.3250",
-            "IDCW 119.8260 140.6970",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "274.6630",
+            "Direct Growth": "320.3250",
+            "Regular IDCW": "119.8260",
+            "Direct IDCW": "140.6970"
+        },
         "metrics": {
             "Portfolio Turnover": "24.76",
             "Beta": "0.71",
@@ -267,24 +216,14 @@
             "P/E": "42.44",
             "P/BV": "5.70"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.64%",
-            "Direct Plan: 0.51%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.64",
+            "Direct Plan": "0.51"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - February 24,2005. The returns are calculated outflows and taking the time of investment into consideration. Sin expense structure. # Benchmark; ^ Additional Benchmark. TRI  To (TRI) of the Benchmark Index instead of Price Return Variant (PRI). A ***As per para 1.9 of of SEBI Master circular No. SEBI/HO/IMD/IM"
+        "investment_objective": []
     },
     "kotak india eq contra fund": {
         "fund_manager": "Ms. Shibani Sircar Kurian",
@@ -300,12 +239,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 146.0740 171.0610",
-            "IDCW 50.3510 60.8720",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "146.0740",
+            "Direct Growth": "171.0610",
+            "Regular IDCW": "50.3510",
+            "Direct IDCW": "60.8720"
+        },
         "metrics": {
             "Portfolio Turnover": "42.77",
             "Beta": "0.96",
@@ -314,24 +253,14 @@
             "P/E": "22.45",
             "P/BV": "3.44"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.87%",
-            "Direct Plan: 0.56%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.87",
+            "Direct Plan": "0.56"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment:1%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - July 27,2005. The returns are calculated cash inflows and outflows and taking the time of investmen Growth Option Different plans have different expense struc performance of the scheme is benchmarked to the Total Re reinvested in the units of the scheme at the then prevailing N"
+        "investment_objective": []
     },
     "kotak focused equity fund": {
         "fund_manager": "Ms. Shibani Sircar Kurian",
@@ -347,12 +276,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 23.8980 26.0740",
-            "IDCW 23.8980 26.0750",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "23.8980",
+            "Direct Growth": "26.0740",
+            "Regular IDCW": "23.8980",
+            "Direct IDCW": "26.0750"
+        },
         "metrics": {
             "Portfolio Turnover": "38.98",
             "Beta": "0.91",
@@ -361,24 +290,14 @@
             "P/E": "28.34",
             "P/BV": "4.10"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.89%",
-            "Direct Plan: 0.52%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.89",
+            "Direct Plan": "0.52"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 10% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - July 16,2019. The returns are calc value and a series of cash inflows and outflows and tak SIP Performance is for Regular Plan  Growth Option SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated June 27 scheme return with benchmark return. *All payouts d SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated June 2 Manager within the category. *For Fund Manager expe B30 fee and GST. For scheme performance Regular Plan"
+        "investment_objective": []
     },
     "kotak elss tax saver fund": {
         "fund_manager": "Mr. Harsha Upadhyaya",
@@ -393,12 +312,12 @@
         "initial_&_additional_investment": "500 and in multiples of 500",
         "sip": "500 and in multiples of 500",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 115.3650 134.3090",
-            "IDCW 43.1750 56.2610",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "115.3650",
+            "Direct Growth": "134.3090",
+            "Regular IDCW": "43.1750",
+            "Direct IDCW": "56.2610"
+        },
         "metrics": {
             "Portfolio Turnover": "36.03",
             "Beta": "0.87",
@@ -407,23 +326,14 @@
             "P/E": "20.74",
             "P/BV": "3.61"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.76%",
-            "Direct Plan: 0.62%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and IDCW (Payout)",
-            "(applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.76",
+            "Direct Plan": "0.62"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - November 23, 2005. The returns are ca series of cash inflows and outflows and taking the time of inv Plan  Growth Option Different plans have different expense the performance of the scheme is benchmarked to the Tota reinvested in the units of the scheme at the then prevailing"
+        "investment_objective": []
     },
     "kotak pioneer fund": {
         "fund_manager": "Mr. Harish Bihani",
@@ -441,12 +351,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 30.1630 32.7700",
-            "IDCW 30.1760 32.7650",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "30.1630",
+            "Direct Growth": "32.7700",
+            "Regular IDCW": "30.1760",
+            "Direct IDCW": "32.7650"
+        },
         "metrics": {
             "Portfolio Turnover": "31.86",
             "Beta": "0.93",
@@ -455,24 +365,14 @@
             "P/E": "52.28",
             "P/BV": "7.39"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.88%",
-            "Direct Plan: 0.49%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.88",
+            "Direct Plan": "0.49"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - October 31, 2019. The returns are calc cash inflows and outflows and taking the time of investment Option Different plans have different expense structure. # Be the scheme is benchmarked to the Total Return variant (TRI)"
+        "investment_objective": []
     },
     "kotak esg exclusionary strategy fund": {
         "fund_manager": "Mr. Mandar Pawar",
@@ -487,12 +387,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 16.3990 17.5320",
-            "IDCW 16.3980 17.5330",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "16.3990",
+            "Direct Growth": "17.5320",
+            "Regular IDCW": "16.3980",
+            "Direct IDCW": "17.5330"
+        },
         "metrics": {
             "Portfolio Turnover": "14.62",
             "Beta": "0.93",
@@ -501,24 +401,14 @@
             "P/E": "26.05",
             "P/BV": "4.15"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 2.25%",
-            "Direct Plan: 0.83%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "2.25",
+            "Direct Plan": "0.83"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil  Redemption of units would be done on First in First out Basis (FIFO).",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - December 11,20T2h0e. returns are c and a series of cash inflows and outflows and taking the tim is for Regular Plan  Growth Option Different plans have d dated June 27, 2024, the performance of the scheme is be during the period have been reinvested in the units of the"
+        "investment_objective": []
     },
     "kotak manufacture in india fund": {
         "fund_manager": "Mr. Harsha Upadhyaya & Mr. Abhishek Bisen",
@@ -534,12 +424,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 18.4000 19.2740",
-            "IDCW 18.4000 19.2740",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "18.4000",
+            "Direct Growth": "19.2740",
+            "Regular IDCW": "18.4000",
+            "Direct IDCW": "19.2740"
+        },
         "metrics": {
             "Portfolio Turnover": "27.35",
             "Beta": "0.78",
@@ -548,24 +438,14 @@
             "P/E": "24.87",
             "P/BV": "3.95"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.96%",
-            "Direct Plan: 0.48%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.96",
+            "Direct Plan": "0.48"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - February 22,202T2h.e returns ar final value and a series of cash inflows and outflows inception. The SIP Performance is for Regular Plan  Gro SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated June 2 scheme return with benchmark return. *All payouts du"
+        "investment_objective": []
     },
     "kotak business cycle fund": {
         "fund_manager": "Mr. Harish Bihani & Mr. Abhishek Bisen",
@@ -580,12 +460,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 15.7260 16.3080",
-            "IDCW 15.7260 16.3070",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "15.7260",
+            "Direct Growth": "16.3080",
+            "Regular IDCW": "15.7260",
+            "Direct IDCW": "16.3070"
+        },
         "metrics": {
             "Portfolio Turnover": "44.51",
             "Beta": "0.84",
@@ -594,24 +474,14 @@
             "P/E": "36.88",
             "P/BV": "4.72"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.95%",
-            "Direct Plan: 0.54%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.95",
+            "Direct Plan": "0.54"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - September 28,202T2h.e returns a final value and a series of cash inflows and outflows a inception. The SIP Performance is for Regular Plan  Gro No. SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated Jun of scheme return with benchmark return *All payouts"
+        "investment_objective": []
     },
     "kotak banking & financial services fund": {
         "fund_manager": "Mr. Shibani Sircar Kurian & Mr. Abhishek Bisen",
@@ -627,12 +497,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 14.1480 14.5770",
-            "IDCW 14.1480 14.5760",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "14.1480",
+            "Direct Growth": "14.5770",
+            "Regular IDCW": "14.1480",
+            "Direct IDCW": "14.5760"
+        },
         "metrics": {
             "Portfolio Turnover": "34.56",
             "Beta": "0.91",
@@ -641,24 +511,14 @@
             "P/E": "15.43",
             "P/BV": "2.46"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 2.19%",
-            "Direct Plan: 0.68%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "2.19",
+            "Direct Plan": "0.68"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 30 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 30 days from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - February 27, 20T2h3e. returns are ca and a series of cash inflows and outflows and taking th Performance is for Regular Plan  Growth Option Differen 1/P/CIR/2024/90 dated June 27, 2024, the performance return. *All payouts during the period have been reinvest be 7.15% (FBIL Overnight MIBOR rate as on 31st Dec 20 refer page no 127 137"
+        "investment_objective": []
     },
     "kotak quant fund": {
         "fund_manager": "Mr. Harsha Upadhyaya, Mr. Rohit Tandon & Mr. Abhishek Bisen",
@@ -677,12 +537,12 @@
         ],
         "sip": "500 (Subject to a minimum of 10 SIP installments of 500/- each)",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 14.7410 14.7900",
-            "IDCW 14.7410 14.7900",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "14.7410",
+            "Direct Growth": "14.7900",
+            "Regular IDCW": "14.7410",
+            "Direct IDCW": "14.7900"
+        },
         "metrics": {
             "Portfolio Turnover": "185.99",
             "Beta": "1.23",
@@ -691,24 +551,14 @@
             "P/E": "34.51",
             "P/BV": "5.31"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.41%",
-            "Direct Plan: 1.16%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.41",
+            "Direct Plan": "1.16"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - August 02, 2023T.he returns are final value and a series of cash inflows and outflows a inception. The SIP Performance is for Regular Plan  Gro No. SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated Jun of scheme return with benchmark return. *All payouts 122-126 & 138-142 ## Risk rate assumed to be 7 15%"
+        "investment_objective": []
     },
     "kotak consumption fund": {
         "fund_manager": "Mr. Devender Singhal, & Mr. Abhishek Bisen",
@@ -725,12 +575,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 13.4740 13.7270",
-            "IDCW 13.4720 13.7270",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "13.4740",
+            "Direct Growth": "13.7270",
+            "Regular IDCW": "13.4720",
+            "Direct IDCW": "13.7270"
+        },
         "metrics": {
             "Portfolio Turnover": "29.83",
             "Beta": "0.87",
@@ -739,24 +589,14 @@
             "P/E": "50.14",
             "P/BV": "6.96"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 2.15%",
-            "Direct Plan: 0.55%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "2.15",
+            "Direct Plan": "0.55"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - November 16, 202T3h.e returns a final value and a series of cash inflows and outflows a inception. The SIP Performance is for Regular Plan  Gro No. SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated Jun of scheme return with benchmark return. *All payouts 122-126 & 138-142. ## Risk rate assumed to be 7.15%"
+        "investment_objective": []
     },
     "kotak healthcare fund": {
         "fund_manager": "Ms. Shibani Sircar Kurian, Mr. Abhishek Bisen & Mr. Dhananjay Tikariha",
@@ -772,12 +612,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 14.2980 14.5530",
-            "IDCW 14.3020 14.5520",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "14.2980",
+            "Direct Growth": "14.5530",
+            "Regular IDCW": "14.3020",
+            "Direct IDCW": "14.5520"
+        },
         "metrics": {
             "Portfolio Turnover": "38.52",
             "Beta": "0.81",
@@ -786,24 +626,14 @@
             "P/E": "54.85",
             "P/BV": "6.26"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 2.39%",
-            "Direct Plan: 0.76%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "2.39",
+            "Direct Plan": "0.76"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 30 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 30 days from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - December 11, 202T3h.e returns a final value and a series of cash inflows and outflows a inception. The SIP Performance is for Regular Plan  Gro No. SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated Jun of scheme return with benchmark return. *All payouts 122-126 & 138-142. ## Risk rate assumed to be 7.15% 109-121 For scheme performance Direct Plan please re"
+        "investment_objective": []
     },
     "kotak technology fund": {
         "fund_manager": "Ms. Shibani Sircar Kurian, Mr. Abhishek Bisen",
@@ -818,35 +648,25 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 12.5650 12.7160",
-            "IDCW 12.5660 12.7150",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "12.5650",
+            "Direct Growth": "12.7160",
+            "Regular IDCW": "12.5660",
+            "Direct IDCW": "12.7150"
+        },
         "metrics": {
             "Portfolio Turnover": "13.04",
             "P/E": "41.70",
             "P/BV": "7.58"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 2.39%",
-            "Direct Plan: 0.96%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "2.39",
+            "Direct Plan": "0.96"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 30 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 30 days from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak special opportunities fund": {
         "fund_manager": "Mr. Devender Singhal & Mr. Abhishek Bisen",
@@ -861,35 +681,25 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.9510 10.0220",
-            "IDCW 9.9510 10.0220",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.9510",
+            "Direct Growth": "10.0220",
+            "Regular IDCW": "9.9510",
+            "Direct IDCW": "10.0220"
+        },
         "metrics": {
             "Portfolio Turnover": "5.62",
             "P/E": "33.10",
             "P/BV": "4.35"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.99%",
-            "Direct Plan: 0.58%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.99",
+            "Direct Plan": "0.58"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - June 29, 2024. The returns are calcula cash inflows and outflows and taking the time of investme Growth Option Different plans have different expense stru performance of the scheme is benchmarked to the Total"
+        "investment_objective": []
     },
     "kotak mnc fund": {
         "fund_manager": "Mr. Harsha Upadhyaya, Mr. Dhananjay Tikariha & Mr. Abhishek Bisen",
@@ -904,34 +714,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 10.0980 10.1240",
-            "IDCW 10.0980 10.1240",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "10.0980",
+            "Direct Growth": "10.1240",
+            "Regular IDCW": "10.0980",
+            "Direct IDCW": "10.1240"
+        },
         "metrics": {
             "P/E": "56.89",
             "P/BV": "7.60"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.96%",
-            "Direct Plan: 0.46%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.96",
+            "Direct Plan": "0.46"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak transportation & logistics fund": {
         "fund_manager": "Mr. Nalin Rasik Bhatt & Mr. Abhishek Bisen",
@@ -946,29 +746,20 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.9680 9.9750",
-            "IDCW 9.9680 9.9750",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.9680",
+            "Direct Growth": "9.9750",
+            "Regular IDCW": "9.9680",
+            "Direct IDCW": "9.9750"
+        },
         "metrics": {
             "P/E": "23.05",
             "P/BV": "4.75"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 2.41%",
-            "Direct Plan: 0.82%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout and",
-            "Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "2.41",
+            "Direct Plan": "0.82"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out within 90 days from the date of allotment: 0.5%  If units are redeemed or switched out on or after 90 days from the date of allotment - Nil",
@@ -989,12 +780,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 19.8630 21.4220",
-            "IDCW 19.8630 21.4220",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "19.8630",
+            "Direct Growth": "21.4220",
+            "Regular IDCW": "19.8630",
+            "Direct IDCW": "21.4220"
+        },
         "metrics": {
             "Average Maturity": "9.89",
             "Modified Duration": "4.86",
@@ -1007,23 +798,14 @@
             "P/BV": "4.14",
             "Portfolio Turnover": "265.22"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.66%",
-            "Direct Plan: 0.56%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.66",
+            "Direct Plan": "0.56"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 8% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - August 03,2018. The returns are c value and a series of cash inflows and outflows and taki SIP Performance is for Regular Plan  Growth Option SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated June 27 scheme return with benchmark return. *All payouts du"
+        "investment_objective": []
     },
     "kotak equity arbitrage fund": {
         "fund_manager": "Mr. Hiten Shah",
@@ -1038,12 +820,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3 months & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 36.2203 38.5877",
-            "Monthly IDCW 10.7351 11.2187",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "36.2203",
+            "Direct Growth": "38.5877",
+            "Regular IDCW": "10.7351",
+            "Direct IDCW": "11.2187"
+        },
         "metrics": {
             "Average Maturity": "0.20",
             "Modified Duration": "0.20",
@@ -1056,24 +838,14 @@
             "P/BV": "3.28",
             "Portfolio Turnover": "2124.14"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.01%",
-            "Direct Plan: 0.43%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Monthly (Monday preceding the last",
-            "Thursday of the month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.01",
+            "Direct Plan": "0.43"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemptions/switch outs (including SIP/STP) within 30 days from the date of allotment of units: 0.25%  For redemptions/switch outs (including SIP/STP) after 30 days from the date of allotment of units: Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - September 29, 2005. The return and final value and a series of cash inflows and outflo inception. The SIP Performance is for Regular Plan  G No. SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/90 dated J difference of scheme return with benchmark return. * refer page 122-126 & 138-142. ## Risk rate assumed 145 For scheme performance Regular Plan please ref"
+        "investment_objective": []
     },
     "kotak equity savings fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Abhishek Bisen & Mr. Hiten Shah",
@@ -1088,12 +860,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 25.2724 27.5918",
-            "Monthly IDCW 18.5035 19.8082",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "25.2724",
+            "Direct Growth": "27.5918",
+            "Regular IDCW": "18.5035",
+            "Direct IDCW": "19.8082"
+        },
         "metrics": {
             "Average Maturity": "1.78",
             "Modified Duration": "1.20",
@@ -1106,23 +878,14 @@
             "P/BV": "3.23",
             "Portfolio Turnover": "459.67"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.76%",
-            "Direct Plan: 0.63%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Monthly (12th of every month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.76",
+            "Direct Plan": "0.63"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 8% of the initial investment amount (limit) purchased or switched in within 90 days from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 90 days from the date of allotment: 1%  If units are redeemed or switched out after 90 days from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "Scheme Inception : - October 13, 2014. The returns are ca a series of cash inflows and outflows and taking the time o Regular Plan  Growth Option Different plans have differe June 27, 2024, the performance of the scheme is benchm period have been reinvested in the units of the scheme at rate as on 31st Dec 2024).**Total Expense Ratio includes Plan please refer page no 127 137"
+        "investment_objective": []
     },
     "kotak multi asset allocation fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Abhishek Bisen, Mr. Hiten Shah & Mr. Jeetu Valechha Sonar",
@@ -1142,12 +905,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 12.7110 12.9520",
-            "IDCW 12.7110 12.9510",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "12.7110",
+            "Direct Growth": "12.9520",
+            "Regular IDCW": "12.7110",
+            "Direct IDCW": "12.9510"
+        },
         "metrics": {
             "Average Maturity": "5.19",
             "Modified Duration": "3.20",
@@ -1160,23 +923,14 @@
             "P/BV": "3.67",
             "Portfolio Turnover": "174.89"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.73%",
-            "Direct Plan: 0.36%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.73",
+            "Direct Plan": "0.36"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 30% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak equity hybrid fund": {
         "fund_manager": "Mr. Atul Bhole & Mr. Abhishek Bisen",
@@ -1193,12 +947,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 61.0060 71.1450",
-            "IDCW 35.8530 43.6130",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "61.0060",
+            "Direct Growth": "71.1450",
+            "Regular IDCW": "35.8530",
+            "Direct IDCW": "43.6130"
+        },
         "metrics": {
             "Average Maturity": "14.75",
             "Modified Duration": "7.07",
@@ -1211,23 +965,14 @@
             "P/BV": "4.57",
             "Portfolio Turnover": "68.88"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.76%",
-            "Direct Plan: 0.46%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.76",
+            "Direct Plan": "0.46"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 8% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1%  If units are redeemed or switched out on or after 1 year from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak debt hybrid fund": {
         "fund_manager": "Mr. Shibani Sircar Kurian & Mr. Abhishek Bisen",
@@ -1243,12 +988,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 56.6452 64.9851",
-            "Monthly IDCW 13.0556 14.2084",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "56.6452",
+            "Direct Growth": "64.9851",
+            "Regular IDCW": "13.0556",
+            "Direct IDCW": "14.2084"
+        },
         "metrics": {
             "Average Maturity": "14.90",
             "Modified Duration": "7.01",
@@ -1258,23 +1003,14 @@
             "P/E": "18.88",
             "P/BV": "3.10"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.66%",
-            "Direct Plan: 0.45%"
-        ],
-        "available_plans/options": [
-            "A)Regular PlaBn) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Monthly (12th of every Month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.66",
+            "Direct Plan": "0.45"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch out of upto 8% of the initial investment amount (limit) purchased or switched in within 6 months from the date of allotment: Nil.  If units redeemed or switched out are in excess of the limit within 6 months from the date of allotment: 1%  If units are redeemed or switched out after 6 months from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak overnight fund": {
         "fund_manager": "Mr. Deepak Agrawal",
@@ -1288,12 +1024,12 @@
         "minimum_investment": [],
         "initial_&_additional_investment": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 day",
-        "nav": [
-            "Regular Direct",
-            "Growth 1333.4665 1340.8660",
-            "Daily IDCW 1004.7568 1003.6055",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "1333.4665",
+            "Direct Growth": "1340.8660",
+            "Regular IDCW": "1004.7568",
+            "Direct IDCW": "1003.6055"
+        },
         "metrics": {
             "Average Maturity": "1.65",
             "Modified Duration": "1.65",
@@ -1301,23 +1037,14 @@
             "Annualised YTM": "6.79",
             "Standard Deviation": "0.06"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.16%",
-            "Direct Plan: 0.08%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Growth & Reinvestment of IDCW",
-            "(applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Daily"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.16",
+            "Direct Plan": "0.08"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively A-I Low Moderate Relatively High *For Fund Manager experience, please refer pa 109-121. For scheme performance Direct Plan,"
+        "investment_objective": []
     },
     "kotak liquid fund": {
         "fund_manager": "Mr. Deepak Agrawal",
@@ -1331,12 +1058,12 @@
         "minimum_investment": [],
         "initial_&_additional_investment": "100 and any amount thereafter",
         "ideal_investments_horizon": "7 days to month",
-        "nav": [
-            "Regular Direct",
-            "Growth 5099.6068 5145.1240",
-            "Daily IDCW 1222.8100 1222.8100",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "5099.6068",
+            "Direct Growth": "5145.1240",
+            "Regular IDCW": "1222.8100",
+            "Direct IDCW": "1222.8100"
+        },
         "metrics": {
             "Average Maturity": "0.15",
             "Modified Duration": "0.15",
@@ -1344,27 +1071,11 @@
             "Annualised YTM": "7.23",
             "Standard Deviation": "0.09"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.31%",
-            "Direct Plan: 0.20%",
-            "1. Exit load shall applicable be as per the graded basis as",
-            "specified below:",
-            "Investor exit upon Exit load as a % of",
-            "subscription redemption proceeds",
-            "Day 1 0.0070%",
-            "Day 2 0.0065%",
-            "Day 3 0.0060%",
-            "Day 4 0.0055%",
-            "Day 5 0.0050%",
-            "Day 6 0.0045%",
-            "Day 7 onwards 0.0000%",
-            "Any exit load charged (net off Goods and Services tax, if",
-            "any) shall be credited back to the Scheme. Units issued on",
-            "reinvestment of IDCW shall not be subject to entry and",
-            "exit load."
-        ],
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively B-I Low Moderate Relatively High *For Fund Manager experience, please refer pag scheme performance Direct Plan, please refer pag"
+        "total_expense_ratio": {
+            "Regular Plan": "0.31",
+            "Direct Plan": "0.20"
+        },
+        "investment_objective": []
     },
     "kotak savings fund": {
         "fund_manager": "Mr. Deepak Agrawal & Mr. Manu Sharma",
@@ -1381,12 +1092,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3-6 months",
-        "nav": [
-            "Regular Direct",
-            "Growth 41.3411 43.2113",
-            "Monthly IDCW 10.7480 18.6313",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "41.3411",
+            "Direct Growth": "43.2113",
+            "Regular IDCW": "10.7480",
+            "Direct IDCW": "18.6313"
+        },
         "metrics": {
             "Average Maturity": "0.46",
             "Modified Duration": "0.44",
@@ -1394,23 +1105,14 @@
             "Annualised YTM": "7.45",
             "Standard Deviation": "0.18"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.82%",
-            "Direct Plan: 0.37%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Reinvestment of IDCW & Growth",
-            "(applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Monthly (12th of every Month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.82",
+            "Direct Plan": "0.37"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate B-II Relatively High"
+        "investment_objective": []
     },
     "kotak money market fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Manu Sharma",
@@ -1426,12 +1128,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3-6 months",
-        "nav": [
-            "Regular Direct",
-            "Growth 4318.3411 4355.7147",
-            "Monthly IDCW 1054.1513 1193.3302",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "4318.3411",
+            "Direct Growth": "4355.7147",
+            "Regular IDCW": "1054.1513",
+            "Direct IDCW": "1193.3302"
+        },
         "metrics": {
             "Average Maturity": "0.46",
             "Modified Duration": "0.46",
@@ -1439,24 +1141,14 @@
             "Annualised YTM": "7.51",
             "Standard Deviation": "0.21"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.35%",
-            "Direct Plan: 0.23%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW (Under Monthly",
-            "IDCW option only), Reinvestment of IDCW",
-            "& Growth applicable for all plans"
-        ],
-        "idcw_frequency": [
-            "Monthly (12th of every Month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.35",
+            "Direct Plan": "0.23"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively B-I Low Moderate Relatively High Scheme Inception : - July 14, 2003. The returns are calculated cash inflows and outflows and taking the time of investment Growth Option Different plans have different expense structu the then prevailing NAV. Source: ICRA MFI Explorer. *For Fund h f l l f"
+        "investment_objective": []
     },
     "kotak low duration fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Manu Sharma",
@@ -1472,12 +1164,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "6-9 months",
-        "nav": [
-            "Regular Direct",
-            "Growth 3217.3258 3494.9921",
-            "Monthly IDCW 1226.3492 1485.2072",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "3217.3258",
+            "Direct Growth": "3494.9921",
+            "Regular IDCW": "1226.3492",
+            "Direct IDCW": "1485.2072"
+        },
         "metrics": {
             "Average Maturity": "1.71",
             "Modified Duration": "0.98",
@@ -1485,25 +1177,14 @@
             "Annualised YTM": "7.85",
             "Standard Deviation": "0.27"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.17%",
-            "Direct Plan: 0.42%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (payout of IDCW is",
-            "available under monthly IDCW only)",
-            "(applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.17",
+            "Direct Plan": "0.42"
+        },
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil. Any exit load charged (net off Service Tax, if any) shall be credited back to the Scheme",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively B-III High"
+        "investment_objective": []
     },
     "kotak corporate bond fund": {
         "fund_manager": "Mr. Deepak Agrawal & Mr. Manu Sharma",
@@ -1519,12 +1200,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1-1.5 year",
-        "nav": [
-            "Regular Direct",
-            "Growth 3604.7990 3757.6135",
-            "Monthly IDCW 1174.3043 1073.9415",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "3604.7990",
+            "Direct Growth": "3757.6135",
+            "Regular IDCW": "1174.3043",
+            "Direct IDCW": "1073.9415"
+        },
         "metrics": {
             "Average Maturity": "4.99",
             "Modified Duration": "3.30",
@@ -1532,23 +1213,14 @@
             "Annualised YTM": "7.47",
             "Standard Deviation": "0.70"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.67%",
-            "Direct Plan: 0.34%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Monthly (12th of every Month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.67",
+            "Direct Plan": "0.34"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively B-III High Scheme Inception : - September 21, 2007. The returns are calc inflows and outflows and taking the time of investment into c Different plans have different expense structure. # Benchmar Source: ICRA MFI Explore(r^.) Fully or Party blocked against Int rate risk in a floating rate instrument or in a fixed rate instrum di il b t d id i l it d ti H i"
+        "investment_objective": []
     },
     "kotak bond short term fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Abhishek Bisen",
@@ -1564,12 +1236,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 49.9162 54.7392",
-            "IDCW 11.8197 15.4887",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "49.9162",
+            "Direct Growth": "54.7392",
+            "Regular IDCW": "11.8197",
+            "Direct IDCW": "15.4887"
+        },
         "metrics": {
             "Average Maturity": "4.63",
             "Modified Duration": "2.76",
@@ -1577,23 +1249,14 @@
             "Annualised YTM": "7.47",
             "Standard Deviation": "0.60"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.12%",
-            "Direct Plan: 0.38%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.12",
+            "Direct Plan": "0.38"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively High B-III"
+        "investment_objective": []
     },
     "kotak credit risk fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Sunit Garg",
@@ -1609,12 +1272,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2-3 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 28.0466 31.4034",
-            "Annual IDCW 12.1971 23.5870",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "28.0466",
+            "Direct Growth": "31.4034",
+            "Regular IDCW": "12.1971",
+            "Direct IDCW": "23.5870"
+        },
         "metrics": {
             "Average Maturity": "2.86",
             "Modified Duration": "2.24",
@@ -1622,23 +1285,14 @@
             "Annualised YTM": "8.50",
             "Standard Deviation": "1.53"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.71%",
-            "Direct Plan: 0.79%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.71",
+            "Direct Plan": "0.79"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "a) For redemption / switch out of upto 6% of the initial investment amount (limit) purchased or switched in within 1 year from the date of allotment: Nil. b) If units redeemed or switched out are in excess of the limit within 1 year from the date of allotment: 1% c) If units are redeemed or switched out on or after 1 year from the date of allotment: NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively High C-III"
+        "investment_objective": []
     },
     "kotak dynamic bond fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Abhishek Bisen",
@@ -1654,12 +1308,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 35.9743 39.0944",
-            "Quarterly IDCW 13.5531 13.7204",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "35.9743",
+            "Direct Growth": "39.0944",
+            "Regular IDCW": "13.5531",
+            "Direct IDCW": "13.7204"
+        },
         "metrics": {
             "Average Maturity": "18.83",
             "Modified Duration": "8.69",
@@ -1667,23 +1321,14 @@
             "Annualised YTM": "7.19",
             "Standard Deviation": "2.49"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.33%",
-            "Direct Plan: 0.58%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.33",
+            "Direct Plan": "0.58"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively B-III High Scheme Inception : - May 26, 2008T.he returns are calc value and a series of cash inflows and outflows and takin SIP Performance is for Regular Plan  Growth Option Dif period have been reinvested in the units of the scheme a and GST. For scheme performance Regular Plan, please re"
+        "investment_objective": []
     },
     "kotak floating rate fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Manu Sharma",
@@ -1699,12 +1344,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 1445.2263 1476.4183",
-            "IDCW 1288.0004 1286.1853",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "1445.2263",
+            "Direct Growth": "1476.4183",
+            "Regular IDCW": "1288.0004",
+            "Direct IDCW": "1286.1853"
+        },
         "metrics": {
             "Average Maturity": "5.93",
             "Modified Duration": "1.57",
@@ -1712,23 +1357,14 @@
             "Annualised YTM": "7.85",
             "Standard Deviation": "0.47"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.63%",
-            "Direct Plan: 0.25%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Growth, Payout of IDCW and",
-            "Reinvestment of IDCW"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.63",
+            "Direct Plan": "0.25"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively B-III High Scheme Inception : - May 14, 2019. The returns are calculat cash inflows and outflows and taking the time of investme Growth Option Different plans have different expense struc the then prevailing NAV. Source: ICRA MFI Explorer. (^) Fully interest rate reset period. The interest rate risk in a floating volatility may be of an order greater than what may ordina when deciding to make their investments. Hedging Positio"
+        "investment_objective": []
     },
     "kotak medium term fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Sunit Garg",
@@ -1745,12 +1381,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2.5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 21.6869 23.9901",
-            "IDCW 13.3111 23.9921",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "21.6869",
+            "Direct Growth": "23.9901",
+            "Regular IDCW": "13.3111",
+            "Direct IDCW": "23.9921"
+        },
         "metrics": {
             "Average Maturity": "4.97",
             "Modified Duration": "3.35",
@@ -1758,23 +1394,14 @@
             "Annualised YTM": "8.24",
             "Standard Deviation": "1.26"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.63%",
-            "Direct Plan: 0.67%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.63",
+            "Direct Plan": "0.67"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively C-III High"
+        "investment_objective": []
     },
     "kotak banking and psu debt fund": {
         "fund_manager": "Mr. Deepak Agrawal, Mr. Abhishek Bisen",
@@ -1790,12 +1417,10 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2-3 years",
-        "nav": [
-            "Regular Direct",
-            "Growth 62.5826 65.0891",
-            "Monthly Dividend 11.7578 10.2698",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "62.5826",
+            "Direct Growth": "65.0891"
+        },
         "metrics": {
             "Average Maturity": "5.55",
             "Modified Duration": "3.64",
@@ -1803,23 +1428,14 @@
             "Annualised YTM": "7.43",
             "Standard Deviation": "0.74"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.75%",
-            "Direct Plan: 0.39%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Monthly (12th of every Month)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.75",
+            "Direct Plan": "0.39"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively B-III High"
+        "investment_objective": []
     },
     "kotak gilt fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -1835,15 +1451,10 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2 years & above",
-        "nav": [
-            "Regular Direct Quarterly",
-            "Growth 93.22 105.26",
-            "Quarterly",
-            "18.21 23.77",
-            "IDCW",
-            "PF&Trust 95.37 107.81 11.91",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "93.22",
+            "Direct Growth": "105.26"
+        },
         "metrics": {
             "Average Maturity": "26.86",
             "Modified Duration": "10.79",
@@ -1851,26 +1462,14 @@
             "Annualised YTM": "7.09",
             "Standard Deviation": "2.68"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.48%",
-            "Direct Plan: 0.47%"
-        ],
-        "available_plans/options": [
-            "A) Regular Non Direct Plan,",
-            "B) PF & Trust Non Direct Plan,",
-            "C) Regular Direct Plan,",
-            "D) PF & Trust Direct Plan.",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Quarterly (20th of Mar/Jun/Sep/Dec)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.48",
+            "Direct Plan": "0.47"
+        },
         "load": [],
         "entry_load:": "(a) Regular Plan - Entry: Nil. (b) PF & Trust Plan - Entry: Nil. (applicable for all plans)",
         "exit_load:": "(a) Regular Plan - Exit: Nil. (b) PF&Trust Plan-Exit: Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A III"
+        "investment_objective": []
     },
     "kotak bond fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -1887,12 +1486,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2-3 years",
-        "nav": [
-            "Regular Direct",
-            "Growth 73.7361 82.4021",
-            "IDCW 45.1757 27.4261",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "73.7361",
+            "Direct Growth": "82.4021",
+            "Regular IDCW": "45.1757",
+            "Direct IDCW": "27.4261"
+        },
         "metrics": {
             "Average Maturity": "13.09",
             "Modified Duration": "6.16",
@@ -1900,23 +1499,14 @@
             "Annualised YTM": "7.10",
             "Standard Deviation": "1.75"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.65%",
-            "Direct Plan: 0.70%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "At discretion of trustees"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.65",
+            "Direct Plan": "0.70"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively High B-III Scheme Inception: - November 25,1999. The ret given an initial and final value and a series of ca subsequent month from the date of inception. difference of scheme return with benchmark retu *For Fund Manager experience, please refer pag scheme performance Direct Plan, please refer pag"
+        "investment_objective": []
     },
     "kotak long duration fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -1932,36 +1522,26 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 10.6699 10.6938",
-            "IDCW 10.6701 10.6938",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "10.6699",
+            "Direct Growth": "10.6938",
+            "Regular IDCW": "10.6701",
+            "Direct IDCW": "10.6938"
+        },
         "metrics": {
             "Average Maturity": "27.67",
             "Modified Duration": "11.64",
             "Macaulay Duration": "12.04",
             "Annualised YTM": "7.09"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.62%",
-            "Direct Plan: 0.34%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout",
-            "and Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustee's Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.62",
+            "Direct Plan": "0.34"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil No exit load will be chargeable in case of switches made between different plans/options of the scheme.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively High A-III"
+        "investment_objective": []
     },
     "kotak gold fund": {
         "aaum:": "56.31 crs",
@@ -1977,25 +1557,17 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "3 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.6749 11.7690",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "11.6749",
+            "Direct Growth": "11.7690"
+        },
         "metrics": {
             "Portfolio Turnover": "46.65"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.60%",
-            "Direct Plan: 0.14%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Growth"
-        ],
-        "idcw_frequency": [
-            "Not Applicable since IDCW is not applicable"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.60",
+            "Direct Plan": "0.14"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "a) For redemption/switch- out of units on or before 30 days from the date of allotment: 0.5% of applicable NAV. b) For redemption/ switch- out of units after 30 days from the date of allotment: NIL",
@@ -2022,30 +1594,20 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "2 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.8166 11.8376",
-            "IDCW 11.8165 11.8378",
-            "(as on December 31, 2024)"
-        ],
-        "total_expense_ratio": [
-            "Regular Plan: 0.30%",
-            "Direct Plan: 0.10%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout",
-            "and Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "nav": {
+            "Regular Growth": "11.8166",
+            "Direct Growth": "11.8376",
+            "Regular IDCW": "11.8165",
+            "Direct IDCW": "11.8378"
+        },
+        "total_expense_ratio": {
+            "Regular Plan": "0.30",
+            "Direct Plan": "0.10"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak global emerging market fund": {
         "fund_manager": "Mr. Arjun Khanna",
@@ -2061,27 +1623,19 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 22.1250 23.9330",
-            "IDCW 22.1270 24.0340",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "22.1250",
+            "Direct Growth": "23.9330",
+            "Regular IDCW": "22.1270",
+            "Direct IDCW": "24.0340"
+        },
         "metrics": {
             "Portfolio Turnover": "3.39"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.62%",
-            "Direct Plan: 1.27%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of IDCW",
-            "& Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.62",
+            "Direct Plan": "1.27"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "10% of the units allotted shall be redeemed without any Exit Load on or before completion of 1 Year from the date of allotment of units. Any redemption in excess of such limit within 1 Year from the date of allotment shall be subject to the following Exit Load: a) If redeemed or switched out on or before completion of 1 Year from the date of allotment of units-1.00%. b) If redeemed or switched out after completion of 1 Year from the date of allotment of units-NIL",
@@ -2102,32 +1656,23 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.3737 9.7225",
-            "IDCW 9.3739 9.7224",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.3737",
+            "Direct Growth": "9.7225",
+            "Regular IDCW": "9.3739",
+            "Direct IDCW": "9.7224"
+        },
         "metrics": {
             "Portfolio Turnover": "4.58"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.39%",
-            "Direct Plan: 0.53%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.39",
+            "Direct Plan": "0.53"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "8% of the units allotted shall be redeemed without any Exit Load on or before completion of 1 Year from the date of allotment of units. Any redemption in excess of such limit within 1 Year from the date of allotment shall be subject to the following Exit Load: a) If redeemed or switched out on or before completion of 1 Year from the date of allotment of units- 1.00%. b) If redeemed or switched out after completion of 1 Year from the date of allotment of units-NIL",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nasdaq 100 fund of fund": {
         "aaum:": "3,449.68 crs",
@@ -2141,22 +1686,17 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 18.2500 18.5318",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "18.2500",
+            "Direct Growth": "18.5318"
+        },
         "metrics": {
             "Portfolio Turnover": "1.15"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.67%",
-            "Direct Plan: 0.30%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Growth"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.67",
+            "Direct Plan": "0.30"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil",
@@ -2177,21 +1717,16 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 10.4395 10.8857",
-            "IDCW 10.4397 10.8849",
-            "(as on December 31, 2024)"
-        ],
-        "total_expense_ratio": [
-            "Regular Plan: 1.58%",
-            "Direct Plan: 0.47%"
-        ],
-        "available_plans/options": [
-            "A)Regular Plan B)Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of IDCW",
-            "& Growth (applicable for all plans)"
-        ],
+        "nav": {
+            "Regular Growth": "10.4395",
+            "Direct Growth": "10.8857",
+            "Regular IDCW": "10.4397",
+            "Direct IDCW": "10.8849"
+        },
+        "total_expense_ratio": {
+            "Regular Plan": "1.58",
+            "Direct Plan": "0.47"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "a) For redemptions or switched out within 1 year from the date of allotment of units, irrespective of the amount of investment- 1.00% b) For redemptions or switched out after 1 year from the date of allotment of units, irrespective of the amount of investment- NIL",
@@ -2215,26 +1750,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "257.1357"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "32.96",
             "Tracking Error": "0.03"
         },
-        "total_expense_ratio": [
-            "0.04%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any Plans/Options for",
-            "investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak bse sensex etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati",
@@ -2253,26 +1778,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "84.2810"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "13.60",
             "Tracking Error": "0.03"
         },
-        "total_expense_ratio": [
-            "0.18%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty psu bank etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati",
@@ -2291,32 +1806,21 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Payout of IDCW 522.7293",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular IDCW": "522.729",
+            "Direct IDCW": "3"
+        },
         "metrics": {
             "Portfolio Turnover": "45.41",
             "Tracking Error": "0.06"
         },
-        "total_expense_ratio": [
-            "0.15%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any Plans.",
-            "Options - Payout of Income Distribution",
-            "cum Capital Withdrawal (IDCW)."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
         "investment_objective": [
             "The investment ob",
             "Nifty Bank Index subject to tracking errors."
-        ],
-        "folio_count_data_as_on_30th_november": "",
-        "idcw_frequency": [
-            "Trustees Discretion"
         ]
     },
     "kotak nifty 50 value 20 etf": {
@@ -2336,32 +1840,19 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "46.3116"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "92.63",
             "Tracking Error": "0.05"
         },
-        "total_expense_ratio": [
-            "0.09%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
         "investment_objective": [
             "The investment o",
             "the performance of the NIFTY IT Index, subj"
-        ],
-        "folio_count_data_as_on_30th_november": ""
+        ]
     },
     "kotak nifty alpha 50 etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2381,26 +1872,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "54.0346"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "170.86",
             "Tracking Error": "0.51"
         },
-        "total_expense_ratio": [
-            "0.30%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "*For Fund Manager experience, please refer page scheme performance Direct Plan, please refer page ***Not applicable to Recognised Provident Funds, India and Market Makers as per para 3.6.2.1 and SEBI/HO/IMD- POD-2/P/OW/2024/15311/1 dated A"
+        "investment_objective": []
     },
     "kotak nifty midcap 50 etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2420,26 +1901,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "162.1285"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "108.07",
             "Tracking Error": "0.11"
         },
-        "total_expense_ratio": [
-            "0.05%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "*For Fund Manager experience, please refer page scheme performance Direct Plan, please refer page ***Not applicable to Recognised Provident Funds, India and Market Makers as per para 3.6.2.1 and SEBI/HO/IMD- POD-2/P/OW/2024/15311/1 dated A"
+        "investment_objective": []
     },
     "kotak nifty 100 low volatility 30 etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Abhishek Bisen, Mr. Satish Dondapati",
@@ -2460,26 +1931,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "19.8014"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "52.05",
             "Tracking Error": "0.05"
         },
-        "total_expense_ratio": [
-            "0.09%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty india consumption etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2500,26 +1961,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "115.3452"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "60.70",
             "Tracking Error": "0.09"
         },
-        "total_expense_ratio": [
-            "0.10%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty mnc etf": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2538,26 +1989,16 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "28.3548"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "35.72",
             "Tracking Error": "0.04"
         },
-        "total_expense_ratio": [
-            "0.30%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any",
-            "Plans/Options for investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak gold etf": {
         "fund_manager": "Mr. Jeetu Valechha Sonar, Mr. Abhishek Bisen",
@@ -2578,21 +2019,12 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "(as on December 31, 2024)",
-            "84.7402"
-        ],
+        "nav": {},
         "metrics": {
             "Portfolio Turnover": "7.88",
             "Tracking Error": "0.62"
         },
-        "total_expense_ratio": [
-            "0.45%"
-        ],
-        "available_plans/options": [
-            "The Scheme does not offer any Plans/Options for",
-            "investment."
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
@@ -2620,10 +2052,7 @@
             "Investors***"
         ],
         "ideal_investments_horizon": "1-15 days",
-        "nav": [
-            "(as on November 30, 2024)",
-            "1027.0980"
-        ],
+        "nav": {},
         "metrics": {
             "Average Maturity": "1.00",
             "Modified Duration": "1.00",
@@ -2631,20 +2060,11 @@
             "Annualised YTM": "6.73",
             "Tracking Error": "0.03"
         },
-        "total_expense_ratio": [
-            "0.19%"
-        ],
-        "available_plans/options": [
-            "Growth Option"
-        ],
-        "idcw_frequency": [
-            "Not Applicable"
-        ],
+        "total_expense_ratio": {},
         "load": [],
         "entry_load:": "Nil.",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively A-I Low Moderate Relatively High"
+        "investment_objective": []
     },
     "kotak nifty next 50 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati",
@@ -2660,34 +2080,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 19.3443 19.7305",
-            "IDCW 19.3448 19.7302",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "19.3443",
+            "Direct Growth": "19.7305",
+            "Regular IDCW": "19.3448",
+            "Direct IDCW": "19.7302"
+        },
         "metrics": {
             "Portfolio Turnover": "69.46",
             "Tracking Error": "0.18"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.60%",
-            "Direct Plan: 0.11%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment",
-            "of IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.60",
+            "Direct Plan": "0.11"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty 50 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2702,34 +2112,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 15.2720 15.4470",
-            "IDCW 15.2720 15.4440",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "15.2720",
+            "Direct Growth": "15.4470",
+            "Regular IDCW": "15.2720",
+            "Direct IDCW": "15.4440"
+        },
         "metrics": {
             "Portfolio Turnover": "21.04",
             "Tracking Error": "0.08"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.37%",
-            "Direct Plan: 0.07%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment",
-            "of IDCW & Growth (applicable for all",
-            "plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.37",
+            "Direct Plan": "0.07"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty smallcap 50 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2744,36 +2144,24 @@
         "minimum_investment": [],
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
-        "nav": [
-            "Regular Direct",
-            "Growth 20.6330 20.8620",
-            "IDCW 20.6320 20.8730",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "20.6330",
+            "Direct Growth": "20.8620",
+            "Regular IDCW": "20.6320",
+            "Direct IDCW": "20.8730"
+        },
         "metrics": {
             "Portfolio Turnover": "78.28",
             "Tracking Error": "0.44"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.89%",
-            "Direct Plan: 0.25%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Growth, Payout of Income",
-            "Distribution cum capital withdrawal",
-            "(IDCW) & Reinvestment of Income",
-            "Distribution cum capital withdrawal",
-            "(IDCW)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.89",
+            "Direct Plan": "0.25"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty 200 momentum 30 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2789,33 +2177,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 15.4700 15.5890",
-            "IDCW 15.4700 15.5890",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "15.4700",
+            "Direct Growth": "15.5890",
+            "Regular IDCW": "15.4700",
+            "Direct IDCW": "15.5890"
+        },
         "metrics": {
             "Portfolio Turnover": "154.28",
             "Tracking Error": "0.79"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.79%",
-            "Direct Plan: 0.30%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.79",
+            "Direct Plan": "0.30"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty financial services ex-bank index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2831,33 +2210,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 12.9800 13.0830",
-            "IDCW 12.9800 13.0830",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "12.9800",
+            "Direct Growth": "13.0830",
+            "Regular IDCW": "12.9800",
+            "Direct IDCW": "13.0830"
+        },
         "metrics": {
             "Portfolio Turnover": "33.58",
             "Tracking Error": "0.17"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.74%",
-            "Direct Plan: 0.23%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.74",
+            "Direct Plan": "0.23"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak bse housing index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2873,33 +2243,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 14.0840 14.1930",
-            "IDCW 14.0840 14.1910",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "14.0840",
+            "Direct Growth": "14.1930",
+            "Regular IDCW": "14.0840",
+            "Direct IDCW": "14.1910"
+        },
         "metrics": {
             "Portfolio Turnover": "54.12",
             "Tracking Error": "0.23"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.72%",
-            "Direct Plan: 0.22%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.72",
+            "Direct Plan": "0.22"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty 100 low volatility 30 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2915,30 +2276,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 10.2158 10.2522",
-            "IDCW 10.2158 10.2522",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "10.2158",
+            "Direct Growth": "10.2522",
+            "Regular IDCW": "10.2158",
+            "Direct IDCW": "10.2522"
+        },
         "metrics": {
             "Portfolio Turnover": "33.10",
             "Tracking Error": "0.20"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.95%",
-            "Direct Plan: 0.32%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.95",
+            "Direct Plan": "0.32"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak bse psu index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2953,33 +2308,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 8.3200 8.3430",
-            "IDCW 8.3200 8.3430",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "8.3200",
+            "Direct Growth": "8.3430",
+            "Regular IDCW": "8.3200",
+            "Direct IDCW": "8.3430"
+        },
         "metrics": {
             "Portfolio Turnover": "8.39",
             "Tracking Error": "0.18"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 1.05%",
-            "Direct Plan: 0.38%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "1.05",
+            "Direct Plan": "0.38"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty midcap 50 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -2995,33 +2341,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.7930 9.8160",
-            "IDCW 9.7930 9.8160",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.7930",
+            "Direct Growth": "9.8160",
+            "Regular IDCW": "9.7930",
+            "Direct IDCW": "9.8160"
+        },
         "metrics": {
             "Portfolio Turnover": "31.91",
             "Tracking Error": "0.27"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.88%",
-            "Direct Plan: 0.27%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.88",
+            "Direct Plan": "0.27"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty india tourism index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -3037,33 +2374,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.8850 9.9020",
-            "IDCW 9.8850 9.9020",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.8850",
+            "Direct Growth": "9.9020",
+            "Regular IDCW": "9.8850",
+            "Direct IDCW": "9.9020"
+        },
         "metrics": {
             "Portfolio Turnover": "13.65",
             "Tracking Error": "0.15"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.96%",
-            "Direct Plan: 0.33%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.96",
+            "Direct Plan": "0.33"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty midcap 150 momentum 50 index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -3080,35 +2408,24 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.7350 9.7500",
-            "IDCW 9.7350 9.7500",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.7350",
+            "Direct Growth": "9.7500",
+            "Regular IDCW": "9.7350",
+            "Direct IDCW": "9.7500"
+        },
         "metrics": {
             "Portfolio Turnover": "57.10",
             "Tracking Error": "0.72"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.93%",
-            "Direct Plan: 0.28%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: a) Growth and Income",
-            "Distribution cum capital withdrawal",
-            "(IDCW) (Payout and Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "IDCW is declared subject to availability and",
-            "adequacy of distributable surplus"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.93",
+            "Direct Plan": "0.28"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": ""
+        "investment_objective": []
     },
     "kotak nifty 50 equal weight index fund": {
         "fund_manager": "Mr. Devender Singhal, Mr. Satish Dondapati, Mr. Abhishek Bisen",
@@ -3123,29 +2440,20 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.9920 9.9930",
-            "IDCW 9.9920 9.9930",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.9920",
+            "Direct Growth": "9.9930",
+            "Regular IDCW": "9.9920",
+            "Direct IDCW": "9.9930"
+        },
         "metrics": {
             "Portfolio Turnover": "5.07",
             "Tracking Error": "0.30"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.72%",
-            "Direct Plan: 0.22%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout",
-            "and Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.72",
+            "Direct Plan": "0.22"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
@@ -3164,29 +2472,20 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "5 years & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 9.9830 9.9840",
-            "IDCW 9.9830 9.9840",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "9.9830",
+            "Direct Growth": "9.9840",
+            "Regular IDCW": "9.9830",
+            "Direct IDCW": "9.9840"
+        },
         "metrics": {
             "Portfolio Turnover": "4.84",
             "Tracking Error": "0.24"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.72%",
-            "Direct Plan: 0.23%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Growth and Income Distribution",
-            "cum capital withdrawal (IDCW) (Payout",
-            "and Reinvestment)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.72",
+            "Direct Plan": "0.23"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
@@ -3207,12 +2506,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.7453 11.7980",
-            "IDCW 11.7456 11.7976",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "11.7453",
+            "Direct Growth": "11.7980",
+            "Regular IDCW": "11.7456",
+            "Direct IDCW": "11.7976"
+        },
         "metrics": {
             "Average Maturity": "2.11",
             "Modified Duration": "1.88",
@@ -3220,23 +2519,14 @@
             "Annualised YTM": "7.08",
             "Tracking Error": "0.74"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.35%",
-            "Direct Plan: 0.20%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.35",
+            "Direct Plan": "0.20"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch-out of units on or before 30 days from the date of allotment: 0.15% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment  Nil. Any exit load charged (net off Goods and Services tax, if any) shall be credited back to the Scheme. Units issued on reinvestment of IDCW shall not be subject to entry and exit load.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     },
     "kotak nifty sdl apr 2032 top 12 equal weight index fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3253,12 +2543,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 12.1245 12.1850",
-            "IDCW 12.1282 12.1839",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "12.1245",
+            "Direct Growth": "12.1850",
+            "Regular IDCW": "12.1282",
+            "Direct IDCW": "12.1839"
+        },
         "metrics": {
             "Average Maturity": "7.00",
             "Modified Duration": "5.23",
@@ -3266,23 +2556,14 @@
             "Annualised YTM": "7.24",
             "Tracking Error": "1.45"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.36%",
-            "Direct Plan: 0.20%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.36",
+            "Direct Plan": "0.20"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch-out of units on or before 30 days from the date of allotment: 0.15% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment  Nil Redemption of units would be done on First in First out Basis (FIFO). Any exit load charged (net off Goods & Service Tax, if any) shall be credited back to the respective Scheme. Units issued on reinvestment of IDCW shall not be subject to entry and exit load.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     },
     "kotak nifty sdl plus aaa psu bond jul 2028 60:40 index fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3299,12 +2580,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.7869 11.8383",
-            "IDCW 11.7832 11.8384",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "11.7869",
+            "Direct Growth": "11.8383",
+            "Regular IDCW": "11.7832",
+            "Direct IDCW": "11.8384"
+        },
         "metrics": {
             "Average Maturity": "3.09",
             "Modified Duration": "2.60",
@@ -3312,23 +2593,14 @@
             "Annualised YTM": "7.25",
             "Tracking Error": "0.73"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.40%",
-            "Direct Plan: 0.21%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.40",
+            "Direct Plan": "0.21"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "For redemption / switch-out of units on or before 30 days from the date of allotment: 0.15% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment  Nil Redemption of units would be done on First in First out Basis (FIFO). Any exit load charged (net off Goods & Service Tax, if any) shall be credited back to the respective Scheme. Units issued on reinvestment of IDCW shall not be subject to entry and exit load.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     },
     "kotak nifty sdl jul 2026 index fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3344,12 +2616,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.5147 11.5633",
-            "IDCW 11.5148 11.1582",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "11.5147",
+            "Direct Growth": "11.5633",
+            "Regular IDCW": "11.5148",
+            "Direct IDCW": "11.1582"
+        },
         "metrics": {
             "Average Maturity": "1.41",
             "Modified Duration": "1.28",
@@ -3357,23 +2629,14 @@
             "Annualised YTM": "7.07",
             "Tracking Error": "0.55"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.41%",
-            "Direct Plan: 0.20%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.41",
+            "Direct Plan": "0.20"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     },
     "kotak nifty sdl jul 2033 index fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3389,12 +2652,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.7361 11.7908",
-            "IDCW 11.7361 11.4446",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "11.7361",
+            "Direct Growth": "11.7908",
+            "Regular IDCW": "11.7361",
+            "Direct IDCW": "11.4446"
+        },
         "metrics": {
             "Average Maturity": "7.89",
             "Modified Duration": "5.72",
@@ -3402,23 +2665,14 @@
             "Annualised YTM": "7.25",
             "Tracking Error": "1.56"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.45%",
-            "Direct Plan: 0.22%"
-        ],
-        "available_plans/options": [
-            "Regular & Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.45",
+            "Direct Plan": "0.22"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     },
     "kotak nifty g-sec july 2033 index fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3434,12 +2688,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 11.1835 11.2176",
-            "IDCW 11.1834 11.2177",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "11.1835",
+            "Direct Growth": "11.2176",
+            "Regular IDCW": "11.1834",
+            "Direct IDCW": "11.2177"
+        },
         "metrics": {
             "Average Maturity": "7.54",
             "Modified Duration": "5.54",
@@ -3447,23 +2701,14 @@
             "Annualised YTM": "6.92",
             "Tracking Error": "0.23"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.39%",
-            "Direct Plan: 0.14%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
-        "idcw_frequency": [
-            "Trustees Discretion"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.39",
+            "Direct Plan": "0.14"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. (applicable for all plans)",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     },
     "kotak nifty aaa bond jun 2025 htm index fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3479,12 +2724,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year",
-        "nav": [
-            "Regular Direct",
-            "Growth 10.5589 10.5710",
-            "IDCW 10.5588 10.5708",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "10.5589",
+            "Direct Growth": "10.5710",
+            "Regular IDCW": "10.5588",
+            "Direct IDCW": "10.5708"
+        },
         "metrics": {
             "Average Maturity": "0.37",
             "Modified Duration": "0.34",
@@ -3492,20 +2737,14 @@
             "Annualised YTM": "7.55",
             "Tracking Error": "0.22"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.30%",
-            "Direct Plan: 0.15%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: Payout of IDCW, Reinvestment of",
-            "IDCW & Growth (applicable for all plans)"
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.30",
+            "Direct Plan": "0.15"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate A-II Relatively High"
+        "investment_objective": []
     },
     "kotak crisil-ibx aaa financial services index \u2013 sep 2027 fund": {
         "fund_manager": "Mr. Abhishek Bisen",
@@ -3522,12 +2761,12 @@
         "initial_&_additional_investment": "100 and any amount thereafter",
         "sip": "100 and any amount thereafter",
         "ideal_investments_horizon": "1 year & above",
-        "nav": [
-            "Regular Direct",
-            "Growth 10.2518 10.2583",
-            "IDCW 10.2518 10.2577",
-            "(as on December 31, 2024)"
-        ],
+        "nav": {
+            "Regular Growth": "10.2518",
+            "Direct Growth": "10.2583",
+            "Regular IDCW": "10.2518",
+            "Direct IDCW": "10.2577"
+        },
         "metrics": {
             "Average Maturity": "2.50",
             "Modified Duration": "2.11",
@@ -3535,24 +2774,13 @@
             "Annualised YTM": "7.77",
             "Tracking Error": "0.38"
         },
-        "total_expense_ratio": [
-            "Regular Plan: 0.40%",
-            "Direct Plan: 0.20%"
-        ],
-        "available_plans/options": [
-            "A) Regular Plan B) Direct Plan",
-            "Options: a) Growth",
-            "b) Income Distribution cum Capital",
-            "Withdrawal (IDCW)",
-            "Payout of Income Distribution cum",
-            "Capital Withdrawal Option.",
-            "Reinvestment of Income Distribution",
-            "cum Capital Withdrawal Option."
-        ],
+        "total_expense_ratio": {
+            "Regular Plan": "0.40",
+            "Direct Plan": "0.20"
+        },
         "load": [],
         "entry_load:": "Nil. (applicable for all plans)",
         "exit_load:": "Nil. For redemption / switch-out of units on or before 30 days from the date of allotment: 0.25% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment-Nil.",
-        "investment_objective": [],
-        "folio_count_data_as_on_30th_november": "PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Interest Rate Low Moderate High Risk (Class A)(Class B) (Class C) Relatively Low Moderate Relatively A-III High"
+        "investment_objective": []
     }
 }

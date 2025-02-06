@@ -222,3 +222,15 @@ class Helper:
     def quick_construct_str(data:list):
         
         return " ".join(data)
+    
+    @staticmethod
+    def drop_selected_dict_values(final_dict:dict, index:list):
+        finally_dict = {}
+        for fund, content in final_dict.items():
+            clean_dict = {}
+            for k, v in content.items():
+                if k not in index:
+                    clean_dict[k] = v
+            finally_dict[fund] = clean_dict
+        return finally_dict
+    
