@@ -206,7 +206,13 @@ class Helper:
             json.dump(extracted_text, file, indent=indent)
         
         print(f'\n JSON saved at {output_path}')
-    
+        
+    @staticmethod
+    def quick_load_json(json_path:str):
+        final_dict = {}
+        with open(json_path, 'r') as file:
+            final_dict = json.load(file)
+        return final_dict
     @staticmethod
     def drop_empty_dict_values(final_dict:dict):
         finally_dict = {}
@@ -217,11 +223,6 @@ class Helper:
                     non_empty_dict[key] = value
             finally_dict[fund] = non_empty_dict
         return finally_dict
-    
-    @staticmethod
-    def quick_construct_str(data:list):
-        
-        return " ".join(data)
     
     @staticmethod
     def drop_selected_dict_values(final_dict:dict, index:list):

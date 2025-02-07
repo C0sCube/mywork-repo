@@ -44,19 +44,59 @@
             "Regular IDCW": "13.75",
             "Regular Growth": "13.75"
         },
-        "metrics": [
-            "(as on December 31, 2024)",
-            "Portfolio Turnover Ratio 1.11",
-            "Note: Portfolio Beta, Standard Deviation, R Squared and Sharpe Ratio of",
-            "the Scheme are not computed owing to the short time frame since launch",
-            "of the Scheme.",
-            "IDCW history is not available since no income is distributed since the",
-            "launch of the scheme.",
-            "# # Total Expense Ratio is as on the last business day of the month and",
-            "incudes Additional Expenses and Goods & Service Tax on Management",
-            "Fees.",
-            "DISCLAIMER: MUTUAL FUND INVESTMENTS ARE SUBJE"
-        ]
+        "metrics": {
+            "Portfolio Turnover Ratio": "1.11"
+        }
+    },
+    "nj elss tax saver scheme": {
+        "investment_objective": "The investment objective of the scheme is to generate income and long term capital appreciation from a diversified portfolio of predominantly equity and equity-related instruments. However, there is no assurance or guarantee that the investment objective of the scheme will be achieved.",
+        "type_of_the_scheme:": "An open ended equity linked saving scheme with a statutory lock in of 3 years and tax benefit",
+        "entry_load:": "NA",
+        "exit_load": "Nil",
+        "benchmark_index": "NIFTY 500 TRI",
+        "additional_benchmark:": "Nifty 50 TRI",
+        "name_of_the_fund_manager:": [
+            "Mr. Viral Shah and",
+            "Mr. Dhaval Patel."
+        ],
+        "work_experience:": [
+            "Mr. Viral Shah - 20 years and",
+            "Mr. Dhaval Patel - 17 years"
+        ],
+        "managing_the_scheme_since:": [
+            "Mr. Viral Shah &",
+            "Mr. Dhaval Patel are managing the scheme since",
+            "June 19, 2023"
+        ],
+        "plans:": "Regular Plan and Direct Plan",
+        "options:": "Growth and IDCW",
+        "date_of_allotment:": "June 16, 2023",
+        "total_expense_ratio": {
+            "Regular Plan": "2.31",
+            "Direct Plan": "0.54"
+        },
+        "monthly_average_aum": "INR 255.49 Crores",
+        "closing_aum": "INR 257.95 Crores",
+        "minimum_investment": [
+            "For Lumpsum Investment: INR 500/- and in multiple of",
+            "INR 500/- thereafter",
+            "For SIP Investment: INR 500/- and in multiple of INR",
+            "500/- thereafter",
+            "For STP and SWP Investment: INR 500/- and in",
+            "multiple of INR 1/- thereafter"
+        ],
+        "additional_investment_amount": [
+            "INR 500 and multiples of INR 500"
+        ],
+        "nav": {
+            "Direct IDCW": "15.12",
+            "Direct Growth": "15.12",
+            "Regular IDCW": "14.71",
+            "Regular Growth": "14.71"
+        },
+        "metrics": {
+            "Portfolio Turnover Ratio": "0.98"
+        }
     },
     "nj balanced advantage fund": {
         "investment_objective": "The investment objective of the scheme is to generate capital appreciation by dynamically allocating its assets between equity and specified debt securities. However, there is no assurance or guarantee that the investment objective of the scheme will be achieved.",
@@ -102,14 +142,11 @@
             "Regular IDCW": "13.47",
             "Regular Growth": "13.47"
         },
-        "metrics": [
-            "Standard deviation 9.03",
-            "Beta 1.23",
-            "Sharpe Ratio** 0.40",
-            "Computed for the 3 years period ended December 31,2024.",
-            "Based on the month end NAV.",
-            "DISCLAIMER: MUTUAL FUND INVESTMENTS ARE SUBJE"
-        ]
+        "metrics": {
+            "Standard deviation": "9.03",
+            "Beta": "1.23",
+            "Sharpe Ratio": "0.40"
+        }
     },
     "nj arbitrage fund": {
         "investment_objective": "The investment objective of the scheme is to generate capital appreciation and income by predominantly investing in arbitrage opportunities in the cash and derivatives segment of the equity market and by investing the balance in debt and money market instruments. However, there is no assurance or guarantee that the investment objective of the scheme will be achieved.",
@@ -154,23 +191,13 @@
             "Direct Growth": "11.8379",
             "Regular Growth": "11.6423"
         },
-        "metrics": [
-            "(as on December 31, 2024)",
-            "Average Maturity* 73 Days",
-            "Modified Duration* 71 Days",
-            "Yield to Maturity 6.53%",
-            "Macaulay Duration* 73 Days",
-            "Portfolio Turnover Ratio 9.82",
-            "#Total Expense Ratio is as on the last business day of the month and",
-            "includes Additional Expenses and Goods & Service Tax on",
-            "Management Fees.",
-            "*Calculated on amount invested in debt securities (including accrued",
-            "interest), deployment of funds in TREPS.",
-            "Portfolio Beta, Standard Deviation, R-Squared and Sharpe Ratio",
-            "of the Scheme are not computed owing to the short time frame since",
-            "launch of the Scheme.",
-            "DISCLAIMER: MUTUAL FUND INVESTMENTS ARE SUBJE"
-        ]
+        "metrics": {
+            "Average Maturity": "73",
+            "Modified Duration": "71",
+            "Yield to Maturity": "6.53",
+            "Macaulay Duration": "73",
+            "Portfolio Turnover Ratio": "9.82"
+        }
     },
     "nj overnight fund": {
         "investment_objective": "The investment objective of the scheme is to seek to generate returns commensurate with risk of investments in overnight instruments.However, there is no assurance or guarantee that the investment objective of the scheme will be achieved.",
@@ -214,17 +241,11 @@
             "Direct Growth": "1164.3598",
             "Regular Growth": "1161.5192"
         },
-        "metrics": [
-            "(as on December 31, 2024)",
-            "Average Maturity* 1 Day",
-            "Modified Duration* 1 Day",
-            "Yield to Maturity 6.67%",
-            "Macaulay Duration* 1 Day",
-            "#Total Expense Ratio is as on the last business day of the month and includes",
-            "Additional Expenses and Goods & Service Tax on Management Fees.",
-            "*Calculated on amount invested in debt securities (including accrued interest),",
-            "deployment of funds in TREPS.",
-            "DISCLAIMER: MUTUAL FUND INVESTMENTS ARE SUBJE"
-        ]
+        "metrics": {
+            "Average Maturity": "1",
+            "Modified Duration": "1",
+            "Yield to Maturity": "6.67",
+            "Macaulay Duration": "1"
+        }
     }
 }
