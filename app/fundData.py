@@ -21,41 +21,35 @@ class Samco(Reader):
     def __return_invest_data(self,main_key:str,data:list):
        return {main_key: " ".join(data)}
 
-    def __return_scheme_data(self,key:str,data:list):
-        scheme_data = data
-        main_key = key
-        structured_data = {main_key: {}}
+    def __return_scheme_data(self,main_key:str,data:list):
+        mention_start = [
+        "Inception Date",
+        "Benchmark",
+        r"Min\.?\s*Application",
+        "Additional",
+        "Entry Load",
+        "Exit Load",
+        "Total Expense",
+        ]
 
-        # Patterns
-        date_pattern = r"^(.*?date)\s(\d{2}-[A-Za-z]{3}-\d{4})$"
-        benchmark_pattern = r"^(Benchmark)\s+(.*)$"
-        application_pattern = r"(?:·)?\d+(?:,\d{3})*(?:\.\d+)?/-"
+        mention_end = mention_start[1:] + ["End_of_Data"]
 
-        for data in scheme_data:
-            if re.search(date_pattern, data, re.IGNORECASE):
-                match = re.match(date_pattern, data, re.IGNORECASE)
-                if match:
-                    key = match.group(1)
-                    value = match.group(2)
-                    structured_data[main_key][key] = value
-            elif re.search(benchmark_pattern, data, re.IGNORECASE):
-                match = re.match(benchmark_pattern, data, re.IGNORECASE)
-                if match:
-                    key = match.group(1)
-                    value = match.group(2)
-                    structured_data[main_key][key] = value
-            elif re.search(r"\b(min|application)\b", data, re.IGNORECASE):
-                matches = re.findall(application_pattern, data, re.IGNORECASE)
-                if matches:
-                    cleaned_matches = [match.replace('·', '') for match in matches]
-                    structured_data[main_key]["min_appl_amt"] = cleaned_matches
-            elif re.search(r"\b(additional.* and in multiples of)\b", data, re.IGNORECASE):
-                matches = re.findall(application_pattern, data, re.IGNORECASE)
-                if matches:
-                    cleaned_matches = [match.replace('·', '') for match in matches]
-                    structured_data[main_key]["additional_amt"] = cleaned_matches
-
-        return structured_data
+        # Generate regex patterns dynamically
+        patterns = [r"({start})\s*(.+?)\s*({end}|$)".format(start=start, end=end)
+            for start, end in zip(mention_start, mention_end)]
+        #other patterns
+        ter_pattern = r'([\d,.]+)%\s+([\d,.]+)%'
+        
+        final_dict = {}
+        scheme_data = " ".join(data)
+        for pattern in patterns:
+            if matches:= re.findall(pattern, scheme_data, re.DOTALL|re.IGNORECASE):
+                for match in matches:
+                    key, value, dummy = match
+                    value = value.strip()
+                    final_dict[key] = value
+        
+        return {main_key:final_dict}
 
     def __return_fund_data(self,key:str,data:list):
         fund_manager = data
@@ -93,82 +87,44 @@ class Samco(Reader):
         return strucuted_data
 
     def __return_nav_data(self,main_key:str,data:list):
-        pattern = r'(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)[\s:]+([\d]+\.\d+)'
-        
+        nav_data = data
+        pattern = r'(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\s*([\d,.]+)'
         final_dict = {}
-        for text in data:
-            text = text.lower()
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            for key, value in matches:
-                if '.' in value:
-                    final_dict[key] = float(value)
-                else:
-                    final_dict[key] = 'NA'
+        for text in nav_data:
+            text = re.sub(r'[:,:\*\^]', "", text.strip())
+            if matches := re.findall(pattern, text, re.IGNORECASE):
+                for key, value in matches:
+                    final_dict[key] = value
+                
         return {main_key:final_dict}
 
-    def __return_quant_data(self,key:str,data:list):
-        qunatitative_data = data
-        main_key = key
+    def __return_quant_data(self,main_key:str,data:list):
+        quant_data = data
+        pattern = r'(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\s*([\d,.]+)'
+        final_dict =  {}
+        for text in quant_data:
+            text = re.sub(r'[:;\*\^~]','', text.strip())
+            if matches:= re.findall(pattern, text, re.IGNORECASE):
+                for key, value in matches:
+                    final_dict[key] = value
 
-        strucuted_data = {main_key:{}}
-        current_entry = None
-        comment = ""
+        return{main_key:final_dict}
+    
+    def __return_aum_data(self,main_key:str,data:list):
+        aum_data = data
+        pattern = r'(AUM|Average AUM).*?([\d,]+\.\d{2})'
+        final_dict = {}
+        for text in aum_data:
+            text = re.sub(r'[:;\*\^~]','', text.strip())
+            if matches:= re.findall(pattern, text, re.IGNORECASE):
+                for key, value in matches:
+                    final_dict[key] = value
 
-        ratio_pattern = r"\b(ratio|turnover)\b"
-        annual_pattern = r'\b(annualised|YTM)\b'
-        macaulay_pattern = r"\b(macaulay.*duration)\b"
-        residual_pattern = r"\b(residual.*maturity)\b"
-        modified_pattern = r"\b(modified.*duration)\b"
+        return{main_key:final_dict}
 
-        for data in qunatitative_data:
-            if re.search(ratio_pattern,data, re.IGNORECASE):
-                key = data.split(":")[0].lower().strip()
-                value = FundRegex.extract_decimals(data.split(":")[1].lower().strip())
-            elif re.search(annual_pattern,data, re.IGNORECASE):
-                key = data.split(":")[0].lower().strip()
-                value = FundRegex.extract_decimals(data.split(":")[1].lower().strip())
-            elif re.search(macaulay_pattern,data, re.IGNORECASE):
-                key = data.split(":")[0].lower().strip()
-                value = data.split(":")[1].lower().strip()
-            elif re.search(residual_pattern,data, re.IGNORECASE):
-                key = data.split(":")[0].lower().strip()
-                value = data.split(":")[1].lower().strip()
-            elif re.search(modified_pattern,data, re.IGNORECASE):
-                key = data.split(":")[0].lower().strip()
-                value = data.split(":")[1].lower().strip()
-            else:
-                comment+= data
-            strucuted_data[main_key][key] = value
-        
-        strucuted_data[main_key]['comment'] = comment
-
-        return strucuted_data
-
-    def __return_aum_data(self,key:str,data:list):
-        
-        aum = data
-        main_key = key
-        strucuted_data = {main_key:{}}
-
-        pattern = r"\b\d{1,3}(?:,\d{3})*(?:\.\d+)? Crs\b"
-
-        for data in aum:
-            if re.search(r'average', data, re.IGNORECASE):
-                match = re.search(pattern, data)
-                key = 'avg_aum (crs)'
-            elif re.search(pattern, data):
-                match = re.search(pattern, data)
-                key = "aum (crs)"
-            else:
-                continue
-            
-            if match:
-                strucuted_data[main_key][key] = float(match.group().split(" ")[0])
-
-        return strucuted_data
 
     def __return_dummy_data(self,key:str,data:list):
-        return {key:{}}
+        return {key: data}
 
 
     #FundRegex MAPPING FUNCTION
@@ -176,9 +132,9 @@ class Samco(Reader):
         
         check_header = string
         
-        if re.match(r"^Investment", check_header, re.IGNORECASE):
+        if re.match(r"^Investment.*", check_header, re.IGNORECASE):
             return self.__return_invest_data(string,data)
-        elif re.match(r"^Scheme", check_header, re.IGNORECASE):
+        elif re.match(r"^Scheme.*", check_header, re.IGNORECASE):
             return self.__return_scheme_data(string, data)
         
         elif re.match(r"^nav", check_header, re.IGNORECASE):
@@ -208,21 +164,6 @@ class Tata(Reader):
     
     def __init__(self, path: str,dry:str,fin:str, rep:str):
         super().__init__(path,dry,fin,rep, self.PARAMS)
-    
-    def return_required_header(self,string: str):
-            replace_key = string
-            if re.match(r'^nav.*', string, re.IGNORECASE):
-                replace_key = "nav"
-            elif re.match(r"^expense.*", string, re.IGNORECASE):
-                replace_key = "expense_ratio"
-            elif re.match(r"^volatility.*", string, re.IGNORECASE):
-                replace_key = "metrics"
-            elif re.match(r"^.*investors$", string, re.IGNORECASE):
-                replace_key = "add_investment"
-            elif re.match(r".*investment$", string, re.IGNORECASE):
-                replace_key = "min_investment"
-            return replace_key
-    
     
     #FundRegex FUNCTIONS
     def __extract_inv_data(self,key:str, data:list):            
@@ -1390,8 +1331,7 @@ class BankOfIndia(Reader):
         #     return self.__extract_ter_data(string, data)
         return self.__extract_dum_data(string,data) 
     
-        
-class Kotak(Reader):
+        class Kotak(Reader):
     
     PARAMS = {
         'fund': [[20,16], r'^(Kotak|Bharat).*(Fund|ETF|FTF|FOF)$|^Kotak',[12,20],[-15319437]],
@@ -1802,8 +1742,8 @@ class NJMF(Reader):
         elif re.match(r"^metric.*", check_header, re.IGNORECASE):
             return self.__extract_metric_data(string,data)
         return self.__extract_dum_data(string,data)
-    
-                
+
+               
 class QuantMF(Reader):
     PARAMS = {
         'fund': [[16,0], r'^(quant).*(Fund|ETF|EOF|FOF|FTF|Path)$',[16,24],[-13604430]],
@@ -1927,8 +1867,8 @@ class Taurus(Reader):
         if re.match(r"^(minimum_appl|benchmark|date|investment).*", check_header, re.IGNORECASE):
             return self.__extract_inv_data(string,data)
         return self.__extract_dum_data(string,data)
-
-    
+ 
+ 
 class Trust(Reader):
     
     PARAMS = {
@@ -2036,8 +1976,8 @@ class WhiteOak(Reader):
             return self.__extract_invest_data(string, data) #since its a comment
         else:
             return self.__return_dummy_data(string,data)
-        
 
+     
 class BajajFinServ(Reader):
     
     PARAMS = {
