@@ -3,6 +3,8 @@ import pprint
 import fitz
 import pickle
 from datetime import datetime
+from collections import defaultdict
+from functools import reduce
 
 class Helper:
     
@@ -208,11 +210,10 @@ class Helper:
         print(f'\n JSON saved at {output_path}')
         
     @staticmethod
-    def quick_load_json(json_path:str):
-        final_dict = {}
-        with open(json_path, 'r') as file:
-            final_dict = json.load(file)
-        return final_dict
+    def merge_nested_dicts(*dicts):
+        return {key: reduce(lambda acc, d: {**acc, **d.get(key, {})}, dicts, {}) for key in dicts[0].keys()}
+
+    
     @staticmethod
     def drop_empty_dict_values(final_dict:dict):
         finally_dict = {}
@@ -234,4 +235,57 @@ class Helper:
                     clean_dict[k] = v
             finally_dict[fund] = clean_dict
         return finally_dict
+    
+    @staticmethod
+    def drop_keys_by_regex(data, patterns):
+        if not isinstance(data, dict):
+            return data
+        
+        regex_list = [re.compile(pattern) for pattern in patterns]
+        final_dict = {}
+        for key, value in data.items():
+            if any(regex.match(key) for regex in regex_list):
+                continue
+            
+            if isinstance(value, dict): #dict
+                final_dict[key] = Helper.drop_keys_by_regex(value, patterns)
+            elif isinstance(value, list): #list
+                final_dict[key] = [Helper.drop_keys_by_regex(item, patterns) if isinstance(item, dict) else item for item in value]
+            else:
+                final_dict[key] = value
+        
+        return final_dict
+    
+    @staticmethod
+    def merge_key_values(data, key1, key2):
+        if isinstance(data, dict):
+            if key1 in data and key2 in data:
+                val1, val2 = data[key1], data[key2]
+
+                if isinstance(val1, list) and isinstance(val2, list):
+                    data[key1] = val1 + val2  # Merge lists
+                elif isinstance(val1, dict) and isinstance(val2, dict):
+                    merged_dict = defaultdict(dict, val1)
+                    for k, v in val2.items():
+                        if k in merged_dict and isinstance(merged_dict[k], dict) and isinstance(v, dict):
+                            merged_dict[k].update(v)  # Merge nested dicts
+                        else:
+                            merged_dict[k] = v
+                    data[key1] = dict(merged_dict)
+                elif isinstance(val1, str) and isinstance(val2, str):
+                    data[key1] = val1 + " " + val2  # Concatenate strings
+                else:
+                    data[key1] = [val1, val2]  # Handle mixed types as a list
+
+                del data[key2]  # Remove key2 after merging
+
+            for k, v in data.items():  # Recursively merge nested dictionaries
+                Helper.merge_key_values(v, key1, key2)
+
+        elif isinstance(data, list):  # Handle lists of dictionaries
+            for item in data:
+                Helper.merge_key_values(item, key1, key2)
+
+        return data
+
     

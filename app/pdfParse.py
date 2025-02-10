@@ -128,11 +128,11 @@ class Reader:
                             
      #EXTRACT
     
-    def extract_clipped_data(self,input:str, pageSelect:list, title:dict):
+    def extract_clipped_data(self,input:str, pageSelect:list, title:dict, *args:list):
     
         document = fitz.open(input)
         final_list = []
-        bboxes = self.PARAMS['clip_bbox']
+        bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
         fund_names = title
 
         for pgn in pageSelect:
@@ -272,7 +272,7 @@ class Reader:
         return data
  
     def process_text_data(self,text_data: dict):
-        remove_text = ["folio count data as on 30th november","2024.","*",'Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','Scheme Features','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
+        remove_text = ["folio count data as on 30th november","2024.","*",'Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
         updated_text_data = {}
         data_conditions = self.PARAMS['data']
@@ -346,7 +346,11 @@ class Reader:
                 
                 #step 3
                 nested_dict = {}
-                current_header = None
+                current_header = "before"
+                
+                if current_header not in nested_dict:
+                    nested_dict[current_header] = []
+                    
                 for item in items:
                     origin = tuple(item[3])
                     size = item[0]
@@ -367,7 +371,10 @@ class Reader:
                         nested_dict[current_header] = []
                     elif size<= content_size and current_header:
                         nested_dict[current_header].append(item)
-                        
+                
+                #remove if before is empty       
+                if nested_dict['before'] == []:
+                    del nested_dict['before']    
                 final_text_data[fund] = nested_dict        
                 # matrix_df = pd.DataFrame(matrix, index=coordinates, columns=sizes)
                 # final_matrix[fund] = matrix_df
