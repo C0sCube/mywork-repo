@@ -54,6 +54,18 @@ class Helper:
         return final_list
     
     @staticmethod
+    def get_pdf_text(path:str):
+    
+        doc = fitz.open(path)
+        text_data = {}
+        for pgn in range(doc.page_count):
+            page = doc[pgn]
+            text = page.get_text("text")
+            text = text.encode('utf-8', 'ignore').decode('utf-8')
+            data = text.split('\n')
+            text_data [pgn] = data
+        return text_data
+    @staticmethod
     def get_all_pdf_data(path:str):
     
         doc = fitz.open(path)
@@ -208,7 +220,18 @@ class Helper:
             json.dump(extracted_text, file, indent=indent)
         
         print(f'\n JSON saved at {output_path}')
-        
+    
+    @staticmethod
+    def quick_json_load(path:str):
+        try:
+            with open(path, "r", encoding="utf-8") as file:
+                data = json.load(file)
+            print(f"\n JSON loaded from {path}")
+            return data
+        except Exception as e:
+            print(f"Error loading JSON: {e}")
+            return None
+    
     @staticmethod
     def merge_nested_dicts(*dicts):
         return {key: reduce(lambda acc, d: {**acc, **d.get(key, {})}, dicts, {}) for key in dicts[0].keys()}

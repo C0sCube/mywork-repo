@@ -6,7 +6,7 @@ class FundRegex():
     HEADER_PATTERNS = {
             r"^(nav|net_asset).*": "nav",
             r"^market": "market_capital",
-            r"^(\*aum|assets|monthly_aum|fund_aum|aum|fund_size|aum_detail|portfolio_details|fund_size).*": "aum",
+            r"^(\*aum|assets|AUM|monthly_aum|fund_aum|aum|fund_size|aum_detail|fund_size).*": "aum",
             r"^(fund_mana|fund_and_co|name_of_the).*": "fund_manager",
             r'co-_fund_manager.*': "co_fund_manager",
             r"^(scheme_features|fund_infor|scheme_det|fund_details|fund_snapshot|fund_feat).*": "scheme_details",
