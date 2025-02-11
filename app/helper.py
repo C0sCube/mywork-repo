@@ -310,5 +310,21 @@ class Helper:
                 Helper.merge_key_values(item, key1, key2)
 
         return data
-
+    
+    @staticmethod
+    def extract_json_keys(path:str):
+        grand_keys = {}
+        
+        for filename in os.listdir(path):
+            if filename.endswith(".json"):
+                file_path = os.join(path, filename)
+                
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as file:
+                        data = json.load(file)
+                        if isinstance(data, dict):
+                            grand_keys[filename] = list(data.keys())
+                except Exception as e:
+                    print(f"Error reading {file}: {e}")
+        return grand_keys
     

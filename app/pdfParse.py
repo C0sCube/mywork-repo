@@ -272,8 +272,8 @@ class Reader:
         return data
  
     def process_text_data(self,text_data: dict):
-        remove_text = ["folio count data as on 30th november","2024.","*",'Note:','Note :','Mutual Fund investments are subject to market risks, read all scheme related documents carefully.','SCHEME FEATURES',"2.",'Experience','and Experience','otherwise specified.','Data as on 31st December, 2024 unles','Ratio','DECEMBER 31, 2024','(Last 12 months):','FOR INVESTORS WHO ARE SEEKING^','Amount:','(Date of Allotment):','Rating Profile','p','P','Key Facts','seeking*:','This product is suitable for investors who are','product is suitable for them.','advisers if in doubt about whether the','*Investors should consult their financial','are seeking*:','This product is suitable for investors who','(Annualized)','(1 year)','Purchase', 'Amount', 'thereafter', '.', '. ', ',', ':', 'st', ';', "-", 'st ', ' ', 'th', 'th ', 'rd', 'rd ', 'nd', 'nd ', '', '`', '(Date of Allotment)']
         
+        stop_words = FundRegex.STOP_WORDS
         updated_text_data = {}
         data_conditions = self.PARAMS['data']
 
@@ -284,7 +284,7 @@ class Reader:
             cleaned_blocks = []
             for block in blocks:
                 size, text, color, origin, bbox,font = block
-                if text not in remove_text:
+                if text not in stop_words:
                     cleaned_blocks.append(block)
 
             # Process blocks (adjust size based on conditions)
