@@ -2819,7 +2819,7 @@ class BajajFinServ(Reader):
 
 class Axis(Reader):
     PARAMS = {
-        'fund': [[20,0],r'AXIS.*(FUND|Path|ETF|FOF|EOF)$',[8,12],[-10987173]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'fund': [[0,4],r'.*(Plan|Fund|Path|ETF|FOF|EOF|Funds)$',[9,18],[-16777216]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(360,5,612,812)],
         'line_x': 180.0,
         'data': [[6,12],[-1,-15376468],30.0,['Rubik-SemiBold']] #sizes, color, set_size
@@ -2833,4 +2833,69 @@ class Axis(Reader):
         return{main_key:data}
     def __extract_fund_data(self,main_key:str, data:list):
         return {main_key:data}
+    
+
+class Nippon(Reader):
+    PARAMS = {
+        'fund': [[0,4],r'^(Nippon|CPSE).*(?=Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|$)',[5,12],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,25,220,812)],
+        'line_x': 180.0,
+        'data': [[6,12],[-16777216],30.0,['HelveticaNeueCondensed-C']] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep, self.PARAMS)
+    
+    #Fund Regex  
+    def __return_dummy_data(self,main_key:str,data:list):
+        return{main_key:data}
+    def __extract_fund_data(self,main_key:str, data:list):
+        return {main_key:data}
+    def __return_invest_data(self,main_key:str,data:list):
+        return {main_key: " ".join(data)}
+    
+    #MAPPING FUNCTION
+    def match_regex_to_content(self, string: str, data: list):
+        pattern_to_function = {
+            r"^(investment|minimum|entry|exit|load|plans|scheme_launch|benchmark).*": self.__return_invest_data,
+            r"^fund_mana.*": self.__extract_fund_data,
+        }
+
+        for pattern, func in pattern_to_function.items():
+            if re.match(pattern, string, re.IGNORECASE):
+                return func(string, data)
+
+        return self.__return_dummy_data(string, data)
+    
+class PGIM(Reader):
+    PARAMS = {
+        'fund': [[20,4],r'^.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds)$',[16,30],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0,115,210,812)],
+        'line_x': 210.0,
+        'data': [[6,12],[-1],30.0,['PrudentialModern-Bold']] #sizes, color, set_size
+    }
+    
+    def __init__(self, path: str,dry:str,fin:str, rep:str):
+        super().__init__(path,dry,fin,rep, self.PARAMS)
+    
+    #Fund Regex  
+    def __return_dummy_data(self,main_key:str,data:list):
+        return{main_key:data}
+    def __extract_fund_data(self,main_key:str, data:list):
+        return {main_key:data}
+    def __return_invest_data(self,main_key:str,data:list):
+        return {main_key: " ".join(data)}
+    
+    #MAPPING FUNCTION
+    def match_regex_to_content(self, string: str, data: list):
+        pattern_to_function = {
+            r"^(investment|minimum|entry|exit|load|plans|scheme_launch|benchmark).*": self.__return_invest_data,
+            r"^fund_mana.*": self.__extract_fund_data,
+        }
+
+        for pattern, func in pattern_to_function.items():
+            if re.match(pattern, string, re.IGNORECASE):
+                return func(string, data)
+
+        return self.__return_dummy_data(string, data)
 #something

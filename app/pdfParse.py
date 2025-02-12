@@ -452,9 +452,9 @@ class Reader:
         output_path  = self.DRYPATH
         for fund, items in data.items():
            try:
-                self.__generate_pdf_from_data(items, output_path)
+                Reader.__generate_pdf_from_data(items, output_path)
                 print(f'\n-----{fund}------', f'\nPDF at: {output_path}')
-                extracted_text[fund] = self.__extract_data_from_pdf(output_path)
+                extracted_text[fund] = Reader.__extract_data_from_pdf(output_path)
                 
            except Exception as e:
                print(f"\nError while processing '{fund}': {e}")
@@ -475,6 +475,5 @@ class Reader:
             final_text[fund] = content_dict
         
         return final_text
-
 
 

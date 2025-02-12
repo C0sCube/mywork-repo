@@ -17,7 +17,7 @@ class FundRegex():
             r"^(total_exp|weighted_average|month_end_ter).*": "total_expense_ratio",
             r'^portfolio_turnover.*': "portfolio_turnover_ratio",
             # r'^(date|allotment|inception).*': 'scheme_launch_date',
-            r'^benchmark.*': "benchmark_index",
+            r'^(benchmark|amfi_tier_1_bench).*': "benchmark_index",
             r'^composition.*': "compositon_by_industry",
             r'^minimum_investment': "minimum_investment",
             r'systematic_investment_plan_': "sip",
