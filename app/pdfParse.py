@@ -462,7 +462,6 @@ class Reader:
         return extracted_text
     
     #REFINE
-    
     def refine_extracted_data(self,extracted_text:dict):
         
         final_text = {}
