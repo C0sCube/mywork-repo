@@ -468,9 +468,10 @@ class Reader:
         for fund, items in extracted_text.items():
             content_dict = {}
             for head, content in items.items():
-                clean_head = FundRegex.header_mapper(head)
-                content = self.match_regex_to_content(clean_head, content)
-                content_dict.update(content)
+                if head:= re.sub(r"[^\w\s]", "", head.strip()).strip():
+                    clean_head = FundRegex.header_mapper(head)
+                    content = self.match_regex_to_content(clean_head, content)
+                    content_dict.update(content)
             final_text[fund] = content_dict
         
         return final_text

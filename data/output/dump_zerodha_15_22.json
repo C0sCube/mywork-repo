@@ -1,11 +1,16 @@
 {
     "zerodha nifty largemidcap": {
+        "before": [
+            "An open-ended scheme tracking Nifty LargeMidcap 250 Index",
+            "as on 31 Dec 2024"
+        ],
         "scheme_details": {
-            "launched": "8th Nov 2023",
-            "expense_ratio": "0.26%",
-            "exit_load": "0%",
-            "benchmark": "Nifty LargeMidcap 250 Index-TRI",
-            "nav": 13.3394
+            "Benchmark": "Nifty LargeMidcap 250 Index-TRI NAV 13.3394",
+            "Exit Load": "0% Benchmark Nifty LargeMidcap 250 Index-TRI NAV 13.3394",
+            "Expense Ratio": "0.26% Exit Load 0% Benchmark Nifty LargeMidcap 250 Index-TRI NAV 13.3394",
+            "Launched": "8th Nov 2023 Min. Investment 100 Expense Ratio 0.26% Exit Load 0% Benchmark Nifty LargeMidcap 250 Index-TRI NAV 13.3394",
+            "Min. Investment": "100 Expense Ratio 0.26% Exit Load 0% Benchmark Nifty LargeMidcap 250 Index-TRI",
+            "NAV": "13.3394"
         },
         "aum": {
             "month end aum": "745.74",
@@ -22,10 +27,10 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Kedarnath Mirajkar",
+                "name": "Mr Kedarnath Mirajkar ",
                 "designation": "",
-                "total experience": "19 years",
-                "managing this fund since": "Nov 2023"
+                "managing_since": "Nov 2023",
+                "experience": "19 years"
             }
         ],
         "metrics": {
@@ -34,13 +39,20 @@
         }
     },
     "zerodha elss tax saver nifty": {
+        "before": [
+            "An open-ended passive equity linked savings scheme with a statutory lock-in",
+            "period of 3 years and tax benefit replicating/tracking Nifty LargeMidcap 250 Index",
+            "as on 31 Dec 2024"
+        ],
         "scheme_details": {
-            "launched": "8th Nov 2023",
-            "expense_ratio": "0.26%",
-            "exit_load": "0%",
-            "benchmark": "Nifty LargeMidcap 250 Index-TRI",
-            "nav": 13.3502,
-            "lock-in_period": "3 Years"
+            "Also manages": "Exit Load 0%",
+            "Benchmark": "Nifty LargeMidcap 250 Index-TRI NAV 13.3502 Lock-in period 3 Years",
+            "Exit Load": "0% Benchmark Nifty LargeMidcap 250 Index-TRI NAV 13.3502 Lock-in period 3 Years",
+            "Expense Ratio": "0.26% Also manages Exit Load 0% Benchmark Nifty LargeMidcap 250 Index-TRI NAV 13.3502 Lock-in period 3 Years",
+            "Launched": "8th Nov 2023 Min. Investment 500 Expense Ratio 0.26% Also manages Exit Load 0% Benchmark Nifty LargeMidcap 250 Index-TRI NAV 13.3502",
+            "Lock-in period": "3 Years",
+            "Min. Investment": "500 Expense Ratio 0.26% Also manages Exit Load 0% Benchmark Nifty LargeMidcap 250 Index-TRI",
+            "NAV": "13.3502 Lock-in period 3 Years"
         },
         "aum": {
             "month end aum": "154.43",
@@ -57,10 +69,10 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Kedarnath Mirajkar",
+                "name": "Mr Kedarnath Mirajkar ",
                 "designation": "",
-                "total experience": "19 years",
-                "managing this fund since": "Nov 2023"
+                "managing_since": "Nov 2023",
+                "experience": "19 years"
             }
         ],
         "metrics": {
@@ -69,13 +81,19 @@
         }
     },
     "zerodha nifty 1d rate": {
+        "before": [
+            "An open-ended Exchange Traded Fund replicating/ tracking Nifty 1D Rate Index.",
+            "A relatively low interest rate risk and relatively low credit risk.",
+            "as on 31 Dec 2024"
+        ],
         "scheme_details": {
-            "allotment_date": "17th Jan 2024",
-            "expense_ratio": "0.27%",
-            "exit_load": "0%",
-            "benchmark": "Nifty 1D Rate Index",
-            "nav": 106.2118,
-            "creation_unit_size": "5000"
+            "Allotment Date": "17th Jan 2024 Min. Investment (at exchange) 1 Unit Min. Investment (direct with AMC) In Creation Unit Size Expense Ratio 0.27% Exit Load 0% Benchmark Nifty 1D Rate Index NAV 106.2118 Creation Unit Size 5000",
+            "Benchmark": "Nifty 1D Rate Index NAV 106.2118",
+            "Creation Unit Size": "5000",
+            "Exit Load": "0% Benchmark Nifty 1D Rate Index NAV 106.2118 Creation Unit Size 5000",
+            "Expense Ratio": "0.27% Exit Load 0% Benchmark Nifty 1D Rate Index NAV 106.2118 Creation Unit Size 5000",
+            "Min. Investment": "(at exchange) 1 Unit Min. Investment (direct with AMC) In Creation Unit Size Expense Ratio 0.27% Exit Load 0% Benchmark Nifty 1D Rate Index",
+            "NAV": "106.2118 Creation Unit Size 5000"
         },
         "aum": {
             "month end aum": "3015.19",
@@ -89,10 +107,10 @@
         "investment_objective": "The investment objective of the Scheme is to invest in Tri Party repo on Government securities or treasury bills (TREPS). The Scheme aims to provide investment returns that, before expenses, correspond to the returns of the NIFTY 1D Rate Index, subject to tracking error. Simple annualized returns have been provided as per the existing guidelines since the scheme has completed more than 6 months but less than 1 year.",
         "fund_manager": [
             {
-                "name": "Apurv Parikh",
+                "name": "Apurv Parikh ",
                 "designation": "",
-                "total experience": "6 years",
-                "managing this fund since": "Jan 2024"
+                "managing_since": "Jan 2024",
+                "experience": "6 years"
             }
         ],
         "metrics": {
@@ -108,13 +126,18 @@
         ]
     },
     "zerodha gold etf": {
+        "before": [
+            "An open-ended scheme replicating/tracking domestic price of Physical Gold",
+            "as on 31 Dec 2024"
+        ],
         "scheme_details": {
-            "allotment_date": "26th Feb 2024",
-            "expense_ratio": "0.31%",
-            "exit_load": "0%",
-            "benchmark": "Domestic Price of Physical Gold",
-            "nav": 12.136,
-            "creation_unit_size": "6,30,000"
+            "Allotment Date": "26th Feb 2024 Min. Investment (at exchange) 1 Unit Min. Investment (direct with AMC) In Creation Unit Size Expense Ratio 0.31% Exit Load 0% Benchmark Domestic Price of Physical Gold NAV 12.136 Creation Unit Size 6,30,000",
+            "Benchmark": "Domestic Price of Physical Gold NAV 12.136",
+            "Creation Unit Size": "6,30,000",
+            "Exit Load": "0% Benchmark Domestic Price of Physical Gold NAV 12.136 Creation Unit Size 6,30,000",
+            "Expense Ratio": "0.31% Exit Load 0% Benchmark Domestic Price of Physical Gold NAV 12.136 Creation Unit Size 6,30,000",
+            "Min. Investment": "(at exchange) 1 Unit Min. Investment (direct with AMC) In Creation Unit Size Expense Ratio 0.31% Exit Load 0% Benchmark Domestic Price of Physical Gold",
+            "NAV": "12.136 Creation Unit Size 6,30,000"
         },
         "aum": {
             "month end aum": "134.57",
@@ -128,16 +151,10 @@
         "investment_objective": "The investment objective of the scheme is to generate returns corresponding to the Domestic Price of Physical Gold before expenses, subject to tracking errors, fees and expenses by investing in Physical Gold. Simple annualized returns have been provided as per the existing guidelines since the scheme has completed more than 6 months but less than 1 year.",
         "fund_manager": [
             {
-                "name": "Shyam Agarwal",
+                "name": "Shyam Agarwal ",
                 "designation": "",
-                "total experience": "4 years",
-                "managing this fund since": "Feb 2024"
-            },
-            {
-                "name": "Mr. Kedarnath Mirajkar",
-                "designation": "",
-                "total experience": "19 years",
-                "co-managing this fund since": "Sep 2024"
+                "managing_since": "Feb 2024",
+                "experience": "4 years"
             }
         ],
         "others": [
@@ -150,13 +167,18 @@
         }
     },
     "zerodha nifty": {
+        "before": [
+            "An open-ended scheme replicating/tracking Nifty Midcap 150 Total Return Index",
+            "as on 31 Dec 2024"
+        ],
         "scheme_details": {
-            "allotment_date": "12th Jun 2024",
-            "expense_ratio": "0.21%",
-            "exit_load": "0%",
-            "benchmark": "Nifty Midcap 150 Index-TRI",
-            "nav": 10.4479,
-            "creation_unit_size": "7,83,000"
+            "Allotment Date": "12th Jun 2024 Min. Investment (at exchange) 1 Unit Min. Investment (direct with AMC) In Creation Unit Size Expense Ratio 0.21% Exit Load 0% Benchmark Nifty Midcap 150 Index-TRI NAV 10.4479 Creation Unit Size 7,83,000",
+            "Benchmark": "Nifty Midcap 150 Index-TRI NAV 10.4479",
+            "Creation Unit Size": "7,83,000",
+            "Exit Load": "0% Benchmark Nifty Midcap 150 Index-TRI NAV 10.4479 Creation Unit Size 7,83,000",
+            "Expense Ratio": "0.21% Exit Load 0% Benchmark Nifty Midcap 150 Index-TRI NAV 10.4479 Creation Unit Size 7,83,000",
+            "Min. Investment": "(at exchange) 1 Unit Min. Investment (direct with AMC) In Creation Unit Size Expense Ratio 0.21% Exit Load 0% Benchmark Nifty Midcap 150 Index-TRI",
+            "NAV": "10.4479 Creation Unit Size 7,83,000"
         },
         "aum": {
             "month end aum": "35.60",
@@ -170,10 +192,10 @@
         "investment_objective": "The investment objective of the scheme is to invest in stocks comprising the Nifty Midcap 150 Index in the same proportion as in the index to achieve returns equivalent to the Total Return Index of Nifty Midcap 150 Index (subject to tracking error). Simple annualized returns have been provided as per the existing guidelines since the scheme has completed more than 6 months but less than 1 year.",
         "fund_manager": [
             {
-                "name": "Mr. Kedarnath Mirajkar",
+                "name": "Mr Kedarnath Mirajkar ",
                 "designation": "",
-                "total experience": "19 years",
-                "managing this fund since": "Jun 2024"
+                "managing_since": "Jun 2024",
+                "experience": "19 years"
             }
         ],
         "metrics": {
@@ -188,12 +210,17 @@
         ]
     },
     "zerodha gold etf fof": {
+        "before": [
+            "An open-ended fund of fund scheme investing in units of Gold ETF",
+            "as on 31 Dec 2024"
+        ],
         "scheme_details": {
-            "allotment_date": "13th Nov 2024",
-            "expense_ratio": "0.23%",
-            "exit_load": "0%",
-            "benchmark": "Domestic Price of Physical Gold",
-            "nav": 10.1364
+            "Allotment Date": "13th Nov 2024 Min. Investment 1 Unit Expense Ratio 0.23% Exit Load 0% Benchmark Domestic Price of Physical Gold NAV 10.1364",
+            "Benchmark": "Domestic Price of Physical Gold NAV 10.1364",
+            "Exit Load": "0% Benchmark Domestic Price of Physical Gold NAV 10.1364",
+            "Expense Ratio": "0.23% Exit Load 0% Benchmark Domestic Price of Physical Gold NAV 10.1364",
+            "Min. Investment": "1 Unit Expense Ratio 0.23% Exit Load 0% Benchmark Domestic Price of Physical Gold",
+            "NAV": "10.1364"
         },
         "aum": {
             "month end aum": "19.21",
@@ -203,16 +230,10 @@
         "investment_objective": "The investment objective of the scheme is to seek capital appreciation by investing in units of Gold ETF.",
         "fund_manager": [
             {
-                "name": "Shyam Agarwal",
+                "name": "Shyam Agarwal ",
                 "designation": "",
-                "total experience": "4 years",
-                "managing this fund since": "Nov 2024"
-            },
-            {
-                "name": "Mr. Kedarnath Mirajkar",
-                "designation": "",
-                "total experience": "19 years",
-                "co-managing this fund since": "Nov 2024"
+                "managing_since": "Nov 2024",
+                "experience": "4 years"
             }
         ]
     }

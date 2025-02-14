@@ -2,7 +2,7 @@
     "360 one focused equity fund": {
         "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities. However there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
         "fund_manager": "Mr. Mayur Patel has 18 years of work experience including investment management and research experience of more than 15 years.",
-        "co_fund_manager": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
+        "co_fund_manager_mr_rohit_vaidyanathan": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
         "scheme_details": {
             "Date of Allotment": "October 30, 2014",
             "Bloomberg Code": "IIFGRRG IN",
@@ -52,7 +52,7 @@
     "360 one flexicap fund": {
         "investment_objective": "The investment objective of the scheme is to generate long-term capital appreciation by primarily investing in equity and equity related securities across the entire market capitalization range and investing the remaining portion in debt and money market instruments. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
         "fund_manager": "Mr. Mayur Patel has 18 years of work experience including investment management and research experience of more than 15 years.",
-        "co_fund_manager": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
+        "co_fund_manager_mr_rohit_vaidyanathan": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
         "scheme_details": {
             "Date of Allotment": "June 30, 2023",
             "Bloomberg Code": "-",
@@ -102,7 +102,7 @@
     "360 one quant fund": {
         "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities based on a quant theme. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved.",
         "fund_manager": "Mr. Parijat has over 16 years of experience in the financial services industry including algorithmic trading, stock broking and financial data services.",
-        "co_fund_manager": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
+        "co_fund_manager_mr_rohit_vaidyanathan": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
         "scheme_details": {
             "Date of Allotment": "November 29, 2021",
             "Bloomberg Code": "-",
@@ -150,9 +150,13 @@
         }
     },
     "360 one elss tax saver nifty 50 index fund": {
+        "(Formerly known as IIFL ELSS NIFTY 50 Tax Saver Index Fund)": [
+            "(An open-endedb Paessivfe oEquritye Linked Saving Scheme with a statutory lock-in period of 3 years and tax benefit,",
+            "replicating/tracking the Nifty 50 index)"
+        ],
         "investment_objective": "The investment objective of scheme is to invest in stocks comprising the Nifty 50 Index in the same proportion as in the Index to achieve returns equivalent to the Total Returns Index of Nifty 50 Index (subject to tracking error), while offering deduction on such investment made in the scheme under section 80C of the Incometax Act, 1961. It also seeks to distribute income periodically depending on distributable surplus. There is no assurance or guarantee that the investment objective of the Scheme would be achieved Investments in this scheme would be subject to a statutory lock-in of 3 years from the date of allotment to avail Section 80C benefits.",
         "fund_manager": "Mr. Parijat has over 16 years of experience in the financial services industry including algorithmic trading, stock broking and financial data services.",
-        "co_fund_manager": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
+        "co_fund_manager_mr_rohit_vaidyanathan": "Mr. Vaidyanathan has over 8.5 years of experience at 360 ONE Asset Management Limited, specializing in sectors like cement, building materials, real estate, and logistics.",
         "scheme_details": {
             "Date of Allotment": "December 28, 2022",
             "Bloomberg Code": "-",
@@ -244,8 +248,14 @@
         ]
     },
     "360 one dynamic bond fund": {
+        "(Formerly known as IIFL Dynamic Bond Fund)": [
+            "(An open endedb dyneamfico debrt secheme investing across duration. A relatively high interest rate risk and relatively high",
+            "credit risk.)"
+        ],
         "investment_objective": "The investment objective of the scheme is to generate income and long term gains by investing in a range of debt and money market instruments of various maturities. The scheme will seek to flexibly manage its investment across the maturity spectrum with a view to optimize the risk return proposition for the Investors.",
         "fund_manager": "Mr. Mody has over 20 years of work experience in the Fixed Income market.",
+        "co_fund_manager": "",
+        "mr._manumaharaj": [],
         "saravanaraj": [
             "Mr. Saravanaraj has over 1 year of work experience.",
             "He has done research in Tracks Telecom, Textile",
@@ -291,6 +301,8 @@
     "360 one liquid fund": {
         "investment_objective": "To provide liquidity with reasonable returns commensurate with low risk through a portfolio of money market and debt securities with residual maturity of up to 91 days. However, there can be no assurance that the investment objective of the scheme will be achieved.",
         "fund_manager": "Mr. Mody has over 20 years of work experience in the Fixed Income market.",
+        "co_fund_manager": "",
+        "mr._manumaharaj": [],
         "saravanaraj": [
             "Mr. Saravanaraj has over 1 year of work experience.",
             "He has done research in Tracks Telecom, Textile",
