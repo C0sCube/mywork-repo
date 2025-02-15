@@ -3,6 +3,7 @@ from app.pdfParse import Reader
 from app.fundRegex import FundRegex
 import fitz
 
+# 1
 class Samco(Reader):
     
     PARAMS = {
@@ -11,9 +12,9 @@ class Samco(Reader):
         'line_x': 200.0,
         'data': [[7,10],[-1],20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
     }
-    
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+     
+    def __init__(self, paths_config: str):
+        super().__init__(paths_config, self.PARAMS)
 
     
     #FREGEX FUNCTIONS
@@ -140,7 +141,7 @@ class Samco(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)          
-
+# 2
 class Tata(Reader):
     
     PARAMS = {
@@ -151,8 +152,8 @@ class Tata(Reader):
     }
     
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #FundRegex FUNCTIONS
     def __extract_inv_data(self,key:str, data:list):
@@ -252,7 +253,7 @@ class Tata(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 3
 class FranklinTempleton(Reader):
     
     PARAMS = {
@@ -262,8 +263,8 @@ class FranklinTempleton(Reader):
         'data': [[6,9],[-16751720],20.0,['ZurichBT-BoldCondensed']] #sizes, color, set_size font_name
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
 
     #REGEX
     def __extract_inv_data(self,key:str, data:list):            
@@ -345,7 +346,7 @@ class FranklinTempleton(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
- 
+# 4 
 class Bandhan(Reader):
     PARAMS = {
         'fund': [[20],r"^Bandhan.*(Fund|Funds|Plan|ETF)$", [13,24],[-1361884]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
@@ -354,8 +355,8 @@ class Bandhan(Reader):
         'data': [[6, 8], [-14475488], 20.0, ['Ubuntu-Bold']] #sizes, color, set_size font_name
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #FundRegex
     def __extract_dum_data(self,key,data:list):
@@ -427,7 +428,7 @@ class Bandhan(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-            
+# 5        
 class Helios(Reader):
     
     PARAMS = {
@@ -437,8 +438,8 @@ class Helios(Reader):
         'data': [[7,10], [-1,-2545112], 30.0, ['Poppins-SemiBold']]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS) 
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS) 
         
     #REGEX
     
@@ -545,7 +546,7 @@ class Helios(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-     
+# 6   
 class Edelweiss(Reader):
     
     PARAMS = {
@@ -555,8 +556,8 @@ class Edelweiss(Reader):
         'data': [[5,9], [-16298334,-6204255], 20.0, ['Roboto-Bold']]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
     
     def get_proper_fund_names(self,path:str,pages:list):
@@ -664,7 +665,7 @@ class Edelweiss(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 7
 class Invesco(Reader):
     
     PARAMS = {
@@ -674,8 +675,8 @@ class Invesco(Reader):
         'data': [[7,9], [-16777216], 30.0, ['Graphik-Semibold']]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
      #REGEX
     
@@ -774,7 +775,7 @@ class Invesco(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 8
 class MIRAE(Reader):
     
     PARAMS = {
@@ -784,8 +785,8 @@ class MIRAE(Reader):
         'data': [[8,12], [-14991759], 30.0, ['SpoqaHanSans-Bold']]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     def get_proper_fund_names(self, path:str,pages:list):
         
@@ -892,7 +893,7 @@ class MIRAE(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 9
 class ITI(Reader):
     
     PARAMS = {
@@ -902,8 +903,8 @@ class ITI(Reader):
         'data': [[5,8], [-1688818,-1165277], 30.0, ['Calibri-Bold']]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
      #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -991,7 +992,7 @@ class ITI(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-    
+# 10  
 class JMMF(Reader):
     
     PARAMS = {
@@ -1001,8 +1002,8 @@ class JMMF(Reader):
         'data': [[6,9], [-1], 30.0, ['MyriadPro-BoldCond']]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -1074,7 +1075,7 @@ class JMMF(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
- 
+# 11
 class Kotak(Reader):
     
     PARAMS = {
@@ -1083,8 +1084,8 @@ class Kotak(Reader):
         'line_x': 150.0,
         'data': [[6,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -1143,7 +1144,7 @@ class Kotak(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 12
 class MahindraManu(Reader):
     PARAMS = {
         'fund': [[20,16], r'',[12,20],[-15319437]],
@@ -1151,8 +1152,8 @@ class MahindraManu(Reader):
         'line_x': 200.0,
         'data': [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627,], 30.0, ['QuantumRise-Bold','QuantumRise','QuantumRise-Semibold']]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     def get_proper_fund_names(self,path:str,pages:list):
         
@@ -1293,7 +1294,7 @@ class MahindraManu(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 13
 class MotilalOswal(Reader): #regex of minimum application
     PARAMS = {
         'fund': [[20,16], r'^(Motilal|Oswal).*(Fund|ETF|EOF|FOF|FTF|Path)$',[20,28],[-13616547]],
@@ -1301,8 +1302,8 @@ class MotilalOswal(Reader): #regex of minimum application
         'line_x': 170.0,
         'data': [[7,14], [-13948375], 30.0, ['Calibri-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)   
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)   
 
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -1410,7 +1411,7 @@ class MotilalOswal(Reader): #regex of minimum application
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-    
+# 14   
 class NJMF(Reader):
     PARAMS = {
         'fund': [[20,16,0], r'^(NJ).*(Fund|ETF|EOF|FOF|FTF|Path|Scheme)$',[16,24],[-13604430]],
@@ -1418,8 +1419,8 @@ class NJMF(Reader):
         'line_x': 250.0,
         'data': [[6,11], [-14475488], 30.0, ['Swiss721BT-Medium']]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -1479,7 +1480,7 @@ class NJMF(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 15
 class ThreeSixtyOne(Reader):
     
     PARAMS = {
@@ -1489,8 +1490,8 @@ class ThreeSixtyOne(Reader):
         'data': [[6,10],[-10791002],30.0,['SpaceGrotesk-SemiBold']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #Fund Regex
     def __extract_dum_data(self,main_key:str,data:list):
@@ -1603,7 +1604,7 @@ class ThreeSixtyOne(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-        
+# 16      
 class BarodaBNP(Reader): #Lupsum issues
     PARAMS = {
         'fund': [[0],r'^Baroda BNP',[12,18],[-13619152]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
@@ -1612,8 +1613,8 @@ class BarodaBNP(Reader): #Lupsum issues
         'data': [[7,10],[-12566464,],30.0,['Unnamed-T3']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
     #FundRegex
     def __extract_dum_data(self,main_key:str,data:list):
@@ -1720,7 +1721,7 @@ class BarodaBNP(Reader): #Lupsum issues
 
         doc.close()
         return fund_titles
-    
+# 17    
 class NAVI(Reader): #complete scheme regex
     PARAMS = {
         'fund': [[20],r'^NAVI.*',[23,33],[-19456]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
@@ -1729,8 +1730,8 @@ class NAVI(Reader): #complete scheme regex
         'data': [[14,20],[-12844976],30.0,['NaviHeadline-Bold']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
     #FundRegex
     def __extract_dum_data(self,main_key:str,data:list):
@@ -1802,7 +1803,7 @@ class NAVI(Reader): #complete scheme regex
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-    
+# 18   
 class Zerodha(Reader):
     
     PARAMS = {
@@ -1812,8 +1813,8 @@ class Zerodha(Reader):
         'data': [[14,20],[-16777216],30.0,['Unnamed-T3']] #sizes, color, set_size
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
         
     def __extract_invest_data(self,main_key:str,data:list):
@@ -1911,7 +1912,7 @@ class Zerodha(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data) 
-
+# 19
 class BankOfIndia(Reader):
     
     PARAMS = {
@@ -1920,8 +1921,8 @@ class BankOfIndia(Reader):
         'line_x': 290.0,
         'data': [[6,9], [-13948375], 30.0, ['Calibri-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -2009,7 +2010,7 @@ class BankOfIndia(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data) 
- 
+# 20
 class Sundaram(Reader):
     PARAMS = {
         'fund': [[4,0], r'^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*|Fund -)$|^Sundaram',[14,18],[-16625248]],
@@ -2017,8 +2018,8 @@ class Sundaram(Reader):
         'line_x': 220.0,
         'data': [[6,13], [-1], 30.0, ['UniversNextforMORNW02-Cn',]]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
         
     #REGEX
@@ -2101,7 +2102,7 @@ class Sundaram(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 21
 class Taurus(Reader):
     PARAMS = {
         'fund': [[4,20], r'^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$',[13,24],[-9754846]],
@@ -2198,7 +2199,7 @@ class Taurus(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 22
 class Trust(Reader):
     
     PARAMS = {
@@ -2286,7 +2287,7 @@ class Trust(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 23
 class Canara(Reader):
     
     PARAMS = {
@@ -2367,7 +2368,7 @@ class Canara(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-  
+# 24
 class WhiteOak(Reader):
     PARAMS = {
         'fund': [[20], r'^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[16,24],[-13159371]],
@@ -2479,7 +2480,7 @@ class WhiteOak(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 25
 class UTI(Reader):
     PARAMS = {
         'fund': [[20], r'^(UTI).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[14,24],[-65794]],
@@ -2579,7 +2580,7 @@ class UTI(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-
+# 26
 class Nippon(Reader):
     PARAMS = {
         'fund': [[0,4],r'^(Nippon|CPSE).*(?=Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|$)',[5,12],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
@@ -2685,7 +2686,7 @@ class Nippon(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data) 
-
+# 27
 class BajajFinServ(Reader):
     
     PARAMS = {

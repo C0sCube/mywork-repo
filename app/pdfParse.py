@@ -1,4 +1,4 @@
-import os, re, math, pprint
+import os, re, math, pprint, json
 import fitz
 from collections import defaultdict
 import pdfplumber
@@ -14,13 +14,20 @@ class Reader:
     DRYPATH = ''
     INDICEPATH  = ''
     REPORTPATH = ''
+    JSONPATH  = ''
     PARAMS = {}
     
-    def __init__(self, path: str, dry:str, fin:str, rep:str, params:dict):
-        self.BASEPATH = path
-        self.DRYPATH = self.BASEPATH + dry
-        self.INDICEPATH = self.BASEPATH + fin
-        self.REPORTPATH = self.BASEPATH + rep
+    def __init__(self, paths_config: str,params:dict):
+        # Load paths
+        with open(paths_config, "r") as file:
+            paths_data = json.load(file)
+
+        self.BASEPATH = paths_data["directories"]["base_path"]
+        self.DRYPATH = os.path.join(self.BASEPATH, paths_data["paths"]["dry"])
+        self.INDICEPATH = os.path.join(self.BASEPATH, paths_data["paths"]["fin"])
+        self.REPORTPATH = os.path.join(self.BASEPATH, paths_data["paths"]["rep"])
+        self.JSONPATH = os.path.join(self.BASEPATH, paths_data["paths"]["json"])
+        
         self.PARAMS = params
     
     def get_file_path(self, path: str):
