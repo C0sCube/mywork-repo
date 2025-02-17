@@ -10,7 +10,8 @@ class Samco(Reader):
         'fund': [[25,20],r"^samco.*fund$",[18,28],[-1]], #FUND NAME DETAILS order-> [flag], regex_fund_name, range(font_size), [font_color]
         'clip_bbox': [(35,120,250,765)],
         'line_x': 200.0,
-        'data': [[7,10],[-1],20.0,['Inter-SemiBold']] #sizes, color, set_size font_name
+        'data': [[7,10],[-1],30.0,['Inter-SemiBold']], #sizes, color, set_size font_name
+        'content_size':[30.0,10.0] #header size, content size
     }
      
     def __init__(self, paths_config: str):
@@ -34,11 +35,8 @@ class Samco(Reader):
 
         mention_end = mention_start[1:] + ["End_of_Data"]
 
-        # Generate regex patterns dynamically
         patterns = [r"({start})\s*(.+?)\s*({end}|$)".format(start=start, end=end)
             for start, end in zip(mention_start, mention_end)]
-        #other patterns
-        ter_pattern = r'([\d,.]+)%\s+([\d,.]+)%'
         
         final_dict = {}
         scheme_data = " ".join(data)
@@ -51,9 +49,8 @@ class Samco(Reader):
         
         return {main_key:final_dict}
 
-    def __extract_fund_data(self,key:str,data:list):
-        fund_manager = data
-        main_key = key
+    def __extract_manager_data(self,main_key:str,data:list):
+        manager_data = data
         strucuted_data = {main_key:[]}
         current_entry = None
         name_pattern = r'^(Ms\.|Mr\.)'
@@ -61,7 +58,7 @@ class Samco(Reader):
         date_pattern = r'\b\w+ \d{1,2}, \d{4}\b'
         experience_pattern = r'^Total Experience: (.+)$'
 
-        for data in fund_manager:
+        for data in manager_data:
             if re.match(name_pattern,data):
                 if current_entry:
                     strucuted_data[main_key].append(current_entry)
@@ -78,7 +75,6 @@ class Samco(Reader):
                     current_entry['managing_since'] = date.group() if date != None else None
             elif re.match(experience_pattern,data):
                 current_entry['total_experience'] = data.split(":")[1].strip().lower()
-                #print(data.split(":")[1])
 
             
         if current_entry:  # Append the last entry
@@ -132,7 +128,7 @@ class Samco(Reader):
             r"^Scheme.*": self.__extract_scheme_data,
             r"^nav": self.__extract_nav_data,
             r"^metrics.*": self.__extract_metric_data,
-            r"fund_manager.*": self.__extract_fund_data,
+            r"fund_manager.*": self.__extract_manager_data,
             r"^aum": self.__extract_aum_data,
         }
 
@@ -148,7 +144,8 @@ class Tata(Reader):
         'fund': [[25,20,0,16],r"^tata.*(fund|etf|fof|eof|funds|plan|\))$",[10,20],[-1]], #[flag], regex_fund_name, range(font_size), [font_color]
         'clip_bbox': [(0,50,160,750)],
         'line_x': 160.0,
-        'data': [[5,8],[-15570765],20.0,['Swiss721BT-BoldCondensed']] #sizes, color, set_size font_name
+        'data': [[5,8],[-15570765],30.0,['Swiss721BT-BoldCondensed']], #sizes, color, set_size font_name
+        'content_size':[30.0,10.0]
     }
     
     
@@ -260,7 +257,8 @@ class FranklinTempleton(Reader):
         'fund': [[25,20],r"^(Franklin|Templeton).*$",[16,24],[-65794]], #[flag], regex_fund_name, range(font_size), [font_color]
         'clip_bbox': [(0,100,180,812)],
         'line_x': 180.0,
-        'data': [[6,9],[-16751720],20.0,['ZurichBT-BoldCondensed']] #sizes, color, set_size font_name
+        'data': [[6,9],[-16751720],30.0,['ZurichBT-BoldCondensed']], #sizes, color, set_size font_name
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self, paths_config:str):
@@ -352,7 +350,8 @@ class Bandhan(Reader):
         'fund': [[20],r"^Bandhan.*(Fund|Funds|Plan|ETF)$", [13,24],[-1361884]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,80,200,812)],
         'line_x': 200.0,
-        'data': [[6, 8], [-14475488], 20.0, ['Ubuntu-Bold']] #sizes, color, set_size font_name
+        'data': [[6, 8], [-14475488], 30.0, ['Ubuntu-Bold']], #sizes, color, set_size font_name
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self,paths_config:str):
@@ -435,7 +434,8 @@ class Helios(Reader):
         'fund': [[20], r'^Helios.*Fund$',[16,24],[-1]],
         'clip_box': [(0,5,245,812)],
         'line_x': 245.0,
-        'data': [[7,10], [-1,-2545112], 30.0, ['Poppins-SemiBold']]
+        'data': [[7,10], [-1,-2545112], 30.0, ['Poppins-SemiBold']],
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self,paths_config:str):
@@ -553,7 +553,8 @@ class Edelweiss(Reader):
         'fund': [[20], r'^(Edelweiss|Bharat)',[12,20],[-16298334]],
         'clip_box': [(0,5,410,812)],
         'line_x': 410.0,
-        'data': [[5,9], [-16298334,-6204255], 20.0, ['Roboto-Bold']]
+        'data': [[5,9], [-16298334,-6204255], 30.0, ['Roboto-Bold']],
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self, paths_config:str):
@@ -672,7 +673,8 @@ class Invesco(Reader):
         'fund': [[20,16], r'^(Invesco|Bharat).*Fund$',[12,20],[-16777216]],
         'clip_bbox': [(0,135,185,812)],
         'line_x': 180.0,
-        'data': [[7,9], [-16777216], 30.0, ['Graphik-Semibold']]
+        'data': [[7,9], [-16777216], 30.0, ['Graphik-Semibold']],
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self,paths_config:str):
@@ -782,7 +784,9 @@ class MIRAE(Reader):
         'fund': [[20,16],r'^MIRAE.*',[26,36],[-687584]],
         'clip_bbox': [(0,190,270,812)],
         'line_x': 270.0,
-        'data': [[8,12], [-14991759], 30.0, ['SpoqaHanSans-Bold']]
+        'data': [[8,12], [-14991759], 30.0, ['SpoqaHanSans-Bold']],
+        'content_size':[30.0,10.0]
+    
     }
     
     def __init__(self, paths_config:str):
@@ -900,7 +904,8 @@ class ITI(Reader):
         'fund': [[20,16], r'^(ITI|Bharat).*Fund$',[14,24],[-1]],
         'clip_bbox': [(0,105,180,812)],
         'line_x': 180.0,
-        'data': [[5,8], [-1688818,-1165277], 30.0, ['Calibri-Bold']]
+        'data': [[5,8], [-1688818,-1165277], 30.0, ['Calibri-Bold']],
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self, paths_config:str):
@@ -992,14 +997,15 @@ class ITI(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-# 10  
+# 10
 class JMMF(Reader):
     
     PARAMS = {
         'fund': [[20,16], r'^(JM|Bharat).*Fund$',[14,24],[-10987173]],
         'clip_bbox': [(390,105,596,812)],
         'line_x': 390.0,
-        'data': [[6,9], [-1], 30.0, ['MyriadPro-BoldCond']]
+        'data': [[6,9], [-1], 30.0, ['MyriadPro-BoldCond']],
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self,paths_config:str):
@@ -1082,7 +1088,9 @@ class Kotak(Reader):
         'fund': [[20,16], r'^(Kotak|Bharat).*(Fund|ETF|FTF|FOF)$|^Kotak',[12,20],[-15319437]],
         'clip_bbox': [(0,80,150,812),],
         'line_x': 150.0,
-        'data': [[6,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
+        'data': [[6,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']],
+        'content_size':[30.0,10.0]
+        }
     
     def __init__(self, paths_config:str):
         super().__init__(paths_config, self.PARAMS)
@@ -1150,7 +1158,9 @@ class MahindraManu(Reader):
         'fund': [[20,16], r'',[12,20],[-15319437]],
         'clip_bbox': [(0,65,200,812)],
         'line_x': 200.0,
-        'data': [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627,], 30.0, ['QuantumRise-Bold','QuantumRise','QuantumRise-Semibold']]}
+        'data': [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627,], 30.0, ['QuantumRise-Bold','QuantumRise','QuantumRise-Semibold']],
+        'content_size':[30.0,10.0]
+        }
     
     def __init__(self, paths_config:str):
         super().__init__(paths_config, self.PARAMS)
@@ -1300,7 +1310,9 @@ class MotilalOswal(Reader): #regex of minimum application
         'fund': [[20,16], r'^(Motilal|Oswal).*(Fund|ETF|EOF|FOF|FTF|Path)$',[20,28],[-13616547]],
         'clip_bbox': [(0,65,170,812)],
         'line_x': 170.0,
-        'data': [[7,14], [-13948375], 30.0, ['Calibri-Bold']]}
+        'data': [[7,14], [-13948375], 30.0, ['Calibri-Bold']],
+        'content_size':[30.0,10.0]
+        }
     
     def __init__(self, paths_config:str):
         super().__init__(paths_config, self.PARAMS)   
@@ -1411,13 +1423,15 @@ class MotilalOswal(Reader): #regex of minimum application
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-# 14   
+# 14
 class NJMF(Reader):
     PARAMS = {
         'fund': [[20,16,0], r'^(NJ).*(Fund|ETF|EOF|FOF|FTF|Path|Scheme)$',[16,24],[-13604430]],
         'clip_bbox': [(0,5,250,812)],
         'line_x': 250.0,
-        'data': [[6,11], [-14475488], 30.0, ['Swiss721BT-Medium']]}
+        'data': [[6,11], [-14475488], 30.0, ['Swiss721BT-Medium']],
+        'content_size':[30.0,10.0]
+        }
     
     def __init__(self, paths_config:str):
         super().__init__(paths_config, self.PARAMS)
@@ -1487,7 +1501,8 @@ class ThreeSixtyOne(Reader):
         'fund': [[20],r'360 ONE.*(Fund|Path|ETF|FOF|EOF)$',[18,24],[-16777216]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,5,160,812)],
         'line_x': 160.0,
-        'data': [[6,10],[-10791002],30.0,['SpaceGrotesk-SemiBold']] #sizes, color, set_size
+        'data': [[6,10],[-10791002],30.0,['SpaceGrotesk-SemiBold']], #sizes, color, set_size
+        'content_size':[30.0,8.0]
     }
     
     def __init__(self, paths_config:str):
@@ -1604,13 +1619,14 @@ class ThreeSixtyOne(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-# 16      
+# 16    
 class BarodaBNP(Reader): #Lupsum issues
     PARAMS = {
         'fund': [[0],r'^Baroda BNP',[12,18],[-13619152]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,65,210, 700)],
         'line_x': 210.0,
-        'data': [[7,10],[-12566464,],30.0,['Unnamed-T3']] #sizes, color, set_size
+        'data': [[7,10],[-12566464,],30.0,['Unnamed-T3']], #sizes, color, set_size
+        'content_size':[30.0,8.0]
     }
     
     def __init__(self,paths_config:str):
@@ -1721,13 +1737,14 @@ class BarodaBNP(Reader): #Lupsum issues
 
         doc.close()
         return fund_titles
-# 17    
+# 17   
 class NAVI(Reader): #complete scheme regex
     PARAMS = {
         'fund': [[20],r'^NAVI.*',[23,33],[-19456]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,75,320, 700)],
         'line_x': 320.0,
-        'data': [[14,20],[-12844976],30.0,['NaviHeadline-Bold']] #sizes, color, set_size
+        'data': [[14,20],[-12844976],30.0,['NaviHeadline-Bold']], #sizes, color, set_size
+        'content_size':[30.0,9.0]
     }
     
     def __init__(self, paths_config:str):
@@ -1803,14 +1820,15 @@ class NAVI(Reader): #complete scheme regex
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-# 18   
+# 18
 class Zerodha(Reader):
     
     PARAMS = {
         'fund': [[20,0],r'^Zerodha.*',[20,30],[-16777216]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,5,340, 700)],
         'line_x': 340.0,
-        'data': [[14,20],[-16777216],30.0,['Unnamed-T3']] #sizes, color, set_size
+        'data': [[14,20],[-16777216],30.0,['Unnamed-T3']], #sizes, color, set_size
+        'content_size':[30.0,14.0]
     }
     
     def __init__(self,paths_config:str):
@@ -1919,7 +1937,9 @@ class BankOfIndia(Reader):
         'fund': [[20,16], r'^Bank of India',[14,24],[-65784]],
         'clip_bbox': [(0,480,290,812)],
         'line_x': 290.0,
-        'data': [[6,9], [-13948375], 30.0, ['Calibri-Bold']]}
+        'data': [[6,9], [-13948375], 30.0, ['Calibri-Bold']],
+        'content_size':[30.0,10.0]
+        }
     
     def __init__(self,paths_config:str):
         super().__init__(paths_config, self.PARAMS)
@@ -2016,7 +2036,9 @@ class Sundaram(Reader):
         'fund': [[4,0], r'^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*|Fund -)$|^Sundaram',[14,18],[-16625248]],
         'clip_bbox': [(0,5,220,812)],
         'line_x': 220.0,
-        'data': [[6,13], [-1], 30.0, ['UniversNextforMORNW02-Cn',]]}
+        'data': [[6,13], [-1], 30.0, ['UniversNextforMORNW02-Cn',]],
+        'content_size':[30.0,10.0]
+        }
     
     def __init__(self, paths_config:str):
         super().__init__(paths_config, self.PARAMS)
@@ -2108,10 +2130,12 @@ class Taurus(Reader):
         'fund': [[4,20], r'^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$',[13,24],[-9754846]],
         'clip_bbox': [(0,65,210,812)],
         'line_x': 210.0,
-        'data': [[6,12], [-9754846], 30.0, ['Calibri-Bold']]}
+        'data': [[6,12], [-9754846], 30.0, ['Calibri-Bold']],
+        'content_size':[30.0,10.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
 
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -2206,10 +2230,12 @@ class Trust(Reader):
         'fund': [[4,20], r'^(Trust).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$',[16,22],[-1]],
         'clip_bbox': [(0,135,180,812)],
         'line_x': 180.0,
-        'data': [[8,11], [-1], 30.0, ['Roboto-Bold']]}
+        'data': [[8,11], [-1], 30.0, ['Roboto-Bold']],
+        'content_size':[30.0,10.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -2294,10 +2320,12 @@ class Canara(Reader):
         'fund': [[16,4], r'^Canara.*',[12,20],[-12371562,-14475488]],
         'clip_bbox': [(0,115,220,812)],
         'line_x': 180.0,
-        'data': [[8,11], [-12371562], 30.0, ['Taz-SemiLight']]}
+        'data': [[8,11], [-12371562], 30.0, ['Taz-SemiLight']],
+        'content_size':[30.0,10.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -2374,10 +2402,12 @@ class WhiteOak(Reader):
         'fund': [[20], r'^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[16,24],[-13159371]],
         'clip_bbox': [(0, 85, 240, 812)],
         'line_x': 240.0,
-        'data': [[7,11], [-65794,-1], 30.0, ['MyriadPro-Bold']]}
+        'data': [[7,11], [-65794,-1], 30.0, ['MyriadPro-Bold']],
+        'content_size':[30.0,8.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #Fund Regex  
     def __extract_dum_data(self,main_key:str,data:list):
@@ -2486,10 +2516,12 @@ class UTI(Reader):
         'fund': [[20], r'^(UTI).*(Fund|ETF|EOF|FOF|FTF|Path|Fund\*|Plan\*|Duration)$',[14,24],[-65794]],
         'clip_bbox': [(0,65,200,812)],
         'line_x': 200.0,
-        'data': [[7,10], [-65794,-1], 30.0, ['Calibri-Bold']]}
+        'data': [[7,10], [-65794,-1], 30.0, ['Calibri-Bold']],
+        'content_size':[30.0,8.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key:str,data:list):
@@ -2586,11 +2618,12 @@ class Nippon(Reader):
         'fund': [[0,4],r'^(Nippon|CPSE).*(?=Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|$)',[5,12],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,25,220,812)],
         'line_x': 180.0,
-        'data': [[6,12],[-16777216],30.0,['HelveticaNeueCondensed-C']] #sizes, color, set_size
+        'data': [[6,12],[-16777216],30.0,['HelveticaNeueCondensed-C']], #sizes, color, set_size
+        'content_size':[30.0,8.0]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #Fund Regex  
     def __extract_dum_data(self,main_key:str,data:list):
@@ -2693,11 +2726,12 @@ class BajajFinServ(Reader):
         'fund': [[20],r'Bajaj.*(Fund|Path|ETF|FOF|EOF)$',[14,24],[-16753236]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(360,5,612,812)],
         'line_x': 180.0,
-        'data': [[6,12],[-1,-15376468],30.0,['Rubik-SemiBold']] #sizes, color, set_size
+        'data': [[6,12],[-1,-15376468],30.0,['Rubik-SemiBold']], #sizes, color, set_size
+        'content_size':[30.0,10.0]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #Fund Regex  
     def __extract_dum_data(self,main_key:str,data:list):
@@ -2735,50 +2769,19 @@ class BajajFinServ(Reader):
 
         return self.__extract_dum_data(string, data)
 
-"""wip"""
-class DSP(Reader):
-    
-    PARAMS = {
-        'fund': [[20,16], r'^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)',[14,24],[-1]],
-        'clip_bbox': [(0,5,120,812),],#[480,5,596,812]],
-        'line_x': 120.0,
-        'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']]
-    }
-    
-    
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
-        
-    #REGEX
-    def __extract_dum_data(self,main_key,data:list):
-        return {main_key:data}
-    
-    def __extract_inv_data(self,main_key:str, data:list):            
-        return {main_key: ' '.join(data)}
-    
-    #MAPPING
-    def match_regex_to_content(self, string:str, data:list):
-        check_header = string
-        if re.match(r"^investment.*", check_header, re.IGNORECASE):
-            return self.__extract_inv_data(string,data)
-        # elif re.match(r"^aum.*", check_header, re.IGNORECASE):
-        #     return self.__extract_aum_data(string, data)
-        # elif re.match(r"^fund_mana.*", check_header, re.IGNORECASE):
-        #     return self.__extract_manager_data(string, data)
-        # elif re.match(r"^metrics.*", check_header, re.IGNORECASE):
-        #     return self.__extract_metric_data(string, data)
-        return self.__extract_dum_data(string,data) 
-
+#28
 class Quantum(Reader):
     
     PARAMS = {
         'fund': [[20,0], r'^(Quantum).*(Fund|ETF|EOF|FOF|FTF|Path|ELSS|Funds)$',[12,20],[-1]],
         'clip_bbox': [(0,95,220,812)],
         'line_x': 180.0,
-        'data': [[6,11], [-1], 30.0, ['Prompt-SemiBold',]]}
+        'data': [[6,11], [-1], 30.0, ['Prompt-SemiBold',]],
+        'content_size':[30.0,8.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
     #Fund Regex  
     def __extract_dum_data(self,main_key:str,data:list):
@@ -2832,17 +2835,19 @@ class Quantum(Reader):
                 return func(string, data)
 
         return self.__extract_dum_data(string, data)
-    
+
+#29  
 class Union(Reader):
     PARAMS = {
         'fund': [[20,4],r'^.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds)$',[8,16],[-14453103]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,140,180,812)],
         'line_x': 180.0,
-        'data': [[8,14],[-65794],30.0,['Swiss721BT-Bold']] #sizes, color, set_size
+        'data': [[8,14],[-65794],30.0,['Swiss721BT-Bold']], #sizes, color, set_size
+        'content_size':[30.0,10.0]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self, paths_config, rep:str):
+        super().__init__(paths_config, self.PARAMS)
     
     #Fund Regex  
     def __extract_dum_data(self,main_key:str,data:list):
@@ -2893,6 +2898,41 @@ class Union(Reader):
 
         return self.__extract_dum_data(string, data)
 
+"""wip"""
+class DSP(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)',[14,24],[-1]],
+        'clip_bbox': [(0,5,120,812),],#[480,5,596,812]],
+        'line_x': 120.0,
+        'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']],
+        'content_size':[30.0,10.0]
+    }
+    
+    
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
+        
+    #REGEX
+    def __extract_dum_data(self,main_key,data:list):
+        return {main_key:data}
+    
+    def __extract_inv_data(self,main_key:str, data:list):            
+        return {main_key: ' '.join(data)}
+    
+    #MAPPING
+    def match_regex_to_content(self, string:str, data:list):
+        check_header = string
+        if re.match(r"^investment.*", check_header, re.IGNORECASE):
+            return self.__extract_inv_data(string,data)
+        # elif re.match(r"^aum.*", check_header, re.IGNORECASE):
+        #     return self.__extract_aum_data(string, data)
+        # elif re.match(r"^fund_mana.*", check_header, re.IGNORECASE):
+        #     return self.__extract_manager_data(string, data)
+        # elif re.match(r"^metrics.*", check_header, re.IGNORECASE):
+        #     return self.__extract_metric_data(string, data)
+        return self.__extract_dum_data(string,data) 
+
 """ thissssssssssssssssssssssss"""
 class HSBC(Reader):
     
@@ -2900,11 +2940,12 @@ class HSBC(Reader):
         'fund': [[20,16], r'^(HSBC|Bharat).*Fund$',[12,20],[-1237724]],
         'clip_bbox': [(0,100,180,812)],
         'line_x': 180.0,
-        'data': [[6,8], [-16777216], 30.0, ['Arial-BoldMT']]
+        'data': [[6,8], [-16777216], 30.0, ['Arial-BoldMT']],
+        'content_size':[30.0,10.0]
     }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
         
     #Fund REGEX
     def __extract_dum_data(self,key,data:list):
@@ -2934,18 +2975,20 @@ class LIC(Reader):
         'line_x': 150.0,
         'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)          
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)          
                     
 class QuantMF(Reader):
     PARAMS = {
         'fund': [[16,0], r'^(quant).*(Fund|ETF|EOF|FOF|FTF|Path)$',[16,24],[-13604430]],
         'clip_bbox': [(0,5,180,812)],
         'line_x': 180.0,
-        'data': [[6,11], [-16777216], 30.0, ['Calibri,Bold',]]}
+        'data': [[6,11], [-16777216], 30.0, ['Calibri,Bold',]],
+        'content_size':[30.0,10.0]
+        }
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
 
 class PPFAIS(Reader):
     PARAMS = {
@@ -2954,8 +2997,8 @@ class PPFAIS(Reader):
         'line_x': 290.0,
         'data': [[6,10], [-65794], 30.0, ['Arial-BoldMT',]]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
     #REGEX
     def __extract_dum_data(self,main_key,data:list):
@@ -2986,15 +3029,16 @@ class SBI(Reader):
         'line_x': 180.0,
         'data': [[6,11], [-12371562], 30.0, ['Calibri,Bold',]]}
     
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep,self.PARAMS)
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
           
 class PGIM(Reader):
     PARAMS = {
         'fund': [[20,4],r'^.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds)$',[16,30],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0,115,210,812)],
         'line_x': 210.0,
-        'data': [[6,12],[-1],30.0,['PrudentialModern-Bold']] #sizes, color, set_size
+        'data': [[6,12],[-1],30.0,['PrudentialModern-Bold']], #sizes, color, set_size
+        'content_size':[30.0,10.0]
     }
     
     def __init__(self, path: str,dry:str,fin:str, rep:str):
@@ -3021,17 +3065,17 @@ class PGIM(Reader):
 
         return self.__extract_dum_data(string, data)
 
-
 class AdityaBirla(Reader):
     PARAMS = {
         'fund': [[20,4],r'^Aditya Birla.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|Funds\*)$',[10,20],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
         'clip_bbox': [(0, 50, 200, 812)],
         'line_x': 210.0,
-        'data': [[4,10],[-1],30.0,['AnekLatin-Bold',]] #sizes, color, set_size
+        'data': [[4,10],[-1],30.0,['AnekLatin-Bold',]], #sizes, color, set_size
+        'content_size':[30.0,10.0]
     }
 
-    def __init__(self, path: str,dry:str,fin:str, rep:str):
-        super().__init__(path,dry,fin,rep, self.PARAMS)
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
 
     #Fund Regex  
     def __extract_dum_data(self,main_key:str,data:list):

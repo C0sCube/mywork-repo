@@ -30,7 +30,6 @@ class FundRegex():
             r'(minimum_application|minimum_applicaon_amount)': "minimum_application_amount"
         }
     
-    DECIMAL_PATTERN = r'\b-?(?:\d{1,3}(?:,\d{3})*|\.\d+|\d+\.\d+)\b'
     
     STOP_WORDS = [
         "folio count data as on 30th november", "2024.", "*", "Note:", "Note :",
@@ -48,11 +47,6 @@ class FundRegex():
     
     def __init__(self):
         pass
-    
-    @staticmethod
-    def extract_decimals(text:str):
-        match = re.search(FundRegex.DECIMAL_PATTERN,text)
-        return float(match.group()) if match else "NA"
     
     @staticmethod
     def extract_date(text:str):

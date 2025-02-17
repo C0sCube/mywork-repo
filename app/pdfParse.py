@@ -1,4 +1,4 @@
-import os, re, math, pprint, json
+import os, re, math, json
 import fitz
 from collections import defaultdict
 import pdfplumber
@@ -7,6 +7,7 @@ import numpy as np
 import subprocess
 
 from app.fundRegex import *
+from log_config import logging
 
 class Reader:
     
@@ -19,8 +20,12 @@ class Reader:
     
     def __init__(self, paths_config: str,params:dict):
         # Load paths
-        with open(paths_config, "r") as file:
-            paths_data = json.load(file)
+        try:
+            with open(paths_config, "r") as file:
+                paths_data = json.load(file)
+                
+        except Exception as e:
+            logging.error(e)
 
         self.BASEPATH = paths_data["directories"]["base_path"]
         self.DRYPATH = os.path.join(self.BASEPATH, paths_data["paths"]["dry"])
@@ -37,7 +42,11 @@ class Reader:
     #HIGHLIGHT
     @staticmethod
     def get_financial_indices(path:str):
-        if not os.path.exists(path):
+        try:
+            os.path.exists(path)
+            
+        except Exception as e:
+            logging.error(e)
             print('File does not exists')
             return
         
@@ -65,11 +74,18 @@ class Reader:
         subprocess.Popen([excel_path], shell=True)
                 
     def check_and_highlight(self, path: str, count: int):
-        document = fitz.open(path)
-        page_count = document.page_count
-
-        indices = Reader.get_financial_indices(self.INDICEPATH)
-        fund_data = self.PARAMS['fund']
+        
+        try:
+            document = fitz.open(path)
+            page_count = document.page_count
+            indices = Reader.get_financial_indices(self.INDICEPATH)
+            fund_data = self.PARAMS['fund']
+            
+        except Exception as e:
+            logging.error(e)
+            return
+            
+        
 
         # Initialize datasets
         df = pd.DataFrame({
@@ -118,29 +134,29 @@ class Reader:
                                     page.add_highlight_annot(rect)
                                     break  # One highlight per span
 
-        output_path = None
         if any(df['highlights']):
             output_path = path.replace(".pdf", "_hltd.pdf")
             document.save(output_path)
-        document.close()
-
-        # Save PDF data
-        Reader.__save_pdf_data(df,self.REPORTPATH, count)
-        Reader.DATAFRAME = df
-
-        if output_path:
             subprocess.Popen([output_path], shell=True)
 
+        document.close()
+        # Save PDF data
+        Reader.__save_pdf_data(df, self.REPORTPATH, count)
         return output_path, df
                             
-     #EXTRACT
+    #EXTRACT
     
-    def extract_clipped_data(self,input:str, pageSelect:list, title:dict, *args:list):
-    
-        document = fitz.open(input)
-        final_list = []
-        bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
-        fund_names = title
+    def __extract_clipped_data(self,input:str, pageSelect:list, title:dict, *args:list):
+        
+        try:
+            document = fitz.open(input)
+            final_list = []
+            bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
+            fund_names = title
+            
+        except Exception as e:
+            logging.error(e)
+            return
 
         for pgn in pageSelect:
             page = document[pgn]
@@ -170,11 +186,18 @@ class Reader:
         document.close()
         return final_list
     
-    def extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
-        doc = fitz.open(path)
-        final_list = []
-        line_x = self.PARAMS['line_x']
-        fund_names = titles
+    def __extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
+        
+        try:
+            doc = fitz.open(path)
+            final_list = []
+            line_x = self.PARAMS['line_x']
+            fund_names = titles
+            
+        except Exception as e:
+            logging.error(e)
+            return
+        
         for pgn in pageSelect:
             page = doc[pgn]
             fundname = fund_names[pgn]
@@ -215,7 +238,7 @@ class Reader:
 
         return final_list
 
-    def extract_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
+    def __extract_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
     
         document = fitz.open(input)
         finalData = []
@@ -237,48 +260,25 @@ class Reader:
                 
         return finalData
 
-    def extract_span_data(self,data:list, name:list): #all
-        final_data = dict()
-        for pgn,page in enumerate(data):
-            pgn_content = []
-            seen_entries = set()
-            for blocks in page['block']:
-                for line in blocks['lines']:
-                    for span in line.get('spans',[]):
-                        
-                        text, size, color, origin, bbox, font = span['text'].strip(), round(span['size']), span['color'], span['origin'], span['bbox'],span['font']
-                        entry = (size, text, color, origin, tuple(bbox), font)
+    def __extract_span_data(self, data: list, name: list):  # all
+        final_data = {}
 
-                        # Check for uniqueness
-                        if entry not in seen_entries:
-                            seen_entries.add(entry)
-                            pgn_content.append([size, text, color, origin, bbox, font])
-                            
+        for page in data:
+            seen_entries = set()
+            pgn_content = [
+                [round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font']]
+                for block in page['block']
+                for line in block['lines']
+                for span in line.get('spans', [])
+                if (entry := (round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font'])) not in seen_entries and not seen_entries.add(entry)
+            ]
+
             final_data[page['fundname']] = pgn_content
-        
+
         return final_data
 
-    #CLEAN
-    
-    def combine_left_right_data(self, dataset:list):
-        
-        data = list()
-        for left, right in zip(dataset[0], dataset[1]):
-            pgn = left['pgn']
-            fund = left['fundname']
-            left_block = left['block']
-            right_block = right['block']
-            block = left_block + right_block
-            
-            data.append({
-                'pgn':pgn,
-                'fundname': fund,
-                'block': block
-            })
-        
-        return data
- 
-    def process_text_data(self,text_data: dict):
+    #CLEAN 
+    def __process_text_data(self,text_data: dict):
         
         stop_words = FundRegex.STOP_WORDS
         updated_text_data = {}
@@ -307,7 +307,7 @@ class Reader:
             # Group blocks by rounded y-coordinate
             grouped_blocks = defaultdict(list)
             for block in processed_blocks:
-                y_coord = math.ceil(block[3][1])  # Extract and round the y-coordinate
+                y_coord = math.ceil(block[3][1])
                 size = block[0]
                 grouped_blocks[(y_coord, size)].append(block)
 
@@ -327,10 +327,11 @@ class Reader:
 
         return updated_text_data
 
-    def create_nested_dict(self,cleaned_data:dict,header_size:float, content_size:float):
+    def __create_nested_dict(self,cleaned_data:dict,*args):
             final_text_data = dict()
             final_matrix = dict()
 
+            header_size, content_size = self.PARAMS['content_size']
             for fund, items in cleaned_data.items(): #ech fund
                 
                 # #step 1 extract size, coord
@@ -388,7 +389,22 @@ class Reader:
             
             return final_text_data, final_matrix
 
-
+    def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
+        
+        data = self.__extract_data_relative_line(path,pages,side,title)
+        data = self.__extract_span_data(data,[])
+        clean_data = self.__process_text_data(data)
+        nested, matrix = self.__create_nested_dict(clean_data)
+        return nested
+    
+    def get_data_via_clip(self,path:str,pages:list, title:dict, *args):
+        
+        data = self.__extract_clipped_data(path,pages,title, *args)
+        data = self.__extract_span_data(data,[])
+        clean_data = self.__process_text_data(data)
+        nested, matrix = self.__create_nested_dict(clean_data)
+        return nested
+    
     #PROCESS
     @staticmethod
     def __generate_pdf_from_data(data: dict, output_path: str) -> None:
@@ -410,7 +426,7 @@ class Reader:
                     color= TITLE_COLOR,
                 )        
             except Exception as e:
-                print(f"Error while parsing fund {e}")
+                pass
                 
             for item in items:
                 size,text,color,origin,bbox,font = item
@@ -424,7 +440,7 @@ class Reader:
                         fontname="helv",
                         color=tuple(int(color & 0xFFFFFF) for _ in range(3)))#unsigned int value so (0,0,0)
                     
-                except Exception:
+                except Exception as e:
                     page.insert_text(
                         (origin[0], origin[1]),
                         text,
@@ -444,9 +460,8 @@ class Reader:
             final_data_generated = {}
 
             for page in pdf.pages:
-                text = page.extract_text()
-                clean_text = text.encode("ascii", "ignore").decode()
-                content = clean_text.split('\n')
+                #First text will he Header rest values
+                content = page.extract_text().encode("ascii", "ignore").decode().split('\n')
                 main_key = content[0]
                 values = content[1:]
                 final_data_generated[main_key] = values
@@ -465,6 +480,7 @@ class Reader:
                 
            except Exception as e:
                print(f"\nError while processing '{fund}': {e}")
+               logging.error(e)
                continue      
         return extracted_text
     

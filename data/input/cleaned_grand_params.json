@@ -5,7 +5,7 @@
         "line_x": 200.0,
         "data": [[9,10],[-1],20.0,["Inter-SemiBold"]]},
    "Tata Mutual Fund" : {
-        "fund": [[25,20,0,16],"^(samco|tata).*(fund|etf|fof|eof|funds|plan|\))$",[10,20],[-1]], 
+        "fund": [[25,20,0,16],"^(samco|tata).*(fund|etf|fof|eof|funds|plan|\\))$",[10,20],[-1]], 
         "clip_bbox": [(0,50,160,750)],
         "line_x": 160.0,
         "data": [[5,8],[-15570765],20.0,["Swiss721BT-BoldCondensed"]]},
