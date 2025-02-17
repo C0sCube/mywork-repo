@@ -1,4 +1,15 @@
-.venv/
-.files/
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
 
-.envPDF/
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tmp
+
+# Ignore virtual environment
+venv/
+envPDF/
