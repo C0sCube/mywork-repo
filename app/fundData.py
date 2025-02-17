@@ -148,7 +148,6 @@ class Tata(Reader):
         'content_size':[30.0,10.0]
     }
     
-    
     def __init__(self, paths_config:str):
         super().__init__(paths_config, self.PARAMS)
     
@@ -2973,8 +2972,9 @@ class LIC(Reader):
         'fund': [[20,16], r'^(LIC|Bharat).*(Fund|ETF|FTF|FOF)$',[12,20],[-15319437]],
         'clip_bbox': [(0,5,150,812),],
         'line_x': 150.0,
-        'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']]}
-    
+        'data': [[5,8], [-15445130,-14590595], 30.0, ['Frutiger-Bold']],
+        "content_size":[30.0,10.0]
+    }
     def __init__(self,paths_config:str):
         super().__init__(paths_config, self.PARAMS)          
                     
@@ -2995,7 +2995,8 @@ class PPFAIS(Reader):
         'fund': [[16,20], r'^(Parag).*',[14,24],[-16777216,-13159371,-14869475]],
         'clip_bbox': [(0,65,290,812)],
         'line_x': 290.0,
-        'data': [[6,10], [-65794], 30.0, ['Arial-BoldMT',]]}
+        'data': [[6,10], [-65794], 30.0, ['Arial-BoldMT',]]
+        }
     
     def __init__(self, paths_config:str):
         super().__init__(paths_config,self.PARAMS)
