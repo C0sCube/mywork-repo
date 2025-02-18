@@ -280,7 +280,7 @@ class Reader:
     #CLEAN 
     def __process_text_data(self,text_data: dict):
         
-        stop_words = FundRegex.STOP_WORDS
+        stop_words = FundRegex().STOP_WORDS
         updated_text_data = {}
         data_conditions = self.PARAMS['data']
 
@@ -485,18 +485,21 @@ class Reader:
         return extracted_text
     
     #REFINE
-    def refine_extracted_data(self,extracted_text:dict):
-        
+    def refine_extracted_data(self, extracted_text: dict):
         final_text = {}
+        regex = FundRegex() 
         for fund, items in extracted_text.items():
             content_dict = {}
             for head, content in items.items():
-                if head:= re.sub(r"[^\w\s]", "", head.strip()).strip():
-                    clean_head = FundRegex.header_mapper(head)
+                clean_head = re.sub(r"[^\w\s]", "", head.strip()).strip()
+                
+                if clean_head: 
+                    clean_head = regex.header_mapper(clean_head)
                     content = self.match_regex_to_content(clean_head, content)
                     content_dict.update(content)
             final_text[fund] = content_dict
-        
+            
         return final_text
+
 
 

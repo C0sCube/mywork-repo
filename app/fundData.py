@@ -651,6 +651,12 @@ class Edelweiss(Reader):
                 
         return {main_key:final_list}
     
+    def __extract_date_data(self, main_key:str,data:list):
+        date_data = "".join(main_key)
+        pattern = r'.*(\d.+[a-zA-Z]{3}\d{2})$'
+        matches = re.findall(pattern,date_data, re.IGNORECASE)
+        return {"inception_date": " ".join(matches)}
+    
     def match_regex_to_content(self, string: str, data: list):
         pattern_to_function = {
             r"^(minimum|additional|benchmark|exit).*": self.__extract_inv_data,
@@ -658,6 +664,7 @@ class Edelweiss(Reader):
             r"^aum.*": self.__extract_aum_data,
             r"^total.*": self.__extract_expense_data,
             r"^fund.*": self.__extract_manager_data,
+            r'.*\d{1,2}[a-zA-Z]{3}\d{2}$':self.__extract_date_data
         }
 
         for pattern, func in pattern_to_function.items():
@@ -1549,7 +1556,7 @@ class ThreeSixtyOne(Reader):
     def __extract_nav_data(self,main_key:str, data:list):
         nav_data = data
         final_dict = {}
-        pattern = r'^(Regular(?: Plan)?(?: -)?(?: Growth| IDCW| Bonus| Weekly IDCW| Quarterly IDCW| Half Yearly IDCW| Monthly IDCW| Daily IDCW)|Direct(?: Plan)?(?: -)?(?: Growth| IDCW| Weekly IDCW| Quarterly IDCW| Monthly IDCW| Daily IDCW))\s*([\d.]+)'
+        pattern = r'^(Regular(?: Plan)?(?: -)?(?: Growth| IDCW| Bonus| Weekly IDCW| Quarterly IDCW| Half Yearly IDCW| Monthly IDCW| Daily IDCW)|Direct(?: Plan)?(?: -)?(?: Growth| IDCW| Weekly IDCW| Quarterly IDCW| Monthly IDCW| Daily IDCW))\s*([\d.,]+)'
         
         final_dict = {}
         for text in nav_data:
