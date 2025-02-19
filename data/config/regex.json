@@ -1,9 +1,9 @@
 {
     "header_patterns": {
-        "":"^(\\d+\\b|An open|\\(An open|[\\d\\.]+\\b)",
-        "nav": "^(nav|net_asset).*",
+        "":"^(\\d+\\b|An open|this_product_is|investors_who_are|details_as_on).*$",
+        "nav": "^(nav|net_asset).*$",
         "market_capital": "^(market)",
-        "category": "^(catagory).*",
+        "category": "^(catagory|category_).*",
         "composition_by_asset": "^composition_by_asset.*",
         "composition_by_industry":"^composition_by_industry.*",
         "composition_by_rating":"^composition_by_rating.*",
@@ -20,7 +20,7 @@
         "additional_investment": "^(additional_investment).*",
         "benchmark_index": "^(benchmark|amfi_tier_1_bench).*",
         "compositon_by_industry": "^(composition).*",
-        "minimum_investment": "^minimum_investment",
+        "minimum_investment": "^minimum_investment$",
         "minimum_additional_application_amount": "^minimum_additional_application_amount",
         "sip": "systematic_investment_plan_",
         "sharpe": "^sharpe.*",
@@ -30,9 +30,11 @@
         "minimum_application_amount": "^(minimum_application|minimum_applicaon_amount)"
     },
     "stop_words": [
+        "#Note:",
         "folio count data as on 30th november",
         "2024.",
         "*",
+        "#Note",
         "Note:",
         "Note :",
         "Mutual Fund investments are subject to market risks, read all scheme related documents carefully.",

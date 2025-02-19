@@ -31,7 +31,7 @@ class FundRegex():
             return text
 
     def header_mapper(self, text: str):
-    
+        text = re.sub(r"[^\w\s]", "", text).strip()
         for replacement, patterns in self.HEADER_PATTERNS.items():
             try:
                 if isinstance(patterns, list):
@@ -44,3 +44,12 @@ class FundRegex():
             except Exception as e:
                 print(f"\n{e}")
         return text
+    
+    def transform_keys(self,data:dict):
+        if isinstance(data, dict):
+            return {key.lower().replace(" ", "_"): self.transform_keys(value) for key, value in data.items()}
+        elif isinstance(data, list):
+            return [self.transform_keys(item) if isinstance(item, dict) else item for item in data]
+        else:
+            return data
+

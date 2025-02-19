@@ -4,53 +4,37 @@
         "category": "Large Cap",
         "monthly_avg_aum": "1,790.47 Crores",
         "month_end_aum": "1,768.88 Crores",
-        "inception_date": [
-            "9 June 2006"
-        ],
+        "inception_date": "9 June 2006",
         "fund_manager": "Mr. Manish Gunwani and Mr. Prateek Poddar (w.e.f. 02nd December 2024)",
         "metrics": {
-            "Beta": "0.99",
-            "R Squared": "0.94"
+            "beta": "0.99",
+            "r_squared": "0.94",
+            "standard_deviation": "13.33"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "1.33",
-            "Aggregate": "1.33"
+            "equity": "1.33",
+            "aggregate": "1.33"
         },
         "total_expense_ratio": {
-            "Regular": "2.05",
-            "Direct": "0.92"
+            "regular": "2.05",
+            "direct": "0.92"
         },
         "benchmark_index": "BSE 100 TRI (w.e.f. April 18, 2017)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount_": "1,000/- and any amount",
         "option_available": "Growth, IDCW$(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
-            "Regular Plan Growth": "74.25",
-            "Regular Plan IDCW": "23.45"
+            "regular_plan_growth": "74.25",
+            "regular_plan_idcw": "23.45"
         },
-        "scheme_name_cagr": [],
+        "scheme_name": [],
         "1_year_3_years_5": [
             "Bandhan Large Cap Fund 18.54% 13.69% 16",
             "BSE 100 TR#I 13.20% 13.96% 16",
             "Nifty 50 TRI## 10.00% 12.16% 15"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long",
-            "term. ModerateMo Hde igr hately",
-            "(cid:9) Investment predominantly ML oo dw e rt ao te High",
-            "in equity and equity related",
-            "instruments of the large cap Low HVe igr hy",
-            "companies.",
-            "Riskometer",
-            "The risk of the scheme is very high.",
-            "*Investors should consult their",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal will be at",
-            "suitable for them. Very High risk"
         ]
     },
     "bandhan small cap fund": {
@@ -58,53 +42,37 @@
         "category": "Small Cap Fund",
         "monthly_avg_aum": "9,646.67 Crores",
         "month_end_aum": "9,691.56 Crores",
-        "inception_date": [
-            "25 February 2020"
-        ],
+        "inception_date": "25 February 2020",
         "fund_manager": "Mr. Manish Gunwani (w.e.f. 28 January, 2023), Mr. Kirthi Jain (w.e.f. 05 June, 2023).",
         "metrics": {
-            "Beta": "0.90",
-            "R Squared": "0.90"
+            "beta": "0.90",
+            "r_squared": "0.90",
+            "standard_deviation": "16.77"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.67",
-            "Aggregate": "0.67"
+            "equity": "0.67",
+            "aggregate": "0.67"
         },
         "total_expense_ratio": {
-            "Regular": "1.70",
-            "Direct": "0.40"
+            "regular": "1.70",
+            "direct": "0.40"
         },
         "benchmark_index": "BSE 250 SmallCap TRI",
         "sip_minimum_amount": "100/- and in multiples of Rs.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "The Scheme offer IDCW @Option & Growth Option. IDCW @Option under each Plan further offers of choice of Payout & Sweep facilities.",
         "exit_load": "1% if redeemed/switched out within 1 year from the date of allotment",
         "nav": {
-            "Regular Plan Growth": "46.90",
-            "Regular Plan IDCW": "37.39"
+            "regular_plan_growth": "46.90",
+            "regular_plan_idcw": "37.39"
         },
         "scheme_name": [],
         "1_year": [
             "Bandhan Small Cap Fund 42.70%",
             "BSE 250 SmallCap TR#I 24.89%",
             "Nifty 50 TRI## 10.00%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in equity and equity ML oo dw e rt ao te Hig",
-            "related instrument of small cap",
-            "companies. Low",
-            "*Investors should consult their Riskometer",
-            "The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "Investors understand",
-            "them. their principal will be",
-            "Low risk"
         ]
     },
     "bandhan core equity fund": {
@@ -112,54 +80,37 @@
         "category": "Large & Mid Cap",
         "monthly_avg_aum": "7,589.48 Crores",
         "month_end_aum": "7,641.04 Crores",
-        "inception_date": [
-            "9 August 2005"
-        ],
+        "inception_date": "9 August 2005",
         "fund_manager": "Mr. Manish Gunwani (w.e.f. 28 January, 2023), Rahul Agarwal (w.e.f. 28 August, 2023).",
         "metrics": {
-            "Beta": "0.95",
-            "R Squared": "0.94"
+            "beta": "0.95",
+            "r_squared": "0.94",
+            "standard_deviation": "13.77"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "1.39",
-            "Aggregate": "1.43"
+            "equity": "1.39",
+            "aggregate": "1.43"
         },
         "total_expense_ratio": {
-            "Regular": "1.77",
-            "Direct": "0.60"
+            "regular": "1.77",
+            "direct": "0.60"
         },
         "benchmark_index": "NIFTY LargeMidcap 250 TRI (w.e.f. 7th October 2019)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount_": "1,000/- and any amount",
         "option_available": "Growth, IDCW$- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
-            "Regular Plan Growth": "130.00",
-            "Regular Plan IDCW": "30.51"
+            "regular_plan_growth": "130.00",
+            "regular_plan_idcw": "30.51"
         },
-        "scheme_name_c": [],
+        "scheme_name": [],
         "1_year_3_years": [
             "Bandhan Core Equity Fund 28.52% 23.31%",
             "NIFTY LargeMidcap 250 TR#I 18.51% 18.03%",
             "Nifty 50 TRI## 10.00% 12.16%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "(cid:9) In inv e es qt um ite yn at np dre ed qo um ityin ra en latly ted ML oo dw e rt ao",
-            "teModerateMo Hde igr hately",
-            "Hig",
-            "instruments in large and mid-cap Low",
-            "companies.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "Investors understand",
-            "them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan flexi cap fund": {
@@ -167,52 +118,37 @@
         "category": "Flexicap",
         "monthly_avg_aum": "7,327.55 Crores",
         "month_end_aum": "7,180.62 Crores",
-        "inception_date": [
-            "28 September 2005"
-        ],
+        "inception_date": "28 September 2005",
         "fund_manager": "Mr. Manish Gunwani & Mr. Viraj Kulkarni (w.e.f. 24th January, 2024).",
         "metrics": {
-            "Beta": "0.93",
-            "R Squared": "0.92"
+            "beta": "0.93",
+            "r_squared": "0.92",
+            "standard_deviation": "13.18"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "1.21",
-            "Aggregate": "1.26"
+            "equity": "1.21",
+            "aggregate": "1.26"
         },
         "total_expense_ratio": {
-            "Regular": "1.87",
-            "Direct": "1.14"
+            "regular": "1.87",
+            "direct": "1.14"
         },
         "benchmark_index": "BSE 500 TRI",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount (Units of Bandhan Flexi Cap Fund, shall be available for lump sum subscription w.e.f. May 07, 2018)",
+        "minimum_investment_amount": "1,000/- and any amount (Units of Bandhan Flexi Cap Fund, shall be available for lump sum subscription w.e.f. May 07, 2018)",
         "option_available": "Growth, IDCW$- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
-            "Regular Plan Growth": "197.28",
-            "Regular Plan IDCW": "50.66"
+            "regular_plan_growth": "197.28",
+            "regular_plan_idcw": "50.66"
         },
-        "scheme_name_ca": [],
+        "scheme_name": [],
         "1_year_3_years_5": [
             "Bandhan Flexi Cap Fund 14.80% 12.14% 15",
             "BSE 500 TR#I 15.67% 15.35% 19",
             "Nifty 50 TRI## 10.00% 12.16% 15"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "(cid:9) Investment predominantly ModerateMo Hde igr hately",
-            "in equity and equity related ML oo dw e rt ao te Hig",
-            "instruments across market",
-            "capitalisation. Low",
-            "*Investors should consult their Riskometer",
-            "The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for Investors understand",
-            "them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan multi cap fund": {
@@ -220,153 +156,93 @@
         "category": "Multi Cap",
         "monthly_avg_aum": "2,483.02 Crores",
         "month_end_aum": "2,458.02 Crores",
-        "inception_date": [
-            "2 December, 2021"
-        ],
+        "inception_date": "2 December, 2021",
         "fund_manager": "Mr. Daylynn Pinto (equity portion), Mr. Harshal Joshi (debt portion).",
         "total_expense_ratio": {
-            "Regular": "1.97",
-            "Direct": "0.55"
+            "regular": "1.97",
+            "direct": "0.55"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.58",
-            "Aggregate": "0.58"
+            "equity": "0.58",
+            "aggregate": "0.58"
         },
         "benchmark_index": "NIFTY 500 Multicap 50:25:25 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- and any amount",
+        "minimum_investment_amount": "Rs 1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout of Income Distribution cum capital withdrawal option, Reinvestment of Income Distribution cum capital withdrawal option & Transfer of Income Distribution cum capital withdrawal plan (from Equity Schemes to Debt Schemes Only).",
         "exit_load": "If redeemed/switched out within 1 year from the date of allotment -1% of applicable NAV; If redeemed/ switched out after 1 year from the date of allotment Nil",
         "nav": {
-            "Regular Plan Growth": "16.70",
-            "Regular Plan IDCW": "16.70"
+            "regular_plan_growth": "16.70",
+            "regular_plan_idcw": "16.70"
         },
-        "scheme_name": [],
-        "1": [
-            "Bandhan Multicap Fund - Regular Plan - Growth 1",
-            "NIFTY 500 Multicap 50:25:25 TRI# 1",
-            "Nifty 50 TRI## 1"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in a portfolio of large, ML oo dw e rt ao te Hig",
-            "mid and small cap equity and",
-            "equity related securities. Low",
-            "*Investors should consult their Riskometer",
-            "The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for Investors understand",
-            "them. their principal will b",
-            "Very High risk"
-        ]
+        "scheme_name": []
     },
     "bandhan midcap fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "MidCap",
         "monthly_avg_aum": "1,612.52 Crores",
         "month_end_aum": "1,615.50 Crores",
-        "inception_date": [
-            "18 August, 2022"
-        ],
+        "inception_date": "18 August, 2022",
         "fund_manager": "Ms. Ritu Modi (w.e.f. 16th November 2022) (equity portion), Mr. Harshal Joshi (debt portion).",
         "total_expense_ratio": {
-            "Regular": "2.07",
-            "Direct": "0.59"
+            "regular": "2.07",
+            "direct": "0.59"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.36",
-            "Aggregate": "0.37"
+            "equity": "0.36",
+            "aggregate": "0.37"
         },
         "benchmark_index": "BSE 150 Midcap TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- and any amount",
+        "minimum_investment_amount": "Rs 1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout of Income Distribution cum capital withdrawal option and in case the amount of Income Distribution cum capital withdrawal payable to the Unitholder is Rs.100/- or less under a Folio, the same will be compulsorily reinvested in the Scheme.).",
         "exit_load": "If redeemed/switched out within 1 year from the date of allotment - 1% of applicable NAV; If redeemed/switched out after 1 year from the date of allotment  Nil",
         "nav": {
-            "Regular Plan Growth": "17.85",
-            "Regular Plan IDCW": "17.85"
+            "regular_plan_growth": "17.85",
+            "regular_plan_idcw": "17.85"
         },
-        "scheme_name": [],
-        "1": [
-            "Bandhan Midcap Fund - Regular Plan - Growth 3",
-            "BSE 150 Midcap TR#I 2",
-            "Nifty 50 TRI## 1"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in a portfolio of equity",
-            "and equity related securities of Low",
-            "mid cap companies.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "Investors understand",
-            "them. their principal will be",
-            "Very High risk"
-        ]
+        "scheme_name": []
     },
     "bandhan elss tax saver fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "ELSS",
         "monthly_avg_aum": "6,948.88 Crores",
         "month_end_aum": "6,822.10 Crores",
-        "inception_date": [
-            "26 December 2008"
-        ],
+        "inception_date": "26 December 2008",
         "fund_manager": "Mr. Daylynn Pinto (w.e.f. 20th October 2016).",
         "metrics": {
-            "Beta": "0.92",
-            "R Squared": "0.94"
+            "beta": "0.92",
+            "r_squared": "0.94",
+            "standard_deviation": "12.97"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.28",
-            "Aggregate": "0.28"
+            "equity": "0.28",
+            "aggregate": "0.28"
         },
         "total_expense_ratio": {
-            "Regular": "1.75",
-            "Direct": "0.66"
+            "regular": "1.75",
+            "direct": "0.66"
         },
         "benchmark_index": "BSE 500 TRI (w.e.f. 1st Dec, 2021)",
         "sip_minimum_amount": "500/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "500/- and in multiples of 500/- thereafter.",
+        "minimum_investment_amount": "500/- and in multiples of 500/- thereafter.",
         "option_available": "Growth, IDCW$- Payout and Sweep (from Equity Schemes to Debt Schemes Only)",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "147.35",
-            "Regular Plan IDCW": "34.14"
+            "regular_plan_growth": "147.35",
+            "regular_plan_idcw": "34.14"
         },
-        "scheme_name_ca": [],
+        "scheme_name": [],
         "1_year_3_years": [
             "Bandhan ELSS Tax saver Fund 13.00% 14.77%",
             "BSE 500 TR#I 15.67% 15.35%",
             "Nifty 50 TRI## 10.00% 12.16%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment predominantly ML oo dw e rt ao te Hig",
-            "in Equity and Equity related",
-            "securities with income tax benefit Low",
-            "u/s 80C and 3 years lock-in.",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "*Investors should consult their",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for Investors understand",
-            "their principal will b",
-            "them. Very High risk"
         ]
     },
     "bandhan focused equity fund": {
@@ -374,52 +250,37 @@
         "category": "Focused",
         "monthly_avg_aum": "1,843.44 Crores",
         "month_end_aum": "1,836.94 Crores",
-        "inception_date": [
-            "16 March 2006"
-        ],
+        "inception_date": "16 March 2006",
         "fund_manager": "Mr. Manish Gunwani, Mr. Kirthi Jain and Mr. Rahul Agarwal (w.e.f. December 02, 2024).",
         "metrics": {
-            "Beta": "0.89",
-            "R Squared": "0.77"
+            "beta": "0.89",
+            "r_squared": "0.77",
+            "standard_deviation": "13.69"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.86",
-            "Aggregate": "0.86"
+            "equity": "0.86",
+            "aggregate": "0.86"
         },
         "total_expense_ratio": {
-            "Regular": "2.09",
-            "Direct": "0.82"
+            "regular": "2.09",
+            "direct": "0.82"
         },
         "benchmark_index": "BSE 500 TRI (with effect from November 11, 2019)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "$ 1,000/- and any amount",
+        "minimum_investment_amount": "$ 1,000/- and any amount",
         "option_available": "Growth, IDCW$- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
-            "Regular Plan Growth": "89.32",
-            "Regular Plan IDCW": "21.92"
+            "regular_plan_growth": "89.32",
+            "regular_plan_idcw": "21.92"
         },
         "scheme_name": [],
         "1_year_3_years": [
             "Bandhan Focused Equity Fund 30.02% 17.55%",
             "BSE 500 TR#I 15.67% 15.35%",
             "Nifty 50 TRI## 10.00% 12.16%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in a concentrated ML oo dw e rt ao te Hig",
-            "portfolio of equity and equity",
-            "related instruments of up to 30 Low",
-            "companies.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about Investors understand",
-            "whether the product is suitable for their principal will b",
-            "them. Very High risk"
         ]
     },
     "bandhan sterling value fund": {
@@ -427,32 +288,31 @@
         "category": "Value",
         "monthly_avg_aum": "10,116.62 Crores",
         "month_end_aum": "9,946.86 Crores",
-        "inception_date": [
-            "7 March 2008"
-        ],
+        "inception_date": "7 March 2008",
         "fund_manager": "Mr. Daylynn Pinto (w.e.f. 20th October 2016).",
         "metrics": {
-            "Beta": "0.94",
-            "R Squared": "0.91"
+            "beta": "0.94",
+            "r_squared": "0.91",
+            "standard_deviation": "13.37"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.29",
-            "Aggregate": "0.44"
+            "equity": "0.29",
+            "aggregate": "0.44"
         },
         "total_expense_ratio": {
-            "Regular": "1.75",
-            "Direct": "0.69"
+            "regular": "1.75",
+            "direct": "0.69"
         },
         "benchmark_index": "ModerateMo Hde igr hately ML oo dw e rt ao te High Low HVe igr hy Riskometer The risk of the benchmark is very high. Tier 2: BSE 400 MidSmallCap TRI",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount_": "1,000/- and any amount",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
-            "Regular Plan Growth": "145.59",
-            "Regular Plan IDCW": "41.76"
+            "regular_plan_growth": "145.59",
+            "regular_plan_idcw": "41.76"
         },
         "scheme_riskometer": [
             "ModerateMo Hde igr hately",
@@ -462,13 +322,6 @@
             "The risk of the scheme is very high.",
             "Investors understand that their principal will",
             "be at Very High risk"
-        ],
-        "this_product_is_suitable_for_investors_who_are_seeking": [
-            "(cid:9) To create wealth over long term.",
-            "(cid:9) Investment predominantly in equity and equity related",
-            "instruments following a value investment strategy.",
-            "*Investors should consult their financial advisers if in doubt",
-            "about whether the product is suitable for them."
         ]
     },
     "bandhan infrastructure fund": {
@@ -476,54 +329,37 @@
         "category": "Sectoral / Thematic",
         "monthly_avg_aum": "1,826.42 Crores",
         "month_end_aum": "1,790.94 Crores",
-        "inception_date": [
-            "8 March 2011"
-        ],
+        "inception_date": "8 March 2011",
         "fund_manager": "Mr. Vishal Biraia (w.e.f. 24th January 2024)",
         "metrics": {
-            "Beta": "0.61",
-            "R Squared": "0.70"
+            "beta": "0.61",
+            "r_squared": "0.70",
+            "standard_deviation": "17.13"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.67",
-            "Aggregate": "0.67"
+            "equity": "0.67",
+            "aggregate": "0.67"
         },
         "total_expense_ratio": {
-            "Regular": "2.08",
-            "Direct": "0.82"
+            "regular": "2.08",
+            "direct": "0.82"
         },
         "benchmark_index": "BSE India Infrastructure TRI (with effect from November 11, 2019)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
-            "Regular Plan Growth": "51.80",
-            "Regular Plan IDCW": "44.21"
+            "regular_plan_growth": "51.80",
+            "regular_plan_idcw": "44.21"
         },
         "scheme_name": [],
         "1_year_3_years": [
             "Bandhan Infrastructure Fund 38.95% 28.61%",
             "BSE India Infrastructure TRI# 29.74% 34.03%",
             "Nifty 50 TRI## 10.00% 12.16%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "(cid:9) Investment predominantly ModerateMo Hde igr hately",
-            "in equity and equity related ML oo dw e rt ao te Hig",
-            "instruments of companies",
-            "that are participating in and Low",
-            "benefiting from growth in Indian",
-            "infrastructure and infrastructural Riskometer",
-            "The risk of the scheme is very",
-            "related activities.",
-            "*Investors should consult their Investors understand",
-            "financial advisers if in doubt about their principal will b",
-            "whether the product is suitable for Very High risk",
-            "them."
         ]
     },
     "bandhan transportation and logistics fund": {
@@ -531,49 +367,31 @@
         "category": "Sector",
         "monthly_avg_aum": "545.51 Crores",
         "month_end_aum": "534.00 Crores",
-        "inception_date": [
-            "27 October 2022"
-        ],
+        "inception_date": "27 October 2022",
         "fund_manager": "Mr. Daylynn Pinto (equity portion), Mr. Harshal Joshi (debt portion).",
         "portfolio_turnover_ratio": {
-            "Equity": "0.39",
-            "Aggregate": "0.39"
+            "equity": "0.39",
+            "aggregate": "0.39"
         },
         "total_expense_ratio": {
-            "Regular": "2.40",
-            "Direct": "0.88"
+            "regular": "2.40",
+            "direct": "0.88"
         },
         "benchmark_index": "Nifty Transportation and Logistics TRI",
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Transfer (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
-            "Regular Plan Growth": "16.64",
-            "Regular Plan IDCW": "16.64"
+            "regular_plan_growth": "16.64",
+            "regular_plan_idcw": "16.64"
         },
         "scheme_name": [
             "Bandhan Transportation and Logistics Fund - Regular Plan - Growth",
             "Nifty Transportation and Logistics TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term.",
-            "(cid:9) Investment predominantly ModerateMo Hde igr hately",
-            "in equity and equity related ML oo dw e rt ao te Hig",
-            "instruments of the companies",
-            "engaged in the transportation and Low",
-            "logistics sector.",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "*Investors should consult their",
-            "financial advisers if in doubt about Investors understand",
-            "whether the product is suitable their principal will b",
-            "Very High risk",
-            "for them."
         ]
     },
     "bandhan financial services fund": {
@@ -581,47 +399,31 @@
         "category": "Sector",
         "monthly_avg_aum": "971.40 Crores",
         "month_end_aum": "957.85 Crores",
-        "inception_date": [
-            "28-July-2023"
-        ],
+        "inception_date": "28-July-2023",
         "fund_manager": "Ms. Ritu Modi (w.e.f. December 02, 2024) Mr. Harshvardhan Agarwal (w.e.f. June 07, 2024 (equity portion)). Mr. Harshal Joshi (debt portion).",
         "portfolio_turnover_ratio": {
-            "Equity": "0.78",
-            "Aggregate": "0.78"
+            "equity": "0.78",
+            "aggregate": "0.78"
         },
         "total_expense_ratio": {
-            "Regular": "2.20",
-            "Direct": "0.62"
+            "regular": "2.20",
+            "direct": "0.62"
         },
         "benchmark_index": "Nifty Financial Services TRI",
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
-            "Regular Plan Growth": "13.77",
-            "Regular Plan IDCW": "13.77"
+            "regular_plan_growth": "13.77",
+            "regular_plan_idcw": "13.77"
         },
         "scheme_name": [
             "Bandhan Financial Services Fund - Regular Plan - Growth",
             "Nifty Financial Services TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ModerateMo Hde igr hately",
-            "(cid:9) Investment predominantly ML oo dw e rt ao te Hig",
-            "in equity and equity related",
-            "instruments of the companies Low",
-            "engaged in the Financial Services Riskometer",
-            "sector. The risk of the scheme is very",
-            "*Investors should consult their",
-            "financial advisers if in doubt about Investors understand",
-            "their principal will b",
-            "whether the product is suitable Very High risk",
-            "for them."
         ]
     },
     "bandhan innovation fund": {
@@ -629,44 +431,27 @@
         "category": "Thematic Fund",
         "monthly_avg_aum": "1,397.72 Crores",
         "month_end_aum": "1,428.14 Crores",
-        "inception_date": [
-            "30-April-2024"
-        ],
+        "inception_date": "30-April-2024",
         "fund_manager": "Mr. Manish Gunwani & Mr. Prateek Poddar w.e.f. June 07, 2024 (equity portion), Mr. Brijesh Shah (debt portion).",
         "total_expense_ratio": {
-            "Regular": "2.10",
-            "Direct": "0.59"
+            "regular": "2.10",
+            "direct": "0.59"
         },
         "benchmark_index": "Nifty 500 TRI",
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 30 days from the date of allotment: 0.50% of the applicable NAV.  If redeemed/switched out after 30 days from date of allotment  Nil.",
         "nav": {
-            "Regular Plan Growth": "12.88",
-            "Regular Plan IDCW": "12.88"
+            "regular_plan_growth": "12.88",
+            "regular_plan_idcw": "12.88"
         },
         "scheme_name": [
             "Bandhan Innovation Fund - Regular Plan - Growth",
             "Nifty 500 TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment predominantly ML oo dw e rt ao te Hig",
-            "in equity and equity-related",
-            "instruments of companies Low",
-            "following innovation theme.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable Investors understand",
-            "for them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan business cycle fund": {
@@ -674,74 +459,56 @@
         "category": "Thematic Fund",
         "monthly_avg_aum": "1,730.39 Crores",
         "month_end_aum": "1,706.49 Crores",
-        "inception_date": [
-            "30-September-2024"
-        ],
+        "inception_date": "30-September-2024",
         "fund_manager": "Mr. Vishal Biraia, Ms. Ritika Behera (equity portion), Mr. Harshal Joshi (debt portion).",
         "total_expense_ratio": {
-            "Regular": "2.04",
-            "Direct": "0.47"
+            "regular": "2.04",
+            "direct": "0.47"
         },
         "benchmark_index": "Nifty 500 TRI",
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of applicable NAV.  If redeemed/switched out after 30 days from the date of allotment  Nil.",
         "nav": {
-            "Regular Plan Growth": "9.75",
-            "Regular Plan IDCW": "9.75"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term.",
-            "(cid:9) Investment predominantly",
-            "ModerateMo Hde igr hately",
-            "in equity and equity related ML oo dw e rt ao te Hig",
-            "instruments of companies",
-            "following business cycle based Low",
-            "investment theme. Riskometer",
-            "The risk of the scheme is very",
-            "*Investors should consult their",
-            "financial advisers if in doubt about Investors understand",
-            "whether the product is suitable their principal will b",
-            "for them. Very High risk"
-        ]
+            "regular_plan_growth": "9.75",
+            "regular_plan_idcw": "9.75"
+        }
     },
     "bandhan arbitrage fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Arbitrage",
         "monthly_avg_aum": "7,592.95 Crores",
         "month_end_aum": "7,724.33 Crores",
-        "inception_date": [
-            "21 December 2006"
-        ],
+        "inception_date": "21 December 2006",
         "fund_manager": "Mr. Nemish Sheth (w.e.f. 1st November 2021) & Mr. Harshal Joshi",
         "debt_portion": [
             "(w.e.f. 20th October 2016)."
         ],
         "metrics": {
-            "Beta": "0.76",
-            "R Squared": "0.74"
+            "beta": "0.76",
+            "r_squared": "0.74",
+            "standard_deviation": "0.60"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "4.31",
-            "Aggregate": "15.95"
+            "equity": "4.31",
+            "aggregate": "15.95"
         },
         "total_expense_ratio": {
-            "Regular": "1.10",
-            "Direct": "0.37"
+            "regular": "1.10",
+            "direct": "0.37"
         },
         "benchmark_index": "Nifty 50 Arbitrage Index (w.e.f. April 01, 2018)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "100/- and any amount",
+        "minimum_investment_amount": "100/- and any amount",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)) - Monthly & Annual",
         "exit_load": " If redeemed/switched out on or before 15 days from the date of allotment - 0.25%  If redeemed/switched out after 15 days from the date of allotment - NIL (w.e.f 01st April 2024)",
         "nav": {
-            "Regular Plan Growth": "31.3804"
+            "regular_plan_growth": "31.3804"
         }
     },
     "bandhan equity savings fund": {
@@ -749,59 +516,43 @@
         "category": "Equity Savings",
         "monthly_avg_aum": "250.95 Crores",
         "month_end_aum": "254.67 Crores",
-        "inception_date": [
-            "9 June 2008"
-        ],
+        "inception_date": "9 June 2008",
         "fund_manager": "Mr. Nemish Sheth & Mr. Viraj Kulkarni (w.e.f. 1st July 2022)",
         "debt_portion": [
             "Mr. Harshal Joshi."
         ],
         "metrics": {
-            "Beta": "0.56",
-            "R Squared": "0.90",
-            "Modified Duration": "2.05",
-            "Average Maturity": "2.64",
-            "Macaulay Duration": "2.12",
-            "Yield to Maturity": "7.23"
+            "beta": "0.56",
+            "r_squared": "0.90",
+            "standard_deviation": "2.75",
+            "modified_duration": "2.05",
+            "average_maturity": "2.64",
+            "macaulay_duration": "2.12",
+            "yield_to_maturity": "7.23"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.39",
-            "Aggregate": "7.41"
+            "equity": "0.39",
+            "aggregate": "7.41"
         },
         "total_expense_ratio": {
-            "Regular": "1.10",
-            "Direct": "0.18"
+            "regular": "1.10",
+            "direct": "0.18"
         },
         "benchmark_index": "CRISIL Equity Savings Index (w.e.f. 1st Dec, 2021)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Monthly, Quarterly and Annual and Payout, Reinvestment & Sweep facilities (from Equity Schemes to Debt Schemes Only).",
         "exit_load": "If redeemed/switched out within 7 days from the date of allotment:  Up to 10% of investment: Nil,  For remaining investment: 0.25% of applicable NAV.  If redeemed/switched out after 7 days from date of allotment: Nil.",
         "nav": {
-            "Regular Plan Growth": "30.0440"
+            "regular_plan_growth": "30.0440"
         },
         "scheme_name": [],
         "1_year": [
             "Bandhan Equity Savings Fund$ 7.54%",
             "CRISIL Equity Savings Inde#x 8.98%",
             "CRISIL 10 Year Gilt Index## 9.51%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate long term capital growth",
-            "and income.",
-            "ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment predominantly in",
-            "Equity and Equity related securities Low",
-            "(including arbitrage and other",
-            "derivative strategies) as well as Fixed Riskometer",
-            "Income securities. The risk of the scheme is low to m",
-            "Investors understand",
-            "their principal will be",
-            "Low to Moderate ris"
         ]
     },
     "bandhan balanced advantage fund": {
@@ -809,56 +560,44 @@
         "category": "Dynamic Asset Allocation or Balanced Advantage",
         "monthly_avg_aum": "2,291.17 Crores",
         "month_end_aum": "2,272.93 Crores",
-        "inception_date": [
-            "10 October 2014"
-        ],
+        "inception_date": "10 October 2014",
         "fund_manager": ": Mr. Manish Gunwani (w.e.f. 24th january 2024) & Mr. Vishal Biraia (w.e.f. December 02, 2024).",
         "debt_portion": [
             "Mr. Brijesh Shah (w.e.f. 16th July 2022)."
         ],
         "metrics": {
-            "Beta": "0.93",
-            "R Squared": "0.82",
-            "Modified Duration": "5.96",
-            "Average Maturity": "11.37",
-            "Macaulay Duration": "6.17",
-            "Yield to Maturity": "7.20"
+            "standard_deviation": "7.10",
+            "beta": "0.93",
+            "r_squared": "0.82",
+            "modified_duration": "5.96",
+            "average_maturity": "11.37",
+            "macaulay_duration": "6.17",
+            "yield_to_maturity": "7.20"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.53",
-            "Aggregate": "5.38"
+            "equity": "0.53",
+            "aggregate": "5.38"
         },
         "total_expense_ratio": {
-            "Regular": "2.03",
-            "Direct": "0.75"
+            "regular": "2.03",
+            "direct": "0.75"
         },
         "benchmark_index": "NIFTY 50 Hybrid Composite debt 50:50 Index (w.e.f. 1st Dec, 2021)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount_": "1,000/- and any amount",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": "In respect of each purchase of Units: - For 10% of investment: Nil - For remaining investment: 1% if redeemed/ switched out within 1 year from the date of allotment (w.e.f. July 5, 2017)",
         "nav": {
-            "Regular Plan Growth": "23.74",
-            "Regular Plan IDCW": "14.97"
+            "regular_plan_growth": "23.74",
+            "regular_plan_idcw": "14.97"
         },
         "scheme_name": [],
         "1_year_3": [
             "Bandhan Balanced Advantage Fund 14.45% 8",
             "NIFTY 50 Hybrid Composite debt 50:50 Index# 9.50% 9",
             "Nifty 50 TRI## 10.00% 1"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ModerateMo Hde igr hately",
-            "(cid:9) Dynamic allocation towards equity, ML oo dw e rt ao te Hig",
-            "derivatives, debt and money market",
-            "instruments. Low",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "Investors understand tha",
-            "principal will be at Very H"
         ]
     },
     "bandhan multi asset allocation fund": {
@@ -866,53 +605,36 @@
         "category": "Hybrid Funds",
         "monthly_avg_aum": "1,822.29 Crores",
         "month_end_aum": "1,814.32 Crores",
-        "inception_date": [
-            "31 January 2024"
-        ],
+        "inception_date": "31 January 2024",
         "fund_manager": ": Mr. Viraj Kulkarni, Mr. Daylynn Pinto & Mr. Nemish Sheth.",
         "debt_portion": [
             "Mr. Gautam Kaul."
         ],
         "metrics": {
-            "Modified Duration": "6.95",
-            "Average Maturity": "16.31",
-            "Macaulay Duration": "7.19",
-            "Yield to Maturity": "6.77"
+            "modified_duration": "6.95",
+            "average_maturity": "16.31",
+            "macaulay_duration": "7.19",
+            "yield_to_maturity": "6.77"
         },
         "total_expense_ratio": {
-            "Regular": "1.99",
-            "Direct": "0.46"
+            "regular": "1.99",
+            "direct": "0.46"
         },
         "benchmark_index": "65% Nifty 500 TRI + 25% NIFTY Short Duration Debt Index + 5% Domestic prices of gold + 5% Domestic prices of silver",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount_": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " For 10% of investment: NIL  For remaining investment:  0.50% if redeemed/ switched out within 1 year from the date of allotment.  If redeemed/switched out after 1 year from the date of allotment - NIL (w.e.f 01st April 2024)",
         "nav": {
-            "Regular Plan Growth": "11.44",
-            "Regular Plan IDCW": "11.44"
+            "regular_plan_growth": "11.44",
+            "regular_plan_idcw": "11.44"
         },
         "scheme_name": [
             "Bandhan Multi Asset Allocation Fund - Regular Plan - Growth",
             "65% Nifty 500 TRI + 25% NIFTY Short Duration Debt Index + 5% Do",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate long term capital",
-            "growth and income. ModerateMo Hde igr hately",
-            "(cid:9) Investment across Equity & Equity ML oo dw e rt ao te Hig",
-            "Related Instruments, Debt & Low",
-            "Money Market Securities and",
-            "Gold/Silver related instruments. Riskometer",
-            "The risk of the scheme is very",
-            "*Investors should consult their",
-            "financial advisers if in doubt about Investors understand",
-            "whether the product is suitable for their principal will be a",
-            "High risk",
-            "them."
         ]
     },
     "bandhan hybrid equity fund": {
@@ -920,32 +642,31 @@
         "category": "Aggressive Hybrid",
         "monthly_avg_aum": "826.40 Crores",
         "month_end_aum": "825.66 Crores",
-        "inception_date": [
-            "30 December 2016"
-        ],
+        "inception_date": "30 December 2016",
         "fund_manager": "Mr. Prateek Poddar (w.e.f. 07 June 2024) Mr. Harshal Joshi.",
         "debt_portion": [],
         "metrics": {
-            "Beta": "1.07",
-            "R Squared": "0.88",
-            "Modified Duration": "5.79",
-            "Average Maturity": "12.49",
-            "Macaulay Duration": "6.01",
-            "Yield to Maturity": "7.39"
+            "standard_deviation": "10.45",
+            "beta": "1.07",
+            "r_squared": "0.88",
+            "modified_duration": "5.79",
+            "average_maturity": "12.49",
+            "macaulay_duration": "6.01",
+            "yield_to_maturity": "7.39"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.96",
-            "Aggregate": "1.34"
+            "equity": "0.96",
+            "aggregate": "1.34"
         },
         "total_expense_ratio": {
-            "Regular": "2.32",
-            "Direct": "1.00"
+            "regular": "2.32",
+            "direct": "1.00"
         },
         "benchmark_index": "CRISIL Hybrid 35+65 Aggressive Index (w.e.f. 1st Dec, 2021)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW@(Payout, Reinvestment & Sweep facility)",
         "exit_load": "10% of investment: Nil",
         "remaining_investment": [
@@ -953,26 +674,14 @@
             "within 1 year from the date of allotment"
         ],
         "nav": {
-            "Regular Plan Growth": "25.08",
-            "Regular Plan IDCW": "19.51"
+            "regular_plan_growth": "25.08",
+            "regular_plan_idcw": "19.51"
         },
         "scheme_name": [],
         "1_year_3": [
             "Bandhan Hybrid Equity Fund$ 20.78% 1",
             "CRISIL Hybrid 35+65 Aggressive Index# 12.69% 1",
             "Nifty 50 TRI## 10.00% 1"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ModerateMo Hde igr hately",
-            "(cid:9) Investment predominantly in equity ML oo dw e rt ao te Hig",
-            "and equity related securities and",
-            "Low",
-            "balance exposure in debt and money",
-            "market instruments. Riskometer",
-            "The risk of the scheme is very",
-            "Investors understand tha",
-            "principal will be at Very H"
         ]
     },
     "bandhan retirement fund": {
@@ -980,57 +689,40 @@
         "category": "Solution oriented",
         "monthly_avg_aum": "175.57 Crores",
         "month_end_aum": "174.20 Crores",
-        "inception_date": [
-            "13 October 2023"
-        ],
+        "inception_date": "13 October 2023",
         "fund_manager": "Mr. Vishal Biraia (w.e.f. 24 January, 2024) & Mr. Viraj Kulkarni (w.e.f. December 02, 2024) Mr. Gautam Kaul (w.e.f. 19th October",
         "debt_portion": [
             "2023)"
         ],
         "metrics": {
-            "Modified Duration": "9.94",
-            "Average Maturity": "23.33",
-            "Macaulay Duration": "10.29",
-            "Yield to Maturity": "6.98"
+            "modified_duration": "9.94",
+            "average_maturity": "23.33",
+            "macaulay_duration": "10.29",
+            "yield_to_maturity": "6.98"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.14",
-            "Aggregate": "2.76"
+            "equity": "0.14",
+            "aggregate": "2.76"
         },
         "total_expense_ratio": {
-            "Regular": "2.35",
-            "Direct": "0.72"
+            "regular": "2.35",
+            "direct": "0.72"
         },
         "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index",
         "sip_minimum_amount": "Rs. 100/- and in multiples of Re. 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "The Scheme offer IDCW@Option & Growth Option. IDCW@Option under each Plan further offers of choice of Payout & Sweep facilities.",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "12.09",
-            "Regular Plan IDCW": "12.09"
+            "regular_plan_growth": "12.09",
+            "regular_plan_idcw": "12.09"
         },
         "scheme_name": [
             "Bandhan Retirement Fund - Regular Plan - Growth",
             "CRISIL Hybrid 50+50 - Moderate Index#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Capital appreciation and income",
-            "generation over long term. ModerateMo Hde igr hately",
-            "(cid:9) A hybrid scheme with investment ML oo dw e rt ao te Hig",
-            "in equity and equity related",
-            "instruments as well as debt and Low",
-            "money market instruments.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for Investors understand",
-            "them. their principal will be a",
-            "High risk"
         ]
     },
     "bandhan conservative hybrid fund": {
@@ -1038,53 +730,38 @@
         "category": "Conservative Hybrid",
         "monthly_avg_aum": "118.91 Crores",
         "month_end_aum": "117.97 Crores",
-        "inception_date": [
-            "25 February 2010"
-        ],
+        "inception_date": "25 February 2010",
         "fund_manager": "Mr. Viraj Kulkarni &",
         "debt_portion": [
             "Mr. Harshal Joshi."
         ],
         "metrics": {
-            "Modified Duration": "5.87",
-            "Average Maturity": "12.26",
-            "Macaulay Duration": "6.09",
-            "Yield to Maturity": "7.22"
+            "standard_deviation": "3.84",
+            "modified_duration": "5.87",
+            "average_maturity": "12.26",
+            "macaulay_duration": "6.09",
+            "yield_to_maturity": "7.22"
         },
         "total_expense_ratio": {
-            "Regular": "2.01",
-            "Direct": "0.99"
+            "regular": "2.01",
+            "direct": "0.99"
         },
         "benchmark_index": "CRISIL Hybrid 85+15 Conservative Index (w.e.f. 1st Dec, 2021)",
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Payout, Reinvestment & Sweep facility and Quarterly & Regular.",
         "exit_load": " If redeemed/switched out within 7 days from the date of allotment: - Up to 10% of investment: Nil, for remaining investment: 0.25% of applicable NAV.  If redeemed/switched out after 7 days from date of allotment: Nil.",
         "nav": {
-            "Regular Plan Growth": "30.7048",
-            "Regular Plan IDCW": "14.1491"
+            "regular_plan_growth": "30.7048",
+            "regular_plan_idcw": "14.1491"
         },
         "scheme_name": [],
         "1_year_3_years": [
             "Bandhan Conservative Hybrid Fund 7.67% 5.69%",
             "CRISIL Hybrid 85+15 Conservative Ind#ex 9.78% 7.55%",
             "CRISIL 10 Year Gilt Index## 9.51% 5.87%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To provide regular income and",
-            "capital appreciation over medium to ModerateMo Hde igr hately",
-            "long term. ML oo dw e rt ao te Hig",
-            "(cid:9) Investment predominantly in debt",
-            "and money market instruments Low",
-            "and balance exposure in equity and",
-            "equity related securities. Riskometer",
-            "The risk of the scheme is moderat",
-            "Investors understand",
-            "their principal will be",
-            "Moderately High ris"
         ]
     },
     "bandhan us equity fund of fund": {
@@ -1092,44 +769,28 @@
         "category": "Fund of Funds (Overseas)",
         "monthly_avg_aum": "352.42 Crores",
         "month_end_aum": "349.46 Crores",
-        "inception_date": [
-            "20 August 2021"
-        ],
+        "inception_date": "20 August 2021",
         "fund_manager": "Ms. Ritika Behera (w.e.f. 7th October 2023) & Mr. Gaurav Satra (w.e.f. 7th June 2024)",
         "total_expense_ratio": {
-            "Regular": "1.63",
-            "Direct": "0.80"
+            "regular": "1.63",
+            "direct": "0.80"
         },
         "benchmark_index": "Russell 1000 Growth Index (Total Return Net of 30% withholding tax)",
         "sip_minimum_amount": "100/- and in multiples of Rs.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
+        "minimum_investment_amount": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
         "option_available": "Income Distribution cum capital withdrawal Option & Growth Option. Income Distribution cum capital withdrawal Option under each Plan further offers of choice of Payout of Income Distribution cum capital withdrawal, Reinvestment of Income Distribution cum capital withdrawal& Transfer of Income Distribution cum capital withdrawal.",
         "exit_load": "1% of applicable NAV - if the units are redeemed/switched out within 1 year from the date of allotment Nil  if the units are redeemed / switched-out after 1 year from the date of allotment",
         "nav": {
-            "Regular Plan Growth": "15.41",
-            "Regular Plan IDCW": "15.41"
+            "regular_plan_growth": "15.41",
+            "regular_plan_idcw": "15.41"
         },
         "scheme_name": [
             "Bandhan US Equity Fund of Fund - Regular Plan - Growth",
             "Russell 1000 Growth Index (Total Return Net of 30%",
             "withholding tax)",
             "Nifty 50 TRI"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "(cid:9) Diversification of returns through",
-            "ModerateMo Hde igr hately",
-            "investing in a fund mainly investing ML oo dw e rt ao te Hig",
-            "in units/shares of overseas Mutual",
-            "Fund Scheme (/s) / Exchange Traded Low",
-            "Fund (/s) which invests in US Equity",
-            "securities. Riskometer",
-            "The risk of the scheme is very",
-            "Investors understand tha",
-            "principal will be at Very H"
         ]
     },
     "bandhan us treasury bond 0-1 year fund of fund": {
@@ -1137,42 +798,27 @@
         "category": "Fund of Funds (Overseas)",
         "monthly_avg_aum": "141.46 Crores",
         "month_end_aum": "141.69 Crores",
-        "inception_date": [
-            "28 March 2023"
-        ],
+        "inception_date": "28 March 2023",
         "fund_manager": "Mr. Brijesh Shah (Overseas and Debt portion).",
         "total_expense_ratio": {
-            "Regular": "0.18",
-            "Direct": "0.12"
+            "regular": "0.18",
+            "direct": "0.12"
         },
         "benchmark_index": "ICE 0-1 Year US Treasury Securities Index",
         "sip_minimum_amount": "100/- and in multiples of Rs.1",
         "sip_frequency": "Monthly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
+        "minimum_investment_amount": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
         "option_available": "Income Distribution cum capital withdrawal Option & Growth Option. Income Distribution cum capital withdrawal Option under each Plan further offers of choice of Payout of Income Distribution cum capital withdrawal, Reinvestment of Income Distribution cum capital withdrawal& Transfer of Income Distribution cum capital withdrawal.",
         "exit_load": "0.10% of applicable NAV - if the units are redeemed/switched out within seven days from the date of allotment; Nil - if the units are redeemed/switched out after 7 days from the date of allotment.",
         "nav": {
-            "Regular Plan Growth": "11.29",
-            "Regular Plan IDCW": "11.29"
+            "regular_plan_growth": "11.29",
+            "regular_plan_idcw": "11.29"
         },
         "scheme_name": [
             "Bandhan US Treasury Bond 0-1 Year Fund of Fund -",
             "Regular Plan - Growth",
             "ICE 0-1 Year US Treasury Securities Index"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ML oo dw e rt ao",
-            "teModerateMo Hde igr hately",
-            "Hig",
-            "(cid:9) Generate returns through investing",
-            "in US treasury securities in the 0-1 Low",
-            "year maturity range.",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "Investors understand tha",
-            "principal will be at Very H"
         ]
     },
     "bandhan asset allocation fund of funds": {
@@ -1183,25 +829,23 @@
         "category": "Fund of Funds (Domestic)",
         "monthly_avg_aum": "6.05 Crores",
         "month_end_aum": "6.02 Crores",
-        "inception_date": [
-            "11 February 2010"
-        ],
+        "inception_date": "11 February 2010",
         "fund_manager": "Mr. Viraj Kulkarni (w.e.f. July 1, 2022)",
         "total_expense_ratio": {
-            "Regular": "0.76",
-            "Direct": "0.18"
+            "regular": "0.76",
+            "direct": "0.18"
         },
         "benchmark_index": "ModerateMo Hde igr hately ML oo dw e rt ao te High Low HVe igr hy Riskometer The risk of the benchmark is moderately high. CRISIL Hybrid 85+15 Conservative Index",
         "sip_minimum_amount_": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
         "investment_objective": "Refer Pg No from 112 to 114",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount_": "1,000/- and any amount",
         "option_available_": "Growth, IDCW@- (Payout, Reinvestment and Sweep)",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
-            "Regular Plan Growth": "32.1200",
-            "Regular Plan IDCW": "17.0534"
+            "regular_plan_growth": "32.1200",
+            "regular_plan_idcw": "17.0534"
         },
         "scheme_riskometer": [
             "ModerateMo Hde igr hately",
@@ -1227,19 +871,18 @@
         "category": "Fund of Funds (Domestic)",
         "monthly_avg_aum": "112.91 Crores",
         "month_end_aum": "113.03 Crores",
-        "inception_date": [
-            "13 September 2004"
-        ],
+        "inception_date": "13 September 2004",
         "fund_manager": "Mr. Harshal Joshi (w.e.f 15th July 2016)",
         "metrics": {
-            "Modified Duration": "2.89",
-            "Average Maturity": "3.62",
-            "Macaulay Duration": "3.01",
-            "Yield to Maturity": "7.31"
+            "standard_deviation": "0.66",
+            "modified_duration": "2.89",
+            "average_maturity": "3.62",
+            "macaulay_duration": "3.01",
+            "yield_to_maturity": "7.31"
         },
         "total_expense_ratio": {
-            "Regular": "0.50",
-            "Direct": "0.07"
+            "regular": "0.50",
+            "direct": "0.07"
         },
         "benchmark_index": "NIFTY Medium Duration Debt Index A-III (w.e.f. 1st April 2022) NIFTY Short Duration Debt",
         "tier_2": [
@@ -1248,7 +891,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW@Option - Daily (Reinvest), Weekly (Reinvest), fortnightly, Quarterly, Half yearly, Annual & Periodic (each with Payout, Reinvestment & Sweep facility).",
         "exit_load": "Nil (w.e.f. 11 November, 2020)",
         "nav": {},
@@ -1261,12 +904,6 @@
             "Regular Plan IDCW@ Daily 12.3727",
             "Regular Plan IDCW@ Weekly 12.3949",
             "Regular Plan IDCW@ Periodic 14.6700"
-        ],
-        "this_product_is_suitable_for_investors_who_are_seeking": [
-            "(cid:9) To generate short to medium term optimal returns.",
-            "(cid:9) Investment in debt oriented schemes of Bandhan Mutual Fu",
-            "*Investors should consult their financial advisers if in doubt a",
-            "whether the product is suitable for them."
         ]
     },
     "bandhan overnight fund": {
@@ -1277,25 +914,24 @@
         "category": "Overnight",
         "monthly_avg_aum": "1,638.22 Crores",
         "month_end_aum": "805.01 Crores",
-        "inception_date": [
-            "18 January 2019"
-        ],
+        "inception_date": "18 January 2019",
         "fund_manager": "Mr. Brijesh Shah (w.e.f. 1st February 2019).",
         "metrics": {
-            "Modified Duration": "1",
-            "Average Maturity": "1",
-            "Macaulay Duration": "1",
-            "Yield to Maturity": "6.68"
+            "standard_deviation": "0.12",
+            "modified_duration": "1",
+            "average_maturity": "1",
+            "macaulay_duration": "1",
+            "yield_to_maturity": "6.68"
         },
         "total_expense_ratio": {
-            "Regular": "0.15",
-            "Direct": "0.05"
+            "regular": "0.15",
+            "direct": "0.05"
         },
         "benchmark_index": "Nifty 1D Rate Index",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Daily (Reinvestment), Weekly (Reinvestment), Monthly IDCW@ & Periodic (Reinvestment, Payout and Sweep facility).",
         "exit_load": "Nil.",
         "nav": {},
@@ -1315,21 +951,6 @@
             "Bandhan Overnight Fund 6.51% 6.50% 6.44% 6.60% 5",
             "Nifty 1D Rate Index# 6.67% 6.66% 6.61% 6.73% 6",
             "CRISIL 1 Year T-Bi#l#l 6.27% 4.00% 5.76% 7.43% 6"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate short term",
-            "optimal returns in line with",
-            "overnight rates and high ModerateMo Hde igr hately",
-            "liquidity. ML oo dw e rt ao te High",
-            "(cid:9) To invest in money market Low HVe igr hy",
-            "and debt instruments, with",
-            "maturity of 1 day. Riskometer",
-            "The risk of the scheme is low.",
-            "*Investors should consult their Investors understand that the",
-            "financial advisers if in doubt principal will be at Low risk",
-            "about whether the product is",
-            "suitable for them."
         ]
     },
     "bandhan liquid fund": {
@@ -1340,25 +961,24 @@
         "category": "Liquid",
         "monthly_avg_aum": "16,156.89 Crores",
         "month_end_aum": "13,834.70 Crores",
-        "inception_date": [
-            "2 July 2001"
-        ],
+        "inception_date": "2 July 2001",
         "fund_manager": "Mr. Harshal Joshi (w.e.f. 15th September 2015) Mr. Brijesh Shah (w.e.f. 1st December 2021).",
         "metrics": {
-            "Modified Duration": "56",
-            "Average Maturity": "56",
-            "Macaulay Duration": "56",
-            "Yield to Maturity": "7.30"
+            "standard_deviation": "0.14",
+            "modified_duration": "56",
+            "average_maturity": "56",
+            "macaulay_duration": "56",
+            "yield_to_maturity": "7.30"
         },
         "total_expense_ratio": {
-            "Regular": "0.25",
-            "Direct": "0.12"
+            "regular": "0.25",
+            "direct": "0.12"
         },
         "benchmark_index": "NIFTY Liquid Index A-I (w.e.f. 1st April 2022)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "100/- and any amount",
+        "minimum_investment_amount": "100/- and any amount",
         "option_available": "Growth & IDCW@Option - Daily (Reinvest), Weekly (Reinvest), Monthly (Payout, Reinvest and Sweep), Periodic (Payout, Reinvest and Sweep).",
         "exit_load": "Investor exit upon Exit load as a % of subscription redemption proceeds Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 onwards 0.0000% *With effect from October 20, 2019",
         "nav": {},
@@ -1378,25 +998,6 @@
             "Bandhan Liquid Fund* 8.52% 6.90% 6.80% 7.28% 6",
             "NIFTY Liquid Index A-I # 7.92% 6.75% 6.78% 7.37% 6",
             "CRISIL 1 Year T-Bill## 6.27% 4.00% 5.76% 7.43% 6"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate short term",
-            "optimal returns with stability ModerateMo Hde igr hately",
-            "and high liquidity. ML oo dw e rt ao te High",
-            "(cid:9) In av ne ds dtm ebe tn it ns",
-            "s",
-            "i tn",
-            "r",
-            "um mo en ne ty",
-            "s",
-            ",m wa itr hket Low HVe igr hy",
-            "maturity up to 91 days. Riskometer",
-            "The risk of the scheme is low to moderate.",
-            "*Investors should consult their",
-            "financial advisers if in doubt IInvestors understand that",
-            "about whether the product is their principal will be at Low to",
-            "suitable for them. Moderate risk"
         ]
     },
     "bandhan ultra short term fund": {
@@ -1407,25 +1008,24 @@
         "category": "Ultra Short Duration",
         "monthly_avg_aum": "3,937.91 Crores",
         "month_end_aum": "3,980.14 Crores",
-        "inception_date": [
-            "18th July 2018"
-        ],
+        "inception_date": "18th July 2018",
         "fund_manager": "Mr. Harshal Joshi (w.e.f. 18th July 2018).",
         "metrics": {
-            "Modified Duration": "168",
-            "Average Maturity": "178",
-            "Macaulay Duration": "176",
-            "Yield to Maturity": "7.47"
+            "standard_deviation": "0.15",
+            "modified_duration": "168",
+            "average_maturity": "178",
+            "macaulay_duration": "176",
+            "yield_to_maturity": "7.47"
         },
         "total_expense_ratio": {
-            "Regular": "0.47",
-            "Direct": "0.27"
+            "regular": "0.47",
+            "direct": "0.27"
         },
         "benchmark_index": "NIFTY Ultra Short Duration Debt Index A-I (w.e.f. 1st April 2022)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "100/- and any amount",
+        "minimum_investment_amount": "100/- and any amount",
         "option_available": "Growth & IDCW @Option - Daily (Reinvestment), Weekly (Reinvestment), Monthly , Quarterly & Periodic (each with Reinvestment, Payout and Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -1444,46 +1044,6 @@
             "Bandhan Ultra Short Term Fund",
             "NIFTY Ultra Short Duration Debt Index A-I #",
             "CRISIL 1 Year T-Bi#l#l"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) T",
-            "s",
-            "wo",
-            "h i",
-            "tog hre",
-            "t",
-            "an",
-            "-t",
-            "e",
-            "e",
-            "lor ra wmt e",
-            "ri i n",
-            "sr ve ket u",
-            "ss",
-            "tr",
-            "t",
-            "rn",
-            "m",
-            "as",
-            "te",
-            "eo",
-            "n",
-            "gv",
-            "t y",
-            "e",
-            "h",
-            ".r",
-            "orizon ML oo dw e rt ao",
-            "teModerateMo Hde igr hately",
-            "High",
-            "(cid:9) To invest in debt and money Low HVe igr hy",
-            "market instruments. Riskometer",
-            "The risk of the scheme is low to moderate.",
-            "*Investors should consult their",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal will be at Low to",
-            "suitable for them. Moderate risk"
         ]
     },
     "bandhan low duration fund": {
@@ -1491,25 +1051,24 @@
         "category": "Low Duration",
         "monthly_avg_aum": "5,832.32 Crores",
         "month_end_aum": "5,617.96 Crores",
-        "inception_date": [
-            "17 January 2006"
-        ],
+        "inception_date": "17 January 2006",
         "fund_manager": "Mr. Harshal Joshi (w.e.f. 28th July 2021).",
         "metrics": {
-            "Modified Duration": "333",
-            "Average Maturity": "375",
-            "Macaulay Duration": "347",
-            "Yield to Maturity": "7.43"
+            "standard_deviation": "0.17",
+            "modified_duration": "333",
+            "average_maturity": "375",
+            "macaulay_duration": "347",
+            "yield_to_maturity": "7.43"
         },
         "total_expense_ratio": {
-            "Regular": "0.60",
-            "Direct": "0.34"
+            "regular": "0.60",
+            "direct": "0.34"
         },
         "benchmark_index": "NIFTY Low Duration Debt Index A-I (w.e.f. 1st April 2022)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "100/- and any amount",
+        "minimum_investment_amount": "100/- and any amount",
         "option_available": "Growth & IDCW @Option- Daily (Reinvest), Weekly (Reinvest), Monthly, Quarterly & Periodic frequency (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil (Since 29th June 2012)",
         "nav": {},
@@ -1530,22 +1089,6 @@
             "NIFTY Low Duration Debt Index 7.59% 6.34%",
             "A-I#",
             "CRISIL 1 Year T-Bi#l#l 7.43% 6.16%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate short term",
-            "optimal returns with relative",
-            "stability and high liquidity. ModerateMo Hde igr hately",
-            "(cid:9) Investments in debt and ML oo dw e rt ao te High",
-            "money market instruments Low HVe igr hy",
-            "such that the Macaulay",
-            "duration of the portfolio is Riskometer",
-            "between 6 months- 12 months. The risk of the scheme is low to moderate.",
-            "*Investors should consult their Investors understand that",
-            "financial advisers if in doubt their principal will be at Low to",
-            "Moderate risk",
-            "about whether the product is",
-            "suitable for them."
         ]
     },
     "bandhan money manager fund": {
@@ -1553,25 +1096,24 @@
         "category": "Money Market",
         "monthly_avg_aum": "10,001.30 Crores",
         "month_end_aum": "8,168.55 Crores",
-        "inception_date": [
-            "18 February 2003"
-        ],
+        "inception_date": "18 February 2003",
         "fund_manager": "Mr. Brijesh Shah (w.e.f. 12th July 2021) Mr. Gautam Kaul (w.e.f. 1st December 2021).",
         "metrics": {
-            "Modified Duration": "196",
-            "Average Maturity": "198",
-            "Macaulay Duration": "197",
-            "Yield to Maturity": "7.54"
+            "standard_deviation": "0.17",
+            "modified_duration": "196",
+            "average_maturity": "198",
+            "macaulay_duration": "197",
+            "yield_to_maturity": "7.54"
         },
         "total_expense_ratio": {
-            "Regular": "0.35",
-            "Direct": "0.10"
+            "regular": "0.35",
+            "direct": "0.10"
         },
         "benchmark_index": "NIFTY Money Market Index A-I (w.e.f. 1st April 2022)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "100/- and any amount thereafter",
+        "minimum_investment_amount": "100/- and any amount thereafter",
         "option_available": "Growth & IDCW @Option - Daily (Reinvest), Weekly (Reinvest), Monthly (Payout, Reinvestment and Sweep), Periodic (Payout, Reinvestment and Sweep).",
         "exit_load": "Nil",
         "nav": {},
@@ -1595,33 +1137,6 @@
             "8.46% 6.80% 6.82% 7.56% 6",
             "Index A-I#",
             "CRISIL 1 year T-Bi#l#l 6.27% 4.00% 5.79% 7.43% 6"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate short term",
-            "o stp at bim ilia tyl r ae ntu dr n hs",
-            "ig",
-            "w",
-            "h",
-            "i lt ih",
-            "q",
-            "ure idla ityti .ve",
-            "ML oo dw e rt ao",
-            "teModerateMo Hde igr hately",
-            "High",
-            "(cid:9) In mv oe ns etm",
-            "y",
-            "e mn ats",
-            "rk",
-            "p er te id no sm truin ma en ntl ty",
-            "s",
-            ".in Low HVe igr hy",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is low to moderate.",
-            "financial advisers if in doubt",
-            "Investors understand that",
-            "about whether the product is their principal will be at Low to",
-            "suitable for them. Moderate risk"
         ]
     },
     "bandhan banking & psu debt fund": {
@@ -1629,25 +1144,24 @@
         "category": "Banking and PSU",
         "monthly_avg_aum": "13,492.92 Crores",
         "month_end_aum": "13,368.58 Crores",
-        "inception_date": [
-            "7 March 2013"
-        ],
+        "inception_date": "7 March 2013",
         "fund_manager": "Mr. Gautam Kaul (w.e.f. 1st December 2021) Mr. Suyash Choudhary (w.e.f. 28th July 2021).",
         "metrics": {
-            "Modified Duration": "2.38",
-            "Average Maturity": "3.01",
-            "Macaulay Duration": "2.49",
-            "Yield to Maturity": "7.31"
+            "standard_deviation": "0.53",
+            "modified_duration": "2.38",
+            "average_maturity": "3.01",
+            "macaulay_duration": "2.49",
+            "yield_to_maturity": "7.31"
         },
         "total_expense_ratio": {
-            "Regular": "0.63",
-            "Direct": "0.33"
+            "regular": "0.63",
+            "direct": "0.33"
         },
         "benchmark_index": "Nifty Banking & PSU Debt Index A-II (w.e.f. 12th March 2024)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount thereafter",
+        "minimum_investment_amount": "1,000/- and any amount thereafter",
         "option_available": "Growth, IDCW @-Daily, Fortnightly, Monthly (Reinvestment), Quarterly (Payout), Annual (Payout) & Periodic (Payout & Reinvestment).",
         "exit_load": "Nil (w.e.f. June 12th 2017)",
         "nav": {},
@@ -1668,20 +1182,6 @@
             "Bandhan Banking & PSU Debt Fund* 7.52% 5.96%",
             "Nifty Banking & PSU Debt Index A-II# 7.62% 5.71%",
             "CRISIL 10 Year Gilt Index## 9.51% 5.87%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate optimal returns",
-            "over short to medium term. ModerateMo Hde igr hately",
-            "(cid:9) Investments predominantly ML oo dw e rt ao te High",
-            "i in n sd tre ub mt e& n m tso in sse uy e m d a br yk e Pt SU, Low HVe igr hy",
-            "Banks & PFI. Riskometer",
-            "The risk of the scheme is moderate.",
-            "*Investors should consult their",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal will be at",
-            "Moderate risk",
-            "suitable for them."
         ]
     },
     "bandhan corporate bond fund": {
@@ -1689,25 +1189,24 @@
         "category": "Corporate Bond",
         "monthly_avg_aum": "13,831.67 Crores",
         "month_end_aum": "13,822.48 Crores",
-        "inception_date": [
-            "12 January 2016"
-        ],
+        "inception_date": "12 January 2016",
         "fund_manager": "Mr. Gautam Kaul (w.e.f. 1st December 2021) Mr. Suyash Choudhary (w.e.f. 28th July 2021).",
         "metrics": {
-            "Modified Duration": "3.05",
-            "Average Maturity": "4.01",
-            "Macaulay Duration": "3.20",
-            "Yield to Maturity": "7.33"
+            "standard_deviation": "0.70",
+            "modified_duration": "3.05",
+            "average_maturity": "4.01",
+            "macaulay_duration": "3.20",
+            "yield_to_maturity": "7.33"
         },
         "total_expense_ratio": {
-            "Regular": "0.65",
-            "Direct": "0.33"
+            "regular": "0.65",
+            "direct": "0.33"
         },
         "benchmark_index": "ModerateMo Hde igr hately ML oo dw e rt ao te High Low HVe igr hy Riskometer The risk of the benchmark is low to moderate. Tier 2: NIFTY AAA Short Duration Bond Index",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Payout, Reinvestment & Sweep and Monthly, Quarterly, Half Yearly, Annual & Periodic.",
         "exit_load": "Nil",
         "nav": {},
@@ -1730,12 +1229,6 @@
             "The risk of the scheme is moderate.",
             "Investors understand that their principal",
             "will be at Moderate risk"
-        ],
-        "this_product_is_suitable_for_investors_who_are_seeking": [
-            "(cid:9) To generate medium to long term optimal returns.",
-            "(cid:9) Investments predominantly in high quality corporate bonds.",
-            "*Investors should consult their financial advisers if in doubt",
-            "about whether the product is suitable for them."
         ]
     },
     "bandhan bond fund \u2013 short term plan": {
@@ -1743,25 +1236,24 @@
         "category": "Short Duration",
         "monthly_avg_aum": "9,737.32 Crores",
         "month_end_aum": "9,727.79 Crores",
-        "inception_date": [
-            "14 December 2000"
-        ],
+        "inception_date": "14 December 2000",
         "fund_manager": "Mr. Suyash Choudhary (Since 11th March 2011).",
         "metrics": {
-            "Modified Duration": "2.89",
-            "Average Maturity": "3.54",
-            "Macaulay Duration": "3.00",
-            "Yield to Maturity": "7.25"
+            "standard_deviation": "0.69",
+            "modified_duration": "2.89",
+            "average_maturity": "3.54",
+            "macaulay_duration": "3.00",
+            "yield_to_maturity": "7.25"
         },
         "total_expense_ratio": {
-            "Regular": "0.80",
-            "Direct": "0.33"
+            "regular": "0.80",
+            "direct": "0.33"
         },
         "benchmark_index": "ModerateMo Hde igr hately ML oo dw e rt ao te High Low HVe igr hy Riskometer The risk of the benchmark is low to moderate. Tier 2: NIFTY AAA Short Duration Bond Index",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Fortnightly (Payout, Reinvestment & Sweep), Monthly, Quarterly, Annual & Periodic",
         "exit_load": "Nil (w.e.f. 23rd May 2016)",
         "nav": {},
@@ -1783,14 +1275,6 @@
             "The risk of the scheme is moderate.",
             "Investors understand that their principal",
             "will be at Moderate risk"
-        ],
-        "this_product_is_suitable_for_investors_who_are_seeking": [
-            "(cid:9) To generate optimal returns over short to medium term.",
-            "(cid:9) Investments in Debt & Money Market securities such that",
-            "the Macaulay duration of the portfolio is between 1 year",
-            "and 3 years.",
-            "*Investors should consult their financial advisers if in doubt",
-            "about whether the product is suitable for them."
         ]
     },
     "bandhan bond fund \u2013 medium term plan": {
@@ -1798,25 +1282,24 @@
         "category": "Medium Duration",
         "monthly_avg_aum": "1,477.91 Crores",
         "month_end_aum": "1,474.79 Crores",
-        "inception_date": [
-            "8 July 2003"
-        ],
+        "inception_date": "8 July 2003",
         "fund_manager": "Mr. Suyash Choudhary (w.e.f. 15th September 2015).",
         "metrics": {
-            "Modified Duration": "3.84",
-            "Average Maturity": "5.09",
-            "Macaulay Duration": "3.99",
-            "Yield to Maturity": "7.22"
+            "standard_deviation": "1.01",
+            "modified_duration": "3.84",
+            "average_maturity": "5.09",
+            "macaulay_duration": "3.99",
+            "yield_to_maturity": "7.22"
         },
         "total_expense_ratio": {
-            "Regular": "1.31",
-            "Direct": "0.60"
+            "regular": "1.31",
+            "direct": "0.60"
         },
         "benchmark_index": "ModerateMo Hde igr hately ML oo dw e rt ao te High Low HVe igr hy Riskometer The risk of the benchmark is moderate. Tier 2: NIFTY AAA Medium Duration Bond Index",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW@ Daily (Reinvestment only) and Fortnightly, Monthly, Bi-monthly, Quarterly and Periodic frequency (each with payout, reinvestment and sweep facility).",
         "exit_load": "NIL (w.e.f. 15th January 2019)",
         "nav": {},
@@ -1839,14 +1322,6 @@
             "The risk of the scheme is moderate.",
             "Investors understand that their principal",
             "will be at Moderate risk"
-        ],
-        "this_product_is_suitable_for_investors_who_are_seeking": [
-            "(cid:9) To generate optimal returns over medium term.",
-            "(cid:9) Investments in Debt & Money Market securities such that",
-            "the Macaulay duration of the portfolio is between 3 years",
-            "and 4 years.",
-            "*Investors should consult their financial advisers if in doubt",
-            "about whether the product is suitable for them."
         ]
     },
     "bandhan floating rate fund": {
@@ -1854,19 +1329,18 @@
         "category": "Floater Fund",
         "monthly_avg_aum": "313.18 Crores",
         "month_end_aum": "286.02 Crores",
-        "inception_date": [
-            "18 February 2021"
-        ],
+        "inception_date": "18 February 2021",
         "fund_manager": "Mr. Brijesh Shah & Mr. Debraj Lahiri (w.e.f. 14th March 2024).",
         "metrics": {
-            "Modified Duration": "2.83",
-            "Average Maturity": "3.67",
-            "Macaulay Duration": "2.95",
-            "Yield to Maturity": "7.76"
+            "standard_deviation": "0.61",
+            "modified_duration": "2.83",
+            "average_maturity": "3.67",
+            "macaulay_duration": "2.95",
+            "yield_to_maturity": "7.76"
         },
         "total_expense_ratio": {
-            "Regular": "0.79",
-            "Direct": "0.31"
+            "regular": "0.79",
+            "direct": "0.31"
         },
         "benchmark_index": "NIFTY Short Duration Debt Index A-II (w.e.f. 12th March 2024)",
         "sip_minimum_amount": "100/- and in multiples of Re.1 thereafter (minimum 6 installments)",
@@ -1888,44 +1362,25 @@
             "overseas for Debt investment portion of the scheme.",
             "PERFORMANCE TABLE"
         ],
-        "scheme_name": [],
-        "1": [
-            "Bandhan Floating Rate Fund* 7",
-            "NIFTY Short Duration Debt Index A-II# 7",
-            "1 Year T-Bill## 7"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate short-term ModerateMo Hde igr hately",
-            "optimal returns. ML oo dw e rt ao te High",
-            "(cid:9) To invest predominantly in Low HVe igr hy",
-            "floating rate instruments.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is moderate.",
-            "financial advisers if in doubt",
-            "Investors understand that",
-            "about whether the product is their principal will be at",
-            "suitable for them. Moderate risk"
-        ]
+        "scheme_name": []
     },
     "bandhan credit risk fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Credit Risk",
         "monthly_avg_aum": "295.97 Crores",
         "month_end_aum": "292.04 Crores",
-        "inception_date": [
-            "03 March 2017"
-        ],
+        "inception_date": "03 March 2017",
         "fund_manager": "Mr. Gautam Kaul (w.e.f. 16 July 2022) & Mr. Debraj Lahiri (w.e.f. 17 April 2023).",
         "metrics": {
-            "Modified Duration": "2.59",
-            "Average Maturity": "3.64",
-            "Macaulay Duration": "2.73",
-            "Yield to Maturity": "7.91"
+            "standard_deviation": "0.52",
+            "modified_duration": "2.59",
+            "average_maturity": "3.64",
+            "macaulay_duration": "2.73",
+            "yield_to_maturity": "7.91"
         },
         "total_expense_ratio": {
-            "Regular": "1.69",
-            "Direct": "0.69"
+            "regular": "1.69",
+            "direct": "0.69"
         },
         "benchmark_index": "ModerateMo Hde igr hately ML oo dw e rt ao te High Low HVe igr hy Riskometer The risk of the benchmark is moderately high. Tier 2: 65% NIFTY AA Short Duration Bond Index + 35% NIFTY AAA Short Duration Bond Index",
         "tier_2": [
@@ -1935,7 +1390,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW@- Quarterly, Half yearly, Annual and Periodic (Payout, Reinvestment & Sweep facility)",
         "exit_load": "1% if redeemed/switched out within 365 days from the date of allotment",
         "nav": {},
@@ -1957,14 +1412,6 @@
             "The risk of the scheme is moderately high.",
             "Investors understand that their principal",
             "will be at Moderately High risk"
-        ],
-        "this_product_is_suitable_for_investors_who_are_seeking": [
-            "(cid:9) To generate optimal returns over medium",
-            "to long term.",
-            "(cid:9) To predominantly invest in a portfolio of corporate debt",
-            "securities across the credit spectrum.",
-            "*Investors should consult their financial advisers if in doubt",
-            "about whether the product is suitable for them."
         ]
     },
     "bandhan bond fund \u2013 income plan": {
@@ -1975,25 +1422,24 @@
         "category": "Medium to Long Duration",
         "monthly_avg_aum": "484.08 Crores",
         "month_end_aum": "483.92 Crores",
-        "inception_date": [
-            "14 July 2000"
-        ],
+        "inception_date": "14 July 2000",
         "fund_manager": "Mr. Suyash Choudhary (Since 15th October 2010).",
         "metrics": {
-            "Modified Duration": "6.76",
-            "Average Maturity": "14.84",
-            "Macaulay Duration": "7.01",
-            "Yield to Maturity": "7.29"
+            "standard_deviation": "1.91",
+            "modified_duration": "6.76",
+            "average_maturity": "14.84",
+            "macaulay_duration": "7.01",
+            "yield_to_maturity": "7.29"
         },
         "total_expense_ratio": {
-            "Regular": "1.98",
-            "Direct": "1.32"
+            "regular": "1.98",
+            "direct": "1.32"
         },
         "benchmark_index": "NIFTY Medium to Long Duration Debt Index A- III (w.e.f. 1st April 2022)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Quarterly, Half Yearly, Annual & Periodic (each with payout, reinvestment and sweep facility)",
         "exit_load": "If redeemed/switched out within 365 days from the date of allotment: For 10% of investment : Nil, For remaining investment : 1% If redeemed/switched out after 365 days from the date of allotment: Nil",
         "nav": {},
@@ -2015,22 +1461,6 @@
             "8.92% 5.89",
             "Index A- III#",
             "CRISIL 10 year Gilt Index## 9.51% 5.87"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate optimal returns",
-            "over Long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investments in Debt & Money ML oo dw e rt ao te High",
-            "Market securities such that",
-            "the Macaulay duration of the Low HVe igr hy",
-            "portfolio is between 4 years",
-            "and 7 years. Riskometer",
-            "The risk of the scheme is moderate.",
-            "*Investors should consult their Investors understand that",
-            "financial advisers if in doubt their principal",
-            "about whether the product is will be at Moderate risk",
-            "suitable for them."
         ]
     },
     "bandhan dynamic bond fund": {
@@ -2038,25 +1468,24 @@
         "category": "Dynamic Bond",
         "monthly_avg_aum": "3080.99 Crores",
         "month_end_aum": "3,076.30 Crores",
-        "inception_date": [
-            "25 June 2002"
-        ],
+        "inception_date": "25 June 2002",
         "fund_manager": "Mr. Suyash Choudhary (Since 15th October 2010).",
         "metrics": {
-            "Modified Duration": "12.14",
-            "Average Maturity": "28.49",
-            "Macaulay Duration": "12.57",
-            "Yield to Maturity": "7.14"
+            "standard_deviation": "3.81",
+            "modified_duration": "12.14",
+            "average_maturity": "28.49",
+            "macaulay_duration": "12.57",
+            "yield_to_maturity": "7.14"
         },
         "total_expense_ratio": {
-            "Regular": "1.57",
-            "Direct": "0.71"
+            "regular": "1.57",
+            "direct": "0.71"
         },
         "benchmark_index": "NIFTY Composite Debt Index A-III (w.e.f. 1st April 2022)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Periodic, Quarterly, Half Yearly, Annual and Regular frequency (each with Reinvestment, Payout and Sweep facility)",
         "exit_load": "Nil (w.e.f. 17th October 2016)",
         "nav": {},
@@ -2077,21 +1506,6 @@
             "Bandhan Dynamic Bond Fund* 9.90% 5.",
             "NIFTY Composite Debt Index A-III# 8.59% 6.",
             "CRISIL 10 Year Gilt Index## 9.51% 5."
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate long term optimal",
-            "returns by active management. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te High",
-            "(cid:9) Investments in money market",
-            "& debt instruments including Low HVe igr hy",
-            "G-Sec across duration.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is moderate.",
-            "financial advisers if in doubt",
-            "about whether the product is Investors understand that",
-            "suitable for them. their principal",
-            "will be at Moderate risk"
         ]
     },
     "bandhan long duration fund": {
@@ -2099,25 +1513,23 @@
         "category": "Long Duration",
         "monthly_avg_aum": "211.22 Crores",
         "month_end_aum": "212.41 Crores",
-        "inception_date": [
-            "20 March 2024"
-        ],
+        "inception_date": "20 March 2024",
         "fund_manager": "Mr. Gautam Kaul",
         "metrics": {
-            "Modified Duration": "12.03",
-            "Average Maturity": "28.66",
-            "Macaulay Duration": "12.45",
-            "Yield to Maturity": "7.13"
+            "modified_duration": "12.03",
+            "average_maturity": "28.66",
+            "macaulay_duration": "12.45",
+            "yield_to_maturity": "7.13"
         },
         "total_expense_ratio": {
-            "Regular": "0.67",
-            "Direct": "0.25"
+            "regular": "0.67",
+            "direct": "0.25"
         },
         "benchmark_index": "NIFTY Long Duration Debt Index A-III",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Quarterly, Half yearly, Annual, Regular and Periodic (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -2132,22 +1544,6 @@
             "Bandhan Long Duration Fund - Regular Plan - Growth",
             "NIFTY Long Duration Debt Index A-III",
             "CRISIL 10 Year Gilt Index"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate wealth over long",
-            "term.",
-            "(cid:9) In Mv oe ns etm y e Mn at ra kc er to Sss e c D ure itb iet s& such ML oo dw e rt ao",
-            "teModerateMo Hde igr hately",
-            "High",
-            "that the macaulay duration of Low HVe igr hy",
-            "the portfolio is greater than",
-            "7 years Riskometer",
-            "The risk of the scheme is moderate.",
-            "*Investors should consult their Investors understand that",
-            "financial advisers if in doubt their principal will be at",
-            "about whether the product is Moderate risk",
-            "suitable for them."
         ]
     },
     "bandhan government securities fund - constant maturity plan": {
@@ -2155,25 +1551,24 @@
         "category": "Gilt Fund with 10 year constant duration",
         "monthly_avg_aum": "352.06 Crores",
         "month_end_aum": "359.61 Crores",
-        "inception_date": [
-            "9 March 2002"
-        ],
+        "inception_date": "9 March 2002",
         "fund_manager": "Mr. Harshal Joshi (w.e.f. 15th May 2017).",
         "metrics": {
-            "Modified Duration": "7.14",
-            "Average Maturity": "10.68",
-            "Macaulay Duration": "7.38",
-            "Yield to Maturity": "6.95"
+            "standard_deviation": "2.03",
+            "modified_duration": "7.14",
+            "average_maturity": "10.68",
+            "macaulay_duration": "7.38",
+            "yield_to_maturity": "6.95"
         },
         "total_expense_ratio": {
-            "Regular": "0.37",
-            "Direct": "0.15"
+            "regular": "0.37",
+            "direct": "0.15"
         },
         "benchmark_index": "CRISIL 10 year Gilt Index (w.e.f. 28th May 2018)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Both the Plans under the Scheme have Growth & IDCW@Option. IDCW@Option under the Scheme offers Quarterly, Half yearly, Annual, Regular and Periodic frequency (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil.",
         "nav": {},
@@ -2195,21 +1590,6 @@
             "Constant Maturity Plan*^",
             "CRISIL 10 year Gilt Index# 9.51% 5.",
             "CRISIL 1 Year T-Bi#l#l 7.43% 6."
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate optimal returns",
-            "over long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investments in Government ML oo dw e rt ao te High",
-            "Securities such that the",
-            "average maturity of the Low HVe igr hy",
-            "portfolio is around 10 years.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is moderate.",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal",
-            "suitable for them. will be at Moderate risk"
         ]
     },
     "bandhan government securities fund \u2013 investment plan": {
@@ -2217,25 +1597,24 @@
         "category": "Gilt",
         "monthly_avg_aum": "3,799.01 Crores",
         "month_end_aum": "3,841.46 Crores",
-        "inception_date": [
-            "9 March 2002"
-        ],
+        "inception_date": "9 March 2002",
         "fund_manager": "Mr. Suyash Choudhary (Since 15th October 2010).",
         "metrics": {
-            "Modified Duration": "12.13",
-            "Average Maturity": "28.47",
-            "Macaulay Duration": "12.56",
-            "Yield to Maturity": "7.14"
+            "standard_deviation": "3.83",
+            "modified_duration": "12.13",
+            "average_maturity": "28.47",
+            "macaulay_duration": "12.56",
+            "yield_to_maturity": "7.14"
         },
         "total_expense_ratio": {
-            "Regular": "1.14",
-            "Direct": "0.52"
+            "regular": "1.14",
+            "direct": "0.52"
         },
         "benchmark_index": "CRISIL Dynamic Gilt Index (w.e.f. 01 February 2019)",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Quarterly, Half yearly, Annual, Regular and Periodic (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil (w.e.f. 15th July 2011)",
         "nav": {},
@@ -2256,19 +1635,6 @@
             "Bandhan Government Securities Fund  IP* 10.51% 6.1",
             "CRISIL Dynamic Gilt Index# 9.82% 6.5",
             "CRISIL 10 year Gilt Index## 9.51% 5.8"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To generate long term optimal",
-            "returns. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te High",
-            "(cid:9) Investments in Government",
-            "Securities across maturities. Low HVe igr hy",
-            "*Investors should consult their Riskometer",
-            "financial advisers if in doubt The risk of the scheme is moderate.",
-            "about whether the product is Investors understand that",
-            "suitable for them. their principal",
-            "will be at Moderate risk"
         ]
     },
     "bandhan nifty 50 index fund": {
@@ -2276,51 +1642,37 @@
         "category": "Index Fund",
         "monthly_avg_aum": "1,671.09 Crores",
         "month_end_aum": "1,647.90 Crores",
-        "inception_date": [
-            "30 April 2010"
-        ],
+        "inception_date": "30 April 2010",
         "fund_manager": "Mr. Nemish Sheth (w.e.f. March 01, 2022).",
         "metrics": {
-            "Beta": "1.00",
-            "R Squared": "1.00"
+            "beta": "1.00",
+            "r_squared": "1.00",
+            "standard_deviation": "12.70"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.18",
-            "Aggregate": "0.18",
-            "Tracking Error ": "0.10"
+            "equity": "0.18",
+            "aggregate": "0.18",
+            "tracking_error_": "0.10"
         },
         "total_expense_ratio": {
-            "Regular": "0.60",
-            "Direct": "0.10"
+            "regular": "0.60",
+            "direct": "0.10"
         },
         "benchmark_index": "Nifty 50 TRI",
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": "NIL (w.e.f. 4th February 2019)",
         "nav": {
-            "Regular Plan Growth": "50.6162",
-            "Regular Plan IDCW": "45.9402"
+            "regular_plan_growth": "50.6162",
+            "regular_plan_idcw": "45.9402"
         },
         "scheme_name": [],
         "1_year_3_y": [
             "Bandhan Nifty 50 Index Fund 9.13% 11",
             "Nifty 50 TRI# 10.00% 12"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in equity and equity ML oo dw e rt ao te Hig",
-            "related instruments forming part",
-            "of Nifty 50 index. Low",
-            "*Investors should consult their Riskometer",
-            "financial advisers if in doubt about The risk of the scheme is very",
-            "whether the product is suitable for Investors understand",
-            "them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan nifty 100 index fund": {
@@ -2328,48 +1680,32 @@
         "category": "Index Fund",
         "monthly_avg_aum": "155.08 Crores",
         "month_end_aum": "152.63 Crores",
-        "inception_date": [
-            "24 February, 2022"
-        ],
+        "inception_date": "24 February, 2022",
         "fund_manager": "Mr. Nemish Sheth",
         "portfolio_turnover_ratio": {
-            "Equity": "0.10",
-            "Aggregate": "0.10"
+            "equity": "0.10",
+            "aggregate": "0.10"
         },
         "total_expense_ratio": {
-            "Regular": "0.61",
-            "Direct": "0.10"
+            "regular": "0.61",
+            "direct": "0.10"
         },
         "benchmark_index": "Nifty 100 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "14.2622",
-            "Regular Plan IDCW": "14.2644"
+            "regular_plan_growth": "14.2622",
+            "regular_plan_idcw": "14.2644"
         },
         "scheme_name": [
             "Bandhan Nifty 100 Index Fund -",
             "Regular Plan - Growth",
             "Nifty 100 TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Create wealth over a long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in equity and equity ML oo dw e rt ao te Hig",
-            "related instruments belonging to",
-            "Nifty 100 Index. Low",
-            "*Investors should consult their Riskometer",
-            "The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable Investors understand",
-            "for them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan nifty100 low volatility 30 index fund": {
@@ -2377,48 +1713,32 @@
         "category": "Index Fund",
         "monthly_avg_aum": "1,385.39 Crores",
         "month_end_aum": "1,383.31 Crores",
-        "inception_date": [
-            "06 October, 2022"
-        ],
+        "inception_date": "06 October, 2022",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.04",
-            "Direct": "0.35"
+            "regular": "1.04",
+            "direct": "0.35"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.50",
-            "Aggregate": "0.50"
+            "equity": "0.50",
+            "aggregate": "0.50"
         },
         "benchmark_index": "Nifty100 Low Volatility 30 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "14.6963",
-            "Regular Plan IDCW": "14.6960"
+            "regular_plan_growth": "14.6963",
+            "regular_plan_idcw": "14.6960"
         },
         "scheme_name": [
             "Bandhan Nifty100 Low Volatility 30 Index Fund -",
             "Regular Plan - Growth",
             "Nifty100 Low Volatility 30 TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty100 Low Volatility 30 Index.",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "advisers if in doubt about whether the",
-            "Investors understand",
-            "their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan nifty200 momentum 30 index fund": {
@@ -2426,48 +1746,32 @@
         "category": "Index Fund",
         "monthly_avg_aum": "141.17 Crores",
         "month_end_aum": "136.48 Crores",
-        "inception_date": [
-            "2 September, 2022"
-        ],
+        "inception_date": "2 September, 2022",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.06",
-            "Direct": "0.41"
+            "regular": "1.06",
+            "direct": "0.41"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "1.48",
-            "Aggregate": "1.48"
+            "equity": "1.48",
+            "aggregate": "1.48"
         },
         "benchmark_index": "Nifty200 Momentum 30 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "16.5702",
-            "Regular Plan IDCW": "16.5695"
+            "regular_plan_growth": "16.5702",
+            "regular_plan_idcw": "16.5695"
         },
         "scheme_name": [
             "Bandhan Nifty 200 Momentum 30 Index Fund -",
             "Regular Plan - Growth",
             "Nifty 200 Momentum 30 TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty200 Momentum 30 Index.",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "advisers if in doubt about whether the",
-            "Investors understand",
-            "their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan nifty alpha 50 index fund": {
@@ -2475,46 +1779,31 @@
         "category": "Index Fund",
         "monthly_avg_aum": "347.96 Crores",
         "month_end_aum": "349.72 Crores",
-        "inception_date": [
-            "09 November, 2023"
-        ],
+        "inception_date": "09 November, 2023",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.02",
-            "Direct": "0.34"
+            "regular": "1.02",
+            "direct": "0.34"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "1.71",
-            "Aggregate": "1.71"
+            "equity": "1.71",
+            "aggregate": "1.71"
         },
         "benchmark_index": "Nifty Alpha 50 Index TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "14.7876",
-            "Regular Plan IDCW": "14.7875"
+            "regular_plan_growth": "14.7876",
+            "regular_plan_idcw": "14.7875"
         },
         "scheme_name": [
             "Bandhan Nifty Alpha 50 Index Fund - Regular Plan - Growth",
             "Nifty Alpha 50 TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ModerateMo Hde igr hately",
-            "(cid:9) Investment in equity and equity ML oo dw e rt ao te Hig",
-            "related instruments belonging to Low",
-            "Nifty Alpha 50 Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for Investors understand",
-            "them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan nifty smallcap 250 index fund": {
@@ -2522,46 +1811,31 @@
         "category": "Index Fund",
         "monthly_avg_aum": "47.12 Crores",
         "month_end_aum": "46.95 Crores",
-        "inception_date": [
-            "22 December, 2023"
-        ],
+        "inception_date": "22 December, 2023",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "0.89",
-            "Direct": "0.20"
+            "regular": "0.89",
+            "direct": "0.20"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.52",
-            "Aggregate": "0.52"
+            "equity": "0.52",
+            "aggregate": "0.52"
         },
         "benchmark_index": "Nifty Smallcap 250 Index TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "12.7906",
-            "Regular Plan IDCW": "12.7911"
+            "regular_plan_growth": "12.7906",
+            "regular_plan_idcw": "12.7911"
         },
         "scheme_name": [
             "Bandhan Nifty Smallcap 250 Index Fund - Regular Plan - Growth",
             "Nifty Smallcap 250 TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in equity and equity ML oo dw e rt ao te Hig",
-            "related instruments belonging to Low",
-            "Nifty Smallcap 250 Index.",
-            "*Investors should consult their The risk of theRis k som ce hter eme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for Investors understand",
-            "them. their principal will b",
-            "Very High risk"
         ]
     },
     "bandhan nifty it index fund": {
@@ -2569,48 +1843,31 @@
         "category": "Index Fund",
         "monthly_avg_aum": "28.93 Crores",
         "month_end_aum": "28.94 Crores",
-        "inception_date": [
-            "31 August, 2023"
-        ],
+        "inception_date": "31 August, 2023",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.02",
-            "Direct": "0.37"
+            "regular": "1.02",
+            "direct": "0.37"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.31",
-            "Aggregate": "0.31"
+            "equity": "0.31",
+            "aggregate": "0.31"
         },
         "benchmark_index": "Nifty IT TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
-            "Regular Plan Growth": "14.2100",
-            "Regular Plan IDCW": "14.2087"
+            "regular_plan_growth": "14.2100",
+            "regular_plan_idcw": "14.2087"
         },
         "scheme_name": [
             "Bandhan Nifty IT Index Fund - Regular Plan - Growth",
             "Nifty IT TRI#",
             "Nifty 50 TRI##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty IT Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
         ]
     },
     "bandhan nifty total market index fund": {
@@ -2618,298 +1875,178 @@
         "category": "Index Fund",
         "monthly_avg_aum": "36.39 Crores",
         "month_end_aum": "35.76 Crores",
-        "inception_date": [
-            "10 July, 2024"
-        ],
+        "inception_date": "10 July, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.05",
-            "Direct": "0.40"
+            "regular": "1.05",
+            "direct": "0.40"
         },
         "benchmark_index": "Nifty Total Market TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "9.7467",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty Total Market Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "9.7467",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan nifty bank index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Index Fund",
         "monthly_avg_aum": "14.00 Crores",
         "month_end_aum": "13.97 Crores",
-        "inception_date": [
-            "27 August, 2024"
-        ],
+        "inception_date": "27 August, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.00",
-            "Direct": "0.20"
+            "regular": "1.00",
+            "direct": "0.20"
         },
         "benchmark_index": "Nifty Bank TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "9.8886",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity-",
-            "related instruments belonging to Low",
-            "Nifty Bank Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "9.8886",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan bse healthcare index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Index Fund",
         "monthly_avg_aum": "18.04 Crores",
         "month_end_aum": "18.32 Crores",
-        "inception_date": [
-            "06 September, 2024"
-        ],
+        "inception_date": "06 September, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.02",
-            "Direct": "0.22"
+            "regular": "1.02",
+            "direct": "0.22"
         },
         "benchmark_index": "BSE Healthcare TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "10.3791",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "BSE Healthcare Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "10.3791",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan nifty midcap 150 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Index Fund",
         "monthly_avg_aum": "21.10 Crores",
         "month_end_aum": "21.01 Crores",
-        "inception_date": [
-            "19 September, 2024"
-        ],
+        "inception_date": "19 September, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "0.91",
-            "Direct": "0.21"
+            "regular": "0.91",
+            "direct": "0.21"
         },
         "benchmark_index": "Nifty Midcap 150 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "9.6069",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty Midcap 150 Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "9.6069",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan nifty 500 momentum 50 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Index Fund",
         "monthly_avg_aum": "15.72 Crores",
         "month_end_aum": "15.80 Crores",
-        "inception_date": [
-            "30 October, 2024"
-        ],
+        "inception_date": "30 October, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.00",
-            "Direct": "0.35"
+            "regular": "1.00",
+            "direct": "0.35"
         },
         "benchmark_index": "Nifty 500 Momentum 50 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "9.6094",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty 500 Momentum 50 Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "9.6094",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan nifty 500 value 50 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Index Fund",
         "monthly_avg_aum": "8.23 Crores",
         "month_end_aum": "8.08 Crores",
-        "inception_date": [
-            "30 October, 2024"
-        ],
+        "inception_date": "30 October, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.00",
-            "Direct": "0.35"
+            "regular": "1.00",
+            "direct": "0.35"
         },
         "benchmark_index": "Nifty 500 Value 50 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "9.3906",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty 500 Value 50 Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "9.3906",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan nifty 200 quality 30 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Index Fund",
         "monthly_avg_aum": "7.60 Crores",
         "month_end_aum": "8.47 Crores",
-        "inception_date": [
-            "04 December, 2024"
-        ],
+        "inception_date": "04 December, 2024",
         "fund_manager": "Mr. Nemish Sheth",
         "total_expense_ratio": {
-            "Regular": "1.00",
-            "Direct": "0.35"
+            "regular": "1.00",
+            "direct": "0.35"
         },
         "benchmark_index": "Nifty 200 Quality 30 TRI",
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
-            "Regular Plan Growth": "9.6752",
-            "Regular Plan IDCW": "NA"
-        },
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over a long term. ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te Hig",
-            "(cid:9) Investment in equity and equity",
-            "related instruments belonging to Low",
-            "Nifty 200 Quality 30 Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is very",
-            "financial advisers if in doubt about",
-            "whether the product is suitable for",
-            "them. Investors understand",
-            "their principal will be a",
-            "High risk"
-        ]
+            "regular_plan_growth": "9.6752",
+            "regular_plan_idcw": "NA"
+        }
     },
     "bandhan bse sensex etf": {
         "investment_objective": "Refer Pg No from 112 to 114",
         "category": "Exchange Traded Fund",
         "monthly_avg_aum": "1.21 Crores",
         "month_end_aum": "1.18 Crores",
-        "inception_date": [
-            "07 October 2016"
-        ],
+        "inception_date": "07 October 2016",
         "fund_manager": "Mr. Nemish Sheth (w.e.f 1 November 2021)",
         "metrics": {
-            "Beta": "1.00",
-            "R Squared": "1.00"
+            "beta": "1.00",
+            "r_squared": "1.00",
+            "standard_deviation": "12.36"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.05",
-            "Aggregate": "0.05",
-            "Tracking Error ": "0.15"
+            "equity": "0.05",
+            "aggregate": "0.05",
+            "tracking_error_": "0.15"
         },
         "total_expense_ratio": {},
         "benchmark_index": "BSE Sensex TRI",
@@ -2925,17 +2062,6 @@
             "540154)",
             "BSE Sensex TR#I 9.41%",
             "Nifty 50 TRI## 10.00%"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ModerateMo Hde igr hately",
-            "(cid:9) Investing in equity and equity related ML oo dw e rt ao te Hig",
-            "instruments forming part of BSE",
-            "Sensex Index. Low",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "Investors understand tha",
-            "principal will be at Very H"
         ]
     },
     "bandhan nifty 50 etf": {
@@ -2943,18 +2069,17 @@
         "category": "Exchange Traded Fund",
         "monthly_avg_aum": "26.64 Crores",
         "month_end_aum": "26.74 Crores",
-        "inception_date": [
-            "07 October 2016"
-        ],
+        "inception_date": "07 October 2016",
         "fund_manager": "Mr. Nemish Sheth (w.e.f 1 November 2021)",
         "metrics": {
-            "Beta": "1.00",
-            "R Squared": "1.00"
+            "beta": "1.00",
+            "r_squared": "1.00",
+            "standard_deviation": "12.70"
         },
         "portfolio_turnover_ratio": {
-            "Equity": "0.04",
-            "Aggregate": "0.04",
-            "Tracking Error ": "0.11"
+            "equity": "0.04",
+            "aggregate": "0.04",
+            "tracking_error_": "0.11"
         },
         "total_expense_ratio": {},
         "benchmark_index": "Nifty 50 TRI",
@@ -2969,17 +2094,6 @@
             "9.87% 12.",
             "code: IDFNIFTYET)",
             "Nifty 50 TRI# 10.00% 12."
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) To create wealth over long term. ModerateMo Hde igr hately",
-            "(cid:9) Investing in equity and equity related ML oo dw e rt ao te Hig",
-            "instruments forming part of Nifty",
-            "50 index. Low",
-            "Riskometer",
-            "The risk of the scheme is very",
-            "Investors understand tha",
-            "principal will be at Very H"
         ]
     },
     "bandhan crisil ibx gilt april 2026 index fund": {
@@ -2987,25 +2101,24 @@
         "category": "Index Fund",
         "monthly_avg_aum": "471.77 Crores",
         "month_end_aum": "470.64 Crores",
-        "inception_date": [
-            "20 October, 2022"
-        ],
+        "inception_date": "20 October, 2022",
         "fund_manager": "Mr. Gautam Kaul",
         "metrics": {
-            "Modified Duration": "1.11",
-            "Average Maturity": "1.19",
-            "Macaulay Duration": "1.15",
-            "Yield to Maturity": "6.80"
+            "standard_deviation": "0.40",
+            "modified_duration": "1.11",
+            "average_maturity": "1.19",
+            "macaulay_duration": "1.15",
+            "yield_to_maturity": "6.80"
         },
         "total_expense_ratio": {
-            "Regular": "0.41",
-            "Direct": "0.16"
+            "regular": "0.41",
+            "direct": "0.16"
         },
         "benchmark_index": "CRISIL IBX Gilt Index - April 2026",
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -3018,21 +2131,6 @@
             "Bandhan CRISIL IBX Gilt April 2026 Index Fund - Regular Plan - Grow",
             "CRISIL IBX Gilt Index - April 2026#",
             "CRISIL 10 Year Gilt Index##"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Income over the target",
-            "maturity period. ModerateMo Hde igr hately",
-            "(cid:9) Investment in constituents ML oo dw e rt ao te High",
-            "o 2f",
-            "0",
-            "C 26R .ISIL IBX Gilt Index - April Low HVe igr hy",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is low to moderate.",
-            "financial advisers if in doubt",
-            "Investors understand that",
-            "about whether the product is their principal",
-            "suitable for them. will be at Low to Moderate ris"
         ]
     },
     "bandhan crisil ibx gilt june 2027 index fund": {
@@ -3040,25 +2138,24 @@
         "category": "Index Fund",
         "monthly_avg_aum": "7,072.29 Crores",
         "month_end_aum": "7,041.66 Crores",
-        "inception_date": [
-            "23 March 2021"
-        ],
+        "inception_date": "23 March 2021",
         "fund_manager": "Mr. Harshal Joshi (w.e.f. 28th July 2021) Mr. Gautam Kaul (w.e.f. 1st December 2021)",
         "metrics": {
-            "Modified Duration": "2.12",
-            "Average Maturity": "2.36",
-            "Macaulay Duration": "2.19",
-            "Yield to Maturity": "6.82"
+            "standard_deviation": "0.75",
+            "modified_duration": "2.12",
+            "average_maturity": "2.36",
+            "macaulay_duration": "2.19",
+            "yield_to_maturity": "6.82"
         },
         "total_expense_ratio": {
-            "Regular": "0.43",
-            "Direct": "0.18"
+            "regular": "0.43",
+            "direct": "0.18"
         },
         "benchmark_index": "CRISIL-IBX Gilt Index - June 2027",
         "sip_minimum_amount": "100/- and in multiples of Re.1 thereafter (minimum 6 installments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility)",
         "exit_load": "Nil",
         "nav": {},
@@ -3071,21 +2168,6 @@
             "Bandhan CRISIL IBX Gilt June 2027 Index",
             "CRISIL-IBX Gilt Index - June 202#7",
             "10 Year GO#I#"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Income over the target",
-            "maturity period.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in constituents ML oo dw e rt ao te High",
-            "similar to the composition",
-            "of CRISIL IBX Gilt June 2027 Low HVe igr hy",
-            "Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is low to moderate.",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal will be at Low to",
-            "suitable for them. Moderate risk"
         ]
     },
     "bandhan crisil ibx gilt april 2028 index fund": {
@@ -3093,25 +2175,24 @@
         "category": "Index Fund",
         "monthly_avg_aum": "4,720.36 Crores",
         "month_end_aum": "4,704.20 Crores",
-        "inception_date": [
-            "23 March 2021"
-        ],
+        "inception_date": "23 March 2021",
         "fund_manager": "Mr. Harshal Joshi (w.e.f. 28th July 2021) Mr. Gautam Kaul (w.e.f. 1st December 2021)",
         "metrics": {
-            "Modified Duration": "2.48",
-            "Average Maturity": "2.87",
-            "Macaulay Duration": "2.56",
-            "Yield to Maturity": "6.83"
+            "standard_deviation": "0.83",
+            "modified_duration": "2.48",
+            "average_maturity": "2.87",
+            "macaulay_duration": "2.56",
+            "yield_to_maturity": "6.83"
         },
         "total_expense_ratio": {
-            "Regular": "0.44",
-            "Direct": "0.19"
+            "regular": "0.44",
+            "direct": "0.19"
         },
         "benchmark_index": "CRISIL-IBX Gilt Index - April 2028",
         "sip_minimum_amount": "100/- and in multiples of Re.1 thereafter (minimum 6 installments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and any amount",
+        "minimum_investment_amount": "1,000/- and any amount",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility)",
         "exit_load": "Nil",
         "nav": {},
@@ -3124,21 +2205,6 @@
             "Bandhan CRISIL IBX Gilt April 2028 Index Fund",
             "CRISIL-IBX Gilt Index - April 2028#",
             "10 Year GO#I#"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Income over the target",
-            "maturity period.",
-            "ModerateMo Hde igr hately",
-            "(cid:9) Investment in constituents ML oo dw e rt ao te High",
-            "similar to the compositionof",
-            "CRISIL IBX Gilt April 2028 Low HVe igr hy",
-            "Index.",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is low to moderate.",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal will be at",
-            "suitable for them. Low to Moderate risk"
         ]
     },
     "bandhan crisil ibx gilt april 2032 index fund": {
@@ -3146,25 +2212,24 @@
         "category": "Index Fund",
         "monthly_avg_aum": "435.87 Crores",
         "month_end_aum": "432.39 Crores",
-        "inception_date": [
-            "15 February 2023"
-        ],
+        "inception_date": "15 February 2023",
         "fund_manager": "Mr. Harshal Joshi & Mr. Gautam Kaul",
         "metrics": {
-            "Modified Duration": "5.31",
-            "Average Maturity": "6.90",
-            "Macaulay Duration": "5.49",
-            "Yield to Maturity": "6.90"
+            "standard_deviation": "1.73",
+            "modified_duration": "5.31",
+            "average_maturity": "6.90",
+            "macaulay_duration": "5.49",
+            "yield_to_maturity": "6.90"
         },
         "total_expense_ratio": {
-            "Regular": "0.46",
-            "Direct": "0.20"
+            "regular": "0.46",
+            "direct": "0.20"
         },
         "benchmark_index": "Crisil IBX Gilt Index - April 2032",
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -3177,19 +2242,6 @@
             "Bandhan CRISIL IBX Gilt April 2032 Index Fund",
             "Crisil IBX Gilt Index - April 2032#",
             "10 Year GO#I#"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Income over the target ModerateMo Hde igr hately",
-            "maturity period. ML oo dw e rt ao te High",
-            "(cid:9) Investment in constituents of Low HVe igr hy",
-            "Crisil IBX Gilt Index - April 2032",
-            "Riskometer",
-            "*Investors should consult their The risk of the scheme is moderate.",
-            "financial advisers if in doubt",
-            "Investors understand that",
-            "about whether the product is their principal",
-            "suitable for them. will be at Moderate risk"
         ]
     },
     "bandhan crisil ibx 90:10 sdl plus gilt\u2013 november 2026 index fund": {
@@ -3197,25 +2249,24 @@
         "category": "Index Fund",
         "monthly_avg_aum": "114.28 Crores",
         "month_end_aum": "113.60 Crores",
-        "inception_date": [
-            "17 November, 2022"
-        ],
+        "inception_date": "17 November, 2022",
         "fund_manager": "Mr. Gautam Kaul & Mr. Harshal Joshi",
         "metrics": {
-            "Modified Duration": "1.58",
-            "Average Maturity": "1.73",
-            "Macaulay Duration": "1.63",
-            "Yield to Maturity": "7.03"
+            "standard_deviation": "0.44",
+            "modified_duration": "1.58",
+            "average_maturity": "1.73",
+            "macaulay_duration": "1.63",
+            "yield_to_maturity": "7.03"
         },
         "total_expense_ratio": {
-            "Regular": "0.33",
-            "Direct": "0.08"
+            "regular": "0.33",
+            "direct": "0.08"
         },
         "benchmark_index": "CRISIL IBX 90:10 SDL plus Gilt Index  November 2026",
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -3229,22 +2280,6 @@
             "Fund - Regular Plan - Growth",
             "CRISIL IBX 90:10 SDL plus Gilt IndexNovember 2026#",
             "10 Year GO#I#"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Income over the target",
-            "maturity period.",
-            "ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te High",
-            "(cid:9) Investment in constituents of",
-            "CRISIL IBX 90:10 SDL plus Gilt Low HVe igr hy",
-            "Index  November 2026.",
-            "Riskometer",
-            "The risk of the scheme is low to moderate.",
-            "*Investors should consult their",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal",
-            "suitable for them will be at Low to Moderate ris"
         ]
     },
     "bandhan crisil ibx 90:10 sdl plus gilt\u2013 september 2027 index fund": {
@@ -3252,25 +2287,24 @@
         "category": "Index Fund",
         "monthly_avg_aum": "150.28 Crores",
         "month_end_aum": "150.41 Crores",
-        "inception_date": [
-            "24 November, 2022"
-        ],
+        "inception_date": "24 November, 2022",
         "fund_manager": "Mr. Gautam Kaul & Mr. Harshal Joshi",
         "metrics": {
-            "Modified Duration": "2.23",
-            "Average Maturity": "2.55",
-            "Macaulay Duration": "2.31",
-            "Yield to Maturity": "7.07"
+            "standard_deviation": "0.58",
+            "modified_duration": "2.23",
+            "average_maturity": "2.55",
+            "macaulay_duration": "2.31",
+            "yield_to_maturity": "7.07"
         },
         "total_expense_ratio": {
-            "Regular": "0.33",
-            "Direct": "0.08"
+            "regular": "0.33",
+            "direct": "0.08"
         },
         "benchmark_index": "CRISIL IBX 90:10 SDL plus Gilt Index  September 2027",
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility)..",
         "exit_load": "Nil",
         "nav": {},
@@ -3284,22 +2318,6 @@
             "Fund - Regular Plan - Growth",
             "CRISIL IBX 90:10 SDL plus Gilt IndexSeptember 2027#",
             "10 Year GO#I#"
-        ],
-        "this_product_is_suitable_for_scheme": [],
-        "investors_who_are_seeking_riskometer": [
-            "(cid:9) Income over the target",
-            "maturity period.",
-            "ModerateMo Hde igr hately",
-            "ML oo dw e rt ao te High",
-            "(cid:9) Investment in constituents of",
-            "CRISIL IBX 90:10 SDL plus Gilt Low HVe igr hy",
-            "Index  September 2027.",
-            "Riskometer",
-            "The risk of the scheme is low to moderate.",
-            "*Investors should consult their",
-            "financial advisers if in doubt Investors understand that",
-            "about whether the product is their principal will be at",
-            "suitable for them. Low to Moderate risk"
         ]
     }
 }

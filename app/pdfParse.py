@@ -41,7 +41,7 @@ class Reader:
     
     #HIGHLIGHT
     @staticmethod
-    def get_financial_indices(path:str):
+    def __get_financial_indices(path:str):
         try:
             os.path.exists(path)
             
@@ -78,7 +78,7 @@ class Reader:
         try:
             document = fitz.open(path)
             page_count = document.page_count
-            indices = Reader.get_financial_indices(self.INDICEPATH)
+            indices = Reader.__get_financial_indices(self.INDICEPATH)
             fund_data = self.PARAMS['fund']
             
         except Exception as e:
@@ -145,8 +145,7 @@ class Reader:
         return output_path, df
                             
     #EXTRACT
-    
-    def __extract_clipped_data(self,input:str, pageSelect:list, title:dict, *args:list):
+    def __extract_clipped_data(self,input:str, pages:list, title:dict, *args:list):
         
         try:
             document = fitz.open(input)
@@ -158,7 +157,7 @@ class Reader:
             logging.error(e)
             return
 
-        for pgn in pageSelect:
+        for pgn in pages:
             page = document[pgn]
             fundName = fund_names[pgn]
 
@@ -249,7 +248,7 @@ class Reader:
             fundName = fund_names[pgn]
         
             blocks = page.get_text('dict')['blocks'] #get all blocks
-            filtered_blocks = [block for block in blocks if block['type']==0 and 'lines' in block] #type 0 are text
+            filtered_blocks = [block for block in blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
             sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
             
             finalData.append({
@@ -260,7 +259,7 @@ class Reader:
                 
         return finalData
 
-    def __extract_span_data(self, data: list, name: list):  # all
+    def __extract_span_data(self, data: list,*args):  # all
         final_data = {}
 
         for page in data:
@@ -457,25 +456,22 @@ class Reader:
     def __extract_data_from_pdf(path: str):
 
         with pdfplumber.open(path) as pdf:
-            final_data_generated = {}
+            final_data = {}
 
             for page in pdf.pages:
-                #First text will he Header rest values
                 content = page.extract_text().encode("ascii", "ignore").decode().split('\n')
-                main_key = content[0]
-                values = content[1:]
-                final_data_generated[main_key] = values
+                key,val = content[0], content[1:]
+                final_data[key] = val #First text will he Header rest values
 
-        return final_data_generated
+        return final_data
 
     def get_generated_content(self, data:dict):
-        extracted_text = dict()
-        unextracted_text = dict()
+        extracted_text,unextracted_text  = {}, {}
         output_path  = self.DRYPATH
         for fund, items in data.items():
            try:
                 Reader.__generate_pdf_from_data(items, output_path)
-                print(f'\n-----{fund}------', f'\nPDF at: {output_path}')
+                print(f'\n<<{fund}>>', f',pdf loc at: {output_path}')
                 extracted_text[fund] = Reader.__extract_data_from_pdf(output_path)
                 
            except Exception as e:
@@ -491,11 +487,10 @@ class Reader:
         for fund, items in extracted_text.items():
             content_dict = {}
             for head, content in items.items():
-                clean_head = re.sub(r"[^\w\s]", "", head.strip()).strip()
-                
+                clean_head = regex.header_mapper(head) #normalizes headers
                 if clean_head: 
-                    clean_head = regex.header_mapper(clean_head)
-                    content = self.match_regex_to_content(clean_head, content)
+                    content = self.match_regex_to_content(clean_head, content) # applies regex to clean data
+                    content = regex.transform_keys(content) #lowercase all keys
                     content_dict.update(content)
             final_text[fund] = content_dict
             

@@ -3,18 +3,25 @@
         "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation by investing predominantly in equity and equity-related securities across various market capitalisation. However, there can be no assurance that the investment objectives of the Scheme will be realized.",
         "benchmark_index": "BSE 500 Total Return Index (TRI)",
         "date_of_allotment": "June 29, 2020",
-        "fund_manager": "Mr. Alok Singh (w.e.f June 29, 2020): Around 20 years of experience, including 16 years in mutual fund industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "mutual fund industry",
+                "experience": "20 years",
+                "managing_since": "June 29 2020"
+            }
+        ],
         "average_aum": "2,128.58 Crs.",
         "latest_aum": "2,096.09 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "portfolio_turnover_ratio": "0.94",
         "metrics": {
             "Standard Deviation": "15.02",
             "Beta": "1.02",
             "Sharpe Ratio": "0.91",
             "Tracking Error": "5.86"
         },
-        "portfolio_turnover_ratio": "0.94",
         "nav": {
             "Growth": "38.07",
             "IDCW": "32.54"
@@ -32,18 +39,29 @@
         "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation by investing predominantly in equity and equity-related securities of small cap companies. However, there can be no assurance that the investment objectives of the Scheme will be realized.",
         "benchmark_index": "NIFTY Smallcap 250 Total Return Index (TRI) (Tier 1)",
         "date_of_allotment": "December 19, 2018",
-        "fund_manager": "Mr. Alok Singh (w.e.f. October 1, 2024): Around 20 years of experience, including 16 years in Mutual Fund Industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "Mutual Fund Industry",
+                "experience": "20 years",
+                "managing_since": "October 1 2024"
+            }
+        ],
         "average_aum": "1,672.79 Crs.",
         "latest_aum": "1,658.26 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "certificate_of_deposit": [
+            "Small Industries Dev Bank of India 0.72",
+            "(CRISIL A1+)"
+        ],
+        "portfolio_turnover_ratio": "0.60",
         "metrics": {
             "Standard Deviation": "15.17",
             "Beta": "0.78",
             "Sharpe Ratio": "0.95",
             "Tracking Error": "6.82"
         },
-        "portfolio_turnover_ratio": "0.60",
         "nav": {
             "Growth": "54.25",
             "IDCW": "40.62"
@@ -61,18 +79,28 @@
         "investment_objective": "The Scheme seeks to generate long-term capital growth from a diversified portfolio of predominantly equity and equity-related securities across all market capitalisations. The Scheme is in the nature of diversified multi-cap fund. The Scheme is not providing any assured or guaranteed returns. However, there can be no assurance that the investment objectives of the Scheme will be realized.",
         "benchmark_index": "BSE 500 Total Return Index (TRI)",
         "date_of_allotment": "February 25, 2009",
-        "fund_manager": "Mr. Alok Singh (w.e.f April 27, 2022): Around 20 years of experience, including 16 years in Mutual Fund Industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "Mutual Fund Industry",
+                "experience": "20 years",
+                "managing_since": "April 27 2022"
+            }
+        ],
         "average_aum": "1,489.33 Crs.",
         "latest_aum": "1,441.45 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 500 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 500 and in multiples of 1",
+        "certificate_of_deposit": [
+            "HDFC Bank Limited (CARE A1+) 0.33"
+        ],
+        "portfolio_turnover_ratio": "0.92",
         "metrics": {
             "Standard Deviation": "14.54",
             "Beta": "0.99",
             "Sharpe Ratio": "0.70",
             "Tracking Error": "5.54"
         },
-        "portfolio_turnover_ratio": "0.92",
         "nav": {
             "Growth": "193.04",
             "IDCW": "77.09"
@@ -85,7 +113,7 @@
             "entry_load": "NIL",
             "exit_load": "NIL"
         },
-        "india_elss_tax_saver_w.e.f._december_26,_2023.": [
+        "india_elss_tax_saver_wef_december_26_2023": [
             "8"
         ]
     },
@@ -93,12 +121,20 @@
         "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation by investing in equity and equity-related securities across various market capitalisation. However, there can be no assurance that the investment objectives of the Scheme will be realized. otherwise, or the Investment Objective of the scheme will be realized.",
         "benchmark_index": "NIFTY 500 Multicap 50:25:25 Total Return Index (TRI)",
         "date_of_allotment": "March 3, 2023",
-        "fund_manager": "Mr. Nitin Gosar: More than 16 years of Experience in Equity Research and Fund Management.",
+        "fund_manager": [
+            {
+                "name": "Nitin Gosar",
+                "designation": "Equity Research and Fund Management",
+                "experience": "16 years",
+                "managing_since": ""
+            }
+        ],
         "average_aum": "773.62 Crs.",
         "latest_aum": "767.19 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
         "portfolio_turnover_ratio": "0.96",
+        "metrics": {},
         "nav": {
             "Growth": "17.75",
             "IDCW": "17.74"
@@ -116,12 +152,20 @@
         "investment_objective": "The Investment objective of the Scheme is to generate long-term capital appreciation by investing predominantly in equity and equity related securities through dynamic allocation between various sectors and stocks at different stages of business cycles in the economy. However, there is no assurance that the investment objective of the Scheme will be achieved.",
         "benchmark_index": "NIFTY 500 Total Return Index (TRI)",
         "date_of_allotment": "August 30, 2024",
-        "fund_manager": "Mr. Alok Singh: Around 20 years of experience, including 16 years in mutual fund industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "mutual fund industry",
+                "experience": "20 years",
+                "managing_since": ""
+            }
+        ],
         "average_aum": "614.36 Crs.",
         "latest_aum": "582.28 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
         "portfolio_turnover_ratio": "1.40",
+        "metrics": {},
         "nav": {
             "Growth": "9.86",
             "IDCW": "9.86"
@@ -139,18 +183,25 @@
         "investment_objective": "The Scheme seeks to generate long term capital appreciation through a portfolio of predominantly equity and equity related securities of companies engaged in manufacturing and infrastructure related sectors. Further, there can be no assurance that the investment objectives of the scheme will be realized. The Scheme is not providing any assured or guaranteed returns.",
         "benchmark_index": "BSE India Manufacturing Index Total Return Index (TRI): 50% and BSE India Infrastructure Index Total Return Index (TRI): 50%",
         "date_of_allotment": "March 05, 2010",
-        "fund_manager": "Mr. Nitin Gosar (w.e.f. September 27, 2022): More than 16 years of Experience in Equity Research and Fund Management.",
+        "fund_manager": [
+            {
+                "name": "Nitin Gosar",
+                "designation": "Equity Research and Fund Management",
+                "experience": "16 years",
+                "managing_since": "September 27 2022"
+            }
+        ],
         "average_aum": "550.00 Crs.",
         "latest_aum": "536.92 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "portfolio_turnover_ratio": "0.64",
         "metrics": {
             "Standard Deviation": "15.00",
             "Beta": "0.72",
             "Sharpe Ratio": "1.08",
             "Tracking Error": "9.24"
         },
-        "portfolio_turnover_ratio": "0.64",
         "nav": {
             "Growth": "64.03",
             "IDCW": "62.94"
@@ -168,12 +219,20 @@
         "investment_objective": "The Investment objective of the Scheme is to provide long-term capital appreciation from an actively managed portfolio of equity and equity related securities of companies engaged in consumption and consumption related sector or allied sectors. However, there is no assurance that the investment objective of the Scheme will be achieved.",
         "benchmark_index": "Nifty India Consumption Total Return Index (TRI)",
         "date_of_allotment": "December 20, 2024",
-        "fund_manager": "Mr. Nitin Gosar: More than 16 years of Experience in Equity Research and Fund Management.",
+        "fund_manager": [
+            {
+                "name": "Nitin Gosar",
+                "designation": "Equity Research and Fund Management",
+                "experience": "16 years",
+                "managing_since": ""
+            }
+        ],
         "average_aum": "403.33 Crs.",
         "latest_aum": "406.62 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
         "portfolio_turnover_ratio": "0.00",
+        "metrics": {},
         "nav": {
             "Growth": "10.02",
             "IDCW": "10.02"
@@ -191,7 +250,14 @@
         "investment_objective": "The Scheme seeks to generate income and long-term capital appreciation by investing through a diversified portfolio of predominantly large cap and mid cap equity and equity related securities including equity derivatives. The Scheme is in the nature of large and mid cap fund. The Scheme is not providing any assured or guaranteed returns",
         "benchmark_index": "BSE 250 LargeMidCap Total Return Index (TRI)",
         "date_of_allotment": "October 21, 2008",
-        "fund_manager": "Mr. Nitin Gosar (w.e.f. September 27, 2022): More than 16 years of Experience in Equity Research and Fund Management.",
+        "fund_manager": [
+            {
+                "name": "Nitin Gosar",
+                "designation": "Equity Research and Fund Management",
+                "experience": "16 years",
+                "managing_since": "September 27 2022"
+            }
+        ],
         "average_aum": "378.52 Crs.",
         "latest_aum": "367.03 C rs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
@@ -220,18 +286,31 @@
         "investment_objective": "The investment objective of the scheme is to provide investors with the opportunities of long term capital appreciation by investing predominantly in equity and equity-related instruments of large cap companies. However, there can be no assurance that the income can be generated, regular or otherwise, or the Investment Objective of the scheme will be realized.",
         "benchmark_index": "NIFTY 100 TRI (Tier 1)",
         "date_of_allotment": "June 29, 2021",
-        "fund_manager": "Mr. Alok Singh (w.e.f. October 1, 2024): Around 20 years of experience, including 16 years in Mutual Fund Industry. Mr. Nilesh Jethani (w.e.f. October 1, 2024): With over 9 years of experience in equity research across BFSI, IT, and capital goods sectors.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "Mutual Fund Industry ",
+                "experience": "20 years",
+                "managing_since": "October 1 2024"
+            },
+            {
+                "name": "Nilesh Jethani",
+                "designation": "equity research across BFSI IT and capital goods sectors",
+                "experience": "9 years",
+                "managing_since": "October 1 2024"
+            }
+        ],
         "average_aum": "199.25 Crs.",
         "latest_aum": "193.60 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "portfolio_turnover_ratio": "0.59",
         "metrics": {
             "Standard Deviation": "13.93",
             "Beta": "1.00",
             "Sharpe Ratio": "0.38",
             "Tracking Error": "4.10"
         },
-        "portfolio_turnover_ratio": "0.59",
         "nav": {
             "Growth": "16.41",
             "IDCW": "16.39"
@@ -246,14 +325,21 @@
         }
     },
     "bank of india mid & small cap": {
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "Power Grid Corporation of India 1.23",
             "Limited (CRISIL AAA)"
         ],
         "investment_objective": "The scheme's objective is to provide capital appreciation and income distribution to investors from a portfolio constituting of mid and small cap equity and equity related securities as well as fixed income securities. However there can be no assurance that the income can be generated, regular or otherwise, or the investment objectives of the Scheme will be realized.",
         "benchmark_index": "NIFTY MidSmallcap 400 Total Return Index (TRI): 70%; CRISIL Short Term Bond Index: 30%",
         "date_of_allotment": "July 20, 2016",
-        "fund_manager": "Mr. Alok Singh (w.e.f. February 16, 2017): Around 20 years of experience, including 16 years in mutual fund industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "mutual fund industry",
+                "experience": "20 years",
+                "managing_since": "February 16 2017"
+            }
+        ],
         "average_aum": "1,101.49 Crs.",
         "latest_aum": "1,107.71Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
@@ -267,24 +353,19 @@
             "ICICI Securities Limited (CRISIL A1+) 0.79 Net Receivables/(Payables) (0.02)",
             "Bharti Telecom Limited (CRISIL A1+) 0.42"
         ],
+        "certificate_of_deposit": [
+            "Small Industries Dev Bank of India 1.28",
+            "(CRISIL A1+)",
+            "Small Industries Dev Bank of India 0.45",
+            "(CRISIL A1+)"
+        ],
         "government_bond": [
             "7.18% GOI (MD 14/08/2033) (SOV) 1.26",
             "7.1% GOI (MD 08/04/2034) (SOV) 0.37",
             "6.79% GOI (MD 07/10/2034) (SOV) 0.25",
             "7.26% GOI (MD 06/02/2033) (SOV) 0.15"
         ],
-        "equity_parameter_(as_on_december_31,_2024)": [
-            "Standard Deviation (Annualized): 13.54% (Bank of India Mid & Small Cap Equity &",
-            "Debt Fund)",
-            "11.43% (Nifty Midsmall cap 400 TRI - 70% & CRISIL Short",
-            "Term Bond Fund Index - 30%)",
-            "Beta: 1.11",
-            "Sharpe Ratio*: 0.73",
-            "Tracking Error (Annualized): 4.80%",
-            "Above ratios are calculated using 3 years history of monthly return.",
-            "*Risk-free rate assumed to be 7.15% (MIBOR as on December 31, 2024)"
-        ],
-        "debt_parameter_(as_on_december_31,_2024)": [
+        "debt_parameter_as_on_december_31_2024": [
             "Average / Residual Maturity: 2.55 Years",
             "Macaulay Duration: 1.96 Years",
             "Modified Duration: 1.85 Years",
@@ -307,18 +388,25 @@
         "investment_objective": "The investment objective of the scheme is to seek long term capital growth by predominantly investing in equity and equity related securities, debt & money market instruments and Gold ETF. However, there can be no assurance that the investment objectives of the Scheme will be realized. The Scheme does not guarantee/ indicate any returns.",
         "benchmark_index": "37.50% of Nifty 500 TRI + 50% of Nifty Composite Debt Index + 12.50% of Domestic Prices of Gold",
         "date_of_allotment": "February 28, 2024",
-        "fund_manager": "Mr. Mithraem Bharucha: 15 years of experience in Fixed Income market domain, Investment strategy development Mr. Nilesh Jethani: With over 9 years of experience in equity research across BFSI, IT, and capital goods sectors.",
+        "fund_manager": [
+            {
+                "name": "Mithraem Bharucha",
+                "designation": "Fixed Income market domain Investment strategy development ",
+                "experience": "15 years",
+                "managing_since": ""
+            },
+            {
+                "name": "Nilesh Jethani",
+                "designation": "equity research across BFSI IT and capital goods sectors",
+                "experience": "9 years",
+                "managing_since": ""
+            }
+        ],
         "average_aum": "350.10 Crs.",
         "latest_aum": "343.81 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
-        "metrics": {
-            "Average / Residual Maturity": "3.95",
-            "Macaulay Duration": "3.24",
-            "Modified Duration": "3.03",
-            "Annualised Yield": "7.43"
-        },
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "Indian Railway Finance Corporation 7.39",
             "Limited (CRISIL AAA)",
             "Power Finance Corporation Limited 7.31",
@@ -354,6 +442,12 @@
             "December 2024",
             "N"
         ],
+        "metrics": {
+            "Average / Residual Maturity": "3.95",
+            "Macaulay Duration": "3.24",
+            "Modified Duration": "3.03",
+            "Annualised Yield": "7.43"
+        },
         "nav": {
             "Growth": "10.9795",
             "IDCW": "10.9813"
@@ -371,17 +465,18 @@
         "investment_objective": "Bank of India Balanced Advantage Fund aims at providing long term capital appreciation / income from a dynamic mix of equity and debt investments. There is no assurance that the investment objectives of the Scheme will be realized and the Scheme does not assure or guarantee any returns.",
         "benchmark_index": "Nifty 50 Hybrid Composite Debt 50: 50 Index Total Return Index (TRI)",
         "date_of_allotment": "March 14, 2014",
-        "fund_manager": "Mr. Alok Singh: Around 20 years of experience, including 16 years in mutual fund industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "mutual fund industry",
+                "experience": "20 years",
+                "managing_since": ""
+            }
+        ],
         "average_aum": "136.03 Crs.",
         "latest_aum": "133.01 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
-        "metrics": {
-            "Average / Residual Maturity": "3.64",
-            "Macaulay Duration": "3.05",
-            "Modified Duration": "2.88",
-            "Annualised Yield": "7.41"
-        },
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "National Bank For Agriculture and 3.78 TREASURY BILL",
             "Rural Development (CRISIL AAA)",
             "National Bank For Agriculture and 3.78 7.18% GOI (MD 14/08/2033) (SOV) 2.83",
@@ -391,7 +486,17 @@
             "Tata Capital Housing Finance Limited 1.50",
             "(CRISIL AAA)"
         ],
+        "certificate_of_deposit": [
+            "AU Small Finance Bank Limited 3.55",
+            "(FITCH A1+)"
+        ],
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "metrics": {
+            "Average / Residual Maturity": "3.64",
+            "Macaulay Duration": "3.05",
+            "Modified Duration": "2.88",
+            "Annualised Yield": "7.41"
+        },
         "nav": {
             "Growth": "25.6610",
             "IDCW": "15.4957"
@@ -406,7 +511,7 @@
         }
     },
     "bank of india conservative": {
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "Indian Railway Finance Corporation 7.67",
             "Limited (CRISIL AAA)",
             "National Bank For Agriculture and 7.64",
@@ -419,14 +524,31 @@
             "Small Industries Dev Bank of India 3.03",
             "(CRISIL AAA)"
         ],
+        "certificate_of_deposit": [
+            "AU Small Finance Bank Limited 7.16",
+            "(FITCH A1+)"
+        ],
         "investment_objective": "The Scheme seeks to generate regular income through investments in fixed income securities and also to generate long term capital appreciation by investing a portion in equity and equity related instruments. However, there can be no assurance that the income can be generated, regular or otherwise, or the investment objectives of the Scheme will be realized.",
         "benchmark_index": "CRISIL Hybrid 85 + 15 - Conservative Index",
         "date_of_allotment": "March 18, 2009",
-        "fund_manager": "Mr. Alok Singh: Around 20 years of experience, including 16 years in mutual fund industry.",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "mutual fund industry",
+                "experience": "20 years",
+                "managing_since": ""
+            }
+        ],
         "average_aum": "66.36 Crs.",
         "latest_aum": "65.87 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 10,000 and in multiples of1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "metrics": {
+            "Average / Residual Maturity": "4.02",
+            "Macaulay Duration": "3.18",
+            "Modified Duration": "3.04",
+            "Annualised Yield": "7.13"
+        },
         "development_fund": [
             "Corporate Debt Market 0.30 (SOV)",
             "Development Fund (Others)"
@@ -450,34 +572,22 @@
         }
     },
     "bank of india arbitrage": {
-        "equity_futures": [
-            "NTPC Limited -0.25",
-            "Larsen & Toubro Limited -0.41",
-            "NMDC Limited -0.45",
-            "Adani Ports and Special Economic -0.50",
-            "Zone Limited",
-            "Axis Bank Limited -0.51",
-            "State Bank of India -0.61",
-            "Tata Motors Limited -0.62",
-            "Power Grid Corporation of India -0.71",
-            "Limited",
-            "Chambal Fertilizers & Chemicals -0.72",
-            "Limited",
-            "Tata Steel Limited -0.97",
-            "Power Finance Corporation Limited -1.04",
-            "Housing & Urban Development -1.16",
-            "Corporation Limited",
-            "Shriram Finance Limited -1.21"
-        ],
         "investment_objective": "The Scheme seeks to generate income through arbitrage opportunities between cash and derivative segments of the equity market and arbitrage opportunities within the derivative segment and by deployment of surplus cash in debt securities and money market instruments. However, there is no assurance or guarantee that the investment objective of the scheme will be realized",
         "benchmark_index": "NIFTY 50 Arbitrage Index",
         "date_of_allotment": "June 18, 2018",
-        "fund_manager": "Mr. Firdaus Ragina (w.e.f. October 1, 2024): Around 20 years of experience in Equity Market.",
-        "average_aum#": "39.73 Crs.",
-        "latest_aum#": "39.55 Crs.",
+        "fund_manager": [
+            {
+                "name": "Firdaus Ragina",
+                "designation": "Equity Market",
+                "experience": "20 years",
+                "managing_since": "October 1 2024"
+            }
+        ],
+        "average_aum": "39.73 Crs.",
+        "latest_aum": "39.55 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1 #",
-        "aggregate_value_of_investments_by_other_schemes_of_bank_of_india_mutual_fund_as_on_31_december_2024_is_297.67_lacs.": [
+        "aggregate_value_of_investments_by_other_schemes_of_bank_of_india_mutual_fund_as_on_31_december_2024_is_29767_lacs": [
             "19"
         ],
         "metrics": {
@@ -500,6 +610,18 @@
         }
     },
     "bank of india liquid fund": {
+        "certificate_of_deposit": [
+            "ICICI Bank Limited ICRA A1+ 7.56",
+            "Kotak Mahindra Bank Limited CRISIL A1+ 7.51",
+            "Canara Bank CRISIL A1+ 5.64",
+            "National Bank For Agriculture and Rural Development CRISIL A1+ 3.79",
+            "Punjab National Bank CRISIL A1+ 3.77",
+            "Bank of Baroda FITCH A1+ 3.76",
+            "Indian Bank CRISIL A1+ 3.76",
+            "Small Industries Dev Bank of India CARE A1+ 3.76",
+            "Punjab National Bank FITCH A1+ 1.89",
+            "Punjab National Bank CRISIL A1+ 1.88"
+        ],
         "commercial_paper": [
             "Larsen & Toubro Limited CRISIL A1+ 3.78",
             "Reliance Industries Limited CRISIL A1+ 3.78",
@@ -520,12 +642,19 @@
         "investment_objective": "The Scheme seeks to deliver reasonable market related returns with lower risk and higher liquidity through portfolio of debt and money market instruments. The Scheme is not providing any assured or guaranteed returns. There is no assurance that the investment objective of the scheme will be achieved.",
         "benchmark_index": "Tier 1: CRISIL Liquid Debt A-I Index",
         "date_of_allotment": "July 16, 2008",
-        "fund_manager": "Mr. Mithraem Bharucha (w.e.f. August 17, 2021): 15 years of experience in Fixed Income market domain, Investment strategy development",
-        "average_aum#": "1,616.60 Crs.",
-        "latest_aum#": "1,314.69 Crs.",
+        "fund_manager": [
+            {
+                "name": "Mithraem Bharucha",
+                "designation": "Fixed Income market domain Investment strategy development",
+                "experience": "15 years",
+                "managing_since": "August 17 2021"
+            }
+        ],
+        "average_aum": "1,616.60 Crs.",
+        "latest_aum": "1,314.69 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1 #",
-        "aggregate_value_of_investments_by_other_schemes_of_bank_of_india_mutual_fund_as_on_31_december_2024_is_6651.21_lacs.": [
+        "aggregate_value_of_investments_by_other_schemes_of_bank_of_india_mutual_fund_as_on_31_december_2024_is_665121_lacs": [
             "20"
         ],
         "metrics": {
@@ -546,7 +675,7 @@
             "entry_load": "NIL",
             "exit_load": ""
         },
-        "investor_exit_upon_subscription_exit_load_(as_a_%_of_redemption_proceeds)": [
+        "investor_exit_upon_subscription_exit_load_as_a__of_redemption_proceeds": [
             "1 day 0.0070%",
             "2 days 0.0065%",
             "3 days 0.0060%",
@@ -558,10 +687,16 @@
         ]
     },
     "bank of india ultra short": {
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "Godrej Industries Limited CRISIL AA+ 5.94",
             "National Bank For Agriculture and Rural Development CRISIL AAA 5.94",
             "Power Finance Corporation Limited CRISIL AAA 5.94"
+        ],
+        "certificate_of_deposit": [
+            "Bank of Baroda FITCH A1+ 9.24",
+            "HDFC Bank Limited CARE A1+ 5.72",
+            "AU Small Finance Bank Limited FITCH A1+ 5.62",
+            "Small Industries Dev Bank of India CRISIL A1+ 5.62"
         ],
         "commercial_paper": [
             "LIC Housing Finance Limited CRISIL A1+ 10.62",
@@ -575,20 +710,27 @@
         "investment_objective": "The Scheme seeks to deliver reasonable market related returns with lower risk and higher liquidity through portfolio of debt and money market instruments. The Scheme is not providing any assured or guaranteed returns. Further there is no assurance that the investment objectives of the Scheme will be achieved.",
         "benchmark_index": "Tier 1: CRISIL Ultra Short Duration Debt A-I Index",
         "date_of_allotment": "July 16, 2008",
-        "fund_manager": "Mr. Mithraem Bharucha (w.e.f. August 17, 2021): 15 years of experience in Fixed Income market domain, Investment strategy development",
+        "fund_manager": [
+            {
+                "name": "Mithraem Bharucha",
+                "designation": "Fixed Income market domain Investment strategy development",
+                "experience": "15 years",
+                "managing_since": "August 17 2021"
+            }
+        ],
         "average_aum": "175.21 Crs.",
         "latest_aum": "167.75 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "state_government_bond": [
+            "7.52% Gujarat SDL (MD 08/03/2025) SOV 1.49"
+        ],
         "metrics": {
             "Average / Residual Maturity": "0.46",
             "Macaulay Duration": "0.46",
             "Modified Duration": "0.45",
             "Annualised Yield": "7.47"
         },
-        "state_government_bond": [
-            "7.52% Gujarat SDL (MD 08/03/2025) SOV 1.49"
-        ],
         "nav": {
             "Growth": "3,151.6621",
             "IDCW": "1,007.4441"
@@ -603,7 +745,7 @@
         }
     },
     "bank of india credit risk fund": {
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "Aditya Birla Real Estate Limited CRISIL AA 10.46",
             "Nirma Limited CRISIL AA 8.77",
             "JSW Steel Limited CARE AA 8.76",
@@ -623,51 +765,27 @@
             "Amanta Healthcare Limited 0.00"
         ],
         "investment_objective": "The Schemes investment objective is to generate capital appreciation over the long term by investing predominantly in corporate debt across the credit spectrum within the universe of investment grade rating. To achieve this objective, the Scheme will seek to make investments in rated, unrated instruments and structured obligations of public and private companies. However, there is no assurance or guarantee that the investment objective of the scheme will be achieved.",
+        "benchmark_index": "Tier 1: CRISIL Credit Risk Debt B-II Index",
         "date_of_allotment": "February 27, 2015",
-        "fund_manager": "Mr. Alok Singh (w.e.f. February 27, 2015): Around 20 years of experience, including 16 years in mutual fund industry",
+        "fund_manager": [
+            {
+                "name": "Alok Singh",
+                "designation": "mutual fund industry",
+                "experience": "20 years",
+                "managing_since": "February 27 2015"
+            }
+        ],
         "average_aum": "114.75 Crs.",
         "latest_aum": "114.41 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
-        "#note:": [
-            "All subscriptions /switch-in application(s) and other pre-registered investments inBank of",
-            "India Credit Risk Fund, an open ended debt scheme predominantly investing in AA and below rated",
-            "corporate bonds (excluding AA+ rated corporate bonds), through any mode including the stock",
-            "exchange platform has been temporarily suspended with effect from July 01, 2019 till further",
-            "notice.",
-            "Any redemptions including switch-out, registered under the Scheme would continue (without any",
-            "change) as per the terms of the SID and KIM of the Scheme.",
-            "https://www.boimf.in/docs/default-source/reports/addenda-notice/boi---temporary-",
-            "suspension-crf_28-june-2019.pdf",
-            "C",
-            "As per SEBI Circular dated, June 07, 2021; the potential risk class (PRC) matrix based on",
-            "interest rate risk and credit risk, is mentioned below : R",
-            "Potential Risk Class Matrix E",
-            "D",
-            "Credit Risk",
-            "Relatively Low Moderate Relatively High I",
-            "(Class A) (Class B) (Class C)",
-            "T",
-            "Relatively Low",
-            "RaIntete (RrCeisslaktss",
-            "I)",
-            "Moderate",
-            "(Class II) C-II R",
-            "Relatively High I",
-            "(Class III)",
-            "S",
-            "K",
-            "F",
-            "U",
-            "N",
-            "D"
-        ],
         "metrics": {
             "Average / Residual Maturity": "0.71",
             "Macaulay Duration": "0.60",
             "Modified Duration": "0.58",
             "Annualised Yield": "7.04"
         },
+        "nav": {},
         "expense_ratio": {
             "Regular Plan": "1.38",
             "Direct Plan": "1.03"
@@ -682,8 +800,16 @@
             "182 Days Tbill (MD 03/01/2025) SOV 9.97"
         ],
         "investment_objective": "The investment objective of the scheme is to generate income commensurate with low risk and high liquidity by investing in overnight securities having residual maturity of 1 business day. However, there can be no assurance that the investment objectives of the Scheme will be realized. The Scheme does not assure or guarantee any returns.",
+        "benchmark_index": "Tier 1: CRISIL Liquid Overnight Index",
         "date_of_allotment": "January 28, 2020",
-        "fund_manager": "Mr. Mithraem Bharucha (w.e.f. August 17, 2021): 15 years of experience in Fixed Income market domain, Investment strategy development",
+        "fund_manager": [
+            {
+                "name": "Mithraem Bharucha",
+                "designation": "Fixed Income market domain Investment strategy development",
+                "experience": "15 years",
+                "managing_since": "August 17 2021"
+            }
+        ],
         "average_aum": "106.68 Crs.",
         "latest_aum": "50.12 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
@@ -708,13 +834,17 @@
         }
     },
     "bank of india short term income": {
-        "non-convertible_debentures": [
+        "nonconvertible_debentures": [
             "Power Finance Corporation Limited CRISIL AAA 7.11",
             "Small Industries Dev Bank of India CRISIL AAA 7.10",
             "Bajaj Finance Limited CRISIL AAA 5.92",
             "National Bank For Agriculture and Rural Development CRISIL AAA 4.15",
             "Tata Capital Housing Finance Limited CRISIL AAA 3.53",
             "National Bank For Agriculture and Rural Development CRISIL AAA 2.35"
+        ],
+        "certificate_of_deposit": [
+            "Bank of Baroda FITCH A1+ 6.85",
+            "HDFC Bank Limited CARE A1+ 5.65"
         ],
         "commercial_paper": [
             "Bharti Telecom Limited CRISIL A1+ 6.63",
@@ -731,17 +861,18 @@
         "investment_objective": "The Scheme seeks to generate income and capital appreciation by investing in a diversified portfolio of debt and money market securities. However, there can be no assurance that the income can be generated, regular or otherwise, or the investment objectives of the Scheme will be realized.",
         "benchmark_index": "Tier 1: CRISIL Short Duration Debt A-II Index",
         "date_of_allotment": "December 18, 2008",
-        "fund_manager": "Mr. Mithraem Bharucha (w.e.f. August 17, 2021): 15 years of experience in Fixed Income market domain, Investment strategy development",
+        "fund_manager": [
+            {
+                "name": "Mithraem Bharucha",
+                "designation": "Fixed Income market domain Investment strategy development",
+                "experience": "15 years",
+                "managing_since": "August 17 2021"
+            }
+        ],
         "average_aum": "89.32 Crs.",
         "latest_aum": "84.91 Crs.",
         "minimum_application_amount": "Regular/ Direct Plan 5,000 and in multiples of 1",
-        "metrics": {
-            "Average / Residual Maturity": "3.46",
-            "Macaulay Duration": "2.74",
-            "Modified Duration": "2.62",
-            "Annualised Yield": "7.08"
-        },
-        "duration_%_of_assets": [
+        "duration__of_assets": [
             "Upto 3 months 17.51%",
             "3 months to 6 months 6.85%",
             "6 months to 1 year 21.33%",
@@ -753,6 +884,12 @@
             "7.52% Gujarat SDL (MD 08/03/2025) SOV 1.77"
         ],
         "additional_purchase_amount": "Regular/ Direct Plan 1,000 and in multiples of 1",
+        "metrics": {
+            "Average / Residual Maturity": "3.46",
+            "Macaulay Duration": "2.74",
+            "Modified Duration": "2.62",
+            "Annualised Yield": "7.08"
+        },
         "nav": {
             "Growth": "27.8483",
             "IDCW": "12.8387"
