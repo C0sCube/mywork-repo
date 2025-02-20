@@ -18,22 +18,29 @@ class Reader:
     JSONPATH  = ''
     PARAMS = {}
     
-    def __init__(self, paths_config: str,params:dict):
-        # Load paths
+    def __init__(self, config_path: str,params:dict):
+        
+        self.PARAMS = params
+        
         try:
-            with open(paths_config, "r") as file:
+            if not os.path.exists(config_path):
+                raise FileNotFoundError(f"Config file not found: {config_path}")
+            
+            with open(config_path,'r') as file:
                 paths_data = json.load(file)
                 
         except Exception as e:
-            logging.error(e)
+            print(f'Error: {e}')
 
-        self.BASEPATH = paths_data["directories"]["base_path"]
-        self.DRYPATH = os.path.join(self.BASEPATH, paths_data["paths"]["dry"])
-        self.INDICEPATH = os.path.join(self.BASEPATH, paths_data["paths"]["fin"])
-        self.REPORTPATH = os.path.join(self.BASEPATH, paths_data["paths"]["rep"])
-        self.JSONPATH = os.path.join(self.BASEPATH, paths_data["paths"]["json"])
+        dirs = paths_data.get("dirs", {})
+        paths = paths_data.get("paths", {})
+
+        self.BASEPATH = dirs.get("base_path", "")
+        self.DRYPATH = os.path.join(self.BASEPATH, paths.get("dry", ""))
+        self.INDICEPATH = os.path.join(self.BASEPATH, paths.get("fin", ""))
+        self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
+        self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
         
-        self.PARAMS = params
     
     def get_file_path(self, path: str):
         return self.BASEPATH + path
@@ -471,7 +478,7 @@ class Reader:
         for fund, items in data.items():
            try:
                 Reader.__generate_pdf_from_data(items, output_path)
-                print(f'\n<<{fund}>>', f',pdf loc at: {output_path}')
+                print(f'\n---<<{fund}>>---at: {output_path}')
                 extracted_text[fund] = Reader.__extract_data_from_pdf(output_path)
                 
            except Exception as e:

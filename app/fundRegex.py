@@ -3,24 +3,23 @@ import os
 import json
 from dateutil import parser
 
+PATH = os.path.join(os.getcwd(),"data\\config\\regex.json")
 class FundRegex():
-    def __init__(self, path = r'C:\Users\Kaustubh.keny\OneDrive - Cogencis Information Services Ltd\Documents\mywork-repo\data\config\regex.json'):
+    
+    def __init__(self, path = PATH):
         self.config_path = path
-        self.regex_data = self.load_config()
-        self.HEADER_PATTERNS = self.regex_data.get("header_patterns", {})
-        self.STOP_WORDS = self.regex_data.get("stop_words", [])
-
-    def load_config(self):
-        """Load regex configuration from a JSON file."""
-        if not os.path.exists(self.config_path):
-            print(f"Config file not found: {self.config_path}")
-            return {}
+        
         try:
-            with open(self.config_path, 'r') as file:
-                return json.load(file)
+            if not os.path.exists(self.config_path):
+                raise FileNotFoundError(f"Config file not found: {self.config_path}")
+            with open(self.config_path,'r') as file:
+                data = json.load(file)
         except Exception as e:
-            print(f"Error loading config file: {e}")
-            return {}
+            print(f'Error: {e}')
+        
+        self.HEADER_PATTERNS = data.get("header_patterns", {})
+        self.STOP_WORDS = data.get("stop_words", [])
+       
 
     @staticmethod
     def extract_date(text: str):
@@ -30,8 +29,8 @@ class FundRegex():
             print(f"\n{e}")
             return text
 
-    def header_mapper(self, text: str):
-        text = re.sub(r"[^\w\s]", "", text).strip()
+    def header_mapper(self, text: str)->str:
+        text = re.sub(r"[^\w\s]+", "", text).strip()
         for replacement, patterns in self.HEADER_PATTERNS.items():
             try:
                 if isinstance(patterns, list):
@@ -51,7 +50,7 @@ class FundRegex():
         key = re.sub(r"\s+", "_", key)
         return key.strip().lower()
 
-    def transform_keys(self, data):
+    def transform_keys(self, data:dict)->dict:
 
         if isinstance(data, dict):
             return {self.__clean_key(key): self.transform_keys(value) for key, value in data.items()}

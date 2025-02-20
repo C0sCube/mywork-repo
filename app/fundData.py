@@ -1,4 +1,4 @@
-import re, os, pprint
+import re, os, pprint, json
 from app.pdfParse import Reader
 from app.fundRegex import FundRegex
 import fitz
@@ -68,38 +68,20 @@ class GrandFundData:
         return self._extract_dummy_data(string, data)
 
 # 1 <>
-class Samco(Reader,GrandFundData):
-    
-    PARAMS = {
-        'fund': [[25, 20], r"^samco.*fund$", [18, 28], [-1]],
-        'clip_bbox': [(35, 120, 250, 765)],
-        'line_x': 200.0,
-        'data': [[7, 10], [-1], 30.0, ['Inter-SemiBold']],
-        'content_size': [30.0, 10.0]
-    }
+class Samco(Reader, GrandFundData):
+    CONFIG_PATH = r"C:\Users\rando\OneDrive\Documents\mywork-repo\data\config\example.json" 
 
-    REGEX = {
-        'aum': r'(AUM|Average AUM).*?([\d,]+\.\d{2})',
-        'nav': r'(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\s*([\d,.]+)',
-        'metric': r'(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\s*([\d,.]+)',
-        'scheme': ["Inception Date","Benchmark","Min.?\\s*Application","Additional","Entry Load","Exit Load","Total Expense","EOL"],
-        'manager': r'(?:mr|ms|mrs)\.?\s*([\w\s]+?)(?:,\s*([\w\s,]+))?\s*\(.* since(.*)\) Total Experience (?:Over|Around)(.*)',
-        'escape': r"[^a-zA-Z0-9.,\(\)\s]+"
-    }
+    with open(CONFIG_PATH, "r") as file:
+        config = json.load(file)
 
-    PATTERN_TO_FUNCTION = {
-        r"^(investment).*": ("_extract_str_data", None),
-        r"^nav.*": ("_extract_generic_data", "nav"),
-        r"^fund_manag": ("_extract_manager_data", 'manager'),
-        r"^scheme_det": ("_extract_scheme_data", 'scheme'),
-        r"^metrics.*": ("_extract_generic_data", "metric"),
-        r"^aum.*": ("_extract_generic_data", "aum"),
-    }
+    PARAMS = config["PARAMS"]
+    REGEX = config["REGEX"]
+    PATTERN_TO_FUNCTION = config["PATTERN_TO_FUNCTION"]
 
     def __init__(self, paths_config: str):
         super().__init__(paths_config, self.PARAMS)
 
-    def _extract_manager_data(self, main_key: str, data: list, pattern:str):
+    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
         final_list = []
         for i in range(0, len(data), 3):
             txt = " ".join(data[i:i+3])
@@ -114,7 +96,6 @@ class Samco(Reader,GrandFundData):
                         "experience": exp
                     })
         return {main_key: final_list}
-
 # 2
 class Tata(Reader):
     

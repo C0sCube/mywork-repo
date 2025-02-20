@@ -1,0 +1,87 @@
+{
+    "PARAMS": {
+        "fund": [
+            [
+                25,
+                20
+            ],
+            "^samco.*fund$",
+            [
+                18,
+                28
+            ],
+            [
+                -1
+            ]
+        ],
+        "clip_bbox": [
+            [
+                35,
+                120,
+                250,
+                765
+            ]
+        ],
+        "line_x": 200.0,
+        "data": [
+            [
+                7,
+                10
+            ],
+            [
+                -1
+            ],
+            30.0,
+            [
+                "Inter-SemiBold"
+            ]
+        ],
+        "content_size": [
+            30.0,
+            10.0
+        ]
+    },
+    "REGEX": {
+        "aum": "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
+        "nav": "(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\\s*([\\d,.]+)",
+        "metric": "(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\\s*([\\d,.]+)",
+        "scheme": [
+            "Inception Date",
+            "Benchmark",
+            "Min.?\\s*Application",
+            "Additional",
+            "Entry Load",
+            "Exit Load",
+            "Total Expense",
+            "EOL"
+        ],
+        "manager": "(?:mr|ms|mrs)\\.?\\s*([\\w\\s]+?)(?:,\\s*([\\w\\s,]+))?\\s*\\(.* since(.*)\\) Total Experience (?:Over|Around)(.*)",
+        "escape": "[^a-zA-Z0-9.,\\(\\)\\s]+"
+    },
+    "PATTERN_TO_FUNCTION": {
+        "^(investment).*": [
+            "_extract_str_data",
+            null
+        ],
+        "^nav.*": [
+            "_extract_generic_data",
+            "nav"
+        ],
+        "^fund_manag": [
+            "_extract_manager_data",
+            "manager"
+        ],
+        "^scheme_det": [
+            "_extract_scheme_data",
+            "scheme"
+        ],
+        "^metrics.*": [
+            "_extract_generic_data",
+            "metric"
+        ],
+        "^aum.*": [
+            "_extract_generic_data",
+            "aum"
+        ]
+    }
+}
