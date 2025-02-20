@@ -13,38 +13,26 @@
         ],
         "benchmark_index": "NIFTY 500 Multicap 50:25:25 TRI",
         "nav": {
-            "Growth Plan": "10.1199",
-            "IDCW Plan": "10.1199",
-            "Direct - Growth Plan": "10.1868",
-            "Direct - IDCW Plan": "10.1868"
+            "growth_plan": "10.1868",
+            "idcw_plan": "10.1868"
         },
         "aum": {
-            "Month End": "4674.98",
-            "Monthly Average": "4687.63"
+            "month_end": "4674.98",
+            "monthly_average": "4687.63"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 17.00%",
-            "#"
-        ],
-        "expense_ratio": [
-            "1.81%",
-            "# : 0.32%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "7.00"
+        },
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment. Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment. Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india bluechip fund": {
@@ -60,42 +48,31 @@
         ],
         "benchmark_index": "Nifty 100",
         "nav": {
-            "Growth Plan": "981.6040",
-            "IDCW Plan": "49.7625",
-            "Direct - Growth Plan": "1082.3346",
-            "Direct - IDCW Plan": "57.6045"
+            "growth_plan": "1082.3346",
+            "idcw_plan": "57.6045"
         },
         "aum": {
-            "Month End": "7682.65",
-            "Monthly Average": "7881.64"
+            "month_end": "7682.65",
+            "monthly_average": "7881.64"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 78.92%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "8.92"
+        },
         "metrics": {
-            "Standard Deviation": "3.52",
-            "Beta": "0.86",
-            "Sharpe Ratio": "0.35"
+            "standard_deviation": "3.52",
+            "beta": "0.86",
+            "sharpe_ratio": "0.35"
         },
-        "expense_ratio": [
-            ": 1.85%",
-            "# 1.13%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india flexi cap fund": {
@@ -112,42 +89,31 @@
         ],
         "benchmark_index": "Nifty 500",
         "nav": {
-            "Growth Plan": "1612.0809",
-            "IDCW Plan": "70.8796",
-            "Direct - Growth Plan": "1786.9692",
-            "Direct - IDCW Plan": "79.9194"
+            "growth_plan": "1786.9692",
+            "idcw_plan": "79.9194"
         },
         "aum": {
-            "Month End": "17946.77",
-            "Monthly Average": "18122.48"
+            "month_end": "17946.77",
+            "monthly_average": "18122.48"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 26.86%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "6.86"
+        },
         "metrics": {
-            "Standard Deviation": "3.66",
-            "Beta": "0.89",
-            "Sharpe Ratio": "0.92"
+            "standard_deviation": "3.66",
+            "beta": "0.89",
+            "sharpe_ratio": "0.92"
         },
-        "expense_ratio": [
-            "1.70%",
-            "# : 0.92%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india equity advantage fund": {
@@ -164,42 +130,31 @@
         ],
         "benchmark_index": "Nifty LargeMidcap 250",
         "nav": {
-            "Growth Plan": "182.1893",
-            "IDCW Plan": "22.5628",
-            "Direct - Growth Plan": "199.3867",
-            "Direct - IDCW Plan": "25.6437"
+            "growth_plan": "199.3867",
+            "idcw_plan": "25.6437"
         },
         "aum": {
-            "Month End": "3491.35",
-            "Monthly Average": "3572.29"
+            "month_end": "3491.35",
+            "monthly_average": "3572.29"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 105.89%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "5.89"
+        },
         "metrics": {
-            "Standard Deviation": "3.89",
-            "Beta": "0.90",
-            "Sharpe Ratio": "0.48"
+            "standard_deviation": "3.89",
+            "beta": "0.90",
+            "sharpe_ratio": "0.48"
         },
-        "expense_ratio": [
-            ": 2.02%",
-            "# : 1.34%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india elss tax saver fund": {
@@ -214,42 +169,31 @@
         ],
         "benchmark_index": "Nifty 500",
         "nav": {
-            "Growth Plan": "1465.3056",
-            "IDCW Plan": "71.3034",
-            "Direct - Growth Plan": "1626.7602",
-            "Direct - IDCW Plan": "82.3704"
+            "growth_plan": "1626.7602",
+            "idcw_plan": "82.3704"
         },
         "aum": {
-            "Month End": "6854.56",
-            "Monthly Average": "6965.05"
+            "month_end": "6854.56",
+            "monthly_average": "6965.05"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 27.31%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "7.31"
+        },
         "metrics": {
-            "Standard Deviation": "3.74",
-            "Beta": "0.90",
-            "Sharpe Ratio": "0.93"
+            "standard_deviation": "3.74",
+            "beta": "0.90",
+            "sharpe_ratio": "0.93"
         },
-        "expense_ratio": [
-            ": 1.80%",
-            "# : 1.02%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/500",
+        "minimum_investment": "",
         "multiples_for_new_investors": "500/500",
+        "minimum_investment_for_sip": "500/500",
         "additional_investment": [],
         "multiples_for_existing_investors": "500/500",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of UNniitls) Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of UNniitls) Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         },
         "tax_benefits": [],
         "lockinperiod": [
@@ -279,42 +223,31 @@
         ],
         "benchmark_index": "Nifty 500",
         "nav": {
-            "Growth Plan": "105.1099",
-            "IDCW Plan": "37.9393",
-            "Direct - Growth Plan": "117.8856",
-            "Direct - IDCW Plan": "44.7821"
+            "growth_plan": "117.8856",
+            "idcw_plan": "44.7821"
         },
         "aum": {
-            "Month End": "12044.23",
-            "Monthly Average": "12249.19"
+            "month_end": "12044.23",
+            "monthly_average": "12249.19"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 17.22%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "7.22"
+        },
         "metrics": {
-            "Standard Deviation": "3.72",
-            "Beta": "0.88",
-            "Sharpe Ratio": "0.78"
+            "standard_deviation": "3.72",
+            "beta": "0.88",
+            "sharpe_ratio": "0.78"
         },
-        "expense_ratio": [
-            ": 1.76%",
-            "# : 0.94%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) 1% if redeemed/switched- out within one year of allotment. Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) 1 if redeemedswitched- out within one year of allotment. Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "templeton india value fund": {
@@ -329,42 +262,31 @@
         ],
         "benchmark_index": "Tier I - Nifty 500 In#dex Tier II - Nifty500 Value 50 Index #The benchmark has been changed from NIFTY500 Value 50 TRI to Nifty 500 Index w.e.f. August 1, 2023.",
         "nav": {
-            "Growth Plan": "695.1821",
-            "IDCW Plan": "99.4900",
-            "Direct - Growth Plan": "770.3353",
-            "Direct - IDCW Plan": "113.7466"
+            "growth_plan": "770.3353",
+            "idcw_plan": "113.7466"
         },
         "aum": {
-            "Month End": "2153.51",
-            "Monthly Average": "2192.37"
+            "month_end": "2153.51",
+            "monthly_average": "2192.37"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 39.40%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "9.40"
+        },
         "metrics": {
-            "Standard Deviation": "3.94",
-            "Beta": "0.74",
-            "Sharpe Ratio": "1.03"
+            "standard_deviation": "3.94",
+            "beta": "0.74",
+            "sharpe_ratio": "1.03"
         },
-        "expense_ratio": [
-            "2.05%",
-            "# : 0.89%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "templeton india equity income fund": {
@@ -381,42 +303,31 @@
         ],
         "benchmark_index": "Tier I - Nifty 500 Ind#ex Tier II - Nifty Dividend Opportunities 50 Index #The benchmark has been changed from Nifty Dividend Opportunities 50 to Nifty 500 Index w.e.f August 1, 2023.",
         "nav": {
-            "Growth Plan": "137.8624",
-            "IDCW Plan": "26.9979",
-            "Direct - Growth Plan": "150.1957",
-            "Direct - IDCW Plan": "30.3605"
+            "growth_plan": "150.1957",
+            "idcw_plan": "30.3605"
         },
         "aum": {
-            "Month End": "2367.36",
-            "Monthly Average": "2408.59"
+            "month_end": "2367.36",
+            "monthly_average": "2408.59"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 9.65%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "9.65"
+        },
         "metrics": {
-            "Standard Deviation": "3.60",
-            "Beta": "0.85",
-            "Sharpe Ratio": "0.96"
+            "standard_deviation": "3.60",
+            "beta": "0.85",
+            "sharpe_ratio": "0.96"
         },
-        "expense_ratio": [
-            "2.07%",
-            "# 1.23%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india prima fund": {
@@ -432,42 +343,31 @@
         ],
         "benchmark_index": "Nifty Midcap 150",
         "nav": {
-            "Growth Plan": "2761.9969",
-            "IDCW Plan": "102.1109",
-            "Direct - Growth Plan": "3091.5732",
-            "Direct - IDCW Plan": "122.0770"
+            "growth_plan": "3091.5732",
+            "idcw_plan": "122.0770"
         },
         "aum": {
-            "Month End": "12570.21",
-            "Monthly Average": "12677.86"
+            "month_end": "12570.21",
+            "monthly_average": "12677.86"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 24.50%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "4.50"
+        },
         "metrics": {
-            "Standard Deviation": "4.18",
-            "Beta": "0.87",
-            "Sharpe Ratio": "1.06"
+            "standard_deviation": "4.18",
+            "beta": "0.87",
+            "sharpe_ratio": "1.06"
         },
-        "expense_ratio": [
-            ": 1.77%",
-            "# : 0.98%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india smaller companies fund": {
@@ -484,42 +384,31 @@
         ],
         "benchmark_index": "Nifty Smallcap 250",
         "nav": {
-            "Growth Plan": "179.5686",
-            "IDCW Plan": "55.2912",
-            "Direct - Growth Plan": "202.3335",
-            "Direct - IDCW Plan": "65.2400"
+            "growth_plan": "202.3335",
+            "idcw_plan": "65.2400"
         },
         "aum": {
-            "Month End": "14068.69",
-            "Monthly Average": "14236.48"
+            "month_end": "14068.69",
+            "monthly_average": "14236.48"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 26.05%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "6.05"
+        },
         "metrics": {
-            "Standard Deviation": "4.27",
-            "Beta": "0.74",
-            "Sharpe Ratio": "1.19"
+            "standard_deviation": "4.27",
+            "beta": "0.74",
+            "sharpe_ratio": "1.19"
         },
-        "expense_ratio": [
-            "1.73%",
-            "# : 0.90%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin build india fund": {
@@ -535,42 +424,31 @@
         ],
         "benchmark_index": "BSE India Infrastructure Index The Benchmark name is renamed from S&P BSE India Infrastructure Index to BSE India Infrastructure Index w.e.f. 01st June, 2024.",
         "nav": {
-            "Growth Plan": "138.2301",
-            "IDCW Plan": "43.2222",
-            "Direct - Growth Plan": "158.0564",
-            "Direct - IDCW Plan": "51.8990"
+            "growth_plan": "158.0564",
+            "idcw_plan": "51.8990"
         },
         "aum": {
-            "Month End": "2783.64",
-            "Monthly Average": "2849.61"
+            "month_end": "2783.64",
+            "monthly_average": "2849.61"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 23.63%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "3.63"
+        },
         "metrics": {
-            "Standard Deviation": "4.28",
-            "Beta": "0.51",
-            "Sharpe Ratio": "1.48"
+            "standard_deviation": "4.28",
+            "beta": "0.51",
+            "sharpe_ratio": "1.48"
         },
-        "expense_ratio": [
-            ": 2.00%",
-            "# 0.96%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) 1% if redeemed/switched- out within one year of allotment. Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) 1 if redeemedswitched- out within one year of allotment. Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india opportunities fund": {
@@ -586,42 +464,31 @@
         ],
         "benchmark_index": "Nifty 500",
         "nav": {
-            "Growth Plan": "251.1503",
-            "IDCW Plan": "39.0441",
-            "Direct - Growth Plan": "275.1733",
-            "Direct - IDCW Plan": "43.5956"
+            "growth_plan": "275.1733",
+            "idcw_plan": "43.5956"
         },
         "aum": {
-            "Month End": "6119.62",
-            "Monthly Average": "6076.38"
+            "month_end": "6119.62",
+            "monthly_average": "6076.38"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 64.80%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "4.80"
+        },
         "metrics": {
-            "Standard Deviation": "4.46",
-            "Beta": "0.94",
-            "Sharpe Ratio": "1.31"
+            "standard_deviation": "4.46",
+            "beta": "0.94",
+            "sharpe_ratio": "1.31"
         },
-        "expense_ratio": [
-            ": 1.80%",
-            "# : 0.53%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) In respect of each purchase of Units - 1% if the Units are redeemed/switched-out within one year of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) In respect of each purchase of Units - 1 if the Units are redeemedswitched-out within one year of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india technology fund": {
@@ -638,43 +505,31 @@
         ],
         "benchmark_index": "BSE Teck (w.e.f. 01st June, 2024) The Benchmark name is renamed from S&P BSE Teck TRI to BSE Teck w.e.f. 01st June, 2024.",
         "nav": {
-            "Growth Plan": "546.0286",
-            "IDCW Plan": "51.0695",
-            "Direct - Growth Plan": "597.7414",
-            "Direct - IDCW Plan": "56.7035"
+            "growth_plan": "597.7414",
+            "idcw_plan": "56.7035"
         },
         "aum": {
-            "Month End": "1988.74",
-            "Monthly Average": "2013.49"
+            "month_end": "1988.74",
+            "monthly_average": "2013.49"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 64.37%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "4.37"
+        },
         "metrics": {
-            "Standard Deviation": "5.17",
-            "Beta": "0.85",
-            "Sharpe Ratio": "0.42"
+            "standard_deviation": "5.17",
+            "beta": "0.85",
+            "sharpe_ratio": "0.42"
         },
-        "expense_ratio": [
-            "2.03%",
-            "# 0.97%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the",
-            "actual expenses charged as at the end of the",
-            "month. The above ratio also includes,",
-            "proportionate charge in respect sales beyond T-30",
-            "cities subject to maximum of 30 bps on daily net",
-            "assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) 1% if redeemed/switched- out within one year of allotment. Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) 1 if redeemedswitched- out within one year of allotment. Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india feeder - franklin u.s. opportunities fund": {
@@ -693,41 +548,29 @@
         ],
         "benchmark_index": "Russell 3000 Growth Index",
         "nav": {
-            "Growth Plan": "72.3704",
-            "IDCW Plan": "72.3704",
-            "Direct - Growth Plan": "81.3652",
-            "Direct - IDCW Plan": "81.3652"
+            "growth_plan": "81.3652",
+            "idcw_plan": "81.3652"
         },
         "aum": {
-            "Month End": "3748.66",
-            "Monthly Average": "3825.83"
+            "month_end": "3748.66",
+            "monthly_average": "3825.83"
         },
         "plans": [
             "Growth and Dividend (with payout and",
             "reinvestment opiton)",
             "#"
         ],
-        "expense_ratio": [
-            ": 1.53%",
-            "#"
-        ],
-        "expense_ratio_direct": [
-            ": 0.62%",
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5,000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "minimum_application_amount": "5,000 and in multiples of Re.1 thereafter",
         "load": {
-            "Entry Load": "d Nil ",
-            "Exit Load": "(for each purchase of Units) 1% if Units are redeemed/switched out within one year from the date of allotment (effective January 15, 2020) Different plans have a different expense structure Investors may note that they will be bearing the recurring expenses of this Scheme in addition to the expenses of the underlying Schemes in which this Scheme makes investment"
+            "entry_load": [
+                "(for each purchase of Units) 1 if Units are redeemedswitched out within one year from the date of allotment (effective January 15, 2020) Different plans have a different expense structure Investors may note that they will be bearing the recurring expenses of this Scheme in addition to the expenses of the underlying Schemes in which this Scheme makes investment"
+            ],
+            "exit_load": "d Nil"
         }
     },
     "franklin india feeder - templeton european opportunities fund": {
@@ -744,14 +587,12 @@
         ],
         "benchmark_index": "MSCI Europe Index",
         "nav": {
-            "Growth Plan": "10.0446",
-            "IDCW Plan": "10.0446",
-            "Direct - Growth Plan": "11.2672",
-            "Direct - IDCW Plan": "11.2672"
+            "growth_plan": "11.2672",
+            "idcw_plan": "11.2672"
         },
         "aum": {
-            "Month End": "15.43",
-            "Monthly Average": "15.52"
+            "month_end": "15.43",
+            "monthly_average": "15.52"
         },
         "plans": [
             "Growth and Dividend (with Reinvestment",
@@ -760,26 +601,17 @@
             "Reinvestment & Payout Options)",
             "#"
         ],
-        "expense_ratio": [
-            ": 1.40%",
-            "# : 0.52%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5,000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "minimum_application_amount": "5,000 and in multiples of Re.1 thereafter",
         "load": {
-            "Entry Load": "d Nil ",
-            "Exit Load": "(for each purchase of Units) 1% if the Units are redeemed/ switched out within one year from the date of allotment (effective January 15, 2020) Different plans have a different expense structure Investors may note that they will be bearing the recurring expenses of this Scheme in addition to the expenses of the underlying Schemes in which this Scheme makes investment"
+            "entry_load": [
+                "(for each purchase of Units) 1 if the Units are redeemed switched out within one year from the date of allotment (effective January 15, 2020) Different plans have a different expense structure Investors may note that they will be bearing the recurring expenses of this Scheme in addition to the expenses of the underlying Schemes in which this Scheme makes investment"
+            ],
+            "exit_load": "d Nil"
         }
     },
     "franklin asian equity fund": {
@@ -795,42 +627,31 @@
         ],
         "benchmark_index": "75% MSCI Asia (Ex-Japan) Standard Index + 25% Nifty 500 Index (w.e.f. March 9, 2024)",
         "nav": {
-            "Growth Plan": "28.7489",
-            "IDCW Plan": "13.5700",
-            "Direct - Growth Plan": "31.2877",
-            "Direct - IDCW Plan": "14.3284"
+            "growth_plan": "31.2877",
+            "idcw_plan": "14.3284"
         },
         "aum": {
-            "Month End": "250.03",
-            "Monthly Average": "250.79"
+            "month_end": "250.03",
+            "monthly_average": "250.79"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 56.49%"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "6.49"
+        },
         "metrics": {
-            "Standard Deviation": "5.16",
-            "Beta": "0.98"
+            "standard_deviation": "5.16",
+            "beta": "0.98",
+            "sharpe_ratio": "-0.43"
         },
-        "expense_ratio": [
-            "2.53%",
-            "#"
-        ],
-        "expense_ratio_direct": [
-            "1.69%",
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) 1% if the Units are redeemed/switched- out within one year from the date of allotment (effective January 15, 2020) Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) 1 if the Units are redeemedswitched- out within one year from the date of allotment (effective January 15, 2020) Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india nse nifty 50 index fund": {
@@ -846,38 +667,26 @@
         ],
         "benchmark_index": "Nifty 50",
         "nav": {
-            "Growth Plan": "180.2614",
-            "IDCW Plan": "189.5813",
-            "Direct - Growth Plan": "198.7512",
-            "Direct - IDCW Plan": "189.4093"
+            "growth_plan": "198.7512",
+            "idcw_plan": "189.4093"
         },
         "aum": {
-            "Month End": "682.01",
-            "Monthly Average": "698.20"
+            "month_end": "682.01",
+            "monthly_average": "698.20"
         },
-        "expense_ratio": [
-            ": 0.63%",
-            "# : 0.26%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the",
-            "actual expenses charged as at the end of the",
-            "month. The above ratio also includes,",
-            "proportionate charge in respect sales beyond T-30",
-            "cities subject to maximum of 30 bps on daily net",
-            "assets, wherever applicable."
-        ],
         "tracking_error_for_3_year_period_": [
             "0.21%"
         ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) Nil(Effective April 21, 2023) Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) Nil(Effective April 21, 2023) Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india long duration fund": {
@@ -891,8 +700,8 @@
         ],
         "benchmark_index": "CRISIL Long Duration Debt A-III Index",
         "aum": {
-            "Month End": "31.55",
-            "Monthly Average": "33.42"
+            "month_end": "31.55",
+            "monthly_average": "33.42"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -908,34 +717,23 @@
             "#Yields of all securities are in annualised terms"
         ],
         "nav": {
-            "Growth Plan": "10.0103",
-            "IDCW Plan": "10.0103",
-            "Direct - Growth Plan": "10.0135",
-            "Direct - IDCW Plan": "10.0135"
+            "growth_plan": "10.0135",
+            "idcw_plan": "10.0135"
         },
-        "expense_ratio": [
-            "0.89%",
-            "# 0.32%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500",
+        "minimum_investment_for_new_": "",
         "existing_investors": [
             "5000/1"
         ],
+        "minimum_investment_for_sip": "500",
         "additional_investment": [],
         "for_existing_investors": [
             "1000/1"
         ],
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of UnitNs)il Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of UnitNs)il Different plans have a different expense structure"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india medium to long duration fund": {
@@ -949,8 +747,8 @@
         ],
         "benchmark_index": "CRISIL Medium to Long Duration Debt A-III Index",
         "aum": {
-            "Month End": "53.79",
-            "Monthly Average": "58.49"
+            "month_end": "53.79",
+            "monthly_average": "58.49"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -970,34 +768,23 @@
             "agencies for G-sec FRB securities."
         ],
         "nav": {
-            "Growth Plan": "10.1507",
-            "IDCW Plan": "10.1507",
-            "Direct - Growth Plan": "10.1662",
-            "Direct - IDCW Plan": "10.1662"
+            "growth_plan": "10.1662",
+            "idcw_plan": "10.1662"
         },
-        "expense_ratio": [
-            "0.79%",
-            "# 0.29%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment_for_new_": "",
         "existing_investors": [
             "5000/1"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "for_existing_investors": [
             "1000/1"
         ],
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of UnitNs)il Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of UnitNs)il Different plans have a different expense structure"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india ultra short duration fund": {
@@ -1012,8 +799,8 @@
         ],
         "benchmark_index": "NIFTY Ultra Short Duration Debt Index A-I",
         "aum": {
-            "Month End": "236.12",
-            "Monthly Average": "227.54"
+            "month_end": "236.12",
+            "monthly_average": "227.54"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1033,34 +820,23 @@
             "agencies for G-sec FRB securities."
         ],
         "nav": {
-            "Growth Plan": "10.2344",
-            "IDCW Plan": "10.2344",
-            "Direct - Growth Plan": "10.2520",
-            "Direct - IDCW Plan": "10.2520"
+            "growth_plan": "10.2520",
+            "idcw_plan": "10.2520"
         },
-        "expense_ratio": [
-            "0.72%",
-            "# 0.26%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment_for_new_": "",
         "existing_investors": [
             "5000/1"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "for_existing_investors": [
             "1000/1"
         ],
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of UnitNs)il Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of UnitNs)il Different plans have a different expense structure"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india overnight fund": {
@@ -1075,12 +851,11 @@
         ],
         "benchmark_index": "NIFTY 1D Rate In(dwe.ex.f. April 1, 2024)",
         "nav": {
-            "Growth Plan": "1306.8890",
-            "Direct - Growth Plan": "1310.6934"
+            "growth_plan": "1310.6934"
         },
         "aum": {
-            "Month End": "407.04",
-            "Monthly Average": "502.22"
+            "month_end": "407.04",
+            "monthly_average": "502.22"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1103,30 +878,16 @@
             "# : 0.15%",
             ": 0.10%"
         ],
-        "expense_ratio": [
-            "#"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the",
-            "actual expenses charged as at the end of the",
-            "month. The above ratio also includes,",
-            "proportionate charge in respect sales beyond T-30",
-            "cities subject to maximum of 30 bps on daily net",
-            "assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investmentmultiples": "",
         "for_new_investors": [
             "5000/1"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "existing_investors": [
             "1000/1"
         ],
-        "load": {
-            "Entry Load": "",
-            "Exit Load": ""
-        },
+        "load": {},
         "entry_load": [],
         "exit_load": [
             ": Nil",
@@ -1174,8 +935,8 @@
         ],
         "benchmark_index": "NIFTY Liquid Index A-I",
         "aum": {
-            "Month End": "2109.31",
-            "Monthly Average": "2329.58"
+            "month_end": "2109.31",
+            "monthly_average": "2329.58"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1206,27 +967,12 @@
             "securities. Com",
             "#"
         ],
-        "expense_ratio": [
-            "#",
-            "FILF-R Plan*0.86%",
-            "FILF-I Plan*0.60%",
-            "FILF SI Plan0.20%"
-        ],
-        "expense_ratio_direct": [
-            "FILF SI Plan0.13%",
-            "21.",
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The",
-            "above ratio also includes, proportionate charge in",
-            "respect sales beyond T-30 cities subject to maximum",
-            "of 30 bps on daily net assets, wherever applicable."
-        ],
-        "minimum_investment": "Plea 500/1",
+        "minimum_investmentmultiples": "",
         "for_new_investors": [
             "FILF - SI Plan - WDP 25 lakh/1",
             "FILF - SI Plan - other options10,000/1"
         ],
+        "minimum_investment_for_sip": "Plea 500/1",
         "additional_investment": [],
         "for_existing_investors": [
             "FILF - SI Plan - WDP 1 lakh/1",
@@ -1240,10 +986,7 @@
             "with",
             "qual"
         ],
-        "load": {
-            "Entry Load": "",
-            "Exit Load": ""
-        },
+        "load": {},
         "exit_load": [
             "Investor exit upon Exit load as a % of",
             "subscription redemption proceeds",
@@ -1303,11 +1046,11 @@
         ],
         "benchmark_index": "NIFTY Money Market Inde(xw .Ae.-f.I April 1, 2024)",
         "nav": {
-            "Growth Plan": "49.7838"
+            "growth_plan": "49.7838"
         },
         "aum": {
-            "Month End": "2373.75",
-            "Monthly Average": "2553.41"
+            "month_end": "2373.75",
+            "monthly_average": "2553.41"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1329,35 +1072,11 @@
             "macaulay duration in years as well as in days.",
             "#"
         ],
-        "expense_ratio": [
-            ": 0.29% (Retail)",
-            "# : 0.14% (Retail)"
-        ],
-        "expense_ratio_direct": [
-            "All investors have redeemed from the Institutional",
-            "Plan in FIMMF effective June 19, 2020 and this Plan",
-            "has been closed for subscription / redemption",
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the",
-            "actual expenses charged as at the end of the month.",
-            "The above ratio also includes, proportionate charge",
-            "in respect sales beyond T-30 cities subject to",
-            "maximum of 30 bps on daily net assets, wherever",
-            "Ind",
-            "applicable. prim",
-            "indu",
-            "dive",
-            "perf",
-            "reco",
-            "strat",
-            "secu",
-            "of an",
-            "acco"
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investmentmultiples": "",
         "for_new_investors": [
             "Retail Plan: 10,000/1"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "for_existing_investors": [
             "CRIS",
@@ -1371,8 +1090,10 @@
             "deve"
         ],
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of Units) Nil Different plans have a different expense structure All in conc impa issu"
+            "entry_load": [
+                "(for each purchase of Units) Nil Different plans have a different expense structure All in conc impa issu"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india floating rate fund": {
@@ -1390,14 +1111,12 @@
         ],
         "benchmark_index": "NIFTY Short Duration Debt Index A-II (w.e.f. April 1, 2024) Ple",
         "nav": {
-            "Growth Plan": "38.9525",
-            "IDCW Plan": "10.2544",
-            "Direct - Growth Plan": "42.3700",
-            "Direct - IDCW Plan": "10.1520"
+            "growth_plan": "42.3700",
+            "idcw_plan": "10.1520"
         },
         "aum": {
-            "Month End": "290.56",
-            "Monthly Average": "295.58"
+            "month_end": "290.56",
+            "monthly_average": "295.58"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1418,30 +1137,16 @@
             "November 17, 2021.",
             "#"
         ],
-        "expense_ratio": [
-            ": 0.95%",
-            "# : 0.23%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The",
-            "above ratio also includes, proportionate charge in",
-            "respect sales beyond T-30 cities subject to maximum",
-            "of 30 bps on daily net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investmentmultiples": "",
         "for_new_investors": [
             "1000/1"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "existing_investors": [
             "1000/1"
         ],
-        "load": {
-            "Entry Load": "",
-            "Exit Load": ""
-        },
+        "load": {},
         "entry_load": [],
         "exit_load": [
             "Nil",
@@ -1462,13 +1167,12 @@
         ],
         "benchmark_index": "NIFTY Corporate Bond Index A-II (w.e.f. April 1, 2024)",
         "nav": {
-            "Growth Plan": "94.2778",
-            "IDCW Plan": "13.4405",
-            "Direct - Growth Plan": "101.7994"
+            "growth_plan": "101.7994",
+            "idcw_plan": "14.8076"
         },
         "aum": {
-            "Month End": "750.16",
-            "Monthly Average": "755.48"
+            "month_end": "750.16",
+            "monthly_average": "755.48"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1489,29 +1193,16 @@
             "# impa",
             "issue"
         ],
-        "expense_ratio": [
-            ": 0.79%",
-            "# : 0.23%"
-        ],
-        "expense_ratio_direct": [
-            "M# aT nh ae g a eb mo ev ne t r Fa etio e sin . c Tl hu ed e ras tt eh se s G peS cT if io en d I an rv ee s thtm e e an ct tual This",
-            "expenses charged as at the end of the month. The aboveinstr",
-            "ratio also includes, proportionate charge in respect sales circu",
-            "beyond T-30 cities subject to maximum of 30 bps on dailyunad",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investmentmultiples": "",
         "for_new_investors": [
             "Plan A :10,000 / 1"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "for_existing_investors": [
             "Plan A : 1000 / 1"
         ],
-        "load": {
-            "Entry Load": "",
-            "Exit Load": "(for each purchase ofN Uilnits)  Sales suspended in Plan B - All Options Different plans have a different expense structure"
-        }
+        "load": {}
     },
     "franklin india banking & psu debt fund": {
         "com": [],
@@ -1528,14 +1219,12 @@
         ],
         "benchmark_index": "19 Nifty Banking & PSU Debt Index A-II (w.e.f. April 1, 2024)",
         "nav": {
-            "Growth Plan": "21.4941",
-            "IDCW Plan": "10.6447",
-            "Direct - Growth Plan": "22.4169",
-            "Direct - IDCW Plan": "11.2423"
+            "growth_plan": "22.4169",
+            "idcw_plan": "11.2423"
         },
         "aum": {
-            "Month End": "572.25",
-            "Monthly Average": "576.26"
+            "month_end": "572.25",
+            "monthly_average": "576.26"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1555,34 +1244,16 @@
             "provided by valuation agencies for G-sec FRB securities.",
             "#"
         ],
-        "expense_ratio": [
-            ": 0.51%",
-            "# : 0.18%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The aboveInd",
-            "bra et yio o na dls o T -i 3n 0cl u cd itie es s, sp uro bp jeo cr tt i to on mat ae x c imha ur mge o i fn 3 r 0e s bp pe sc ot ns a dl ae is lymea",
-            "net assets, wherever applicable. expr",
-            "dura",
-            "be re",
-            "fund",
-            "asse",
-            "or ri",
-            "inve",
-            "mar",
-            "exem",
-            "party",
-            "serv"
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5,000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1 All in conc impa issu",
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of Units) This Nil instr the v Different plans have a different expense sptrourtcture"
+            "entry_load": [
+                "(for each purchase of Units) This Nil instr the v Different plans have a different expense sptrourtcture"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india government securities fund": {
@@ -1597,8 +1268,8 @@
         ],
         "benchmark_index": "NIFTY All Duration G-Sec Index",
         "aum": {
-            "Month End": "151.95",
-            "Monthly Average": "151.83"
+            "month_end": "151.95",
+            "monthly_average": "151.83"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1617,33 +1288,24 @@
             "provided by valuation agencies for G-sec FRB securities."
         ],
         "nav": {
-            "Growth Plan": "61.6643",
-            "IDCW Plan": "11.8760"
+            "growth_plan": "61.6643",
+            "idcw_plan": "11.8760"
         },
-        "expense_ratio": [
-            "1.14%",
-            "# 0.60%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment_for_new_": "",
         "existing_investors": [
             "10,000/1 (G);",
             "25,000/1 (D);"
         ],
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "for_existing_investors": [
             "1000/1"
         ],
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of UnitsN)il CDSC is treated similarly Different plans have a different expense structure Benchmark for FIGSF has been changed to NIFTY All Duration G-Sec Index, effective from 8th September 2021 Franklin India Government Securities Fund (FI"
+            "entry_load": [
+                "(for each purchase of UnitsN)il CDSC is treated similarly Different plans have a different expense structure Benchmark for FIGSF has been changed to NIFTY All Duration G-Sec Index, effective from 8th September 2021 Franklin India Government Securities Fund (FI"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india arbitrage fund": {
@@ -1658,22 +1320,17 @@
         ],
         "benchmark_index": "Nifty 50 Arbitrage Index",
         "nav": {
-            "Growth Plan": "10.0609",
-            "IDCW Plan": "10.0609",
-            "Direct - Growth Plan": "10.0696",
-            "Direct - IDCW Plan": "10.0696"
+            "growth_plan": "10.0696",
+            "idcw_plan": "10.0696"
         },
         "aum": {
-            "Month End": "172.25",
-            "Monthly Average": "162.57"
+            "month_end": "172.25",
+            "monthly_average": "162.57"
         },
-        "portfolio_turnover_ratio": [
-            "Total Portfolio Turn$over 206.23%",
-            "Portfolio Turnover (E*q*uity2)84.85%",
-            "$ Includes fixed income securities and equity derivatives",
-            "** Computed for equity portion of the portfolio including equity",
-            "derivatives"
-        ],
+        "portfolio_turnover_ratio": {
+            "total_portfolio": "6.23",
+            "portfolio_turnover": "4.85"
+        },
         "metrics": {},
         "residual_maturity_": [
             "0.09 years"
@@ -1693,26 +1350,18 @@
             "# : 1.05%",
             ": 0.30%"
         ],
-        "expense_ratio": [
-            "#"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The above",
-            "ratio also includes, proportionate charge in respect sales",
-            "beyond T-30 cities subject to maximum of 30 bps on daily",
-            "net assets, wherever applicable."
-        ],
-        "minimum_investment": "500",
+        "minimum_investment_for_new_": "",
         "existing_investors": [
             "5000/1"
         ],
+        "minimum_investment_for_sip": "500",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of Units) 0.25% - if redeemed on or before 30 Days from the date of allotment Different plans have a different expense structure Sales suspended in Plan B - All Options"
+            "entry_load": [
+                "(for each purchase of Units) 0.25 - if redeemed on or before 30 Days from the date of allotment Different plans have a different expense structure Sales suspended in Plan B - All Options"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india debt hybrid fund": {
@@ -1732,13 +1381,12 @@
         ],
         "benchmark_index": "CRISIL Hybrid 85+15 - Conservative Index",
         "nav": {
-            "Growth Plan": "87.1276",
-            "IDCW Plan": "12.3342",
-            "Direct - Growth Plan": "95.3904"
+            "growth_plan": "95.3904",
+            "idcw_plan": "14.1401"
         },
         "aum": {
-            "Month End": "224.35",
-            "Monthly Average": "238.08"
+            "month_end": "224.35",
+            "monthly_average": "238.08"
         },
         "metrics": {},
         "residual_maturity_": [
@@ -1766,17 +1414,16 @@
             "beyond T-30 cities subject to maximum of 30 bps on daily",
             "net assets, wherever applicable."
         ],
-        "expense_ratio": [
-            "#"
-        ],
-        "expense_ratio_direct": [],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "Plan A 10,000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "Plan A 1000/1",
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of Units) Nil (effective October 11, 2021) Different plans have a different expense structure Sales suspended in Plan B - All Options"
+            "entry_load": [
+                "(for each purchase of Units) Nil (effective October 11, 2021) Different plans have a different expense structure Sales suspended in Plan B - All Options"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india equity savings fund": {
@@ -1795,23 +1442,17 @@
         ],
         "benchmark_index": "Nifty Equity Savings Index",
         "nav": {
-            "Growth Plan": "15.8503",
-            "IDCW Plan": "12.4377",
-            "Direct - Growth Plan": "17.2506",
-            "Direct - IDCW Plan": "14.9930"
+            "growth_plan": "17.2506",
+            "idcw_plan": "13.7754"
         },
         "aum": {
-            "Month End": "702.65",
-            "Monthly Average": "716.28"
+            "month_end": "702.65",
+            "monthly_average": "716.28"
         },
-        "portfolio_turnover_ratio": [
-            "Total Portfolio Turn$over 692.56%",
-            "Portfolio Turnover (E*q*uity)892.93%",
-            "$ Includes fixed income securities and equity derivatives",
-            "** Computed for equity portion of the portfolio including",
-            "equity derivatives",
-            "$"
-        ],
+        "portfolio_turnover_ratio": {
+            "total_portfolio": "2.56",
+            "portfolio_turnover": "2.93"
+        },
         "metrics": {},
         "residual_maturity_": [
             "3.62 years"
@@ -1831,23 +1472,16 @@
             "$ Calculated based on debt holdings in the portfolio",
             "#"
         ],
-        "expense_ratio": [
-            ": 1.12%",
-            "# : 0.32%",
-            "# The above ratio includes the GST on Investment Management",
-            "Fees. The rates specified are the actual expenses charged as at the",
-            "end of the month. The above ratio also includes, proportionate",
-            "charge in respect sales beyond T-30 cities subject to maximum of",
-            "30 bps on daily net assets, wherever applicable."
-        ],
-        "expense_ratio_direct": [],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "Plan A 5,000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "Plan A 1,000/1",
         "load": {
-            "Entry Load": "dNil ",
-            "Exit Load": "(for each purchase of Units)  Nil (effective October 11, 2021)  This no load redemption limit is applicable on a yearly basis (from the date of allotment of such units) and the limit not availed during a year shall not be clubbed or carried forward to the next year. Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units)  Nil (effective October 11, 2021)  This no load redemption limit is applicable on a yearly basis (from the date of allotment of such units) and the limit not availed during a year shall not be clubbed or carried forward to the next year. Different plans have a different expense structure"
+            ],
+            "exit_load": "dNil"
         }
     },
     "franklin india pension plan": {
@@ -1864,14 +1498,12 @@
         ],
         "benchmark_index": "CRISIL Short Term Debt Hybrid 60+40 Index (The Benchmark has been changed from 40% Nifty 500+ 60% Crisil Composite Bond Index to CRISIL Short Term Debt Hybrid 60+40 Index w.e.f 12th August, 2024.)",
         "nav": {
-            "Growth Plan": "212.3475",
-            "IDCW Plan": "17.4649",
-            "Direct - Growth Plan": "231.7339",
-            "Direct - IDCW Plan": "19.2072"
+            "growth_plan": "231.7339",
+            "idcw_plan": "19.2072"
         },
         "aum": {
-            "Month End": "516.76",
-            "Monthly Average": "520.64"
+            "month_end": "516.76",
+            "monthly_average": "520.64"
         },
         "metrics": {},
         "residual_maturity_": [],
@@ -1888,24 +1520,16 @@
             "$ Calculated based on debt holdings in the portfolio",
             "#"
         ],
-        "expense_ratio": [
-            ": 2.26%",
-            "# : 1.51%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment Management",
-            "Fees. The rates specified are the actual expenses charged as at the",
-            "end of the month. The above ratio also includes, proportionate",
-            "charge in respect sales beyond T-30 cities subject to maximum of",
-            "30 bps on daily net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "500/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "500/1",
         "load": {
-            "Entry Load": "NDil ",
-            "Exit Load": "(for each purchase of Units) 3%, if redeemed before the age of 58 years (subject to lock-in period) and target amount Nil, if redeemed after the age of 58 years Different plans have a different expense structure Retirement age  60 years"
+            "entry_load": [
+                "(for each purchase of Units) 3, if redeemed before the age of 58 years (subject to lock-in period) and target amount Nil, if redeemed after the age of 58 years Different plans have a different expense structure Retirement age  60 years"
+            ],
+            "exit_load": "NDil"
         },
         "tax_benefits": [],
         "lockin_period__minimum": [],
@@ -1930,23 +1554,14 @@
             "Venkatesh Sanjee(wv.ie.f. October 4, 2024)"
         ],
         "aum": {
-            "Month End": "1305.25",
-            "Monthly Average": "1317.56"
+            "month_end": "1305.25",
+            "monthly_average": "1317.56"
         },
-        "expense_ratio": [
-            ": 1.41%",
-            "# : 0.52%"
-        ],
-        "expense_ratio_direct": [
-            "# The above ratio includes the GST on Investment Management",
-            "Fees. The rates specified are the actual expenses charged as at the",
-            "end of the month. The above ratio also includes, proportionate",
-            "charge in respect sales beyond T-30 cities subject to maximum of",
-            "30 bps on daily net assets, wherever applicable."
-        ],
         "load": {
-            "Entry Load": "DNil EXIT LOA(Dfor each purchase of Units) In respect of each purchase of Units -  NIL Exit load  for 10% of the units upto completion of 12 months. o The First In First Out (FIFO) logic will be applied while selecting the units for redemption o Waiver of Exit load is calculated for each inflow transaction separately on FIFO basis and not on the total units through multiple inflows o The load free units from purchases made subsequent to the initial purchase will be available only after redeeming all units from the initial purchase  All units redeemed /switched-out in excess of the 10% load free units will be subject to the below mentioned ",
-            "Exit Load": "for 10% of the units upto completion of 12 months. o The First In First Out (FIFO) logic will be applied while selecting the units for redemption o Waiver of Exit load is calculated for each inflow transaction separately on FIFO basis and not on the total units through multiple inflows o The load free units from purchases made subsequent to the initial purchase will be available only after redeeming all units from the initial purchase  All units redeemed /switched-out in excess of the 10% load free units will be subject to the below mentioned exit load. o 1.00% - if Units are redeemed/switched-out on or before 1 year from the date of allotment o Nil - if redeemed after 1 year from the date of allotment This no load redemption limit is applicable on a yearly basis (from the date of allotment of such units) and the limit not availed during a year shall not be clubbed or carried forward to the next year."
+            "entry_load": [
+                "for 10 of the units upto completion of 12 months. o The First In First Out (FIFO) logic will be applied while selecting the units for redemption o Waiver of Exit load is calculated for each inflow transaction separately on FIFO basis and not on the total units through multiple inflows o The load free units from purchases made subsequent to the initial purchase will be available only after redeeming all units from the initial purchase  All units redeemed switched-out in excess of the 10 load free units will be subject to the below mentioned exit load. o 1.00 - if Units are redeemedswitched-out on or before 1 year from the date of allotment o Nil - if redeemed after 1 year from the date of allotment This no load redemption limit is applicable on a yearly basis (from the date of allotment of such units) and the limit not availed during a year shall not be clubbed or carried forward to the next year."
+            ],
+            "exit_load": "DNil EXIT LOA(Dfor each purchase of Units) In respect of each purchase of Units -  NIL"
         }
     },
     "franklin india equity hybrid fund": {
@@ -1965,21 +1580,16 @@
         ],
         "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index",
         "nav": {
-            "Growth Plan": "264.5241",
-            "IDCW Plan": "30.8586",
-            "Direct - Growth Plan": "300.5463",
-            "Direct - IDCW Plan": "36.4353"
+            "growth_plan": "300.5463",
+            "idcw_plan": "36.4353"
         },
         "aum": {
-            "Month End": "2077.66",
-            "Monthly Average": "2081.65"
+            "month_end": "2077.66",
+            "monthly_average": "2081.65"
         },
-        "portfolio_turnover_ratio": [
-            "Portfolio Turnover 60.10%",
-            "Portfolio Turnover (Equity)* 35.28%",
-            "*Computed for equity portion of the portfolio.",
-            "$"
-        ],
+        "portfolio_turnover_ratio": {
+            "portfolio_turnover": "5.28"
+        },
         "metrics": {},
         "residual_maturity_": [
             "2.86 Years"
@@ -1997,26 +1607,16 @@
             "$ Calculated based on debt holdings in the portfolio",
             "#"
         ],
-        "expense_ratio_": [
-            "2.08%",
-            "#"
-        ],
-        "expense_ratio_direct_": [
-            "1.01%",
-            "# The above ratio includes the GST on Investment",
-            "Management Fees. The rates specified are the actual",
-            "expenses charged as at the end of the month. The",
-            "above ratio also includes, proportionate charge in",
-            "respect sales beyond T-30 cities subject to maximum",
-            "of 30 bps on daily net assets, wherever applicable."
-        ],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1000/1",
         "load": {
-            "Entry Load": "NDil EXIT LOAD(for each purchase of Units) Upto 10% of the Units may be redeemed without any exit load within 1 year from the date of allotment. Any redemption in excess of the above limit shall be subject to the following ",
-            "Exit Load": "(for each purchase of Units) Upto 10% of the Units may be redeemed without any exit load within 1 year from the date of allotment. Any redemption in excess of the above limit shall be subject to the following exit load 1.00% - if redeemed on or before 1 year from the date of allotment Nil - if redeemed after 1 year from the date of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units) Upto 10 of the Units may be redeemed without any exit load within 1 year from the date of allotment. Any redemption in excess of the above limit shall be subject to the following exit load 1.00 - if redeemed on or before 1 year from the date of allotment Nil - if redeemed after 1 year from the date of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "NDil"
         }
     },
     "franklin india balanced advantage fund": {
@@ -2036,23 +1636,17 @@
         ],
         "benchmark_index": "NIFTY 50 Hybrid Composite Debt 50:50 Index",
         "nav": {
-            "Growth Plan": "13.9919",
-            "IDCW Plan": "13.5455",
-            "Direct - Growth Plan": "14.5598",
-            "Direct - IDCW Plan": "13.8123"
+            "growth_plan": "14.5598",
+            "idcw_plan": "13.8123"
         },
         "aum": {
-            "Month End": "2483.11",
-            "Monthly Average": "2469.98"
+            "month_end": "2483.11",
+            "monthly_average": "2469.98"
         },
-        "portfolio_turnover_ratio": [
-            "Total Portfolio Turn$over 320.46%",
-            "Portfolio Turnover (E*q*uity3)94.13%",
-            "$ Includes fixed income securities and equity derivatives",
-            "** Computed for equity portion of the portfolio including equity",
-            "derivatives",
-            "#"
-        ],
+        "portfolio_turnover_ratio": {
+            "total_portfolio": "0.46",
+            "portfolio_turnover": "4.13"
+        },
         "metrics": {},
         "residual_maturity_": [
             "2.22 years"
@@ -2072,23 +1666,16 @@
             "# Calculated based on debt holdings in the portfolio",
             "#"
         ],
-        "expense_ratio": [
-            ": 1.96%",
-            "# : 0.49%",
-            "# The above ratio includes the GST on Investment Management",
-            "Fees. The rates specified are the actual expenses charged as at the",
-            "end of the month. The above ratio also includes, proportionate",
-            "charge in respect sales beyond T-30 cities subject to maximum of",
-            "30 bps on daily net assets, wherever applicable."
-        ],
-        "expense_ratio_direct": [],
-        "minimum_investment": "500/1",
+        "minimum_investment": "",
         "multiples_for_new_investors": "5,000/1",
+        "minimum_investment_for_sip": "500/1",
         "additional_investment": [],
         "multiples_for_existing_investors": "1,000/1",
         "load": {
-            "Entry Load": "dNil Exit Load (for each purchase of Units)  Upto 10% of the Units may be redeemed without any exit load within 1 year from the date of allotment. Any redemption in excess of the above limit shall be subject to the following ",
-            "Exit Load": "(for each purchase of Units)  Upto 10% of the Units may be redeemed without any exit load within 1 year from the date of allotment. Any redemption in excess of the above limit shall be subject to the following exit load 1.00% - if redeemed on or before 1 year from the date of allotment Nil - if redeemed after 1 year from the date of allotment Different plans have a different expense structure"
+            "entry_load": [
+                "(for each purchase of Units)  Upto 10 of the Units may be redeemed without any exit load within 1 year from the date of allotment. Any redemption in excess of the above limit shall be subject to the following exit load 1.00 - if redeemed on or before 1 year from the date of allotment Nil - if redeemed after 1 year from the date of allotment Different plans have a different expense structure"
+            ],
+            "exit_load": "dNil"
         }
     }
 }

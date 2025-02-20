@@ -18,16 +18,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "48.8839",
-            "Regular IDCW (Payout)": "48.8831",
-            "Direct Growth Option": "55.4479",
-            "Direct IDCW (Payout)": "54.0809"
-        },
-        "aum": {
-            "Month End AUM": "6.39",
-            "Monthly AAUM": "7.94"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 48.8839",
+            "(Regular) - IDCW (Payout): 48.8831",
+            "(Direct) - Growth Option: 55.4479",
+            "(Direct) - IDCW (Payout): 54.0809"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 186.39 Crore",
+            "Monthly AAUM : Rs. 187.94 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01650",
             "(Direct) - Growth Option: INF192K01CE3"
@@ -38,11 +38,23 @@
             "Additional Purch5a0s0e/-: and in multiples of Rs. 500/- thereafter."
         ],
         "exit_load": "NIL",
-        "expense_ratio": {
-            "Regular Plan": "2.39",
-            "Direct Plan": "1.27"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan 2.39%",
+            "Direct Plan 1.27%"
+        ],
+        "metrics": [
+            "Scheme Name Beta Sharp~e Std. Dev.",
+            "JM ELSS Tax Saver Fun0d.9 -2 0.80 14.41",
+            "Growth Option",
+            "BSE 500 TRI 0.59 13.79",
+            "Source: www.mutualfundsinDdiias.cclaoimmerS :harpe, Beta &",
+            "Standard Deviation are calculated on the basis of absolute return using",
+            "1-month rolling & 1-month frequency for a period of 3 years and Sharpe",
+            "& Standard Deviation are annualiz~eRdis bky F SreQeR rTa1te2:. 7.15%.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio",
+            "19"
+        ]
     },
     "jm flexicap fund": {
         "inception_date_23rd_september_2008": [
@@ -63,16 +75,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "104.1046",
-            "Regular IDCW (Payout)": "80.2206",
-            "Direct Growth Option": "117.6331",
-            "Direct IDCW (Payout)": "106.9228"
-        },
-        "aum": {
-            "Month End AUM": "8.35",
-            "Monthly AAUM": "5.18"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 104.1046",
+            "(Regular) - IDCW (Payout): 80.2206",
+            "(Direct) - Growth Option: 117.6331",
+            "(Direct) - IDCW (Payout): 106.9228"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 5,338.35 Crore",
+            "Monthly AAUM : Rs. 5,265.18 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01635",
             "(Direct) - Growth Option: INF192K01CC7"
@@ -83,11 +95,21 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed/switched out on or before 30 days from the date of allotment  1.00%.  (cid:9) If the units are redeemed / switched out after 30 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "1.81",
-            "Direct Plan": "0.55"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan 1.81%",
+            "Direct Plan 0.55%"
+        ],
+        "metrics": [
+            "Scheme Name Beta Sharp~e Std. Dev.",
+            "JM Flexicap Fund - Growth0 O.8p7tion1.28 13.58",
+            "BSE 500 TRI 0.59 13.79",
+            "Source: www.mutualfundsinDdiias.cclaoimmerS :harpe, Beta &",
+            "Standard Deviation are calculated on the basis of absolute return using",
+            "1-month rolling & 1-month frequency for a period of 3 years and Sharpe",
+            "& Standard Deviation are annualiz~eRdis bky F SreQeR rTa1te2:. 7.15%.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio"
+        ]
     },
     "jm midcap fund": {
         "inception_date_21st_november_2022": [
@@ -108,15 +130,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "19.5271",
-            "Regular IDCW (Payout)": "19.5271",
-            "Direct Growth Option": "20.3091"
-        },
-        "aum": {
-            "Month End AUM": "6.69",
-            "Monthly AAUM": "8.14"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 19.5271",
+            "(Regular) - IDCW (Payout): 19.5271",
+            "(Direct) - Growth Option: 20.3091",
+            "(Direct) - IDCW ( Payout): 20.3090"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 1,426.69 Crore",
+            "Monthly AAUM : Rs. 1,648.14 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01MS2",
             "(Direct) - Growth Option: INF192K01MV6"
@@ -127,14 +150,18 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed/switched out on or before 180 days from the date of allotment  1.00%. (cid:9) If the units are redeemed/switched out after 180 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "2.06",
-            "Direct Plan": "0.47"
-        },
-        "metrics": {
-            "Portfolio Beta": ",",
-            "Standard Deviation": ","
-        }
+        "expense_ratio": [
+            "Regular Plan 2.06%",
+            "Direct Plan 0.47%"
+        ],
+        "metrics": [
+            "Portfolio Beta, Standard Deviation, Sharpe Ratio and Tracking Error of the",
+            "Scheme is not computed since the Scheme has not completed 3 years",
+            "from its inception.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio",
+            "21"
+        ]
     },
     "jm small cap fund": {
         "inception_date_18th_june_2024": [
@@ -155,16 +182,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "10.5638",
-            "Regular IDCW (Payout)": "10.5638",
-            "Direct Growth Option": "10.6647",
-            "Direct IDCW (Payout)": "10.6650"
-        },
-        "aum": {
-            "Month End AUM": "5.99",
-            "Monthly AAUM": "4.17"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 10.5638",
+            "(Regular) - IDCW (Payout): 10.5638",
+            "(Direct) - Growth Option: 10.6647",
+            "(Direct) - IDCW (Payout): 10.6650"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 635.99 Crore",
+            "Monthly AAUM : Rs. 634.17 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01NE0",
             "(Direct) - Growth Option: INF192K01NH3"
@@ -174,14 +201,19 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed/switched out on or before 180 days from the date of allotment  1.00%.  (cid:9) If the units are redeemed / switched out after 180 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "2.30",
-            "Direct Plan": "0.64"
-        },
-        "metrics": {
-            "Portfolio Beta": ",",
-            "Standard Deviation": ","
-        }
+        "expense_ratio": [
+            "Regular Plan 2.30%",
+            "Direct Plan 0.64%"
+        ],
+        "metrics": [
+            "Portfolio Beta, Standard Deviation, Sharpe Ratio and Tracking Error of the",
+            "Scheme is not computed since the Scheme has not completed 3 years",
+            "from its inception.",
+            "Portfolio Turnover Ratio is not computed since the Scheme has not",
+            "completed 1 year from its inception.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio"
+        ]
     },
     "jm large cap fund": {
         "inception_date_1st_april_1995": [
@@ -202,16 +234,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "153.0099",
-            "Regular IDCW (Payout)": "29.7029",
-            "Direct Growth Option": "173.5166",
-            "Direct IDCW (Payout)": "69.6648"
-        },
-        "aum": {
-            "Month End AUM": "0.41",
-            "Monthly AAUM": "8.80"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 153.0099",
+            "(Regular) - IDCW (Payout): 29.7029",
+            "(Direct) - Growth Option: 173.5166",
+            "(Direct) - IDCW (Payout): 69.6648"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 480.41 Crore",
+            "Monthly AAUM : Rs. 498.80 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01601",
             "(Direct) - Growth Option: INF192K01BZ0"
@@ -222,11 +254,22 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed/switched out on or before 30 days from the date of allotment  1.00%.  (cid:9) If the units are redeemed / switched out after 30 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "2.36",
-            "Direct Plan": "0.66"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan 2.36%",
+            "Direct Plan 0.66%"
+        ],
+        "metrics": [
+            "Scheme Name Beta Sharp~e Std. Dev.",
+            "JM Large Cap Fund - Grow0th.8 O9ptio0n.62 13.13",
+            "BSE 100 TRI 0.48 13.30",
+            "Source: www.mutualfundsinDdiias.cclaoimmerS :harpe, Beta &",
+            "Standard Deviation are calculated on the basis of absolute return using",
+            "1-month rolling & 1-month frequency for a period of 3 years and Sharpe",
+            "& Standard Deviation are annualiz~eRdis bky F SreQeR rTa1te2:. 7.15%.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio",
+            "23"
+        ]
     },
     "jm value fund": {
         "inception_date_2nd_june_1997": [
@@ -247,16 +290,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "100.7759",
-            "Regular IDCW (Payout)": "70.3706",
-            "Direct Growth Option": "112.3723",
-            "Direct IDCW (Payout)": "76.5635"
-        },
-        "aum": {
-            "Month End AUM": "4.99",
-            "Monthly AAUM": "5.24"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 100.7759",
+            "(Regular) - IDCW (Payout): 70.3706",
+            "(Direct) - Growth Option: 112.3723",
+            "(Direct) - IDCW (Payout): 76.5635"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 1,084.99 Crore",
+            "Monthly AAUM : Rs. 1,095.24 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF137A01037",
             "(Direct) - Growth Option: INF192K01BT3"
@@ -267,11 +310,21 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed/switched out on or before 30 days from the date of allotment  1.00%.  (cid:9) If the units are redeemed / switched out after 30 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "2.21",
-            "Direct Plan": "1.01"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan 2.21%",
+            "Direct Plan 1.01%"
+        ],
+        "metrics": [
+            "Scheme Name Beta Sharp~e Std. Dev.",
+            "JM Value Fund - Growth Op0t.i9o0n 1.11 14.79",
+            "BSE 500 TRI 0.59 13.79",
+            "Source: www.mutualfundsinDdiias.cclaoimmerS :harpe, Beta &",
+            "Standard Deviation are calculated on the basis of absolute return using",
+            "1-month rolling & 1-month frequency for a period of 3 years and Sharpe",
+            "& Standard Deviation are annualiz~eRdis bky F SreQeR rTa1te2:. 7.15%.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio"
+        ]
     },
     "jm focused fund": {
         "inception_date_5th_march_2008": [
@@ -292,16 +345,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "20.4782",
-            "Regular IDCW (Payout)": "20.4774",
-            "Direct Growth Option": "23.6867",
-            "Direct IDCW (Payout)": "23.2137"
-        },
-        "aum": {
-            "Month End AUM": "6.47",
-            "Monthly AAUM": "2.53"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 20.4782",
+            "(Regular) - IDCW (Payout): 20.4774",
+            "(Direct) - Growth Option: 23.6867",
+            "(Direct) - IDCW (Payout): 23.2137"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 226.47 Crore",
+            "Monthly AAUM : Rs. 222.53 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01577",
             "(Direct) - Growth Option: INF192K01BW7"
@@ -312,11 +365,22 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed/switched out on or before 30 days from the date of allotment  1.00%.  (cid:9) If the units are redeemed / switched out after 30 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "2.38",
-            "Direct Plan": "0.78"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan 2.38%",
+            "Direct Plan 0.78%"
+        ],
+        "metrics": [
+            "Scheme Name Beta Sharp~e Std. Dev.",
+            "JM Focused Fund - Growth0 O.8p3tion0.97 13.06",
+            "BSE 500 TRI 0.59 13.79",
+            "Source: www.mutualfundsinDdiias.cclaoimmerS :harpe, Beta &",
+            "Standard Deviation are calculated on the basis of absolute return using",
+            "1-month rolling & 1-month frequency for a period of 3 years and Sharpe",
+            "& Standard Deviation are annualiz~eRdis bky F SreQeR rTa1te2:. 7.15%.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio",
+            "25"
+        ]
     },
     "jm arbitrage fund": {
         "inception_date_18th_july_2006": [
@@ -350,16 +414,16 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since October 04, 2024 and",
             "has 10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "31.6290",
-            "Regular IDCW (Payout)": "14.6802",
-            "Direct Growth Option": "33.6199",
-            "Direct IDCW (Payout)": "15.8429"
-        },
-        "aum": {
-            "Month End AUM": "4.73",
-            "Monthly AAUM": "2.07"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 31.6290",
+            "(Regular) - IDCW (Payout): 14.6802",
+            "(Direct) - Growth Option: 33.6199",
+            "(Direct) - IDCW (Payout): 15.8429"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 194.73 Crore",
+            "Monthly AAUM : Rs. 192.07 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01510",
             "(Direct) - Growth Option: INF192K01BN6"
@@ -370,10 +434,10 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "(cid:9) If the units are redeemed / switched out on or before 30 days from the date of allotment  0.50%. (cid:9) If the units are redeemed / switched out after 30 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "1.07",
-            "Direct Plan": "0.40"
-        }
+        "expense_ratio": [
+            "Regular Plan 1.07%",
+            "Direct Plan 0.40%"
+        ]
     },
     "jm aggressive hybrid fund": {
         "inception_date_1st_april_1995": [
@@ -391,16 +455,16 @@
             "Debt Portion: Ms. Ruchi (FMoazndaagring this Scheme since October 04, 2024",
             "and has 10 years of experience in fixed income market)"
         ],
-        "nav": {
-            "Regular Growth Option": "123.7086",
-            "Regular IDCW (Payout)": "34.6001",
-            "Direct Growth Option": "140.0939",
-            "Direct IDCW (Payout)": "77.2368"
-        },
-        "aum": {
-            "Month End AUM": "2.93",
-            "Monthly AAUM": "0.54"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 123.7086",
+            "(Regular) - IDCW (Payout): 34.6001",
+            "(Direct) - Growth Option: 140.0939",
+            "(Direct) - IDCW (Payout): 77.2368"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 762.93 Crore",
+            "Monthly AAUM : Rs. 750.54 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01544",
             "(Direct) - Growth Option: INF192K01BQ9"
@@ -411,16 +475,19 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": " If the units are redeemed / switched out on or before 60 days from the date of allotment  1.00%.  If the units are redeemed / switched out after 60 days from the date of allotment  Nil.",
-        "expense_ratio": {
-            "Regular Plan": "2.27",
-            "Direct Plan": "0.67"
-        },
-        "metrics": {
-            "Annualised Portfo!!lio YTM": "6.97",
-            "Modified Duration": "3.9946",
-            "Average Maturity": "5.8672",
-            "Macaulay Duration": "4.1657"
-        }
+        "expense_ratio": [
+            "Regular Plan 2.27%",
+            "Direct Plan 0.67%"
+        ],
+        "metrics": [
+            "Annualised Portfo!!lio YTM 6.97%",
+            "Modified Duration 3.9946 years",
+            "Average Maturity 5.8672 years",
+            "Macaulay Duration 4.1657 years",
+            "!!Semi annual YTM has been annualised.",
+            "For Risk-o-meter (Scheme & Benchmark), refer page no. 43.",
+            "Scan for complete portfolio"
+        ]
     },
     "jm overnight fund": {
         "inception_date_3rd_december_2019": [
@@ -437,14 +504,14 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since April 03, 2024 and has",
             "10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "1271.5642",
-            "Direct Growth Option": "1276.0758"
-        },
-        "aum": {
-            "Month End AUM": "0.60",
-            "Monthly AAUM": "9.14"
-        },
+        "nav": [
+            "(Regular) - Growth Option : 1271.5642",
+            "(Direct) - Growth Option : 1276.0758"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 340.60 Crore",
+            "Monthly AAUM : Rs. 259.14 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01LX4",
             "(Direct) - Growth Option: INF192K01MB8"
@@ -454,16 +521,20 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "NIL",
-        "expense_ratio": {
-            "Regular Plan": "0.15",
-            "Direct Plan": "0.08"
-        },
-        "metrics": {
-            "Annualised Portfo!l!io YTM": "6.73",
-            "Modified Duration": "0.95",
-            "Average Maturity": "0.99",
-            "Macaulay Duration": "0.99"
-        }
+        "expense_ratio": [
+            "Regular Plan 0.15%",
+            "Direct Plan 0.08%"
+        ],
+        "metrics": [
+            "Annualised Portfo!l!io YTM 6.73%",
+            "Modified Duration 0.95 days",
+            "Average Maturity 0.99 days",
+            "Macaulay Duration 0.99 days",
+            "!!Semi annual YTM has been annualised.",
+            "For Risk-o-meter (Scheme & Benchmark) & Potential Risk Class (PRC),",
+            "refer page no. 44.",
+            "29"
+        ]
     },
     "jm liquid fund": {
         "inception_date_31st_december_1997": [
@@ -480,14 +551,14 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since April 03, 2024 and has",
             "10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "68.8727",
-            "Direct Growth Option": "69.5753"
-        },
-        "aum": {
-            "Month End AUM": "0.53",
-            "Monthly AAUM": "8.82"
-        },
+        "nav": [
+            "(Regular) - Growth Option : 68.8727",
+            "(Direct) - Growth Option : 69.5753"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 2,940.53 Crore",
+            "Monthly AAUM : Rs. 2,588.82 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01882",
             "(Direct) - Growth Option: INF192K01CM6"
@@ -496,17 +567,20 @@
             "Purchas1e0:00/- and in multiples of Re. 1 thereafter.",
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
-        "expense_ratio": {
-            "Regular Plan": "0.25",
-            "Direct Plan": "0.15"
-        },
+        "expense_ratio": [
+            "Regular Plan 0.25%",
+            "Direct Plan 0.15%"
+        ],
         "exit_load": "Investor Exit upon Exit Load as a % of redemption subscription (based onproceeds (including systematic Applicable NAV) transactions) Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 Onwards 0.0000%",
-        "metrics": {
-            "Annualised Portfo!l!io YTM": "7.17",
-            "Modified Duration": "0.1300",
-            "Average Maturity": "0.1396",
-            "Macaulay Duration": "0.1392"
-        }
+        "metrics": [
+            "Annualised Portfo!l!io YTM 7.17%",
+            "Modified Duration 0.1300 years",
+            "Average Maturity 0.1396 years",
+            "Macaulay Duration 0.1392 years",
+            "!!Semi annual YTM has been annualised.",
+            "For Risk-o-meter (Scheme & Benchmark) & Potential Risk Class (PRC),",
+            "refer page no. 44."
+        ]
     },
     "jm short duration fund": {
         "inception_date_29th_august_2022": [
@@ -523,14 +597,14 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since April 03, 2024 and has",
             "10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "11.5202",
-            "Direct Growth Option": "11.7458"
-        },
-        "aum": {
-            "Month End AUM": "9.50",
-            "Monthly AAUM": "3.26"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 11.5202",
+            "(Direct) - Growth Option: 11.7458"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 119.50 Crore",
+            "Monthly AAUM : Rs. 123.26 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01MM5",
             "(Direct) - Growth Option: INF192K01MP8"
@@ -540,11 +614,25 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "NIL",
-        "expense_ratio": {
-            "Regular Plan": "1.07",
-            "Direct Plan": "0.37"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan1.07%",
+            "Direct Plan 0.37%"
+        ],
+        "metrics": [
+            "60.00",
+            "52.74%",
+            "50.00",
+            "40.00",
+            "33.94%",
+            "30.00",
+            "20.00",
+            "13.03%",
+            "10.00",
+            "0.00",
+            "0 to 1 year 1 to 4 years 4 to 7 years",
+            "** Excluding investment in CDMDFA2",
+            "31"
+        ]
     },
     "jm dynamic bond fund": {
         "inception_date_25th_june_2003": [
@@ -561,14 +649,14 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since April 03, 2024 and has",
             "10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "39.6534",
-            "Direct Growth Option": "42.2063"
-        },
-        "aum": {
-            "Month End AUM": "3.57",
-            "Monthly AAUM": "3.95"
-        },
+        "nav": [
+            "(Regular) - Growth Option : 39.6534",
+            "(Direct) - Growth Option : 42.2063"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 43.57 Crore",
+            "Monthly AAUM : Rs. 43.95 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01700",
             "(Direct) - Growth Option: INF192K01DD3"
@@ -578,16 +666,19 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "NIL",
-        "expense_ratio": {
-            "Regular Plan": "0.97",
-            "Direct Plan": "0.52"
-        },
-        "metrics": {
-            "Annualised Portfo!l!io YTM": "6.88",
-            "Modified Duration": "6.9125",
-            "Average Maturity": "10.2708",
-            "Macaulay Duration": "7.1479"
-        }
+        "expense_ratio": [
+            "Regular Plan 0.97%",
+            "Direct Plan 0.52%"
+        ],
+        "metrics": [
+            "Annualised Portfo!l!io YTM 6.88%",
+            "Modified Duration 6.9125 years",
+            "Average Maturity 10.2708 years",
+            "Macaulay Duration 7.1479 years",
+            "!!Semi annual YTM has been annualised.",
+            "For Risk-o-meter (Scheme & Benchmark) & Potential Risk Class (PRC),",
+            "refer page no. 44."
+        ]
     },
     "jm low duration fund": {
         "inception_date_27th_september_2006": [
@@ -604,14 +695,14 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since April 03, 2024 and has",
             "10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "35.6422",
-            "Direct Growth Option": "36.5465"
-        },
-        "aum": {
-            "Month End AUM": "9.93",
-            "Monthly AAUM": "1.52"
-        },
+        "nav": [
+            "(Regular) - Growth Option: 35.6422",
+            "(Direct) - Growth Option: 36.5465"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 229.93 Crore",
+            "Monthly AAUM : Rs. 231.52 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01AY5",
             "(Direct) - Growth Option: INF192K01DW3"
@@ -621,11 +712,27 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "NIL",
-        "expense_ratio": {
-            "Regular Plan": "0.73",
-            "Direct Plan": "0.35"
-        },
-        "metrics": {}
+        "expense_ratio": [
+            "Regular Plan0.73%",
+            "Direct Plan 0.35%"
+        ],
+        "metrics": [
+            "40.00",
+            "34.14%",
+            "35.00",
+            "30.00 27.21%",
+            "25.00",
+            "20.78%",
+            "20.00",
+            "15.00",
+            "10.85%",
+            "10.00 6.74%",
+            "5.00",
+            "0.00",
+            "0 to 1 month1 to 3 months3 to 6 months 6 to 12 monthsAbove 1 yr",
+            "** Excluding investment in CDMDFA2",
+            "33"
+        ]
     },
     "jm medium to long duration fund": {
         "inception_date_1st_april_1995": [
@@ -642,14 +749,14 @@
             "Ms. Ruchi Foz(Mdaarnaging this Scheme since April 03, 2024 and has",
             "10 years of experience in fixed income market)."
         ],
-        "nav": {
-            "Regular Growth Option": "59.2428",
-            "Direct Growth Option": "65.8433"
-        },
-        "aum": {
-            "Month End AUM": "7.44",
-            "Monthly AAUM": "7.37"
-        },
+        "nav": [
+            "(Regular) - Growth Option : 59.2428",
+            "(Direct) - Growth Option : 65.8433"
+        ],
+        "aum": [
+            "Month End AUM : Rs. 27.44 Crore",
+            "Monthly AAUM : Rs. 27.37 Crore"
+        ],
         "isin": [
             "(Regular) - Growth Option: INF192K01AB3",
             "(Direct) - Growth Option: INF192K01CW5"
@@ -659,15 +766,24 @@
             "Additional Purch1a0s0e/-: and in multiples of Re. 1 thereafter."
         ],
         "exit_load": "NIL",
-        "expense_ratio": {
-            "Regular Plan": "1.09",
-            "Direct Plan": "0.56"
-        },
-        "metrics": {
-            "Annualised Portfo!l!io YTM": "6.86",
-            "Modified Duration": "6.6427",
-            "Average Maturity": "9.7359",
-            "Macaulay Duration": "6.8685"
-        }
+        "expense_ratio": [
+            "Regular Plan 1.09%",
+            "Direct Plan 0.56%"
+        ],
+        "metrics": [
+            "Annualised Portfo!l!io YTM 6.86%",
+            "Modified Duration 6.6427 years",
+            "Average Maturity 9.7359 years",
+            "Macaulay Duration 6.8685 years",
+            "!!Semi annual YTM has been annualised.",
+            "For Risk-o-meter (Scheme & Benchmark) & Potential Risk Class (PRC),",
+            "refer page no. 44.",
+            "nsitivity to interest rate changes. Duration tells investors the length of time, in years,",
+            "sitivity i.e. the changes in price of higher duration bonds are higher as compared to",
+            "residual matuFroitrym.ulTa:here is more than one way to calculate duration, but",
+            "ds, M = maturity val)u,e P ( i=n market price oNfo bteosnD:du.ration is quoted",
+            "st-rate risk. Or, stated differently, duration is a measure of how sensitive the price of",
+            "ds price will decline by 4%."
+        ]
     }
 }

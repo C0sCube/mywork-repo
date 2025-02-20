@@ -71,7 +71,7 @@ class Reader:
         print(f"\nPages to Extract: {pages}")
 
         # Open the file on the screen
-        subprocess.Popen([excel_path], shell=True)
+        # subprocess.Popen([excel_path], shell=True)
                 
     def check_and_highlight(self, path: str, count: int):
         
@@ -137,7 +137,7 @@ class Reader:
         if any(df['highlights']):
             output_path = path.replace(".pdf", "_hltd.pdf")
             document.save(output_path)
-            subprocess.Popen([output_path], shell=True)
+            # subprocess.Popen([output_path], shell=True)
 
         document.close()
         # Save PDF data

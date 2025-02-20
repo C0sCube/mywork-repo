@@ -45,9 +45,16 @@ class FundRegex():
                 print(f"\n{e}")
         return text
     
-    def transform_keys(self,data:dict):
+    def __clean_key(self,key: str) -> str:
+        
+        key = re.sub(r"[^\w\s]", "", key)
+        key = re.sub(r"\s+", "_", key)
+        return key.strip().lower()
+
+    def transform_keys(self, data):
+
         if isinstance(data, dict):
-            return {key.lower().replace(" ", "_"): self.transform_keys(value) for key, value in data.items()}
+            return {self.__clean_key(key): self.transform_keys(value) for key, value in data.items()}
         elif isinstance(data, list):
             return [self.transform_keys(item) if isinstance(item, dict) else item for item in data]
         else:
