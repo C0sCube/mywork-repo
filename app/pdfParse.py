@@ -7,8 +7,6 @@ import numpy as np
 import subprocess
 
 from app.fundRegex import *
-from log_config import logging
-
 class Reader:
     
     BASEPATH  = ''
@@ -49,13 +47,6 @@ class Reader:
     #HIGHLIGHT
     @staticmethod
     def __get_financial_indices(path:str):
-        try:
-            os.path.exists(path)
-            
-        except Exception as e:
-            logging.error(e)
-            print('File does not exists')
-            return
         
         df = pd.read_excel(path)
         financial_indexes = df['indexes'].tolist()
@@ -89,7 +80,7 @@ class Reader:
             fund_data = self.PARAMS['fund']
             
         except Exception as e:
-            logging.error(e)
+            # logging.error(e)
             return
             
         
@@ -161,7 +152,7 @@ class Reader:
             fund_names = title
             
         except Exception as e:
-            logging.error(e)
+            # logging.error(e)
             return
 
         for pgn in pages:
@@ -201,7 +192,7 @@ class Reader:
             fund_names = titles
             
         except Exception as e:
-            logging.error(e)
+            # logging.error(e)
             return
         
         for pgn in pageSelect:

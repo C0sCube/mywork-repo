@@ -47,7 +47,7 @@
         "metric": "(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\\s*([\\d,.]+)",
         "scheme": [
             "Inception Date",
-            "Benchmark",
+            "Benchmark", 
             "Min.?\\s*Application",
             "Additional",
             "Entry Load",
