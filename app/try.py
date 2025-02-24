@@ -3,56 +3,48 @@ from app.pdfParse import Reader
 from app.fundRegex import FundRegex
 import fitz
 
-class MahindraManu(Reader,GrandFundData):
+class Invesco(Reader,GrandFundData): #Lupsum issues
     
     PARAMS = {
-        'fund': [[20,16], r'',[12,20],[-15319437]],
-        'clip_bbox': [(0,65,200,812)],
-        'line_x': 200.0,
-        'data': [[7,10], [-7392877,-16749906,-7953091,-7767504,-12402502,-945627,], 30.0, ['QuantumRise-Bold','QuantumRise','QuantumRise-Semibold']],
+        'fund': [[20,16], r'^(Invesco|Bharat).*Fund$',[12,20],[-16777216]],
+        'clip_bbox': [(0,135,185,812)],
+        'line_x': 180.0,
+        'data': [[7,9], [-16777216], 30.0, ['Graphik-Semibold']],
         'content_size':[30.0,10.0]
-        }
+    }
     
     REGEX = {
-        'manager': r'',
-        'scheme':[],
-        'nav':r'',
-        'aum':r'',
-        'ter':r'',
-        'metrics': r''
-    }
-    PATTERN_TO_FUNCTION = {
-        r"^investment.*": ("_extract_str_data", None),
-        r"^fund_mana.*": ("_extract_manager_data", "manager"),
-        r"^metric.*": ("_extract_generic_data", "metrics"),
-        r"^scheme.*": ("_extract_scheme_data", "scheme"),
-        # r"^nav.*": ("_extract_nav_data", "nav"),
+        'date': r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*',
+        'metric':r'([\w\s-]+?)\s*(?:\([\w\s%-]*\)|\*)?\s*([\d.]+)%?',
+        'nav':r'([\w\s-]+?)\s*(?:\([\w\s%-]*\)|\*)?\s*([\d.]+)%?',
+        'metrics':r'^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\s*(?:\([\w\s%-]*\)|\*)?\s*([\d.]+)%?',
+        'manager': r'(Mr\.|Ms\.)\s([A-Za-z\s]+)\s(\d{2}-[A-Za-z]{3}-\d{2,4})\s(\d+)\syears',
+        'escape': r'[^A-Za-z0-9\s\-\(\).,]+'
     }
     
-    def __init__(self, paths_config:str):
-        super().__init__(paths_config, self.PARAMS)
+    PATTERN_TO_FUNCTION = {
+        r"^(load|investment|scheme_launch|benchmark|minimum|additional).*": ("_extract_str_data", None),
+        # r"^fund_mana.*": ("_extract_manager_data", 'manager'),
+        # r"^nav.*": ("_extract_generic_data", 'nav'),
+        # r"^total.*": ("_extract_generic_data", 'ter'),
+        # r"^portfolio.*": ("_extract_generic_data", 'ptr'),
+        # r"^(aum|aaum).*": ("_extract_generic_data", 'aum'),
+        # r"^metric.*": ("_extract_generic_data", 'metric'),
+    }
+    
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
+    
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        final_list = []
+        for text in data:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            for title, name, date, exp in matches:
+                final_list.append({
+                    'name': name.strip(),
+                    "designation": '',
+                    'managing_since': date,
+                    'experience': exp
+                })
         
-    def get_proper_fund_names(self,path:str,pages:list):
-        
-        doc = fitz.open(path)
-        final_fund_names = dict()
-        
-        for pgn in range(doc.page_count):
-            fund_names = ''
-            if pgn in pages:
-                page = doc[pgn]            
-                blocks = page.get_text("dict")['blocks']
-                
-                sorted_blocks = sorted(blocks,key=lambda k:(k['bbox'][1],k['bbox'][0]))
-                for count,block in enumerate(sorted_blocks):
-                    for line in block.get("lines", []):
-                        for span in line.get("spans", []):
-                            text = span['text'].strip()
-                            if count in range(0,2): #contains fund name        
-                                fund_names += f'{text} '
-            if matches:= re.search(r'\bMahindra.*?(Fund|ETF|EOF|FOF|FTF|Path)\b', fund_names, re.IGNORECASE):           
-                final_fund_names[pgn] = matches.group()
-            else:
-                final_fund_names[pgn] = ''
-
-        return final_fund_names
+        return {main_key:final_list}
