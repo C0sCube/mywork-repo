@@ -7,8 +7,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "r500/- & in multiples of r500/- thereafter",
-        "additional_purchase": "r500/- & in multiples of(cid:3) r500/- thereafter",
+        "minimum_investment": {
+            "amt": "500",
+            "thraftr": "500"
+        },
+        "additional_purchase": {
+            "amt": "500",
+            "thraftr": "500"
+        },
         "date_of_allotment": "29 December, 2006",
         "nav": [
             "(r) As on 31December, 2024",
@@ -35,6 +41,12 @@
                 "designation": "",
                 "managing_since": "September 3, 2020 ",
                 "experience": "23 Years"
+            },
+            {
+                "name": "Dhimant Kothari",
+                "designation": "",
+                "managing_since": "March 29, 2018",
+                "experience": "19 Years"
             }
         ],
         "asset_allocation": [
@@ -58,8 +70,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. (cid9)1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil - if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "17March, 2008",
         "nav": [
             "(r) As on 31December, 2024",
@@ -80,7 +98,20 @@
         "benchmark_index": "NIFTY 500 Multicap 50:25:25 TRI",
         "aaum": "4,016.60",
         "aum": "3,983.10",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Dhimant Kothari",
+                "designation": "",
+                "managing_since": "December 1, 2023 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Amit Nigam",
+                "designation": "",
+                "managing_since": "September 3, 2020",
+                "experience": "23 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 97.46%",
             "Cash & Cash Equivalent 2.54%"
@@ -102,8 +133,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "11April, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -124,7 +161,20 @@
         "benchmark_index": "BSE 500 TRI",
         "aaum": "18,376.06",
         "aum": "18,153.48",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Taher Badshah",
+                "designation": "",
+                "managing_since": "January 13, 2017 ",
+                "experience": "30 Years"
+            },
+            {
+                "name": "Amit Ganatra",
+                "designation": "",
+                "managing_since": "December 1, 2023",
+                "experience": "21 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 95.10%",
             "Cash & Cash Equivalent 4.90%"
@@ -146,8 +196,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "21August, 2009",
         "nav": [
             "(r) As on 31December, 2024",
@@ -168,7 +224,20 @@
         "benchmark_index": "NIFTY 100 TRI",
         "aaum": "1,340.75",
         "aum": "1,323.92",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Amit Nigam",
+                "designation": "",
+                "managing_since": "September 3, 2020 ",
+                "experience": "23 Years"
+            },
+            {
+                "name": "Hiten Jain",
+                "designation": "",
+                "managing_since": "December 1, 2023",
+                "experience": "15 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 97.50%",
             "Cash & Cash Equivalent 2.50%"
@@ -190,8 +259,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "29 September, 2020",
         "nav": [
             "(r) As on 31December, 2024",
@@ -212,7 +287,20 @@
         "benchmark_index": "BSE 500 TRI",
         "aaum": "3,532.02",
         "aum": "3,604.20",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Taher Badshah",
+                "designation": "",
+                "managing_since": "September 29, 2020 ",
+                "experience": "30 Years"
+            },
+            {
+                "name": "Hiten Jain",
+                "designation": "",
+                "managing_since": "September 14, 2022",
+                "experience": "15 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 93.35%",
             "Mutual Fund Units 4.17%",
@@ -235,8 +323,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. (cid9)1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil - if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "9 August, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -257,7 +351,20 @@
         "benchmark_index": "NIFTY LargeMidcap 250 TRI",
         "aaum": "6,621.92",
         "aum": "6,711.76",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Aditya Khemani",
+                "designation": "",
+                "managing_since": "November 9, 2023 ",
+                "experience": "18 Years"
+            },
+            {
+                "name": "Amit Ganatra",
+                "designation": "",
+                "managing_since": "January 21, 2022",
+                "experience": "21 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 95.77%",
             "Cash & Cash Equivalent 4.23%"
@@ -279,8 +386,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "19 April, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -301,7 +414,20 @@
         "benchmark_index": "BSE 150 Midcap TRI",
         "aaum": "6,135.56",
         "aum": "6,149.96",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Aditya Khemani",
+                "designation": "",
+                "managing_since": "November 9, 2023 ",
+                "experience": "18 Years"
+            },
+            {
+                "name": "Amit Ganatra",
+                "designation": "",
+                "managing_since": "September 1, 2023",
+                "experience": "21 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 97.13%",
             "Cash & Cash Equivalent 2.87%"
@@ -323,8 +449,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemedswitched-out within 1 year from the date of allotment. 1 - for any redemption  switch-out in excess of 10 of units allotted within one year from the date of allotment. Nil - if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of r1/- thereafter",
-        "additional_purchase": "r1,000/- & in multiples of(cid:3) r1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "30 October, 2018",
         "nav": [
             "(r) As on 31December, 2024",
@@ -345,7 +477,20 @@
         "benchmark_index": "BSE 250 Smallcap TRI",
         "aaum": "6,125.20",
         "aum": "6,298.05",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Taher Badshah",
+                "designation": "",
+                "managing_since": "October 30, 2018 ",
+                "experience": "30 Years"
+            },
+            {
+                "name": "Aditya Khemani",
+                "designation": "",
+                "managing_since": "November 9, 2023",
+                "experience": "18 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 94.16%",
             "Cash & Cash Equivalent 5.84%"
@@ -367,8 +512,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "14 July, 2008",
         "nav": [
             "(r) As on 31December, 2024",
@@ -389,7 +540,20 @@
         "benchmark_index": "Nifty Financial Services TRI",
         "aaum": "1,163.18",
         "aum": "1,147.73",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Hiten Jain",
+                "designation": "",
+                "managing_since": "May 19, 2020 ",
+                "experience": "15 Years"
+            },
+            {
+                "name": "Dhimant Kothari",
+                "designation": "",
+                "managing_since": "June 1, 2018",
+                "experience": "19 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 97.50%",
             "Cash & Cash Equivalent 2.50%"
@@ -411,8 +575,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "21November, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -433,7 +603,14 @@
         "benchmark_index": "BSE India Infrastructure TRI",
         "aaum": "1,635.66",
         "aum": "1,606.43",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Amit Nigam",
+                "designation": "",
+                "managing_since": "September 3, 2020",
+                "experience": "23 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 98.07%",
             "Cash & Cash Equivalent 1.93%"
@@ -455,8 +632,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "18 November, 2009",
         "nav": [
             "(r) As on 31December, 2024",
@@ -477,7 +660,14 @@
         "benchmark_index": "BSE PSU TRI",
         "aaum": "1,342.93",
         "aum": "1,285.76",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Dhimant Kothari",
+                "designation": "",
+                "managing_since": "May 19, 2020",
+                "experience": "19 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 96.82%",
             "Cash & Cash Equivalent 3.18%"
@@ -499,8 +689,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "20 March, 2021",
         "nav": [
             "(r) As on 31December, 2024",
@@ -521,7 +717,20 @@
         "benchmark_index": "Nifty100 ESG Index TRI",
         "aaum": "521.59",
         "aum": "507.58",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Taher Badshah",
+                "designation": "",
+                "managing_since": "March 20, 2021 ",
+                "experience": "30 Years"
+            },
+            {
+                "name": "Amit Nigam",
+                "designation": "",
+                "managing_since": "March 20, 2021",
+                "experience": "23 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 97.26%",
             "Cash & Cash Equivalent 2.74%"
@@ -543,8 +752,14 @@
             ],
             "exit_load": "1 If upto 10 of units allotted are redeemedswitched out within 1 year from the date of allotment  Nil - For any redemption  switch out in excess of 10 of units allotted within one year from the date of allotment  1 - If units are redeemedswitched out after 1 year from the date of allotment- Nil Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "14 February 2022",
         "nav": [
             "(r) As on 31December, 2024",
@@ -565,7 +780,20 @@
         "benchmark_index": "BSE 500 TRI",
         "aaum": "2,540.70",
         "aum": "2,575.92",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Amit Ganatra",
+                "designation": "",
+                "managing_since": "September 1, 2022 ",
+                "experience": "21 Years"
+            },
+            {
+                "name": "Taher Badshah",
+                "designation": "",
+                "managing_since": "February 14, 2022",
+                "experience": "30 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holding 96.34%",
             "Cash & Cash Equivalent 3.66%",
@@ -588,8 +816,14 @@
             ],
             "exit_load": "1 If units are redeemedswitched out on or before 3 months from the date of allotment 0.50. If units are redeemedswitched out after 3 months from the date of allotment Nil. Switch between the Plans under the Scheme Nil."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "14 August 2024",
         "nav": [
             "(r) As on 31December, 2024",
@@ -608,6 +842,12 @@
         "aaum": "844.35",
         "aum": "852.62",
         "fund_manager": [
+            {
+                "name": "Amit Ganatra",
+                "designation": "",
+                "managing_since": "Augsut 14, 2024 ",
+                "experience": "21 Years"
+            },
             {
                 "name": "Dhimant Kothari",
                 "designation": "",
@@ -637,8 +877,14 @@
             ],
             "exit_load": "1 If units are redeemedswitched out on or before 3 months from the date of allotment 0.50. If units are redeemedswitched out after 3 months from the date of allotment Nil. Switch between the Plans under the Scheme Nil."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "23 September, 2024",
         "nav": [
             "(r) As on 31December, 2024",
@@ -657,6 +903,12 @@
         "aaum": "345.47",
         "aum": "352.25",
         "fund_manager": [
+            {
+                "name": "Hiten Jain",
+                "designation": "",
+                "managing_since": "September 23, 2024 ",
+                "experience": "15 Years"
+            },
             {
                 "name": "Aditya Khemani",
                 "designation": "",
@@ -686,8 +938,14 @@
             ],
             "exit_load": "1 If redeemedswitched-out on or before 15 Days from the date of allotment  0.5 If redeemedswitched-out after 15 Days from the date of allotment  Nil Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "30 April, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -712,7 +970,20 @@
         "benchmark_index": "Nifty 50 Arbitrage",
         "aaum": "15,064.82",
         "aum": "18,909.98",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Deepak Gupta",
+                "designation": "",
+                "managing_since": "November 11, 2021 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Kuber Mannadi",
+                "designation": "",
+                "managing_since": "September 1, 2022",
+                "experience": "19 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holdings 75.83%",
             "Mutual Fund Units 20.05%",
@@ -738,8 +1009,14 @@
             ],
             "exit_load": "1 Nil - if upto 10 of Units allotted are redeemed  switched-out within 3 months from the date of allotment. 0.25 - for any redemption  switch-out in excess of 10 of units allotted within 3 months from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 3 months from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "r1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "4 October, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -760,7 +1037,20 @@
         "benchmark_index": "NIFTY 50 Hybrid Composite Debt 50:50 Index",
         "aaum": "826.19",
         "aum": "945.37",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Dhimant Kothari",
+                "designation": "",
+                "managing_since": "September 1, 2022 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Amit Ganatra",
+                "designation": "",
+                "managing_since": "September 1, 2022",
+                "experience": "21 Years"
+            }
+        ],
         "asset_allocation": [
             "Equity Holding 67.67%",
             "Mutual Fund Units 12.69%",
@@ -788,8 +1078,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "30 June, 2018",
         "nav": [
             "(r) As on 31December, 2024",
@@ -853,8 +1149,14 @@
             ],
             "exit_load": "1 (cid9)If redeemed  switched-out on or before 1 month from the date of allotment  0.25. (cid9)If redeemed  switched-out after 1 month from the date of allotment  Nil Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "7 March, 2019",
         "nav": [
             "(r) As on 31December, 2024",
@@ -924,8 +1226,14 @@
             ],
             "exit_load": "1 (cid9) (cid7)if upto 10 of Units allotted are redeemed  switched-out within 1 year Nil (cid9) (cid7)for any redemption  switch-out in excess of 10 of units within one year 1  (cid9)(cid7)if units are redeemed or switched-out after 1 year Nil  (cid9)(cid7)Switch between the Plans under the Scheme Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "17December, 2024",
         "nav": [
             "(r) As on 31December, 2024",
@@ -944,6 +1252,12 @@
         "aaum": "121.00",
         "aum": "300.02",
         "fund_manager": [
+            {
+                "name": "Taher Badshah",
+                "designation": "",
+                "managing_since": "December 17, 2024 ",
+                "experience": "30 Years"
+            },
             {
                 "name": "Herin Shah",
                 "designation": "",
@@ -981,8 +1295,14 @@
             "Switch between the Plans under the Scheme,",
             "please refer page no. 61."
         ],
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "17November, 2006",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1008,7 +1328,20 @@
         "benchmark_index": "NIFTY Liquid Index A-I",
         "aaum": "13,140.14",
         "aum": "11,745.30",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "April 25, 2011 ",
+                "experience": "26 Years"
+            },
+            {
+                "name": "Prateek Jain",
+                "designation": "",
+                "managing_since": "February 14, 2022 ",
+                "experience": "13 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "51",
@@ -1024,8 +1357,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "8 January, 2020",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1049,7 +1388,20 @@
         "benchmark_index": "NIFTY 1D Rate Index",
         "aaum": "451.38",
         "aum": "385.26",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "January 8, 2020 ",
+                "experience": "26 Years"
+            },
+            {
+                "name": "Prateek Jain",
+                "designation": "",
+                "managing_since": "February 14, 2022 ",
+                "experience": "13 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "1",
@@ -1065,8 +1417,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "18 January, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1095,7 +1453,20 @@
         "benchmark_index": "NIFTY Low Duration Debt Index A-I",
         "aaum": "1,521.44",
         "aum": "1,465.92",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "January 1, 2013 ",
+                "experience": "26 Years"
+            },
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "December 16, 2020 ",
+                "experience": "19 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "353",
@@ -1111,8 +1482,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "24 March, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1140,7 +1517,20 @@
         "benchmark_index": "NIFTY Short Duration Debt Index A-II",
         "aaum": "483.27",
         "aum": "481.70",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "September 26, 2020 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "December 16, 2020 ",
+                "experience": "26 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "3.47",
@@ -1156,8 +1546,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "28 August, 2009",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1185,7 +1581,20 @@
         "benchmark_index": "NIFTY Money Market Index A-I",
         "aaum": "5,585.88",
         "aum": "5,569.22",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "January 4, 2020 ",
+                "experience": "26 Years"
+            },
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "December 16, 2020 ",
+                "experience": "19 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "188",
@@ -1201,8 +1610,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "30 December, 2010",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1226,7 +1641,20 @@
         "benchmark_index": "Nifty Ultra Short Duration Debt Index A-I",
         "aaum": "1,478.77",
         "aum": "1,423.75",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "January 4, 2020 ",
+                "experience": "26 Years"
+            },
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "July 27, 2021 ",
+                "experience": "19 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "167",
@@ -1242,8 +1670,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "16 July, 2021",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1264,7 +1698,20 @@
         "benchmark_index": "Nifty Medium Duration Debt Index A-III",
         "aaum": "198.47",
         "aum": "181.20",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "July 16, 2021 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "July 16, 2021 ",
+                "experience": "26 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "5.22",
@@ -1280,8 +1727,14 @@
             ],
             "exit_load": "1 For each purchase of units through Lumpsum  Switch-in  Systematic Investment Plan (SIP), Systematic Transfer Plan (STP) and IDCW Transfer Plan, exit load will be as follows an exit load of 4 is payable if units are redeemed switched- out on or before 1 year from the date of allotment. no exit load is payable if units are redeemed switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "4 September, 2014",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1302,7 +1755,20 @@
         "benchmark_index": "NIFTY Credit Risk Bond Index B-II",
         "aaum": "141.44",
         "aum": "141.40",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "September 26, 2020 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "December 16, 2020 ",
+                "experience": "26 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "4.91",
@@ -1317,8 +1783,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "9 February, 2008",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1340,7 +1812,20 @@
         "benchmark_index": "NIFTY All Duration G-Sec Index",
         "aaum": "1,484.19",
         "aum": "1,504.23",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "July 27, 2021 ",
+                "experience": "26 Years"
+            },
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "September 26, 2020 ",
+                "experience": "19 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "29.90",
@@ -1354,10 +1839,16 @@
             "entry_load": [
                 ""
             ],
-            "exit_load": "1 Nil(cid3)"
+            "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "2 August, 2007",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1381,7 +1872,20 @@
         "benchmark_index": "Nifty Corporate Bond Index A-II",
         "aaum": "5,722.85",
         "aum": "5,670.75",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "September 26, 2020 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "December 16, 2020 ",
+                "experience": "26 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "5.24",
@@ -1397,8 +1901,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "29 December, 2012",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1418,7 +1928,20 @@
         "benchmark_index": "Nifty Banking & PSU Debt Index A-II",
         "aaum": "99.85",
         "aum": "99.84",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Vikas Garg",
+                "designation": "",
+                "managing_since": "September 26, 2020 ",
+                "experience": "19 Years"
+            },
+            {
+                "name": "Krishna Cheemalapati",
+                "designation": "",
+                "managing_since": "December 16, 2020 ",
+                "experience": "26 Years"
+            }
+        ],
         "metrics": {
             "ytm": "4",
             "average_maturity": "5.47",
@@ -1434,7 +1957,10 @@
             ],
             "exit_load": "1 (cid9) (cid7)If units are redeemed  switched out within 30 days from the date of allotment - 0.25 (cid9) (cid7)If units are redeemedswitched out after 30 days from the date of allotment  Nil (cid9) (cid7)Switch between the Plans under the Scheme Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "29 March, 2023",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1470,8 +1996,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch-out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "24 December, 2020",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1491,7 +2023,14 @@
         "benchmark_index": "MSCI World Consumer Discretionary Index- Net Total Return",
         "aaum": "316.32",
         "aum": "312.24",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Herin Shah",
+                "designation": "",
+                "managing_since": "August 1, 2024",
+                "experience": "14 Years"
+            }
+        ],
         "asset_allocation": [
             "Units of Overseas Mutual Fund 99.37%",
             "Cash & Cash Equivalent 0.63%",
@@ -1508,8 +2047,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "21April, 2022",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1527,7 +2072,14 @@
         "benchmark_index": "NASDAQ-100 Notional Index (Net Total Return)",
         "aaum": "436.90",
         "aum": "405.87",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Herin Shah",
+                "designation": "",
+                "managing_since": "August 1, 2024",
+                "experience": "14 Years"
+            }
+        ],
         "asset_allocation": [
             "Units of Overseas Mutual Fund 97.90%",
             "Cash & Cash Equivalent 2.10%",
@@ -1543,8 +2095,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "31January, 2014",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1564,7 +2122,14 @@
         "benchmark_index": "MSCI Europe Index - Net Total Return",
         "aaum": "33.28",
         "aum": "32.72",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Herin Shah",
+                "designation": "",
+                "managing_since": "August 1, 2024",
+                "experience": "14 Years"
+            }
+        ],
         "asset_allocation": [
             "Units of Overseas Mutual Fund 99.31%",
             "Cash & Cash Equivalent 0.69%",
@@ -1581,8 +2146,14 @@
             ],
             "exit_load": "1 (cid9)Nil - if upto 10 of Units allotted are redeemed  switched-out within 1 year from the date of allotment. 1 - for any redemption  switch- out in excess of 10 of units allotted within one year from the date of allotment. (cid9)Nil if units are redeemed or switched-out after 1 year from the date of allotment. Switch between the Plans under the Scheme, please refer page no. 61."
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "5 May, 2014",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1602,7 +2173,14 @@
         "benchmark_index": "MSCI World Index - Net Total Return",
         "aaum": "25.78",
         "aum": "25.99",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Herin Shah",
+                "designation": "",
+                "managing_since": "August 1, 2024",
+                "experience": "14 Years"
+            }
+        ],
         "asset_allocation": [
             "Units of Overseas Mutual Fund 99.74%",
             "Cash & Cash Equivalent 0.26%",
@@ -1619,8 +2197,14 @@
             ],
             "exit_load": "1 Nil"
         },
-        "minimum_investmentcid3": "R1,000/- & in multiples of R1/- thereafter",
-        "additional_purchase": "R1,000/- & in multiples of(cid:3) R1/- thereafter",
+        "minimum_investment": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "additional_purchase": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
         "date_of_allotment": "5 December, 2011",
         "nav": [
             "(r) As on 31December, 2024",
@@ -1639,7 +2223,14 @@
         "benchmark_index": "Price of Gold",
         "aaum": "100.94",
         "aum": "101.51",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "name": "Herin Shah",
+                "designation": "",
+                "managing_since": "August 1, 2024",
+                "experience": "14 Years"
+            }
+        ],
         "asset_allocation": [
             "Exchange Traded Funds 97.68%",
             "Cash & Cash Equivalent 2.32%",
@@ -1654,9 +2245,12 @@
             "entry_load": [
                 ""
             ],
-            "exit_load": "1 Nil(cid3) (For redemption in Creation Unit size.)"
+            "exit_load": "1 Nil (For redemption in Creation Unit size.)"
         },
-        "minimum_investmentcid3": "1.1 On Exchange : 1 Unit Directly with Mutual Fund : 1,000 Units and in multiples thereof. Large Investors can subscribe / redeem directly with AMC for the amount greater than Rs. 25 Crores. Except for Schemes managed by Employee Provident Fund Organisation, India and Recognised Provident Funds, approved gratuity funds and approved superannuation funds under Income tax act, 1961 (till February 28, 2025)",
+        "minimum_investment": {
+            "amt": "202",
+            "thraftr": "5"
+        },
         "listing_exchange": [
             "NSE / BSE"
         ],
@@ -1690,7 +2284,14 @@
         "benchmark_index": "Price of Gold",
         "aaum": "164.86",
         "aum": "201.24",
-        "fund_manager": []
+        "fund_manager": [
+            {
+                "name": "Herin Shah",
+                "designation": "",
+                "managing_since": "August 1, 2024",
+                "experience": "14 Years"
+            }
+        ]
     },
     "invesco india nifty 50 exchange traded fund": {
         "p_oduct_s_su_tab_e_o_t_e": [],
@@ -1699,9 +2300,12 @@
             "entry_load": [
                 ""
             ],
-            "exit_load": "1, 1.1 Nil(cid3) (For redemption in Creation Unit size.)"
+            "exit_load": "1, 1.1 Nil (For redemption in Creation Unit size.)"
         },
-        "minimum_investmentcid3": "1.2 On Exchange : 1 Unit Directly with Mutual Fund : For Market Maker - 5,000 Units and in multiples thereof. Large Investors can subscribe / redeem directly with AMC for the amount greater than Rs. 25 Crores. Except for Schemes managed by Employee Provident Fund Organisation, India and Recognised Provident Funds, approved gratuity funds and approved superannuation funds under Income tax act, 1961 (till February 28, 2025)",
+        "minimum_investment": {
+            "amt": "202",
+            "thraftr": "5"
+        },
         "listing_exchange": [
             "NSE"
         ],
@@ -1732,6 +2336,13 @@
         "benchmark_index": "Nifty 50 TRI",
         "aaum": "90.34",
         "aum": "88.24",
-        "fund_manager": []
+        "fund_manager": [
+            {
+                "name": "Kuber Mannadi",
+                "designation": "",
+                "managing_since": "May 19, 2020 ",
+                "experience": "19 Years"
+            }
+        ]
     }
 }

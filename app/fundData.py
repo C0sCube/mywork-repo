@@ -8,7 +8,7 @@ class GrandFundData:
     def __init__(self):
         pass
     
-    def _extract_dummy_data(self,key:str,data:list):
+    def _extract_dummy_data(self,key:str,data):
         return {key:data}
     
     def _extract_scheme_data(self,main_key:str,data:list, pattern:str):
@@ -55,15 +55,36 @@ class GrandFundData:
         load_data = " ".join(data)
         load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
         final_dict = {}
-        if match:= re.findall(self.REGEX[pattern],load_data.strip(), re.IGNORECASE):
-            entry_,exit_ = match[0]
+        if matches:= re.findall(self.REGEX[pattern],load_data.strip(), re.IGNORECASE):
+            for match in matches:
+                entry_,exit_ = match
             
             final_dict['entry_load'] = entry_,
             final_dict['exit_load'] = exit_
         return {main_key:final_dict}
+     
+    def _extract_amt_data(self,main_key:str, data, pattern:str):
+
+        amt_data = " ".join(data) if isinstance(data,list) else data
+        amt_data = re.sub(self.REGEX['escape'],"",amt_data).strip()
+        matches = re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE)
+        final_dict = {}
+        for match in matches:
+            amt, thraftr = match
+            final_dict['amt'], final_dict['thraftr'] = amt,thraftr
+        return {main_key:final_dict}
     
-    def match_regex_to_content(self, string: str, data: list, *args):
+    def match_regex_to_content(self, string: str, data: list,*args):
         for pattern, (func_name, regex_key) in self.__class__.PATTERN_TO_FUNCTION.items():
+            if re.match(pattern, string, re.IGNORECASE):
+                func = getattr(self, func_name) #dynamic function lookup
+                if regex_key:
+                    return func(string, data, regex_key)
+                return func(string, data)
+        return self._extract_dummy_data(string, data)
+    
+    def secondary_match_regex_to_content(self, string: str, data: list,*args):
+        for pattern, (func_name, regex_key) in self.__class__.SECONDARY_PATTERN_TO_FUNCTION.items():
             if re.match(pattern, string, re.IGNORECASE):
                 func = getattr(self, func_name) #dynamic function lookup
                 if regex_key:
@@ -330,7 +351,7 @@ class Helios(Reader,GrandFundData):
         'scheme': ["Scheme Category","Benchmark","Plans and Options","Inception Date","Minimum Investment Amount","Additional Investment Amount","Fund Manager","Entry Load","Exit Load","Face Value per Unit","EOL"],
         'aum': r'(Monthly Avg AUM|Month End AUM)\s*([\d,.\-]+)',
         'ptr':r'(Equity Turnover|Total Turnover)\s*([\d,.\-]+)',
-        # 'manager': r'([A-Za-z\s]+)\s*\(Managing Since\s*([A-Za-z0-9\s]+) and overall experience of ([a-z0-9\s]+)\)',
+        'manager': r'(?:Mr\.?|Ms\.?|Mrs\.?)?\s*([\w\s]+)(?:\([^)]+\))?\s*\(Since ([^)]+)  Overall (\d+ years)',
         'escape': r'[^A-Za-z0-9\s\-\(\).,]+|\(Annualised\)'
     }
 
@@ -346,13 +367,28 @@ class Helios(Reader,GrandFundData):
         #secondary
     }
     
-    SELECTKEYS ={
-        
+    SECONDARY_PATTERN_TO_FUNCTION ={
+        r'^portfolio.fund_manager': ('_extract_manager_data','manager'),
+        # r'.*(minimum_investment_amount|additional_investment_amount)$':('_extract_min_data','min_add')
     }
 
     def __init__(self, paths_config: str):
         super().__init__(paths_config, self.PARAMS)
-
+        
+    def _extract_manager_data(self, main_key:str, data, pattern:str):
+        manager_data = re.sub(self.REGEX['escape'],"", data).strip()
+        final_list = []
+        if matches:= re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
+            for match in matches:
+                name,since,exp = match
+                final_list.append({
+                    "name": name.strip(),
+                    "designation":"",
+                    "managing_since": since.strip(),
+                    "experince": exp.strip()
+                })
+        
+        return {main_key: final_list}
 # 6  <>
 class Edelweiss(Reader,GrandFundData):
     
@@ -467,24 +503,27 @@ class Invesco(Reader,GrandFundData): #Lupsum issues
         # 'nav':r'([\w\s-]+?)\s*(?:\([\w\s%-]*\)|\*)?\s*([\d.]+)%?',
         'metric':r'^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Fund PB|Fund PE\s*-\s*[A-Z0-9]+|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\s*(?:\([\w\s%-]*\)|\*)?\s*([\d.]+)%?',
         'manager': r'([A-Z][a-zA-Z ]+?) Total Experience (\d+ years) Experience in managing this fund\s+Since ([A-Za-z ]+[0-9, ]+)',
-        'escape': r'[^A-Za-z0-9\s\-\(\).,]+',
+        'escape': r'[^A-Za-z0-9\s\-\(\).,]+|\(cid:3\)',
         'aum': r'([\d,]+\.?\d+) crores',
-        'load': r'(.*?)Exit Load(.*)$'
+        'load': r'(.*?)Exit Load(.*)$',
+        'min_amt':r'([\d,]+).*?([\d,]+)'
     }
     
     PATTERN_TO_FUNCTION = {
-        r"^(date_of|investment|scheme_launch|benchmark|minimum|additional).*": ("_extract_str_data", None),
-        # r"^fund_mana.*": ("_extract_manager_data", 'manager'),
+        r"^(date_of|investment|scheme_launch|benchmark).*": ("_extract_str_data", None),
+        r"^fund_mana.*": ("_extract_manager_data", 'manager'),
         # r"^nav.*": ("_extract_generic_data", 'nav'),
-        # r"^load.*": ("_extract_load_data", 'load'),
+        r"^load.*": ("_extract_load_data", 'load'),
         # r"^total.*": ("_extract_generic_data", 'ter'),
         # r"^portfolio.*": ("_extract_generic_data", 'ptr'),
+        r"^(minimum_investment|additional_purchase).*":('_extract_amt_data','min_amt'),
         r"^(aum|aaum).*": ("_extract_generic_data", 'aum'),
         r"^metric.*": ("_extract_generic_data", 'metric'),
     }
     
     def __init__(self,paths_config:str):
         super().__init__(paths_config,self.PARAMS)
+    
     
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         manager_data = " ".join(data)
@@ -575,9 +614,10 @@ class ITI(Reader,GrandFundData):
         'nav': r'(Growth|IDCW)\s*([\-\d,.]+)\s*([\-\d,]+\.?\d+)', 
         'metric':r'(Average PE|Average PB|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity|Macaulay Duration|Portfolio Turnover Ratio)\s*([\-\d,]+\.\d+)',
         'ter':r'^(Regular Plan|Direct Plan)\s*([\d,]+\.?\d+)',
-        'manager':r'(?:Mr|Mrs|Ms)\s*([\w\s]+)\(Since\s*([\d\w\-]+)\)\s*Total experience\s*([0-9]+ years)',
+        'manager':r'(?:Mr\.?|Mrs\.?|Ms\.?)\s*([\w\s]+)\(Since ([\w\-\s]+)\)\s*Total Experience\s*(\d+ years)',
         'scheme':["Inception Date","Benchmark","Minimum Application",'Load Structure',"Entry Load","Exit Load","Total Expense Ratio","EOL"],
-        'escape': r'[^A-Za-z0-9\-\(\).,]+'
+        'min_amt': r'([\d,]+).*?([\d,]+)',
+        'escape': r'[^A-Za-z0-9\-\(\).,\s]+'
     }
 
     PATTERN_TO_FUNCTION = {
@@ -587,7 +627,11 @@ class ITI(Reader,GrandFundData):
         # r"^nav.*": ("_extract_nav_data", 'nav'),
         r"^metrics.*":("_extract_generic_data", "metric"),
         r"^scheme.*": ("_extract_scheme_data", 'scheme'),
-        # r'^fund_manager': ('_extract_manager_data','manager')
+        r'^fund_manager': ('_extract_manager_data','manager')
+    }
+    
+    SECONDARY_PATTERN_TO_FUNCTION = {
+        r'.*minimum_application$':("_extract_amt_data", "min_amt"),
     }
 
     def __init__(self, paths_config: str):
@@ -739,8 +783,9 @@ class MahindraManu(Reader,GrandFundData):
         'manager': r'Fund Manager(?:\s*\(.*?\))?\s+(?:Ms\.?|Mrs\.?|Mr\.?)?\s*([\w\s]+?)(?:\s*\(.*?\))?\s+Total Experience\s+([0-9]+(?:\s+years)?)?.*?\(.*?Managing since\s+([^)]+)\)',
         'scheme': ["Date of allotment","Benchmark","Option","Minimum Application Amount","Minimum Additional Purchase Amount","Minimum Repurchase Amount","Minimum Redemption / Switch-outs","Monthly AAUM","Quarterly AAUM","Monthly AUM","Total Expense Ratio","Load Structure","Entry Load","Exit Load","EOL"],
         'nav':r'(IDCW|Growth)\s*([\-\d,.]+)\s*([\-\d,.]+)',
-        'aum':r'',
+        'aum':r'.*?([\d,]+\.?\d{2}+)$',
         'ter':r'',
+        'min_amt': r'([\d,]+).*?([\d,]+)',
         'metrics': r'(Portfolio Turnover Ratio\s*\(.*\)|Standard Deviation|Treynor|Beta|Sharpe|Jensons).*?(-?[\d,\.]+)',
         'escape': r'[^A-Za-z0-9\s\(\),\-\.\/]+'
     }
@@ -750,6 +795,11 @@ class MahindraManu(Reader,GrandFundData):
         r"^metric.*": ("_extract_generic_data", "metrics"),
         r"^scheme.*": ("_extract_scheme_data", "scheme"),
         r"^nav.*": ("_extract_nav_data", "nav"),
+    }
+    
+    SECONDARY_PATTERN_TO_FUNCTION = {
+        r'.*(application_amount|purchase_amount)$':('_extract_amt_data','min_amt'),
+        # r'.*(monthly_aaum|quarterly_aaum|monthly_aum)':("_extract_generic_data","aum")
     }
     
     def __init__(self, paths_config:str):

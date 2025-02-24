@@ -496,6 +496,24 @@ class Reader:
             final_text = {fund: regex.flatten_dict(data) for fund, data in final_text.items()}
             
         return final_text
+    
+    def refine_secondary_data(self, extracted_text: dict):
+        final_text = {}
+        regex = FundRegex() 
+        for fund, items in extracted_text.items():
+            content_dict = {}
+            for head, content in items.items():
+                # clean_head = regex.header_mapper(head) #normalizes headers
+                # if clean_head: 
+                content = self.secondary_match_regex_to_content(head, content) # applies regex to clean data
+                # content = regex.transform_keys(content) #lowercase all keys
+                content_dict.update(content)
+            final_text[fund] = content_dict
+        
+        # if flatten: #Flatten the dict if true
+        #     final_text = {fund: regex.flatten_dict(data) for fund, data in final_text.items()}
+            
+        return final_text
 
 
     def select_imp_data(self,data:dict)->dict:
