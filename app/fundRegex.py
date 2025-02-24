@@ -35,7 +35,7 @@ class FundRegex():
             try:
                 if isinstance(patterns, list):
                     for pattern in patterns:
-                        if re.match(pattern, text, re.IGNORECASE):
+                        if re.match(f"^{pattern}.*", text, re.IGNORECASE):
                             return replacement
                 else:
                     if re.match(patterns, text, re.IGNORECASE):
@@ -44,6 +44,13 @@ class FundRegex():
                 print(f"\n{e}")
         return text
     
+    def select_imp_headers(self, text:str)->str:
+        text = re.sub(r"[^\w\s]+", "", text).strip()
+        for pattern in self.SELECTKEYS:
+            if re.match(f"^{pattern}.*",text, re.IGNORECASE):
+                return True
+        return False
+    
     def __clean_key(self,key: str) -> str:
         
         key = re.sub(r"[^\w\s]", "", key)
@@ -51,11 +58,30 @@ class FundRegex():
         return key.strip().lower()
 
     def transform_keys(self, data:dict)->dict:
-
+        """ lowercase_ all the keys"""
         if isinstance(data, dict):
             return {self.__clean_key(key): self.transform_keys(value) for key, value in data.items()}
         elif isinstance(data, list):
             return [self.transform_keys(item) if isinstance(item, dict) else item for item in data]
         else:
             return data
+        
+    
+    def flatten_dict(self,data:dict, parent_key='', sep='.'):
+        flattened = {}
 
+        for key, value in data.items():
+            new_key = f"{parent_key}{sep}{key}" if parent_key else key
+
+            if isinstance(value, dict):  
+                # Recursively flatten nested dictionaries
+                flattened.update(self.flatten_dict(value, new_key, sep))
+            elif isinstance(value, list):
+                # Keep lists untouched
+                flattened[new_key] = value
+            else:
+                flattened[new_key] = value
+
+        return flattened
+            
+    

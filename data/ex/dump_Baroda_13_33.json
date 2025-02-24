@@ -8,34 +8,31 @@
             "direct_plan_growth_option_v": "248.5281"
         },
         "benchmark_index": "Nifty 100 TRI",
-        "date_of_allotment": [
-            "September 23, 2004",
-            "Monthly AAUM## As on December 31, 2024 v 2,441.43 Crores",
-            "AUM## As on December 31, 2024 v 2,421.44 Crores"
-        ],
+        "aum": {
+            "inception_date": "September 23, 2004",
+            "monthly_aaum": "2,441.43",
+            "aum": "2,421.44"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Jitendra Sriram",
+                "name": "Jitendra Sriram",
                 "designation": "",
                 "managing_since": "16-Jun-22",
-                "experience": "26"
+                "experience": "26 years"
             },
             {
-                "name": "Mr. Kushant Arora",
+                "name": "Kushant Arora",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "11"
+                "experience": "11 years"
             }
         ],
-        "load": [
-            "Exit Load:  If units of the Scheme are redeemed or",
-            "switched out within 30 days of the date of allotment - 1%",
-            "of the applicable Net Asset Value (NAV)  If units of the",
-            "Scheme are redeemed or switched out after 30 days of",
-            "allotment - Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "If units of the Scheme are redeemed or switched out within 30 days of the date of allotment - 1 of the applicable Net Asset Value (NAV)  If units of the Scheme are redeemed or switched out after 30 days of allotment - Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.01",
             "ter_direct_plan": "0.82",
@@ -73,26 +70,25 @@
             "direct_plan_growth_option_v": "29.4587"
         },
         "benchmark_index": "BSE 250 Large & Mid Cap TRI",
-        "date_of_allotment": [
-            "September 04, 2020",
-            "Monthly AAUM## As on December 31, 2024 v 1,540.25 Crores",
-            "AUM## As on December 31, 2024 v 1,539.83 Crores"
-        ],
+        "aum": {
+            "inception_date": "September 04, 2020",
+            "monthly_aaum": "1,540.25",
+            "aum": "1,539.83"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Sanjay Chawla",
+                "name": "Sanjay Chawla",
                 "designation": "",
                 "managing_since": "04-Sep-20",
-                "experience": "33"
+                "experience": "33 years"
             }
         ],
-        "load": [
-            "Exit Load:  Upto 365 days  Redeemed or switched out",
-            "upto 10% of the allotment: Nil  Redeemed or switched out",
-            "more than 10% of the allotment: 1% After 365 days - Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Upto 365 days  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 365 days - Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.11",
             "ter_direct_plan": "0.83",
@@ -128,33 +124,31 @@
             "direct_plan_growth_option_v": "120.8116"
         },
         "benchmark_index": "Nifty Midcap 150 TRI",
-        "date_of_allotment": [
-            "May 02, 2006",
-            "Monthly AAUM## As on December 31, 2024 v 2,189.23 Crores",
-            "AUM## As on December 31, 2024 v 2,186.47 Crores"
-        ],
+        "aum": {
+            "inception_date": "May 02, 2006",
+            "monthly_aaum": "2,189.23",
+            "aum": "2,186.47"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Shiv Chanani",
+                "name": "Shiv Chanani",
                 "designation": "",
                 "managing_since": "13-Jul-22",
-                "experience": "24"
+                "experience": "24 years"
             },
             {
-                "name": "Mr. Himanshu Singh",
+                "name": "Himanshu Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "10"
+                "experience": "10 years"
             }
         ],
-        "load": [
-            "Exit Load:  Within 12 months  Redeemed or switched out",
-            "upto 10% of the allotment: Nil  Redeemed or switched out",
-            "more than 10% from the date of allotment : 1% After 12",
-            "months - Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Within 12 months  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 from the date of allotment  1 After 12 months - Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "1.99",
             "ter_direct_plan": "0.56",
@@ -199,36 +193,31 @@
             "direct_growth_v": "14.0542"
         },
         "benchmark_index": "Nifty Small Cap 250 TRI",
-        "date_of_allotment": [
-            "October 30, 2023",
-            "Monthly AAUM## As on December 31, 2024 v 1,454.63 Crores",
-            "AUM## As on December 31, 2024 v 1,437.87 Crores"
-        ],
+        "aum": {
+            "inception_date": "October 30, 2023",
+            "monthly_aaum": "1,454.63",
+            "aum": "1,437.87"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Shiv Chanani",
+                "name": "Shiv Chanani",
                 "designation": "",
                 "managing_since": "30-Oct-23",
-                "experience": "24"
+                "experience": "24 years"
             },
             {
-                "name": "Mr. Himanshu Singh",
+                "name": "Himanshu Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "10"
+                "experience": "10 years"
             }
         ],
-        "load": [
-            "Exit Load:   If units of the Scheme are redeemed or",
-            "switched out up to 10% of the units within 1 year from the",
-            "date of allotment - Nil.  If units of the scheme are",
-            "redeemed or switched out in excess of the limit within 1",
-            "year from the date of allotment - 1% of the applicable NAV.",
-            " If units of scheme are redeemed or switched out after 1",
-            "year from the date of allotment - Nil.",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "If units of the Scheme are redeemed or switched out up to 10 of the units within 1 year from the date of allotment - Nil.  If units of the scheme are redeemed or switched out in excess of the limit within 1 year from the date of allotment - 1 of the applicable NAV.  If units of scheme are redeemed or switched out after 1 year from the date of allotment - Nil. For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.19",
             "ter_direct_plan": "1.27",
@@ -263,26 +252,25 @@
             "direct_plangrowth_option_v": "16.1600"
         },
         "benchmark_index": "Nifty 500 TRI",
-        "date_of_allotment": [
-            "August 17, 2022",
-            "Monthly AAUM## As on December 31, 2024 v 1,334.66 Crores",
-            "AUM## As on December 31, 2024 v 1,313.24 Crores"
-        ],
+        "aum": {
+            "inception_date": "August 17, 2022",
+            "monthly_aaum": "1,334.66",
+            "aum": "1,313.24"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Sanjay Chawla",
+                "name": "Sanjay Chawla",
                 "designation": "",
                 "managing_since": "17-Aug-22",
-                "experience": "33"
+                "experience": "33 years"
             }
         ],
-        "load": [
-            "Exit Load:  Upto 12 months  Redeemed or switched out",
-            "upto 10% of the allotment: Nil  Redeemed or switched out",
-            "more than 10% of the allotment: 1% After 12 months - Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Upto 12 months  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 12 months - Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.16",
             "ter_direct_plan": "0.95",
@@ -320,31 +308,31 @@
             "direct_plan_growth_option_v": "331.0843"
         },
         "benchmark_index": "Nifty 500 Multicap 50 25 25 TRI",
-        "date_of_allotment": [
-            "September 12, 2003",
-            "Monthly AAUM## As on December 31, 2024 v 2,868.52 Crores",
-            "AUM## As on December 31, 2024 v 2,849.74 Crores"
-        ],
+        "aum": {
+            "inception_date": "September 12, 2003",
+            "monthly_aaum": "2,868.52",
+            "aum": "2,849.74"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Sanjay Chawla",
+                "name": "Sanjay Chawla",
                 "designation": "",
                 "managing_since": "01-Nov-15",
-                "experience": "33"
+                "experience": "33 years"
             },
             {
-                "name": "Mr. Sandeep Jain",
+                "name": "Sandeep Jain",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "16"
+                "experience": "16 years"
             }
         ],
-        "load": [
-            "Exit Load:  Redeemed or switched out from the date of",
-            "allotment: upto 12 month: 1%  after 12 month: Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Redeemed or switched out from the date of allotment upto 12 month 1  after 12 month Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "1.99",
             "ter_direct_plan": "0.95",
@@ -391,32 +379,31 @@
             "direct_plangrowth_option_v": "14.3036"
         },
         "benchmark_index": "Nifty 500 TRI",
-        "date_of_allotment": [
-            "June 07, 2023",
-            "Monthly AAUM## As on December 31, 2024 v 1,486.11 Crores",
-            "AUM## As on December 31, 2024 v 1,447.38 Crores"
-        ],
+        "aum": {
+            "inception_date": "June 07, 2023",
+            "monthly_aaum": "1,486.11",
+            "aum": "1,447.38"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Shiv Chanani",
+                "name": "Shiv Chanani",
                 "designation": "",
                 "managing_since": "07-Jun-23",
-                "experience": "24"
+                "experience": "24 years"
             },
             {
-                "name": "Mr. Himanshu Singh",
+                "name": "Himanshu Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "10"
+                "experience": "10 years"
             }
         ],
-        "load": [
-            "Exit Load:  Upto 1 year: Redeemed or switched out up to",
-            "10% of the allotment: Nil.  Redeemed or switched out",
-            "more than 10% of the allotment: 1%  After 1 year: Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Upto 1 year Redeemed or switched out up to 10 of the allotment Nil.  Redeemed or switched out more than 10 of the allotment 1  After 1 year Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.19",
             "ter_direct_plan": "1.32",
@@ -456,36 +443,31 @@
             "direct_growth_v": "9.4097"
         },
         "benchmark_index": "Nifty 500 TRI",
-        "date_of_allotment": [
-            "September 11, 2024",
-            "Monthly AAUM## As on December 31, 2024 v 1,045.52 Crores",
-            "AUM## As on December 31, 2024 v 1,029.91 Crores"
-        ],
+        "aum": {
+            "inception_date": "September 11, 2024",
+            "monthly_aaum": "1,045.52",
+            "aum": "1,029.91"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Shiv Chanani",
+                "name": "Shiv Chanani",
                 "designation": "",
                 "managing_since": "11-Sep-24",
-                "experience": "24"
+                "experience": "24 years"
             },
             {
-                "name": "Mr. Himanshu Singh",
+                "name": "Himanshu Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "10"
+                "experience": "10 years"
             }
         ],
-        "load": [
-            "Exit Load:   If units of the Scheme are redeemed or",
-            "switched out up to 10% of the units (the limit) within 1 year",
-            "from the date ofallotment - Nil.  If units of the Scheme are",
-            "redeemed or switched out in excess of the limit within 1",
-            "year from the date of allotment - 1% of the applicable NAV.",
-            " If units of Scheme are redeemed or switched out aft er 1",
-            "year from the date of allotment - Nil.",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "If units of the Scheme are redeemed or switched out up to 10 of the units (the limit) within 1 year from the date ofallotment - Nil.  If units of the Scheme are redeemed or switched out in excess of the limit within 1 year from the date of allotment - 1 of the applicable NAV.  If units of Scheme are redeemed or switched out aft er 1 year from the date of allotment - Nil. For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.14",
             "ter_direct_plan": "0.46",
@@ -523,26 +505,25 @@
             "direct_plan_growth_option_v": "24.5024"
         },
         "benchmark_index": "Nifty 500 TRI",
-        "date_of_allotment": [
-            "October 06, 2017",
-            "Monthly AAUM## As on December 31, 2024 v 700.00 Crores",
-            "AUM## As on December 31, 2024 v 684.32 Crores"
-        ],
+        "aum": {
+            "inception_date": "October 06, 2017",
+            "monthly_aaum": "700.00",
+            "aum": "684.32"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Sanjay Chawla",
+                "name": "Sanjay Chawla",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "33"
+                "experience": "33 years"
             }
         ],
-        "load": [
-            "Exit Load:  Upto 12 months  Redeemed or switched out",
-            "upto 10% of the allotment: Nil  Redeemed or switched out",
-            "more than 10% of the allotment : 1% After 12 months - Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Upto 12 months  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment  1 After 12 months - Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.28",
             "ter_direct_plan": "0.48",
@@ -587,31 +568,31 @@
             "direct_plan_growth_option_v": "106.5096"
         },
         "benchmark_index": "Nifty 500 TRI",
-        "date_of_allotment": [
-            "January 05, 2006",
-            "Monthly AAUM## As on v 967.87 Crores",
-            "December 31, 2024",
-            "AUM## As on December 31, 2024 v 951.23 Crores"
-        ],
+        "aum": {
+            "inception_date": "December 31, 2024",
+            "monthly_aaum": "967.87",
+            "aum": "951.23"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Sanjay Chawla",
+                "name": "Sanjay Chawla",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "33"
+                "experience": "33 years"
             },
             {
-                "name": "Mr. Pratish Krishnan",
+                "name": "Pratish Krishnan",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "23"
+                "experience": "23 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "2.20",
             "ter_direct_plan": "1.00",
@@ -660,16 +641,16 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Shiv Chanani",
+                "name": "Shiv Chanani",
                 "designation": "",
                 "managing_since": "13-Jul-22",
-                "experience": "24"
+                "experience": "24 years"
             },
             {
-                "name": "Mr. Himanshu Singh",
+                "name": "Himanshu Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "10"
+                "experience": "10 years"
             }
         ],
         "metrics": {
@@ -714,16 +695,16 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Jitendra Sriram",
+                "name": "Jitendra Sriram",
                 "designation": "",
                 "managing_since": "01-Nov-23",
-                "experience": "26"
+                "experience": "26 years"
             },
             {
-                "name": "Mr. Kushant Arora",
+                "name": "Kushant Arora",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "11"
+                "experience": "11 years"
             }
         ],
         "metrics": {
@@ -764,16 +745,16 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Sandeep Jain",
+                "name": "Sandeep Jain",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "16"
+                "experience": "16 years"
             },
             {
-                "name": "Mr. Arjun Bagga",
+                "name": "Arjun Bagga",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "7"
+                "experience": "7 years"
             }
         ],
         "metrics": {
@@ -816,10 +797,10 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Pratish Krishnan",
+                "name": "Pratish Krishnan",
                 "designation": "",
                 "managing_since": "05-Mar-24",
-                "experience": "23"
+                "experience": "23 years"
             }
         ],
         "metrics": {
@@ -860,16 +841,16 @@
         ],
         "fund_manager": [
             {
-                "name": "Mr. Jitendra Sriram",
+                "name": "Jitendra Sriram",
                 "designation": "",
                 "managing_since": "28-Jun-24",
-                "experience": "26"
+                "experience": "26 years"
             },
             {
-                "name": "Mr. Kushant Arora",
+                "name": "Kushant Arora",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "11"
+                "experience": "11 years"
             }
         ],
         "metrics": {
@@ -906,25 +887,25 @@
             "direct_plan_growth_option_v": "12.2951"
         },
         "benchmark_index": "MSCI World Index (TRI)",
-        "date_of_allotment": [
-            "May 07, 2021",
-            "Monthly AAUM## As on December 31, 2024 v 43.47 Crores",
-            "AUM## As on December 31, 2024 v 41.71 Crores"
-        ],
+        "aum": {
+            "inception_date": "May 07, 2021",
+            "monthly_aaum": "43.47",
+            "aum": "41.71"
+        },
         "fund_manager": [
             {
-                "name": "Ms. Swapna Shelar",
+                "name": "Swapna Shelar",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Redeemed or switched out from the date of",
-            "allotment: upto 12 month: 1% after 12 month: Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Redeemed or switched out from the date of allotment upto 12 month 1 after 12 month Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "1.57",
             "ter_direct_plan": "0.53"
@@ -950,20 +931,16 @@
             "direct_plan_growth_v": "10.1712"
         },
         "benchmark_index": "Nifty Midcap 150 Total Returns Index",
-        "date_of_allotment": [
-            "November 04, 2024",
-            "Monthly AAUM## As on December",
-            "31, 2024 v 8.70 Crores",
-            "AUM## As on December 31, 2024 v 8.69 Crores"
-        ],
-        "load": [
-            "Entry Load :",
-            "Exit Load:  0.2%- If redeemed on or before 7 days from the",
-            "date of allotment Nil- If redeemed after 7 days from the",
-            "date of allotment",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "aum": {
+            "inception_date": "November 04, 2024",
+            "aum": "8.69"
+        },
+        "load": {
+            "entry_load": [
+                "NA"
+            ],
+            "exit_load": "0.2- If redeemed on or before 7 days from the date of allotment Nil- If redeemed after 7 days from the date of allotment For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "1.09",
             "ter_direct_plan": "0.39",
@@ -993,38 +970,37 @@
             "direct_plan_growth_option_v": "31.0894"
         },
         "benchmark_index": "CRISIL Hybrid 35+65-Aggressive Index",
-        "date_of_allotment": [
-            "April 07, 2017",
-            "Monthly AAUM## As on December 31, 2024 v 1,193.09 Crores",
-            "AUM## As on December 31, 2024 v 1,184.08 Crores"
-        ],
+        "aum": {
+            "inception_date": "April 07, 2017",
+            "monthly_aaum": "1,193.09",
+            "aum": "1,184.08"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Jitendra Sriram",
+                "name": "Jitendra Sriram",
                 "designation": "",
                 "managing_since": "16-Jun-22",
-                "experience": "26"
+                "experience": "26 years"
             },
             {
-                "name": "Mr. Pratish Krishnan",
+                "name": "Pratish Krishnan",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "23"
+                "experience": "23 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:  Upto 12 months  Redeemed or switched out",
-            "upto 10% of the allotment: Nil  Redeemed or switched out",
-            "more than 10% of the allotment: 1% After 12 months - Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Upto 12 months  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 12 months - Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "3.13",
             "modified_duration": "2.16",
@@ -1067,44 +1043,37 @@
             "direct_growth_v": "14.4344"
         },
         "benchmark_index": "65% of Nifty 500 TRI + 20% of NIFTY Composite Debt Index + 15% of INR Price of Gold",
-        "date_of_allotment": [
-            "December 19, 2022",
-            "Monthly AAUM## As on December 31, 2024 v 1,194.29 Crores",
-            "AUM## As on December 31, 2024 v 1,172.50 Crores"
-        ],
+        "aum": {
+            "inception_date": "December 19, 2022",
+            "monthly_aaum": "1,194.29",
+            "aum": "1,172.50"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Jitendra Sriram",
+                "name": "Jitendra Sriram",
                 "designation": "",
                 "managing_since": "19-Dec-22",
-                "experience": "26"
+                "experience": "26 years"
             },
             {
-                "name": "Mr. Pratish Krishnan",
+                "name": "Pratish Krishnan",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "23"
+                "experience": "23 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "19-Dec-22",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Upto 12 months  Redeemed or switched out",
-            "upto 10% of the allotment: Nil  Redeemed or switched out",
-            "more than 10% of the allotment: 1% After 12 months - Nil",
-            "The above load shall also be applicable for switches",
-            "between the schemes of the Fund and all Systematic",
-            "Investment Plans, Systematic Transfer Plans, Systematic",
-            "Withdrawal Plans. No load will be charged on units issued",
-            "upon re-investment of amount of distribution under same",
-            "IDCW option and bonus units.",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Upto 12 months  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 12 months - Nil The above load shall also be applicable for switches between the schemes of the Fund and all Systematic Investment Plans, Systematic Transfer Plans, Systematic Withdrawal Plans. No load will be charged on units issued upon re-investment of amount of distribution under same IDCW option and bonus units. For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "3.16",
             "modified_duration": "2.52",
@@ -1136,41 +1105,37 @@
             "direct_plan_growth_option_v": "16.9933"
         },
         "benchmark_index": "Nifty Equity Savings Index TRI",
-        "date_of_allotment": [
-            "July 25, 2019",
-            "Monthly AAUM## As on December 31, 2024 v 254.87 Crores",
-            "AUM## As on December 31, 2024 v 254.34 Crores"
-        ],
+        "aum": {
+            "inception_date": "July 25, 2019",
+            "monthly_aaum": "254.87",
+            "aum": "254.34"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Pratish Krishnan",
+                "name": "Pratish Krishnan",
                 "designation": "",
                 "managing_since": "05-Sep-19",
-                "experience": "23"
+                "experience": "23 years"
             },
             {
-                "name": "Mr. Neeraj Saxena",
+                "name": "Neeraj Saxena",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "20"
+                "experience": "20 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:   If units of the Scheme are redeemed or",
-            "switched out within 30 days of the date of allotment - 1%",
-            "of the applicable Net Asset Value (NAV)  If units of the",
-            "Scheme are redeemed or switched out after 30 days of",
-            "allotment - Nil The above Exit Load will be applicable to all",
-            "subscription transactions, excluding switch-ins",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "If units of the Scheme are redeemed or switched out within 30 days of the date of allotment - 1 of the applicable Net Asset Value (NAV)  If units of the Scheme are redeemed or switched out after 30 days of allotment - Nil The above Exit Load will be applicable to all subscription transactions, excluding switch-ins For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "3.32",
             "modified_duration": "2.56",
@@ -1211,32 +1176,31 @@
             "direct_plan_adhoc_idcw_option_v": "11.9899"
         },
         "benchmark_index": "Nifty 50 Arbitrage Index",
-        "date_of_allotment": [
-            "December 28, 2016",
-            "Monthly AAUM## As on December 31, 2024 v 1,337.15 Crores",
-            "AUM## As on December 31, 2024 v 1,357.57 Crores"
-        ],
+        "aum": {
+            "inception_date": "December 28, 2016",
+            "monthly_aaum": "1,337.15",
+            "aum": "1,357.57"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Neeraj Saxena",
+                "name": "Neeraj Saxena",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "20"
+                "experience": "20 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "16-Mar-22",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  0.25% if redeemed on or before 15 days from",
-            "the date of allotment of units. NIL if redeemed after 15",
-            "days from the date of allotment of units.",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "0.25 if redeemed on or before 15 days from the date of allotment of units. NIL if redeemed after 15 days from the date of allotment of units. For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "0.46",
             "modified_duration": "0.41",
@@ -1262,30 +1226,31 @@
             "direct_growth_v": "11.0453"
         },
         "benchmark_index": "CRISIL Hybrid 35+65 Aggressive Index",
-        "date_of_allotment": [
-            "May 28, 2024",
-            "Monthly AAUM## As on December 31, 2024 v 357.18 Crores",
-            "AUM## As on December 31, 2024 v 357.23 Crores"
-        ],
+        "aum": {
+            "inception_date": "May 28, 2024",
+            "monthly_aaum": "357.18",
+            "aum": "357.23"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Pratish Krishnan",
+                "name": "Pratish Krishnan",
                 "designation": "",
                 "managing_since": "28-May-24",
-                "experience": "23"
+                "experience": "23 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "23.77",
             "modified_duration": "8.69",
@@ -1326,33 +1291,31 @@
             "direct_plan_daily_idcw_option_v": "1002.0849"
         },
         "benchmark_index": "CRISIL Liquid Debt A-I Index",
-        "date_of_allotment": [
-            "February 21, 2002",
-            "Monthly AAUM## As on December 31, 2024 v 10,673.74 Crores",
-            "AUM## As on December 31, 2024 v 8,842.43 Crores"
-        ],
+        "aum": {
+            "inception_date": "February 21, 2002",
+            "monthly_aaum": "10,673.74",
+            "aum": "8,842.43"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "14"
+                "experience": "14 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:  Investor exit upon subscribtion - exit load as %",
-            "of redemption proceeds Day 1-0.0070% Day 2-0.0065% Day",
-            "3-0.0060% Day 4-0.0055% Day 5-0.0050% Day 6-0.0045%",
-            "Day 7 Onwards-0.0000%",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Investor exit upon subscribtion - exit load as  of redemption proceeds Day 1-0.0070 Day 2-0.0065 Day 3-0.0060 Day 4-0.0055 Day 5-0.0050 Day 6-0.0045 Day 7 Onwards-0.0000 For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "52",
             "modified_duration": "52",
@@ -1386,14 +1349,13 @@
         "investment_objective": "The primary objective of the Scheme is to generate returns, commensurate with low risk and providing high level of liquidity, through investments made primarily in overnight securities having maturity of one business day. However, there can be no assurance that the investment objectives of the Scheme will be realized.",
         "nav": {
             "unclaimed_redemption_up_to": "3",
-            "_yrs_v": "1184.3707",
+            "yrs_v": "1184.3707",
             "unclaimed_redemption_greater_than": "3",
-            "_yeavrs": "1",
-            "_": "0",
-            "0": "0.0000",
+            "yeavrs": "1",
+            "": "000.0000",
             "unclaimed_idcw_up_to": "3",
             "unclaimed_idcw_greater_than": "3",
-            "_years_v": "1000.0000",
+            "years_v": "1000.0000",
             "regular_plan_weekly_idcw_option_v": "1000.5684",
             "regular_plan_growth_option_v": "1315.3046",
             "regular_plan_daily_idcw_option_v": "1000.0025",
@@ -1402,30 +1364,31 @@
             "direct_plan_daily_idcw_option_v": "1000.0028"
         },
         "benchmark_index": "CRISIL Liquid Overnight Index",
-        "date_of_allotment": [
-            "April 25, 2019",
-            "Monthly AAUM## As on December 31, 2024 v 846.10 Crores",
-            "AUM## As on December 31, 2024 v 822.38 Crores"
-        ],
+        "aum": {
+            "inception_date": "April 25, 2019",
+            "monthly_aaum": "846.10",
+            "aum": "822.38"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "14"
+                "experience": "14 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "2",
             "modified_duration": "2",
@@ -1460,30 +1423,31 @@
             "direct_plan_daily_idcw_option_v": "10.0952"
         },
         "benchmark_index": "CRISIL Low Duration Debt A-I Index",
-        "date_of_allotment": [
-            "October 21, 2005",
-            "Monthly AAUM## As on December 31, 2024 v 226.93 Crores",
-            "AUM## As on December 31, 2024 v 218.34 Crores"
-        ],
+        "aum": {
+            "inception_date": "October 21, 2005",
+            "monthly_aaum": "226.93",
+            "aum": "218.34"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "27-Dec-17",
-                "experience": "14"
+                "experience": "14 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "1.43",
             "modified_duration": "0.76",
@@ -1518,30 +1482,31 @@
             "direct_plan_daily_idcw_option_v": "1000.0000"
         },
         "benchmark_index": "CRISIL Money Market A-I Index",
-        "date_of_allotment": [
-            "June 19, 2019",
-            "Monthly AAUM## As on December 31, 2024 v 442.98 Crores",
-            "AUM## As on December 31, 2024 v 421.67 Crores"
-        ],
+        "aum": {
+            "inception_date": "June 19, 2019",
+            "monthly_aaum": "442.98",
+            "aum": "421.67"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "14-Mar-22",
-                "experience": "14"
+                "experience": "14 years"
             },
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "0.42",
             "modified_duration": "0.41",
@@ -1586,30 +1551,31 @@
             "direct_plan_growth_option_v": "30.2470"
         },
         "benchmark_index": "CRISIL Short Duration Debt A-II Index",
-        "date_of_allotment": [
-            "June 30, 2010",
-            "Monthly AAUM## As on December 31, 2024 v 197.75 Crores",
-            "AUM## As on December 31, 2024 v 198.05 Crores"
-        ],
+        "aum": {
+            "inception_date": "June 30, 2010",
+            "monthly_aaum": "197.75",
+            "aum": "198.05"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "minimum_investment_amount": [
             "LUMPSUM DETAILS:",
             "Minimum Application Amount:5,000 and in multiples of1",
@@ -1636,33 +1602,31 @@
             "direct_plan_growth_option_v": "23.2736"
         },
         "benchmark_index": "CRISIL Credit Risk Debt B-II Index",
-        "date_of_allotment": [
-            "January 23, 2015",
-            "Monthly AAUM## As on December 31, 2024 v 167.72 Crores",
-            "AUM## As on December 31, 2024 v 169.17 Crores"
-        ],
+        "aum": {
+            "inception_date": "January 23, 2015",
+            "monthly_aaum": "167.72",
+            "aum": "169.17"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Exit Load: Upto 1 year  Redeemed or switched",
-            "out upto 10% of the allotment: Nil  Redeemed or switched",
-            "out more than 10% of the allotment: 1% After 1 year - Nil",
-            "Exit load is not applicable for segregated portfolio.",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Exit Load Upto 1 year  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 1 year - Nil Exit load is not applicable for segregated portfolio. For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "3.25",
             "modified_duration": "2.21",
@@ -1697,30 +1661,31 @@
             "direct_plan_annual_idcw_option_v": "11.1345"
         },
         "benchmark_index": "CRISIL Corporate Debt A-II Index",
-        "date_of_allotment": [
-            "November 08, 2008",
-            "Monthly AAUM## As on December 31, 2024 v 211.01 Crores",
-            "AUM## As on December 31, 2024 v 213.70 Crores"
-        ],
+        "aum": {
+            "inception_date": "November 08, 2008",
+            "monthly_aaum": "211.01",
+            "aum": "213.70"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "4.98",
             "modified_duration": "3.63",
@@ -1758,30 +1723,31 @@
             "direct_plan_daily_idcw_option_v": "10.1068"
         },
         "benchmark_index": "CRISIL Dynamic Bond A-III Index",
-        "date_of_allotment": [
-            "September 23, 2004",
-            "Monthly AAUM## As on December 31, 2024 v 173.46 Crores",
-            "AUM## As on December 31, 2024 v 176.80 Crores"
-        ],
+        "aum": {
+            "inception_date": "September 23, 2004",
+            "monthly_aaum": "173.46",
+            "aum": "176.80"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Prashant Pimple",
+                "name": "Prashant Pimple",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "24"
+                "experience": "24 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "12.32",
             "modified_duration": "7.21",
@@ -1812,30 +1778,31 @@
             "direct_plan_growth_option_v": "44.6447"
         },
         "benchmark_index": "CRISIL Dynamic Gilt Index",
-        "date_of_allotment": [
-            "March 21, 2002",
-            "Monthly AAUM## As on December 31, 2024 v 1,815.75 Crores",
-            "AUM## As on December 31, 2024 v 1,664.55 Crores"
-        ],
+        "aum": {
+            "inception_date": "March 21, 2002",
+            "monthly_aaum": "1,815.75",
+            "aum": "1,664.55"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Prashant Pimple",
+                "name": "Prashant Pimple",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "24"
+                "experience": "24 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "9.15",
             "modified_duration": "6.51",
@@ -1865,30 +1832,31 @@
             "direct_growth_v": "11.5198"
         },
         "benchmark_index": "NIFTY SDL December 2026 Index",
-        "date_of_allotment": [
-            "January 25, 2023",
-            "Monthly AAUM## As on December 31, 2024 v 114.27 Crores",
-            "AUM## As on December 31, 2024 v 114.25 Crores"
-        ],
+        "aum": {
+            "inception_date": "January 25, 2023",
+            "monthly_aaum": "114.27",
+            "aum": "114.25"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "1.93",
             "modified_duration": "1.77",
@@ -1922,30 +1890,31 @@
             "direct_growth_v": "11.5423"
         },
         "benchmark_index": "NIFTY SDL December 2028 Index",
-        "date_of_allotment": [
-            "March 24, 2023",
-            "Monthly AAUM## As on December 31, 2024 v 31.87 Crores",
-            "AUM## As on December 31, 2024 v 31.13 Crores"
-        ],
+        "aum": {
+            "inception_date": "March 24, 2023",
+            "monthly_aaum": "31.87",
+            "aum": "31.13"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Gurvinder Singh",
+                "name": "Gurvinder Singh",
                 "designation": "",
                 "managing_since": "21-Oct-24",
-                "experience": "21"
+                "experience": "21 years"
             },
             {
-                "name": "Mr. Vikram Pamnani",
+                "name": "Vikram Pamnani",
                 "designation": "",
                 "managing_since": "11-Jul-24",
-                "experience": "14"
+                "experience": "14 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "average_maturity": "3.97",
             "modified_duration": "3.35",
@@ -1979,28 +1948,24 @@
             "direct_plangrowth_option_v": "10.9926"
         },
         "benchmark_index": "Nifty 50 TRI",
-        "date_of_allotment": [
-            "January 29, 2024",
-            "Monthly AAUM## As on December",
-            "31, 2024 v 59.63 Crores",
-            "AUM## As on December 31, 2024 v 57.93 Crores"
-        ],
+        "aum": {
+            "inception_date": "January 29, 2024",
+            "aum": "57.93"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Neeraj Saxena",
+                "name": "Neeraj Saxena",
                 "designation": "",
                 "managing_since": "29-Jan-24",
-                "experience": "20"
+                "experience": "20 years"
             }
         ],
-        "load": [
-            "Entry Load :",
-            "Exit Load:  0.2% - if redeemed on or before 30 days from",
-            "the date of allotment.  Nil - if redeemed after 30 days",
-            "from the date of allotment",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                "NA"
+            ],
+            "exit_load": "0.2 - if redeemed on or before 30 days from the date of allotment.  Nil - if redeemed after 30 days from the date of allotment For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "0.56",
             "ter_direct_plan": "0.16",
@@ -2027,24 +1992,25 @@
             "nifty_bank_etfrg_v": "50.8035"
         },
         "benchmark_index": "Nifty Bank TRI",
-        "date_of_allotment": [
-            "June 18, 2024",
-            "Monthly AAUM## As on December 31, 2024 v 9.08 Crores",
-            "AUM## As on December 31, 2024 v 8.83 Crores"
-        ],
+        "aum": {
+            "inception_date": "June 18, 2024",
+            "monthly_aaum": "9.08",
+            "aum": "8.83"
+        },
         "fund_manager": [
             {
-                "name": "Mr. Neeraj Saxena",
+                "name": "Neeraj Saxena",
                 "designation": "",
                 "managing_since": "18-Jun-24",
-                "experience": "20"
+                "experience": "20 years"
             }
         ],
-        "load": [
-            "Exit Load:  Nil",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "load": {
+            "entry_load": [
+                ""
+            ],
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "0.15",
             "portfolio_turnover_ratio": "1.23",
@@ -2088,20 +2054,16 @@
             "direct_plan_growth_v": "8.7448"
         },
         "benchmark_index": "Nifty 200 Momentum 30 TRI",
-        "date_of_allotment": [
-            "October 15, 2024",
-            "Monthly AAUM## As on December",
-            "31, 2024 v 27.93 Crores",
-            "AUM## As on December 31, 2024 v 26.87 Crores"
-        ],
-        "load": [
-            "Entry Load :",
-            "Exit Load:  0.2%- If redeemed on or before 7 days from the",
-            "date of allotment Nil- If redeemed after 7 days from the",
-            "date of allotment",
-            "For detailed load structure please refer Scheme",
-            "Information Document of the scheme."
-        ],
+        "aum": {
+            "inception_date": "October 15, 2024",
+            "aum": "26.87"
+        },
+        "load": {
+            "entry_load": [
+                "NA"
+            ],
+            "exit_load": "0.2- If redeemed on or before 7 days from the date of allotment Nil- If redeemed after 7 days from the date of allotment For detailed load structure please refer Scheme Information Document of the scheme."
+        },
         "metrics": {
             "ter_regular_plan": "1.13",
             "ter_direct_plan": "0.61",

@@ -479,7 +479,7 @@ class Reader:
         return extracted_text
     
     #REFINE
-    def refine_extracted_data(self, extracted_text: dict):
+    def refine_extracted_data(self, extracted_text: dict,flatten = False):
         final_text = {}
         regex = FundRegex() 
         for fund, items in extracted_text.items():
@@ -491,8 +491,24 @@ class Reader:
                     content = regex.transform_keys(content) #lowercase all keys
                     content_dict.update(content)
             final_text[fund] = content_dict
+        
+        if flatten: #Flatten the dict if true
+            final_text = {fund: regex.flatten_dict(data) for fund, data in final_text.items()}
             
         return final_text
 
+
+    def select_imp_data(self,data:dict)->dict:
+        final_dict = {}
+        regex = FundRegex() 
+        for fund, items in data.items():
+            content_dict = {}
+            for head, content in items.items():
+                if regex.select_imp_headers(head):
+                    content_dict[head] = content
+            content_dict['main_scheme_name'] = fund
+            final_dict[fund] = content_dict
+        
+        return final_dict           
 
 
