@@ -249,16 +249,24 @@ class Helper:
         return finally_dict
     
     @staticmethod
-    def drop_selected_dict_values(final_dict:dict, index:list):
+    def drop_selected_dict_values(final_dict:dict, patterns:list):
         finally_dict = {}
         for fund, content in final_dict.items():
             clean_dict = {}
             for k, v in content.items():
-                if k not in index:
+                if not any(re.search(pattern, k) for pattern in patterns):
                     clean_dict[k] = v
             finally_dict[fund] = clean_dict
         return finally_dict
     
+    @staticmethod
+    def select_dict_with_keys(final_dict: dict, patterns: list):
+        selected_dict = {}
+        for fund, content in final_dict.items():
+            filtered_dict = {k: v for k, v in content.items() if any(re.search(pattern, k) for pattern in patterns)}
+            selected_dict[fund] = filtered_dict
+
+        return selected_dict
     @staticmethod
     def drop_keys_by_regex(data, patterns):
         if not isinstance(data, dict):

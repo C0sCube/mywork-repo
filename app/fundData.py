@@ -1455,199 +1455,116 @@ class BankOfIndia(Reader):
                 return func(string, data)
 
         return self.__return_all_data(string, data) 
-# 20
-class Sundaram(Reader):
+# 20 <>
+class Sundaram(Reader,GrandFundData): #Lupsum issues
+    
     PARAMS = {
         'fund': [[4,0], r'^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*|Fund -)$|^Sundaram',[14,18],[-16625248]],
         'clip_bbox': [(0,5,220,812)],
         'line_x': 220.0,
         'data': [[6,13], [-1], 30.0, ['UniversNextforMORNW02-Cn',]],
         'content_size':[30.0,10.0]
-        }
+    }
     
-    def __init__(self, paths_config:str):
-        super().__init__(paths_config, self.PARAMS)
+    REGEX = {
+        'nav': r'(Growth|IDCW)\s*(-?[\d,.]+)\s*(-?[\d,.]+)',
+        'decimal':r'([\d,.]+) Cr.',
+        'metric':r'(Information Ratio|Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity|Macaulay Duration)\s*(-?[\d\.,]+)',
+        'scheme': ["Category","Fund Managers", "Month End AUM","Avg. AUM","Inception Date","Benchmark","Additional Benchmark","Plans","Options","Minimum Amount","SIP\\s*STP\\s*SWP","Exit Load","EOL"],
+        'min_amt':r'([\d,]+).*?([\d,]+)',
+        'manager':r'([\w\s]+),?',
+        'load':r'^()(.*$)',
+        'escape': r'[^A-Za-z0-9\s\-\(\).,]+'
+    }
+    
+    PATTERN_TO_FUNCTION = {
+        r"^investment.*": ("_extract_str_data", None),
+        # r"^nav.*": ("_extract_generic_data", 'nav'),
+        r"^metric.*": ("_extract_generic_data", 'metric'),
+        r"^scheme.*": ("_extract_scheme_data", 'scheme'),
+    }
+    
+    SECONDARY_PATTERN_TO_FUNCTION = {
+        # r'.*aum$':('_extract_generic_data','decimal'),
+        r'.*minimum_amount$': ('_extract_amt_data','min_amt'),
+        r'.*fund_managers$': ('_extract_manager_data','manager'),
+        r'.*load$':('_extract_load_data','load'),   
+    }
+    
+    SELECTKEYS = []
+    
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config,self.PARAMS) 
+    
+    def _extract_manager_data(self, main_key:str, data,pattern:str):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data.strip())
+        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
+            for match in matches:
+                name = match
+                final_list.append({
+                    "name":name.strip(),
+                    "designation": "",
+                    "managing_since": "",
+                    "experience": ""
+                })
         
-        
-    #REGEX
-    def __return_all_data(self,main_key,data:list):
-        return {main_key:data}
+        return {main_key:final_list} 
     
-    def __extract_inv_data(self,main_key:str, data:list):            
-        return {main_key: ' '.join(data).strip()}
+# 21 <>
+class Taurus(Reader,GrandFundData): #Lupsum issues
     
-    def __extract_nav_data(self,main_key:str, data:list):
-        pattern = r'(Growth|IDCW)\s*(-?[\d,.]+)\s*(-?[\d,.]+)'
-        final_dict = {}
-        nav_data = data
-        for text in nav_data:
-            text = re.sub(r"[\^#*\$]", "", text.strip())
-            if matches := re.findall(pattern, text, re.IGNORECASE):
-                for key, regular, direct in matches:
-                    final_dict[f'Regular {key}'] = regular
-                    final_dict[f'Direct {key}'] = direct
-        return {main_key: final_dict}
-    
-    def __extract_metric_data(self,main_key:str, data:list):
-        pattern = r'(Information Ratio|Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity|Macaulay Duration)\s*(-?[\d\.,]+)'
-        final_dict = {}
-        metric_data = data
-        for text in metric_data:
-            text = re.sub(r"[\^#*\$,]", "", text.strip())
-            if matches := re.findall(pattern, text, re.IGNORECASE):
-                for key, value in matches:
-                    final_dict[key] = value
-        
-        return {main_key: final_dict}
-    
-    def __extract_scheme_data(self, main_key:str, data:list):
-        # Define start and end markers
-        mention_start = [
-            "Category",
-            "Fund Managers",
-            "Month End AUM",
-            "Avg. AUM",
-            "Inception Date",
-            "Benchmark",
-            "Additional Benchmark",
-            "Plans",
-            "Options",
-            "Minimum Amount",
-            r"SIP\s*/\s*STP\s*/\s*SWP",
-            "Exit Load"
-        ]
-        
-        mention_end = mention_start[1:] + ["End_of_Data"]
-
-        # Generate regex patterns dynamically
-        patterns = [r"({start}\s*)(.+?)({end}|$)".format(start=start, end=end)
-            for start, end in zip(mention_start, mention_end)]
-        final_dict = {}
-        scheme_data = " ".join(data)
-        scheme_data = re.sub(r"[\^#*\$:;]", "", scheme_data)
-        
-        for pattern in patterns:
-            if matches:= re.findall(pattern, scheme_data, re.DOTALL|re.IGNORECASE): #not used ignorecase
-                for match in matches:
-                    key, value, dummy = match
-                    value = value.strip()
-                    final_dict[key.strip()] = value
-
-        return {main_key:final_dict}
-    
-    #MAPPING
-    def match_regex_to_content(self, string: str, data: list):
-        pattern_to_function = {
-            r"^(exit|entry|investment).*": self.__extract_inv_data,
-            r"^nav.*": self.__extract_nav_data,
-            r"^metric.*": self.__extract_metric_data,
-            r"^scheme.*": self.__extract_scheme_data,
-        }
-
-        for pattern, func in pattern_to_function.items():
-            if re.match(pattern, string, re.IGNORECASE):
-                return func(string, data)
-
-        return self.__return_all_data(string, data)
-# 21
-class Taurus(Reader):
     PARAMS = {
         'fund': [[4,20], r'^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund*)$',[13,24],[-9754846]],
         'clip_bbox': [(0,65,210,812)],
         'line_x': 210.0,
         'data': [[6,12], [-9754846], 30.0, ['Calibri-Bold']],
         'content_size':[30.0,10.0]
-        }
+    }
     
-    def __init__(self, paths_config:str):
-        super().__init__(paths_config, self.PARAMS)
-
-    #REGEX
-    def __return_all_data(self,main_key,data:list):
-        return {main_key:data}
     
-    def __extract_inv_data(self,main_key:str, data:list):            
-        return {main_key: ' '.join(data).strip()}
+    REGEX = {
+        'nav':r'(Regular Plan|Direct Plan)\s*([\d,.]+)\s*([\d,.]+)',
+        'ter':r'(Regular Plan|Direct Plan)\s*([\d,.]+)',
+        'aum': r'(.+ AUM)\s*([\d,.]+)',
+        'min_amt':r'([\d,]+).*?([\d,]+)',
+        'manager':r'(?:Mr\.?|Mrs\.?|Ms\.?)?\s*([\w\s]+)\s*\(w\.e\.f\.? ([A-Za-z0-9,\s]+)\).*?work experience (\d+ yrs)',
+        'load':r'Entry Load\s*(.*?)\s*Exit Load\s*(.*)$',
+        'metric':r'^(Port?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\s*(-?[\d,.]+)',
+        'escape': r'[^A-Za-z0-9\s\-\(\).,]+'
+    }
     
-    def __extract_nav_data(self,main_key:str, data:list):
-        nav_data = data
-        final_dict = {}
-        pattern = r'(Regular Plan|Direct Plan)\s*([\d,.]+)\s*([\d,.]+)'
-        for text in nav_data:
-            text = re.sub(r"[\^\#*\$]", "", text.strip())
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            for key,v1,v2 in matches:
-                final_dict[f"{key} IDCW"] = v1
-                final_dict[f"{key} (G)"] = v2
-                
-        return {main_key:final_dict}
+    PATTERN_TO_FUNCTION = {
+        r"^(minimum_appl|benchmark|date|investment).*": ("_extract_str_data", None),
+        r"^metric.*":  ("_extract_generic_data", 'metric'),
+        # r"^nav.*":  ("_extract_nav_data", 'nav'),
+        r"^fund_manag.*":  ("_extract_manager_data", 'manager'),
+        r"^aum.*":  ("_extract_generic_data", 'aum'),
+        r"^load.*":  ("_extract_load_data", 'load'),
+        # r"^total_expense.*": ("_extract_generic_data", 'ter'),
+        r'^min_amt':('_extract_amt_data','min_amt')
+    }
     
-    def __extract_ter_data(self,main_key:str, data:list):
-        ter_data = data
-        final_dict = {}
-        pattern = r'(Regular Plan|Direct Plan)\s*([\d,.]+)'
-        for text in ter_data:
-            text = re.sub(r"[\^\#:*\$]", "", text.strip())
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            for key, value in matches:
-                final_dict[key] = value
-        return {main_key:final_dict}
-   
-    def __extract_metric_data(self,main_key:str, data:list):
-        aum_data = data
-        final_dict = {}
-        pattern = r'^(Port?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\s*(-?[\d,.]+)'
-        for text in aum_data:
-            text = re.sub(r"[\^\#:*\$]", "", text.strip())
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            for key, value in matches:
-                final_dict[key] = value
-        return {main_key:final_dict}
-    
-    def __extract_aum_data(self,main_key:str, data:list):
-        aum_data = data
-        final_dict = {}
-        pattern = r'(.+ AUM)\s*([\d,.]+)'
-        for text in aum_data:
-            text = re.sub(r"[\^\#:*\$]", "", text.strip())
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            for key, value in matches:
-                final_dict[key] = value
-        return {main_key:final_dict}
-    
-    def __extract_load_data(self, main_key:str, data:list):
-        load_data = " ".join(data)
-        load_data = re.sub(r'[\*,:\-;]+', "", load_data.strip())
-        entry_pattern = r'Entry Load\s*(NIL|.*)\s*Exit Load'
-        exit_pattern = r'Exit Load\s*(.*)$'
-
-        # Extract matches
-        entry_loads = re.findall(entry_pattern, load_data, re.IGNORECASE)
-        exit_loads = re.findall(exit_pattern, load_data, re.IGNORECASE | re.DOTALL)
-        exit_loads = [re.sub(r"\s+", " ", load.strip()) for load in exit_loads]
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config,self.PARAMS)
         
-        final_dict = {
-            "entry_load": "".join(entry_loads),
-            "exit_load": "".join(exit_loads)
-        }
-        return{main_key: final_dict}
-    
-     #MAPPING
-    def match_regex_to_content(self, string: str, data: list):
-        pattern_to_function = {
-            r"^(minimum_appl|benchmark|date|investment).*": self.__extract_inv_data,
-            r"^metric.*": self.__extract_metric_data,
-            r"^nav.*": self.__extract_nav_data,
-            r"^aum.*": self.__extract_aum_data,
-            r"^load.*": self.__extract_load_data,
-            r"^total_expense.*": self.__extract_ter_data
-        }
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        final_list = []
+        manager_data = " ".join(data)
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data.strip())
+        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
+            for match in matches:
+                name,since,exp = match
+                final_list.append({
+                    "name":name.strip(),
+                    "designation": "",
+                    "managing_since": since.strip(),
+                    "experience": exp.strip()
+                })
+        
+        return {main_key:final_list}
 
-        for pattern, func in pattern_to_function.items():
-            if re.match(pattern, string, re.IGNORECASE):
-                return func(string, data)
-
-        return self.__return_all_data(string, data)
 # 22
 class Trust(Reader):
     
@@ -2107,8 +2024,8 @@ class BajajFinServ(Reader):
 
         return self.__return_all_data(string, data)
 
-#28
-class Quantum(Reader):
+#28 <> More
+class Quantum(Reader,GrandFundData): #Lupsum issues
     
     PARAMS = {
         'fund': [[20,0], r'^(Quantum).*(Fund|ETF|EOF|FOF|FTF|Path|ELSS|Funds)$',[12,20],[-1]],
@@ -2116,63 +2033,26 @@ class Quantum(Reader):
         'line_x': 180.0,
         'data': [[6,11], [-1], 30.0, ['Prompt-SemiBold',]],
         'content_size':[30.0,8.0]
-        }
+    }
+    
+    
+    REGEX = {
+        'nav':r'(Regular Plan|Direct Plan)\s*([\d,.]+)\s*([\d,.]+)',
+        'ter':r'(Regular Plan|Direct Plan)\s*([\d,.]+)',
+        'aum': r'(.+ AUM)\s*([\d,.]+)',
+        'load':r'',
+        'scheme':["Category of Scheme","Investment Objective","Inception Date","Benchmark Index","Declaration of Net Asset Value","NAV","AUM","Fund Manager", "Key Statistics","Entry Load","Exit Load","Total Expense Ratio","Minimum Application Amount","Portfolio Turnover Ratio","Redemption Proceeds","EOL"],
+        'metric':r'^(Port?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\s*(-?[\d,.]+)',
+        'escape': r'[^A-Za-z0-9\s\-\(\).,]+'
+    }
+    
+    PATTERN_TO_FUNCTION = {
+        r"^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": ("_extract_str_data", None),
+        r'scheme': ("_extract_scheme_data", 'scheme'),
+    }
     
     def __init__(self,paths_config:str):
         super().__init__(paths_config,self.PARAMS)
-        
-    #Fund Regex  
-    def __return_all_data(self,main_key:str,data:list):
-        return{main_key:data}
-    def __extract_invest_data(self,main_key:str,data:list):
-        return {main_key: " ".join(data)}
-    
-    def __extract_scheme_data(self,main_key:str,data:list):
-        mention_start = [
-            "Category of Scheme",
-            "Investment Objective",
-            "Inception Date",
-            "Benchmark Index",
-            "NAV",
-            "AUM",
-            "Fund Manager",
-            "Entry Load",
-            "Exit Load",
-            "Total Expense Ratio",
-            "Minimum Application Amount",
-            "Portfolio Turnover Ratio",
-            "Redemption Proceeds",]
-            
-        mention_end = mention_start[1:] + ["End_of_Data"]
-
-        # Generate regex patterns dynamically
-        patterns = [r"({start}\s*)(.+?)({end}|$)".format(start=start, end=end)
-            for start, end in zip(mention_start, mention_end)]
-        final_dict = {}
-
-        scheme_data = " ".join(data)
-        scheme_data = re.sub(r'[\-\*:,;]+',"", scheme_data.strip())
-        for pattern in patterns:
-            if matches:= re.findall(pattern, scheme_data, re.DOTALL|re.IGNORECASE): #not used ignorecase
-                for match in matches:
-                    key, value, dummy = match
-                    key = key.strip()
-                    value = value.strip()
-                    final_dict[key] = value
-        return {main_key:final_dict}
-    
-     #MAPPING FUNCTION
-    def match_regex_to_content(self, string: str, data: list):
-        pattern_to_function = {
-            r"^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": self.__extract_invest_data,
-            r'scheme': self.__extract_scheme_data
-        }
-
-        for pattern, func in pattern_to_function.items():
-            if re.match(pattern, string, re.IGNORECASE):
-                return func(string, data)
-
-        return self.__return_all_data(string, data)
 
 #29  
 class Union(Reader):
@@ -2195,7 +2075,7 @@ class Union(Reader):
         scheme_data = re.sub(r'[\-\*;:,\^]+', '', scheme_data)
         mention_start = [
         "Investment Objective",
-        "Co-Fund Managers",
+        "CoFund Managers",
         "Indicative Investment Horizon",
         "Date of allotment",
         "Assets Under Management",
@@ -2233,5 +2113,74 @@ class Union(Reader):
         for pattern, func in pattern_to_function.items():
             if re.match(pattern, string, re.IGNORECASE):
                 return func(string, data)
+
+        return self.__return_all_data(string, data)
+
+
+"""Workkkkkkk"""
+
+class DSP(Reader):
+    
+    PARAMS = {
+        'fund': [[20,16], r'^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)',[14,24],[-1]],
+        'clip_bbox': [(0,5,120,812),],#[480,5,596,812]],
+        'line_x': 120.0,
+        'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']],
+        'content_size':[30.0,10.0]
+    }
+    
+    
+    def __init__(self, paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
+        
+    #REGEX
+    def __return_all_data(self,main_key,data:list):
+        return {main_key:data}
+    
+    def __extract_inv_data(self,main_key:str, data:list):            
+        return {main_key: ' '.join(data)}
+    
+    #MAPPING
+    def match_regex_to_content(self, string:str, data:list):
+        check_header = string
+        if re.match(r"^investment.*", check_header, re.IGNORECASE):
+            return self.__extract_inv_data(string,data)
+        # elif re.match(r"^aum.*", check_header, re.IGNORECASE):
+        #     return self.__extract_aum_data(string, data)
+        # elif re.match(r"^fund_mana.*", check_header, re.IGNORECASE):
+        #     return self.__extract_manager_data(string, data)
+        # elif re.match(r"^metrics.*", check_header, re.IGNORECASE):
+        #     return self.__extract_metric_data(string, data)
+        return self.__return_all_data(string,data)
+       
+class AdityaBirla(Reader):
+    PARAMS = {
+        'fund': [[20,4],r'^Aditya Birla.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|Funds\*)$',[10,20],[-1]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
+        'clip_bbox': [(0, 50, 200, 812)],
+        'line_x': 210.0,
+        'data': [[4,10],[-1],30.0,['AnekLatin-Bold',]], #sizes, color, set_size
+        'content_size':[30.0,10.0]
+    }
+
+    def __init__(self,paths_config:str):
+        super().__init__(paths_config, self.PARAMS)
+
+    #Fund Regex  
+    def __return_all_data(self,main_key:str,data:list):
+        return{main_key:data}
+    def __extract_fund_data(self,main_key:str, data:list):
+        return {main_key:data}
+    def __extract_invest_data(self,main_key:str,data:list):
+        return {main_key: " ".join(data)}
+
+    #MAPPING FUNCTION
+    def match_regex_to_content(self, string: str, data: list):
+        # pattern_to_function = {
+        #    r"":
+        # }
+
+        # for pattern, func in pattern_to_function.items():
+        #     if re.match(pattern, string, re.IGNORECASE):
+        #         return func(string, data)
 
         return self.__return_all_data(string, data)

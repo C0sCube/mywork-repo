@@ -3,55 +3,35 @@ from app.pdfParse import Reader
 from app.fundRegex import FundRegex
 import fitz
 
-class Tata(Reader,GrandFundData): #Lupsum issues
+class Quantum(Reader,GrandFundData): #Lupsum issues
     
     PARAMS = {
-        'fund': [[25,20,0,16],r"^tata.*(fund|etf|fof|eof|funds|plan|\))$",[10,20],[-1]], #[flag], regex_fund_name, range(font_size), [font_color]
-        'clip_bbox': [(0,50,160,750)],
-        'line_x': 160.0,
-        'data': [[5,8],[-15570765],30.0,['Swiss721BT-BoldCondensed']], #sizes, color, set_size font_name
-        'content_size':[30.0,10.0]
+        'fund': [[20,0], r'^(Quantum).*(Fund|ETF|EOF|FOF|FTF|Path|ELSS|Funds)$',[12,20],[-1]],
+        'clip_bbox': [(0,95,220,812)],
+        'line_x': 180.0,
+        'data': [[6,11], [-1], 30.0, ['Prompt-SemiBold',]],
+        'content_size':[30.0,8.0]
     }
     
     
     REGEX = {
-        'nav':r'((?:Regular|Direct|Reg)\s*(?:Growth|IDCW))\s*([\d,.]+)',
-        'aum': r'(AUM|Monthly Average AUM)\s*([\d,.]+)',
-        'decimal':r'([\d,]+\.\d+)',
-        'ter':r'(Regular|Direct)\s*([\d,.]+)',
-        'metric':r'(Std. Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson)\s+([\d.-]+|NA)\s+([\d.-]+|NA)',
-        'manager': r'([A-Za-z\s]+)\s*\(Managing Since\s*([A-Za-z0-9\s]+) and overall experience of ([a-z0-9\s]+)\)',
+        'nav':r'(Regular Plan|Direct Plan)\s*([\d,.]+)\s*([\d,.]+)',
+        'ter':r'(Regular Plan|Direct Plan)\s*([\d,.]+)',
+        'aum': r'(.+ AUM)\s*([\d,.]+)',
         'load':r'',
+        'scheme':["Category of Scheme","Investment Objective","Inception Date","Benchmark Index","NAV","AUM","Fund Manager", "Key Statistics","Entry Load","Exit Load","Total Expense Ratio","Minimum Application Amount","Portfolio Turnover Ratio","Redemption Proceeds","EOL"],
+        'metric':r'^(Port?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\s*(-?[\d,.]+)',
         'escape': r'[^A-Za-z0-9\s\-\(\).,]+'
     }
     
     PATTERN_TO_FUNCTION = {
-        r"^(date|investment|multiples|benchmark|scheme_launch).*": ("_extract_str_data", None),
-        # r"^nav.*":("_extract_generic_data", 'aum'),
-        # r"^(aum|monthly_average|portfolio_turnover).*": self.__extract_dec_data,
-        # r"^metrics.*": ("_extract_generic_data", 'metric'),
-        # r"^load.*": ("_extract_load_data", 'load'),
-        # r".*(manager|managers)$": ("_extract_manager_data", 'manager'),
-        # r"^expense.*": ("_extract_generic_data", 'ter'),
+        r"^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": ("_extract_str_data", None),
+        r'scheme': ("_extract_scheme_data", 'scheme'),
     }
     
     def __init__(self,paths_config:str):
         super().__init__(paths_config,self.PARAMS)
     
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data.strip())
-        if matches:=re.findall(pattern,manager_data,re.IGNORECASE):
-            for match in matches:
-                name,since,exp = match
-                final_list.append({
-                    "name":name,
-                    "designation": "",
-                    "managing_since": since,
-                    "experience": exp
-                })
-        
-        return {main_key:final_list} 
+
     
 
