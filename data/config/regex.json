@@ -1,6 +1,6 @@
 {
     "header_patterns": {
-        "":["an open","\\d{1,4}\\b", "Formerly known as", "and_", "earlier known as", "An open ende", "this product is", "investors who are", "details as on"],
+        "":["an open","\\d{1,4}\\b","folio_count_as_on", "Formerly known as", "and_", "earlier known as", "An open ende", "this product is", "investors who are", "details as on"],
         "market_capital": "^(market)",
         "category": "^(catagory|category_).*",
         "composition_by_asset": "^composition_by_asset.*",
@@ -13,9 +13,10 @@
         "scheme_details": ["scheme_features", "fund_infor", "scheme_det", "fund_details", "fund_snapshot", "fund_feat"],
         "investment_objective":["current_investment", "objective", "investment", "about_the", "data_as"],
         "metrics": ["statistical_debt","expense_ratio__quantitative_data", "portfolio_parameters", "portfolio_statistics", "scheme_statistics", "portfolio_stats", "risk", "ratio", "maturity", "qualitative", "quantitative", "volatility", "debt_quant", "other_parameter", "performance_attri", "quantave_data"],
-        "nav": "^(nav|nav_).*",
+        "min_amt":"^minimum_appl",
+        "nav": "^(nav|nav_|net_asset).*",
         "expense_ratio": "^(expense_ratio)$",
-        "load": "^(entry_exit|load|load_structure).*",
+        "load": "^(entry_exit|load|load_structure|entry__).*",
         "total_expense_ratio": "^(total_exp|weighted_average|month_end_ter).*",
         "portfolio_turnover_ratio": ["portfolio_turnover", "turn_over", "turnover", "portfolio_turnover_ratio"],
         "additional_investment": "^(additional_investment).*",

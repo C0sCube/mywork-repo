@@ -143,7 +143,7 @@ class Reader:
         return output_path, df
                             
     #EXTRACT
-    def __extract_clipped_data(self,input:str, pages:list, title:dict, *args:list):
+    def extract_clipped_data(self,input:str, pages:list, title:dict, *args:list):
         
         try:
             document = fitz.open(input)
@@ -183,7 +183,7 @@ class Reader:
         document.close()
         return final_list
     
-    def __extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
+    def extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
         
         try:
             doc = fitz.open(path)
@@ -235,7 +235,7 @@ class Reader:
 
         return final_list
 
-    def __extract_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
+    def extract_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
     
         document = fitz.open(input)
         finalData = []
@@ -257,7 +257,7 @@ class Reader:
                 
         return finalData
 
-    def __extract_span_data(self, data: list,*args):  # all
+    def extract_span_data(self, data: list,*args):  # all
         final_data = {}
 
         for page in data:
@@ -275,7 +275,7 @@ class Reader:
         return final_data
 
     #CLEAN 
-    def __process_text_data(self,text_data: dict):
+    def process_text_data(self,text_data: dict):
         
         stop_words = FundRegex().STOP_WORDS
         updated_text_data = {}
@@ -324,7 +324,7 @@ class Reader:
 
         return updated_text_data
 
-    def __create_nested_dict(self,cleaned_data:dict,*args):
+    def create_nested_dict(self,cleaned_data:dict,*args):
             final_text_data = dict()
             final_matrix = dict()
 
@@ -388,18 +388,18 @@ class Reader:
 
     def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
         
-        data = self.__extract_data_relative_line(path,pages,side,title)
-        data = self.__extract_span_data(data,[])
-        clean_data = self.__process_text_data(data)
-        nested, matrix = self.__create_nested_dict(clean_data)
+        data = self.extract_data_relative_line(path,pages,side,title)
+        data = self.extract_span_data(data,[])
+        clean_data = self.process_text_data(data)
+        nested, matrix = self.create_nested_dict(clean_data)
         return nested
     
     def get_data_via_clip(self,path:str,pages:list, title:dict, *args):
         
-        data = self.__extract_clipped_data(path,pages,title, *args)
-        data = self.__extract_span_data(data,[])
-        clean_data = self.__process_text_data(data)
-        nested, matrix = self.__create_nested_dict(clean_data)
+        data = self.extract_clipped_data(path,pages,title, *args)
+        data = self.extract_span_data(data,[])
+        clean_data = self.process_text_data(data)
+        nested, matrix = self.create_nested_dict(clean_data)
         return nested
     
     #PROCESS
@@ -490,6 +490,8 @@ class Reader:
                     content = self.match_regex_to_content(clean_head, content) # applies regex to clean data
                     content = regex.transform_keys(content) #lowercase all keys
                     content_dict.update(content)
+                    #add scheme fund name
+                    content_dict["main_scheme_name"] = fund #hardcoded as common for all
             final_text[fund] = content_dict
         
         if flatten: #Flatten the dict if true

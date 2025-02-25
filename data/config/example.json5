@@ -26,14 +26,14 @@
         "data": [
             [
                 7,
-                10
+                12
             ],
             [
                 -1
             ],
             30.0,
             [
-                "Inter-SemiBold"
+                "Inter-SemiBold","Inter-Bold"
             ]
         ],
         "content_size": [
@@ -43,6 +43,7 @@
     },
     "REGEX": {
         "aum": "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
+        "min_amt":"",
         "nav": "(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\\s*([\\d,.]+)",
         "metric": "(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\\s*([\\d,.]+)",
         "scheme": [
@@ -83,5 +84,11 @@
             "_extract_generic_data",
             "aum"
         ]
+    }
+    "SECONDARY_PATTERN_TO_FUNCTION":{
+        ".*(additional|application)$": [
+           '_extract_amt_data',
+           'min_amt'
+        ],
     }
 }
