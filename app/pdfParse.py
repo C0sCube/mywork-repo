@@ -1,12 +1,12 @@
-import os, re, math, json
-import fitz
+import os, re, math, json,logging
+import fitz # type: ignore
 from collections import defaultdict
-import pdfplumber
-import pandas as pd
-import numpy as np
+import pdfplumber # type: ignore
 import subprocess
 
+from app.utils import Helper
 from app.fundRegex import *
+from logging_config import logger
 class Reader:
     
     BASEPATH  = ''
@@ -18,18 +18,12 @@ class Reader:
     
     def __init__(self, config_path: str,params:dict):
         
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(f"Config file not found: {config_path}")
+        with open(config_path,'r') as file:
+            paths_data = json.load(file)
         self.PARAMS = params
-        
-        try:
-            if not os.path.exists(config_path):
-                raise FileNotFoundError(f"Config file not found: {config_path}")
-            
-            with open(config_path,'r') as file:
-                paths_data = json.load(file)
                 
-        except Exception as e:
-            print(f'Error: {e}')
-
         dirs = paths_data.get("dirs", {})
         paths = paths_data.get("paths", {})
 
@@ -39,122 +33,69 @@ class Reader:
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
         
-    
-    def get_file_path(self, path: str):
-        return self.BASEPATH + path
-    
-    
-    #HIGHLIGHT
-    @staticmethod
-    def __get_financial_indices(path:str):
-        
-        df = pd.read_excel(path)
-        financial_indexes = df['indexes'].tolist()
-        return set(financial_indexes)
-
-    @staticmethod
-    def __save_pdf_data(df,path:str, threshold: int):
-        excel_path = path
-        
-    
-        df_expanded = df["detect_idx"].apply(pd.Series)
-        df_expanded.columns = [f"idx_{i+1}" for i in range(df_expanded.shape[1])]
-        df_final = pd.concat([df.drop(columns=["detect_idx"]), df_expanded], axis=1)
-        df_final.to_excel(excel_path, engine="openpyxl", index=True)
-
-        # Filter pages based on the threshold
-        pages = df.loc[ (df["highlights"] >= threshold) & (df["title"].str.contains(r"\w+", na=False, regex=True))].index.to_list()
-               
-        print(f"\nDoc Saved At: {excel_path}")
-        print(f"\nPages to Extract: {pages}")
-
-        # Open the file on the screen
-        # subprocess.Popen([excel_path], shell=True)
-                
+    #HIGHLIGHT            
     def check_and_highlight(self, path: str, count: int):
         
-        try:
-            document = fitz.open(path)
-            page_count = document.page_count
-            indices = Reader.__get_financial_indices(self.INDICEPATH)
-            fund_data = self.PARAMS['fund']
-            
-        except Exception as e:
-            # logging.error(e)
-            return
-            
+        document = fitz.open(path)
+        page_count = document.page_count
+        indices = Helper._get_financial_indices(self.INDICEPATH)
+        fund_params = self.PARAMS['fund']
         
-
-        # Initialize datasets
-        df = pd.DataFrame({
-            "title": np.full(page_count,"", dtype = object),
-            "highlights": np.zeros(page_count, dtype = int),
-            "detect_idx": [[] for _ in range(page_count)]
-        })
-        
+        #checkers
+        flag_check = fund_params[0] #flags to check
+        amc_regex = fund_params[1] #fund regex
+        size_check = fund_params[2] #check size in range high,low
+        amc_block_max = self.PARAMS['amc_check_xount'] #only first 15 blocks
+             
+        data = [{"title": "", "highlights": 0, "detect_idx": []} for _ in range(page_count)]
 
         for dpgn, page in enumerate(document):
-            
-            pageBlocks = page.get_text("dict")['blocks']
-            sortedPageTexts = sorted(pageBlocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+            page_blocks = page.get_text("dict")["blocks"]
+            sorted_page_texts = sorted(page_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
 
-            for block_count, block in enumerate(sortedPageTexts):
+            for block_count, block in enumerate(sorted_page_texts):
                 if "lines" not in block:
                     continue
-
                 for line in block["lines"]:
                     for span in line["spans"]:
-                        text, size, flag, color = (span["text"].strip().lower(),span["size"],span["flags"],span["color"],)
-
-                        if flag in fund_data[0]:
+                        text, size, flag, color = (
+                            span["text"].strip().lower(), span["size"], span["flags"], span["color"]
+                        )
+                        if flag in flag_check:
                             fund_conditions = [
-                                block_count in range(0, 15),  # Check first 15 blocks only
-                                re.match(fund_data[1], text, re.IGNORECASE),
-                                round(size) in range(fund_data[2][0], fund_data[2][1]),
-                                # color in fund_data[3]
+                                block_count < amc_block_max,
+                                re.match(amc_regex, text, re.IGNORECASE),
+                                round(size) in range( size_check[0],  size_check[1])
                             ]
-
-                            # Check if the page contains fund data   
                             if all(fund_conditions):
-                                df.loc[dpgn,"title"] = text
-                                print(text)
-                                # Highlight
+                                data[dpgn]["title"] = text
                                 page.add_rect_annot(fitz.Rect(span["bbox"]))
+                                print(text)
+                        
+                        for indice in indices:
+                            pattern = rf"\b{re.escape(indice)}\b"
+                            if re.search(pattern, text):
+                                if indice not in data[dpgn]['detect_idx']:
+                                    data[dpgn]['detect_idx'].append(indice)
+                                    data[dpgn]['highlights'] += 1
+                                page.add_highlight_annot(fitz.Rect(span["bbox"]))
+                                break
 
-                            # Check if indices exist in the page and count
-                            for indice in indices:
-                                pattern = rf"\b{re.escape(indice)}\b"
-                                if match:= re.search(pattern, text):
-                                    df.loc[dpgn, 'highlights'] += 1
-                                    df.loc[dpgn, 'detect_idx'].append(match.group())
-                                    # Highlight
-                                    rect = fitz.Rect(span["bbox"])
-                                    page.add_highlight_annot(rect)
-                                    break  # One highlight per span
-
-        if any(df['highlights']):
-            output_path = path.replace(".pdf", "_hltd.pdf")
-            document.save(output_path)
-            # subprocess.Popen([output_path], shell=True)
-
+        output_path = path.replace(".pdf", "_hltd.pdf")
+        document.save(output_path)
         document.close()
-        # Save PDF data
-        Reader.__save_pdf_data(df, self.REPORTPATH, count)
+        
+        df = Helper._save_pdf_data(data, self.REPORTPATH, count) #imp
         return output_path, df
                             
     #EXTRACT
     def extract_clipped_data(self,input:str, pages:list, title:dict, *args:list):
         
-        try:
-            document = fitz.open(input)
-            final_list = []
-            bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
-            fund_names = title
-            
-        except Exception as e:
-            # logging.error(e)
-            return
-
+        document = fitz.open(input)
+        final_list = []
+        bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
+        fund_names = title
+    
         for pgn in pages:
             page = document[pgn]
             fundName = fund_names[pgn]
@@ -165,7 +106,7 @@ class Reader:
             for bbox in bboxes:
                 page_blocks = page.get_text('dict', clip=bbox)['blocks']
                 for block in page_blocks:
-                    if block['type'] == 0 and 'lines' in block:
+                    if block['type'] == 0 and 'lines' in block: #type 0 means text block
                         #hash_key
                         block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
                         if block_key not in seen_blocks:
@@ -185,16 +126,11 @@ class Reader:
     
     def extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
         
-        try:
-            doc = fitz.open(path)
-            final_list = []
-            line_x = self.PARAMS['line_x']
-            fund_names = titles
+        doc = fitz.open(path)
+        final_list = []
+        line_x = self.PARAMS['line_x']
+        fund_names = titles
             
-        except Exception as e:
-            # logging.error(e)
-            return
-        
         for pgn in pageSelect:
             page = doc[pgn]
             fundname = fund_names[pgn]
@@ -394,7 +330,7 @@ class Reader:
         nested, matrix = self.create_nested_dict(clean_data)
         return nested
     
-    def get_data_via_clip(self,path:str,pages:list, title:dict, *args):
+    def get_data_via_clip(self,path:str,pages:list, title:dict, *args): #args bcz pass clip boox externally
         
         data = self.extract_clipped_data(path,pages,title, *args)
         data = self.extract_span_data(data,[])
@@ -474,7 +410,6 @@ class Reader:
                 
            except Exception as e:
                print(f"\nError while processing '{fund}': {e}")
-               logging.error(e)
                continue      
         return extracted_text
     
@@ -487,10 +422,10 @@ class Reader:
             for head, content in items.items():
                 clean_head = regex.header_mapper(head) #normalizes headers
                 if clean_head: 
-                    content = self.match_regex_to_content(clean_head, content) # applies regex to clean data
+                    content = self._match_regex_to_content(clean_head, content) # applies regex to clean data
                     content = regex.transform_keys(content) #lowercase all keys
                     content_dict.update(content)
-                    #add scheme fund name
+                    # scheme fund name
                     content_dict["main_scheme_name"] = fund #hardcoded as common for all
             final_text[fund] = content_dict
         
@@ -507,7 +442,7 @@ class Reader:
             for head, content in items.items():
                 # clean_head = regex.header_mapper(head) #normalizes headers
                 # if clean_head: 
-                content = self.secondary_match_regex_to_content(head, content) # applies regex to clean data
+                content = self._secondary_match_regex_to_content(head, content) # applies regex to clean data
                 # content = regex.transform_keys(content) #lowercase all keys
                 content_dict.update(content)
             final_text[fund] = content_dict
@@ -517,18 +452,5 @@ class Reader:
             
         return final_text
 
-
-    def select_imp_data(self,data:dict)->dict:
-        final_dict = {}
-        regex = FundRegex() 
-        for fund, items in data.items():
-            content_dict = {}
-            for head, content in items.items():
-                if regex.select_imp_headers(head):
-                    content_dict[head] = content
-            content_dict['main_scheme_name'] = fund
-            final_dict[fund] = content_dict
-        
-        return final_dict           
-
+    #SELECT
 
