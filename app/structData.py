@@ -78,8 +78,6 @@ class FundHouseManager:
     
     def list_fund_houses(self):
         return list(self.data.keys())
-
-
 class DataStruct:
     
     def __init__(self):
