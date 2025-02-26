@@ -15,21 +15,20 @@ This project processes financial PDFs by extracting relevant data using regex pa
 
 ### File Structure
 
-```plaintext
-.
-├── app/
-├── data/
-│   ├── config/
-│   ├── input/
-│   └── output/
-├── notebook/
-├── .gitignore
-├── README.md
-├── logging_config.py
-├── main.py
-├── paths.json
-└── req.txt
-
+```.
+    ├── app/
+    ├── data/
+    │   ├── config/
+    │   ├── input/
+    │   └── output/
+    ├── notebook/
+    ├── .gitignore
+    ├── README.md
+    ├── logging_config.py
+    ├── main.py
+    ├── paths.json
+    └── req.txt
+```
 
 ## **2. Project Workflow**  
 
