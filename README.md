@@ -12,25 +12,6 @@ This project processes financial PDFs by extracting relevant data using regex pa
 - Clean the parsed data and use regex functions to get imp data
 - Perform CRUD operations on imp data for further database storage
 
-### File Structure
-
-```.
-    ├── app/
-    ├── data/
-    │   ├── config/
-    │   ├── input/
-    │   └── output/
-    ├── venv/
-    ├── logs/
-    ├── notebook/
-    ├── .gitignore
-    ├── README.md
-    ├── logging_config.py
-    ├── main.py
-    ├── paths.json
-    └── requirements.txt
-```
-
 ## **2. Project Workflow**  
 
 1. **Start Here:** Open `main.ipynb` (entry point).
