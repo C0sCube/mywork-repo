@@ -2,14 +2,34 @@
 
 ## **1. Overview**  
 
-This project processes financial PDFs by extracting relevant data using regex patterns, highlighting detected text, and storing structured data in an Excel file.  
+This project processes financial PDFs by extracting relevant data using regex patterns, highlighting detected text, generate a report for data present, clean, refine and store data in strucuted manner.
 
 ### **Key Features:**  
 
 - Extracts structured data from PDFs  
 - Highlights relevant keywords  
-- Saves processed data into an Excel report  
-- CRUD operations on `params.json5` for fund house configurations  
+- Saves count of imp data into an Excel report
+- Clean the parsed data and use regex functions to get imp data
+- Perform CRUD operations on imp data for further database storage
+- `regex.json`,`params.json5`,`paths.json` are important configs
+
+### File Structure
+
+```plaintext
+.
+├── app/
+├── data/
+│   ├── config/
+│   ├── input/
+│   └── output/
+├── notebook/
+├── .gitignore
+├── README.md
+├── logging_config.py
+├── main.py
+├── paths.json
+└── req.txt
+
 
 ## **2. Project Workflow**  
 
