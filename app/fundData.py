@@ -4,8 +4,7 @@ from app.fundRegex import FundRegex
 from logging_config import logger
 import fitz #type:ignore
 
-AMC_PATH = os.path.join(os.getcwd(),"data\\config\\params.json5") 
-
+AMC_PATH = os.path.join(os.getcwd(),"data\\config\\params.json5")
 class GrandFundData:
     
     def __init__(self,fund_name:str):
@@ -14,6 +13,7 @@ class GrandFundData:
         
         #all amc data
         fund_config = config.get(fund_name, {})
+        # print(fund_config)
 
         #amc indicators
         self.PARAMS = fund_config.get("PARAMS", {})
@@ -125,8 +125,8 @@ class GrandFundData:
 class ThreeSixtyOne(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
     
     def _extract_manager_data(self, main_key: str, data: list, pattern:str):
         final_list = []
@@ -197,8 +197,8 @@ class BajajFinServ(Reader):
 class Bandhan(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
 
 #4
 class BankOfIndia(Reader):
@@ -328,8 +328,8 @@ class BankOfIndia(Reader):
 class BarodaBNP(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
     
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -524,8 +524,8 @@ class DSP(Reader):
 class Edelweiss(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
     
     def get_proper_fund_names(self, path: str, pages: list):
         doc = fitz.open(path)
@@ -585,8 +585,8 @@ class Edelweiss(Reader,GrandFundData):
 #9 <>
 class FranklinTempleton(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
     
     def _extract_manager_data(self, main_key: str, data: list, pattern:str):
         manager_data = " ".join(data)
@@ -611,8 +611,8 @@ class FranklinTempleton(Reader,GrandFundData):
 class Helios(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def _extract_manager_data(self, main_key:str, data, pattern:str):
         manager_data = re.sub(self.REGEX['escape'],"", data).strip()
@@ -637,8 +637,8 @@ class Helios(Reader,GrandFundData):
 class Invesco(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         manager_data = " ".join(data)
@@ -660,8 +660,8 @@ class Invesco(Reader,GrandFundData): #Lupsum issues
 class ITI(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
      
     def _extract_nav_data(self,main_key:str, data:list, pattern:str):
         final_dict = {}
@@ -694,8 +694,8 @@ class ITI(Reader,GrandFundData):
 class Kotak(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -728,8 +728,8 @@ class Kotak(Reader,GrandFundData): #Lupsum issues
 class MahindraManu(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def get_proper_fund_names(self,path:str,pages:list):
         
@@ -788,8 +788,8 @@ class MahindraManu(Reader,GrandFundData):
 #20 <>
 class MIRAE(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
      
     def get_proper_fund_names(self, path:str,pages:list):
         
@@ -821,8 +821,8 @@ class MIRAE(Reader,GrandFundData):
 #21 <>
 class MotilalOswal(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
     
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -857,8 +857,8 @@ class MotilalOswal(Reader,GrandFundData): #Lupsum issues
 class NAVI(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -879,9 +879,10 @@ class NAVI(Reader,GrandFundData): #Lupsum issues
 
 #23 <>
 class Nippon(Reader,GrandFundData):
+    
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
     
     def _extract_manager_data(self,main_key:str,data:list, pattern:str):
         manager_data = data
@@ -988,8 +989,8 @@ class Quantum(Reader,GrandFundData): #Lupsum issues
 class Samco(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
 
     def _extract_manager_data(self, main_key: str, data: list, pattern: str):
         final_list = []
@@ -1015,8 +1016,8 @@ class Samco(Reader, GrandFundData):
 class Sundaram(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def _extract_manager_data(self, main_key:str, data,pattern:str):
         final_list = []
@@ -1037,9 +1038,9 @@ class Sundaram(Reader,GrandFundData): #Lupsum issues
 #34 <>
 class Tata(Reader,GrandFundData): #Lupsum issues
     
-    def __init__(self,paths_config:str,fund_name:str):
-        Reader.__init__(self,paths_config,self.PARAMS)
-        GrandFundData.__init__(self,fund_name)
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
     
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -1061,8 +1062,8 @@ class Tata(Reader,GrandFundData): #Lupsum issues
 class Taurus(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -1340,8 +1341,8 @@ class UTI(Reader):
 class WhiteOak(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        GrandFundData.__init__(self,fund_name) #load from Grand
         
     def get_proper_fund_names(self,path:str,pages:list):
         
@@ -1508,7 +1509,11 @@ class Zerodha(Reader):
 
 
 #41 Aditya Birla
-
+class AdityaBirla(Reader,GrandFundData):
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+ 
 #42 Axis Mutual
 
 

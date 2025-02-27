@@ -2,48 +2,31 @@
 
 ## **1. Overview**  
 
-This project processes financial PDFs by extracting relevant data using regex patterns, highlighting detected text, generate a report for data present, clean, refine and store data in strucuted manner.
+This project automates the extraction, processing, and storage of financial data from PDFs. It identifies key patterns, highlights important text, generates structured reports, and refines extracted content for further use.  
 
 ### **Key Features:**  
 
-- Extracts structured data from PDFs  
-- Highlights relevant keywords  
-- Saves count of imp data into an Excel report
-- Clean the parsed data and use regex functions to get imp data
-- Perform CRUD operations on imp data for further database storage
+- **Extracts** structured data from PDFs using regex.  
+- **Highlights** key financial terms for better visibility.  
+- **Generates Reports** with important data counts in Excel.  
+- **Cleans & Refines** extracted text for accuracy.  
+- **Performs CRUD Operations** for efficient database storage.  
 
-### File Structure
-
-```.
-    ├── app/
-    ├── data/
-    │   ├── config/
-    │   ├── input/
-    │   └── output/
-    ├── venv/
-    ├── logs/
-    ├── notebook/
-    ├── .gitignore
-    ├── README.md
-    ├── logging_config.py
-    ├── main.py
-    ├── paths.json
-    └── requirements.txt
-```
 
 ## **2. Project Workflow**  
 
-1. **Start Here:** Open `main.ipynb` (entry point).
-2. CALL the object of Fund House in file `fundData.py`.
-3. LOAD a pdf and extract all text.  
-4. HIGHLIGHT key financial terms and fund-related information via `check_and_highlight`.  
-5. SAVE processed results into an Excel report and make new pdf of highlighted data.
-6. Get page TITLE, PAGES from the report required to parse data.
-7. Get data either via `get_data_via_clip` or `get_data_via_line`
-8. Use `get_generated_content` to get pdf data.
-9. Use `refine_extracted_data` and if required `refine_secondary_data` to refine all the IMP data.
-10. STORE or perform CRUD on data, use utils if required.
-11. Be Happy !! Make sure to LOG !!
+1. **Start Here:** Open `main.ipynb` (entry point).  
+2. **Initialize:** Call the relevant Fund House object from `fundData.py`.  
+3. **Extract Data:** Load a PDF and extract all text.  
+4. **Highlight Keywords:** Use `check_and_highlight` to mark key financial terms.  
+5. **Generate Reports:** Save results into an Excel report and create a highlighted PDF.  
+6. **Identify Sections:** Retrieve page **titles** and **page numbers** from the report.  
+7. **Extract Content:**  
+   - Use `get_data_via_clip` or `get_data_via_line` for structured extraction.  
+   - Call `get_generated_content` to process PDF data.  
+8. **Refine Data:** Apply `refine_extracted_data` and `refine_secondary_data` to clean important content.  
+9. **Store & Manage:** Perform **CRUD** operations on extracted data.  
+10. **Log Everything:** Ensure logs are properly maintained.  
 
 ## **3. Installation & Setup**  
 
@@ -53,61 +36,36 @@ cd mywork-repo
 pip install -r requirements.txt  
 ```
 
-## **4. Things to Remember**
+## **4. Things to Remember**  
 
-- Ensure the file structure is similar to what is shown.
-- `fundData.py` has a main class `GrandFundData` and subclasses named similarly to the AMCs (e.g., "Tata Mutual Fund" as "Tata").
-- Call the object of those subclasses in `main.ipynb`.
-- `params.json5` stores fund house configurations handled by `structData.py`.
-- `regex.json` stores `header_patterns` and `stop_words` handled by `fundRegex.py`.
-- `paths.json` stores all paths; `paths` and `configs` files MUST BE PRESENT before running the main program.
-- `pdfParse.py` contains the code to check, highlight, and extract data from PDFs.
-- `logging_config.py` and `utils.py` are used for logging and helper functions, respectively.
-- `params.json5` has the following structure:
+**File Structure** should match the expected format for smooth execution.  
 
-    ```json
-            {
-                "FUND_NAME1": {
-                    "PARAMS": {
-                        "fund": [
-                            [FLAG(S)], //int
-                            "REGEX_PATTERN", //str
-                            [SIZE_MIN, SIZE_MAX], //int
-                            [COLOR(S)] //unsigned_int
-                        ],
-                        "clip_bbox": [
-                            [X0, Y0, X1, Y1] //float
-                        ],
-                        "line_x": FLOAT,
-                        "data": [
-                            [FONT_SIZE_MIN, FONT_SIZE_MAX], //int
-                            [COLOR(S)], //unsigned_int
-                            SET_HEAD_SIZE, //float
-                            [FONT_NAME] //str
-                        ],
-                        "content_size": [HEAD_SIZE, NORMAL_TEXT_SIZE], //float
-                        "amc_check_xount": INT,
-                        "check_max_highlights": INT
-                    },
-                    "REGEX": {
-                        "key" :"regex", 
-                    },
-                    "PATTERN_TO_FUNCTION": {
-                        "sub_head_regex": [
-                            "function_name",
-                            "key"
-                        ],
-                    },
-                    "SECONDARY_PATTERN_TO_FUNCTION": {
-                        "sub_head_regex": [
-                            "function_name",
-                            "key"
-                        ],
-                    },
-                    "SELECTKEYS": [],
-                    "MERGEKEYS": {}
-                },
+**Key Files & Their Roles:**  
+- `fundData.py` → Contains `GrandFundData` (main class) and fund-specific subclasses (e.g., `"Tata"` for "Tata Mutual Fund").  
+- `main.ipynb` → Entry point; call fund house objects here.  
+- `params.json5` → Stores fund house configurations (handled by `structData.py`).  
+- `regex.json` → Contains `header_patterns` & `stop_words` (used in `fundRegex.py`).  
+- `paths.json` → Defines all paths; both `paths.json` and `configs` must be present before running the program.  
+- `pdfParse.py` → Handles text extraction, highlighting, and PDF processing.  
+- `logging_config.py` & `utils.py` → Manage logging and utility functions.  
 
-                "FUND_NAME2" :{..}
-            }
-    ```
+**Config Structure (`params.json5`) Example:**  
+```json
+{
+    "FUND_NAME": {
+        "PARAMS": {
+            "fund": [[FLAG(S)], "REGEX_PATTERN", [SIZE_MIN, SIZE_MAX], [COLOR(S)]],
+            "clip_bbox": [[X0, Y0, X1, Y1]],
+            "line_x": FLOAT,
+            "data": [[FONT_SIZE_MIN, FONT_SIZE_MAX], [COLOR(S)], SET_HEAD_SIZE, [FONT_NAME]],
+            "content_size": [HEAD_SIZE, NORMAL_TEXT_SIZE],
+            "amc_check_count": INT,
+            "check_max_highlights": INT
+        },
+        "REGEX": { "key": "regex" },
+        "PATTERN_TO_FUNCTION": { "sub_head_regex": ["function_name", "key"] },
+        "SECONDARY_PATTERN_TO_FUNCTION": { "sub_head_regex": ["function_name", "key"] },
+        "SELECTKEYS": [],
+        "MERGEKEYS": {}
+    }
+}

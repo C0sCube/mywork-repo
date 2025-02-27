@@ -41,7 +41,9 @@
                 8.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             manager: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s]+)has.*?([0-9\\.]+ years)",
@@ -101,39 +103,91 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "No issues as of now.",
+        ],
     },
     "Aditya Birla Sun Life Mutual Fund": {
         PARAMS: {
+            fund: [
+                [
+                    20,
+                    4,
+                ],
+                "^Aditya Birla.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|Funds*)$",
+                [
+                    10,
+                    20,
+                ],
+                [
+                    -1,
+                ],
+            ],
+            clip_bbox: [
+                [
+                    0,
+                    50,
+                    200,
+                    812,
+                ],
+            ],
+            line_x: 210.0,
+            data: [
+                [
+                    4,
+                    10,
+                ],
+                [
+                    -1,
+                ],
+                30.0,
+                [
+                    "AnekLatin-Bold",
+                ],
+            ],
+            content_size: [
+                30.0,
+                10.0,
+            ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Axis Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Bajaj Finserv Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Bandhan Mutual Fund": {
         PARAMS: {
@@ -177,7 +231,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             ter: "(Regular|Direct)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
@@ -224,17 +280,23 @@
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "Regex for Fund Manager",
+        ],
     },
     "Bank of India Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Baroda BNP Paribas Mutual Fund": {
         PARAMS: {
@@ -278,7 +340,9 @@
                 8.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             date: "^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*",
@@ -332,28 +396,35 @@
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Canara Robeco Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "DSP Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Edelweiss Mutual Fund": {
         PARAMS: {
@@ -398,7 +469,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(.+?)\\s*(\\d+\\.\\d+)",
@@ -447,6 +520,7 @@
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Franklin Templeton Mutual Fund": {
         PARAMS: {
@@ -491,7 +565,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(Growth Plan|IDCW Plan|Direct Growth Plan|Direct IDCW Plan)\\s*([\\d\\-,]+\\.\\d+)",
@@ -540,28 +616,35 @@
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Groww Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "HDFC Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Helios Mutual Fund": {
         PARAMS: {
@@ -606,7 +689,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(Regular Plan\\s?-\\s?Growth Option|Regular Plan\\s?-\\s?IDCW Option|Direct Plan\\s?-\\s?Growth Option|Direct Plan\\s?-\\s?IDCW Option)\\s*([\\d,\\-]+(?:\\.\\d+)?|NA|Nil)",
@@ -668,39 +753,89 @@
         },
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "HSBC Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "ICICI Prudential Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Invesco Mutual Fund": {
         PARAMS: {
+            fund: [
+                [
+                    20,
+                    16,
+                ],
+                "^(Invesco|Bharat).*Fund$",
+                [
+                    12,
+                    20,
+                ],
+                [
+                    -16777216,
+                ],
+            ],
+            clip_bbox: [
+                0,
+                135,
+                185,
+                812,
+            ],
+            line_x: 180.0,
+            data: [
+                [
+                    7,
+                    9,
+                ],
+                [
+                    -16777216,
+                ],
+                30.0,
+                [
+                    "Graphik-Semibold",
+                ],
+            ],
+            content_size: [
+                30.0,
+                10.0,
+            ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "two funds on same page",
+        ],
     },
     "ITI Mutual Fund": {
         PARAMS: {
@@ -746,7 +881,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             aum: "(AUM|AAUM).*?([\\d,\\-]+\\.?\\d+)",
@@ -797,6 +934,7 @@
         },
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "JM Financial Mutual Fund": {
         PARAMS: {
@@ -841,7 +979,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             aum: "(.+\\s*AUM).*?([\\d,]+\\.?\\d+)",
@@ -870,6 +1010,11 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "objective on left",
+            "sometimes date is with header",
+            "overlapppp",
+        ],
     },
     "Kotak Mahindra Mutual Fund": {
         PARAMS: {
@@ -915,7 +1060,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             metric: "^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
@@ -954,17 +1101,24 @@
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "1 or more fund data on same page",
+            "title overlap the content",
+        ],
     },
     "LIC Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Mahindra Manulife Mutual Fund": {
         PARAMS: {
@@ -1016,7 +1170,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             manager: "Fund Manager(?:\\s*\\(.*?\\))?\\s+(?:Ms\\.?|Mrs\\.?|Mr\\.?)?\\s*([\\w\\s]+?)(?:\\s*\\(.*?\\))?\\s+Total Experience\\s+([0-9]+(?:\\s+years)?)?.*?\\(.*?Managing since\\s+([^)]+)\\)",
@@ -1074,6 +1230,12 @@
         },
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "incrase pages count",
+            "objective on left",
+            "sometimes date is with header",
+            "overlapppp",
+        ],
     },
     "Mirae Asset Mutual Fund": {
         PARAMS: {
@@ -1118,7 +1280,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(.*?)\\s*(\\d+\\.\\d+)",
@@ -1161,6 +1325,7 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Motilal Oswal Mutual Fund": {
         PARAMS: {
@@ -1205,7 +1370,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             metric: "(Monthly AAUM|Latest AUM|Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe Ratio|Average Maturity|YTM|Macaulay Duration|Modified Duration)\\s*([\\d,.]+)",
@@ -1249,6 +1416,7 @@
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Navi Mutual Fund": {
         PARAMS: {
@@ -1292,7 +1460,9 @@
                 9.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(.+option)\\s*([\\d,.]+)",
@@ -1348,6 +1518,7 @@
             ".*(index|inception_date|load_structure|application_amount)$",
         ],
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Nippon India Mutual Fund": {
         PARAMS: {
@@ -1394,7 +1565,9 @@
                 8.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             aum: "(Month End|Monthly Average).*?([\\d,]+\\.\\d{2})",
@@ -1438,61 +1611,77 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "NJ Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Old Bridge Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "PGIM India Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "PPFAS Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Quant Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Quantum Mutual Fund": {
         PARAMS: {
@@ -1537,7 +1726,9 @@
                 8.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
@@ -1590,6 +1781,7 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Samco Mutual Fund": {
         PARAMS: {
@@ -1635,7 +1827,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             aum: "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
@@ -1684,28 +1878,35 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "SBI Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Shriram Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Sundaram Mutual Fund": {
         PARAMS: {
@@ -1750,7 +1951,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(Growth|IDCW)\\s*(-?[\\d,.]+)\\s*(-?[\\d,.]+)",
@@ -1806,6 +2009,7 @@
         },
         SELECTKEYS: [],
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Tata Mutual Fund": {
         PARAMS: {
@@ -1852,7 +2056,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "((?:Regular|Direct|Reg)\\s*(?:Growth|IDCW))\\s*([\\d,.]+)",
@@ -1889,6 +2095,7 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Taurus Mutual Fund": {
         PARAMS: {
@@ -1933,7 +2140,9 @@
                 10.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             nav: "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
@@ -1974,39 +2183,49 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Trust Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "UTI Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "Union Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
     "WhiteOak Mutual Fund": {
         PARAMS: {
@@ -2051,7 +2270,9 @@
                 8.0,
             ],
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {
             manager: "(?:Mr|Mrs|Ms)\\s*([A-Za-z\\s]+)\\s*(?:\\(([A-Za-z\\s]+)\\))?\\s*Managing this Scheme from\\s*([\\w\\s,]+)\\s*Total Work Experience\\s*([\\w\\s]+)(?=Mr|Ms|Mrs|$)",
@@ -2095,16 +2316,22 @@
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [
+            "No issues as of now.",
+        ],
     },
     "Zerodha Mutual Fund": {
         PARAMS: {
             amc_check_xount: 15,
-            check_max_highlights: 0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: {},
         MERGEKEYS: {},
+        COMMENTS: [],
     },
 }
