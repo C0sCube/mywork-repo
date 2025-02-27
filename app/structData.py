@@ -36,21 +36,38 @@ class FundHouseManager:
     
     def read_fund_house(self, name):
         return self.data.get(name, f"{name} not found")
-    
+         
     def update_fund_house(self, name, key, value):
+        
         if name not in self.data:
-            raise ValueError(f"{name} does not exist.")
+            raise ValueError(f"{name} doesn't exist")
+
         if key not in self.data[name]:
-            raise ValueError(f"Invalid key {key} for {name}.")
-        
+            self.data[name][key] = value
+            self._save_data()
+            return  
+
         if isinstance(self.data[name][key], dict):
-             self.data[name][key].update(value)
+            if not isinstance(value, dict):
+                raise ValueError(f"Expected dict to update {key}")
+            self.data[name][key].update(value)
+
+        elif isinstance(self.data[name][key], list):
+            if isinstance(value, list):
+                self.data[name][key].extend(value)
+            else:
+                self.data[name][key].append(value)
+
+        elif isinstance(self.data[name][key], str):
+            if not isinstance(value, str):
+                raise ValueError(f"Non string value")
+            self.data[name][key] = value
+
         else:
-            raise ValueError(f"{key} cannot add")
-    
+            raise ValueError(f"Unsupported operation for key '{key}' in fund house '{name}'.")
+
         self._save_data()
-        
-    
+
         
     def delete_fund_value(self, name, key, value):
         if name not in self.data:
