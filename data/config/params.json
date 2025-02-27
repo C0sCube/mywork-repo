@@ -1,0 +1,2119 @@
+{
+	"360 ONE Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20],
+				"360 ONE.*(Fund|Path|ETF|FOF|EOF)$",
+				[18,24],
+				[
+					-16777216
+				]
+			],
+			"clip_bbox": [
+				[0,5,160,812]
+			],
+			"line_x": 160,
+			"data": [
+				[6,10],
+				[
+					-10791002
+				],
+				30,
+				[
+					"SpaceGrotesk-SemiBold"
+				]
+			],
+			"content_size": [30,8],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"manager": "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s]+)has.*?([0-9\\.]+ years)",
+			"nav": "(.+(?:Growth|IDCW))\\s*([\\d,\\-]+\\.?\\d+)",
+			"ter": "(.+Plan)\\s*([\\d,\\-]+\\.?\\d+)",
+			"aum": "(.+ AUM)\\s*([\\d,\\-,]+\\.?\\d+)",
+			"scheme": [
+				"Date of Allotment",
+				"BloomBerg Code",
+				"Benchmark Index",
+				"Plans Offered",
+				"Options Offered",
+				"Minimum Application",
+				"Additional Purchase",
+				"Weekly SIP Option",
+				"Monthly SIP Option",
+				"Quarterly SIP Option",
+				"Entry Load",
+				"Exit Load",
+				"Dematerialization",
+				"Portfolio Turnover",
+				"EOL"
+			],
+			"metrics": "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson|Residual Maturity|Macaulay Duration|Annualised Portfolio)\\s+([\\d,\\-]+\\.?\\d+|NA)\\s+([\\d,\\-]+\\.?\\d+|NA)",
+			"escape": "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^metrics.*": [
+				"_extract_generic_data",
+				"metrics"
+			],
+			"^scheme.*": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^total.*": [
+				"_extract_generic_data",
+				"ter"
+			],
+			"^(fund_mana|co_fund).*": [
+				"_extract_manager_data",
+				"manager"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Aditya Birla Sun Life Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Axis Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Bajaj Finserv Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Bandhan Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20],
+				"^Bandhan.*(Fund|Funds|Plan|ETF)$",
+				[13,24],
+				[
+					-1361884
+				]
+			],
+			"clip_bbox": [
+				[0,80,200,812]
+			],
+			"line_x": 200,
+			"data": [
+				[6,8],
+				[
+					-14475488
+				],
+				30,
+				[
+					"Ubuntu-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"ter": "(Regular|Direct)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
+			"nav": "(Regular Plan Growth|Regular Plan IDCW|Direct Plan Growth|Direct Plan IDCW)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
+			"metric": "(Beta|R Squared|Standard Deviation|Sharpe\\*|Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
+			"ptr": "(Equity|Aggregate|Tracking Error.*)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
+			"escape": "[^a-zA-Z0-9.,\\s]+|\\bAnnualized\\b"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(category|scheme_launch|benchmark|month|about|investment|sip|option|minimum_inv|exit_load|inception_date).*": [
+				"_extract_str_data",
+				null
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^fund_mana.*": [
+				"_extract_str_data",
+				null
+			],
+			"^portfolio.*": [
+				"_extract_generic_data",
+				"ptr"
+			],
+			"^metrics.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^total.*": [
+				"_extract_generic_data",
+				"ter"
+			]
+		},
+		"SELECTKEYS": [
+			"inception_date",
+			"fund_manager",
+			"metrics",
+			"benchmark_index",
+			"minimum_investment_amount",
+			"exit_load",
+			"monthly_avg_aum",
+			"month_end_aum"
+		],
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Bank of India Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Baroda BNP Paribas Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[0],
+				"^Baroda BNP",
+				[12,18],
+				[
+					-13619152
+				]
+			],
+			"clip_bbox": [
+				[0,65,210,700]
+			],
+			"line_x": 210,
+			"data": [
+				[7,10],
+				[
+					-12566464
+				],
+				30,
+				[
+					"Unnamed-T3"
+				]
+			],
+			"content_size": [30,8],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"date": "^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*",
+			"nav": "([\\w\\s-]+?)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
+			"aum": "^(Monthly AAUM|AUM).*?([\\d,\\-]+\\.?\\d{2}+) Crores",
+			"metric": "^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
+			"manager": "(?:Mr\\.|Ms\\.|Mrs\\.)\\s([A-Za-z\\s]+)\\s(\\d{2}-[A-Za-z]{3}-\\d{2,4})\\s(\\d+ years)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+			"load": "(?:Entry Load)?(.*?)Exit Load\\s*(.*)$",
+			"lumpsum": "^(.*?|Minimum Application Amount|Minimum Additional Application Amount)([\\d,]+ .*? thereafter)"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^invest.*": [
+				"_extract_str_data",
+				null
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^load": [
+				"_extract_load_data",
+				"load"
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^date_of_allot": [
+				"_extract_aum_data",
+				"aum"
+			],
+			"^bench.*": [
+				"_extract_str_data",
+				null
+			]
+		},
+		"SELECTKEYS": [
+			"benchmark_index",
+			"aum",
+			"fund_manager",
+			"load",
+			"metrics",
+			"lumpsum_details",
+			"minimum_application_amount",
+			"minimum_additional_application_amount"
+		],
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Canara Robeco Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"DSP Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Edelweiss Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20],
+				"^(Edelweiss|Bharat)",
+				[12,20],
+				[
+					-16298334
+				]
+			],
+			"clip_box": [
+				[0,5,410,812]
+			],
+			"line_x": 410,
+			"data": [
+				[5,9],
+				[
+					-16298334,
+					-6204255
+				],
+				30,
+				[
+					"Roboto-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(.+?)\\s*(\\d+\\.\\d+)",
+			"metric": "(Sharpe Ratio|Standard Deviation|Beta|Annualised)\\s*([\\d\\-,]+\\.\\d+)",
+			"ter": "(Regular Plan|Direct Plan)\\s*([\\d.,]+)",
+			"date": ".*(\\d.+[a-zA-Z]{3}\\d{2})$",
+			"aum": "Rs\\.\\s*([\\d,]+\\.\\d+).*Rs\\.\\s*([\\d,]+\\.\\d+).*",
+			"manager": "(?:Mr\\.|Ms\\.)\\s*([A-Za-z\\s]+)\\s*(\\d{1,2}\\s*years)\\s*(.*)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(minimum|additional|benchmark|exit).*": [
+				"_extract_str_data",
+				null
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^aum.*": [
+				"_extract_aum_data",
+				"aum"
+			],
+			"^total.*": [
+				"_extract_generic_data",
+				"ter"
+			],
+			"^fund.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			".*\\d{1,2}[a-zA-Z]{3,4}\\d{2,4}$": [
+				"_extract_date_data",
+				"date"
+			]
+		},
+		"SELECTKEYS": [
+			"inception_date",
+			"fund_manager",
+			"benchmark_index",
+			"aum",
+			"minimum_investment_amount",
+			"additional_investment",
+			"exit_load",
+			"metrics"
+		],
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Franklin Templeton Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[25,20],
+				"^(Franklin|Templeton).*$",
+				[16,24],
+				[
+					-65794
+				]
+			],
+			"clip_bbox": [
+				[0,100,180,812]
+			],
+			"line_x": 180,
+			"data": [
+				[6,9],
+				[
+					-16751720
+				],
+				30,
+				[
+					"ZurichBT-BoldCondensed"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(Growth Plan|IDCW Plan|Direct Growth Plan|Direct IDCW Plan)\\s*([\\d\\-,]+\\.\\d+)",
+			"metric": "(Sharpe Ratio|Standard Deviation|Beta|Annualised)[\\s]+([\\d\\-,]+\\.\\d+)",
+			"expense": "(Regular|Direct)\\s*([\\d,.-]+)",
+			"load": "ENTRY LOA(.*?)\\s*EXIT LOAD\\s*(.*?)$",
+			"aum": "(Month End|Monthly Average)\\s*([\\d,.\\-]+)",
+			"ptr": "^(Portfolio Turnover|Total Portfolio).*\\s*([\\d\\-,]+\\.\\d+)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(date|benchmark|investment|type_of|scheme|multiples|minimum).*": [
+				"_extract_str_data",
+				null
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^portfolio_turnover_ratio": [
+				"_extract_generic_data",
+				"ptr"
+			],
+			"^load": [
+				"_extract_load_data",
+				"load"
+			],
+			"^metrics": [
+				"_extract_generic_data",
+				"metric"
+			]
+		},
+		"SELECTKEYS": [
+			"date_of_allotment",
+			"fund_manager",
+			"benchmark_index",
+			"aum",
+			"multiples_for_new_investors",
+			"multiples_for_existing_investors",
+			"load",
+			"metrics"
+		],
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Groww Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"HDFC Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Helios Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20],
+				"^Helios.*Fund$",
+				[16,24],
+				[
+					-1
+				]
+			],
+			"clip_box": [
+				[0,5,245,812]
+			],
+			"line_x": 245,
+			"data": [
+				[7,10],
+				[
+					-1,
+					-2545112
+				],
+				30,
+				[
+					"Poppins-SemiBold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(Regular Plan\\s?-\\s?Growth Option|Regular Plan\\s?-\\s?IDCW Option|Direct Plan\\s?-\\s?Growth Option|Direct Plan\\s?-\\s?IDCW Option)\\s*([\\d,\\-]+(?:\\.\\d+)?|NA|Nil)",
+			"metric": "(Sharpe Ratio|Standard Deviation|Beta|Annualised|Average Maturity|Modi?f?ied Duration|Macaulay Duration|Yield to Maturity)\\s*([\\d\\-,.]+\\s*\\w*?)",
+			"ter": "(Regular Plan|Direct Plan)\\s*([\\d\\-,]+(?:\\.\\d+)?|NA|Nil)",
+			"scheme": [
+				"Scheme Category",
+				"Benchmark",
+				"Plans and Options",
+				"Inception Date",
+				"Minimum Investment Amount",
+				"Additional Investment Amount",
+				"Fund Manager",
+				"Entry Load",
+				"Exit Load",
+				"Face Value per Unit",
+				"EOL"
+			],
+			"aum": "(Monthly Avg AUM|Month End AUM)\\s*([\\d,.\\-]+)",
+			"ptr": "(Equity Turnover|Total Turnover)\\s*([\\d,.\\-]+)",
+			"manager": "(?:Mr\\.?|Ms\\.?|Mrs\\.?)?\\s*([\\w\\s]+)(?:\\([^)]+\\))?\\s*\\(Since ([^)]+)  Overall (\\d+ years)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^total.*": [
+				"_extract_generic_data",
+				"ter"
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^portfolio$": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^portfolio_turnover_ratio.*": [
+				"_extract_generic_data",
+				"ptr"
+			],
+			"^metric": [
+				"_extract_generic_data",
+				"metric"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			"^portfolio.fund_manager": [
+				"_extract_manager_data",
+				"manager"
+			]
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"HSBC Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"ICICI Prudential Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Invesco Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"^(Invesco|Bharat).*Fund$",
+				[12,20],
+				[
+					-16777216
+				]
+			],
+			"clip_bbox": [0,135,185,812],
+			"line_x": 180,
+			"data": [
+				[7,9],
+				[
+					-16777216
+				],
+				30,
+				[
+					"Graphik-Semibold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"ITI Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"^(ITI|Bharat).*Fund$",
+				[14,24],
+				[
+					-1
+				]
+			],
+			"clip_bbox": [
+				[0,105,180,812]
+			],
+			"line_x": 180,
+			"data": [
+				[5,8],
+				[
+					-1688818,
+					-1165277
+				],
+				30,
+				[
+					"Calibri-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"aum": "(AUM|AAUM).*?([\\d,\\-]+\\.?\\d+)",
+			"nav": "(Growth|IDCW)\\s*([\\-\\d,.]+)\\s*([\\-\\d,]+\\.?\\d+)",
+			"metric": "(Average PE|Average PB|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity|Macaulay Duration|Portfolio Turnover Ratio)\\s*([\\-\\d,]+\\.\\d+)",
+			"ter": "^(Regular Plan|Direct Plan)\\s*([\\d,]+\\.?\\d+)",
+			"manager": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\(Since ([\\w\\-\\s]+)\\)\\s*Total Experience\\s*(\\d+ years)",
+			"scheme": [
+				"Inception Date",
+				"Benchmark",
+				"Minimum Application",
+				"Load Structure",
+				"Entry Load",
+				"Exit Load",
+				"Total Expense Ratio",
+				"EOL"
+			],
+			"min_amt": "([\\d,]+).*?([\\d,]+)",
+			"escape": "[^A-Za-z0-9\\-\\(\\).,\\s]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^portfolio_details.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^metrics.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^scheme.*": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^fund_manager": [
+				"_extract_manager_data",
+				"manager"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			".*minimum_application$": [
+				"_extract_amt_data",
+				"min_amt"
+			]
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"JM Financial Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"^(JM|Bharat).*Fund$",
+				[14,24],
+				[
+					-10987173
+				]
+			],
+			"clip_bbox": [
+				[390,105,596,812]
+			],
+			"line_x": 390,
+			"data": [
+				[6,9],
+				[
+					-1
+				],
+				30,
+				[
+					"MyriadPro-BoldCond"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"aum": "(.+\\s*AUM).*?([\\d,]+\\.?\\d+)",
+			"nav": "(.*(?:Option|IDCW)).*?([\\d,]+\\.?\\d+)",
+			"metric": "(.* YTM|Average PE|Average PB|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity|Macaulay Duration|Portfolio Turnover Ratio)\\s*([\\-\\d,]+\\.\\d+)",
+			"ter": "^(Regular Plan|Direct Plan)\\s*([\\d,.]+)",
+			"manager": "(?:Mr|Mrs|Ms)\\s*([\\w\\s]+)\\(Since\\s*([\\d\\w-]+)\\)\\s*Total experience\\s*([0-9]+ years)",
+			"scheme": [
+				"Inception Date",
+				"Benchmark",
+				"Minimum Application",
+				"Load Structure",
+				"Entry Load",
+				"Exit Load",
+				"Total Expense Ratio",
+				"EOL"
+			],
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(investment|exit_load).*": [
+				"_extract_str_data",
+				null
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Kotak Mahindra Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"^(Kotak|Bharat).*(Fund|ETF|FTF|FOF)$|^Kotak",
+				[12,20],
+				[
+					-15319437
+				]
+			],
+			"clip_bbox": [
+				[0,80,150,812]
+			],
+			"line_x": 150,
+			"data": [
+				[6,8],
+				[
+					-15445130,
+					-14590595
+				],
+				30,
+				[
+					"Frutiger-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"metric": "^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
+			"nav": "(Growth|IDCW)\\s*([\\d,]+\\.\\d+)\\s*([\\d,]+\\.\\d+)",
+			"ter": "(Regular Plan|Direct Plan):\\s*([\\d.]+)%",
+			"manager": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(sip|aaum|aum|allotment|folio_count|entry|exit|initial|systemic|ideal).*": [
+				"_extract_str_data",
+				null
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^nav.*": [
+				"_extract_nav_data",
+				"nav"
+			],
+			"^metrics.*": [
+				"_extract_generic_data",
+				"metric"
+			]
+		},
+		"SELECTKEYS": [
+			"entry_load",
+			"exit_load",
+			"metrics",
+			"aaum",
+			"fund_manager",
+			"benchmark_index",
+			"allotment_date",
+			"initial__additional_investment"
+		],
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"LIC Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Mahindra Manulife Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"",
+				[12,20],
+				[
+					-15319437
+				]
+			],
+			"clip_bbox": [
+				[0,65,200,812]
+			],
+			"line_x": 200,
+			"data": [
+				[7,10],
+				[
+					-7392877,
+					-16749906,
+					-7953091,
+					-7767504,
+					-12402502,
+					-945627
+				],
+				30,
+				[
+					"QuantumRise-Bold",
+					"QuantumRise",
+					"QuantumRise-Semibold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"manager": "Fund Manager(?:\\s*\\(.*?\\))?\\s+(?:Ms\\.?|Mrs\\.?|Mr\\.?)?\\s*([\\w\\s]+?)(?:\\s*\\(.*?\\))?\\s+Total Experience\\s+([0-9]+(?:\\s+years)?)?.*?\\(.*?Managing since\\s+([^)]+)\\)",
+			"scheme": [
+				"Date of allotment",
+				"Benchmark",
+				"Option",
+				"Minimum Application Amount",
+				"Minimum Additional Purchase Amount",
+				"Minimum Repurchase Amount",
+				"Minimum Redemption / Switch-outs",
+				"Monthly AAUM",
+				"Quarterly AAUM",
+				"Monthly AUM",
+				"Total Expense Ratio",
+				"Load Structure",
+				"Entry Load",
+				"Exit Load",
+				"EOL"
+			],
+			"nav": "(IDCW|Growth)\\s*([\\-\\d,.]+)\\s*([\\-\\d,.]+)",
+			"aum": ".*?([\\d,]+\\.?\\d{2}+)$",
+			"ter": "",
+			"min_amt": "([\\d,]+).*?([\\d,]+)",
+			"metrics": "(Portfolio Turnover Ratio\\s*\\(.*\\)|Standard Deviation|Treynor|Beta|Sharpe|Jensons).*?(-?[\\d,\\.]+)",
+			"escape": "[^A-Za-z0-9\\s\\(\\),\\-\\.\\/]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metrics"
+			],
+			"^scheme.*": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^nav.*": [
+				"_extract_nav_data",
+				"nav"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			".*(application_amount|purchase_amount)$": [
+				"_extract_amt_data",
+				"min_amt"
+			]
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Mirae Asset Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"^MIRAE.*",
+				[26,36],
+				[
+					-687584
+				]
+			],
+			"clip_bbox": [
+				[0,190,270,812]
+			],
+			"line_x": 270,
+			"data": [
+				[8,12],
+				[
+					-14991759
+				],
+				30,
+				[
+					"SpoqaHanSans-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(.*?)\\s*(\\d+\\.\\d+)",
+			"metric": "^(Average Maturity|Modified Duration|Macaulay Duration|Annualized Portfolio YTM|Beta|Sharpe Ratio|YTM|Jensons .*|Treynor .*)\\s*([\\d,.]+)",
+			"ter": "^(Regular Plan|Direct Plan)\\s*([\\d,.]+)",
+			"scheme": [
+				"Fund Managers",
+				"Allotment Date",
+				"Benchmark",
+				"Net AUM",
+				"Tracking Error Value",
+				"Exit Load",
+				"Plan Available",
+				"EOL"
+			],
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(scheme).*": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^total.*": [
+				"_extract_generic_data",
+				"ter"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Motilal Oswal Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,16],
+				"^(Motilal|Oswal).*(Fund|ETF|EOF|FOF|FTF|Path)$",
+				[20,28],
+				[
+					-13616547
+				]
+			],
+			"clip_bbox": [
+				[0,65,170,812]
+			],
+			"line_x": 170,
+			"data": [
+				[7,14],
+				[
+					-13948375
+				],
+				30,
+				[
+					"Calibri-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"metric": "(Monthly AAUM|Latest AUM|Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe Ratio|Average Maturity|YTM|Macaulay Duration|Modified Duration)\\s*([\\d,.]+)",
+			"nav": "(.+?Option)\\s*([\\d.,]+)",
+			"ter": "(Regular|Direct)\\s*([\\d,.]+)",
+			"load": "(?:Entry Load)?\\s*(Nil|\\S.*?)\\s*(?:Exit Load\\s*(Nil|\\S.*?))?$",
+			"min_amt": "(Minimum Application Amount|Additional Application Amount)\\s*.*?([\\d,]+).*?(\\d+)",
+			"manager": "\\b(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*Managing this fund since\\s*([0-9]+\\-[A-Za-z]+\\-[0-9]+)\\s*He has a rich experience of more than ([0-9]+ years)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(investment|benchmark|redemption|inception|category).*": [
+				"_extract_str_data",
+				null
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^min_amt.*": [
+				"_extract_amt_data",
+				"min_amt"
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^load.*": [
+				"_extract_load_data",
+				"load"
+			]
+		},
+		"SELECTKEYS": [
+			"benchmark_index",
+			"^min_amt",
+			"load",
+			"inception_date",
+			"^metrics.*",
+			"fund_manager",
+			"main_scheme_name"
+		],
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Navi Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20],
+				"^NAVI.*",
+				[23,33],
+				[
+					-19456
+				]
+			],
+			"clip_bbox": [
+				[0,75,320,700]
+			],
+			"line_x": 320,
+			"data": [
+				[14,20],
+				[
+					-12844976
+				],
+				30,
+				[
+					"NaviHeadline-Bold"
+				]
+			],
+			"content_size": [30,9],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(.+option)\\s*([\\d,.]+)",
+			"min_amt": "([\\d,]+).*?([\\d,]+)",
+			"load": "(?:Entry Load)?\\s*(Nil|.*?)\\s*Exit Load\\s*(.*)$",
+			"aum": "(AUM|Monthly Average AUM)\\s*([\\d,.]+)",
+			"metric": "^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
+			"manager": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([A-Za-z\\s]+?)(?:\\s*a co fund manager is|\\s*)\\s*managing this fund w.e.f.\\s*([\\d]{1,2}[a-z]{2}\\s+[A-Za-z,]+\\s+\\d{4})",
+			"scheme": [
+				"Inception Date",
+				"Index",
+				"Minimum Application Amount",
+				"Load Structure",
+				"Asset Allocation Pattern",
+				"Total Expense Ratio",
+				"Portfolio Turnover Ratio",
+				"EOL"
+			],
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^scheme.*": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			".*minimum_application_amount$": [
+				"_extract_amt_data",
+				"min_amt"
+			],
+			".*load_structure": [
+				"_extract_load_data",
+				"load"
+			]
+		},
+		"SELECTKEYS": [
+			"main_scheme_name",
+			"fund_manager",
+			"^aum",
+			".*(index|inception_date|load_structure|application_amount)$"
+		],
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Nippon India Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[0,4,20],
+				"^(Nippon|CPSE).*(?=Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|$)",
+				[5,12],
+				[
+					-1
+				]
+			],
+			"clip_bbox": [
+				[0,25,220,812]
+			],
+			"line_x": 180,
+			"data": [
+				[6,12],
+				[
+					-16777216
+				],
+				30,
+				[
+					"HelveticaNeueCondensed-C",
+					"HelveticaNeueLTPro-BdCn"
+				]
+			],
+			"content_size": [30,8],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"aum": "(Month End|Monthly Average).*?([\\d,]+\\.\\d{2})",
+			"nav": "(Growth Plan|IDCW Plan|Direct\\s+Growth Plan|Direct\\s+IDCW Plan|Bonus Option)\\s*([\\d,.]+)",
+			"metric": "(Standard Deviation|Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Beta|Treynor [A-Za-z]+|Sharpe [A-Za-z]+)\\s*([\\d,.]+)",
+			"ter": "(Regular|Direct).*\\s*([\\d,]+\\.\\d{2})",
+			"manager": "([A-Za-z\\s]+)\\s*\\(?(.*?)\\)?\\s*\\(Managing Since (.*?)\\)\\s*Total Experience of more than\\s*(.* years)",
+			"load": "Entry Load(.*?)\\s*Exit Load(.*)$",
+			"escape": "[^a-zA-Z0-9.,\\s]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
+				"_extract_str_data",
+				null
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^total.*": [
+				"_extract_generic_data",
+				"ter"
+			],
+			"load.*": [
+				"_extract_load_data",
+				"load"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"NJ Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Old Bridge Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"PGIM India Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"PPFAS Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Quant Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Quantum Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20,0],
+				"^(Quantum).*(Fund|ETF|EOF|FOF|FTF|Path|ELSS|Funds)$",
+				[12,20],
+				[
+					-1
+				]
+			],
+			"clip_bbox": [
+				[0,95,220,812]
+			],
+			"line_x": 180,
+			"data": [
+				[6,11],
+				[
+					-1
+				],
+				30,
+				[
+					"Prompt-SemiBold"
+				]
+			],
+			"content_size": [30,8],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
+			"ter": "(Regular Plan|Direct Plan)\\s*([\\d,.]+)",
+			"aum": "(.+ AUM)\\s*([\\d,.]+)",
+			"load": "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$",
+			"scheme": [
+				"Category of Scheme",
+				"Investment Objective",
+				"Inception Date",
+				"Benchmark Index",
+				"Declaration of Net Asset Value",
+				"NAV",
+				"AUM",
+				"Fund Manager",
+				"Key Statistics",
+				"Entry Load",
+				"Exit Load",
+				"Total Expense Ratio",
+				"Minimum Application Amount",
+				"Portfolio Turnover Ratio",
+				"Redemption Proceeds",
+				"EOL"
+			],
+			"metric": "^(Portfolio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
+				"_extract_str_data",
+				null
+			],
+			"scheme": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^load.*": [
+				"_extract_load_data",
+				"load"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Samco Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[25,20],
+				"^samco.*fund$",
+				[18,28],
+				[
+					-1
+				]
+			],
+			"clip_bbox": [
+				[35,120,250,765]
+			],
+			"line_x": 200,
+			"data": [
+				[7,12],
+				[
+					-1
+				],
+				30,
+				[
+					"Inter-SemiBold",
+					"Inter-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"aum": "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
+			"min_amt": "",
+			"nav": "(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\\s*([\\d,.]+)",
+			"metric": "(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\\s*([\\d,.]+)",
+			"scheme": [
+				"Inception Date",
+				"Benchmark",
+				"Min.?\\s*Application",
+				"Additional",
+				"Entry Load",
+				"Exit Load",
+				"Total Expense",
+				"EOL"
+			],
+			"manager": "(?:mr|ms|mrs)\\.?\\s*([\\w\\s]+?)(?:,\\s*([\\w\\s,]+))?\\s*\\(.* since(.*)\\) Total Experience (?:Over|Around)(.*)",
+			"escape": "[^a-zA-Z0-9.,\\(\\)\\s]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(investment).*": [
+				"_extract_str_data",
+				null
+			],
+			"^nav.*": [
+				"_extract_generic_data",
+				"nav"
+			],
+			"^fund_manag": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^scheme_det": [
+				"_extract_scheme_data",
+				"scheme"
+			],
+			"^metrics.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"SBI Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Shriram Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Sundaram Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[4,0],
+				"^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund -)$|^Sundaram",
+				[14,18],
+				[
+					-16625248
+				]
+			],
+			"clip_bbox": [
+				[0,5,220,812]
+			],
+			"line_x": 220,
+			"data": [
+				[6,13],
+				[
+					-1
+				],
+				30,
+				[
+					"UniversNextforMORNW02-Cn"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(Growth|IDCW)\\s*(-?[\\d,.]+)\\s*(-?[\\d,.]+)",
+			"decimal": "([\\d,.]+) Cr.",
+			"metric": "(Information Ratio|Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity|Macaulay Duration)\\s*(-?[\\d.,]+)",
+			"scheme": [
+				"Category",
+				"Fund Managers",
+				"Month End AUM",
+				"Avg. AUM",
+				"Inception Date",
+				"Benchmark",
+				"Additional Benchmark",
+				"Plans",
+				"Options",
+				"Minimum Amount",
+				"SIP\\s*STP\\s*SWP",
+				"Exit Load",
+				"EOL"
+			],
+			"min_amt": "([\\d,]+).*?([\\d,]+)",
+			"manager": "([\\w\\s]+),?",
+			"load": "^()(.*$)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^investment.*": [
+				"_extract_str_data",
+				null
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^scheme.*": [
+				"_extract_scheme_data",
+				"scheme"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			".*minimum_amount$": [
+				"_extract_amt_data",
+				"min_amt"
+			],
+			".*fund_managers$": [
+				"_extract_manager_data",
+				"manager"
+			],
+			".*load$": [
+				"_extract_load_data",
+				"load"
+			]
+		},
+		"SELECTKEYS": [],
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Tata Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[25,20,0,16],
+				"^tata.*(fund|etf|fof|eof|funds|plan|\\))$",
+				[10,20],
+				[
+					-1
+				]
+			],
+			"clip_bbox": [
+				[0,50,160,750]
+			],
+			"line_x": 160,
+			"data": [
+				[5,8],
+				[
+					-15570765
+				],
+				30,
+				[
+					"Swiss721BT-BoldCondensed"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "((?:Regular|Direct|Reg)\\s*(?:Growth|IDCW))\\s*([\\d,.]+)",
+			"decimal": "([\\d,]+\\.\\d+)",
+			"ter": "(Regular|Direct)\\s*([\\d,.]+)",
+			"metric": "(Std. Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson)\\s+([\\d.\\-]+|NA)\\s+([\\d.\\-]+|NA)",
+			"manager": "([A-Za-z\\s]+)\\s*\\(Managing Since\\s*([A-Za-z0-9\\s\\-]+) and overall experience of ([a-z0-9\\s]+)\\)",
+			"load": "Entry Load\\s*(.*?)Exit Load\\s*(.*?)$",
+			"min_amt": "([\\d,]+).*?([\\d,]+)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(date|investment|multiples|benchmark|scheme_launch).*": [
+				"_extract_str_data",
+				null
+			],
+			"^(aum|monthly_average|portfolio_turnover).*": [
+				"_extract_generic_data",
+				"decimal"
+			],
+			"^metrics.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^load.*": [
+				"_extract_load_data",
+				"load"
+			],
+			"^multiples.*": [
+				"_extract_amt_data",
+				"min_amt"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Taurus Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[4,20],
+				"^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund)$",
+				[13,24],
+				[
+					-9754846
+				]
+			],
+			"clip_bbox": [
+				[0,65,210,812]
+			],
+			"line_x": 210,
+			"data": [
+				[6,12],
+				[
+					-9754846
+				],
+				30,
+				[
+					"Calibri-Bold"
+				]
+			],
+			"content_size": [30,10],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"nav": "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
+			"ter": "(Regular Plan|Direct Plan)\\s*([\\d,.]+)",
+			"aum": "(.+ AUM)\\s*([\\d,.]+)",
+			"min_amt": "([\\d,]+).*?([\\d,]+)",
+			"manager": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)\\s*\\(w\\.e\\.f\\. ([A-Za-z0-9,\\s]+)\\).*?work experience (\\d+ yrs)",
+			"load": "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*)$",
+			"metric": "^(Portfolio Turnover|Standard Deviation|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+)",
+			"escape": "[^A-Za-z0-9\\s\\-\\(\\).,]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^(minimum_appl|benchmark|date|investment).*": [
+				"_extract_str_data",
+				null
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metric"
+			],
+			"^fund_manag.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^load.*": [
+				"_extract_load_data",
+				"load"
+			],
+			"^min_amt": [
+				"_extract_amt_data",
+				"min_amt"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Trust Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"UTI Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Union Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"WhiteOak Mutual Fund": {
+		"PARAMS": {
+			"fund": [
+				[20],
+				"(?i)^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Plan|Duration)$",
+				[16,24],
+				[
+					-13159371
+				]
+			],
+			"clip_bbox": [
+				[0,85,240,812]
+			],
+			"line_x": 240,
+			"data": [
+				[7,11],
+				[
+					-65794,
+					-1
+				],
+				30,
+				[
+					"MyriadPro-Bold"
+				]
+			],
+			"content_size": [30,8],
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			"manager": "(?:Mr|Mrs|Ms)\\s*([A-Za-z\\s]+)\\s*(?:\\(([A-Za-z\\s]+)\\))?\\s*Managing this Scheme from\\s*([\\w\\s,]+)\\s*Total Work Experience\\s*([\\w\\s]+)(?=Mr|Ms|Mrs|$)",
+			"nav": "(Growth)\\s*([\\d,.]+)\\s*(Growth)\\s*([\\d,.]+)",
+			"aum": "(Monthly Average AUM|Month End AUM)\\s*(-?[\\d,.]+)",
+			"ter": "(.+? Plan)\\s*([\\d,.]+)",
+			"load": "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$",
+			"metrics": "(Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe|Jensons).*\\s(-?[\\d,]+\\.?\\d+%)?",
+			"escape": "[^A-Za-z0-9\\s\\(\\),\\-\\.]+"
+		},
+		"PATTERN_TO_FUNCTION": {
+			"^aum.*": [
+				"_extract_generic_data",
+				"aum"
+			],
+			"^expense_ratio.*": [
+				"_extract_generic_data",
+				"ter"
+			],
+			"^(benchmark|scheme_launch|additional|inception|metrics).*": [
+				"_extract_str_data",
+				null
+			],
+			"^fund_mana.*": [
+				"_extract_manager_data",
+				"manager"
+			],
+			"^metric.*": [
+				"_extract_generic_data",
+				"metrics"
+			],
+			"^load.*": [
+				"_extract_load_data",
+				"load"
+			],
+			"^nav.*": [
+				"_extract_nav_data",
+				"nav"
+			]
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	},
+	"Zerodha Mutual Fund": {
+		"PARAMS": {
+			"amc_check_xount": 15,
+			"check_max_highlights": 0
+		},
+		"REGEX": {
+			
+		},
+		"PATTERN_TO_FUNCTION": {
+			
+		},
+		"SECONDARY_PATTERN_TO_FUNCTION": {
+			
+		},
+		"SELECTKEYS": {
+			
+		},
+		"MERGEKEYS": {
+			
+		}
+	}
+}

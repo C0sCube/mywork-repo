@@ -1508,7 +1508,11 @@ class Zerodha(Reader):
 
 
 #41 Aditya Birla
-
+class AdityaBirla(Reader,GrandFundData):
+    def __init__(self, paths_config: str,fund_name:str):
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+        GrandFundData.__init__(self,fund_name) #load from Grand
+ 
 #42 Axis Mutual
 
 

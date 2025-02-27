@@ -1,21 +1,12 @@
-import os, re, math, json,logging
+import os, re, math, json,logging, subprocess
 import fitz # type: ignore
 from collections import defaultdict
 import pdfplumber # type: ignore
-import subprocess
 
 from app.utils import Helper
 from app.fundRegex import *
-from logging_config import logger
+from logging_config import *
 class Reader:
-    
-    BASEPATH  = ''
-    DRYPATH = ''
-    INDICEPATH  = ''
-    REPORTPATH = ''
-    JSONPATH  = ''
-    PARAMS = {}
-    
     def __init__(self, config_path: str,params:dict):
         
         if not os.path.exists(config_path):
