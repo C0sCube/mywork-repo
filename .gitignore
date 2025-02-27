@@ -1,7 +1,7 @@
 # Ignore Python cache files
 __pycache__/
 *.pyc
-
+.history/
 app/__pycache__/
 
 # Ignore Jupyter Notebook checkpoints

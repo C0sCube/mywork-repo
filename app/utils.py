@@ -1,10 +1,8 @@
-import os, re, json
-import pprint
-import fitz
-import pickle
+import os, re, json, pprint, pickle
+import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
-import pandas as pd
+import pandas as pd #type:ignore
 from functools import reduce
 
 class Helper:
