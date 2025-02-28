@@ -1,6 +1,5 @@
-import re, os,logging, json, json5 #type:ignore
+import re, os,json, json5 #type:ignore
 from app.parse_pdf import Reader
-from app.fund_regex import FundRegex
 from logging_config import logger
 import fitz #type:ignore
 

@@ -1,6 +1,5 @@
-import re
-import json5 #type:ignore
 import os
+import json5 #type:ignore
 
 PARAMS_PATH =  os.path.join(os.getcwd(),"data\\config\\params.json5")
 
@@ -31,7 +30,8 @@ class FundHouseManager:
             "PATTERN_TO_FUNCTION": {},
             "SECONDARY_PATTERN_TO_FUNCTION": {},
             "SELECTKEYS": [],
-            "MERGEKEYS": []
+            "MERGEKEYS": [],
+            "COMMENTS":[],
         }
         self._save_data()
     

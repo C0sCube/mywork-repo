@@ -331,3 +331,22 @@ class Helper:
         doc.save(output_path)
         doc.close()
     
+    @staticmethod
+    def get_structure(obj, level=0):
+        """Recursively prints the structure of a nested list/dictionary."""
+        indent = "  " * level  # Indentation for readability
+        
+        if isinstance(obj, list):
+            print(f"{indent}List of {len(obj)} items")
+            if obj:  # Check if the list is not empty
+                Helper.get_structure(obj[0], level + 1)  # Check structure of first element
+                
+        elif isinstance(obj, dict):
+            print(f"{indent}Dictionary with keys: {list(obj.keys())}")
+            for key, value in obj.items():
+                Helper.get_structure(value, level + 1)
+                
+        else:
+            print(f"{indent}{type(obj).__name__}")
+
+    

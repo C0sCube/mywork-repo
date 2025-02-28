@@ -106,112 +106,85 @@ class Reader:
                             blocks.append(block)
 
                 sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
-                all_blocks.append(sorted_blocks)
+                all_blocks.extend(sorted_blocks)
 
             final_list.append({
                 "pgn": pgn,
                 "fundname": fundName,
-                "block": all_blocks #will be list[list,list,..]
+                "block": all_blocks
             })
 
         document.close()
         return final_list
     
-    def extract_data_relative_line(self,path: str,pageSelect:list, side: str, titles:dict):
-        
-        doc = fitz.open(path)
+    def extract_data_relative_line(self, input: str, pages: list, side: str, title: dict):
+    
+        doc = fitz.open(input)
         final_list = []
         line_x = self.PARAMS['line_x']
-        fund_names = titles
+        
+        for pgn in pages:
+            page, fundName = doc[pgn],title[pgn]
             
-        for pgn in pageSelect:
-            page = doc[pgn]
-            fundname = fund_names[pgn]
+            left_blocks, right_blocks, seen_blocks = [],[], set()
+            page_blocks = page.get_text("dict")["blocks"]
+            
+            for block in page_blocks:
+                if block['type'] == 0 and 'lines' in block:
+                    block_key = id(block) #hash_key
 
-            blocks = page.get_text("dict")["blocks"]
-            filtered_blocks = [block for block in blocks if block['type']==0 and 'lines' in block]
-            extracted_blocks = []
+                    for line in block["lines"]:
+                        for span in line["spans"]:
+                            x0, _ = span["origin"]
 
-            # Keep track of blocks
-            added_blocks = set()
+                            if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
+                                seen_blocks.add(block_key)
+                                left_blocks.append(block)
 
-            for block in filtered_blocks:
-                block_id = id(block)  # Unique identifier
+                            if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
+                                seen_blocks.add(block_key)
+                                right_blocks.append(block)
 
-                for line in block.get("lines", []):
-                    for span in line.get("spans", []):
-                        origin = span["origin"]
-                        x0, _ = origin
+            if side == "both":
+                left_blocks.extend(right_blocks)
+            sorted_blocks = sorted(left_blocks if side != "right" else right_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
 
-                        #left or right
-                        if side == "left" and x0 < line_x and block_id not in added_blocks:
-                            extracted_blocks.append(block)
-                            added_blocks.add(block_id)  #added
-                        elif side == "right" and x0 > line_x and block_id not in added_blocks:
-                            extracted_blocks.append(block)
-                            added_blocks.add(block_id)  #
-
-            # Sort extracted blocks
-            sorted_blocks = sorted(extracted_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
-
-            final_list.append({
-                "pgn": pgn,
-                "fundname": fundname,
-                "block": sorted_blocks
-            })
+            final_list.append({"pgn": pgn,"fundname": fundName,"block": sorted_blocks})
 
         doc.close()
-
         return final_list
 
     def extract_pdf_data(self,input:str, pageSelect:list, fund_names:dict):
     
-        document = fitz.open(input)
-        finalData = []
+        doc = fitz.open(input)
+        final_list = []
         
         for pgn in pageSelect:
             #get the page
-            page = document[pgn]
-            fundName = fund_names[pgn]
+            page, fundName = doc[pgn], fund_names[pgn]
         
-            blocks = page.get_text('dict')['blocks'] #get all blocks
-            filtered_blocks = [block for block in blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
+            page_blocks = page.get_text('dict')['blocks'] #get all blocks
+            filtered_blocks = [block for block in page_blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
             sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
             
-            finalData.append({
-                "page": pgn,
-                "fundname": fundName,
-                "block": sorted_blocks,
-            })
-                
-        return finalData
+            final_list.append({"pgn": pgn,"fundname": fundName,"block": sorted_blocks,})
+        doc.close()      
+        return final_list
 
-    def extract_span_data(self, data: list, *args):
+    def extract_span_data(self, data: list,*args):  # all
         final_data = {}
 
         for page in data:
-            fund_name,all_blocks  = page['fundname'],[]
+            seen_entries = set()
+            all_blocks = [
+                [round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font']]
+                for block in page['block']
+                for line in block['lines']
+                for span in line.get('spans', [])
+                if (entry := (round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font'])) not in seen_entries and not seen_entries.add(entry)
+            ]
 
-            for block in page['block']:
-                block_lines = []
-
-                for line in block['lines']:
-                    line_spans = []
-                    seen_entries = set()
-
-                    for span in line.get('spans', []):
-                        entry = (round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font'])
-                        if entry not in seen_entries:
-                            seen_entries.add(entry)
-                            line_spans.append(list(entry))
-
-                    if line_spans:  # Ensure non-empty lines
-                        block_lines.append(line_spans)
-
-                if block_lines:  # Ensure non-empty blocks
-                    all_blocks.append(block_lines)
-
-            final_data[fund_name] = all_blocks
+            final_data[page['fundname']] = all_blocks
 
         return final_data
 
@@ -221,15 +194,18 @@ class Reader:
         
         stop_words = FundRegex().STOP_WORDS
         updated_text_data = {}
-        data_conditions = self.PARAMS['data']
+        
+        data_cond = self.PARAMS['data']
+        size_min,size_max = data_cond[0]
+        color_check = data_cond[1]
+        header_font = data_cond[2]
+        font_check = data_cond[3]
 
-        for fund, data in text_data.items():
-            blocks = data
-
+        for fund, blocks in text_data.items():
             # Clean blocks
             cleaned_blocks = []
             for block in blocks:
-                size, text, color, origin, bbox,font = block
+                size, text, *open = block
                 if text not in stop_words:
                     cleaned_blocks.append(block)
 
@@ -239,8 +215,8 @@ class Reader:
                 size, text, color, origin, bbox, font = block
                 text = text.strip()
                 
-                if round(size) in range(data_conditions[0][0], data_conditions[0][1]) and color in data_conditions[1] and font in data_conditions[3]:
-                    size = data_conditions[2]  # Update size
+                if round(size) in range(size_min, size_max) and color in color_check and font in font_check:
+                    size = header_font  # Update size
                 processed_blocks.append([size, text, color, origin, bbox,font])
 
             # Group blocks by rounded y-coordinate
@@ -253,7 +229,7 @@ class Reader:
             # Combine blocks with the same y-coordinate
             combined_blocks = []
             for key, group in grouped_blocks.items():
-                if key[1] == data_conditions[2]:
+                if key[1] == header_font:
                     combined_text = " ".join(item[1] for item in group).strip()
                     if combined_text:  # Ignore whitespace-only text
                         size, color, origin, bbox,font = group[0][0], group[0][2], group[0][3], group[0][4], group[0][5]
@@ -271,48 +247,16 @@ class Reader:
             final_matrix = dict()
 
             header_size, content_size = self.PARAMS['content_size']
-            for fund, items in cleaned_data.items(): #ech fund
-                
-                # #step 1 extract size, coord
-                # coordinates = list()
-                # sizes = set()
-                
-                # for item in items: #size,text,color,origin
-                #     origin = tuple(item[3])
-                #     coordinates.append(origin)
-                #     sizes.add(item[0])
-                
-                # coordinates = sorted(set(coordinates), key=lambda c: (c[1], c[0]))  # Sort by y, then x
-                # sizes = sorted(sizes, reverse=True)  
-                
-                # #step 2 create matrix
-                # coord_to_index = {coord: idx for idx, coord in enumerate(coordinates)}  # (x,y) at pos 0 etc. ROWS
-                # size_to_index = {font: idx for idx, font in enumerate(sizes)}  # COLUMNS
-                # matrix = np.zeros((len(coordinates), len(sizes)), dtype=object)
-                
-                
-                #step 3
+            for fund, data in cleaned_data.items(): #ech fund
                 nested_dict = {}
                 current_header = "before"
                 
                 if current_header not in nested_dict:
                     nested_dict[current_header] = []
                     
-                for item in items:
-                    origin = tuple(item[3])
+                for item in data:
                     size = item[0]
                     text = item[1].strip()
-                    
-                    #populate the matrix
-                    # if origin in coord_to_index and size in size_to_index:
-                    #     row = coord_to_index[origin]
-                    #     col = size_to_index[size]
-                        
-                    #     if matrix[row,col] == 0:
-                    #         matrix[row,col] ==r"nil"
-                    #     matrix[row,col] == text
-                    
-                    #build nested dict
                     if size == header_size:
                         current_header = "_".join([i for i in text.split(" ") if i != '']).lower()
                         nested_dict[current_header] = []
@@ -323,8 +267,6 @@ class Reader:
                 if nested_dict['before'] == []:
                     del nested_dict['before']    
                 final_text_data[fund] = nested_dict        
-                # matrix_df = pd.DataFrame(matrix, index=coordinates, columns=sizes)
-                # final_matrix[fund] = matrix_df
             
             return final_text_data, final_matrix
 

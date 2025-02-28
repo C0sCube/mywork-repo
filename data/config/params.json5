@@ -41,8 +41,8 @@
                 8.0,
             ],
             amc_check_xount: 15,
-            method: "clip",
-            line_side: "",
+            method: "line",
+            line_side: "left",
             max_financial_index_highlight: 0,
         },
         REGEX: {
@@ -114,7 +114,7 @@
                     20,
                     4,
                 ],
-                "^Aditya Birla.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|Funds*)$",
+                "^Aditya Birla.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|Funds*|yojna)$",
                 [
                     10,
                     20,
@@ -130,6 +130,18 @@
                     200,
                     812,
                 ],
+                [
+                    200,
+                    50,
+                    380,
+                    812
+                ],
+                [
+                    380,
+                    50,
+                    580,
+                    812
+                ]
             ],
             line_x: 210.0,
             data: [
