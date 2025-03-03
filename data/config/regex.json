@@ -1,6 +1,6 @@
 {
     "header_patterns": {
-        "":["^www.*","^An open.*","\\d{1,4}\\b","folio_count_as_on", "^Formerly known as.*", "and_", "earlier known as", "An open ende", "this product is", "investors who are", "details as on"],
+        "":["^1_year","^www.*","^An open.*","\\d{1,4}\\b","folio_count_as_on", "^Formerly known as.*", "and_", "earlier known as", "An open ende", "^this_product.*", "^investors_who_are.*", "details as on"],
         "market_capital": "^(market)",
         "category": "^(catagory|category_).*",
         "composition_by_asset": "^composition_by_asset.*",
@@ -22,7 +22,7 @@
         "additional_investment": "^(additional_investment).*",
         "benchmark_index": "^(benchmark|amfi_tier_1_bench).*",
         "compositon_by_industry": "^(composition).*",
-        "minimum_investment": "^minimum_investment",
+        "minimum_investment": "^(minimum_investment|min._addl.|min.)",
         "minimum_additional_application_amount": "^minimum_additional_application_amount",
         "sip": "systematic_investment_plan_",
         "sharpe": "^sharpe.*",

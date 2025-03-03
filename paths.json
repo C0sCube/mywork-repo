@@ -13,11 +13,10 @@
     "dry": "data\\output\\DryRun.pdf",
     "fin": "data\\input\\financial_indices.xlsx",
     "rep": "data\\output\\pdf_report.xlsx",
-    "json": "data\\ex\\dump.json"
+    "json": "data\\output\\dump.json"
   },
   "configs": {
-    "paths": "data\\config\\params.json",
-    "params": "data\\config\\paths.json",
+    "params": "data\\config\\params.json5",
     "regex": "data\\config\\regex.json"
   }
 }

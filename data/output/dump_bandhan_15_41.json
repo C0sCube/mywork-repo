@@ -23,7 +23,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount_": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW$(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
@@ -31,11 +31,8 @@
             "regular_plan_idcw": "23.45"
         },
         "scheme_name": [],
-        "1_year_3_years_5": [
-            "Bandhan Large Cap Fund 18.54% 13.69% 16",
-            "BSE 100 TR#I 13.20% 13.96% 16",
-            "Nifty 50 TRI## 10.00% 12.16% 15"
-        ]
+        "main_scheme_name": "bandhan large cap fund",
+        "pgn": 17
     },
     "bandhan small cap fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -61,7 +58,7 @@
         "sip_minimum_amount": "100/- and in multiples of Rs.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "The Scheme offer IDCW @Option & Growth Option. IDCW @Option under each Plan further offers of choice of Payout & Sweep facilities.",
         "exit_load": "1% if redeemed/switched out within 1 year from the date of allotment",
         "nav": {
@@ -69,11 +66,8 @@
             "regular_plan_idcw": "37.39"
         },
         "scheme_name": [],
-        "1_year": [
-            "Bandhan Small Cap Fund 42.70%",
-            "BSE 250 SmallCap TR#I 24.89%",
-            "Nifty 50 TRI## 10.00%"
-        ]
+        "main_scheme_name": "bandhan small cap fund",
+        "pgn": 18
     },
     "bandhan core equity fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -99,7 +93,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount_": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW$- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
@@ -107,11 +101,8 @@
             "regular_plan_idcw": "30.51"
         },
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan Core Equity Fund 28.52% 23.31%",
-            "NIFTY LargeMidcap 250 TR#I 18.51% 18.03%",
-            "Nifty 50 TRI## 10.00% 12.16%"
-        ]
+        "main_scheme_name": "bandhan core equity fund",
+        "pgn": 19
     },
     "bandhan flexi cap fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -137,7 +128,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount (Units of Bandhan Flexi Cap Fund, shall be available for lump sum subscription w.e.f. May 07, 2018)",
+        "minimum_investment": "1,000/- and any amount (Units of Bandhan Flexi Cap Fund, shall be available for lump sum subscription w.e.f. May 07, 2018)",
         "option_available": "Growth, IDCW$- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
@@ -145,11 +136,8 @@
             "regular_plan_idcw": "50.66"
         },
         "scheme_name": [],
-        "1_year_3_years_5": [
-            "Bandhan Flexi Cap Fund 14.80% 12.14% 15",
-            "BSE 500 TR#I 15.67% 15.35% 19",
-            "Nifty 50 TRI## 10.00% 12.16% 15"
-        ]
+        "main_scheme_name": "bandhan flexi cap fund",
+        "pgn": 20
     },
     "bandhan multi cap fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -170,14 +158,16 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- and any amount",
+        "minimum_investment": "Rs 1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout of Income Distribution cum capital withdrawal option, Reinvestment of Income Distribution cum capital withdrawal option & Transfer of Income Distribution cum capital withdrawal plan (from Equity Schemes to Debt Schemes Only).",
         "exit_load": "If redeemed/switched out within 1 year from the date of allotment -1% of applicable NAV; If redeemed/ switched out after 1 year from the date of allotment Nil",
         "nav": {
             "regular_plan_growth": "16.70",
             "regular_plan_idcw": "16.70"
         },
-        "scheme_name": []
+        "scheme_name": [],
+        "main_scheme_name": "bandhan multi cap fund",
+        "pgn": 21
     },
     "bandhan midcap fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -198,14 +188,16 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- and any amount",
+        "minimum_investment": "Rs 1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout of Income Distribution cum capital withdrawal option and in case the amount of Income Distribution cum capital withdrawal payable to the Unitholder is Rs.100/- or less under a Folio, the same will be compulsorily reinvested in the Scheme.).",
         "exit_load": "If redeemed/switched out within 1 year from the date of allotment - 1% of applicable NAV; If redeemed/switched out after 1 year from the date of allotment  Nil",
         "nav": {
             "regular_plan_growth": "17.85",
             "regular_plan_idcw": "17.85"
         },
-        "scheme_name": []
+        "scheme_name": [],
+        "main_scheme_name": "bandhan midcap fund",
+        "pgn": 22
     },
     "bandhan elss tax saver fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -231,7 +223,7 @@
         "sip_minimum_amount": "500/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "500/- and in multiples of 500/- thereafter.",
+        "minimum_investment": "500/- and in multiples of 500/- thereafter.",
         "option_available": "Growth, IDCW$- Payout and Sweep (from Equity Schemes to Debt Schemes Only)",
         "exit_load": "Nil",
         "nav": {
@@ -239,11 +231,8 @@
             "regular_plan_idcw": "34.14"
         },
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan ELSS Tax saver Fund 13.00% 14.77%",
-            "BSE 500 TR#I 15.67% 15.35%",
-            "Nifty 50 TRI## 10.00% 12.16%"
-        ]
+        "main_scheme_name": "bandhan elss tax saver fund",
+        "pgn": 23
     },
     "bandhan focused equity fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -269,7 +258,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "$ 1,000/- and any amount",
+        "minimum_investment": "$ 1,000/- and any amount",
         "option_available": "Growth, IDCW$- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
@@ -277,11 +266,8 @@
             "regular_plan_idcw": "21.92"
         },
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan Focused Equity Fund 30.02% 17.55%",
-            "BSE 500 TR#I 15.67% 15.35%",
-            "Nifty 50 TRI## 10.00% 12.16%"
-        ]
+        "main_scheme_name": "bandhan focused equity fund",
+        "pgn": 24
     },
     "bandhan sterling value fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -307,7 +293,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount_": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
@@ -322,7 +308,9 @@
             "The risk of the scheme is very high.",
             "Investors understand that their principal will",
             "be at Very High risk"
-        ]
+        ],
+        "main_scheme_name": "bandhan sterling value fund",
+        "pgn": 25
     },
     "bandhan infrastructure fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -348,7 +336,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
@@ -356,11 +344,8 @@
             "regular_plan_idcw": "44.21"
         },
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan Infrastructure Fund 38.95% 28.61%",
-            "BSE India Infrastructure TRI# 29.74% 34.03%",
-            "Nifty 50 TRI## 10.00% 12.16%"
-        ]
+        "main_scheme_name": "bandhan infrastructure fund",
+        "pgn": 26
     },
     "bandhan transportation and logistics fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -381,7 +366,7 @@
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Transfer (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
@@ -392,7 +377,9 @@
             "Bandhan Transportation and Logistics Fund - Regular Plan - Growth",
             "Nifty Transportation and Logistics TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan transportation and logistics fund",
+        "pgn": 27
     },
     "bandhan financial services fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -413,7 +400,7 @@
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of the applicable NAV.  If redeemed/switched out after 30 days from the date of allotment - Nil.",
         "nav": {
@@ -424,7 +411,9 @@
             "Bandhan Financial Services Fund - Regular Plan - Growth",
             "Nifty Financial Services TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan financial services fund",
+        "pgn": 28
     },
     "bandhan innovation fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -441,7 +430,7 @@
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out within 30 days from the date of allotment: 0.50% of the applicable NAV.  If redeemed/switched out after 30 days from date of allotment  Nil.",
         "nav": {
@@ -452,7 +441,9 @@
             "Bandhan Innovation Fund - Regular Plan - Growth",
             "Nifty 500 TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan innovation fund",
+        "pgn": 29
     },
     "bandhan business cycle fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -469,13 +460,15 @@
         "sip_minimum_amount": "100/- and in multiples of 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " If redeemed/switched out on/within 30 days from the date of allotment - 0.5% of applicable NAV.  If redeemed/switched out after 30 days from the date of allotment  Nil.",
         "nav": {
             "regular_plan_growth": "9.75",
             "regular_plan_idcw": "9.75"
-        }
+        },
+        "main_scheme_name": "bandhan business cycle fund",
+        "pgn": 30
     },
     "bandhan arbitrage fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -504,12 +497,14 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "100/- and any amount",
+        "minimum_investment": "100/- and any amount",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)) - Monthly & Annual",
         "exit_load": " If redeemed/switched out on or before 15 days from the date of allotment - 0.25%  If redeemed/switched out after 15 days from the date of allotment - NIL (w.e.f 01st April 2024)",
         "nav": {
             "regular_plan_growth": "31.3804"
-        }
+        },
+        "main_scheme_name": "bandhan arbitrage fund",
+        "pgn": 31
     },
     "bandhan equity savings fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -542,18 +537,15 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Monthly, Quarterly and Annual and Payout, Reinvestment & Sweep facilities (from Equity Schemes to Debt Schemes Only).",
         "exit_load": "If redeemed/switched out within 7 days from the date of allotment:  Up to 10% of investment: Nil,  For remaining investment: 0.25% of applicable NAV.  If redeemed/switched out after 7 days from date of allotment: Nil.",
         "nav": {
             "regular_plan_growth": "30.0440"
         },
         "scheme_name": [],
-        "1_year": [
-            "Bandhan Equity Savings Fund$ 7.54%",
-            "CRISIL Equity Savings Inde#x 8.98%",
-            "CRISIL 10 Year Gilt Index## 9.51%"
-        ]
+        "main_scheme_name": "bandhan equity savings fund",
+        "pgn": 33
     },
     "bandhan balanced advantage fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -586,7 +578,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount_": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": "In respect of each purchase of Units: - For 10% of investment: Nil - For remaining investment: 1% if redeemed/ switched out within 1 year from the date of allotment (w.e.f. July 5, 2017)",
         "nav": {
@@ -594,11 +586,8 @@
             "regular_plan_idcw": "14.97"
         },
         "scheme_name": [],
-        "1_year_3": [
-            "Bandhan Balanced Advantage Fund 14.45% 8",
-            "NIFTY 50 Hybrid Composite debt 50:50 Index# 9.50% 9",
-            "Nifty 50 TRI## 10.00% 1"
-        ]
+        "main_scheme_name": "bandhan balanced advantage fund",
+        "pgn": 34
     },
     "bandhan multi asset allocation fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -624,7 +613,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount_": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@(Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": " For 10% of investment: NIL  For remaining investment:  0.50% if redeemed/ switched out within 1 year from the date of allotment.  If redeemed/switched out after 1 year from the date of allotment - NIL (w.e.f 01st April 2024)",
         "nav": {
@@ -635,7 +624,9 @@
             "Bandhan Multi Asset Allocation Fund - Regular Plan - Growth",
             "65% Nifty 500 TRI + 25% NIFTY Short Duration Debt Index + 5% Do",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan multi asset allocation fund",
+        "pgn": 35
     },
     "bandhan hybrid equity fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -666,7 +657,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW@(Payout, Reinvestment & Sweep facility)",
         "exit_load": "10% of investment: Nil",
         "remaining_investment": [
@@ -678,11 +669,8 @@
             "regular_plan_idcw": "19.51"
         },
         "scheme_name": [],
-        "1_year_3": [
-            "Bandhan Hybrid Equity Fund$ 20.78% 1",
-            "CRISIL Hybrid 35+65 Aggressive Index# 12.69% 1",
-            "Nifty 50 TRI## 10.00% 1"
-        ]
+        "main_scheme_name": "bandhan hybrid equity fund",
+        "pgn": 36
     },
     "bandhan retirement fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -712,7 +700,7 @@
         "sip_minimum_amount": "Rs. 100/- and in multiples of Re. 1 thereafter",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "The Scheme offer IDCW@Option & Growth Option. IDCW@Option under each Plan further offers of choice of Payout & Sweep facilities.",
         "exit_load": "Nil",
         "nav": {
@@ -723,7 +711,9 @@
             "Bandhan Retirement Fund - Regular Plan - Growth",
             "CRISIL Hybrid 50+50 - Moderate Index#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan retirement fund",
+        "pgn": 37
     },
     "bandhan conservative hybrid fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -750,7 +740,7 @@
         "sip_minimum_amount": "100/- (Minimum 6 instalments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Payout, Reinvestment & Sweep facility and Quarterly & Regular.",
         "exit_load": " If redeemed/switched out within 7 days from the date of allotment: - Up to 10% of investment: Nil, for remaining investment: 0.25% of applicable NAV.  If redeemed/switched out after 7 days from date of allotment: Nil.",
         "nav": {
@@ -758,11 +748,8 @@
             "regular_plan_idcw": "14.1491"
         },
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan Conservative Hybrid Fund 7.67% 5.69%",
-            "CRISIL Hybrid 85+15 Conservative Ind#ex 9.78% 7.55%",
-            "CRISIL 10 Year Gilt Index## 9.51% 5.87%"
-        ]
+        "main_scheme_name": "bandhan conservative hybrid fund",
+        "pgn": 38
     },
     "bandhan us equity fund of fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -779,7 +766,7 @@
         "sip_minimum_amount": "100/- and in multiples of Rs.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
+        "minimum_investment": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
         "option_available": "Income Distribution cum capital withdrawal Option & Growth Option. Income Distribution cum capital withdrawal Option under each Plan further offers of choice of Payout of Income Distribution cum capital withdrawal, Reinvestment of Income Distribution cum capital withdrawal& Transfer of Income Distribution cum capital withdrawal.",
         "exit_load": "1% of applicable NAV - if the units are redeemed/switched out within 1 year from the date of allotment Nil  if the units are redeemed / switched-out after 1 year from the date of allotment",
         "nav": {
@@ -791,7 +778,9 @@
             "Russell 1000 Growth Index (Total Return Net of 30%",
             "withholding tax)",
             "Nifty 50 TRI"
-        ]
+        ],
+        "main_scheme_name": "bandhan us equity fund of fund",
+        "pgn": 39
     },
     "bandhan us treasury bond 0-1 year fund of fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -808,7 +797,7 @@
         "sip_minimum_amount": "100/- and in multiples of Rs.1",
         "sip_frequency": "Monthly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
+        "minimum_investment": "Fresh Purchase (including switch-in) - 1,000/- and in multiples of Re. 1/- thereafter Additional Purchase (including switch-in) - Rs.1,000/- and any amount thereafter",
         "option_available": "Income Distribution cum capital withdrawal Option & Growth Option. Income Distribution cum capital withdrawal Option under each Plan further offers of choice of Payout of Income Distribution cum capital withdrawal, Reinvestment of Income Distribution cum capital withdrawal& Transfer of Income Distribution cum capital withdrawal.",
         "exit_load": "0.10% of applicable NAV - if the units are redeemed/switched out within seven days from the date of allotment; Nil - if the units are redeemed/switched out after 7 days from the date of allotment.",
         "nav": {
@@ -819,7 +808,9 @@
             "Bandhan US Treasury Bond 0-1 Year Fund of Fund -",
             "Regular Plan - Growth",
             "ICE 0-1 Year US Treasury Securities Index"
-        ]
+        ],
+        "main_scheme_name": "bandhan us treasury bond 0-1 year fund of fund",
+        "pgn": 40
     },
     "bandhan asset allocation fund of funds": {
         "before": [
@@ -840,7 +831,7 @@
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
         "investment_objective": "Refer Pg No from 112 to 114",
-        "minimum_investment_amount_": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available_": "Growth, IDCW@- (Payout, Reinvestment and Sweep)",
         "exit_load": " If redeemed/switched out within 365 days from the date of allotment:  Upto 10% of investment:Nil,  For remaining investment: 1% of applicable NAV.  If redeemed / switched out after 365 days from date of allotment: Nil. (w.e.f. May 08, 2020)",
         "nav": {
@@ -861,7 +852,9 @@
             "schemes based on a defined asset allocation model.",
             "*Investors should consult their financial advisers if in",
             "doubt about whether the product is suitable for them."
-        ]
+        ],
+        "main_scheme_name": "bandhan asset allocation fund of funds",
+        "pgn": 41
     },
     "bandhan all seasons bond fund": {
         "before": [
@@ -891,7 +884,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW@Option - Daily (Reinvest), Weekly (Reinvest), fortnightly, Quarterly, Half yearly, Annual & Periodic (each with Payout, Reinvestment & Sweep facility).",
         "exit_load": "Nil (w.e.f. 11 November, 2020)",
         "nav": {},
@@ -904,7 +897,9 @@
             "Regular Plan IDCW@ Daily 12.3727",
             "Regular Plan IDCW@ Weekly 12.3949",
             "Regular Plan IDCW@ Periodic 14.6700"
-        ]
+        ],
+        "main_scheme_name": "bandhan all seasons bond fund",
+        "pgn": 43
     },
     "bandhan overnight fund": {
         "before": [
@@ -931,7 +926,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Daily (Reinvestment), Weekly (Reinvestment), Monthly IDCW@ & Periodic (Reinvestment, Payout and Sweep facility).",
         "exit_load": "Nil.",
         "nav": {},
@@ -951,7 +946,9 @@
             "Bandhan Overnight Fund 6.51% 6.50% 6.44% 6.60% 5",
             "Nifty 1D Rate Index# 6.67% 6.66% 6.61% 6.73% 6",
             "CRISIL 1 Year T-Bi#l#l 6.27% 4.00% 5.76% 7.43% 6"
-        ]
+        ],
+        "main_scheme_name": "bandhan overnight fund",
+        "pgn": 45
     },
     "bandhan liquid fund": {
         "before": [
@@ -978,7 +975,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "100/- and any amount",
+        "minimum_investment": "100/- and any amount",
         "option_available": "Growth & IDCW@Option - Daily (Reinvest), Weekly (Reinvest), Monthly (Payout, Reinvest and Sweep), Periodic (Payout, Reinvest and Sweep).",
         "exit_load": "Investor exit upon Exit load as a % of subscription redemption proceeds Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 onwards 0.0000% *With effect from October 20, 2019",
         "nav": {},
@@ -998,7 +995,9 @@
             "Bandhan Liquid Fund* 8.52% 6.90% 6.80% 7.28% 6",
             "NIFTY Liquid Index A-I # 7.92% 6.75% 6.78% 7.37% 6",
             "CRISIL 1 Year T-Bill## 6.27% 4.00% 5.76% 7.43% 6"
-        ]
+        ],
+        "main_scheme_name": "bandhan liquid fund",
+        "pgn": 46
     },
     "bandhan ultra short term fund": {
         "before": [
@@ -1025,7 +1024,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "100/- and any amount",
+        "minimum_investment": "100/- and any amount",
         "option_available": "Growth & IDCW @Option - Daily (Reinvestment), Weekly (Reinvestment), Monthly , Quarterly & Periodic (each with Reinvestment, Payout and Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -1044,7 +1043,9 @@
             "Bandhan Ultra Short Term Fund",
             "NIFTY Ultra Short Duration Debt Index A-I #",
             "CRISIL 1 Year T-Bi#l#l"
-        ]
+        ],
+        "main_scheme_name": "bandhan ultra short term fund",
+        "pgn": 47
     },
     "bandhan low duration fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1068,7 +1069,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "100/- and any amount",
+        "minimum_investment": "100/- and any amount",
         "option_available": "Growth & IDCW @Option- Daily (Reinvest), Weekly (Reinvest), Monthly, Quarterly & Periodic frequency (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil (Since 29th June 2012)",
         "nav": {},
@@ -1084,12 +1085,8 @@
             "PERFORMANCE TABLE"
         ],
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan Low Duration Fund*^ 7.25% 6.08%",
-            "NIFTY Low Duration Debt Index 7.59% 6.34%",
-            "A-I#",
-            "CRISIL 1 Year T-Bi#l#l 7.43% 6.16%"
-        ]
+        "main_scheme_name": "bandhan low duration fund",
+        "pgn": 48
     },
     "bandhan money manager fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1113,7 +1110,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "100/- and any amount thereafter",
+        "minimum_investment": "100/- and any amount thereafter",
         "option_available": "Growth & IDCW @Option - Daily (Reinvest), Weekly (Reinvest), Monthly (Payout, Reinvestment and Sweep), Periodic (Payout, Reinvestment and Sweep).",
         "exit_load": "Nil",
         "nav": {},
@@ -1137,7 +1134,9 @@
             "8.46% 6.80% 6.82% 7.56% 6",
             "Index A-I#",
             "CRISIL 1 year T-Bi#l#l 6.27% 4.00% 5.79% 7.43% 6"
-        ]
+        ],
+        "main_scheme_name": "bandhan money manager fund",
+        "pgn": 49
     },
     "bandhan banking & psu debt fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1161,7 +1160,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount thereafter",
+        "minimum_investment": "1,000/- and any amount thereafter",
         "option_available": "Growth, IDCW @-Daily, Fortnightly, Monthly (Reinvestment), Quarterly (Payout), Annual (Payout) & Periodic (Payout & Reinvestment).",
         "exit_load": "Nil (w.e.f. June 12th 2017)",
         "nav": {},
@@ -1178,11 +1177,8 @@
             "PERFORMANCE TABLE"
         ],
         "scheme_name": [],
-        "1_year_3_years": [
-            "Bandhan Banking & PSU Debt Fund* 7.52% 5.96%",
-            "Nifty Banking & PSU Debt Index A-II# 7.62% 5.71%",
-            "CRISIL 10 Year Gilt Index## 9.51% 5.87%"
-        ]
+        "main_scheme_name": "bandhan banking & psu debt fund",
+        "pgn": 50
     },
     "bandhan corporate bond fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1206,7 +1202,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Payout, Reinvestment & Sweep and Monthly, Quarterly, Half Yearly, Annual & Periodic.",
         "exit_load": "Nil",
         "nav": {},
@@ -1229,7 +1225,9 @@
             "The risk of the scheme is moderate.",
             "Investors understand that their principal",
             "will be at Moderate risk"
-        ]
+        ],
+        "main_scheme_name": "bandhan corporate bond fund",
+        "pgn": 51
     },
     "bandhan bond fund \u2013 short term plan": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1253,7 +1251,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Fortnightly (Payout, Reinvestment & Sweep), Monthly, Quarterly, Annual & Periodic",
         "exit_load": "Nil (w.e.f. 23rd May 2016)",
         "nav": {},
@@ -1275,7 +1273,9 @@
             "The risk of the scheme is moderate.",
             "Investors understand that their principal",
             "will be at Moderate risk"
-        ]
+        ],
+        "main_scheme_name": "bandhan bond fund \u2013 short term plan",
+        "pgn": 52
     },
     "bandhan bond fund \u2013 medium term plan": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1299,7 +1299,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW@ Daily (Reinvestment only) and Fortnightly, Monthly, Bi-monthly, Quarterly and Periodic frequency (each with payout, reinvestment and sweep facility).",
         "exit_load": "NIL (w.e.f. 15th January 2019)",
         "nav": {},
@@ -1322,7 +1322,9 @@
             "The risk of the scheme is moderate.",
             "Investors understand that their principal",
             "will be at Moderate risk"
-        ]
+        ],
+        "main_scheme_name": "bandhan bond fund \u2013 medium term plan",
+        "pgn": 53
     },
     "bandhan floating rate fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1362,7 +1364,9 @@
             "overseas for Debt investment portion of the scheme.",
             "PERFORMANCE TABLE"
         ],
-        "scheme_name": []
+        "scheme_name": [],
+        "main_scheme_name": "bandhan floating rate fund",
+        "pgn": 54
     },
     "bandhan credit risk fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1390,7 +1394,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW@- Quarterly, Half yearly, Annual and Periodic (Payout, Reinvestment & Sweep facility)",
         "exit_load": "1% if redeemed/switched out within 365 days from the date of allotment",
         "nav": {},
@@ -1412,7 +1416,9 @@
             "The risk of the scheme is moderately high.",
             "Investors understand that their principal",
             "will be at Moderately High risk"
-        ]
+        ],
+        "main_scheme_name": "bandhan credit risk fund",
+        "pgn": 55
     },
     "bandhan bond fund \u2013 income plan": {
         "before": [
@@ -1439,7 +1445,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Quarterly, Half Yearly, Annual & Periodic (each with payout, reinvestment and sweep facility)",
         "exit_load": "If redeemed/switched out within 365 days from the date of allotment: For 10% of investment : Nil, For remaining investment : 1% If redeemed/switched out after 365 days from the date of allotment: Nil",
         "nav": {},
@@ -1455,13 +1461,8 @@
             "PERFORMANCE TABLE"
         ],
         "scheme_name": [],
-        "1_year_3_ye": [
-            "Bandhan Bond Fund  Income Plan* 7.87% 4.78",
-            "NIFTY Medium to Long Duration Debt",
-            "8.92% 5.89",
-            "Index A- III#",
-            "CRISIL 10 year Gilt Index## 9.51% 5.87"
-        ]
+        "main_scheme_name": "bandhan bond fund \u2013 income plan",
+        "pgn": 56
     },
     "bandhan dynamic bond fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1485,7 +1486,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW @- Periodic, Quarterly, Half Yearly, Annual and Regular frequency (each with Reinvestment, Payout and Sweep facility)",
         "exit_load": "Nil (w.e.f. 17th October 2016)",
         "nav": {},
@@ -1502,11 +1503,8 @@
             "PERFORMANCE TABLE"
         ],
         "scheme_name": [],
-        "1_year_3_y": [
-            "Bandhan Dynamic Bond Fund* 9.90% 5.",
-            "NIFTY Composite Debt Index A-III# 8.59% 6.",
-            "CRISIL 10 Year Gilt Index## 9.51% 5."
-        ]
+        "main_scheme_name": "bandhan dynamic bond fund",
+        "pgn": 57
     },
     "bandhan long duration fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1529,7 +1527,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Quarterly, Half yearly, Annual, Regular and Periodic (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -1544,7 +1542,9 @@
             "Bandhan Long Duration Fund - Regular Plan - Growth",
             "NIFTY Long Duration Debt Index A-III",
             "CRISIL 10 Year Gilt Index"
-        ]
+        ],
+        "main_scheme_name": "bandhan long duration fund",
+        "pgn": 58
     },
     "bandhan government securities fund - constant maturity plan": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1568,7 +1568,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Both the Plans under the Scheme have Growth & IDCW@Option. IDCW@Option under the Scheme offers Quarterly, Half yearly, Annual, Regular and Periodic frequency (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil.",
         "nav": {},
@@ -1584,13 +1584,8 @@
             "PERFORMANCE TABLE"
         ],
         "scheme_name": [],
-        "1_year_3_y": [
-            "Bandhan Government Securities Fund -",
-            "9.60% 5.",
-            "Constant Maturity Plan*^",
-            "CRISIL 10 year Gilt Index# 9.51% 5.",
-            "CRISIL 1 Year T-Bi#l#l 7.43% 6."
-        ]
+        "main_scheme_name": "bandhan government securities fund - constant maturity plan",
+        "pgn": 59
     },
     "bandhan government securities fund \u2013 investment plan": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1614,7 +1609,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & IDCW @Option - Quarterly, Half yearly, Annual, Regular and Periodic (each with payout, reinvestment and sweep facility).",
         "exit_load": "Nil (w.e.f. 15th July 2011)",
         "nav": {},
@@ -1631,11 +1626,8 @@
             "PERFORMANCE TABLE"
         ],
         "scheme_name": [],
-        "1_year_3_y": [
-            "Bandhan Government Securities Fund  IP* 10.51% 6.1",
-            "CRISIL Dynamic Gilt Index# 9.82% 6.5",
-            "CRISIL 10 year Gilt Index## 9.51% 5.8"
-        ]
+        "main_scheme_name": "bandhan government securities fund \u2013 investment plan",
+        "pgn": 60
     },
     "bandhan nifty 50 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1652,7 +1644,7 @@
         "portfolio_turnover_ratio": {
             "equity": "0.18",
             "aggregate": "0.18",
-            "tracking_error_": "0.10"
+            "tracking_error": "0.10"
         },
         "total_expense_ratio": {
             "regular": "0.60",
@@ -1662,7 +1654,7 @@
         "sip_minimum_amount": "100/-",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only))",
         "exit_load": "NIL (w.e.f. 4th February 2019)",
         "nav": {
@@ -1670,10 +1662,8 @@
             "regular_plan_idcw": "45.9402"
         },
         "scheme_name": [],
-        "1_year_3_y": [
-            "Bandhan Nifty 50 Index Fund 9.13% 11",
-            "Nifty 50 TRI# 10.00% 12"
-        ]
+        "main_scheme_name": "bandhan nifty 50 index fund",
+        "pgn": 61
     },
     "bandhan nifty 100 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1694,7 +1684,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
@@ -1706,7 +1696,9 @@
             "Regular Plan - Growth",
             "Nifty 100 TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan nifty 100 index fund",
+        "pgn": 62
     },
     "bandhan nifty100 low volatility 30 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1727,7 +1719,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
@@ -1739,7 +1731,9 @@
             "Regular Plan - Growth",
             "Nifty100 Low Volatility 30 TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan nifty100 low volatility 30 index fund",
+        "pgn": 63
     },
     "bandhan nifty200 momentum 30 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1760,7 +1754,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
@@ -1772,7 +1766,9 @@
             "Regular Plan - Growth",
             "Nifty 200 Momentum 30 TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan nifty200 momentum 30 index fund",
+        "pgn": 64
     },
     "bandhan nifty alpha 50 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1793,7 +1789,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
@@ -1804,7 +1800,9 @@
             "Bandhan Nifty Alpha 50 Index Fund - Regular Plan - Growth",
             "Nifty Alpha 50 TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan nifty alpha 50 index fund",
+        "pgn": 65
     },
     "bandhan nifty smallcap 250 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1825,7 +1823,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs. 1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@- (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
@@ -1836,7 +1834,9 @@
             "Bandhan Nifty Smallcap 250 Index Fund - Regular Plan - Growth",
             "Nifty Smallcap 250 TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan nifty smallcap 250 index fund",
+        "pgn": 66
     },
     "bandhan nifty it index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1857,7 +1857,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": "Nil",
         "nav": {
@@ -1868,7 +1868,9 @@
             "Bandhan Nifty IT Index Fund - Regular Plan - Growth",
             "Nifty IT TRI#",
             "Nifty 50 TRI##"
-        ]
+        ],
+        "main_scheme_name": "bandhan nifty it index fund",
+        "pgn": 67
     },
     "bandhan nifty total market index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1885,13 +1887,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "9.7467",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan nifty total market index fund",
+        "pgn": 68
     },
     "bandhan nifty bank index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1908,13 +1912,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "9.8886",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan nifty bank index fund",
+        "pgn": 69
     },
     "bandhan bse healthcare index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1931,13 +1937,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "10.3791",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan bse healthcare index fund",
+        "pgn": 70
     },
     "bandhan nifty midcap 150 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1954,13 +1962,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "9.6069",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan nifty midcap 150 index fund",
+        "pgn": 71
     },
     "bandhan nifty 500 momentum 50 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -1977,13 +1987,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "9.6094",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan nifty 500 momentum 50 index fund",
+        "pgn": 72
     },
     "bandhan nifty 500 value 50 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2000,13 +2012,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "9.3906",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan nifty 500 value 50 index fund",
+        "pgn": 73
     },
     "bandhan nifty 200 quality 30 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2023,13 +2037,15 @@
         "sip_minimum_amount": "100/- and in multiples of Re. 1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "Rs 1,000/- in multiples of Re. 1/- thereafter",
+        "minimum_investment": "Rs 1,000/- in multiples of Re. 1/- thereafter",
         "option_available": "Growth, IDCW@ - (Payout, Reinvestment and Sweep (from Equity Schemes to Debt Schemes only)).",
         "exit_load": " 0.25% if redeemed on or before 15 days from the allotment date.  Nil if redeemed after 15 days from allotment date.",
         "nav": {
             "regular_plan_growth": "9.6752",
             "regular_plan_idcw": "NA"
-        }
+        },
+        "main_scheme_name": "bandhan nifty 200 quality 30 index fund",
+        "pgn": 74
     },
     "bandhan bse sensex etf": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2046,7 +2062,7 @@
         "portfolio_turnover_ratio": {
             "equity": "0.05",
             "aggregate": "0.05",
-            "tracking_error_": "0.15"
+            "tracking_error": "0.15"
         },
         "total_expense_ratio": {},
         "benchmark_index": "BSE Sensex TRI",
@@ -2056,13 +2072,8 @@
         "exit_load": "Nil",
         "nav": {},
         "scheme_name": [],
-        "1_year_3": [
-            "Bandhan BSE Sensex ETF (BSE scrip code:",
-            "8.94%",
-            "540154)",
-            "BSE Sensex TR#I 9.41%",
-            "Nifty 50 TRI## 10.00%"
-        ]
+        "main_scheme_name": "bandhan bse sensex etf",
+        "pgn": 75
     },
     "bandhan nifty 50 etf": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2079,7 +2090,7 @@
         "portfolio_turnover_ratio": {
             "equity": "0.04",
             "aggregate": "0.04",
-            "tracking_error_": "0.11"
+            "tracking_error": "0.11"
         },
         "total_expense_ratio": {},
         "benchmark_index": "Nifty 50 TRI",
@@ -2089,12 +2100,8 @@
         "exit_load": "Nil",
         "nav": {},
         "scheme_name": [],
-        "1_year_3_ye": [
-            "Bandhan Nifty 50 ETF (NSE scrip",
-            "9.87% 12.",
-            "code: IDFNIFTYET)",
-            "Nifty 50 TRI# 10.00% 12."
-        ]
+        "main_scheme_name": "bandhan nifty 50 etf",
+        "pgn": 76
     },
     "bandhan crisil ibx gilt april 2026 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2118,7 +2125,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -2131,7 +2138,9 @@
             "Bandhan CRISIL IBX Gilt April 2026 Index Fund - Regular Plan - Grow",
             "CRISIL IBX Gilt Index - April 2026#",
             "CRISIL 10 Year Gilt Index##"
-        ]
+        ],
+        "main_scheme_name": "bandhan crisil ibx gilt april 2026 index fund",
+        "pgn": 77
     },
     "bandhan crisil ibx gilt june 2027 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2155,7 +2164,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re.1 thereafter (minimum 6 installments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility)",
         "exit_load": "Nil",
         "nav": {},
@@ -2168,7 +2177,9 @@
             "Bandhan CRISIL IBX Gilt June 2027 Index",
             "CRISIL-IBX Gilt Index - June 202#7",
             "10 Year GO#I#"
-        ]
+        ],
+        "main_scheme_name": "bandhan crisil ibx gilt june 2027 index fund",
+        "pgn": 78
     },
     "bandhan crisil ibx gilt april 2028 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2192,7 +2203,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re.1 thereafter (minimum 6 installments)",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and any amount",
+        "minimum_investment": "1,000/- and any amount",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility)",
         "exit_load": "Nil",
         "nav": {},
@@ -2205,7 +2216,9 @@
             "Bandhan CRISIL IBX Gilt April 2028 Index Fund",
             "CRISIL-IBX Gilt Index - April 2028#",
             "10 Year GO#I#"
-        ]
+        ],
+        "main_scheme_name": "bandhan crisil ibx gilt april 2028 index fund",
+        "pgn": 79
     },
     "bandhan crisil ibx gilt april 2032 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2229,7 +2242,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -2242,7 +2255,9 @@
             "Bandhan CRISIL IBX Gilt April 2032 Index Fund",
             "Crisil IBX Gilt Index - April 2032#",
             "10 Year GO#I#"
-        ]
+        ],
+        "main_scheme_name": "bandhan crisil ibx gilt april 2032 index fund",
+        "pgn": 80
     },
     "bandhan crisil ibx 90:10 sdl plus gilt\u2013 november 2026 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2266,7 +2281,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility).",
         "exit_load": "Nil",
         "nav": {},
@@ -2280,7 +2295,9 @@
             "Fund - Regular Plan - Growth",
             "CRISIL IBX 90:10 SDL plus Gilt IndexNovember 2026#",
             "10 Year GO#I#"
-        ]
+        ],
+        "main_scheme_name": "bandhan crisil ibx 90:10 sdl plus gilt\u2013 november 2026 index fund",
+        "pgn": 81
     },
     "bandhan crisil ibx 90:10 sdl plus gilt\u2013 september 2027 index fund": {
         "investment_objective": "Refer Pg No from 112 to 114",
@@ -2304,7 +2321,7 @@
         "sip_minimum_amount": "100/- and in multiples of Re.1",
         "sip_frequency": "Weekly/Monthly/Quarterly",
         "sip_dates_monthlyquarterly": "@@Investor may choose any day of the month except 29th, 30th and 31st as the date of installment.",
-        "minimum_investment_amount": "1,000/- and in multiples of Re. 1/- thereafter",
+        "minimum_investment": "1,000/- and in multiples of Re. 1/- thereafter",
         "option_available": "Growth & Income Distribution cum capital withdrawal Option (Payout, Reinvestment or Sweep facility)..",
         "exit_load": "Nil",
         "nav": {},
@@ -2318,6 +2335,8 @@
             "Fund - Regular Plan - Growth",
             "CRISIL IBX 90:10 SDL plus Gilt IndexSeptember 2027#",
             "10 Year GO#I#"
-        ]
+        ],
+        "main_scheme_name": "bandhan crisil ibx 90:10 sdl plus gilt\u2013 september 2027 index fund",
+        "pgn": 82
     }
 }

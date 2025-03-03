@@ -119,7 +119,36 @@ class GrandFundData:
             return
         
         return self._extract_dummy_data(string, data)
+    
+    def _merge_keys_by_regex(self,data: dict):
+        finalData = {}
+        matched_keys = set()
 
+        for new_key, regex_patterns in self.MERGEKEYS.items():
+            finalData[new_key] = []
+
+            for key, value in data.items():
+                if key not in matched_keys and any(re.match(pattern, key, re.IGNORECASE) for pattern in regex_patterns):
+                    if isinstance(value, list):  
+                        finalData[new_key].extend(value)  # Append lists
+                    else:
+                        finalData[new_key].append(value)  # Wrap single values
+                    matched_keys.add(key)
+
+        for key, value in data.items():
+            if key not in matched_keys:
+                finalData[key] = value
+                
+        return finalData
+
+    def _select_by_regex(self, data:dict):
+        finalData = {}
+
+        for key, value in data.items():
+            if any(re.match(pattern, key, re.IGNORECASE) for pattern in self.SELECTKEYS):
+                finalData[key] = value  # Keep only matching keys
+        return finalData
+        
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):
     
@@ -145,53 +174,10 @@ class ThreeSixtyOne(Reader,GrandFundData):
 #2 
 class BajajFinServ(Reader):
     
-    PARAMS = {
-        'fund': [[20],r'Bajaj.*(Fund|Path|ETF|FOF|EOF)$',[14,24],[-16753236]], #FUND NAME DETAILS order-> flag, regex_fund_name, font_size, font_color
-        'clip_bbox': [(360,5,612,812)],
-        'line_x': 180.0,
-        'data': [[6,12],[-1,-15376468],30.0,['Rubik-SemiBold']], #sizes, color, set_size
-        'content_size':[30.0,10.0]
-    }
-    
-    def __init__(self,paths_config:str):
-        super().__init__(paths_config, self.PARAMS)
-    
-    #Fund Regex  
-    def __return_all_data(self,main_key:str,data:list):
-        return{main_key:data}
-    def __extract_fund_data(self,main_key:str, data:list):
-        return {main_key:data}
-    def __extract_invest_data(self,main_key:str,data:list):
-        return {main_key: " ".join(data)}
-
-    def __extract_nav_data(self,main_key:str, data:list):
-        nav_data = data
-        final_dict = {}
-        pattern = r'^(Direct Growth|Direct IDCW|Regular Growth|Regular IDCW)[\s]+([\d]+\.\d+)'
-        
-        final_dict = {}
-        for text in nav_data:
-            text = text.lower()
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            for key, value in matches:
-                final_dict[key] = value
-        return {main_key:final_dict}
-    
-    
-    #MAPPING FUNCTION
-    def match_regex_to_content(self, string: str, data: list):
-        pattern_to_function = {
-            r"^(investment|minimum|entry|exit|load|plans|scheme_launch|benchmark).*": self.__extract_invest_data,
-            r"^fund_mana.*": self.__extract_fund_data,
-            r"^nav.*": self.__extract_nav_data
-        }
-
-        for pattern, func in pattern_to_function.items():
-            if re.match(pattern, string, re.IGNORECASE):
-                return func(string, data)
-
-        return self.__return_all_data(string, data)
-
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+  
 #3 <>
 class Bandhan(Reader,GrandFundData):
     
@@ -210,8 +196,9 @@ class BankOfIndia(Reader):
         'content_size':[30.0,10.0]
         }
     
-    def __init__(self,paths_config:str):
-        super().__init__(paths_config, self.PARAMS)
+    def __init__(self,paths_config:str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
         
     #REGEX
     def __return_all_data(self,main_key,data:list):
@@ -401,88 +388,11 @@ class BarodaBNP(Reader,GrandFundData): #Lupsum issues
         return fund_titles
 
 #6 
-class Canara(Reader):
+class Canara(Reader,GrandFundData):
     
-    PARAMS = {
-        'fund': [[16,4], r'^Canara.*',[12,20],[-12371562,-14475488]],
-        'clip_bbox': [(0,115,220,812)],
-        'line_x': 180.0,
-        'data': [[8,11], [-12371562], 30.0, ['Taz-SemiLight']],
-        'content_size':[30.0,10.0]
-        }
-    
-    def __init__(self,paths_config:str):
-        super().__init__(paths_config,self.PARAMS)
-        
-    #REGEX
-    def __return_all_data(self,main_key,data:list):
-        return {main_key:data}
-    
-    def __extract_inv_data(self,main_key:str, data:list):            
-        return {main_key: ' '.join(data)}
-    
-    def __extract_scheme_data(self, main_key:str, data:list):
-        mention_start = [
-        "CATEGORY/TYPE",
-        "SCHEME OBJECTIVE",
-        "Monthend AUM",
-        "Monthly AVG AUM",
-        "NAV",
-        "DATE OF ALLOTMENT",
-        "ASSET ALLOCATION",
-        "MINIMUM INVESTMENT",
-        "PLANS / OPTIONS",
-        "ENTRY LOAD",
-        "EXIT LOAD",
-        "EXPENSE RATIO",
-        "BENCHMARK",
-        "FUND MANAGER",
-        "TOTAL EXPERIENCE",
-        "MANAGING THIS FUND"]
-        
-        mention_end = mention_start[1:] + ["End_of_Data"]
-
-        # Generate regex patterns dynamically
-        patterns = [r"({start}\s*)(.+?)({end}|$)".format(start=start, end=end)
-            for start, end in zip(mention_start, mention_end)]
-        final_dict = {}
-        scheme_data = " ".join(data)
-        scheme_data = re.sub(r"[\^#*\$:;]", "", scheme_data)
-        
-        for pattern in patterns:
-            if matches:= re.findall(pattern, scheme_data, re.DOTALL): #not used ignorecase
-                for match in matches:
-                    key, value, dummy = match
-                    value = value.strip()
-                    final_dict[key.strip()] = value
-
-        return {main_key:final_dict}
-    
-    def __extract_metric_data(self, main_key:str, data:list):
-        metric_data = data
-        pattern = r'^(Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|Annualised Portfolio YTM|RSquared|Treynor)\s*(-?[\d,.]+)'
-        final_data = {}
-        
-        for text in metric_data:
-            text = re.sub(r'[;:\*\-]+',"", text)
-            if matches:= re.findall(pattern, text, re.IGNORECASE):
-                for key, value in matches:
-                    final_data[key] = value
-
-        return {main_key:final_data}
-    #MAPPING
-    def match_regex_to_content(self, string: str, data: list):
-        pattern_to_function = {
-            r"^investment.*": self.__extract_inv_data,
-            r"^scheme.*": self.__extract_scheme_data,
-            r"^metrics.*": self.__extract_metric_data,
-        }
-
-        for pattern, func in pattern_to_function.items():
-            if re.match(pattern, string, re.IGNORECASE):
-                return func(string, data)
-
-        return self.__return_all_data(string, data)
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
 #7
 class DSP(Reader):

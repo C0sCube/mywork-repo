@@ -14,6 +14,7 @@ class Reader:
             raise FileNotFoundError(f"Config file not found: {config_path}")
         with open(config_path,'r') as file:
             paths_data = json.load(file)
+            
         self.PARAMS = params
                 
         dirs = paths_data.get("dirs", {})
@@ -27,34 +28,34 @@ class Reader:
         
     #HIGHLIGHT            
     def check_and_highlight(self, path: str, count: int):
+        output_path = path.replace(".pdf", "_hltd.pdf")
         
-        document = fitz.open(path)
-        page_count = document.page_count
-        indices = Helper._get_financial_indices(self.INDICEPATH)
-        fund_params = self.PARAMS['fund']
-        
-        #checkers
-        flag_check = fund_params[0] #flags to check
-        amc_regex = fund_params[1] #fund regex
-        size_check = fund_params[2] #check size in range high,low
-        amc_block_max = self.PARAMS['amc_check_xount'] #only first 15 blocks
-             
-        data = [{"title": "", "highlights": 0, "detect_idx": []} for _ in range(page_count)]
+        with fitz.open(path) as doc:
+            page_count = doc.page_count
+            indices = Helper._get_financial_indices(self.INDICEPATH)
+    
+            #checkers
+            fund_cond = self.PARAMS['fund']
+            flag_check = fund_cond['flag']
+            amc_regex = fund_cond['regex']
+            size_check = fund_cond['size']
+            amc_block_max = fund_cond['countmax_header_check'] #First 15 blocks
+                
+            data = [{"title": "", "highlights": 0, "detect_idx": []} for _ in range(page_count)]
 
-        for dpgn, page in enumerate(document):
-            page_blocks = page.get_text("dict")["blocks"]
-            sorted_page_texts = sorted(page_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+            for dpgn, page in enumerate(doc):
+                page_blocks = page.get_text("dict")["blocks"]
+                sorted_blocks = sorted(page_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
 
-            for block_count, block in enumerate(sorted_page_texts):
-                if "lines" not in block:
-                    continue
-                for line in block["lines"]:
-                    for span in line["spans"]:
-                        text, size, flag, color = (
-                            span["text"].strip().lower(), span["size"], span["flags"], span["color"]
-                        )
-                        if flag in flag_check:
+                for block_count, block in enumerate(sorted_blocks):
+                    if "lines" not in block:
+                        continue
+                    for line in block["lines"]:
+                        for span in line["spans"]:
+                            text, size, flag, color = (span["text"].strip().lower(), span["size"], span["flags"], span["color"])
+                            
                             fund_conditions = [
+                                flag in flag_check,
                                 block_count < amc_block_max,
                                 re.match(amc_regex, text, re.IGNORECASE),
                                 round(size) in range( size_check[0],  size_check[1])
@@ -63,20 +64,17 @@ class Reader:
                                 data[dpgn]["title"] = text
                                 page.add_rect_annot(fitz.Rect(span["bbox"]))
                                 print(text)
-                        
-                        for indice in indices:
-                            pattern = rf"\b{re.escape(indice)}\b"
-                            if re.search(pattern, text):
-                                if indice not in data[dpgn]['detect_idx']:
-                                    data[dpgn]['detect_idx'].append(indice)
-                                    data[dpgn]['highlights'] += 1
-                                page.add_highlight_annot(fitz.Rect(span["bbox"]))
-                                break
+                            
+                            for indice in indices:
+                                pattern = rf"\b{re.escape(indice)}\b"
+                                if re.search(pattern, text):
+                                    if indice not in data[dpgn]['detect_idx']:
+                                        data[dpgn]['detect_idx'].append(indice)
+                                        data[dpgn]['highlights'] += 1
+                                    page.add_highlight_annot(fitz.Rect(span["bbox"]))
+                                    break
 
-        output_path = path.replace(".pdf", "_hltd.pdf")
-        document.save(output_path)
-        document.close()
-        
+            doc.save(output_path)
         df = Helper._save_pdf_data(data, self.REPORTPATH, count) #imp
         return output_path, df
     
@@ -85,88 +83,84 @@ class Reader:
     def _create_data_entry(self,*args):
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
-    def extract_clipped_data(self,input:str, pages:list, title:dict, *args:list):
+    def extract_clipped_data(self,input:str, pages:list, title:dict, *args):
         
-        doc = fitz.open(input)
-        finalData = []
-        bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
-    
-        for pgn in pages:
-            page, fundName,all_blocks = doc[pgn],title[pgn],[]
-            for bbox in bboxes:
-                blocks, seen_blocks = [], set()# To store unique blocks based on content and bbox
-                page_blocks = page.get_text('dict', clip=bbox)['blocks']
-                for block in page_blocks:
-                    if block['type'] == 0 and 'lines' in block: #type 0 means text block
-                        #hash_key
-                        block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
-                        if block_key not in seen_blocks:
-                            seen_blocks.add(block_key)
-                            blocks.append(block)
+        with fitz.open(input) as doc:
+            finalData = []
+            bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
+            for pgn in pages:
+                page, fundName,all_blocks = doc[pgn],title[pgn],[]
+                for bbox in bboxes:
+                    blocks, seen_blocks = [], set()# unique
+                    page_blocks = page.get_text('dict', clip=bbox)['blocks']
+                    for block in page_blocks:
+                        if block['type'] == 0 and 'lines' in block: #type 0 text
+                            #hash_key
+                            block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
+                            if block_key not in seen_blocks:
+                                seen_blocks.add(block_key)
+                                blocks.append(block)
 
-                sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
-                all_blocks.extend(sorted_blocks)
-                
-            finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
-        
-        doc.close()
+                    sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
+                    all_blocks.extend(sorted_blocks)
+                    
+                finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
         return finalData
     
-    def extract_data_relative_line(self, input: str, pages: list, side: str, title: dict):
+    def extract_data_relative_line(self, input: str, pages: list, title: dict):
     
-        doc = fitz.open(input)
-        finalData = []
-        line_x = self.PARAMS['line_x']
-        
-        for pgn in pages:
-            page, fundName = doc[pgn],title[pgn]
+        with fitz.open(input) as doc:
+            finalData = []
+            line_x = self.PARAMS['line_x']
+            side = self.PARAMS['line_side']
             
-            left_blocks, right_blocks, seen_blocks = [],[], set()
-            page_blocks = page.get_text("dict")["blocks"]
-            
-            for block in page_blocks:
-                if block['type'] == 0 and 'lines' in block:
-                    block_key = id(block) #hash_key
+            for pgn in pages:
+                page, fundName = doc[pgn],title[pgn]
+                
+                left_blocks, right_blocks, seen_blocks = [],[], set()
+                page_blocks = page.get_text("dict")["blocks"]
+                
+                for block in page_blocks:
+                    if block['type'] == 0 and 'lines' in block:
+                        block_key = id(block) #hash_key
 
-                    for line in block["lines"]:
-                        for span in line["spans"]:
-                            x0, _ = span["origin"]
+                        for line in block["lines"]:
+                            for span in line["spans"]:
+                                x0, _ = span["origin"]
 
-                            if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
-                                seen_blocks.add(block_key)
-                                left_blocks.append(block)
+                                if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
+                                    seen_blocks.add(block_key)
+                                    left_blocks.append(block)
 
-                            if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
-                                seen_blocks.add(block_key)
-                                right_blocks.append(block)
+                                if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
+                                    seen_blocks.add(block_key)
+                                    right_blocks.append(block)
 
-            if side == "both":
-                left_blocks.extend(right_blocks)
-            sorted_blocks = sorted(left_blocks if side != "right" else right_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
-            finalData.append(self._create_data_entry(pgn,fundName,sorted_blocks))
-        
-        doc.close()
+                if side == "both":
+                    left_blocks.extend(right_blocks)
+                sorted_blocks = sorted(left_blocks if side != "right" else right_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+                finalData.append(self._create_data_entry(pgn,fundName,sorted_blocks))
+
         return finalData
 
     def extract_pdf_data(self,input:str, pages:list, titles:dict):
     
-        doc = fitz.open(input)
-        finalData = []
-        for pgn in pages:
-            page = doc[pgn]
-            fundName = titles[pgn]
-        
-            blocks = page.get_text('dict')['blocks']
-            filtered_blocks = [block for block in blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
-            sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
-            finalData.append(self._create_data_entry(pgn,fundName,sorted_blocks))
-        
-        doc.close()
+        with fitz.open(input) as doc:
+            finalData = []
+            for pgn in pages:
+                page = doc[pgn]
+                fundName = titles[pgn]
+            
+                blocks = page.get_text('dict')['blocks']
+                filtered_blocks = [block for block in blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
+                sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
+                finalData.append(self._create_data_entry(pgn,fundName,sorted_blocks))
+                
         return finalData
 
     def extract_span_data(self, data: list,*args):  # all
+        
         finalData = []
-
         for page in data:
             seen_entries = set()
             pgn, fundName = page['page'], page['fundname']
@@ -184,26 +178,36 @@ class Reader:
     #CLEAN 
     def process_text_data(self, data: list):
         
-        stop_words = FundRegex().STOP_WORDS
-        finalData = []
-        data_conditions = self.PARAMS['data']
+        stop_words,finalData = FundRegex().STOP_WORDS,[]
+        #checkers
+        data_cond = self.PARAMS['data']
+        size_checker = data_cond['size']
+        font_checker = data_cond['font']
+        color_checker = data_cond['color']
+        font_change = data_cond['update_size']
+        
+        
         for content in data:
             pgn,fundName,blocks = content['page'],content['fundname'],content['block']
     
             cleaned_blocks = [] # Clean blocks
             for block in blocks:
-                size, text, color, origin, bbox,font = block
+                size, text, *_ = block
                 if text not in stop_words:
                     cleaned_blocks.append(block)
 
             processed_blocks = [] # Process blocks (adjust size based on conditions)
             for block in cleaned_blocks:
                 size, text, color, origin, bbox, font = block
-                text = text.strip()
+                conditions = [
+                    round(size) in range(size_checker[0], size_checker[1]),
+                    color in color_checker,
+                    font in font_checker,
+                ]
                 
-                if round(size) in range(data_conditions[0][0], data_conditions[0][1]) and color in data_conditions[1] and font in data_conditions[3]:
-                    size = data_conditions[2]  # Update size
-                processed_blocks.append([size, text, color, origin, bbox,font])
+                if all(conditions):
+                    size = font_change  # Update size
+                processed_blocks.append([size, text.strip(), color, origin, bbox,font])
 
             grouped_blocks = defaultdict(list) # Group blocks by rounded y-coordinate
             for block in processed_blocks:
@@ -213,10 +217,9 @@ class Reader:
 
             combined_blocks = [] # Combine blocks with the same y-coordinate
             for key, group in grouped_blocks.items():
-                if key[1] == data_conditions[2]:
-                    combined_text = " ".join(item[1] for item in group).strip()
-                    if combined_text:  # Ignore whitespace-only text
-                        size, color, origin, bbox,font = group[0][0], group[0][2], group[0][3], group[0][4], group[0][5]
+                if key[1] == font_change:
+                    if combined_text:= " ".join(item[1] for item in group).strip(): # Ignore whitespace-only text
+                        size,_ ,color, origin, bbox,font = group[0]
                         combined_blocks.append([size, combined_text, color, origin, bbox,font])
                 else:
                     for item in group:
@@ -227,9 +230,10 @@ class Reader:
         return finalData
 
     def create_nested_dict(self,data: list,*args):
-            finalData = []
 
             header_size, content_size = self.PARAMS['content_size']
+            finalData = []
+            
             for content in data:
                 pgn,fundName,blocks = content['page'],content['fundname'], content['block']
                 nested_dict = {}
@@ -269,53 +273,67 @@ class Reader:
         nested = self.create_nested_dict(clean_data)
         return nested
     
+    
+    def get_data(self, path: str, pages: list, title: dict):
+        
+        method = self.PARAMS['method'] #clip/line/both
+        extracted_data = []
+        
+        if method in ["line", "both"]:
+            data = self.extract_data_relative_line(path, pages, title)
+            extracted_data.extend(self.extract_span_data(data, []))
+        
+        if method in ["clip", "both"]:
+            data = self.extract_clipped_data(path, pages, title)
+            extracted_data.extend(self.extract_span_data(data, []))
+        
+        clean_data = self.process_text_data(extracted_data) #process & clean
+        return self.create_nested_dict(clean_data)
+    
     #PROCESS
     @staticmethod
     def __generate_pdf_from_data(data: dict, output_path: str) -> None:
-        pdf_doc = fitz.open()
-        TITLE_FONT_SIZE = 24
-        TITLE_POSITION = 72
-        TITLE_COLOR = (0, 0, 1)
+        with fitz.open() as doc:
+            TITLE_FONT_SIZE = 24
+            TITLE_POSITION = 72
+            TITLE_COLOR = (0, 0, 1)
 
-        for header,content in data.items():
-            page = pdf_doc.new_page()
-            text_position = TITLE_POSITION
+            for header,content in data.items():
+                page = doc.new_page()
+                text_position = TITLE_POSITION
 
-            try:
-                page.insert_text(
-                    (72, text_position), #initalizor
-                    header,
-                    fontsize=TITLE_FONT_SIZE,
-                    fontname="helv",
-                    color= TITLE_COLOR,
-                )        
-            except Exception as e:
-                pass
-                
-            for block in content:
-                size,text,color,origin,bbox,font = block
-    
-                #Errror in fitz font 
                 try:
                     page.insert_text(
-                        (origin[0], origin[1]),
-                        text,
-                        fontsize=size,
+                        (72, text_position), #initalizor
+                        header,
+                        fontsize=TITLE_FONT_SIZE,
                         fontname="helv",
-                        color=tuple(int(color & 0xFFFFFF) for _ in range(3)))#unsigned int value so (0,0,0)
-                    
+                        color= TITLE_COLOR,
+                    )        
                 except Exception as e:
-                    page.insert_text(
-                        (origin[0], origin[1]),
-                        text,
-                        fontsize=size,
-                        fontname="helv",
-                        color=(1, 0, 0),
-                    )
-
-
-        pdf_doc.save(output_path)
-        pdf_doc.close()
+                    pass
+                    
+                for block in content:
+                    size,text,color,origin,bbox,font = block
+        
+                    #Errror in fitz font 
+                    try:
+                        page.insert_text(
+                            (origin[0], origin[1]),
+                            text,
+                            fontsize=size,
+                            fontname="helv",
+                            color=tuple(int(color & 0xFFFFFF) for _ in range(3)))#unsigned int value so (0,0,0)
+                        
+                    except Exception as e:
+                        page.insert_text(
+                            (origin[0], origin[1]),
+                            text,
+                            fontsize=size,
+                            fontname="helv",
+                            color=(1, 0, 0),
+                        )
+            doc.save(output_path)
 
     @staticmethod
     def __extract_data_from_pdf(path: str):
@@ -339,47 +357,50 @@ class Reader:
             Reader.__generate_pdf_from_data(blocks, output_path)
             print(f'\n---<<{fund}>>---at: {output_path}')
             extracted_text[fund] = Reader.__extract_data_from_pdf(output_path)
+            extracted_text[fund].update({"main_scheme_name":fund})
             extracted_text[fund].update({"pgn":pgn})  #add page number of factsheet
         return extracted_text
     
     #REFINE
     def refine_extracted_data(self, extracted_text: dict,flatten = False):
-        final_text = {}
+        primary_refine = {}
         regex = FundRegex() 
-        for fund, items in extracted_text.items():
+        for fund, item in extracted_text.items():
             content_dict = {}
-            for head, content in items.items():
-                clean_head = regex.header_mapper(head) #normalizes headers
-                if clean_head: 
+            for head, content in item.items():
+                if clean_head:=  regex.header_mapper(head):
                     content = self._match_regex_to_content(clean_head, content) # applies regex to clean data
                     content = regex.transform_keys(content) #lowercase all keys
                     content_dict.update(content)
-                    # scheme fund name
-                    content_dict["main_scheme_name"] = fund #hardcoded as common for all
-            final_text[fund] = content_dict
+
+            primary_refine[fund] = content_dict
         
         if flatten: #Flatten the dict if true
-            final_text = {fund: regex.flatten_dict(data) for fund, data in final_text.items()}
-            
-        return final_text
-    
-    def refine_secondary_data(self, extracted_text: dict):
-        final_text = {}
-        regex = FundRegex() 
-        for fund, items in extracted_text.items():
-            content_dict = {}
-            for head, content in items.items():
-                # clean_head = regex.header_mapper(head) #normalizes headers
-                # if clean_head: 
-                content = self._secondary_match_regex_to_content(head, content) # applies regex to clean data
-                # content = regex.transform_keys(content) #lowercase all keys
-                content_dict.update(content)
-            final_text[fund] = content_dict
+            primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}
         
-        # if flatten: #Flatten the dict if true
-        #     final_text = {fund: regex.flatten_dict(data) for fund, data in final_text.items()}
-            
-        return final_text
+        secondary_refine = {}
+        for fund, item in primary_refine.items():
+            content_dict = {}
+            for head, content in item.items():
+                content = self._secondary_match_regex_to_content(head, content)
+                content_dict.update(content)
 
-    #SELECT
+            secondary_refine[fund] = content_dict
+        return secondary_refine
+    
 
+    #SELECT/MERGE
+    
+    def merge_data(self, data: dict):
+        finalData = {}
+        for fund, content in data.items():
+            finalData[fund] = self._merge_keys_by_regex(content)
+        
+        return finalData
+
+    def select_data(self, data: dict):
+        finalData = {}
+        for fund, content in data.items():
+            finalData[fund] = self._select_by_regex(content)
+        
+        return finalData

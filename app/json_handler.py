@@ -4,6 +4,7 @@ import json5 #type:ignore
 PARAMS_PATH =  os.path.join(os.getcwd(),"data\\config\\params.json5")
 
 class FundHouseManager:
+    
     def __init__(self, path = PARAMS_PATH):
         self.file_path = path
         self.data = self._load_data()
@@ -96,6 +97,28 @@ class FundHouseManager:
     
     def list_fund_houses(self):
         return list(self.data.keys())
+    
+    def sort_amc_data(self):
+        def recursive_sort(value):
+            if isinstance(value, dict):
+                return {k: recursive_sort(v) for k, v in sorted(value.items())}
+            elif isinstance(value, list):
+                return sorted(value, key=str)  # Ensuring consistent sorting
+            return value
+
+        self.data = recursive_sort(self.data)
+        self._save_data()
+    
+    def transform_list_to_dict(self, name):
+        if name not in self.data:
+            raise ValueError(f"{name} does not exist")
+        for key in ["fund", "data"]:
+            if key in self.data[name].get("PARAMS", {}):
+                original_list = self.data[name]["PARAMS"][key]
+                transformed_dict = {f"{key}{i+1}": item for i, item in enumerate(original_list)}
+                self.data[name]["PARAMS"][key] = transformed_dict
+
+        self._save_data()
 
 class DataStruct:
     
@@ -172,3 +195,40 @@ class DataStruct:
       "mutual_fund_name": "",
       "scheme_launch_date": ""
      }
+    
+    "PATTERN_TO_FUNCTION",{
+        "^investment.*":[
+            "_extract_str_data", None
+        ],
+        "^scheme":[
+            "_extract_scheme_data",'scheme'
+        ]
+    }
+    
+    
+    PARAMS = {
+        "fund":{
+            "flag":[4,16],
+            "regex":"'^Canara.*",
+            "size":[12,20],
+            "color":[-12371562,-14475488],
+        },
+        "clip_bbox":[
+            [0,115,220,812],
+            [220,115,400,812],
+        ],
+        "data":{
+            "size":[8,11],
+            "update_size":30.0,
+            "font":['Taz-SemiLight'],
+            "color":[-12371562]
+        },
+        "content_size":[
+            30.0,
+            10.0
+        ],
+        "countmax_header_check": 15,
+        "line_x":180.0,
+        "method":"clip",
+        "line_side":""
+    }
