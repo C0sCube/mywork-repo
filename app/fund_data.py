@@ -2,6 +2,8 @@ import re, os,json, json5 #type:ignore
 from app.parse_pdf import Reader
 from logging_config import logger
 import fitz #type:ignore
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 AMC_PATH = os.path.join(os.getcwd(),"data\\config\\params.json5")
 class GrandFundData:
@@ -22,7 +24,7 @@ class GrandFundData:
         self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
         
-        
+    #extract 
     def _extract_dummy_data(self,key:str,data):
         return {key:data}
     
@@ -31,19 +33,20 @@ class GrandFundData:
         mention_start = regex_[:-1]
         mention_end = regex_[1:]
 
-        patterns = [r"({start})\s*(.+?)\s*({end}|$)".format(start=start, end=end)
+        patterns = [r"(\b{start}\b)\s*(.+?)\s*(\b{end}\b|$)".format(start=start, end=end)
             for start, end in zip(mention_start, mention_end)]
-        
+
         final_dict = {}
         scheme_data = " ".join(data)
         scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
+        unique_set = set()
         for pattern in patterns:
-            if matches:= re.findall(pattern, scheme_data, re.DOTALL|re.IGNORECASE):
+            if matches:= re.findall(pattern, scheme_data, re.MULTILINE|re.IGNORECASE):
                 for match in matches:
-                    key, value, dummy = match
-                    value = value.strip()
-                    final_dict[key] = value
-        
+                    key, value, dummy = match[0].strip().lower(),match[1].strip(),match[2]
+                    if key not in unique_set:
+                        final_dict[key] = value
+                        unique_set.add(key)
         return {main_key:final_dict}
     
     def _extract_str_data(self, key: str, data: list):
@@ -74,7 +77,7 @@ class GrandFundData:
             for match in matches:
                 entry_,exit_ = match
             
-            final_dict['entry_load'] = entry_,
+            final_dict['entry_load'] = entry_
             final_dict['exit_load'] = exit_
         return {main_key:final_dict}
      
@@ -90,6 +93,7 @@ class GrandFundData:
                 final_dict['amt'], final_dict['thraftr'] = amt,thraftr
         return {main_key:final_dict}
     
+    #merge
     def _match_regex_to_content(self, string: str, data: list,*args):
         try:
             for pattern, (func_name, regex_key) in self.PATTERN_TO_FUNCTION.items():
@@ -148,7 +152,21 @@ class GrandFundData:
             if any(re.match(pattern, key, re.IGNORECASE) for pattern in self.SELECTKEYS):
                 finalData[key] = value  # Keep only matching keys
         return finalData
-        
+    
+    def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
+        return {
+            "managing_fund_since":since,
+            "name": name,
+            "qualification": desig,
+            "total_exp": exp
+        }
+    
+    def last_day_of_previous_month(self):
+        today = datetime.today()
+        last_day = today.replace(day=1) - relativedelta(days=1)
+        formatted_date = f"{last_day.day} {last_day.strftime('%B').upper()} {last_day.year}"
+        return formatted_date
+
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):
     
@@ -163,12 +181,7 @@ class ThreeSixtyOne(Reader,GrandFundData):
         if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
             for match in matches:
                 name, exp = match
-                final_list.append({
-                    "name": name,
-                    "designation": "",
-                    "managing_since": "",
-                    "experience": exp
-                })
+                final_list.append(self._return_manager_data(name = name, exp = exp))
         return {main_key: final_list}
 
 #2 
@@ -323,14 +336,8 @@ class BarodaBNP(Reader,GrandFundData): #Lupsum issues
         manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
         matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
         for match in matches:
-            name, date, exp = match
-            final_list.append({
-                'name': name.strip(),
-                "designation": '',
-                'managing_since': date,
-                'experience': exp})
-
-        
+            name, since, exp = match
+            final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
         return {main_key:final_list}
     
     def _extract_lumpsum_data(self,main_key:str,data:list,pattern:str):

@@ -1,25 +1,23 @@
 {
     "360 one focused equity fund": {
-        "load": [
-            "NIL",
-            "1 - if redeemedswitched out, on or before 12 months from the date of allotment w.e.f April 02, 2019."
-        ],
+        "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities. However there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
         "fund_manager": [
             {
+                "managing_fund_since": "",
                 "name": "Mayur Patel ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "18 years"
-            },
-            {
-                "name": "Vaidyanathan ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "8.5 years"
+                "qualification": "",
+                "total_exp": "18 years"
             }
         ],
-        "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities. However there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "scheme_details.date_of_allotment": "w.e.f April 02, 2019. Dematerialization  D-Mat Option Available Portfolio Turnover  0.43 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
+        "co_fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Vaidyanathan ",
+                "qualification": "",
+                "total_exp": "8.5 years"
+            }
+        ],
+        "scheme_details.date_of_allotment": "October 30, 2014",
         "scheme_details.bloomberg_code": "IIFGRRG IN",
         "scheme_details.benchmark_index": "BSE 500 TRI",
         "scheme_details.plans_offered": "Regular  Direct",
@@ -35,6 +33,8 @@
         "scheme_details.weekly_sip_option": "1,000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1,000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month",
         "scheme_details.monthly_sip_option": "1,000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month)",
         "scheme_details.quarterly_sip_option": "1,000 per instalment for a minimum period of 6 quarters- Any date 1 to 28 (Default  7 )",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "1 - if redeemedswitched out, on or before 12 months from the date of allotment w.e.f April 02, 2019.",
         "scheme_details.dematerialization": "D-Mat Option Available",
         "scheme_details.portfolio_turnover": "0.43 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "nav.regular_growth": "45.3556",
@@ -51,29 +51,28 @@
         "metrics.r_squared": "0.91",
         "metrics.treynor": "0.60",
         "main_scheme_name": "360 one focused equity fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 5
     },
     "360 one flexicap fund": {
-        "load": [
-            "NIL",
-            "For redemptionswitchout of units before 365 days from the date of allotment - 1 of the applicable NAV For redemptionswitched- out of units on or after 365 days from the date of allotment  NIL"
-        ],
+        "investment_objective": "The investment objective of the scheme is to generate long-term capital appreciation by primarily investing in equity and equity related securities across the entire market capitalization range and investing the remaining portion in debt and money market instruments. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
         "fund_manager": [
             {
+                "managing_fund_since": "",
                 "name": "Mayur Patel ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "18 years"
-            },
-            {
-                "name": "Vaidyanathan ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "8.5 years"
+                "qualification": "",
+                "total_exp": "18 years"
             }
         ],
-        "investment_objective": "The investment objective of the scheme is to generate long-term capital appreciation by primarily investing in equity and equity related securities across the entire market capitalization range and investing the remaining portion in debt and money market instruments. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
-        "scheme_details.date_of_allotment": "- 1 of the applicable NAV For redemptionswitched- out of units on or after 365 days from the date of allotment  NIL Dematerialization  D-Mat Option Available Portfolio Turnover  0.31 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
+        "co_fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Vaidyanathan ",
+                "qualification": "",
+                "total_exp": "8.5 years"
+            }
+        ],
+        "scheme_details.date_of_allotment": "June 30, 2023",
         "scheme_details.bloomberg_code": "-",
         "scheme_details.benchmark_index": "BSE 500 TRI",
         "scheme_details.plans_offered": "Regular  Direct",
@@ -85,6 +84,8 @@
         "scheme_details.weekly_sip_option": "1,000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1,000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month",
         "scheme_details.monthly_sip_option": "1,000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month)",
         "scheme_details.quarterly_sip_option": "1,000 per instalment for a minimum period of 6 quarters- Any date 1 to 28 (Default  7 )",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "For redemptionswitchout of units before 365 days from the date of allotment - 1 of the applicable NAV For redemptionswitched- out of units on or after 365 days from the date of allotment  NIL",
         "scheme_details.dematerialization": "D-Mat Option Available",
         "scheme_details.portfolio_turnover": "0.31 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "nav.regular_growth": "15.0925",
@@ -100,29 +101,28 @@
         "metrics.r_squared": "NA",
         "metrics.treynor": "NA",
         "main_scheme_name": "360 one flexicap fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 6
     },
     "360 one quant fund": {
-        "load": [
-            "NIL",
-            "1 - if redeemedswitched out, on or before 12 onths from the date of allotment"
-        ],
+        "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities based on a quant theme. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved.",
         "fund_manager": [
             {
+                "managing_fund_since": "",
                 "name": "Parijat ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "16 years"
-            },
-            {
-                "name": "Vaidyanathan ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "8.5 years"
+                "qualification": "",
+                "total_exp": "16 years"
             }
         ],
-        "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities based on a quant theme. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved.",
-        "scheme_details.date_of_allotment": "Dematerialization  D-Mat Option Available Portfolio Turnover  0.81 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
+        "co_fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Vaidyanathan ",
+                "qualification": "",
+                "total_exp": "8.5 years"
+            }
+        ],
+        "scheme_details.date_of_allotment": "November 29, 2021",
         "scheme_details.bloomberg_code": "-",
         "scheme_details.benchmark_index": "BSE 200 TRI",
         "scheme_details.plans_offered": "Regular  Direct",
@@ -138,6 +138,8 @@
         "scheme_details.weekly_sip_option": "1,000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1,000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month",
         "scheme_details.monthly_sip_option": "1,000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month)",
         "scheme_details.quarterly_sip_option": "1,000 per instalment for a minimum period of 6 quarters- Any date 1 to 28 (Default  7 )",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "1 - if redeemedswitched out, on or before 12 onths from the date of allotment",
         "scheme_details.dematerialization": "D-Mat Option Available",
         "scheme_details.portfolio_turnover": "0.81 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "nav.regular_growth": "18.2765",
@@ -154,29 +156,33 @@
         "metrics.r_squared": "0.90",
         "metrics.treynor": "1.14",
         "main_scheme_name": "360 one quant fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 7
     },
     "360 one elss tax saver nifty 50 index fund": {
-        "load": [
-            "NIL",
-            "NIL"
-        ],
-        "fund_manager": [
-            {
-                "name": "Parijat ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "16 years"
-            },
-            {
-                "name": "Vaidyanathan ",
-                "designation": "",
-                "managing_since": "",
-                "experience": "8.5 years"
-            }
+        "before": [
+            "(Formerly known as IIFL ELSS NIFTY 50 Tax Saver Index Fund)",
+            "(An open-ended Passive Equity Linked Saving Scheme with a statutory lock-in period of 3 years and tax benefit,",
+            "replicating/tracking the Nifty 50 index)"
         ],
         "investment_objective": "The investment objective of scheme is to invest in stocks comprising the Nifty 50 Index in the same proportion as in the Index to achieve returns equivalent to the Total Returns Index of Nifty 50 Index (subject to tracking error), while offering deduction on such investment made in the scheme under section 80C of the Incometax Act, 1961. It also seeks to distribute income periodically depending on distributable surplus. There is no assurance or guarantee that the investment objective of the Scheme would be achieved Investments in this scheme would be subject to a statutory lock-in of 3 years from the date of allotment to avail Section 80C benefits.",
-        "scheme_details.date_of_allotment": "). Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Parijat ",
+                "qualification": "",
+                "total_exp": "16 years"
+            }
+        ],
+        "co_fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Vaidyanathan ",
+                "qualification": "",
+                "total_exp": "8.5 years"
+            }
+        ],
+        "scheme_details.date_of_allotment": "December 28, 2022",
         "scheme_details.bloomberg_code": "-",
         "scheme_details.benchmark_index": "NIFTY 50 TRI",
         "scheme_details.plans_offered": "Regular  Direct",
@@ -192,6 +198,8 @@
         "scheme_details.weekly_sip_option": "500 per instalment for a minimum period of 12 weeks - Every Tuesday Fortnightly 500 per instalment for SIP Option a minimum period of 12 fortnights - 2and 16 of every month",
         "scheme_details.monthly_sip_option": "500 per instalment for a minimum period of 12 months - Any date 1to 28 (Default  7of every month)",
         "scheme_details.quarterly_sip_option": "500 per instalment for a minimum period of 12 quarters- Any date 1to 28(Default  7)",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "NIL",
         "scheme_details.dematerialization": "D-Mat Option Available Tracking Error Regular Plan 0.14 Tracking Error Direct Plan 0.14",
         "scheme_details.portfolio_turnover": "0.03 times (subject to lock-in-period of 3 years from the date of allotment). Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "tracking_difference": [
@@ -213,25 +221,27 @@
         "metrics.r_squared": "NA",
         "metrics.treynor": "NA",
         "main_scheme_name": "360 one elss tax saver nifty 50 index fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 8
     },
     "360 one balanced hybrid fund": {
-        "load": [],
-        "fund_manager": [],
         "aum.net_aum": "864.37",
         "aum.monthly_average_aum": "868.22",
         "total_expense_ratio.regular_plan": "1.94",
         "total_expense_ratio.direct_plan": "0.43",
         "main_scheme_name": "360 one balanced hybrid fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 10
     },
     "360 one dynamic bond fund": {
-        "load": [
-            "NIL",
-            "NIL"
+        "before": [
+            "(Formerly known as IIFL Dynamic Bond Fund)",
+            "(An open ended dynamic debt scheme investing across duration. A relatively high interest rate risk and relatively high",
+            "credit risk.)"
         ],
-        "fund_manager": [],
         "investment_objective": "The investment objective of the scheme is to generate income and long term gains by investing in a range of debt and money market instruments of various maturities. The scheme will seek to flexibly manage its investment across the maturity spectrum with a view to optimize the risk return proposition for the Investors.",
+        "fund_manager": [],
+        "co_fund_manager": [],
         "mr_manumaharaj": [],
         "scheme_details.date_of_allotment": "June 24, 2013",
         "scheme_details.bloomberg_code": "IIFDBDBIN",
@@ -249,6 +259,8 @@
         "scheme_details.weekly_sip_option": "1000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month",
         "scheme_details.monthly_sip_option": "1000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month)",
         "scheme_details.quarterly_sip_option": "1,500 per instalment for a minimum period of 4 quarters- Any date 1st to 28th (Default  7th)",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "NIL",
         "scheme_details.dematerialization": "D-Mat Option Available Asset Allocation Debt Market  0 to 100 Money Market  0 to 100 REITs  InvITs  0 to 10 Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "nav.regular_plan_growth": "21.4960",
         "nav.regular_quarterly_idcw": "20.7437",
@@ -262,15 +274,13 @@
         "total_expense_ratio.regular_plan": "0.52",
         "total_expense_ratio.direct_plan": "0.27",
         "main_scheme_name": "360 one dynamic bond fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 11
     },
     "360 one liquid fund": {
-        "load": [
-            "NIL",
-            "Investor exit upon Exit load as a  of Subscription redemption proceeds Day 1  0.0070 Past performance may or may not be sustained in future. Different plans shall have different expense structure. Point to Point (PTP) returisn sb ainsed on standard Day 2  0.0065 investment of10,000 Since Inception date is 13-Nov-2013  CRISIL Liquid Debt A-I Index, CRISIL 1 Year T-Bill Index. Day 3  0.0060 Day 4  0.0055 Day 5  0.0050 Day 6  0.0045 Day 7 Onwards  0.0000"
-        ],
-        "fund_manager": [],
         "investment_objective": "To provide liquidity with reasonable returns commensurate with low risk through a portfolio of money market and debt securities with residual maturity of up to 91 days. However, there can be no assurance that the investment objective of the scheme will be achieved.",
+        "fund_manager": [],
+        "co_fund_manager": [],
         "mr_manumaharaj": [],
         "scheme_details.date_of_allotment": "November 13, 2013 Benchmark Index CRISIL Liquid Debt A-I Index Plans Offered  Regular  Direct Options Offered  Growth  IDCW Minimum Application 5,000 and in multiples of New Purchase 1 thereafter Additional Purchase 1000 and in multiples of 1 thereafter Weekly SIP Option 1000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month Monthly SIP Option 1000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month) Quarterly SIP Option 1,500 per instalment for a minimum period of 4 quarters- Any date 1 to 28 (Default  7 ) Entry Load  NIL Exit Load Investor exit upon Exit load as a  of Subscription redemption proceeds Day 1  0.0070 Past performance may or may not be sustained in future. Different plans shall have different expense structure. Point to Point (PTP) returisn sb ainsed on standard Day 2  0.0065 investment of10,000 Since Inception date is 13-Nov-2013  CRISIL Liquid Debt A-I Index, CRISIL 1 Year T-Bill Index. Day 3  0.0060 Day 4  0.0055 Day 5  0.0050 Day 6  0.0045 Day 7 Onwards  0.0000 Dematerialization  D-Mat Option Available Asset Allocation  0.0050 Money market and debt instruments with residual  0 to 100 maturity up to 91 days Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "scheme_details.benchmark_index": "CRISIL Liquid Debt A-I Index",
@@ -287,6 +297,8 @@
         "scheme_details.weekly_sip_option": "1000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month",
         "scheme_details.monthly_sip_option": "1000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month)",
         "scheme_details.quarterly_sip_option": "1,500 per instalment for a minimum period of 4 quarters- Any date 1 to 28 (Default  7 )",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "Investor exit upon Exit load as a  of Subscription redemption proceeds Day 1  0.0070 Past performance may or may not be sustained in future. Different plans shall have different expense structure. Point to Point (PTP) returisn sb ainsed on standard Day 2  0.0065 investment of10,000 Since Inception date is 13-Nov-2013  CRISIL Liquid Debt A-I Index, CRISIL 1 Year T-Bill Index. Day 3  0.0060 Day 4  0.0055 Day 5  0.0050 Day 6  0.0045 Day 7 Onwards  0.0000",
         "scheme_details.dematerialization": "D-Mat Option Available Asset Allocation  0.0050 Money market and debt instruments with residual  0 to 100 maturity up to 91 days Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
         "nav.regular_plan_growth": "1944.6683",
         "nav.regular_plan_weekly_idcw": "1005.0000",
@@ -299,6 +311,7 @@
         "total_expense_ratio.regular_plan": "0.25",
         "total_expense_ratio.direct_plan": "0.20",
         "main_scheme_name": "360 one liquid fund",
+        "monthly_aaum_date": "28 FEBRUARY 2025",
         "pgn": 12
     }
 }

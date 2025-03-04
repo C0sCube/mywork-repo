@@ -22,7 +22,7 @@
         "additional_investment": "^(additional_investment).*",
         "benchmark_index": "^(benchmark|amfi_tier_1_bench).*",
         "compositon_by_industry": "^(composition).*",
-        "minimum_investment": "^(minimum_investment|min._addl.|min.)",
+        "minimum_investment": "^(minimum_investment$|min._addl.|min.)",
         "minimum_additional_application_amount": "^minimum_additional_application_amount",
         "sip": "systematic_investment_plan_",
         "sharpe": "^sharpe.*",
