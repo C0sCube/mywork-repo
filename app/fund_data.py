@@ -124,26 +124,30 @@ class GrandFundData:
         
         return self._extract_dummy_data(string, data)
     
-    def _merge_keys_by_regex(self,data: dict):
-        finalData = {}
-        matched_keys = set()
+    def _merge_fund_data(self, data:dict):
+        if not isinstance(data, dict):
+            return data
 
-        for new_key, regex_patterns in self.MERGEKEYS.items():
-            finalData[new_key] = []
+        for new_key, keys_to_merge in self.MERGEKEYS.items():
+            if all(isinstance(data.get(key), list) for key in keys_to_merge if key in data):
+                # Merge as a list
+                merged_value = []
+                for key in keys_to_merge:
+                    if key in data:
+                        merged_value.extend(data[key])
+                        data.pop(key, None)
+            else:
+                # Merge as a dictionary
+                merged_value = {key: data[key] for key in keys_to_merge if key in data}
+                for key in keys_to_merge:
+                    data.pop(key, None)
 
-            for key, value in data.items():
-                if key not in matched_keys and any(re.match(pattern, key, re.IGNORECASE) for pattern in regex_patterns):
-                    if isinstance(value, list):  
-                        finalData[new_key].extend(value)  # Append lists
-                    else:
-                        finalData[new_key].append(value)  # Wrap single values
-                    matched_keys.add(key)
+            if merged_value:
+                data[new_key] = merged_value  
 
-        for key, value in data.items():
-            if key not in matched_keys:
-                finalData[key] = value
-                
-        return finalData
+        return data
+
+
 
     def _select_by_regex(self, data:dict):
         finalData = {}
@@ -164,8 +168,10 @@ class GrandFundData:
     def last_day_of_previous_month(self):
         today = datetime.today()
         last_day = today.replace(day=1) - relativedelta(days=1)
-        formatted_date = f"{last_day.day} {last_day.strftime('%B').upper()} {last_day.year}"
-        return formatted_date
+        formatted_date = f"{last_day.day} {last_day.strftime('%B').strip().upper()} {last_day.year}"
+        
+        return " ".join(formatted_date.split())
+
 
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):
@@ -197,6 +203,18 @@ class Bandhan(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+        
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        final_list = []
+        manager_data = " ".join(data)
+        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
+        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
+        for match in matches:
+            name, since, exp = match
+            final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
+        return {main_key:final_list}
+        
+        
 
 #4
 class BankOfIndia(Reader):

@@ -425,7 +425,7 @@ class Reader:
             MIN_LINE_SPACING = 2     # Extra space between lines
             Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
 
-            print(type(data))
+            # print(type(data)) #dict
             for header, content_blocks in data.items():
                 page = doc.new_page()
 
@@ -521,9 +521,11 @@ class Reader:
             Reader._generate_pdf_from_data(blocks, output_path)
             print(f'\n---<<{fund}>>---at: {output_path}')
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
+            extracted_text[fund].update({"amc_name":""})
             extracted_text[fund].update({"main_scheme_name":fund})
             extracted_text[fund].update({"monthly_aaum_date": self.last_day_of_previous_month()})
-            extracted_text[fund].update({"pgn":pgn})  #add page number of factsheet
+            extracted_text[fund].update({"page_number":pgn})  #add page number of factsheet
+            extracted_text[fund].update({"mutual_fund_name":""})
         return extracted_text
     
     #REFINE
@@ -556,16 +558,19 @@ class Reader:
 
     #SELECT/MERGE
     
-    def merge_data(self, data: dict):
+    def merge_and_select_data(self, data: dict, select = False):
         finalData = {}
         for fund, content in data.items():
-            finalData[fund] = self._merge_keys_by_regex(content)
-        
+            temp = self._merge_fund_data(content)
+            if select:
+                temp = self._select_by_regex(content)
+            finalData[fund] = temp
+            finalData[fund] = dict(sorted(finalData[fund].items()))
         return finalData
 
-    def select_data(self, data: dict):
-        finalData = {}
-        for fund, content in data.items():
-            finalData[fund] = self._select_by_regex(content)
+    # def select_data(self, data: dict):
+    #     finalData = {}
+    #     for fund, content in data.items():
+    #         finalData[fund] = self._select_by_regex(content)
         
-        return finalData
+    #     return finalData
