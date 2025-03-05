@@ -83,19 +83,51 @@ class Reader:
     def _create_data_entry(self,*args):
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
-    def extract_clipped_data(self,input:str, pages:list, title:dict, *args):
+    # def extract_clipped_data(self,input:str, pages:list, title:dict, *args):
+        
+    #     with fitz.open(input) as doc:
+    #         finalData = []
+    #         bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
+    #         for pgn in pages:
+    #             page, fundName,all_blocks = doc[pgn],title[pgn],[]
+    #             for bbox in bboxes:
+    #                 blocks, seen_blocks = [], set()# unique
+    #                 page_blocks = page.get_text('dict', clip=bbox)['blocks']
+    #                 for block in page_blocks:
+    #                     if block['type'] == 0 and 'lines' in block: #type 0 text
+    #                         #hash_key
+    #                         block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
+    #                         if block_key not in seen_blocks:
+    #                             seen_blocks.add(block_key)
+    #                             blocks.append(block)
+
+    #                 sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
+    #                 all_blocks.extend(sorted_blocks)
+                    
+    #             finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
+    #     return finalData
+    
+    def extract_clipped_data(self, input: str, pages: list, title: dict, *args):
         
         with fitz.open(input) as doc:
             finalData = []
-            bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
+            fund_seen = {}
+
+            bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
+
             for pgn in pages:
-                page, fundName,all_blocks = doc[pgn],title[pgn],[]
+                fundName = title.get(pgn, "").strip()
+                if not fundName:
+                    continue
+
+                page = doc[pgn]
+                all_blocks = []
                 for bbox in bboxes:
-                    blocks, seen_blocks = [], set()# unique
+                    blocks, seen_blocks = [], set()
                     page_blocks = page.get_text('dict', clip=bbox)['blocks']
+
                     for block in page_blocks:
-                        if block['type'] == 0 and 'lines' in block: #type 0 text
-                            #hash_key
+                        if block['type'] == 0 and 'lines' in block:
                             block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
                             if block_key not in seen_blocks:
                                 seen_blocks.add(block_key)
@@ -103,14 +135,25 @@ class Reader:
 
                     sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
                     all_blocks.extend(sorted_blocks)
-                    
-                finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
+
+                
+                if fundName in fund_seen:
+                    fund_seen[fundName]["block"].extend(all_blocks)
+                    fund_seen[fundName]["page"].append(pgn)
+                else:
+                    new_entry = {"page": [pgn], "fundname": fundName, "block": all_blocks}
+                    finalData.append(new_entry)
+                    fund_seen[fundName] = new_entry  # Store reference to modify later
+
         return finalData
+
+
     
     def extract_data_relative_line(self, input: str, pages: list, title: dict):
     
         with fitz.open(input) as doc:
             finalData = []
+            fund_seen = {}
             line_x = self.PARAMS['line_x']
             side = self.PARAMS['line_side']
             
@@ -139,8 +182,14 @@ class Reader:
                 if side == "both":
                     left_blocks.extend(right_blocks)
                 sorted_blocks = sorted(left_blocks if side != "right" else right_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
-                finalData.append(self._create_data_entry(pgn,fundName,sorted_blocks))
-
+                
+                if fundName in fund_seen:
+                    fund_seen[fundName]["block"].extend(sorted_blocks)
+                    fund_seen[fundName]["page"].append(pgn)
+                else:
+                    new_entry = {"page": [pgn], "fundname": fundName, "block": sorted_blocks}
+                    finalData.append(new_entry)
+                    fund_seen[fundName] = new_entry
         return finalData
 
     def extract_pdf_data(self,input:str, pages:list, titles:dict):
@@ -376,7 +425,8 @@ class Reader:
             MIN_LINE_SPACING = 2     # Extra space between lines
             Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
 
-            for header, blocks in data.items():
+            print(type(data))
+            for header, content_blocks in data.items():
                 page = doc.new_page()
 
                 # Insert Header Title
@@ -395,7 +445,7 @@ class Reader:
 
                 # Group words by approximate Y-line
                 lines_dict = defaultdict(list)
-                for block in blocks:
+                for block in content_blocks:
                     size, text, color, (orig_x, orig_y), bbox, fontname = block
                     
                     # Snap Y values that are close together to a single baseline

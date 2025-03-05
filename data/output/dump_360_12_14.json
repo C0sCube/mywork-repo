@@ -52,7 +52,9 @@
         "metrics.treynor": "0.60",
         "main_scheme_name": "360 one focused equity fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 5
+        "pgn": [
+            5
+        ]
     },
     "360 one flexicap fund": {
         "investment_objective": "The investment objective of the scheme is to generate long-term capital appreciation by primarily investing in equity and equity related securities across the entire market capitalization range and investing the remaining portion in debt and money market instruments. However, there can be no assurance or guarantee that the investment objective of the scheme would be achieved.",
@@ -102,7 +104,9 @@
         "metrics.treynor": "NA",
         "main_scheme_name": "360 one flexicap fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 6
+        "pgn": [
+            6
+        ]
     },
     "360 one quant fund": {
         "investment_objective": "The investment objective of the scheme is to generate long term capital appreciation for investors from a portfolio of equity and equity related securities based on a quant theme. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved.",
@@ -157,7 +161,9 @@
         "metrics.treynor": "1.14",
         "main_scheme_name": "360 one quant fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 7
+        "pgn": [
+            7
+        ]
     },
     "360 one elss tax saver nifty 50 index fund": {
         "before": [
@@ -222,16 +228,55 @@
         "metrics.treynor": "NA",
         "main_scheme_name": "360 one elss tax saver nifty 50 index fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 8
+        "pgn": [
+            8
+        ]
     },
     "360 one balanced hybrid fund": {
+        "investment_objective": "The Investment Objective of the fund is to generate long term capital appreciation/income by investing in equity and debt instruments. However, there is no assurance or guarantee that the investment objective of the Scheme will be achieved. The Scheme does not assure or guarantee any returns.",
+        "fund_manager": [],
+        "equity": [
+            "Mr. Vaidyanathan has over 8.5 years of experience",
+            "at 360 ONE Asset Management Limited, specializing",
+            "in sectors like cement, building materials, real",
+            "ePsotarttfeo,l iaon Bde lotagistics. NA NA"
+        ],
+        "co_fund_manager": [],
+        "vaidyanathan": [],
+        "debt": [
+            "Mr. Mody has over 20 years of work experience in",
+            "the Fixed Income market."
+        ],
+        "scheme_details.date_of_allotment": "September 25, 2023",
+        "scheme_details.bloomberg_code": "-",
+        "scheme_details.benchmark_index": "Nifty 50 Hybrid Composite Debt 5050 Index",
+        "scheme_details.plans_offered": "Regular  Direct",
+        "scheme_details.options_offered": "Growth  IDCW New Purchase 1000 and in multiples of 1 thereafter Additional Purchase 1000 and in multiples of 1 thereafter Weekly SIP Option 1000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month Monthly SIP Option 1000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month) Quarterly SIP Option 1000 per instalment for a minimum period of 6 quarters- Any date 1 to 28 (Default  7 ) Entry Load  NIL Exit Load  - Redemption  switch-out of 10 of Units alloted on or before completion of 12 months from the date of allotment- NIL exit load. - Redemption switch out in excess of the 10 of Units allotted on or before completion of 12 months from the date of allotment 1.00 exit load. - Nil - if redeemed  switched out after 12 months from the date of allotment Dematerialization  D-Mat Option Available Portfolio Turnover  0.61 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
+        "scheme_details.additional_purchase": {
+            "amt": "1000",
+            "thraftr": "1"
+        },
+        "scheme_details.weekly_sip_option": "1000 per instalment for a minimum period of 6 weeks - any business day between Monday to Friday. Default day will be Tuesday. Fortnightly 1000 per instalment for SIP Option a minimum period of 6 fortnights - 2 and 16 of every month",
+        "scheme_details.monthly_sip_option": "1000 per instalment for a minimum period of 6 months - Any date 1to 28 (Default  7 of every month)",
+        "scheme_details.quarterly_sip_option": "1000 per instalment for a minimum period of 6 quarters- Any date 1 to 28 (Default  7 )",
+        "scheme_details.entry_load": "NIL",
+        "scheme_details.exit_load": "- Redemption  switch-out of 10 of Units alloted on or before completion of 12 months from the date of allotment- NIL exit load. - Redemption switch out in excess of the 10 of Units allotted on or before completion of 12 months from the date of allotment 1.00 exit load. - Nil - if redeemed  switched out after 12 months from the date of allotment",
+        "scheme_details.dematerialization": "D-Mat Option Available",
+        "scheme_details.portfolio_turnover": "0.61 times Weekly and Fortnightly SIP frequencies are not available on BSE STAR MF Platform",
+        "nav.regular_growth": "12.3639",
+        "nav.regular_idcw": "12.3639",
+        "nav.direct_growth": "12.6020",
+        "nav.direct_idcw": "12.6020",
         "aum.net_aum": "864.37",
         "aum.monthly_average_aum": "868.22",
         "total_expense_ratio.regular_plan": "1.94",
         "total_expense_ratio.direct_plan": "0.43",
         "main_scheme_name": "360 one balanced hybrid fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 10
+        "pgn": [
+            9,
+            10
+        ]
     },
     "360 one dynamic bond fund": {
         "before": [
@@ -275,7 +320,9 @@
         "total_expense_ratio.direct_plan": "0.27",
         "main_scheme_name": "360 one dynamic bond fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 11
+        "pgn": [
+            11
+        ]
     },
     "360 one liquid fund": {
         "investment_objective": "To provide liquidity with reasonable returns commensurate with low risk through a portfolio of money market and debt securities with residual maturity of up to 91 days. However, there can be no assurance that the investment objective of the scheme will be achieved.",
@@ -312,6 +359,8 @@
         "total_expense_ratio.direct_plan": "0.20",
         "main_scheme_name": "360 one liquid fund",
         "monthly_aaum_date": "28 FEBRUARY 2025",
-        "pgn": 12
+        "pgn": [
+            12
+        ]
     }
 }
