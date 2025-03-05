@@ -23,6 +23,7 @@ class GrandFundData:
         self.SECONDARY_PATTERN_TO_FUNCTION = fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{})
         self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
+        self.IMP_DATA = fund_config.get("IMP_DATA",{})
         
     #extract 
     def _extract_dummy_data(self,key:str,data):
@@ -164,13 +165,22 @@ class GrandFundData:
             "qualification": desig,
             "total_exp": exp
         }
-    
-    def last_day_of_previous_month(self):
+        
+    def _last_day_of_previous_month(self):
         today = datetime.today()
         last_day = today.replace(day=1) - relativedelta(days=1)
         formatted_date = f"{last_day.day} {last_day.strftime('%B').strip().upper()} {last_day.year}"
         
-        return " ".join(formatted_date.split())
+        return "".join(formatted_date.split())
+    
+    def _update_imp_data(self,data:dict,fund:str, pgn:list):
+        return data.update({
+            "amc_name":self.IMP_DATA['amc_name'],
+            "main_scheme_name":fund,
+            "monthly_aaum_date": self._last_day_of_previous_month(),
+            "page_number":pgn,
+            "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
+        })
 
 
 #1 <>
@@ -210,8 +220,8 @@ class Bandhan(Reader,GrandFundData):
         manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
         matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
         for match in matches:
-            name, since, exp = match
-            final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
+            name, since = match
+            final_list.append(self._return_manager_data(name= name,since= since))
         return {main_key:final_list}
         
         

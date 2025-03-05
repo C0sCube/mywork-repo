@@ -20,6 +20,7 @@ class FundRegex():
         
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
+        self.JSON_HEADER = data.get("json_headers",{})
        
 
     @staticmethod
@@ -84,5 +85,16 @@ class FundRegex():
                 flattened[new_key] = value
 
         return flattened
+    
+    def _map_json_keys_to_dict(self, text:str):
+        for json_key, patterns in self.JSON_HEADER.items():
+            for pattern in patterns:
+                regex = re.compile(pattern) 
+                if regex.match(text):
+                    return json_key
+                
+
+
+     
             
     

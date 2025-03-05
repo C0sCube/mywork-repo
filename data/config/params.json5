@@ -84,10 +84,6 @@
                 "_extract_generic_data",
                 "nav",
             ],
-            "^metrics.*": [
-                "_extract_generic_data",
-                "metrics",
-            ],
             "^scheme.*": [
                 "_extract_scheme_data",
                 "scheme",
@@ -105,6 +101,10 @@
             ".*(minimum_application|additional_purchase)$": [
                 "_extract_amt_data",
                 "min_amt",
+            ],
+            "^metrics.*": [
+                "_extract_generic_data",
+                "metrics",
             ],
         },
         SELECTKEYS: [
@@ -383,25 +383,17 @@
                 "_extract_generic_data",
                 "nav",
             ],
-            "^fund_mana.*": [
-                "_extract_manager_data",
-                "manager",
-            ],
             "^portfolio.*": [
                 "_extract_generic_data",
                 "ptr",
             ],
-            "^metrics.*": [
-                "_extract_generic_data",
-                "metric",
+            "^fund_mana.*": [
+                "_extract_manager_data",
+                "manager",
             ],
             "^total.*": [
                 "_extract_generic_data",
                 "ter",
-            ],
-            "^minimum_investment": [
-                "_extract_str_data",
-                null,
             ],
         },
         SELECTKEYS: [
@@ -418,7 +410,16 @@
             "amc_name",
             "load",
         ],
-        SECONDARY_PATTERN_TO_FUNCTION: {},
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            "^minimum_investment": [
+                "_extract_amt_data",
+                "min_amt",
+            ],
+            "^metrics.*": [
+                "_extract_generic_data",
+                "metric",
+            ],
+        },
         MERGEKEYS: {
             load: [
                 "exit_load",
@@ -541,8 +542,8 @@
                 30.0,
                 8.0,
             ],
-            method: "clip",
-            line_side: "",
+            method: "line",
+            line_side: "left",
             max_financial_index_highlight: 0,
         },
         REGEX: {
@@ -564,18 +565,6 @@
                 "_extract_manager_data",
                 "manager",
             ],
-            "^nav.*": [
-                "_extract_generic_data",
-                "nav",
-            ],
-            "^load": [
-                "_extract_load_data",
-                "load",
-            ],
-            "^metric.*": [
-                "_extract_generic_data",
-                "metric",
-            ],
             "^date_of_allot": [
                 "_extract_aum_data",
                 "aum",
@@ -595,7 +584,20 @@
             "minimum_application_amount",
             "minimum_additional_application_amount",
         ],
-        SECONDARY_PATTERN_TO_FUNCTION: {},
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            "^metric.*": [
+                "_extract_generic_data",
+                "metric",
+            ],
+            "^load": [
+                "_extract_load_data",
+                "load",
+            ],
+            "^nav.*": [
+                "_extract_generic_data",
+                "nav",
+            ],
+        },
         MERGEKEYS: {},
         COMMENTS: [],
         IMP_DATA: {
