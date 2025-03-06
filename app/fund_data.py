@@ -182,7 +182,6 @@ class GrandFundData:
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
         })
 
-
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):
     
@@ -534,16 +533,16 @@ class FranklinTempleton(Reader,GrandFundData):
     
     def _extract_manager_data(self, main_key: str, data: list, pattern:str):
         manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX[pattern], "", manager_data).strip()
+        manager_data = re.sub(self.REGEX["escape"], "", manager_data).strip()
         final_list = []
-        if matches := re.findall(self.REGEX['manager'], manager_data, re.IGNORECASE):
+        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
             for match in matches:
-                name, since, exp = match
+                name = match
                 final_list.append({
                     "name": name.strip(),
                     "designation": "",
-                    "managing_since": since.strip(),
-                    "experience": exp.strip()
+                    "managing_since": "",
+                    "experience": ""
                 })
         return {main_key: final_list}
 
@@ -990,15 +989,16 @@ class Tata(Reader,GrandFundData): #Lupsum issues
         final_list = []
         manager_data = " ".join(data)
         manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches:=re.findall(pattern,manager_data,re.IGNORECASE):
+        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
             for match in matches:
                 name,since,exp = match
-                final_list.append({
-                    "name":name.strip(),
-                    "designation": "",
-                    "managing_since": since.strip(),
-                    "experience": exp
-                })
+                # final_list.append({
+                #     "name":name.strip(),
+                #     "designation": "",
+                #     "managing_since": since.strip(),
+                #     "experience": exp.strip()
+                # })
+                final_list.append(self._return_manager_data(since = since,name = name,exp=exp))
         
         return {main_key:final_list} 
 

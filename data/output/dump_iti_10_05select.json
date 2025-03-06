@@ -1,0 +1,652 @@
+{
+    "iti multi cap fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 500 Multicap 502525 TRI",
+        "fund_manager": [
+            {
+                "name": "Dhimant Shah",
+                "designation": "",
+                "managing_since": "08-Aug-22",
+                "experience": "26 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "01-Dec-22",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of unitNsil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti multi cap fund",
+        "metrics": {
+            "Standard Deviation": "12.93",
+            "Beta": "0.87",
+            "Sharpe Ratio": "0.96",
+            "Average PB": "9.76",
+            "Average PE": "33.14",
+            "Portfolio Turnover Ratio": "0.99"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "1,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "1,411.78",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            9
+        ],
+        "scheme_launch_date": "15-May-19"
+    },
+    "iti elss tax saver fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "fund_manager": [
+            {
+                "name": "Alok Ranjan",
+                "designation": "",
+                "managing_since": "04-Nov-24",
+                "experience": "15 years"
+            },
+            {
+                "name": "Dhimant Shah",
+                "designation": "",
+                "managing_since": "01-Dec-22",
+                "experience": "26 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "Nil"
+        },
+        "main_scheme_name": "iti elss tax saver fund",
+        "metrics": {
+            "Standard Deviation": "13.07",
+            "Beta": "0.89",
+            "Sharpe Ratio": "0.95",
+            "Average PB": "9.44",
+            "Average PE": "27.33",
+            "Portfolio Turnover Ratio": "1.17"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "500",
+            "thraftr": "500"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "404.40",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            10
+        ],
+        "scheme_launch_date": "18-Oct-19"
+    },
+    "iti large cap fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 100 TRI",
+        "fund_manager": [
+            {
+                "name": "Alok Ranjan",
+                "designation": "",
+                "managing_since": "04-Nov-2024",
+                "experience": "15 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "29-April-2022",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of unitsNil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti large cap fund",
+        "metrics": {
+            "Standard Deviation": "13.05",
+            "Beta": "0.94",
+            "Sharpe Ratio": "0.38",
+            "Average PB": "7.27",
+            "Average PE": "22.19",
+            "Portfolio Turnover Ratio": "0.89"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "379.61",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            11
+        ],
+        "scheme_launch_date": "24-Dec-20"
+    },
+    "iti mid cap fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty Midcap 150 TRI",
+        "fund_manager": [],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "If units are redeemed switched out within 12 months - 1. Nil hereafter"
+        },
+        "main_scheme_name": "iti mid cap fund",
+        "metrics": {
+            "Standard Deviation": "14.70",
+            "Beta": "0.90",
+            "Sharpe Ratio": "1.09",
+            "Average PB": "10.71",
+            "Average PE": "32.91",
+            "Portfolio Turnover Ratio": "1.26"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "1,166.41",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            12
+        ],
+        "scheme_launch_date": "05-Mar-2021"
+    },
+    "iti small cap fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty Smallcap 250 TRI",
+        "fund_manager": [
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "01 December 2022",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "If units are redeemed switched out within 12 months - 1. Nil"
+        },
+        "main_scheme_name": "iti small cap fund",
+        "metrics": {
+            "Standard Deviation": "14.78",
+            "Beta": "0.76",
+            "Sharpe Ratio": "1.20",
+            "Average PB": "10.78",
+            "Average PE": "38.00",
+            "Portfolio Turnover Ratio": "1.37"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "2,499.17",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            13
+        ],
+        "scheme_launch_date": "17-Feb-20"
+    },
+    "iti value fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 500 TRI Minimum ApplicationRs. 5,000- and in multiples of Re. 1- Load Structure Entry Load Nil Exit Load 1 if redeemed or switched out on or before completion of 3 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units. Total Expense Ratio (TER) Including Additional Expenses and Goods and Service Tax on Management Fees Regular Plan 2.37 Direct Plan 0.57",
+        "fund_manager": [
+            {
+                "name": "Dhimant Shah",
+                "designation": "",
+                "managing_since": "01 December 2022",
+                "experience": "26 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti value fund",
+        "metrics": {
+            "Standard Deviation": "13.20",
+            "Beta": "0.86",
+            "Sharpe Ratio": "0.93",
+            "Average PB": "7.11",
+            "Average PE": "25.23",
+            "Portfolio Turnover Ratio": "1.31"
+        },
+        "min_addl_amt": {},
+        "min_amt": {},
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "316.29",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            14
+        ],
+        "scheme_launch_date": "14-June-2021"
+    },
+    "iti pharma and healthcare fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty Healthcare TRI Minimum ApplicatioRns. 5,000- and in multiples of Re. 1- thereafter Load Structure Entry Load Nil Exit Load 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units. Total Expense Ratio (TER) Including Additional Expenses and Goods and Service Tax on Management Fees Regular Plan 2.35 Direct Plan 0.47",
+        "fund_manager": [],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti pharma and healthcare fund",
+        "metrics": {
+            "Standard Deviation": "15.01",
+            "Beta": "0.86",
+            "Sharpe Ratio": "0.81",
+            "Average PB": "10.04",
+            "Average PE": "49.92",
+            "Portfolio Turnover Ratio": "0.59"
+        },
+        "min_addl_amt": {},
+        "min_amt": {},
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "223.37",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            15
+        ],
+        "scheme_launch_date": "08-Nov-2021"
+    },
+    "iti banking and financial services fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty Financial Services TRI",
+        "fund_manager": [
+            {
+                "name": "Nilay Dalal",
+                "designation": "",
+                "managing_since": "05 May 2023",
+                "experience": "12 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "29-Apr-22",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti banking and financial services fund",
+        "metrics": {
+            "Standard Deviation": "13.93",
+            "Beta": "0.91",
+            "Sharpe Ratio": "0.22",
+            "Average PB": "3.71",
+            "Average PE": "17.71",
+            "Portfolio Turnover Ratio": "1.45"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "274.81",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            16
+        ],
+        "scheme_launch_date": "06-Dec-21"
+    },
+    "iti flexi cap fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "fund_manager": [
+            {
+                "name": "Dhimant Shah",
+                "designation": "",
+                "managing_since": "17-Feb-2023",
+                "experience": "26 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "17-Feb-2023",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Not Applicable",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti flexi cap fund",
+        "metrics": {
+            "Average PB": "8.25",
+            "Average PE": "31.91",
+            "Portfolio Turnover Ratio": "0.97"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "1,312.22",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            17
+        ],
+        "scheme_launch_date": "17-Feb-23"
+    },
+    "iti focused equity fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "fund_manager": [
+            {
+                "name": "Dhimant Shah",
+                "designation": "",
+                "managing_since": "19-June-2023",
+                "experience": "26 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "19-June-2023",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Not Applicable",
+            "scheme_details.exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti focused equity fund",
+        "metrics": {
+            "Average PB": "11.64",
+            "Average PE": "31.68",
+            "Portfolio Turnover Ratio": "0.97"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "517.52",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            18
+        ],
+        "scheme_launch_date": "19-June-23"
+    },
+    "iti large & mid cap fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "NIFTY Large Midcap 250 TRI",
+        "fund_manager": [
+            {
+                "name": "Alok Ranjan",
+                "designation": "",
+                "managing_since": "04-Nov-24",
+                "experience": "15 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "11-Sept-24",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "0.50 if redeemed or switched out on or before completion of 3 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units. No Entry  Exit Load shall be levied on units allotted on Reinvestment of Income Distribution cum Capital Withdrawal Option. In respect of Systematic Transactions such as SIP, STP, SWP, Exit Load, if any, prevailing on the date of registration  enrolment for SIPSTPSWP shall be levied for all the opted installments. Redemption of units would be done on First in First out Basis (FIFO). The entire Exit Load, net of Goods  service tax, shall be credited to the Scheme"
+        },
+        "main_scheme_name": "iti large & mid cap fund",
+        "metrics": {
+            "Average PB": "9.16",
+            "Average PE": "30.48"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "843.96",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            19
+        ],
+        "scheme_launch_date": "Sept 11, 2024"
+    },
+    "iti balanced advantage fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 50 Hybrid Composite Debt 5050 Index",
+        "fund_manager": [],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "10 of the units allotted may be redeemed without any exit load, on or before completion of 3 months from the date of allotment of units. Any redemption in excess of such limit in the first 3 months from the date of allotment shall be subject to the following exit load i. 1 if redeemed or switched out on or before completion of 3 months from the date of allotment of units ii. Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+        },
+        "main_scheme_name": "iti balanced advantage fund",
+        "metrics": {
+            "Standard Deviation": "7.20",
+            "Beta": "0.89",
+            "Sharpe Ratio": "0.23",
+            "Average PB": "4.54",
+            "Average PE": "30.51",
+            "Portfolio Turnover Ratio": "6.93"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "392.17",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            20
+        ],
+        "scheme_launch_date": "31-Dec-19"
+    },
+    "iti arbitrage fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "Nifty 50 Arbitrage",
+        "fund_manager": [
+            {
+                "name": "Rajesh Bhatia",
+                "designation": "",
+                "managing_since": "15-Nov-24",
+                "experience": "31 years"
+            },
+            {
+                "name": "Vikas Nathani",
+                "designation": "",
+                "managing_since": "01-Jan-24",
+                "experience": "18 years"
+            },
+            {
+                "name": "Rohan Korde",
+                "designation": "",
+                "managing_since": "15-Nov-24",
+                "experience": "19 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "If the Units are redeemed  switched out on or before 30 days from the date of allotment - 0.25. If the Units are redeemed switched out after 30 days from the date of allotment - NIL"
+        },
+        "main_scheme_name": "iti arbitrage fund",
+        "metrics": {
+            "Standard Deviation": "0.74",
+            "Beta": "0.17",
+            "Sharpe Ratio": "-2.48"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "38.76",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            21
+        ],
+        "scheme_launch_date": "09-Sep-19"
+    },
+    "iti overnight fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "CRISIL Liquid Overnight Index",
+        "fund_manager": [
+            {
+                "name": "Rajesh Bhatia",
+                "designation": "",
+                "managing_since": "15-Nov-2024",
+                "experience": "31 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "Nil"
+        },
+        "main_scheme_name": "iti overnight fund",
+        "metrics": {},
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "16.11",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            22
+        ],
+        "scheme_launch_date": "25-Oct-19"
+    },
+    "iti liquid fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "CRISIL Liquid Debt A-I Index Minimum ApplicationRs. 5,000- and in multiples of Rs. 1- thereafter Load Structure Entry Load Nil Exit Load Investor exit upon subscription Exit Load  Up to Day 1 0.0070 Day 2 0.0065 Day 3 0.0060 Day 4 0.0055 Day 5 0.0050 Day 6 0.0045 Day 7 onwards0.0000 Total Expense Ratio (TER) Including Additional Expenses and Goods and Service Tax on Management Fees Regular Plan 0.25 Direct Plan 0.09",
+        "fund_manager": [
+            {
+                "name": "Rajesh Bhatia",
+                "designation": "",
+                "managing_since": "15-Nov-2024",
+                "experience": "31 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "Investor exit upon subscription Exit Load  Up to Day 1 0.0070 Day 2 0.0065 Day 3 0.0060 Day 4 0.0055 Day 5 0.0050 Day 6 0.0045 Day 7 onwards0.0000"
+        },
+        "main_scheme_name": "iti liquid fund",
+        "metrics": {},
+        "min_addl_amt": {},
+        "min_amt": {},
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "51.05",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            23
+        ],
+        "scheme_launch_date": "24-Apr-19"
+    },
+    "iti ultra short duration fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "CRISIL Ultra Short Duration Debt A-I Index",
+        "fund_manager": [
+            {
+                "name": "Rajesh Bhatia",
+                "designation": "",
+                "managing_since": "15-Nov-2024",
+                "experience": "31 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "Nil"
+        },
+        "main_scheme_name": "iti ultra short duration fund",
+        "metrics": {},
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "219.04",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            24
+        ],
+        "scheme_launch_date": "05-May-2021"
+    },
+    "iti banking & psu debt fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "CRISIL Banking and PSU Debt A-II Index",
+        "fund_manager": [
+            {
+                "name": "Rajesh Bhatia",
+                "designation": "",
+                "managing_since": "15-Nov-2024",
+                "experience": "31 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "Nil"
+        },
+        "main_scheme_name": "iti banking & psu debt fund",
+        "metrics": {
+            "Average Maturity": "1.97",
+            "Macaulay Duration": "1.53",
+            "Modified Duration": "1.47"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "30.13",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            25
+        ],
+        "scheme_launch_date": "22-Oct-20"
+    },
+    "iti dynamic bond fund": {
+        "amc_name": "ITI Asset Management Limited",
+        "benchmark_index": "CRISIL Dynamic Bond A-III Index",
+        "fund_manager": [
+            {
+                "name": "Rajesh Bhatia",
+                "designation": "",
+                "managing_since": "15-Nov-2024",
+                "experience": "31 years"
+            }
+        ],
+        "load": {
+            "scheme_details.entry_load": "Nil",
+            "scheme_details.exit_load": "Nil"
+        },
+        "main_scheme_name": "iti dynamic bond fund",
+        "metrics": {
+            "Average Maturity": "7.58",
+            "Macaulay Duration": "5.58",
+            "Modified Duration": "5.40"
+        },
+        "min_addl_amt": {},
+        "min_amt": {
+            "amt": "5,000",
+            "thraftr": "1"
+        },
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "49.47",
+        "mutual_fund_name": "ITI Mutual Fund",
+        "page_numbers": [
+            26
+        ],
+        "scheme_launch_date": "14-Jul-21"
+    }
+}

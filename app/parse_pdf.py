@@ -564,7 +564,7 @@ class Reader:
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():
-            temp = self._merge_fund_data(content)
+            temp = content
             if select:
                 temp = self._select_by_regex(temp)
             if map:
@@ -573,7 +573,9 @@ class Reader:
                     new_key = regex._map_json_keys_to_dict(key) or key
                     mappend_data[new_key] = value
                 temp = mappend_data
-                
+            
+            temp = self._merge_fund_data(temp)
+            temp = regex._populate_all_indices_in_json(temp)
             finalData[fund] = dict(sorted(temp.items()))
 
         return {fund: regex.flatten_dict(data) for fund, data in finalData.items()} if flat else finalData

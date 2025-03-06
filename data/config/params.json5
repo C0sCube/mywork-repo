@@ -108,7 +108,7 @@
             ],
         },
         SELECTKEYS: [
-            "load",
+            ".*(entry_load|exit_load)",
             ".*(date_of_allotment|benchmark_index)$",
             "^fund_manager",
             "metrics",
@@ -408,7 +408,7 @@
             "page_number",
             "mutual_fund_name",
             "amc_name",
-            "load",
+            "exit_load",
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {
             "^minimum_investment": [
@@ -617,7 +617,7 @@
                     4,
                     16,
                 ],
-                regex: "^Canara.*",
+                regex: "^Canara.*\\)$",
                 size: [
                     12,
                     20,
@@ -689,8 +689,17 @@
                 "_extract_str_data",
                 null,
             ],
+            "^scheme.*": [
+                "_extract_scheme_data",
+                "scheme",
+            ],
         },
-        SECONDARY_PATTERN_TO_FUNCTION: {},
+        SECONDARY_PATTERN_TO_FUNCTION: {
+             "^metrics.*": [
+                "_extract_generic_data",
+                "metric",
+            ],
+        },
         SELECTKEYS: [],
         MERGEKEYS: {},
         COMMENTS: [],
@@ -772,6 +781,7 @@
             metric: "(Sharpe Ratio|Standard Deviation|Beta|Annualised)\\s*([\\d\\-,]+\\.\\d+)",
             ter: "(Regular Plan|Direct Plan)\\s*([\\d.,]+)",
             date: ".*(\\d.+[a-zA-Z]{3}\\d{2})$",
+            min_amt: "([\\d,]+).*?([\\d,]+)",
             aum: "Rs\\.\\s*([\\d,]+\\.\\d+).*Rs\\.\\s*([\\d,]+\\.\\d+).*",
             manager: "(?:Mr\\.|Ms\\.)\\s*([A-Za-z\\s]+)\\s*(\\d{1,2}\\s*years)\\s*(.*)",
             escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
@@ -789,10 +799,6 @@
                 "_extract_aum_data",
                 "aum",
             ],
-            "^total.*": [
-                "_extract_generic_data",
-                "ter",
-            ],
             "^fund.*": [
                 "_extract_manager_data",
                 "manager",
@@ -801,20 +807,45 @@
                 "_extract_date_data",
                 "date",
             ],
+
         },
         SELECTKEYS: [
             "inception_date",
             "fund_manager",
             "benchmark_index",
-            "aum",
-            "minimum_investment_amount",
-            "additional_investment",
+            "aum.monthly_average_aum",
+            "^minimum_investment",
+            "^additional_investment",
             "exit_load",
             "metrics",
+            "amc_name",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name"
         ],
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        MERGEKEYS: {},
-        COMMENTS: [],
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            "^total.*": [
+                "_extract_generic_data",
+                "ter",
+            ],
+            "^(minimum_investment|additional_investment)$":[
+                "_extract_amt_data",
+                "min_amt"
+            ],
+            // "^metric.*": [
+            //     "_extract_generic_data",
+            //     "metric",
+            // ],
+        },
+        MERGEKEYS: {
+            load:[
+                "exit_load",
+            ]
+        },
+        COMMENTS: [
+            "METRIC data in graphical format"
+        ],
         IMP_DATA: {
             amc_name: "Edelweiss Asset Management Limited",
             mutual_fund_name: "Edelweiss Mutual Fund",
@@ -875,6 +906,7 @@
             expense: "(Regular|Direct)\\s*([\\d,.-]+)",
             load: "ENTRY LOA(.*?)\\s*EXIT LOAD\\s*(.*?)$",
             min_amt: "([\\d,]+).*?([\\d,]+)",
+            manager: "\\b(?:[A-Z]\\.|[A-Z][a-z]+)(?:\\s(?:[A-Z]\\.|[A-Z][a-z]+)){1,2}\\b(?![^()]*\\))",
             aum: "(Month End|Monthly Average)\\s*([\\d,.\\-]+)",
             ptr: "^(Portfolio Turnover|Total Portfolio).*\\s*([\\d\\-,]+\\.\\d+)",
             escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
@@ -896,32 +928,44 @@
                 "_extract_generic_data",
                 "ptr",
             ],
-            "^load": [
-                "_extract_load_data",
-                "load",
+             "^fund_manager": [
+                "_extract_manager_data",
+                "manager",
             ],
-            "^metrics": [
-                "_extract_generic_data",
-                "metric",
-            ],
+
         },
         SELECTKEYS: [
             "date_of_allotment",
             "fund_manager",
             "benchmark_index",
-            "aum",
+            "aum.monthly_average",
             "multiples_for_new_investors",
             "multiples_for_existing_investors",
             "load",
             "metrics",
+            "amc_name",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name"
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {
             "^(multiples_for|multiples_for_existing)": [
                 "_extract_amt_data",
                 "min_amt",
             ],
+             "^metrics": [
+                "_extract_generic_data",
+                "metric",
+            ],
+            "^load": [
+                "_extract_load_data",
+                "load",
+            ],
         },
-        MERGEKEYS: {},
+        MERGEKEYS: {
+
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Franklin Templeton Asset Management (India) Private Limited",
@@ -1063,10 +1107,6 @@
                 "_extract_generic_data",
                 "ptr",
             ],
-            "^metric": [
-                "_extract_generic_data",
-                "metric",
-            ],
         },
         SECONDARY_PATTERN_TO_FUNCTION: {
             "^portfolio.fund_manager": [
@@ -1077,6 +1117,10 @@
                 "_extract_amt_data",
                 "min_amt",
             ],
+             "^metric": [
+                "_extract_generic_data",
+                "metric",
+            ],
         },
         SELECTKEYS: [
             ".*(benchmark|inception_date|fund_manager)$",
@@ -1084,11 +1128,19 @@
             ".*(entry_load|exit_load)$",
             "main_scheme_name",
             "monthly_aaum_date",
+            "amc_name",
             "pgn",
-            "^aum.*",
+            "^aum.monthly_avg_aum",
             "^metrics.*",
+            "mutual_fund_name",
+            "^page_number"
         ],
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            load: [
+                "portfolio.entry_load",
+                "portfolio.exit_load",
+            ],
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Helios Capital Asset Management (India) Private Limited",
@@ -1229,6 +1281,7 @@
                 color: [
                     -1688818,
                     -1165277,
+                    -1689074
                 ],
                 update_size: 30.0,
                 font: [
@@ -1271,10 +1324,6 @@
                 "_extract_generic_data",
                 "aum",
             ],
-            "^metrics.*": [
-                "_extract_generic_data",
-                "metric",
-            ],
             "^scheme.*": [
                 "_extract_scheme_data",
                 "scheme",
@@ -1289,9 +1338,30 @@
                 "_extract_amt_data",
                 "min_amt",
             ],
+            "^metrics.*": [
+                "_extract_generic_data",
+                "metric",
+            ],
         },
-        SELECTKEYS: [],
-        MERGEKEYS: {},
+        SELECTKEYS: [
+            ".*(inception_date|benchmark)",
+            ".*(entry_load|exit_load)$",
+            ".*minimum_application$",
+            "fund_manager",
+            ".*aaum$",
+            "metrics",
+            "amc_name",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name"
+        ],
+        MERGEKEYS: {
+            load:[
+                "scheme_details.entry_load",
+                "scheme_details.exit_load"
+            ],
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "ITI Asset Management Limited",
@@ -2275,7 +2345,7 @@
         },
         REGEX: {
             aum: "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
-            min_amt: "",
+            min_amt:"([\\d,]+).*?([\\d,]+)",
             nav: "(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\\s*([\\d,.]+)",
             metric: "(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\\s*([\\d,.]+)",
             scheme: [
@@ -2308,18 +2378,40 @@
                 "_extract_scheme_data",
                 "scheme",
             ],
-            "^metrics.*": [
-                "_extract_generic_data",
-                "metric",
-            ],
             "^aum.*": [
                 "_extract_generic_data",
                 "aum",
             ],
         },
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
-        MERGEKEYS: {},
+        SECONDARY_PATTERN_TO_FUNCTION: {
+             "^metrics.*": [
+                "_extract_generic_data",
+                "metric",
+            ],
+            ".*(min_application|minapplication|additional)":[
+                "_extract_amt_data",
+                "min_amt"
+            ]
+        },
+        SELECTKEYS: [
+            ".*(inception_date|benchmark)",
+            ".*(min_application|minapplication|additional)", //4
+            ".*(entry_load|exit_load)",
+            "fund_manager",
+            "aum.average_aum",
+            "amc_name",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "metrics",
+            "mutual_fund_name",
+            "page_number"
+        ],
+        MERGEKEYS: {
+            load:[
+                "scheme_details.entry_load",
+                "scheme_details.exit_load"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Samco Asset Management Private Limited",
@@ -2330,7 +2422,7 @@
     },
     "SBI Mutual Fund": {
         PARAMS: {
-            method: "clip",
+            method: "",
             line_side: "",
             max_financial_index_highlight: 0,
         },
@@ -2535,7 +2627,7 @@
             escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
         },
         PATTERN_TO_FUNCTION: {
-            "^(date|investment|multiples|benchmark|scheme_launch).*": [
+            "^(date|investment_objective|multiples|benchmark|scheme_launch).*": [
                 "_extract_str_data",
                 null,
             ],
@@ -2543,21 +2635,39 @@
                 "_extract_generic_data",
                 "decimal",
             ],
-            "^metrics.*": [
+            "^fund_manager": [
+                "_extract_manager_data",
+                "manager"
+            ]
+        },
+        SECONDARY_PATTERN_TO_FUNCTION: {
+             "^metrics.*": [
                 "_extract_generic_data",
                 "metric",
-            ],
-            "^load.*": [
-                "_extract_load_data",
-                "load",
             ],
             "^multiples.*": [
                 "_extract_amt_data",
                 "min_amt",
             ],
+             "^load.*": [
+                "_extract_load_data",
+                "load",
+            ],
         },
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
+        SELECTKEYS: [
+            "date_of_allotment",
+            "fund_manager",
+            "benchmark_index",
+            "monthly_average_aum",
+            "monthly_aaum_date",
+            "mutual_fund_name",
+            "amc_name",
+            "main_scheme_name",
+            "metrics",
+            "^multiples_for.*$", //4
+            "load",
+            "page_number"
+        ],
         MERGEKEYS: {},
         COMMENTS: [],
         IMP_DATA: {

@@ -21,6 +21,7 @@ class FundRegex():
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
         self.JSON_HEADER = data.get("json_headers",{})
+        self.POPULATE_ALL_INDICE = data.get("add_json_headers",[])
        
 
     @staticmethod
@@ -92,6 +93,13 @@ class FundRegex():
                 regex = re.compile(pattern) 
                 if regex.match(text):
                     return json_key
+                
+    def _populate_all_indices_in_json(self,data:dict):
+        for key in self.POPULATE_ALL_INDICE:
+            if key not in data:
+                data[key] = {}
+        
+        return data
                 
 
 
