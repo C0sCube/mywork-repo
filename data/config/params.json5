@@ -2070,21 +2070,35 @@
                 "_extract_generic_data",
                 "aum",
             ],
-            "^metric.*": [
-                "_extract_generic_data",
-                "metric",
-            ],
             "^total.*": [
                 "_extract_generic_data",
                 "ter",
+            ],
+        },
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            "^metric.*": [
+                "_extract_generic_data",
+                "metric",
             ],
             "load.*": [
                 "_extract_load_data",
                 "load",
             ],
+
         },
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
+        SELECTKEYS: [
+            "date_of_allotment",
+            "fund_manager",
+            "benchmark_index",
+            "aum.monthly_average",
+            "metrics",
+            "load",
+            "amc_name",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name"
+        ],
         MERGEKEYS: {},
         COMMENTS: [],
         IMP_DATA: {
@@ -2239,7 +2253,7 @@
         REGEX: {
             nav: "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
             ter: "(Regular Plan|Direct Plan)\\s*([\\d,.]+)",
-            aum: "(.+ AUM)\\s*([\\d,.]+)",
+            aum: "(Average AUM|Absolute AUM)\\s*([\\d,.]+)",
             load: "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$",
             scheme: [
                 "Category of Scheme",
@@ -2250,7 +2264,7 @@
                 "NAV",
                 "AUM",
                 "Fund Manager",
-                "Key Statistics",
+                "Key\\s*Statistics",
                 "Entry Load",
                 "Exit Load",
                 "Total Expense Ratio",
@@ -2259,8 +2273,10 @@
                 "Redemption Proceeds",
                 "EOL",
             ],
-            metric: "^(Portfolio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+)",
-            escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+            manager:"(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)\\s*\\(Work Experience\\s*([\\d]+ years)\\)(?:.*?(?:effective from|fund since)?\\s*([A-Z][a-z]+\\s*\\d{1,2},?\\s*\\d{4}))?",
+            min_amt: "(Purchase|Additional Purchase)\\s*([\\d,]+).*?([\\d,]+)",
+            metric: "(Standard Deviation|Beta|Sharpe Ratio|Tracking Error|Alpha)\\s*([\\d.]+)",
+            escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)|Measures the updown movement over time also known as volatility|Measures how QEFOF moved relative to|Measures the return relative to the",
         },
         PATTERN_TO_FUNCTION: {
             "^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
@@ -2275,19 +2291,49 @@
                 "_extract_generic_data",
                 "metric",
             ],
-            "^aum.*": [
-                "_extract_generic_data",
-                "aum",
-            ],
             "^load.*": [
                 "_extract_load_data",
                 "load",
             ],
         },
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
-        MERGEKEYS: {},
-        COMMENTS: [],
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            ".*minimum_application_amount":[
+                "_extract_amt_data",
+                "min_amt"
+            ],
+            ".*fund_manager":[
+                "_extract_manager_data",
+                "manager"
+            ],
+            ".*aum": [
+                "_extract_generic_data",
+                "aum",
+            ],
+             ".*key_statistics$": [
+                "_extract_generic_data",
+                "metric",
+            ],
+        },
+        SELECTKEYS: [
+            ".*(inception_date|benchmark_index)",
+            ".*(entry_load|exit_load)$",
+            "amc_name",
+            ".*aum",
+            ".*fund_manager",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name",
+            ".*key_statistics$",
+            ".*minimum_application_amount", //4
+        ],
+        MERGEKEYS: {
+            load:[
+                "scheme_details.entry_load",
+                "scheme_details.exit_load"
+            ],
+        },
+        COMMENTS: ["monthly_aaum_date_error","minimum_application_amount needs to be flattened and mapped"],
         IMP_DATA: {
             amc_name: "Quantum Asset Management Company Private Limited",
             mutual_fund_name: "Quantum Mutual Fund",

@@ -53,21 +53,23 @@ class GrandFundData:
     def _extract_str_data(self, key: str, data: list):
         return {key: ' '.join(data)}
     
-    def _extract_generic_data(self, main_key: str, data: list, pattern: str):
+    def _extract_generic_data(self, main_key: str, data, pattern: str):
         final_dict = {}
-        for text in data:
-            text = re.sub(self.REGEX['escape'], "", text.strip())
+
+        generic_data = [data] if isinstance(data,str) else data 
+        for text in generic_data:
+            text = re.sub(self.REGEX['escape'], "", text).strip()
             matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
             for match in matches:
-                if len(match) == 2:
+                if isinstance(match, str):
+                    return {main_key: match}
+                elif len(match) == 2:
                     key, value = match
                     final_dict[key.strip()] = value.strip()
                 elif len(match) == 3:
                     key,v1,v2 = match
                     final_dict[key.strip()] = v1.strip()
-                elif isinstance(match,str):
-                    return {main_key:match}
-                
+                    
         return {main_key:final_dict}
 
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
@@ -92,6 +94,11 @@ class GrandFundData:
             if len(match) == 2:
                 amt, thraftr = match
                 final_dict['amt'], final_dict['thraftr'] = amt,thraftr
+            elif len(match) == 3:
+                min_type,amt,thraftr = match
+                
+                final_dict[min_type] = {"amt": amt,"thraftr":thraftr,}
+                
         return {main_key:final_dict}
     
     #merge
@@ -160,10 +167,10 @@ class GrandFundData:
     
     def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
         return {
-            "managing_fund_since":since,
-            "name": name,
-            "qualification": desig,
-            "total_exp": exp
+            "managing_fund_since":since.title().strip(),
+            "name": name.title().strip(),
+            "qualification": desig.title().strip(),
+            "total_exp": exp.title().strip()
         }
         
     def _last_day_of_previous_month(self):
@@ -925,8 +932,19 @@ class NJMF(Reader):
 #29 
 class Quantum(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
-        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
         GrandFundData.__init__(self,fund_name) #load from Grand
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+    
+    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
+        final_list = []
+        manager_data = "".join(data)
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
+            for match in matches:
+                name, exp,since = match
+                final_list.append(self._return_manager_data(name=name,since=since, exp=exp))
+        return {main_key: final_list}
+    
 
 #30 <>
 class Samco(Reader, GrandFundData):
