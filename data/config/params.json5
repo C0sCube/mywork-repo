@@ -68,6 +68,9 @@
                 "Portfolio Turnover",
                 "EOL",
             ],
+            alt_scheme:{
+                "Minimum Application": "New Purchase"
+            },
             metrics: "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson|Residual Maturity|Macaulay Duration|Annualised Portfolio)\\s+([\\d,\\-]+\\.?\\d+|NA)\\s+([\\d,\\-]+\\.?\\d+|NA)",
             escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
         },

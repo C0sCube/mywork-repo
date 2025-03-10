@@ -29,9 +29,9 @@ class Reader:
         amc_paths = Helper.get_fund_paths(dirs.get("fund_path",""))
         
         self.AMCPATH = amc_paths[fund_name]
+        self.DATAFRAME = None #pandas df
         
     #HIGHLIGHT 
-     
     def check_and_highlight(self):
         path  =self.AMCPATH
         output_path = path.replace(".pdf", "_hltd.pdf")
@@ -47,7 +47,7 @@ class Reader:
             size_check = fund_cond['size']
             amc_block_max = fund_cond['countmax_header_check'] #First 15 blocks
                 
-            data = [{"title": "", "highlights": 0, "detect_idx": []} for _ in range(page_count)]
+            data = [{"title": None, "highlights": 0, "detect_idx": []} for _ in range(page_count)]
 
             for dpgn, page in enumerate(doc):
                 page_blocks = page.get_text("dict")["blocks"]
@@ -81,11 +81,9 @@ class Reader:
                                     break
 
             doc.save(output_path)
-        df = Helper._save_pdf_data(data, self.REPORTPATH, self.PARAMS['max_financial_index_highlight']) #imp
-        return df
+        self.DATAFRAME = Helper._save_pdf_data(data, self.REPORTPATH, self.PARAMS['max_financial_index_highlight']) #imp
     
     #EXTRACT
-    
     def _create_data_entry(self,*args):
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
@@ -113,16 +111,15 @@ class Reader:
     #             finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
     #     return finalData
     
-    def extract_clipped_data(self, input: str, pages: list, title: dict, *args):
+    def extract_clipped_data(self,*args):
         
-        with fitz.open(input) as doc:
+        with fitz.open(self.AMCPATH) as doc:
             finalData = []
             fund_seen = {}
 
             bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
-
-            for pgn in pages:
-                fundName = title.get(pgn, "").strip()
+            titles = self.DATAFRAME['title'].to_dict()
+            for pgn,fundName in titles.items():
                 if not fundName:
                     continue
 
@@ -153,19 +150,18 @@ class Reader:
 
         return finalData
 
-
-    
-    def extract_data_relative_line(self, input: str, pages: list, title: dict):
-    
-        with fitz.open(input) as doc:
+    def extract_data_relative_line(self):
+        with fitz.open(self.AMCPATH) as doc:
             finalData = []
             fund_seen = {}
             line_x = self.PARAMS['line_x']
             side = self.PARAMS['line_side']
+            titles = self.DATAFRAME['title'].to_dict()
             
-            for pgn in pages:
-                page, fundName = doc[pgn],title[pgn]
-                
+            for pgn, fundName in titles.items():
+                if not fundName:
+                    continue
+                page= doc[pgn]
                 left_blocks, right_blocks, seen_blocks = [],[], set()
                 page_blocks = page.get_text("dict")["blocks"]
                 
@@ -198,14 +194,15 @@ class Reader:
                     fund_seen[fundName] = new_entry
         return finalData
 
-    def extract_pdf_data(self,input:str, pages:list, titles:dict):
+    def extract_pdf_data(self):
     
-        with fitz.open(input) as doc:
+        with fitz.open(self.AMCPATH) as doc:
             finalData = []
-            for pgn in pages:
+            titles = self.DATAFRAME['title'].to_dict()
+            for pgn, fundName in titles.items():
+                if not fundName:
+                    continue
                 page = doc[pgn]
-                fundName = titles[pgn]
-            
                 blocks = page.get_text('dict')['blocks']
                 filtered_blocks = [block for block in blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
                 sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
@@ -328,18 +325,17 @@ class Reader:
         nested = self.create_nested_dict(clean_data)
         return nested
     
-    
-    def get_data(self, path: str, pages: list, title: dict):
+    def get_data(self):
         
         method = self.PARAMS['method'] #clip/line/both
         extracted_data = []
         
         if method in ["line", "both"]:
-            data = self.extract_data_relative_line(path, pages, title)
+            data = self.extract_data_relative_line()
             extracted_data.extend(self.extract_span_data(data, []))
         
         if method in ["clip", "both"]:
-            data = self.extract_clipped_data(path, pages, title)
+            data = self.extract_clipped_data()
             extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean
@@ -527,11 +523,6 @@ class Reader:
             Reader._generate_pdf_from_data(blocks, output_path)
             print(f'\n---<<{fund}>>---at: {output_path}')
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
-            # extracted_text[fund].update({"amc_name":""})
-            # extracted_text[fund].update({"main_scheme_name":fund})
-            # extracted_text[fund].update({"monthly_aaum_date": self.last_day_of_previous_month()})
-            # extracted_text[fund].update({"page_number":pgn})  # add page number of factsheet
-            # extracted_text[fund].update({"mutual_fund_name":""})
             self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text
     
