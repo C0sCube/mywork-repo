@@ -28,8 +28,8 @@ CREATE TABLE fund_managers (
 CREATE TABLE loads (
     id INT AUTO_INCREMENT PRIMARY KEY,
     mutual_fund_id INT,
-    type ENUM('entry', 'exit'),
-    comment TEXT,
+    load_type VARCHAR(255),
+    load_value TEXT,
     FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id)
 );
 
@@ -47,3 +47,6 @@ CREATE TABLE benchmark_index (
     index_name VARCHAR(255),
     FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id)
 );
+
+
+#best possible so far

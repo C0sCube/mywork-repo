@@ -147,7 +147,7 @@
                     20,
                     4,
                 ],
-                regex: "^Aditya Birla.*(Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|Funds*|yojna)$",
+                regex: "^Aditya Birla.*(Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|FOF\\*?|Scheme|EOF|Funds\\*?|yojna)$",
                 size: [
                     10,
                     20,
@@ -162,19 +162,19 @@
                     0,
                     50,
                     200,
-                    812,
+                    300,
                 ],
                 [
                     200,
-                    50,
+                    60,
                     380,
-                    812,
+                    400,
                 ],
                 [
                     380,
-                    50,
+                    60,
                     580,
-                    812,
+                    400,
                 ],
             ],
             line_x: 210.0,
@@ -199,12 +199,23 @@
             line_side: "left",
             max_financial_index_highlight: 0,
         },
-        REGEX: {},
-        PATTERN_TO_FUNCTION: {},
+        REGEX: {
+
+        },
+        PATTERN_TO_FUNCTION: {
+            "^(date_of_allotment|benchmark_index)":[
+                "_extract_str_data",
+                null
+            ],
+
+        },
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: [
             "main_scheme_name",
-            "pgn",
+            "amc_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name",
         ],
         MERGEKEYS: {},
         COMMENTS: [],

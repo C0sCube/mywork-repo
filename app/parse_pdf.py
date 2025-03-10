@@ -521,11 +521,6 @@ class Reader:
             Reader._generate_pdf_from_data(blocks, output_path)
             print(f'\n---<<{fund}>>---at: {output_path}')
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
-            # extracted_text[fund].update({"amc_name":""})
-            # extracted_text[fund].update({"main_scheme_name":fund})
-            # extracted_text[fund].update({"monthly_aaum_date": self.last_day_of_previous_month()})
-            # extracted_text[fund].update({"page_number":pgn})  # add page number of factsheet
-            # extracted_text[fund].update({"mutual_fund_name":""})
             self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text
     
@@ -579,9 +574,3 @@ class Reader:
             finalData[fund] = dict(sorted(temp.items()))
 
         return {fund: regex.flatten_dict(data) for fund, data in finalData.items()} if flat else finalData
-    # def select_data(self, data: dict
-    #     finalData = {}
-    #     for fund, content in data.items():
-    #         finalData[fund] = self._select_by_regex(content)
-        
-    #     return finalData

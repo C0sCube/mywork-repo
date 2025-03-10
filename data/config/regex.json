@@ -12,7 +12,7 @@
         "co_fund_manager": "co_fund_manager.*",
         "scheme_details": ["scheme_features", "fund_infor", "scheme_det", "fund_details", "fund_snapshot", "fund_feat"],
         "investment_objective":["current_investment", "objective", "investment", "about_the", "data_as"],
-        "metrics": ["key_statistics","statistical_debt","expense_ratio__quantitative_data", "portfolio_parameters", "portfolio_statistics", "scheme_statistics", "portfolio_stats", "risk", "ratio", "maturity", "qualitative", "quantitative", "volatility", "debt_quant", "other_parameter", "performance_attri", "quantave_data"],
+        "metrics": ["Other Parameters","key_statistics","statistical_debt","expense_ratio__quantitative_data", "portfolio_parameters", "portfolio_statistics", "scheme_statistics", "portfolio_stats", "risk", "ratio", "maturity", "qualitative", "quantitative", "volatility", "debt_quant", "^other_parameter", "performance_attri", "quantave_data"],
         "min_amt":"^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
         "expense_ratio": "^(expense_ratio)$",
