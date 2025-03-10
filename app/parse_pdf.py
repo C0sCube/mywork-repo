@@ -8,7 +8,7 @@ from app.fund_regex import *
 from logging_config import *
 
 class Reader:
-    def __init__(self, config_path: str,params:dict):
+    def __init__(self, config_path: str,params:dict, fund_name:str):
         
         if not os.path.exists(config_path):
             raise FileNotFoundError(f"Config file not found: {config_path}")
@@ -26,8 +26,14 @@ class Reader:
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
         
-    #HIGHLIGHT            
-    def check_and_highlight(self, path: str, count: int):
+        amc_paths = Helper.get_fund_paths(dirs.get("fund_path",""))
+        
+        self.AMCPATH = amc_paths[fund_name]
+        
+    #HIGHLIGHT 
+     
+    def check_and_highlight(self):
+        path  =self.AMCPATH
         output_path = path.replace(".pdf", "_hltd.pdf")
         
         with fitz.open(path) as doc:
@@ -75,8 +81,8 @@ class Reader:
                                     break
 
             doc.save(output_path)
-        df = Helper._save_pdf_data(data, self.REPORTPATH, count) #imp
-        return output_path, df
+        df = Helper._save_pdf_data(data, self.REPORTPATH, self.PARAMS['max_financial_index_highlight']) #imp
+        return df
     
     #EXTRACT
     

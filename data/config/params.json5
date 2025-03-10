@@ -43,7 +43,7 @@
             ],
             method: "line",
             line_side: "left",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             manager: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s]+)has.*?([0-9\\.]+ years)",
@@ -197,7 +197,8 @@
             ],
             method: "clip",
             line_side: "left",
-            max_financial_index_highlight: 0,
+             max_financial_index_highlight: 9,
+            
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -294,7 +295,7 @@
             ],
             method: "both",
             line_side: "left",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             escape: "[^a-zA-Z0-9.,\\s]",
@@ -363,7 +364,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             ter: "(Regular|Direct)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
@@ -439,7 +440,7 @@
         PARAMS: {
             method: "line",
             line_side: "both",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
             fund: {
                 flag: [
                     20,
@@ -544,7 +545,7 @@
             ],
             method: "line",
             line_side: "left",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             date: "^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*",
@@ -611,7 +612,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
             fund: {
                 flag: [
                     4,
@@ -714,7 +715,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 5,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -774,7 +775,7 @@
             ],
             method: "line",
             line_side: "right",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 6,
         },
         REGEX: {
             nav: "(.+?)\\s*(\\d+\\.\\d+)",
@@ -898,7 +899,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 6,
         },
         REGEX: {
             nav: "(Growth Plan|IDCW Plan|Direct Growth Plan|Direct IDCW Plan)\\s*([\\d\\-,]+\\.\\d+)",
@@ -1057,7 +1058,7 @@
             ],
             method: "line",
             line_side: "left",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 6,
         },
         REGEX: {
             nav: "(Regular Plan\\s?-\\s?Growth Option|Regular Plan\\s?-\\s?IDCW Option|Direct Plan\\s?-\\s?Growth Option|Direct Plan\\s?-\\s?IDCW Option)\\s*([\\d,\\-]+(?:\\.\\d+)?|NA|Nil)",
@@ -1230,7 +1231,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -1294,7 +1295,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             aum: "(AUM|AAUM).*?([\\d,\\-]+\\.?\\d+)",
@@ -1415,7 +1416,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             aum: "(.+\\s*AUM).*?([\\d,]+\\.?\\d+)",
@@ -1502,7 +1503,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             metric: "^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
@@ -1623,7 +1624,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             manager: "Fund Manager(?:\\s*\\(.*?\\))?\\s+(?:Ms\\.?|Mrs\\.?|Mr\\.?)?\\s*([\\w\\s]+?)(?:\\s*\\(.*?\\))?\\s+Total Experience\\s+([0-9]+(?:\\s+years)?)?.*?\\(.*?Managing since\\s+([^)]+)\\)",
@@ -1739,7 +1740,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             nav: "(.*?)\\s*(\\d+\\.\\d+)",
@@ -1835,7 +1836,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             metric: "(Monthly AAUM|Latest AUM|Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe Ratio|Average Maturity|YTM|Macaulay Duration|Modified Duration)\\s*([\\d,.]+)",
@@ -1931,7 +1932,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 5,
         },
         REGEX: {
             nav: "(.+option)\\s*([\\d,.]+)",
@@ -2042,7 +2043,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             aum: "(Month End|Monthly Average).*?([\\d,]+\\.\\d{2})",
@@ -2112,7 +2113,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -2248,7 +2249,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             nav: "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
@@ -2387,7 +2388,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             aum: "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
@@ -2549,7 +2550,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             nav: "(Growth|IDCW)\\s*(-?[\\d,.]+)\\s*(-?[\\d,.]+)",
@@ -2660,7 +2661,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 10,
         },
         REGEX: {
             nav: "((?:Regular|Direct|Reg)\\s*(?:Growth|IDCW))\\s*([\\d,.]+)",
@@ -2768,7 +2769,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {
             nav: "(Regular Plan|Direct Plan)\\s*([\\d,.]+)\\s*([\\d,.]+)",
@@ -2821,7 +2822,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -2840,7 +2841,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -2859,7 +2860,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
@@ -2919,7 +2920,7 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 9,
         },
         REGEX: {
             manager: "(?:Mr|Mrs|Ms)\\s*([A-Za-z\\s]+)\\s*(?:\\(([A-Za-z\\s]+)\\))?\\s*Managing this Scheme from\\s*([\\w\\s,]+)\\s*Total Work Experience\\s*([\\w\\s]+)(?=Mr|Ms|Mrs|$)",
@@ -2977,7 +2978,7 @@
         PARAMS: {
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 0,
+            max_financial_index_highlight: 7,
         },
         REGEX: {},
         PATTERN_TO_FUNCTION: {},
