@@ -147,8 +147,6 @@ class Reader:
 
         return finalData
 
-
-    
     def extract_data_relative_line(self, input: str, pages: list, title: dict):
     
         with fitz.open(input) as doc:
@@ -421,7 +419,7 @@ class Reader:
             TITLE_POSITION = 72
             TITLE_COLOR = (0, 0, 1)
             DEFAULT_FONT_NAME = "helv"
-            LEFT_MARGIN = 72         # Left margin for alignment
+            LEFT_MARGIN = 32        # Left margin for alignment
             MIN_LINE_SPACING = 2     # Extra space between lines
             Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
 
@@ -479,16 +477,17 @@ class Reader:
                     for orig_x, size, text, color, fontname in line_blocks:
                         try:
                             try:
-                                page.insert_text(
-                                    (LEFT_MARGIN + orig_x, line_y),
-                                    text,
-                                    fontsize=size,
-                                    fontname=fontname,
-                                    color=Reader._to_rgb_tuple(color),
-                                )
+                               page.insert_text(
+                                (LEFT_MARGIN+ orig_x, line_y),
+                                text,
+                                fontsize=size,
+                                fontname=fontname,
+                                color=Reader._to_rgb_tuple(color),
+                            )
+
                             except Exception:
                                 page.insert_text(
-                                    (LEFT_MARGIN + orig_x, line_y),
+                                    (LEFT_MARGIN+ orig_x, line_y),
                                     text,
                                     fontsize=size,
                                     fontname=DEFAULT_FONT_NAME,
@@ -498,8 +497,7 @@ class Reader:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
             doc.save(output_path)
-
-    
+   
     @staticmethod
     def _extract_data_from_pdf(path: str):
         with pdfplumber.open(path) as pdf:
@@ -552,9 +550,7 @@ class Reader:
             secondary_refine[fund] = content_dict
         return secondary_refine
     
-
     #SELECT/MERGE
-    
     def merge_and_select_data(self, data: dict, select = False, map = False, flat = False):
         finalData = {}
         regex = FundRegex()
