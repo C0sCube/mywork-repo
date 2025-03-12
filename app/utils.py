@@ -1,4 +1,4 @@
-import os, re, json, pprint, pickle
+import os, re, json, pprint, pickle, csv
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -81,7 +81,33 @@ class Helper:
             print(f"Error loading JSON: {e}")
             return None
     
+    @staticmethod
+    def quick_csv_dump(extracted_text, path: str):
+        current = str(datetime.now().strftime('%H_%M'))
+        fund_name = list(extracted_text.keys())[0].split(" ")[0]
+        output_path = path.replace(".csv", f'_{fund_name}_{current}.csv')
+
+        with open(output_path, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow(["Key", "Value"])
+            for key, value in extracted_text.items():
+                writer.writerow([key, json.dumps(value, ensure_ascii=False)])
+        print(f'\n CSV saved at {output_path}')
     
+    @staticmethod
+    def quick_csv_load(path: str):
+        try:
+            with open(path, mode="r", encoding="utf-8") as file:
+                reader = csv.reader(file)
+                next(reader) 
+                
+                data = {row[0]: json.loads(row[1]) for row in reader}
+            
+            print(f"\n CSV loaded from {path}")
+            return data
+        except Exception as e:
+            print(f"Error loading CSV: {e}")
+            return None
     
     #NESTED DICT CRUD OPS
     @staticmethod

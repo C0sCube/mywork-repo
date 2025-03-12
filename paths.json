@@ -13,7 +13,8 @@
     "dry": "data\\output\\DryRun.pdf",
     "fin": "data\\input\\financial_indices.xlsx",
     "rep": "data\\output\\pdf_report.xlsx",
-    "json": "data\\output\\dump.json"
+    "json": "data\\output\\dump.json",
+    "csv": "data\\csv\\output.csv"
   },
   "configs": {
     "params": "data\\config\\params.json5",

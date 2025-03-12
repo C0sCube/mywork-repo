@@ -47,7 +47,7 @@
         "monthly_aaum_date":["monthly_aaum_date"],
         "monthly_aaum_value":["^aaum$f","^average_aum$","scheme_details.aum$",".*average_aum","^monthly_average_aum",".*monthly_average_aum$",".*monthly_average$",".*monthly_avg_aum$",".*aaum$",".*monthly_aaum$"],
         "mutual_fund_name": ["mutual_fund_name"],
-        "scheme_launch_date":["^date_of_allotment$",".*date_of_allotment$",".*inception_date$"],
+        "scheme_launch_date":["inceptionallotment_date","^date_of_allotment$",".*date_of_allotment$",".*inception_date$"],
         "page_numbers": ["^page_number"]
     },
     "add_json_headers":[

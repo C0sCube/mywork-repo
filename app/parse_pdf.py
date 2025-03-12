@@ -25,6 +25,7 @@ class Reader:
         self.INDICEPATH = os.path.join(self.BASEPATH, paths.get("fin", ""))
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
+        self.CSVPATH = os.path.join(self.BASEPATH, paths.get("csv", ""))
         
     #HIGHLIGHT            
     def check_and_highlight(self, path: str, count: int):
@@ -177,9 +178,12 @@ class Reader:
                                     seen_blocks.add(block_key)
                                     right_blocks.append(block)
 
+                left_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))  
+                right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
                 if side == "both":
                     left_blocks.extend(right_blocks)
-                sorted_blocks = sorted(left_blocks if side != "right" else right_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+
+                sorted_blocks = left_blocks if side != "right" else right_blocks
                 
                 if fundName in fund_seen:
                     fund_seen[fundName]["block"].extend(sorted_blocks)

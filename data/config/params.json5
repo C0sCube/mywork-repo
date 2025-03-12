@@ -2,45 +2,21 @@
   "360 ONE Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "360 ONE.*(Fund|Path|ETF|FOF|EOF)$",
-        size: [
-          18,
-          24
-        ],
-        color: [
-          -16777216
-        ],
+        size: [18, 24],
+        color: [-16777216],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          5,
-          160,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 5, 160, 812]],
       line_x: 160.0,
       data: {
-        size: [
-          6,
-          10
-        ],
-        color: [
-          -10791002
-        ],
+        size: [6, 10],
+        color: [-10791002],
         update_size: 30.0,
-        font: [
-          "SpaceGrotesk-SemiBold"
-        ],
+        font: ["SpaceGrotesk-SemiBold"],
       },
-      content_size: [
-        30.0,
-        8.0
-      ],
+      content_size: [30.0, 8.0],
       method: "line",
       line_side: "left",
       max_financial_index_highlight: 0,
@@ -72,26 +48,11 @@
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^scheme.*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^total.*": [
-        "_extract_generic_data",
-        "ter"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      "^nav.*": ["_extract_generic_data", "nav"],
+      "^scheme.*": ["_extract_scheme_data", "scheme"],
+      "^total.*": ["_extract_generic_data", "ter"],
       "^(fund_mana|co_fund|saravanaraj).*": [
         "_extract_manager_data",
         "manager",
@@ -102,10 +63,7 @@
         "_extract_amt_data",
         "min_amt",
       ],
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metrics"
-      ],
+      "^metrics.*": ["_extract_generic_data", "metrics"],
     },
     SELECTKEYS: [
       ".*(entry_load|exit_load)",
@@ -121,18 +79,10 @@
       ".*(additional_purchase|minimum_application)",
     ],
     MERGEKEYS: {
-      load: [
-        "scheme_details.entry_load",
-        "scheme_details.exit_load"
-      ],
-      fund_manager: [
-        "fund_manager",
-        "co_fund_manager"
-      ],
+      load: ["scheme_details.entry_load", "scheme_details.exit_load"],
+      fund_manager: ["fund_manager", "co_fund_manager"],
     },
-    COMMENTS: [
-      "No issues as of now."
-    ],
+    COMMENTS: ["No issues as of now."],
     IMP_DATA: {
       amc_name: "360 ONE Asset Management Limited",
       mutual_fund_name: "360 ONE Mutual Fund",
@@ -143,68 +93,32 @@
   "Aditya Birla Sun Life Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          4
-        ],
+        flag: [20, 4],
         regex: "^Aditya Birla.*(Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|FOF\\*?|Scheme|EOF|Funds\\*?|yojna)$",
-        size: [
-          10,
-          20
-        ],
-        color: [
-          -1
-        ],
+        size: [10, 20],
+        color: [-1],
         countmax_header_check: 15,
       },
       clip_bbox: [
-        [
-          0,
-          50,
-          200,
-          300
-        ],
-        [
-          200,
-          60,
-          380,
-          400
-        ],
-        [
-          380,
-          60,
-          580,
-          400
-        ],
+        [0, 50, 200, 300],
+        [200, 60, 380, 400],
+        [380, 60, 580, 400],
       ],
       line_x: 210.0,
       data: {
-        size: [
-          4,
-          10
-        ],
-        color: [
-          -1
-        ],
+        size: [4, 10],
+        color: [-1],
         update_size: 30.0,
-        font: [
-          "AnekLatin-Bold"
-        ],
+        font: ["AnekLatin-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "left",
       max_financial_index_highlight: 0,
     },
     REGEX: {},
     PATTERN_TO_FUNCTION: {
-      "^(date_of_allotment|benchmark_index)": [
-        "_extract_str_data",
-        null
-      ],
+      "^(date_of_allotment|benchmark_index)": ["_extract_str_data", null],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -232,10 +146,7 @@
     REGEX: {},
     PATTERN_TO_FUNCTION: {},
     SECONDARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [
-      "main_scheme_name",
-      "pgn"
-    ],
+    SELECTKEYS: ["main_scheme_name", "pgn"],
     MERGEKEYS: {},
     COMMENTS: [],
     IMP_DATA: {
@@ -248,58 +159,25 @@
   "Bajaj finserv Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "Bajaj.*(Fund|Path|ETF|FOF|EOF)$",
-        size: [
-          14,
-          24
-        ],
-        color: [
-          -16753236
-        ],
+        size: [14, 24],
+        color: [-16753236],
         countmax_header_check: 15,
       },
       clip_bbox: [
-        [
-          0,
-          65,
-          190,
-          812
-        ],
-        [
-          180,
-          45,
-          360,
-          300
-        ],
-        [
-          360,
-          45,
-          580,
-          300
-        ],
+        [0, 65, 190, 812],
+        [180, 45, 360, 300],
+        [360, 45, 580, 300],
       ],
       line_x: 180.0,
       data: {
-        size: [
-          6,
-          12
-        ],
-        color: [
-          -1,
-          -15376468
-        ],
+        size: [6, 12],
+        color: [-1, -15376468],
         update_size: 30.0,
-        font: [
-          "Rubik-SemiBold"
-        ],
+        font: ["Rubik-SemiBold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "both",
       line_side: "left",
       max_financial_index_highlight: 0,
@@ -316,24 +194,12 @@
         "_extract_str_data",
         null,
       ],
-      "^aum": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^aum": ["_extract_generic_data", "aum"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^(minimum|additional)_investment": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      "^metrics": [
-        "_extract_generic_data",
-        "metrics"
-      ],
+      "^(minimum|additional)_investment": ["_extract_amt_data", "min_amt"],
+      "^metrics": ["_extract_generic_data", "metrics"],
     },
     SELECTKEYS: [
       "^(minimum|additional).*", //4
@@ -349,15 +215,9 @@
       "metrics",
     ],
     MERGEKEYS: {
-      load: [
-        "entry_load",
-        "exit_load"
-      ],
+      load: ["entry_load", "exit_load"],
     },
-    COMMENTS: [
-      "set clip correctly",
-      "fund manager regex make robust"
-    ],
+    COMMENTS: ["set clip correctly", "fund manager regex make robust"],
     IMP_DATA: {
       amc_name: "Bajaj Finserv Asset Management Limited",
       mutual_fund_name: "BajaJ Finserv Mutual Fund",
@@ -368,45 +228,21 @@
   "Bandhan Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "^Bandhan.*(Fund|Funds|Plan|ETF)$",
-        size: [
-          13,
-          24
-        ],
-        color: [
-          -1361884
-        ],
+        size: [13, 24],
+        color: [-1361884],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          80,
-          200,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 80, 200, 812]],
       line_x: 200.0,
       data: {
-        size: [
-          6,
-          8
-        ],
-        color: [
-          -14475488
-        ],
+        size: [6, 8],
+        color: [-14475488],
         update_size: 30.0,
-        font: [
-          "Ubuntu-Bold"
-        ],
+        font: ["Ubuntu-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -425,22 +261,10 @@
         "_extract_str_data",
         null,
       ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^portfolio.*": [
-        "_extract_generic_data",
-        "ptr"
-      ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^total.*": [
-        "_extract_generic_data",
-        "ter"
-      ],
+      "^nav.*": ["_extract_generic_data", "nav"],
+      "^portfolio.*": ["_extract_generic_data", "ptr"],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^total.*": ["_extract_generic_data", "ter"],
     },
     SELECTKEYS: [
       "inception_date",
@@ -457,23 +281,13 @@
       "exit_load",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^minimum_investment": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      "^minimum_investment": ["_extract_amt_data", "min_amt"],
+      "^metrics.*": ["_extract_generic_data", "metric"],
     },
     MERGEKEYS: {
-      load: [
-        "exit_load"
-      ],
+      load: ["exit_load"],
     },
-    COMMENTS: [
-      "Better ,Regex for Fund Manager"
-    ],
+    COMMENTS: ["Better ,Regex for Fund Manager"],
     IMP_DATA: {
       amc_name: "Bandhan AMC Limited",
       mutual_fund_name: "Bandhan Mutual Fund",
@@ -487,46 +301,21 @@
       line_side: "both",
       max_financial_index_highlight: 0,
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^Bank of India",
-        size: [
-          14,
-          24
-        ],
-        color: [
-          -65784
-        ],
+        size: [14, 24],
+        color: [-65784],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          480,
-          290,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 480, 290, 812]],
       line_x: 290.0,
       data: {
-        size: [
-          6,
-          9
-        ],
-        color: [
-          -13948375
-        ],
+        size: [6, 9],
+        color: [-13948375],
         update_size: 30.0,
-        font: [
-          "Calibri-Bold"
-        ],
+        font: ["Calibri-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
     },
     REGEX: {
       load: "Entry Load\\s*(Nil|.*?)\\s*Exit Load\\s*(.+?)$",
@@ -540,24 +329,12 @@
         "_extract_str_data",
         null,
       ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      load: [
-        "_extract_load_data",
-        "load"
-      ],
-      metrics: [
-        "_extract_generic_data",
-        "metrics"
-      ],
-      "^(additional_purchase_amount|min_amt)": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
+      load: ["_extract_load_data", "load"],
+      metrics: ["_extract_generic_data", "metrics"],
+      "^(additional_purchase_amount|min_amt)": ["_extract_amt_data", "min_amt"],
     },
     SELECTKEYS: [
       "load",
@@ -586,45 +363,21 @@
   "Baroda BNP Paribas Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          0
-        ],
+        flag: [0],
         regex: "^Baroda BNP",
-        size: [
-          12,
-          18
-        ],
-        color: [
-          -13619152
-        ],
+        size: [12, 18],
+        color: [-13619152],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          65,
-          210,
-          700
-        ]
-      ],
+      clip_bbox: [[0, 65, 210, 700]],
       line_x: 210.0,
       data: {
-        size: [
-          7,
-          10
-        ],
-        color: [
-          -12566464
-        ],
+        size: [7, 10],
+        color: [-12566464],
         update_size: 30.0,
-        font: [
-          "Unnamed-T3"
-        ],
+        font: ["Unnamed-T3"],
       },
-      content_size: [
-        30.0,
-        8.0
-      ],
+      content_size: [30.0, 8.0],
       method: "line",
       line_side: "left",
       max_financial_index_highlight: 0,
@@ -640,22 +393,10 @@
       lumpsum: "^(.*?|Minimum Application Amount|Minimum Additional Application Amount)([\\d,]+ .*? thereafter)",
     },
     PATTERN_TO_FUNCTION: {
-      "^invest.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^date_of_allot": [
-        "_extract_aum_data",
-        "aum"
-      ],
-      "^bench.*": [
-        "_extract_str_data",
-        null
-      ],
+      "^invest.*": ["_extract_str_data", null],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^date_of_allot": ["_extract_aum_data", "aum"],
+      "^bench.*": ["_extract_str_data", null],
     },
     SELECTKEYS: [
       "benchmark_index",
@@ -668,18 +409,9 @@
       "minimum_additional_application_amount",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metric.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^load": [
-        "_extract_load_data",
-        "load"
-      ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
+      "^metric.*": ["_extract_generic_data", "metric"],
+      "^load": ["_extract_load_data", "load"],
+      "^nav.*": ["_extract_generic_data", "nav"],
     },
     MERGEKEYS: {},
     COMMENTS: [],
@@ -696,52 +428,23 @@
       line_side: "",
       max_financial_index_highlight: 0,
       fund: {
-        flag: [
-          4,
-          16
-        ],
+        flag: [4, 16],
         regex: "^Canara.*\\)$",
-        size: [
-          12,
-          20
-        ],
-        color: [
-          -12371562,
-          -14475488
-        ],
+        size: [12, 20],
+        color: [-12371562, -14475488],
         countmax_header_check: 15,
       },
       clip_bbox: [
-        [
-          0,
-          115,
-          220,
-          812
-        ],
-        [
-          220,
-          115,
-          400,
-          812
-        ],
+        [0, 115, 220, 812],
+        [220, 115, 400, 812],
       ],
       data: {
-        size: [
-          8,
-          11
-        ],
+        size: [8, 11],
         update_size: 30.0,
-        font: [
-          "Taz-SemiLight"
-        ],
-        color: [
-          -12371562
-        ],
+        font: ["Taz-SemiLight"],
+        color: [-12371562],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       line_x: 180.0,
     },
     REGEX: {
@@ -768,20 +471,11 @@
       escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^scheme.*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^scheme.*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      "^metrics.*": ["_extract_generic_data", "metric"],
     },
     SELECTKEYS: [],
     MERGEKEYS: {},
@@ -815,46 +509,21 @@
   "Edelweiss Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "^(Edelweiss|Bharat)",
-        size: [
-          12,
-          20
-        ],
-        color: [
-          -16298334
-        ],
+        size: [12, 20],
+        color: [-16298334],
         countmax_header_check: 15,
       },
-      clip_box: [
-        [
-          0,
-          5,
-          410,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 5, 410, 812]],
       line_x: 410.0,
       data: {
-        size: [
-          5,
-          9
-        ],
-        color: [
-          -16298334,
-          -6204255
-        ],
+        size: [5, 9],
+        color: [-16298334, -6204255],
         update_size: 30.0,
-        font: [
-          "Roboto-Bold"
-        ],
+        font: ["Roboto-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "line",
       line_side: "right",
       max_financial_index_highlight: 0,
@@ -870,26 +539,11 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(minimum|additional|benchmark|exit).*": [
-        "_extract_str_data",
-        null
-      ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^aum.*": [
-        "_extract_aum_data",
-        "aum"
-      ],
-      "^fund.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      ".*\\d{1,2}[a-zA-Z]{3,4}\\d{2,4}$": [
-        "_extract_date_data",
-        "date"
-      ],
+      "^(minimum|additional|benchmark|exit).*": ["_extract_str_data", null],
+      "^nav.*": ["_extract_generic_data", "nav"],
+      "^aum.*": ["_extract_aum_data", "aum"],
+      "^fund.*": ["_extract_manager_data", "manager"],
+      ".*\\d{1,2}[a-zA-Z]{3,4}\\d{2,4}$": ["_extract_date_data", "date"],
     },
     SELECTKEYS: [
       "inception_date",
@@ -907,10 +561,7 @@
       "mutual_fund_name",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^total.*": [
-        "_extract_generic_data",
-        "ter"
-      ],
+      "^total.*": ["_extract_generic_data", "ter"],
       "^(minimum_investment|additional_investment)$": [
         "_extract_amt_data",
         "min_amt",
@@ -921,13 +572,9 @@
       // ],
     },
     MERGEKEYS: {
-      load: [
-        "exit_load"
-      ],
+      load: ["exit_load"],
     },
-    COMMENTS: [
-      "METRIC data in graphical format"
-    ],
+    COMMENTS: ["METRIC data in graphical format"],
     IMP_DATA: {
       amc_name: "Edelweiss Asset Management Limited",
       mutual_fund_name: "Edelweiss Mutual Fund",
@@ -938,46 +585,21 @@
   "Franklin Templeton Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          25,
-          20
-        ],
+        flag: [25, 20],
         regex: "^(Franklin|Templeton).*$",
-        size: [
-          16,
-          24
-        ],
-        color: [
-          -65794
-        ],
+        size: [16, 24],
+        color: [-65794],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          100,
-          180,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 100, 180, 812]],
       line_x: 180.0,
       data: {
-        size: [
-          6,
-          9
-        ],
-        color: [
-          -16751720
-        ],
+        size: [6, 9],
+        color: [-16751720],
         update_size: 30.0,
-        font: [
-          "ZurichBT-BoldCondensed"
-        ],
+        font: ["ZurichBT-BoldCondensed"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -998,22 +620,10 @@
         "_extract_str_data",
         null,
       ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^portfolio_turnover_ratio": [
-        "_extract_generic_data",
-        "ptr"
-      ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^nav.*": ["_extract_generic_data", "nav"],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      "^portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SELECTKEYS: [
       "date_of_allotment",
@@ -1035,14 +645,8 @@
         "_extract_amt_data",
         "min_amt",
       ],
-      "^metrics": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^load": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^metrics": ["_extract_generic_data", "metric"],
+      "^load": ["_extract_load_data", "load"],
     },
     MERGEKEYS: {},
     COMMENTS: [],
@@ -1056,47 +660,21 @@
   "Groww Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          25,
-          20,
-          21
-        ],
+        flag: [25, 20, 21],
         regex: "^.*(Funds|Fund|ETF|FOF|FTF|Path|Plans)$",
-        size: [
-          16,
-          30
-        ],
-        color: [
-          -16723812
-        ],
+        size: [16, 30],
+        color: [-16723812],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          100,
-          180,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 100, 180, 812]],
       line_x: 220.0,
       data: {
-        size: [
-          6,
-          10
-        ],
-        color: [
-          -1
-        ],
+        size: [6, 10],
+        color: [-1],
         update_size: 30.0,
-        font: [
-          "NunitoSans7pt-ExtraBold"
-        ],
+        font: ["NunitoSans7pt-ExtraBold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "line",
       line_side: "left",
       max_financial_index_highlight: 7,
@@ -1110,44 +688,26 @@
         "Minimum Investment Amount",
         "Minimum Additional Investment",
         "Load Structure",
-        "EOL"
+        "EOL",
       ],
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      "metrics": [
-        "(Standard|Sharpe|Portfolio|Beta|R\\s*Square)",
-        "\\d+\\.?\\d+"
-      ],
+      metrics: ["(Standard|Sharpe|Portfolio|Beta|R\\s*Square)", "\\d+\\.?\\d+"],
       manager: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<name>[A-Za-z\\s]+)(?:\\s*\\((?P<designation>[^)]+)\\))?\\s*\\(Managing Fund Since (?P<managing_since>[\\w\\d\\s,]+)\\)?\\s*Total experience\\s*-\\s*over\\s*(?P<experience>\\d+\\s+years)",
       load: "Entry Load\\s*(.+?)\\s*Exit Load\\s*(.+)$",
       escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^aum": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^scheme_details": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
+      "^aum": ["_extract_generic_data", "aum"],
+      "^scheme_details": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(minimum_investment|minimum_additional).*$": [
         "_extract_amt_data",
-        "min_amt"
+        "min_amt",
       ],
-      ".*load_structure$": [
-        "_extract_load_data",
-        "load"
-      ],
-      ".*fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "metrics": [
-        "_extract_metric_data",
-        "metrics"
-      ]
+      ".*load_structure$": ["_extract_load_data", "load"],
+      ".*fund_manager": ["_extract_manager_data", "manager"],
+      metrics: ["_extract_metric_data", "metrics"],
     },
     SELECTKEYS: [
       ".*(minimum_investment_amount|minimum_additional_investment|load_structure)$", //5
@@ -1159,7 +719,7 @@
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics"
+      "metrics",
     ],
     MERGEKEYS: {},
     COMMENTS: [],
@@ -1172,16 +732,72 @@
   },
   "HDFC Mutual Fund": {
     PARAMS: {
-      method: "clip",
-      line_side: "",
+      fund: {
+        flag: [20],
+        regex: "^HDFC.*(Fund|PATH|ETF|FOF|FTF)$",
+        size: [16, 28],
+        color: [-1],
+        countmax_header_check: 15,
+      },
+      clip_bbox: [[0, 100, 200, 812]],
+      line_x: 200.0,
+      data: {
+        size: [5, 13],
+        color: [-15970928,-14401393,-1],
+        update_size: 30.0,
+        font: ['Taz-SemiBold'],
+      },
+      content_size: [30.0, 10.0],
+      method: "line",
+      line_side: "left",
       max_financial_index_highlight: 0,
     },
-    REGEX: {},
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
-    MERGEKEYS: {},
-    COMMENTS: [],
+    REGEX: {
+      aum:'(As on|Average for Month).*?([\\d,.]+)\\s*Cr',
+      escape:"[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
+      load:"",
+      manager:"([\\w\\s]+)\\s*(?:\\((.*?)\\))?\\s*\\(since (.*?)\\)\\s*Total Experience Over\\s*([0-9]+ years)",
+      metric:'(Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+)'
+    },
+    PATTERN_TO_FUNCTION: {
+      "^(date_of_allotment|benchmark_index|exit_load|addl_benchmark_index|aum).*$":[
+        "_extract_str_data",
+        null
+      ],
+      "^fund_manager":[
+        "_extract_manager_data",
+        "manager"
+      ]
+
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "metrics":[
+        "_extract_generic_data",
+        "metric"
+      ],
+      "aum":[
+        "_extract_generic_data",
+        "aum"
+      ]
+    },
+    SELECTKEYS: [
+      "fund_manager",
+      "aum",
+      "metrics",
+      "benchmark_index",
+      "addl_benchmark_index",
+      "exit_load",
+      "^date_of_allotment.*",
+      "amc_name",
+      "main_scheme_name",
+      "monthly_aaum_date",
+      "page_number",
+      "mutual_fund_name"
+    ],
+    MERGEKEYS: {
+      "load":["exit_load"],
+    },
+    COMMENTS: ["color white text also added","min/add present in seperate page"],
     IMP_DATA: {
       amc_name: "HDFC Asset Management Company Limited",
       mutual_fund_name: "HDFC Mutual Fund",
@@ -1192,46 +808,21 @@
   "Helios Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "^Helios.*Fund$",
-        size: [
-          16,
-          24
-        ],
-        color: [
-          -1
-        ],
+        size: [16, 24],
+        color: [-1],
         countmax_header_check: 15,
       },
-      clip_box: [
-        [
-          0,
-          5,
-          245,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 5, 245, 812]],
       line_x: 245.0,
       data: {
-        size: [
-          7,
-          10
-        ],
-        color: [
-          -1,
-          -2545112
-        ],
+        size: [7, 10],
+        color: [-1, -2545112],
         update_size: 30.0,
-        font: [
-          "Poppins-SemiBold"
-        ],
+        font: ["Poppins-SemiBold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "line",
       line_side: "left",
       max_financial_index_highlight: 0,
@@ -1260,44 +851,17 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^total.*": [
-        "_extract_generic_data",
-        "ter"
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^portfolio$": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^portfolio_turnover_ratio.*": [
-        "_extract_generic_data",
-        "ptr"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^total.*": ["_extract_generic_data", "ter"],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      "^nav.*": ["_extract_generic_data", "nav"],
+      "^portfolio$": ["_extract_scheme_data", "scheme"],
+      "^portfolio_turnover_ratio.*": ["_extract_generic_data", "ptr"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^portfolio.fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      ".*investment_amount$": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      "^metric": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      "^portfolio.fund_manager": ["_extract_manager_data", "manager"],
+      ".*investment_amount$": ["_extract_amt_data", "min_amt"],
+      "^metric": ["_extract_generic_data", "metric"],
     },
     SELECTKEYS: [
       ".*(benchmark|inception_date|fund_manager)$",
@@ -1313,10 +877,7 @@
       "^page_number",
     ],
     MERGEKEYS: {
-      load: [
-        "portfolio.entry_load",
-        "portfolio.exit_load"
-      ],
+      load: ["portfolio.entry_load", "portfolio.exit_load"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -1367,46 +928,21 @@
   "Invesco Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^(Invesco|Bharat).*Fund$",
-        size: [
-          12,
-          20
-        ],
-        color: [
-          -16777216
-        ],
+        size: [12, 20],
+        color: [-16777216],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          135,
-          185,
-          812
-        ],
-      ],
+      clip_bbox: [[0, 135, 185, 812]],
       line_x: 180.0,
       data: {
-        size: [
-          7,
-          9
-        ],
-        color: [
-          -16777216
-        ],
+        size: [7, 9],
+        color: [-16777216],
         update_size: 30.0,
-        font: [
-          "Graphik-Semibold"
-        ],
+        font: ["Graphik-Semibold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -1422,30 +958,18 @@
     PATTERN_TO_FUNCTION: {
       "^(date_of_allotment|benchmark_index|investment.*)": [
         "_extract_str_data",
-        null
+        null,
       ],
-      "^(aaum|aum)": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ]
+      "^(aaum|aum)": ["_extract_generic_data", "aum"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^(minimum_investment|additional_purchase)": [
         "_extract_amt_data",
-        "min_amt"
+        "min_amt",
       ],
-      "metrics": [
-        "_extract_generic_data",
-        "metrics"
-      ],
-      "load": [
-        "_extract_load_data",
-        "load"
-      ]
+      metrics: ["_extract_generic_data", "metrics"],
+      load: ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
       "load",
@@ -1459,12 +983,10 @@
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
-      "mutual_fund_name"
+      "mutual_fund_name",
     ],
     MERGEKEYS: {},
-    COMMENTS: [
-      "two funds on same page"
-    ],
+    COMMENTS: ["two funds on same page"],
     IMP_DATA: {
       amc_name: "Invesco Asset Management (India) Private Limited",
       mutual_fund_name: "Invesco Mutual Fund",
@@ -1475,48 +997,21 @@
   "ITI Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^(ITI|Bharat).*Fund$",
-        size: [
-          14,
-          24
-        ],
-        color: [
-          -1
-        ],
+        size: [14, 24],
+        color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          105,
-          180,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 105, 180, 812]],
       line_x: 180.0,
       data: {
-        size: [
-          5,
-          8
-        ],
-        color: [
-          -1688818,
-          -1165277,
-          -1689074
-        ],
+        size: [5, 8],
+        color: [-1688818, -1165277, -1689074],
         update_size: 30.0,
-        font: [
-          "Calibri-Bold"
-        ],
+        font: ["Calibri-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -1541,32 +1036,14 @@
       escape: "[^A-Za-z0-9\\-\\(\\).,\\s]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^portfolio_details.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^scheme.*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^portfolio_details.*": ["_extract_generic_data", "aum"],
+      "^scheme.*": ["_extract_scheme_data", "scheme"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*minimum_application$": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      ".*minimum_application$": ["_extract_amt_data", "min_amt"],
+      "^metrics.*": ["_extract_generic_data", "metric"],
     },
     SELECTKEYS: [
       ".*(inception_date|benchmark)",
@@ -1582,10 +1059,7 @@
       "mutual_fund_name",
     ],
     MERGEKEYS: {
-      load: [
-        "scheme_details.entry_load",
-        "scheme_details.exit_load"
-      ],
+      load: ["scheme_details.entry_load", "scheme_details.exit_load"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -1598,46 +1072,21 @@
   "JM Financial Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^(JM|Bharat).*Fund$",
-        size: [
-          14,
-          24
-        ],
-        color: [
-          -10987173
-        ],
+        size: [14, 24],
+        color: [-10987173],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          390,
-          105,
-          596,
-          812
-        ]
-      ],
+      clip_bbox: [[390, 105, 596, 812]],
       line_x: 390.0,
       data: {
-        size: [
-          6,
-          9
-        ],
-        color: [
-          -1
-        ],
+        size: [6, 9],
+        color: [-1],
         update_size: 30.0,
-        font: [
-          "MyriadPro-BoldCond"
-        ],
+        font: ["MyriadPro-BoldCond"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -1661,10 +1110,7 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment|exit_load).*": [
-        "_extract_str_data",
-        null
-      ],
+      "^(investment|exit_load).*": ["_extract_str_data", null],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [],
@@ -1684,47 +1130,21 @@
   "Kotak Mahindra Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^(Kotak|Bharat).*(Fund|ETF|FTF|FOF)$|^Kotak",
-        size: [
-          12,
-          20
-        ],
-        color: [
-          -15319437
-        ],
+        size: [12, 20],
+        color: [-15319437],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          80,
-          150,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 80, 150, 812]],
       line_x: 150.0,
       data: {
-        size: [
-          6,
-          8
-        ],
-        color: [
-          -15445130,
-          -14590595
-        ],
+        size: [6, 8],
+        color: [-15445130, -14590595],
         update_size: 30.0,
-        font: [
-          "Frutiger-Bold"
-        ],
+        font: ["Frutiger-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -1741,18 +1161,9 @@
         "_extract_str_data",
         null,
       ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^nav.*": [
-        "_extract_nav_data",
-        "nav"
-      ],
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^nav.*": ["_extract_nav_data", "nav"],
+      "^metrics.*": ["_extract_generic_data", "metric"],
     },
     SELECTKEYS: [
       "entry_load",
@@ -1766,10 +1177,7 @@
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {},
     MERGEKEYS: {},
-    COMMENTS: [
-      "1 or more fund data on same page",
-      "title overlap the content"
-    ],
+    COMMENTS: ["1 or more fund data on same page", "title overlap the content"],
     IMP_DATA: {
       amc_name: "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
       mutual_fund_name: "Kotak Mahindra Mutual Fund",
@@ -1779,16 +1187,59 @@
   },
   "LIC Mutual Fund": {
     PARAMS: {
+      fund: {
+        flag: [20, 16],
+        regex: "((?:LIC\\s*MF|BLNCED|LOW)\\s+.*?(?:FUND|ETF|FTF|FOF|PLAN|SAVER))",
+        size: [12, 20],
+        color: [-15319437],
+        countmax_header_check: 15,
+      },
+      clip_bbox: [[0, 80, 210, 812]],
+      line_x: 210.0,
+      data: {
+        size: [6, 12],
+        color: [-14328671],
+        update_size: 30.0,
+        font: ["Arial-BoldMT"],
+      },
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
     },
-    REGEX: {},
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    REGEX: {
+      aum: "(.*?AUM).*?\\s*([\\d,.]+) Cr",
+      load: "(?:Entry Load)?\\s*(Nil|.*?)\\s*Exit Load\\s*(.*)$",
+      min_amt: "([\\d,]+).*?([\\d,]+)",
+      metric: "(Standard Deviation|Portfolio Beta|Sharpe Ratio)\\s*([\\d,.]+)",
+      manager: "Name\\s*M?r?\\.?\\s*([\\w\\s]+?)\\s*Total\\s*Experience\\s*(\\d+(?:\\.\\d+)?\\s*years?)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+",
+    },
+    PATTERN_TO_FUNCTION: {
+      "^(inception|first_tier_benchmark)": ["_extract_str_data", null],
+      "^aum": ["_extract_generic_data", "aum"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      metrics: ["_extract_generic_data", "metric"],
+      minimum_investment: ["_extract_amt_data", "min_amt"],
+      load: ["_extract_load_data", "load"],
+    },
+    SELECTKEYS: [
+      "(inceptionallotment_date|first_tier_benchmark)",
+      "load",
+      ".*average_aum",
+      "minimum_investment",
+      "fund_manager",
+      "metrics",
+      "amc_name",
+      "main_scheme_name",
+      "monthly_aaum_date",
+      "page_number",
+      "mutual_fund_name",
+    ],
     MERGEKEYS: {},
-    COMMENTS: [],
+    COMMENTS: ["OCR Issue, min. addl. amt missing"],
     IMP_DATA: {
       amc_name: "LIC Mutual Fund Asset Management Limited",
       mutual_fund_name: "LIC Mutual Fund",
@@ -1799,53 +1250,21 @@
   "Mahindra Manulife Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "",
-        size: [
-          12,
-          20
-        ],
-        color: [
-          -15319437
-        ],
+        size: [12, 20],
+        color: [-15319437],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          65,
-          200,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 65, 200, 812]],
       line_x: 200.0,
       data: {
-        size: [
-          7,
-          10
-        ],
-        color: [
-          -7392877,
-          -16749906,
-          -7953091,
-          -7767504,
-          -12402502,
-          -945627
-        ],
+        size: [7, 10],
+        color: [-7392877, -16749906, -7953091, -7767504, -12402502, -945627],
         update_size: 30.0,
-        font: [
-          "QuantumRise-Bold",
-          "QuantumRise",
-          "QuantumRise-Semibold"
-        ],
+        font: ["QuantumRise-Bold", "QuantumRise", "QuantumRise-Semibold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -1875,36 +1294,18 @@
       escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.\\/]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^scheme.*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^nav.*": [
-        "_extract_nav_data",
-        "nav"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^scheme.*": ["_extract_scheme_data", "scheme"],
+      "^nav.*": ["_extract_nav_data", "nav"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(application_amount|purchase_amount)$": [
         "_extract_amt_data",
         "min_amt",
       ],
-      "^metric.*": [
-        "_extract_generic_data",
-        "metrics"
-      ],
-      ".*load": [
-        "_extract_load_data",
-        "load"
-      ]
+      "^metric.*": ["_extract_generic_data", "metrics"],
+      ".*load": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
       ".*(date_of_allotment|benchmark|monthly_aaum|load_structure)",
@@ -1935,46 +1336,21 @@
   "Mirae Asset Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^MIRAE.*",
-        size: [
-          26,
-          36
-        ],
-        color: [
-          -687584
-        ],
+        size: [26, 36],
+        color: [-687584],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          190,
-          270,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 190, 270, 812]],
       line_x: 270.0,
       data: {
-        size: [
-          8,
-          12
-        ],
-        color: [
-          -14991759
-        ],
+        size: [8, 12],
+        color: [-14991759],
         update_size: 30.0,
-        font: [
-          "SpoqaHanSans-Bold"
-        ],
+        font: ["SpoqaHanSans-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -1996,14 +1372,8 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(scheme).*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
+      "^(scheme).*": ["_extract_scheme_data", "scheme"],
+      "^investment.*": ["_extract_str_data", null],
       //   "^metric.*": ["_extract_generic_data", "metric"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
@@ -2012,12 +1382,10 @@
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
-      "mutual_fund_name"
+      "mutual_fund_name",
     ],
     MERGEKEYS: {
-      "load": [
-        ".*exit_load"
-      ]
+      load: [".*exit_load"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -2030,46 +1398,21 @@
   "Motilal Oswal Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          16
-        ],
+        flag: [20, 16],
         regex: "^(Motilal|Oswal).*(Fund|ETF|EOF|FOF|FTF|Path)$",
-        size: [
-          20,
-          28
-        ],
-        color: [
-          -13616547
-        ],
+        size: [20, 28],
+        color: [-13616547],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          65,
-          170,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 65, 170, 812]],
       line_x: 170.0,
       data: {
-        size: [
-          7,
-          14
-        ],
-        color: [
-          -13948375
-        ],
+        size: [7, 14],
+        color: [-13948375],
         update_size: 30.0,
-        font: [
-          "Calibri-Bold"
-        ],
+        font: ["Calibri-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -2088,22 +1431,10 @@
         "_extract_str_data",
         null,
       ],
-      "^metric.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^min_amt.*": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^load.*": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^metric.*": ["_extract_generic_data", "metric"],
+      "^min_amt.*": ["_extract_amt_data", "min_amt"],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^load.*": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
       "benchmark_index",
@@ -2127,45 +1458,21 @@
   "Navi Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "^NAVI.*",
-        size: [
-          23,
-          33
-        ],
-        color: [
-          -19456
-        ],
+        size: [23, 33],
+        color: [-19456],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          75,
-          320,
-          700
-        ]
-      ],
+      clip_bbox: [[0, 75, 320, 700]],
       line_x: 320.0,
       data: {
-        size: [
-          14,
-          20
-        ],
-        color: [
-          -12844976
-        ],
+        size: [14, 20],
+        color: [-12844976],
         update_size: 30.0,
-        font: [
-          "NaviHeadline-Bold"
-        ],
+        font: ["NaviHeadline-Bold"],
       },
-      content_size: [
-        30.0,
-        9.0
-      ],
+      content_size: [30.0, 9.0],
       method: "line",
       line_side: "both",
       max_financial_index_highlight: 0,
@@ -2190,32 +1497,14 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^scheme.*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      "^scheme.*": ["_extract_scheme_data", "scheme"],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*minimum_application_amount$": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      ".*load_structure": [
-        "_extract_load_data",
-        "load"
-      ],
+      ".*minimum_application_amount$": ["_extract_amt_data", "min_amt"],
+      ".*load_structure": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
       "amc_name",
@@ -2239,48 +1528,21 @@
   "Nippon India Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          0,
-          4,
-          20
-        ],
+        flag: [0, 4, 20],
         regex: "^(Nippon|CPSE).*(?=Plan|Sensex|Fund|Path|ETF|FOF|EOF|Funds|$)",
-        size: [
-          5,
-          12
-        ],
-        color: [
-          -1
-        ],
+        size: [5, 12],
+        color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          25,
-          220,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 25, 220, 812]],
       line_x: 180.0,
       data: {
-        size: [
-          6,
-          12
-        ],
-        color: [
-          -16777216
-        ],
+        size: [6, 12],
+        color: [-16777216],
         update_size: 30.0,
-        font: [
-          "HelveticaNeueCondensed-C",
-          "HelveticaNeueLTPro-BdCn"
-        ],
+        font: ["HelveticaNeueCondensed-C", "HelveticaNeueLTPro-BdCn"],
       },
-      content_size: [
-        30.0,
-        8.0
-      ],
+      content_size: [30.0, 8.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -2299,32 +1561,14 @@
         "_extract_str_data",
         null,
       ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^total.*": [
-        "_extract_generic_data",
-        "ter"
-      ],
+      // "^nav.*": ["_extract_generic_data", "nav"],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      // "^total.*": ["_extract_generic_data", "ter"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metric.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "load.*": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^metric.*": ["_extract_generic_data", "metric"],
+      "load.*": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
       "date_of_allotment",
@@ -2369,12 +1613,30 @@
   },
   "Old Bridge Mutual Fund": {
     PARAMS: {
+      fund: {
+        flag: [20,4],
+        regex: ".*?(Fund|ETF|FTF|FOF|PATH)$",
+        size: [16, 28],
+        color: [-14370324],
+        countmax_header_check: 15,
+      },
+      clip_bbox: [[0, 100, 270, 500],[270,100,410,812]],
+      line_x: 270.0,
+      data: {
+        size: [5, 12],
+        color: [-11614235,-14475488],
+        update_size: 30.0,
+        font: ['Montserrat-Medium'],
+      },
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
     },
     REGEX: {},
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      "^(benchmark|inception_date)":[],
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [],
     MERGEKEYS: {},
@@ -2446,46 +1708,21 @@
   "Quantum Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20,
-          0
-        ],
+        flag: [20, 0],
         regex: "^(Quantum).*(Fund|ETF|EOF|FOF|FTF|Path|ELSS|Funds)$",
-        size: [
-          12,
-          20
-        ],
-        color: [
-          -1
-        ],
+        size: [12, 20],
+        color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          95,
-          220,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 95, 220, 812]],
       line_x: 180.0,
       data: {
-        size: [
-          6,
-          11
-        ],
-        color: [
-          -1
-        ],
+        size: [6, 11],
+        color: [-1],
         update_size: 30.0,
-        font: [
-          "Prompt-SemiBold"
-        ],
+        font: ["Prompt-SemiBold"],
       },
-      content_size: [
-        30.0,
-        8.0
-      ],
+      content_size: [30.0, 8.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -2523,36 +1760,15 @@
         "_extract_str_data",
         null,
       ],
-      scheme: [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^metric.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^load.*": [
-        "_extract_load_data",
-        "load"
-      ],
+      scheme: ["_extract_scheme_data", "scheme"],
+      "^metric.*": ["_extract_generic_data", "metric"],
+      "^load.*": ["_extract_load_data", "load"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*minimum_application_amount": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      ".*fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      ".*aum": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      ".*key_statistics$": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      ".*minimum_application_amount": ["_extract_amt_data", "min_amt"],
+      ".*fund_manager": ["_extract_manager_data", "manager"],
+      ".*aum": ["_extract_generic_data", "aum"],
+      ".*key_statistics$": ["_extract_generic_data", "metric"],
     },
     SELECTKEYS: [
       ".*(inception_date|benchmark_index)",
@@ -2568,10 +1784,7 @@
       ".*minimum_application_amount", //4
     ],
     MERGEKEYS: {
-      load: [
-        "scheme_details.entry_load",
-        "scheme_details.exit_load"
-      ],
+      load: ["scheme_details.entry_load", "scheme_details.exit_load"],
     },
     COMMENTS: [
       "monthly_aaum_date_error",
@@ -2587,47 +1800,21 @@
   "Samco Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          25,
-          20
-        ],
+        flag: [25, 20],
         regex: "^samco.*fund$",
-        size: [
-          18,
-          28
-        ],
-        color: [
-          -1
-        ],
+        size: [18, 28],
+        color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          35,
-          120,
-          250,
-          765
-        ]
-      ],
+      clip_bbox: [[35, 120, 250, 765]],
       line_x: 200.0,
       data: {
-        size: [
-          7,
-          12
-        ],
-        color: [
-          -1
-        ],
+        size: [7, 12],
+        color: [-1],
         update_size: 30.0,
-        font: [
-          "Inter-SemiBold",
-          "Inter-Bold"
-        ],
+        font: ["Inter-SemiBold", "Inter-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -2651,32 +1838,14 @@
       escape: "[^a-zA-Z0-9.,\\(\\)\\s]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment).*": [
-        "_extract_str_data",
-        null
-      ],
-      "^nav.*": [
-        "_extract_generic_data",
-        "nav"
-      ],
-      "^fund_manag": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^scheme_det": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
+      "^(investment).*": ["_extract_str_data", null],
+      "^nav.*": ["_extract_generic_data", "nav"],
+      "^fund_manag": ["_extract_manager_data", "manager"],
+      "^scheme_det": ["_extract_scheme_data", "scheme"],
+      "^aum.*": ["_extract_generic_data", "aum"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
+      "^metrics.*": ["_extract_generic_data", "metric"],
       ".*(min_application|minapplication|additional)": [
         "_extract_amt_data",
         "min_amt",
@@ -2696,10 +1865,7 @@
       "page_number",
     ],
     MERGEKEYS: {
-      load: [
-        "scheme_details.entry_load",
-        "scheme_details.exit_load"
-      ],
+      load: ["scheme_details.entry_load", "scheme_details.exit_load"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -2750,46 +1916,21 @@
   "Sundaram Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          4,
-          0
-        ],
+        flag: [4, 0],
         regex: "^(Sundaram).*(Fund|ETF|EOF|FOF|FTF|Path|Fund -)$|^Sundaram",
-        size: [
-          14,
-          18
-        ],
-        color: [
-          -16625248
-        ],
+        size: [14, 18],
+        color: [-16625248],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          5,
-          220,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 5, 220, 812]],
       line_x: 220.0,
       data: {
-        size: [
-          6,
-          13
-        ],
-        color: [
-          -1
-        ],
+        size: [6, 13],
+        color: [-1],
         update_size: 30.0,
-        font: [
-          "UniversNextforMORNW02-Cn"
-        ],
+        font: ["UniversNextforMORNW02-Cn"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -2819,32 +1960,14 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": [
-        "_extract_str_data",
-        null
-      ],
-      "^metric.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^scheme.*": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
+      "^investment.*": ["_extract_str_data", null],
+      "^metric.*": ["_extract_generic_data", "metric"],
+      "^scheme.*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*minimum_amount$": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      ".*fund_managers$": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      ".*load$": [
-        "_extract_load_data",
-        "load"
-      ],
+      ".*minimum_amount$": ["_extract_amt_data", "min_amt"],
+      ".*fund_managers$": ["_extract_manager_data", "manager"],
+      ".*load$": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [],
     MERGEKEYS: {},
@@ -2859,48 +1982,21 @@
   "Tata Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          25,
-          20,
-          0,
-          16
-        ],
+        flag: [25, 20, 0, 16],
         regex: "^tata.*(fund|etf|fof|eof|funds|plan|\\))$",
-        size: [
-          10,
-          20
-        ],
-        color: [
-          -1
-        ],
+        size: [10, 20],
+        color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          50,
-          160,
-          750
-        ]
-      ],
+      clip_bbox: [[0, 50, 160, 750]],
       line_x: 160.0,
       data: {
-        size: [
-          5,
-          8
-        ],
-        color: [
-          -15570765
-        ],
+        size: [5, 8],
+        color: [-15570765],
         update_size: 30.0,
-        font: [
-          "Swiss721BT-BoldCondensed"
-        ],
+        font: ["Swiss721BT-BoldCondensed"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -2924,24 +2020,12 @@
         "_extract_generic_data",
         "decimal",
       ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metrics.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^multiples.*": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
-      "^load.*": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^metrics.*": ["_extract_generic_data", "metric"],
+      "^multiples.*": ["_extract_amt_data", "min_amt"],
+      "^load.*": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
       "date_of_allotment",
@@ -2969,46 +2053,21 @@
   "Taurus Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          4,
-          20
-        ],
+        flag: [4, 20],
         regex: "^(Taurus).*(Fund|ETF|EOF|FOF|FTF|Path|Fund)$",
-        size: [
-          13,
-          24
-        ],
-        color: [
-          -9754846
-        ],
+        size: [13, 24],
+        color: [-9754846],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          65,
-          210,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 65, 210, 812]],
       line_x: 210.0,
       data: {
-        size: [
-          6,
-          12
-        ],
-        color: [
-          -9754846
-        ],
+        size: [6, 12],
+        color: [-9754846],
         update_size: 30.0,
-        font: [
-          "Calibri-Bold"
-        ],
+        font: ["Calibri-Bold"],
       },
-      content_size: [
-        30.0,
-        10.0
-      ],
+      content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -3028,26 +2087,11 @@
         "_extract_str_data",
         null,
       ],
-      "^metric.*": [
-        "_extract_generic_data",
-        "metric"
-      ],
-      "^fund_manag.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^load.*": [
-        "_extract_load_data",
-        "load"
-      ],
-      "^min_amt": [
-        "_extract_amt_data",
-        "min_amt"
-      ],
+      "^metric.*": ["_extract_generic_data", "metric"],
+      "^fund_manag.*": ["_extract_manager_data", "manager"],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      "^load.*": ["_extract_load_data", "load"],
+      "^min_amt": ["_extract_amt_data", "min_amt"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [],
@@ -3120,46 +2164,21 @@
   "WhiteOak Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [
-          20
-        ],
+        flag: [20],
         regex: "(?i)^(whiteOak).*(Fund|ETF|EOF|FOF|FTF|Path|Plan|Duration)$",
-        size: [
-          16,
-          24
-        ],
-        color: [
-          -13159371
-        ],
+        size: [16, 24],
+        color: [-13159371],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [
-          0,
-          85,
-          240,
-          812
-        ]
-      ],
+      clip_bbox: [[0, 85, 240, 812]],
       line_x: 240.0,
       data: {
-        size: [
-          7,
-          11
-        ],
-        color: [
-          -65794,
-          -1
-        ],
+        size: [7, 11],
+        color: [-65794, -1],
         update_size: 30.0,
-        font: [
-          "MyriadPro-Bold"
-        ],
+        font: ["MyriadPro-Bold"],
       },
-      content_size: [
-        30.0,
-        8.0
-      ],
+      content_size: [30.0, 8.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
@@ -3174,41 +2193,21 @@
       escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^aum.*": [
-        "_extract_generic_data",
-        "aum"
-      ],
-      "^expense_ratio.*": [
-        "_extract_generic_data",
-        "ter"
-      ],
+      "^aum.*": ["_extract_generic_data", "aum"],
+      "^expense_ratio.*": ["_extract_generic_data", "ter"],
       "^(benchmark|scheme_launch|additional|inception|metrics).*": [
         "_extract_str_data",
         null,
       ],
-      "^fund_mana.*": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^metric.*": [
-        "_extract_generic_data",
-        "metrics"
-      ],
-      "^load.*": [
-        "_extract_load_data",
-        "load"
-      ],
-      "^nav.*": [
-        "_extract_nav_data",
-        "nav"
-      ],
+      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^metric.*": ["_extract_generic_data", "metrics"],
+      "^load.*": ["_extract_load_data", "load"],
+      "^nav.*": ["_extract_nav_data", "nav"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [],
     MERGEKEYS: {},
-    COMMENTS: [
-      "No issues as of now."
-    ],
+    COMMENTS: ["No issues as of now."],
     IMP_DATA: {
       amc_name: "WhiteOak Capital Asset Management Limited",
       mutual_fund_name: "WhiteOak Mutual Fund",
@@ -3218,11 +2217,42 @@
   },
   "Zerodha Mutual Fund": {
     PARAMS: {
-      method: "clip",
-      line_side: "",
+      fund: {
+        flag: [20,0],
+        regex: "^Zerodha.*$",
+        size: [20, 30],
+        color: [-16777216],
+        countmax_header_check: 15,
+      },
+      clip_bbox: [[0,5,340, 700]],
+      line_x: 340.0,
+      data: {
+        size: [14, 20],
+        color: [-16777216],
+        update_size: 30.0,
+        font: ['Unnamed-T3'],
+      },
+      content_size: [30.0, 14.0],
+      method: "line",
+      line_side: "both",
       max_financial_index_highlight: 0,
     },
-    REGEX: {},
+    REGEX: {
+      scheme:[
+        'Allotment Date',
+        'Also manages',
+        'Benchmark',
+        'Creation Unit Size',
+        'Exit Load',
+        'Expense Ratio',
+        'Launched',
+        'Lock-in period',
+        'Min. Investment',
+        'NAV'
+      ],
+      escape:"",
+      metric:"(Average Maturity|Macaulay Duration|Tracking Error)"
+    },
     PATTERN_TO_FUNCTION: {},
     SECONDARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [],
