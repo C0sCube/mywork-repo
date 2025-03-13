@@ -4,7 +4,7 @@ from collections import defaultdict
 import pdfplumber # type: ignore
 
 from app.utils import Helper
-from app.fund_regex import *
+from app.parse_regex import *
 from logging_config import *
 
 class Reader:
@@ -133,11 +133,14 @@ class Reader:
                             if block_key not in seen_blocks:
                                 seen_blocks.add(block_key)
                                 blocks.append(block)
-
                     sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
+                    
+                    #add dummy data
+                    fontz = self.PARAMS['data']['font'][0]
+                    colorz = self.PARAMS['data']['color'][0]
+                    sorted_blocks.append(FundRegex()._dummy_block(fontz,colorz))
                     all_blocks.extend(sorted_blocks)
-
-                
+                    
                 if fundName in fund_seen:
                     fund_seen[fundName]["block"].extend(all_blocks)
                     fund_seen[fundName]["page"].append(pgn)
@@ -180,6 +183,13 @@ class Reader:
 
                 left_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))  
                 right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
+                
+                #adding dummy data
+                fontz = self.PARAMS['data']['font'][0]
+                colorz = self.PARAMS['data']['color'][0]
+                left_blocks.append(FundRegex()._dummy_block(fontz,colorz))
+                right_blocks.append(FundRegex()._dummy_block(fontz,colorz))
+                
                 if side == "both":
                     left_blocks.extend(right_blocks)
 
@@ -195,7 +205,6 @@ class Reader:
         return finalData
 
     def extract_pdf_data(self,input:str, pages:list, titles:dict):
-    
         with fitz.open(input) as doc:
             finalData = []
             for pgn in pages:
@@ -210,7 +219,6 @@ class Reader:
         return finalData
 
     def extract_span_data(self, data: list,*args):  # all
-        
         finalData = []
         for page in data:
             seen_entries = set()
@@ -260,24 +268,58 @@ class Reader:
                     size = font_change  # Update size
                 processed_blocks.append([size, text.strip(), color, origin, bbox,font])
 
-            grouped_blocks = defaultdict(list) # Group blocks by rounded y-coordinate
+            
+            temp_nested_blocks, seperate_blocks = [], [] #nest list based on dummy
             for block in processed_blocks:
-                y_coord = math.ceil(block[3][1])
-                size = block[0]
-                grouped_blocks[(y_coord, size)].append(block)
+                size, text, *rest = block
+                seperate_blocks.append(block)
 
-            combined_blocks = [] # Combine blocks with the same y-coordinate
-            for key, group in grouped_blocks.items():
-                if key[1] == font_change:
-                    if combined_text:= " ".join(item[1] for item in group).strip(): # Ignore whitespace-only text
-                        size,_ ,color, origin, bbox,font = group[0]
-                        combined_blocks.append([size, combined_text, color, origin, bbox,font])
-                else:
-                    for item in group:
-                        combined_blocks.append(item)
+                if text.startswith("DUMMY"): 
+                    temp_nested_blocks.append(seperate_blocks[:])
+                    seperate_blocks = []
 
-            finalData.append(self._create_data_entry(pgn,fundName,combined_blocks))
-        
+            if seperate_blocks:
+                temp_nested_blocks.append(seperate_blocks)
+
+            grand_combined_blocks = [] #group & combine
+            for select_blocks in temp_nested_blocks:
+                grouped_blocks = defaultdict(list)
+
+                for block in select_blocks:
+                    y_coord = math.ceil(block[3][1])
+                    size = block[0]
+                    grouped_blocks[(y_coord, size)].append(block)
+
+                combined_blocks = []
+                for key, group in grouped_blocks.items():
+                    if key[1] == font_change:
+                        combined_text = " ".join(item[1] for item in group).strip()
+                        if combined_text: 
+                            size, _, color, origin, bbox, font = group[0]
+                            combined_blocks.append([size, combined_text, color, origin, bbox, font])
+                    else:
+                        combined_blocks.extend(group)
+
+                grand_combined_blocks.append(combined_blocks)
+            
+            flatten_blocks = [block for group in grand_combined_blocks for block in group]
+            finalData.append(self._create_data_entry(pgn,fundName,flatten_blocks))
+            # grouped_blocks = defaultdict(list) # Group blocks by rounded y-coordinate
+            # for block in processed_blocks:
+            #     y_coord = math.ceil(block[3][1])
+            #     size = block[0]
+            #     grouped_blocks[(y_coord, size)].append(block)
+
+            # combined_blocks = [] # Combine blocks with the same y-coordinate
+            # for key, group in grouped_blocks.items():
+            #     if key[1] == font_change:
+            #         if combined_text:= " ".join(item[1] for item in group).strip(): # Ignore whitespace-only text
+            #             size,_ ,color, origin, bbox,font = group[0]
+            #             combined_blocks.append([size, combined_text, color, origin, bbox,font])
+            #     else:
+            #         for item in group:
+            #             combined_blocks.append(item)
+            # finalData.append(self._create_data_entry(pgn,fundName,combined_blocks))
         return finalData
 
     def create_nested_dict(self,data: list,*args):
@@ -427,11 +469,9 @@ class Reader:
             MIN_LINE_SPACING = 2     # Extra space between lines
             Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
 
-            # print(type(data)) #dict
             for header, content_blocks in data.items():
                 page = doc.new_page()
 
-                # Insert Header Title
                 try:
                     page.insert_text(
                         (LEFT_MARGIN, TITLE_POSITION),
@@ -540,7 +580,6 @@ class Reader:
                         content_dict.update(content)
 
             primary_refine[fund] = content_dict
-        
         if flatten: #Flatten the dict if true
             primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}
         
@@ -552,7 +591,16 @@ class Reader:
                 content_dict.update(content)
 
             secondary_refine[fund] = content_dict
-        return secondary_refine
+            
+        tertiary_refine = {}
+        for fund, item in secondary_refine.items():
+            content_dict = {}
+            for head, content in item.items():
+                content = self._tertiary_match_regex_to_content(head, content)
+                content_dict.update(content)
+
+            tertiary_refine[fund] = content_dict
+        return tertiary_refine
     
     #SELECT/MERGE
     def merge_and_select_data(self, data: dict, select = False, map = False, flat = False):

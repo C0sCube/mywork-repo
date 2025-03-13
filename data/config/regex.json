@@ -12,11 +12,11 @@
         "co_fund_manager": "co_fund_manager.*",
         "scheme_details": ["scheme_features", "fund_infor", "scheme_det", "fund_details", "fund_snapshot", "fund_feat"],
         "investment_objective":["current_investment", "objective", "investment", "about_the", "data_as"],
-        "metrics": ["^ratios.*","Other Parameters","key_statistics","statistical_debt","expense_ratio__quantitative_data", "portfolio_parameters", "portfolio_statistics", "scheme_statistics", "portfolio_stats", "risk", "ratio", "maturity", "qualitative","^Quantitative.*", "^quantitative", "volatility", "debt_quant", "^other_parameter", "performance_attri", "quantave_data"],
+        "metrics": ["^ratios.*","key_statistics","statistical_debt","expense_ratio__quantitative_data", "portfolio_parameters", "portfolio_statistics", "scheme_statistics", "portfolio_stats", "risk", "ratio", "maturity", "qualitative","^Quantitative.*", "^quantitative", "volatility", "debt_quant", "^other_parameter", "performance_attri", "quantave_data"],
         "min_amt":"^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
         "expense_ratio": "^(expense_ratio)$",
-        "load": "^(entry_exit|load|load_structure|entry__).*",
+        "load": "^(entry_exit|load_structure$|entry__|load_structure_as_).*",
         "total_expense_ratio": "^(total_exp|weighted_average|month_end_ter).*",
         "portfolio_turnover_ratio": ["portfolio_turnover", "turn_over", "turnover", "portfolio_turnover_ratio"],
         "additional_investment": "^(additional_investment|minimum_additional_investment).*",
@@ -48,7 +48,7 @@
         "monthly_aaum_value":["^aaum$f","^average_aum$","scheme_details.aum$",".*average_aum","^monthly_average_aum",".*monthly_average_aum$",".*monthly_average$",".*monthly_avg_aum$",".*aaum$",".*monthly_aaum$"],
         "mutual_fund_name": ["mutual_fund_name"],
         "scheme_launch_date":["inceptionallotment_date","^date_of_allotment$",".*date_of_allotment$",".*inception_date$"],
-        "page_numbers": ["^page_number"]
+        "page_number": ["^page_number"]
     },
     "add_json_headers":[
         "amc_name",

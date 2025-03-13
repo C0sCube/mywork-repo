@@ -21,8 +21,10 @@ class GrandFundData:
         self.REGEX = fund_config.get("REGEX", {})
         self.PATTERN_TO_FUNCTION = fund_config.get("PATTERN_TO_FUNCTION", {})
         self.SECONDARY_PATTERN_TO_FUNCTION = fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{})
+        self.TERTIARY_PATTERN_TO_FUNCTION = fund_config.get("TERTIARY_PATTERN_TO_FUNCTION",{})
         self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
+        self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
         self.IMP_DATA = fund_config.get("IMP_DATA",{})
         
     #extract 
@@ -101,7 +103,7 @@ class GrandFundData:
                 
         return {main_key:final_dict}
     
-    #merge
+    #match
     def _match_regex_to_content(self, string: str, data: list,*args):
         try:
             for pattern, (func_name, regex_key) in self.PATTERN_TO_FUNCTION.items():
@@ -115,7 +117,7 @@ class GrandFundData:
             logger.error(e)
             return
         
-        return self._extract_dummy_data(string, data)
+        return self._extract_dummy_data(string, data) #fallback
     
     def _secondary_match_regex_to_content(self, string: str, data: list,*args):
         try:
@@ -130,8 +132,24 @@ class GrandFundData:
             logger.error(e)
             return
         
-        return self._extract_dummy_data(string, data)
+        return self._extract_dummy_data(string, data) #fallback
     
+    def _tertiary_match_regex_to_content(self, string: str, data: list,*args):
+        try:
+            for pattern, (func_name, regex_key) in self.TERTIARY_PATTERN_TO_FUNCTION.items():
+                if re.match(pattern, string, re.IGNORECASE):
+                    func = getattr(self, func_name) #dynamic function lookup
+                    if regex_key:
+                        return func(string, data, regex_key)
+                    return func(string, data)
+            
+        except Exception as e:
+            logger.error(e)
+            return
+        
+        return self._extract_dummy_data(string, data) #fallback
+    
+    #merge and select
     def _merge_fund_data(self, data:dict):
         if not isinstance(data, dict):
             return data
@@ -155,7 +173,25 @@ class GrandFundData:
 
         return data
 
+    def _combine_fund_data(self, data: dict):
+        if not isinstance(data, dict):
+            return data
 
+        for new_key, keys_to_combine in self.MERGEKEYS.items():
+            values = [data[key] for key in keys_to_combine if key in data]
+            if not values:
+                continue
+            combined_value = []
+            for val in values:
+                if isinstance(val, list):combined_value.extend(val)
+                else:combined_value.append(val)
+                
+            for key in keys_to_combine:
+                data.pop(key, None)
+
+            data[new_key] = combined_value  
+
+        return data
 
     def _select_by_regex(self, data:dict):
         finalData = {}
@@ -173,7 +209,7 @@ class GrandFundData:
             "total_exp": exp.title().strip()
         }
         
-    def _last_day_of_previous_month(self):
+    def __last_day_of_previous_month(self):
         today = datetime.today()
         last_day = today.replace(day=1) - relativedelta(days=1)
         formatted_date = f"{last_day.day} {last_day.strftime('%B').strip().upper()} {last_day.year}"
@@ -184,7 +220,7 @@ class GrandFundData:
         return data.update({
             "amc_name":self.IMP_DATA['amc_name'],
             "main_scheme_name":fund,
-            "monthly_aaum_date": self._last_day_of_previous_month(),
+            "monthly_aaum_date": self.__last_day_of_previous_month(),
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
         })
@@ -945,6 +981,11 @@ class Samco(Reader, GrandFundData):
         return {main_key: final_list}
 
 #31
+class SBI(Reader, GrandFundData):
+    
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
 #32
 
