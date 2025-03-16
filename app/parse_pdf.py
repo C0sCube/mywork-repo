@@ -619,6 +619,8 @@ class Reader:
             
             temp = self._merge_fund_data(temp)
             temp = regex._populate_all_indices_in_json(temp)
+            temp = regex.transform_keys(temp) #lowercase
+            
             finalData[fund] = dict(sorted(temp.items()))
 
         return {fund: regex.flatten_dict(data) for fund, data in finalData.items()} if flat else finalData

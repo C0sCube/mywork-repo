@@ -48,23 +48,23 @@
         "monthly_aaum_value":["^aaum$f","^average_aum$","scheme_details.aum$",".*average_aum","^monthly_average_aum",".*monthly_average_aum$",".*monthly_average$",".*monthly_avg_aum$",".*aaum$",".*monthly_aaum$"],
         "mutual_fund_name": ["mutual_fund_name"],
         "scheme_launch_date":["inceptionallotment_date","^date_of_allotment$",".*date_of_allotment$",".*inception_date$"],
-        "page_number": ["^page_number"]
+        "page_number": ["^page_number","^page_numbers"]
     },
-    "add_json_headers":[
-        "amc_name",
-        "benchmark_index",
-        "fund_manager",
-        "load",
-        "main_scheme_name",
-        "metrics",
-        "min_addl_amt",
-        "min_amt",
-        "monthly_aaum_date",
-        "monthly_aaum_value",
-        "mutual_fund_name",
-        "scheme_launch_date",
-        "page_numbers"
-    ],
+    "add_json_headers":{
+        "amc_name":"",
+        "benchmark_index":"",
+        "fund_manager":[],
+        "load":{},
+        "main_scheme_name":"",
+        "metrics":{},
+        "min_addl_amt":{},
+        "min_amt":{},
+        "monthly_aaum_date":"",
+        "monthly_aaum_value":"",
+        "mutual_fund_name":"",
+        "scheme_launch_date":"",
+        "page_number":[]
+    },
     "stop_words": [
         "#Note:",
         "folio count data as on 30th november",

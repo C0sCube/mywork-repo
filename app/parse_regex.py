@@ -95,9 +95,9 @@ class FundRegex():
                     return json_key
                 
     def _populate_all_indices_in_json(self,data:dict):
-        for key in self.POPULATE_ALL_INDICE:
+        for key, value in self.POPULATE_ALL_INDICE.items():
             if key not in data:
-                data[key] = {}
+                data[key] = value
         return data
     
     def _dummy_block(self,fontz:str,colorz:str):
