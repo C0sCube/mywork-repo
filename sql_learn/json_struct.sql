@@ -25,7 +25,7 @@ CREATE TABLE fund_managers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     mutual_fund_id INT,
     manager_name VARCHAR(255),
-    designation VARCHAR(255),
+    qualification VARCHAR(255),
     managing_fund_since VARCHAR(50),
     total_exp VARCHAR(50),
     FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id) ON DELETE CASCADE

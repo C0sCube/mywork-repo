@@ -620,7 +620,21 @@ class Reader:
             temp = self._merge_fund_data(temp)
             
             #new code
+            new_values = {}
+            for key in temp:
+                if key == "min_amt":
+                    amt = temp[key].get("amt","")
+                    thraftr = temp[key].get("thraftr","")
+                    new_values['min_amt'] = amt
+                    new_values['min_amt_multiple'] = thraftr
+                
+                if key == "min_addl_amt":
+                    amt = temp[key].get("amt","")
+                    thraftr = temp[key].get("thraftr","")
+                    new_values['min_addl_amt'] = amt
+                    new_values['min_addl_amt_multiple'] = thraftr
             
+            temp.update(new_values)
             
             temp = regex._populate_all_indices_in_json(temp)
             temp = regex.transform_keys(temp) #lowercase

@@ -662,7 +662,6 @@
       ],
       "^nav.*": ["_extract_generic_data", "nav"],
       "^aum.*": ["_extract_generic_data", "aum"],
-      "^portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
       "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SELECTKEYS: [
@@ -674,6 +673,7 @@
       "multiples_for_existing_investors",
       "load",
       "metrics",
+      "portfolio_turnover_ratio",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
@@ -687,6 +687,7 @@
       ],
       "^metrics": ["_extract_generic_data", "metric"],
       "^load": ["_extract_load_data", "load"],
+      "^portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
     },
     MERGEKEYS: {},
     COMMENTS: [],
