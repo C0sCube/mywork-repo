@@ -3,7 +3,7 @@ from app.parse_pdf import Reader
 from logging_config import logger
 import fitz #type:ignore
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
+from dateutil.relativedelta import relativedelta #type: ignore
 
 AMC_PATH = os.path.join(os.getcwd(),"data\\config\\params.json5")
 class GrandFundData:
@@ -150,28 +150,65 @@ class GrandFundData:
         return self._extract_dummy_data(string, data) #fallback
     
     #merge and select
-    def _merge_fund_data(self, data:dict):
+    # def _merge_fund_data(self, data:dict):
+    #     if not isinstance(data, dict):
+    #         return data
+
+    #     for new_key, keys_to_merge in self.MERGEKEYS.items():
+    #         if all(isinstance(data.get(key), list) for key in keys_to_merge if key in data):
+    #             # Merge as a list
+    #             merged_value = []
+    #             for key in keys_to_merge:
+    #                 if key in data:
+    #                     merged_value.extend(data[key])
+    #                     data.pop(key, None)
+    #         else:
+    #             # Merge as a dictionary
+    #             merged_value = {key: data[key] for key in keys_to_merge if key in data}
+    #             for key in keys_to_merge:
+    #                 data.pop(key, None)
+
+    #         if merged_value:
+    #             data[new_key] = merged_value  
+
+    #     return data
+    
+    def _merge_fund_data(self, data: dict):
         if not isinstance(data, dict):
-            return data
+            return data  # Only process dicts
 
         for new_key, keys_to_merge in self.MERGEKEYS.items():
-            if all(isinstance(data.get(key), list) for key in keys_to_merge if key in data):
+            values = [data[key] for key in keys_to_merge if key in data]
+
+            if all(isinstance(v, list) for v in values):
                 # Merge as a list
                 merged_value = []
+                for v in values:
+                    merged_value.extend(v)
+            elif all(isinstance(v, dict) for v in values):
+                # Merge as a dictionary
+                merged_value = {}
+                for v in values:
+                    merged_value.update(v)
+            else:
+                # Mixed types: Handle string + dict
+                merged_value = {}
                 for key in keys_to_merge:
                     if key in data:
-                        merged_value.extend(data[key])
-                        data.pop(key, None)
-            else:
-                # Merge as a dictionary
-                merged_value = {key: data[key] for key in keys_to_merge if key in data}
-                for key in keys_to_merge:
-                    data.pop(key, None)
+                        if isinstance(data[key], dict):
+                            merged_value.update(data[key])  # Merge dict normally
+                        else:
+                            merged_value[key] = data[key]  # Store string under its key
 
+            # Remove original keys and insert merged value
+            for key in keys_to_merge:
+                data.pop(key, None)
             if merged_value:
                 data[new_key] = merged_value  
 
         return data
+
+
 
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):

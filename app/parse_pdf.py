@@ -660,7 +660,9 @@ class Reader:
                         "value": metric_value
                     }
                 )
-            temp["metrics"] = new_metrics       
+            temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
+            
+                 
          
             finalData[fund] = dict(sorted(temp.items()))
             

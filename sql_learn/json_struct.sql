@@ -26,6 +26,7 @@ CREATE TABLE mutual_funds (
 
 
 CREATE TABLE fund_managers (
+    amc_id INT,
     id INT AUTO_INCREMENT PRIMARY KEY,
     main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
@@ -38,6 +39,7 @@ CREATE TABLE fund_managers (
 
 
 CREATE TABLE loads (
+    amc_id INT,
     id INT AUTO_INCREMENT PRIMARY KEY,
     main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
@@ -48,28 +50,50 @@ CREATE TABLE loads (
 
 
 CREATE TABLE metrics (
+    amc_id INT,
     id INT AUTO_INCREMENT PRIMARY KEY,
     main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
-    name VARCHAR(255),
-    value VARCHAR(50),
+    metric_type VARCHAR(255),
+    metric_value VARCHAR(50),
     FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id) ON DELETE CASCADE
 );
 
-
-CREATE TABLE fund_minimum_amounts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE transformed_loads(
+    amc_id INT,
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
-    amt VARCHAR(50),
-    thraftr VARCHAR(50),
-    FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id) ON DELETE CASCADE
+    entry_load VARCHAR(100),
+    exit_load VARCHAR(400),
+	FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id) ON DELETE CASCADE
 );
 
-
-CREATE TABLE fund_additional_amounts (
+CREATE TABLE transformed_metrics (
+    amc_id INT,
     id INT AUTO_INCREMENT PRIMARY KEY,
+    main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
-    amt VARCHAR(50),
-    thraftr VARCHAR(50),
+    alpha VARCHAR(40),  
+    avg_div_yld VARCHAR(40),  
+    avg_maturity VARCHAR(40),  
+    avg_pb VARCHAR(40),  
+    avg_pe VARCHAR(40),  
+    beta VARCHAR(40),
+    jenson VARCHAR(40),    
+    macaulay_duration VARCHAR(40),  
+    modified_duration VARCHAR(40),  
+    ptr VARCHAR(40),  
+    residual_maturity VARCHAR(40),  
+    r_squared VARCHAR(40),  
+    roe VARCHAR(40),  
+    sharpe VARCHAR(40),  
+    sortino VARCHAR(40),  
+    std_dev VARCHAR(40),  
+    ter VARCHAR(40),  
+    tracking_error VARCHAR(40),  
+    treynor VARCHAR(40),  
+    ytm VARCHAR(40),
     FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id) ON DELETE CASCADE
 );
+

@@ -108,6 +108,17 @@ class FundRegex():
                 data[key] = value
         return data
     
+    def _populate_all_metrics_in_json(self, data: list):
+        existing_keys = {item["name"] for item in data if isinstance(item, dict) and "name" in item}
+
+        for key in self.METRIC_HEADER:
+            if key not in existing_keys:
+                data.append({"name": key, "value": ""})
+
+        data.sort(key=lambda x: x["name"])
+        return data
+
+    
     def _dummy_block(self,fontz:str,colorz:str):
         return {
                 "number": 0,

@@ -1,28 +1,94 @@
 {
     "header_patterns": {
-        "":["^1_year","^www.*","^An open.*","\\d{1,4}\\b","folio_count_as_on", "^Formerly known as.*", "and_", "earlier known as", "An open ende", "^this_product.*", "^investors_who_are.*", "details as on"],
+        "": [
+            "^1_year",
+            "^www.*",
+            "^An open.*",
+            "\\d{1,4}\\b",
+            "folio_count_as_on",
+            "^Formerly known as.*",
+            "and_",
+            "earlier known as",
+            "An open ende",
+            "^this_product.*",
+            "^investors_who_are.*",
+            "details as on"
+        ],
         "market_capital": "^(market)",
         "category": "^(catagory|category_).*",
         "composition_by_asset": "^composition_by_asset.*",
-        "composition_by_industry":"^composition_by_industry.*",
-        "composition_by_rating":"^composition_by_rating.*",
-        "aum": ["aum", "assets", "AUM", "monthly_aum", "fund_aum", "aum", "funds_ize", "aum_detail", "fund_size"],
-        "fund_manager": ["fund_mana", "fund_and_co", "name_of_the", "saravanaraj"],
-        "fund_facts":"^(fund_facts).*$",
+        "composition_by_industry": "^composition_by_industry.*",
+        "composition_by_rating": "^composition_by_rating.*",
+        "aum": [
+            "aum",
+            "assets",
+            "AUM",
+            "monthly_aum",
+            "fund_aum",
+            "aum",
+            "funds_ize",
+            "aum_detail",
+            "fund_size"
+        ],
+        "fund_manager": [
+            "fund_mana",
+            "fund_and_co",
+            "name_of_the",
+            "saravanaraj"
+        ],
+        "fund_facts": "^(fund_facts).*$",
         "co_fund_manager": "co_fund_manager.*",
-        "scheme_details": ["scheme_features", "fund_infor", "scheme_det", "fund_details", "fund_snapshot", "fund_feat"],
-        "investment_objective":["current_investment", "objective", "investment", "about_the", "data_as"],
-        "metrics": ["^ratios.*","key_statistics","statistical_debt","expense_ratio__quantitative_data", "portfolio_parameters", "portfolio_statistics", "scheme_statistics", "portfolio_stats", "risk", "ratio", "maturity", "qualitative","^Quantitative.*", "^quantitative", "volatility", "debt_quant", "^other_parameter", "performance_attri", "quantave_data"],
-        "min_amt":"^minimum_appl",
+        "scheme_details": [
+            "scheme_features",
+            "fund_infor",
+            "scheme_det",
+            "fund_details",
+            "fund_snapshot",
+            "fund_feat"
+        ],
+        "investment_objective": [
+            "current_investment",
+            "objective",
+            "investment",
+            "about_the",
+            "data_as"
+        ],
+        "metrics": [
+            "^ratios.*",
+            "key_statistics",
+            "statistical_debt",
+            "expense_ratio__quantitative_data",
+            "portfolio_parameters",
+            "portfolio_statistics",
+            "scheme_statistics",
+            "portfolio_stats",
+            "risk",
+            "ratio",
+            "maturity",
+            "qualitative",
+            "^Quantitative.*",
+            "^quantitative",
+            "volatility",
+            "debt_quant",
+            "^other_parameter",
+            "performance_attri",
+            "quantave_data"
+        ],
+        "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
         "expense_ratio": "^(expense_ratio)$",
         "load": "^(entry_exit|load_structure$|entry__|load_structure_as_).*",
         "total_expense_ratio": "^(total_exp|weighted_average|month_end_ter).*",
-        "portfolio_turnover_ratio": ["portfolio_turnover", "turn_over", "turnover", "portfolio_turnover_ratio"],
+        "portfolio_turnover_ratio": [
+            "portfolio_turnover",
+            "turn_over",
+            "turnover",
+            "portfolio_turnover_ratio"
+        ],
         "additional_investment": "^(additional_investment|minimum_additional_investment).*",
         "benchmark_index": "^(benchmark|amfi_tier_1_bench).*",
         "compositon_by_industry": "^(composition).*",
-        "minimum_investment_for_sip":"^minimum_investment_for_sip$",
+        "minimum_investment_for_sip": "^minimum_investment_for_sip$",
         "minimum_investment": "^(minimum_investment$|min._addl.|min.)",
         "minimum_additional_application_amount": "^minimum_additional_application_amount",
         "sip": "systematic_investment_plan_",
@@ -32,40 +98,103 @@
         "plans_options": "^(plansoption)",
         "minimum_application_amount": "^(minimum_application|minimum_applicaon_amount)"
     },
-    "json_headers":{
-        "amc_name": ["amc_name"],
-        "benchmark_index":[".*benchmark_index$",".*benchmark$","^benchmark_index"],
+    "json_headers": {
+        "amc_name": [
+            "amc_name"
+        ],
+        "benchmark_index": [
+            ".*benchmark_index$",
+            ".*benchmark$",
+            "^benchmark_index"
+        ],
         "field_location": [],
-        "fund_manager": ["^fund_manager",".*fund_manager$"],
-        "load": ["^load",".*load_structure$"],
-        "main_scheme_name": ["main_scheme_name"],
-        "metrics":[".*key_statistics$","^metrics"],
-        "min_addl_amt": ["multiples_for_existing_investors",".*minimum_additional_purchase_amount$","^additional_purchase","^additional_purchase_amount","^additional_investment",".*additional$","multiples_for_existing_investors",".*additional_purchase$","^multiples_for_existing.*",".*additional_investment_amount$",".*minimum_additional_investment"],
-        "min_addl_multiple":[],
-        "min_amt":["multiples_for_new_investment",".*minimum_application_amount","^min_amt",".*minapplication$","^scheme_details.min_application","multiples_for_new_investment","minimum_investment",".*minimum_application$","^multiples_for_new.*",".*minimum_investment_amount$"],
-        "min_amt_multiple":[],
-        "monthly_aaum_date":["monthly_aaum_date"],
-        "monthly_aaum_value":["^aaum$f","^average_aum$","scheme_details.aum$",".*average_aum","^monthly_average_aum",".*monthly_average_aum$",".*monthly_average$",".*monthly_avg_aum$",".*aaum$",".*monthly_aaum$"],
-        "mutual_fund_name": ["mutual_fund_name"],
-        "scheme_launch_date":["inceptionallotment_date","^date_of_allotment$",".*date_of_allotment$",".*inception_date$"],
-        "page_number": ["^page_number","^page_numbers"]
+        "fund_manager": [
+            "^fund_manager",
+            ".*fund_manager$"
+        ],
+        "load": [
+            "^load",
+            ".*load_structure$"
+        ],
+        "main_scheme_name": [
+            "main_scheme_name"
+        ],
+        "metrics": [
+            ".*key_statistics$",
+            "^metrics"
+        ],
+        "min_addl_amt": [
+            "multiples_for_existing_investors",
+            ".*minimum_additional_purchase_amount$",
+            "^additional_purchase",
+            "^additional_purchase_amount",
+            "^additional_investment",
+            ".*additional$",
+            "multiples_for_existing_investors",
+            ".*additional_purchase$",
+            "^multiples_for_existing.*",
+            ".*additional_investment_amount$",
+            ".*minimum_additional_investment"
+        ],
+        "min_addl_multiple": [],
+        "min_amt": [
+            "multiples_for_new_investment",
+            ".*minimum_application_amount",
+            "^min_amt",
+            ".*minapplication$",
+            "^scheme_details.min_application",
+            "multiples_for_new_investment",
+            "minimum_investment",
+            ".*minimum_application$",
+            "^multiples_for_new.*",
+            ".*minimum_investment_amount$"
+        ],
+        "min_amt_multiple": [],
+        "monthly_aaum_date": [
+            "monthly_aaum_date"
+        ],
+        "monthly_aaum_value": [
+            "^aaum$f",
+            "^average_aum$",
+            "scheme_details.aum$",
+            ".*average_aum",
+            "^monthly_average_aum",
+            ".*monthly_average_aum$",
+            ".*monthly_average$",
+            ".*monthly_avg_aum$",
+            ".*aaum$",
+            ".*monthly_aaum$"
+        ],
+        "mutual_fund_name": [
+            "mutual_fund_name"
+        ],
+        "scheme_launch_date": [
+            "inceptionallotment_date",
+            "^date_of_allotment$",
+            ".*date_of_allotment$",
+            ".*inception_date$"
+        ],
+        "page_number": [
+            "^page_number",
+            "^page_numbers"
+        ]
     },
-    "add_json_headers":{
-        "amc_name":"",
-        "benchmark_index":"",
-        "fund_manager":[],
-        "load":{},
-        "main_scheme_name":"",
-        "metrics":{},
-        "min_amt":"",
-        "min_amt_multiple":"",
-        "min_addl_amt":"",
-        "min_addl_amt_multiple":"",
-        "monthly_aaum_date":"",
-        "monthly_aaum_value":"",
-        "mutual_fund_name":"",
-        "scheme_launch_date":"",
-        "page_number":[]
+    "add_json_headers": {
+        "amc_name": "",
+        "benchmark_index": "",
+        "fund_manager": [],
+        "load": {},
+        "main_scheme_name": "",
+        "metrics": {},
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "monthly_aaum_date": "",
+        "monthly_aaum_value": "",
+        "mutual_fund_name": "",
+        "scheme_launch_date": "",
+        "page_number": []
     },
     "stop_words": [
         "#Note:",
@@ -122,23 +251,40 @@
         "`",
         "(Date of Allotment)"
     ],
-    "metrics_headers":{
+    "metrics_headers": {
         "alpha": [],
         "avg_div_yld": [],
+        "avg_maturity": [
+            "^avg_maturity"
+        ],
         "avg_pb": [],
         "avg_pe": [],
-        "beta": [],
-        "macaulay": ["^macaulay_duration"],
-        "modified_duration": ["modified_duration"],
-        "ptr": ["^portfolio_turnover_ratio"],
-        "residual_maturity": ["^residual_maturity"],
-        "r_squared": [],
-        "sharpe": [],
+        "beta": ["^Portfolio Beta"],
+        "jenson":["^jenson"],
+        "macaulay": [
+            "^macaulay_duration"
+        ],
+        "modified_duration": [
+            "^modified_duration"
+        ],
+        "ptr": [
+            "^portfolio_turnover_ratio"
+        ],
+        "residual_maturity": [
+            "^residual_maturity"
+        ],
+        "r_squared": ["R Squared"],
+        "roe": [
+            "^roe"
+        ],
+        "sharpe": ["^Sharpe Ratio"],
         "sortino": [],
         "std_dev": [],
         "ter": [],
         "tracking_error": [],
-        "treynor": [],
-        "ytm": ["^annualised_portfolio_ytm"]
+        "treynor": ["^Treynor"],
+        "ytm": [
+            "^annualised_portfolio_ytm"
+        ]
     }
 }

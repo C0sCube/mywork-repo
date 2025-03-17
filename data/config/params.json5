@@ -2142,8 +2142,11 @@
       "^multiples_for.*$",
       "load",
       "page_number",
+      "portfolio_turnover_ratio"
     ],
-    MERGEKEYS: {},
+    MERGEKEYS: {
+      "metrics":["metrics","portfolio_turnover_ratio"],
+    },
     COMMENTS: [],
     IMP_DATA: {
       amc_name: "Tata Asset Management Private Limited",
