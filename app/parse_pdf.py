@@ -618,6 +618,10 @@ class Reader:
                 temp = mappend_data
             
             temp = self._merge_fund_data(temp)
+            
+            #new code
+            
+            
             temp = regex._populate_all_indices_in_json(temp)
             temp = regex.transform_keys(temp) #lowercase
             

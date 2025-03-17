@@ -449,13 +449,8 @@ class Edelweiss(Reader,GrandFundData):
             text = text.strip()
             if matches:= re.findall(self.REGEX[pattern], text, re.IGNORECASE):
                 for match in matches:
-                    name,exp,date = match
-                    final_list.append({
-                        "name":name,
-                        "designation":"",
-                        "managing_since": date,
-                        "experience": exp
-                    })
+                    name,exp,since = match
+                    final_list.append(self._return_manager_data(name=name,exp=exp,since=since))
                 
         return {main_key:final_list}
     
@@ -547,12 +542,7 @@ class Helios(Reader,GrandFundData):
         if matches:= re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
             for match in matches:
                 name,since,exp = match
-                final_list.append({
-                    "name": name.strip(),
-                    "designation":"",
-                    "managing_since": since.strip(),
-                    "experince": exp.strip()
-                })
+                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         
         return {main_key: final_list}
 
@@ -603,12 +593,7 @@ class ITI(Reader,GrandFundData):
         matches= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
         for match in matches:
             name,since,exp = match
-            final_list.append({
-                "name":name,
-                "designation":"",
-                "managing_since": since,
-                "experience": exp
-            })
+            final_list.append(self._return_manager_data(name=name,since=since))
                 
         return {main_key:final_list}
 
@@ -625,12 +610,7 @@ class Kotak(Reader,GrandFundData): #Lupsum issues
             text = re.sub(self.REGEX['escape'],'',text).strip()
             matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
             name = matches
-            final_list.append({
-                'name': " ".join(name),
-                "designation": '',
-                'managing_since': '',
-                'experience': ''
-            })
+            final_list.append(self._return_manager_data(name=" ".join(name)))
         
         return {main_key:final_list}
     
@@ -720,12 +700,7 @@ class MahindraManu(Reader,GrandFundData):
         matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
         for match in matches:
             name,exp,since = match
-            final_list.append({
-                "name":name.strip(),
-                "designation": "",
-                "experience": exp,
-                "managing_since": since
-            })
+            final_list.append(self._return_manager_data(name=name,exp=exp,since=since))
         return {main_key:final_list}
     
     def _extract_nav_data(self,main_key:str, data:list,pattern:str):
@@ -788,12 +763,7 @@ class MotilalOswal(Reader,GrandFundData): #Lupsum issues
         if matches:= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
             for match in matches:
                 name, since, exp = match
-                final_list.append({
-                    'name': name.strip(),
-                    "designation": '',
-                    'managing_since': since,
-                    'experience': exp
-                })
+                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         
         return {main_key:final_list}
     
@@ -825,12 +795,7 @@ class NAVI(Reader,GrandFundData): #Lupsum issues
             matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
             for match in matches:
                 name, since = match
-                final_list.append({
-                    'name': name.strip(),
-                    "designation": '',
-                    'managing_since': since,
-                    'experience': ""
-                })
+                final_list.append(self._return_manager_data(name=name,since=since))
         
         return {main_key:final_list}
 
@@ -847,13 +812,8 @@ class Nippon(Reader,GrandFundData):
         for idx in range(0,len(manager_data),2):
             df = " ".join(manager_data[idx:idx+2])
             if matches := re.findall(self.REGEX[pattern], df, re.IGNORECASE):
-                name, desig, managing,exp = matches[0]
-                final_list.append({
-                    'name':name,
-                    "designation":desig,
-                    "managing_since": managing,
-                    "experience": exp
-                })
+                name, desig, since,exp = matches[0]
+                final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
         return {main_key:final_list}
 
 #24
@@ -972,12 +932,7 @@ class Samco(Reader, GrandFundData):
             if matches := re.findall(self.REGEX[pattern], txt, re.IGNORECASE):
                 for match in matches:
                     name, desig, since, exp = match
-                    final_list.append({
-                        "name": name,
-                        "designation": desig,
-                        "managing_since": since,
-                        "experience": exp
-                    })
+                    final_list.append(self._return_manager_data(name=name,desig=desig,since=since, exp=exp))
         return {main_key: final_list}
 
 #31
@@ -1003,12 +958,7 @@ class Sundaram(Reader,GrandFundData): #Lupsum issues
         if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
             for match in matches:
                 name = match
-                final_list.append({
-                    "name":name.strip(),
-                    "designation": "",
-                    "managing_since": "",
-                    "experience": ""
-                })
+                final_list.append(self._return_manager_data(name=name))
         
         return {main_key:final_list} 
   
@@ -1026,12 +976,6 @@ class Tata(Reader,GrandFundData): #Lupsum issues
         if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
             for match in matches:
                 name,since,exp = match
-                # final_list.append({
-                #     "name":name.strip(),
-                #     "designation": "",
-                #     "managing_since": since.strip(),
-                #     "experience": exp.strip()
-                # })
                 final_list.append(self._return_manager_data(since = since,name = name,exp=exp))
         
         return {main_key:final_list} 
@@ -1050,12 +994,7 @@ class Taurus(Reader,GrandFundData): #Lupsum issues
         if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
             for match in matches:
                 name,since,exp = match
-                final_list.append({
-                    "name":name.strip(),
-                    "designation": "",
-                    "managing_since": since.strip(),
-                    "experience": exp.strip()
-                })
+                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         
         return {main_key:final_list}
 
@@ -1366,20 +1305,15 @@ class WhiteOak(Reader,GrandFundData):
         if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
             for match in matches:
                 name,desig,since,exp = match
-                final_list.append({
-                    "name":name,
-                    "designation": desig,
-                    "managing_since":since,
-                    "experience": exp
-                })
+                final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
         return {main_key:final_list}
 
 #40
 class Zerodha(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
-        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+        GrandFundData.__init__(self,fund_name)
+        Reader.__init__(self,paths_config, self.PARAMS)
         
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
@@ -1390,31 +1324,9 @@ class Zerodha(Reader,GrandFundData):
         if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
             for match in matches:
                 name,desig,since,exp = match
-                final_list.append({
-                    "name":name,
-                    "designation": desig,
-                    "managing_since":since,
-                    "experience": exp
-                })
+                final_list.append(self._return_manager_data(name=name,since=since,desig=desig,exp=exp))
         return {main_key:final_list}
     
-    #MAPPING FUNCTION
-    def match_regex_to_content(self, string: str, data: list, *args):
-        pattern_to_function = {
-            r"^investment.*": self.__extract_invest_data,
-            r"^scheme.*": self.__extract_scheme_data,
-            r"^(quant|metrics).*": self.__extract_metric_data,
-            r"^fund_manager$": self.__extract_manager_data,
-            r"^aum.*": self.__extract_aum_data,
-        }
-
-        for pattern, func in pattern_to_function.items():
-            if re.match(pattern, string, re.IGNORECASE):
-                return func(string, data)
-
-        return self.__return_all_data(string, data) 
-
-
 #41 Aditya Birla
 class AdityaBirla(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
