@@ -22,6 +22,7 @@ class FundRegex():
         self.STOP_WORDS = data.get("stop_words", [])
         self.JSON_HEADER = data.get("json_headers",{})
         self.POPULATE_ALL_INDICE = data.get("add_json_headers",[])
+        self.METRIC_HEADER = data.get("metrics_headers",{})
        
 
     @staticmethod
@@ -89,6 +90,13 @@ class FundRegex():
     
     def _map_json_keys_to_dict(self, text:str):
         for json_key, patterns in self.JSON_HEADER.items():
+            for pattern in patterns:
+                regex = re.compile(pattern) 
+                if regex.match(text):
+                    return json_key
+                
+    def _map_metric_keys_to_dict(self, text:str):
+        for json_key, patterns in self.METRIC_HEADER.items():
             for pattern in patterns:
                 regex = re.compile(pattern) 
                 if regex.match(text):

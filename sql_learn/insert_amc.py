@@ -1,4 +1,4 @@
-import mysql.connector
+import mysql.connector #type:ignore
 import json
 
 
@@ -57,7 +57,7 @@ for scheme_name, details in data.items():
 
     for manager in details.get("fund_manager", []):
         cursor.execute("""
-            INSERT INTO fund_managers (mutual_fund_id, manager_name, designation, managing_fund_since, total_exp)
+            INSERT INTO fund_managers (mutual_fund_id,main_scheme_name ,manager_name, designation, managing_fund_since, total_exp)
             VALUES (%s, %s, %s, %s, %s)""", 
             (mutual_fund_id, manager["name"], "", manager.get("managing_fund_since", ""), manager["total_exp"]))
 

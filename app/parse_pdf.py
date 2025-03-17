@@ -619,26 +619,50 @@ class Reader:
             
             temp = self._merge_fund_data(temp)
             
-            #new code
+            #flatten min/add data
             new_values = {}
-            for key in temp:
-                if key == "min_amt":
-                    amt = temp[key].get("amt","")
-                    thraftr = temp[key].get("thraftr","")
-                    new_values['min_amt'] = amt
-                    new_values['min_amt_multiple'] = thraftr
-                
-                if key == "min_addl_amt":
-                    amt = temp[key].get("amt","")
-                    thraftr = temp[key].get("thraftr","")
-                    new_values['min_addl_amt'] = amt
-                    new_values['min_addl_amt_multiple'] = thraftr
-            
+            for key in ["min_amt", "min_addl_amt"]:
+                if key in temp:
+                    new_values[key] = temp[key].get("amt", "")
+                    new_values[f"{key}_multiple"] = temp[key].get("thraftr", "")
             temp.update(new_values)
             
+            #populate and lowercase
             temp = regex._populate_all_indices_in_json(temp)
             temp = regex.transform_keys(temp) #lowercase
             
+            #regex load data
+            new_load = []
+            for load_key, load_value in temp['load'].items():
+
+                if re.match(r".*?entry.*", load_key, re.IGNORECASE):  
+                    new_key = "entry_load"
+                elif re.match(r".*?exit.*", load_key, re.IGNORECASE):
+                    new_key = "exit_load"
+                else:
+                    new_key = load_key
+                new_load.append(
+                    {
+                        "name":new_key,
+                        "value": load_value
+                    }
+                )
+
+            temp["load"] = new_load
+                
+            #metrics convert
+            new_metrics = []
+            for metric_key,metric_value in temp['metrics'].items():
+                new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
+                new_metrics.append(
+                    {
+                        "name":new_key,
+                        "value": metric_value
+                    }
+                )
+            temp["metrics"] = new_metrics       
+         
             finalData[fund] = dict(sorted(temp.items()))
+            
 
         return {fund: regex.flatten_dict(data) for fund, data in finalData.items()} if flat else finalData

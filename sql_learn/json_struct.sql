@@ -17,12 +17,17 @@ CREATE TABLE mutual_funds (
     monthly_aaum_date VARCHAR(50),
     monthly_aaum_value VARCHAR(50),
     scheme_launch_date VARCHAR(50),
+    min_addl_amt VARCHAR (50),
+    min_addl_amt_multiple VARCHAR (50),
+    min_amt VARCHAR (50),
+    min_amt_multiple VARCHAR (50),
     FOREIGN KEY (amc_id) REFERENCES amcs(id) ON DELETE CASCADE
 );
 
 
 CREATE TABLE fund_managers (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
     manager_name VARCHAR(255),
     qualification VARCHAR(255),
@@ -34,6 +39,7 @@ CREATE TABLE fund_managers (
 
 CREATE TABLE loads (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
     load_type VARCHAR(255),
     load_value TEXT,
@@ -43,6 +49,7 @@ CREATE TABLE loads (
 
 CREATE TABLE metrics (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    main_scheme_name VARCHAR(100),
     mutual_fund_id INT,
     name VARCHAR(255),
     value VARCHAR(50),

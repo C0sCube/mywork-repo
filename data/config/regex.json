@@ -123,6 +123,22 @@
         "(Date of Allotment)"
     ],
     "metrics_headers":{
-        
+        "alpha": [],
+        "avg_div_yld": [],
+        "avg_pb": [],
+        "avg_pe": [],
+        "beta": [],
+        "macaulay": ["^macaulay_duration"],
+        "modified_duration": ["modified_duration"],
+        "ptr": ["^portfolio_turnover_ratio"],
+        "residual_maturity": ["^residual_maturity"],
+        "r_squared": [],
+        "sharpe": [],
+        "sortino": [],
+        "std_dev": [],
+        "ter": [],
+        "tracking_error": [],
+        "treynor": [],
+        "ytm": ["^annualised_portfolio_ytm"]
     }
 }
