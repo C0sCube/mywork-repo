@@ -26,6 +26,7 @@ class GrandFundData:
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
         self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
         self.IMP_DATA = fund_config.get("IMP_DATA",{})
+        self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
         
     #extract 
     def _extract_dummy_data(self,key:str,data):
@@ -217,8 +218,6 @@ class GrandFundData:
 
         return data
 
-
-
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):
             return data
@@ -238,6 +237,12 @@ class GrandFundData:
             data[new_key] = combined_value  
 
         return data
+    
+    def _get_prev_text(self,key:str):
+        for pattern in self.PREV_KEY_DATA:
+            if re.match(pattern, key,re.IGNORECASE):
+                return True
+        return False
 
     def _select_by_regex(self, data:dict):
         finalData = {}

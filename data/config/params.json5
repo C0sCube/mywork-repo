@@ -1765,7 +1765,10 @@
         },
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
-        PRE_DATA_SELECT: [],
+        PRE_DATA_SELECT: [
+            ".*manager.*",
+            ".*load.*"
+        ],
     },
     "JM Financial Mutual Fund": {
         PARAMS: {
@@ -1854,7 +1857,12 @@
         },
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
-        PRE_DATA_SELECT: [],
+        PRE_DATA_SELECT: [
+            ".*manager.*",
+            ".*application.*",
+            ".*ratio.*",
+            ".*inception_date.*"
+        ],
     },
     "Kotak Mahindra Mutual Fund": {
         PARAMS: {

@@ -80,10 +80,10 @@
         "load": "^(entry_exit|load_structure$|entry__|load_structure_as_).*",
         "total_expense_ratio": "^(total_exp|weighted_average|month_end_ter).*",
         "portfolio_turnover_ratio": [
-            "portfolio_turnover",
-            "turn_over",
-            "turnover",
-            "portfolio_turnover_ratio"
+            "\\bportfolio_turnover\\b(?!\\d)",
+            "\\bturn_over\\b(?!\\d)",
+            "\\bturnover\\b(?!\\d)",
+            "\\bportfolio_turnover_ratio\\b(?!\\d)"
         ],
         "additional_investment": "^(additional_investment|minimum_additional_investment).*",
         "benchmark_index": "^(benchmark|amfi_tier_1_bench).*",

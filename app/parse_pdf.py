@@ -384,13 +384,15 @@ class Reader:
             extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean
-
-        #get text only for future reference
-        for page in data:
-            page_blocks = page['block']
+        nested_data = self.create_nested_dict(clean_data)
+        
+        for page in nested_data:
+            page_text = {}
+            page_blocks,fundname = page['block'],page['fundname']
             for key, content in page_blocks.items():
-                self.TEXT_ONLY[key] = [txt[1] for txt in content]
-        return self.create_nested_dict(clean_data)
+                page_text[key] = [txt[1] for txt in content]
+            self.TEXT_ONLY[fundname] = page_text
+        return nested_data
     
     #PROCESS
     @staticmethod
@@ -467,8 +469,7 @@ class Reader:
         b = c & 0xFF
         return (r/255.0, g/255.0, b/255.0)
     
-    @staticmethod
-    def _generate_pdf_from_data(data: dict, output_path: str) -> None:
+    def _generate_pdf_from_data(self,data: dict, output_path: str) -> None:
         with fitz.open() as doc:
             TITLE_FONT_SIZE = 24
             TITLE_POSITION = 72
@@ -551,14 +552,16 @@ class Reader:
 
             doc.save(output_path)
    
-    @staticmethod
-    def _extract_data_from_pdf(path: str):
+ 
+    def _extract_data_from_pdf(self,path: str,fund:str):
         with pdfplumber.open(path) as pdf:
             final_data = {}
 
             for page in pdf.pages:
                 content = page.extract_text().encode("ascii", "ignore").decode().split('\n')
-                key,val = content[0], content[1:]
+                key,val = content[0], content[1:] #str, list
+                if self._get_prev_text(key):
+                    val = self.TEXT_ONLY[fund][key]
                 final_data[key] = val #First text will he Header rest values
 
         return final_data
@@ -569,9 +572,9 @@ class Reader:
         for content in data:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
         
-            Reader._generate_pdf_from_data(blocks, output_path)
+            self._generate_pdf_from_data(blocks, output_path)
             print(f'\n---<<{fund}>>---at: {output_path}')
-            extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
+            extracted_text[fund] = self._extract_data_from_pdf(output_path, fund)
             self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text
     
