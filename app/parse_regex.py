@@ -106,17 +106,18 @@ class FundRegex():
         for key, value in self.POPULATE_ALL_INDICE.items():
             if key not in data:
                 data[key] = value
-        return data
+        return {k:data[k] for k in sorted(data)} #sorted
     
-    def _populate_all_metrics_in_json(self, data: list):
-        existing_keys = {item["name"] for item in data if isinstance(item, dict) and "name" in item}
-
+    def _populate_all_metrics_in_json(self, data: dict):
+        if not isinstance(data, dict):
+            raise TypeError(f"Expected dictionary, got {type(data)}")
+            return
+        
         for key in self.METRIC_HEADER:
-            if key not in existing_keys:
-                data.append({"name": key, "value": ""})
-
-        data.sort(key=lambda x: x["name"])
-        return data
+            if key not in data:
+                data[key] = ""
+                
+        return {k:data[k] for k in sorted(data)} #sorted
 
     
     def _dummy_block(self,fontz:str,colorz:str):

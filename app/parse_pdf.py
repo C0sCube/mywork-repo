@@ -27,6 +27,9 @@ class Reader:
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
         self.CSVPATH = os.path.join(self.BASEPATH, paths.get("csv", ""))
         
+        #other instance initialize
+        self.TEXT_ONLY = {}
+        
     #HIGHLIGHT            
     def check_and_highlight(self, path: str, count: int):
         output_path = path.replace(".pdf", "_hltd.pdf")
@@ -381,6 +384,12 @@ class Reader:
             extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean
+
+        #get text only for future reference
+        for page in data:
+            page_blocks = page['block']
+            for key, content in page_blocks.items():
+                self.TEXT_ONLY[key] = [txt[1] for txt in content]
         return self.create_nested_dict(clean_data)
     
     #PROCESS
@@ -578,7 +587,6 @@ class Reader:
                     content = regex.transform_keys(content) #lowercase all keys
                     if content:
                         content_dict.update(content)
-
             primary_refine[fund] = content_dict
         if flatten: #Flatten the dict if true
             primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}
@@ -632,35 +640,26 @@ class Reader:
             temp = regex.transform_keys(temp) #lowercase
             
             #regex load data
-            new_load = []
-            for load_key, load_value in temp['load'].items():
+            new_load = {"entry_load": "","exit_load": ""}
 
-                if re.match(r".*?entry.*", load_key, re.IGNORECASE):  
-                    new_key = "entry_load"
-                elif re.match(r".*?exit.*", load_key, re.IGNORECASE):
-                    new_key = "exit_load"
+            for load_key, load_value in temp.get("load", {}).items():
+                if re.search(r"entry", load_key, re.IGNORECASE):
+                    new_load["entry_load"] = load_value
+                elif re.search(r"exit", load_key, re.IGNORECASE):
+                    new_load["exit_load"] = load_value
                 else:
-                    new_key = load_key
-                new_load.append(
-                    {
-                        "name":new_key,
-                        "value": load_value
-                    }
-                )
+                    new_load[load_key] = load_value
 
             temp["load"] = new_load
+
                 
             #metrics convert
-            new_metrics = []
+            new_metrics = {}
             for metric_key,metric_value in temp['metrics'].items():
                 new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
-                new_metrics.append(
-                    {
-                        "name":new_key,
-                        "value": metric_value
-                    }
-                )
+                new_metrics[new_key] = metric_value
             temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
+
             
                  
          

@@ -31,13 +31,22 @@ class GrandFundData:
     def _extract_dummy_data(self,key:str,data):
         return {key:data}
     
+    def _extract_bench_data(self,main_key:str,data,pattern:str):
+        data = " ".join(data) if isinstance(data,list) else data
+        benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
+        matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
+        return {main_key:matches[0] if matches else ""}
+    
     def _extract_scheme_data(self,main_key:str,data:list, pattern:str):
         regex_ = self.REGEX[pattern] #list
         mention_start = regex_[:-1]
         mention_end = regex_[1:]
 
-        patterns = [r"(\b{start}\b)\s*(.+?)\s*(\b{end}\b|$)".format(start=start, end=end)
+        # patterns = [r"(\b{start}\b)\s*(.+?)\s*(\b{end}\b|$)".format(start=start, end=end)
+        #     for start, end in zip(mention_start, mention_end)]
+        patterns = [r"(\b{start}\b)\s*((?:(?!\b{end}\b).)*)\s*(\b{end}\b|$)".format(start=start, end=end)
             for start, end in zip(mention_start, mention_end)]
+
 
         final_dict = {}
         scheme_data = " ".join(data)
@@ -630,7 +639,7 @@ class ITI(Reader,GrandFundData):
         matches= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
         for match in matches:
             name,since,exp = match
-            final_list.append(self._return_manager_data(name=name,since=since))
+            final_list.append(self._return_manager_data(name=name,since=since, exp=exp))
                 
         return {main_key:final_list}
 

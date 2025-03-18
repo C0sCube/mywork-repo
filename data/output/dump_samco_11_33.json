@@ -22,23 +22,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "1.00If the investment is redeemed or switched out on or before 365 days from the date of allotment of units. No Exit Load will be charged if investment is redeemed or switched out after 365 days from the date of allotment of units. (With effect from October 03, 2024)"
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "1.00If the investment is redeemed or switched out on or before 365 days from the date of allotment of units. No Exit Load will be charged if investment is redeemed or switched out after 365 days from the date of allotment of units. (With effect from October 03, 2024)"
+        },
         "main_scheme_name": "samco active momentum fund",
-        "metrics": [
-            {
-                "name": "ptr",
-                "value": "5.47"
-            }
-        ],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "5.47",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5000",
@@ -74,23 +84,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "25 of the units allotted may be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load  1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of unit."
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "25 of the units allotted may be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load  1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of unit."
+        },
         "main_scheme_name": "samco dynamic asset allocation fund",
-        "metrics": [
-            {
-                "name": "ptr",
-                "value": "6.89"
-            }
-        ],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "6.89",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5000",
@@ -126,23 +146,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "10 of the units allotted may be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load  1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of unit."
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "10 of the units allotted may be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load  1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of unit."
+        },
         "main_scheme_name": "samco flexi cap fund",
-        "metrics": [
-            {
-                "name": "ptr",
-                "value": "2.06"
-            }
-        ],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "2.06",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5,000",
@@ -178,18 +208,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "10 of units can be redeemed without an exit load within 12 months of allotment. Any redemption in excess of such limit in the first 12 months will incur 1 exit load. No exit load, if redeemed or switched out after 12 months from the date of allotment of unit."
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "10 of units can be redeemed without an exit load within 12 months of allotment. Any redemption in excess of such limit in the first 12 months will incur 1 exit load. No exit load, if redeemed or switched out after 12 months from the date of allotment of unit."
+        },
         "main_scheme_name": "samco multi cap fund",
-        "metrics": [],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5,000",
@@ -225,18 +270,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "1.00If the investment is redeemed or switched out on or before 365 days from the date of allotment of units. No Exit Load will be charged if investment is redeemed or switched out after 365 days from the date of allotment of units. (With effect from October 03, 2024)"
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "1.00If the investment is redeemed or switched out on or before 365 days from the date of allotment of units. No Exit Load will be charged if investment is redeemed or switched out after 365 days from the date of allotment of units. (With effect from October 03, 2024)"
+        },
         "main_scheme_name": "samco special opportunities fund",
-        "metrics": [],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5000",
@@ -266,23 +326,33 @@
                 "total_exp": "20 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "NIL"
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "NIL"
+        },
         "main_scheme_name": "samco elss tax saver fund",
-        "metrics": [
-            {
-                "name": "ptr",
-                "value": "1.77"
-            }
-        ],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "1.77",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "500",
         "min_amt": "500",
@@ -318,35 +388,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "10 of units can be redeemed without an exit load within 12 months of allotment. Any redemption in excess of such limit in the first 12 months will incur 1 exit load. No exit load, if redeemed or switched out after 12 months from the date of allotment of unit."
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "10 of units can be redeemed without an exit load within 12 months of allotment. Any redemption in excess of such limit in the first 12 months will incur 1 exit load. No exit load, if redeemed or switched out after 12 months from the date of allotment of unit."
+        },
         "main_scheme_name": "samco multi asset allocation fund",
-        "metrics": [
-            {
-                "name": "ytm",
-                "value": "6.19"
-            },
-            {
-                "name": "macaulay",
-                "value": "0.36"
-            },
-            {
-                "name": "residual_maturity",
-                "value": "0.37"
-            },
-            {
-                "name": "modified_duration",
-                "value": "0.35"
-            }
-        ],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "0.36",
+            "modified_duration": "0.35",
+            "ptr": "",
+            "r_squared": "",
+            "residual_maturity": "0.37",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": "6.19"
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5,000",
@@ -376,35 +444,33 @@
                 "total_exp": "20 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "NIL"
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "NIL"
+        },
         "main_scheme_name": "samco overnight fund",
-        "metrics": [
-            {
-                "name": "ytm",
-                "value": "5.75"
-            },
-            {
-                "name": "macaulay",
-                "value": "1"
-            },
-            {
-                "name": "residual_maturity",
-                "value": "1"
-            },
-            {
-                "name": "modified_duration",
-                "value": "1"
-            }
-        ],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "1",
+            "modified_duration": "1",
+            "ptr": "",
+            "r_squared": "",
+            "residual_maturity": "1",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": "5.75"
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5,000",
@@ -440,18 +506,33 @@
                 "total_exp": "6 Years"
             }
         ],
-        "load": [
-            {
-                "name": "entry_load",
-                "value": "NIL"
-            },
-            {
-                "name": "exit_load",
-                "value": "0.25 If the investment is redeemed or switched out on or before 7 days from the date of allotment of units No Exit Load will be charged if investment is redeemed or switched out after 7 days from the date of allotment of units."
-            }
-        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "0.25 If the investment is redeemed or switched out on or before 7 days from the date of allotment of units No Exit Load will be charged if investment is redeemed or switched out after 7 days from the date of allotment of units."
+        },
         "main_scheme_name": "samco arbitrage fund",
-        "metrics": [],
+        "metrics": {
+            "alpha": "",
+            "avg_div_yld": "",
+            "avg_maturity": "",
+            "avg_pb": "",
+            "avg_pe": "",
+            "beta": "",
+            "jenson": "",
+            "macaulay": "",
+            "modified_duration": "",
+            "ptr": "",
+            "r_squared": "",
+            "residual_maturity": "",
+            "roe": "",
+            "sharpe": "",
+            "sortino": "",
+            "std_dev": "",
+            "ter": "",
+            "tracking_error": "",
+            "treynor": "",
+            "ytm": ""
+        },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
         "min_amt": "5000",

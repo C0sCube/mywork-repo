@@ -255,20 +255,25 @@
         "alpha": [],
         "avg_div_yld": [],
         "avg_maturity": [
-            "^avg_maturity"
+            "^avg_maturity",
+            "Average_maturity",
+            "Average maturity"
         ],
-        "avg_pb": [],
-        "avg_pe": [],
-        "beta": ["^Portfolio Beta"],
+        "avg_pb": [".*_pb"],
+        "avg_pe": [".*_pe"],
+        "beta": ["^Portfolio Beta","^beta"],
         "jenson":["^jenson"],
         "macaulay": [
-            "^macaulay_duration"
+            "^macaulay_duration",
+            "^macaulay.*"
         ],
         "modified_duration": [
-            "^modified_duration"
+            "^modified_duration",
+            "^modified.*"
         ],
         "ptr": [
-            "^portfolio_turnover_ratio"
+            "^portfolio_turnover_ratio",
+            "Portfolio Turnover Ratio"
         ],
         "residual_maturity": [
             "^residual_maturity"
@@ -277,9 +282,9 @@
         "roe": [
             "^roe"
         ],
-        "sharpe": ["^Sharpe Ratio"],
+        "sharpe": ["^Sharpe Ratio","^Sharpe.*"],
         "sortino": [],
-        "std_dev": [],
+        "std_dev": ["Standard Deviation",".*deviation"],
         "ter": [],
         "tracking_error": [],
         "treynor": ["^Treynor"],
