@@ -882,6 +882,7 @@
                 ],
                 color: [
                     -16298334,
+                    -16560478
                 ],
                 countmax_header_check: 15,
             },
@@ -902,6 +903,7 @@
                 color: [
                     -16298334,
                     -6204255,
+                    -16560478
                 ],
                 update_size: 30.0,
                 font: [
@@ -1671,6 +1673,7 @@
                     -1688818,
                     -1165277,
                     -1689074,
+                    -1097437
                 ],
                 update_size: 30.0,
                 font: [
@@ -3297,7 +3300,7 @@
                 ],
                 update_size: 30.0,
                 font: [
-                    "Swiss721BT-BoldCondensed",
+                    "Swiss721BT-BoldCondensed","DMSans-Bold",
                 ],
             },
             content_size: [
