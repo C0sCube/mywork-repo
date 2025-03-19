@@ -84,34 +84,10 @@ class Reader:
     
     #EXTRACT
     
-    def _create_data_entry(self,*args):
+    def _create_data_entry(self,*args)->dict:
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
-    # def extract_clipped_data(self,input:str, pages:list, title:dict, *args):
-        
-    #     with fitz.open(input) as doc:
-    #         finalData = []
-    #         bboxes = self.PARAMS['clip_bbox'] if not args else args[0] #bbox provided externally
-    #         for pgn in pages:
-    #             page, fundName,all_blocks = doc[pgn],title[pgn],[]
-    #             for bbox in bboxes:
-    #                 blocks, seen_blocks = [], set()# unique
-    #                 page_blocks = page.get_text('dict', clip=bbox)['blocks']
-    #                 for block in page_blocks:
-    #                     if block['type'] == 0 and 'lines' in block: #type 0 text
-    #                         #hash_key
-    #                         block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
-    #                         if block_key not in seen_blocks:
-    #                             seen_blocks.add(block_key)
-    #                             blocks.append(block)
-
-    #                 sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
-    #                 all_blocks.extend(sorted_blocks)
-                    
-    #             finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
-    #     return finalData
-    
-    def extract_clipped_data(self, input: str, pages: list, title: dict, *args):
+    def extract_clipped_data(self, input: str, pages: list, title: dict, *args)->list:
         
         with fitz.open(input) as doc:
             finalData = []
@@ -154,7 +130,7 @@ class Reader:
 
         return finalData
 
-    def extract_data_relative_line(self, input: str, pages: list, title: dict):
+    def extract_data_relative_line(self, input: str, pages: list, title: dict)->list:
     
         with fitz.open(input) as doc:
             finalData = []
@@ -207,7 +183,7 @@ class Reader:
                     fund_seen[fundName] = new_entry
         return finalData
 
-    def extract_pdf_data(self,input:str, pages:list, titles:dict):
+    def extract_pdf_data(self,input:str, pages:list, titles:dict)->list:
         with fitz.open(input) as doc:
             finalData = []
             for pgn in pages:
@@ -221,7 +197,7 @@ class Reader:
                 
         return finalData
 
-    def extract_span_data(self, data: list,*args):  # all
+    def extract_span_data(self, data: list,*args)->list:  # all
         finalData = []
         for page in data:
             seen_entries = set()
@@ -238,7 +214,7 @@ class Reader:
         return finalData
 
     #CLEAN 
-    def process_text_data(self, data: list):
+    def process_text_data(self, data: list)->list:
         
         stop_words,finalData = FundRegex().STOP_WORDS,[]
         #checkers
@@ -310,25 +286,10 @@ class Reader:
             
             flatten_blocks = [block for group in grand_combined_blocks for block in group]
             finalData.append(self._create_data_entry(pgn,fundName,flatten_blocks))
-            # grouped_blocks = defaultdict(list) # Group blocks by rounded y-coordinate
-            # for block in processed_blocks:
-            #     y_coord = math.ceil(block[3][1])
-            #     size = block[0]
-            #     grouped_blocks[(y_coord, size)].append(block)
 
-            # combined_blocks = [] # Combine blocks with the same y-coordinate
-            # for key, group in grouped_blocks.items():
-            #     if key[1] == font_change:
-            #         if combined_text:= " ".join(item[1] for item in group).strip(): # Ignore whitespace-only text
-            #             size,_ ,color, origin, bbox,font = group[0]
-            #             combined_blocks.append([size, combined_text, color, origin, bbox,font])
-            #     else:
-            #         for item in group:
-            #             combined_blocks.append(item)
-            # finalData.append(self._create_data_entry(pgn,fundName,combined_blocks))
         return finalData
 
-    def create_nested_dict(self,data: list,*args):
+    def create_nested_dict(self,data: list,*args)->list:
 
             header_size, content_size = self.PARAMS['content_size']
             finalData = []
@@ -570,7 +531,7 @@ class Reader:
         return final_data
 
     def get_generated_content(self, data:list):
-        extracted_text,unextracted_text  = {}, {}
+        extracted_text= {}
         output_path  = self.DRYPATH
         for content in data:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
@@ -582,6 +543,16 @@ class Reader:
         return extracted_text
     
     #REFINE
+    
+    def _get_unique_key(self,base_key:str, data:dict):
+        phonetic_codes = ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]
+
+        for suffix in phonetic_codes:
+            new_key = f"{base_key}_{suffix}"
+            if new_key not in data:
+                return new_key
+        return "exhaust"
+    
     def refine_extracted_data(self, extracted_text: dict,flatten = False):
         primary_refine = {}
         regex = FundRegex() 
@@ -591,8 +562,17 @@ class Reader:
                 if clean_head:=  regex.header_mapper(head):
                     content = self._match_regex_to_content(clean_head, content) # applies regex to clean data
                     content = regex.transform_keys(content) #lowercase all keys
-                    if content:
-                        content_dict.update(content)
+                    # if content:
+                    #     content_dict.update(content)
+                        
+                    if clean_head in content_dict:
+                        unique_key = self._get_unique_key(clean_head, content_dict)
+                        key, value = next(iter(content.items()))
+                        content_dict[unique_key] = value
+                    else:
+                        key, value = next(iter(content.items()))
+                        content_dict[clean_head] = value
+                        
             primary_refine[fund] = content_dict
         if flatten: #Flatten the dict if true
             primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}

@@ -62,8 +62,8 @@ class GrandFundData:
                         unique_set.add(key)
         return {main_key:final_dict}
     
-    def _extract_str_data(self, key: str, data: list):
-        return {key: ' '.join(data)}
+    def _extract_str_data(self, main_key: str, data: list):
+        return {main_key: ' '.join(data)}
     
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         final_dict = {}
