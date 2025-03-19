@@ -248,6 +248,9 @@ class Reader:
         color_checker = data_cond['color']
         font_change = data_cond['update_size']
         
+        amc_stop_words = self.PARAMS['stop_words']
+        
+        combined_stop_words = set(stop_words) | set(amc_stop_words)
         
         for content in data:
             pgn,fundName,blocks = content['page'],content['fundname'],content['block']
@@ -255,7 +258,7 @@ class Reader:
             cleaned_blocks = [] # Clean blocks
             for block in blocks:
                 size, text, *_ = block
-                if text not in stop_words:
+                if text.lower() not in combined_stop_words:
                     cleaned_blocks.append(block)
 
             processed_blocks = [] # Process blocks (adjust size based on conditions)
@@ -628,6 +631,7 @@ class Reader:
                     mappend_data[new_key] = value
                 temp = mappend_data
             
+            
             temp = self._merge_fund_data(temp)
             
             #flatten min/add data
@@ -643,7 +647,7 @@ class Reader:
             temp = regex.transform_keys(temp) #lowercase
             
             #regex load data
-            new_load = {"entry_load": "","exit_load": ""}
+            new_load = {"entry_load": None,"exit_load": None}
 
             for load_key, load_value in temp.get("load", {}).items():
                 if re.search(r"entry", load_key, re.IGNORECASE):

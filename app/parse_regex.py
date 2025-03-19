@@ -113,9 +113,13 @@ class FundRegex():
             raise TypeError(f"Expected dictionary, got {type(data)}")
             return
         
+        for key, value in data.items():
+            if isinstance(value, str) and value.strip().lower() == "na":
+                data[key] = None
+        
         for key in self.METRIC_HEADER:
             if key not in data:
-                data[key] = ""
+                data[key] = None
                 
         return {k:data[k] for k in sorted(data)} #sorted
 

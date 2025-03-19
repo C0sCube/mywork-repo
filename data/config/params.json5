@@ -44,6 +44,14 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 0,
+            stop_words:[
+                "equity",
+                "debt",
+                "ytm",
+                "vaidyanathan",
+                "saravanaraj",
+                "mr_manumaharaj"
+            ]
         },
         REGEX: {
             manager: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s]+)has.*?([0-9\\.]+ years)",
@@ -68,7 +76,7 @@
                 "Portfolio Turnover",
                 "EOL",
             ],
-            metrics: "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson|Residual Maturity|Macaulay Duration|Annualised Portfolio)\\s+([\\d,\\-]+\\.?\\d+|NA)\\s+([\\d,\\-]+\\.?\\d+|NA)",
+            metrics: "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Macaulay Duration|Annualised Portfolio)\\s+([\\d,\\-]+\\.?\\d+|NA)\\s+([\\d,\\-]+\\.?\\d+|NA)",
             escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
         },
         PATTERN_TO_FUNCTION: {
@@ -92,7 +100,7 @@
                 "_extract_generic_data",
                 "ter",
             ],
-            "^(fund_mana|co_fund|saravanaraj).*": [
+            "^(fund_mana|co_fund).*": [
                 "_extract_manager_data",
                 "manager",
             ],
@@ -107,10 +115,11 @@
                 "metrics",
             ],
         },
+        TERTIARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: [
             ".*(entry_load|exit_load)",
             ".*(date_of_allotment|benchmark_index)$",
-            "^fund_manager",
+            "^(fund|co_fund)_manager",
             "metrics",
             "aum.monthly_average_aum",
             "main_scheme_name",
@@ -125,10 +134,10 @@
                 "scheme_details.entry_load",
                 "scheme_details.exit_load",
             ],
-            fund_manager: [
-                "fund_manager",
-                "co_fund_manager",
-            ],
+            // fund_manager: [
+            //     "fund_manager",
+            //     "co_fund_manager",
+            // ],
         },
         COMMENTS: [
             "No issues as of now.",
@@ -139,7 +148,6 @@
             page_number: [],
             monthly_aaum_date: "",
         },
-        TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
     },
@@ -201,6 +209,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[],
         },
         REGEX: {
             aum: "(.*AUM).*?\\s*([\\d,.]+) crores",
@@ -247,7 +256,13 @@
             "^(application_amount|minimum_investment).*",
             "^(fund_manager|managing_fund|experience_in).*",
         ],
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            "fund_manager":[
+                "fund_manager",
+                "experience_in_managing_the_fund",
+                "managing_fund_since"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Aditya Birla Sun Life AMC Limited",
@@ -256,8 +271,10 @@
             monthly_aaum_date: "",
         },
         TERTIARY_PATTERN_TO_FUNCTION: {},
-        COMBINEKEYS: {},
+        COMBINEKEYS: {
+        },
         PRE_DATA_SELECT: [],
+        
     },
     "Axis Mutual Fund": {
         PARAMS: {
@@ -283,6 +300,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Bajaj finserv Mutual Fund": {
         PARAMS: {
@@ -406,6 +424,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Bandhan Mutual Fund": {
         PARAMS: {
@@ -413,7 +432,7 @@
                 flag: [
                     20,
                 ],
-                regex: "^Bandhan.*(Fund|Funds|Plan|ETF)$",
+                regex: "^Bandhan.*(Fund|Funds|Plan|ETF|FOF|FTF)$",
                 size: [
                     13,
                     24,
@@ -435,10 +454,11 @@
             data: {
                 size: [
                     6,
-                    8,
+                    9,
                 ],
                 color: [
                     -14475488,
+                    -1
                 ],
                 update_size: 30.0,
                 font: [
@@ -452,15 +472,16 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[],
         },
         REGEX: {
             ter: "(Regular|Direct)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
             min_amt: "([\\d,]+).*?(\\d+|any)\\s*(?:amount|thereafter)?",
             manager: "(?:Mr\\.|Ms\\.|Mrs\\.)?\\s*([A-Za-z\\s]+?)\\s*(?:\\(\\w+\\))?\\s*\\(w\\.e\\.f\\.\\s([\\d\\w\\s,]+)\\)",
             nav: "(Regular Plan Growth|Regular Plan IDCW|Direct Plan Growth|Direct Plan IDCW)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
-            metric: "(Beta|R Squared|Standard Deviation|Sharpe\\*|Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
+            metric: "(Beta|R Squared|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
             ptr: "(Equity|Aggregate|Tracking Error.*)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
-            escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-]+|\\bAnnualized\\b",
+            escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-]+|\\(Annualized\\)",
         },
         PATTERN_TO_FUNCTION: {
             "^(category|scheme_launch|benchmark|month|about|investment|sip|option|exit_load|inception_date).*": [
@@ -497,6 +518,7 @@
             "mutual_fund_name",
             "amc_name",
             "exit_load",
+            "^portfolio_turn"
         ],
         SECONDARY_PATTERN_TO_FUNCTION: {
             "^minimum_investment": [
@@ -512,6 +534,10 @@
             load: [
                 "exit_load",
             ],
+            metrics:[
+                "metrics",
+                "portfolio_turnover_ratio.aggregate"
+            ]
         },
         COMMENTS: [
             "Better ,Regex for Fund Manager",
@@ -525,6 +551,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Bank of India Mutual Fund": {
         PARAMS: {
@@ -630,6 +657,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Baroda BNP Paribas Mutual Fund": {
         PARAMS: {
@@ -740,6 +768,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Canara Robeco Mutual Fund": {
         PARAMS: {
@@ -846,6 +875,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "DSP Mutual Fund": {
         PARAMS: {
@@ -868,6 +898,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Edelweiss Mutual Fund": {
         PARAMS: {
@@ -882,7 +913,7 @@
                 ],
                 color: [
                     -16298334,
-                    -16560478
+                    -16560478,
                 ],
                 countmax_header_check: 15,
             },
@@ -903,7 +934,7 @@
                 color: [
                     -16298334,
                     -6204255,
-                    -16560478
+                    -16560478,
                 ],
                 update_size: 30.0,
                 font: [
@@ -917,6 +948,7 @@
             method: "line",
             line_side: "right",
             max_financial_index_highlight: 0,
+            stop_words:[],
         },
         REGEX: {
             nav: "(.+?)\\s*(\\d+\\.\\d+)",
@@ -992,6 +1024,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Franklin Templeton Mutual Fund": {
         PARAMS: {
@@ -1039,6 +1072,9 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[
+
+            ]
         },
         REGEX: {
             nav: "(Growth Plan|IDCW Plan|Direct Growth Plan|Direct IDCW Plan)\\s*([\\d\\-,]+\\.\\d+)",
@@ -1114,6 +1150,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Groww Mutual Fund": {
         PARAMS: {
@@ -1234,6 +1271,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "HDFC Mutual Fund": {
         PARAMS: {
@@ -1342,6 +1380,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Helios Mutual Fund": {
         PARAMS: {
@@ -1389,6 +1428,7 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
         REGEX: {
             nav: "(Regular Plan\\s?-\\s?Growth Option|Regular Plan\\s?-\\s?IDCW Option|Direct Plan\\s?-\\s?Growth Option|Direct Plan\\s?-\\s?IDCW Option)\\s*([\\d,\\-]+(?:\\.\\d+)?|NA|Nil)",
@@ -1434,7 +1474,7 @@
                 "_extract_scheme_data",
                 "scheme",
             ],
-            "^portfolio_turnover_ratio.*": [
+            "^portfolio_turnover.*": [
                 "_extract_generic_data",
                 "ptr",
             ],
@@ -1456,6 +1496,7 @@
         SELECTKEYS: [
             ".*(benchmark|inception_date|fund_manager)$",
             ".*(investment_amount)$",
+            "^portfolio_turnover.*",
             ".*(entry_load|exit_load)$",
             "main_scheme_name",
             "monthly_aaum_date",
@@ -1471,8 +1512,12 @@
                 "portfolio.entry_load",
                 "portfolio.exit_load",
             ],
+            metrics:[
+                "metrics",
+                "portfolio_turnover_times.total_turnover",
+            ]
         },
-        COMMENTS: [],
+        COMMENTS: ["ptr take total turn"],
         IMP_DATA: {
             amc_name: "Helios Capital Asset Management (India) Private Limited",
             mutual_fund_name: "Helios Mutual Fund",
@@ -1482,6 +1527,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "HSBC Mutual Fund": {
         PARAMS: {
@@ -1504,6 +1550,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "ICICI Prudential Mutual Fund": {
         PARAMS: {
@@ -1526,6 +1573,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Invesco Mutual Fund": {
         PARAMS: {
@@ -1637,6 +1685,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "ITI Mutual Fund": {
         PARAMS: {
@@ -1673,7 +1722,7 @@
                     -1688818,
                     -1165277,
                     -1689074,
-                    -1097437
+                    -1097437,
                 ],
                 update_size: 30.0,
                 font: [
@@ -1687,6 +1736,9 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[
+
+            ]
         },
         REGEX: {
             aum: "(AUM|AAUM).*?([\\d,\\-]+\\.?\\d+)",
@@ -1770,8 +1822,9 @@
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [
             ".*manager.*",
-            ".*load.*"
+            ".*load.*",
         ],
+        
     },
     "JM Financial Mutual Fund": {
         PARAMS: {
@@ -1864,8 +1917,9 @@
             ".*manager.*",
             ".*application.*",
             ".*ratio.*",
-            ".*inception_date.*"
+            ".*inception_date.*",
         ],
+        
     },
     "Kotak Mahindra Mutual Fund": {
         PARAMS: {
@@ -1965,6 +2019,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "LIC Mutual Fund": {
         PARAMS: {
@@ -2075,6 +2130,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Mahindra Manulife Mutual Fund": {
         PARAMS: {
@@ -2214,6 +2270,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Mirae Asset Mutual Fund": {
         PARAMS: {
@@ -2311,6 +2368,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Motilal Oswal Mutual Fund": {
         PARAMS: {
@@ -2411,6 +2469,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Navi Mutual Fund": {
         PARAMS: {
@@ -2526,6 +2585,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Nippon India Mutual Fund": {
         PARAMS: {
@@ -2633,6 +2693,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "NJ Mutual Fund": {
         PARAMS: {
@@ -2655,6 +2716,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Old Bridge Mutual Fund": {
         PARAMS: {
@@ -2727,6 +2789,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "PGIM India Mutual Fund": {
         PARAMS: {
@@ -2749,6 +2812,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "PPFAS Mutual Fund": {
         PARAMS: {
@@ -2771,6 +2835,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Quant Mutual Fund": {
         PARAMS: {
@@ -2793,6 +2858,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Quantum Mutual Fund": {
         PARAMS: {
@@ -2937,6 +3003,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Samco Mutual Fund": {
         PARAMS: {
@@ -2985,6 +3052,9 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[
+
+            ]
         },
         REGEX: {
             aum: "(AUM|Average AUM).*?([\\d,]+\\.\\d{2})",
@@ -3065,6 +3135,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "SBI Mutual Fund": {
         PARAMS: {
@@ -3127,6 +3198,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Shriram Mutual Fund": {
         PARAMS: {
@@ -3149,6 +3221,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Sundaram Mutual Fund": {
         PARAMS: {
@@ -3261,6 +3334,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Tata Mutual Fund": {
         PARAMS: {
@@ -3300,7 +3374,8 @@
                 ],
                 update_size: 30.0,
                 font: [
-                    "Swiss721BT-BoldCondensed","DMSans-Bold",
+                    "Swiss721BT-BoldCondensed",
+                    "DMSans-Bold",
                 ],
             },
             content_size: [
@@ -3310,16 +3385,19 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[
+
+            ]
         },
         REGEX: {
             nav: "((?:Regular|Direct|Reg)\\s*(?:Growth|IDCW))\\s*([\\d,.]+)",
             decimal: "([\\d,]+\\.\\d+)",
             ter: "(Regular|Direct)\\s*([\\d,.]+)",
-            metric: "(Std. Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson)\\s+([\\d.\\-]+|NA)\\s+([\\d.\\-]+|NA)",
+            metric: "(Std. Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor)\\s+([\\d.\\-]+|NA)\\s+([\\d.\\-]+|NA)",
             manager: "([A-Za-z\\s]+)\\s*\\(Managing Since\\s*([A-Za-z0-9\\s\\-]+) and overall experience of ([a-z0-9\\s]+)\\)",
             load: "Entry Load\\s*(.*?)Exit Load\\s*(.*?)$",
             min_amt: "([\\d,]+).*?([\\d,]+)",
-            escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+            escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)",
         },
         PATTERN_TO_FUNCTION: {
             "^(date|investment_objective|multiples|benchmark|scheme_launch).*": [
@@ -3382,6 +3460,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Taurus Mutual Fund": {
         PARAMS: {
@@ -3479,6 +3558,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Trust Mutual Fund": {
         PARAMS: {
@@ -3501,6 +3581,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "UTI Mutual Fund": {
         PARAMS: {
@@ -3523,6 +3604,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Union Mutual Fund": {
         PARAMS: {
@@ -3545,6 +3627,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "WhiteOak Mutual Fund": {
         PARAMS: {
@@ -3647,6 +3730,7 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
     "Zerodha Mutual Fund": {
         PARAMS: {
@@ -3725,5 +3809,6 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
+        
     },
 }

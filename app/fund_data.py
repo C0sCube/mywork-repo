@@ -209,15 +209,14 @@ class GrandFundData:
                             merged_value.update(data[key])  # Merge dict normally
                         else:
                             merged_value[key] = data[key]  # Store string under its key
-
-            # Remove original keys and insert merged value
+            
             for key in keys_to_merge:
                 data.pop(key, None)
             if merged_value:
                 data[new_key] = merged_value  
 
         return data
-
+    
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):
             return data

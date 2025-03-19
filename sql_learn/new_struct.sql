@@ -1,5 +1,5 @@
-CREATE DATABASE new_db;
-USE new_db;
+CREATE DATABASE updated_db;
+USE updated_db;
 
 -- amc table
 CREATE TABLE amcs (
@@ -12,6 +12,8 @@ CREATE TABLE mutual_funds (
     id INT AUTO_INCREMENT PRIMARY KEY,
     amc_id INT,
     amc_name VARCHAR(255),
+    entered_time VARCHAR(40),
+    amc_for_month VARCHAR(40),
     benchmark_index VARCHAR(255),
     main_scheme_name VARCHAR(255),
     mutual_fund_name VARCHAR(255),
@@ -55,25 +57,26 @@ CREATE TABLE transformed_metrics (
     amc_id INT,
     mutual_fund_id INT,
     main_scheme_name VARCHAR(100),
-    alpha VARCHAR(40),  
-    avg_div_yld VARCHAR(40),  
-    avg_maturity VARCHAR(40),  
-    avg_pb VARCHAR(40),  
-    avg_pe VARCHAR(40),  
-    beta VARCHAR(40),
-    jenson VARCHAR(40),    
-    macaulay_duration VARCHAR(40),  
-    modified_duration VARCHAR(40),  
-    ptr VARCHAR(40),  
-    residual_maturity VARCHAR(40),  
-    r_squared VARCHAR(40),  
-    roe VARCHAR(40),  
-    sharpe VARCHAR(40),  
-    sortino VARCHAR(40),  
-    std_dev VARCHAR(40),  
-    ter VARCHAR(40),  
-    tracking_error VARCHAR(40),  
-    treynor VARCHAR(40),  
-    ytm VARCHAR(40),
+	alpha VARCHAR(40),  
+	arithmetic_mean_ratio VARCHAR(40),  
+	average_div_yld VARCHAR(40),  
+	average_pb VARCHAR(40),  
+	average_pe VARCHAR(40),  
+	avg_maturity VARCHAR(40),  
+	beta VARCHAR(40),  
+	correlation_ratio VARCHAR(40),  
+	downside_deviation VARCHAR(40),  
+	information_ratio VARCHAR(40),  
+	macaulay VARCHAR(40),  
+	mod_duration VARCHAR(40),  
+	port_turnover_ratio VARCHAR(40),  
+	r_squared_ratio VARCHAR(40),  
+	roe_ratio VARCHAR(40),  
+	sharpe VARCHAR(40),  
+	sortino_ratio VARCHAR(40),  
+	std_dev VARCHAR(40),  
+	treynor_ratio VARCHAR(40),  
+	upside_deviation VARCHAR(40),  
+	ytm VARCHAR(40),
     FOREIGN KEY (mutual_fund_id) REFERENCES mutual_funds(id) ON DELETE CASCADE
 );

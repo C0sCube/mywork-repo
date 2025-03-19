@@ -134,7 +134,8 @@
             ".*additional_purchase$",
             "^multiples_for_existing.*",
             ".*additional_investment_amount$",
-            ".*minimum_additional_investment"
+            ".*minimum_additional_investment",
+            "application_amount.*"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -180,20 +181,20 @@
         ]
     },
     "add_json_headers": {
-        "amc_name": "",
-        "benchmark_index": "",
+        "amc_name": null,
+        "benchmark_index": null,
         "fund_manager": [],
         "load": {},
-        "main_scheme_name": "",
+        "main_scheme_name": null,
         "metrics": {},
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "min_addl_amt": "",
-        "min_addl_amt_multiple": "",
-        "monthly_aaum_date": "",
-        "monthly_aaum_value": "",
-        "mutual_fund_name": "",
-        "scheme_launch_date": "",
+        "min_amt": null,
+        "min_amt_multiple": null,
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "monthly_aaum_date": null,
+        "monthly_aaum_value": null,
+        "mutual_fund_name": null,
+        "scheme_launch_date": null,
         "page_number": []
     },
     "stop_words": [
@@ -253,43 +254,47 @@
     ],
     "metrics_headers": {
         "alpha": [],
-        "avg_div_yld": [],
+        "arithmetic_mean_ratio": [],
+        "average_div_yld": [],
+        "average_pb": [".*_pb"],
+        "average_pe": [".*_pe"],
         "avg_maturity": [
             "^avg_maturity",
             "Average_maturity",
-            "Average maturity"
+            "Average maturity",
+            "^average_maturity"
         ],
-        "avg_pb": [".*_pb"],
-        "avg_pe": [".*_pe"],
-        "beta": ["^Portfolio Beta","^beta"],
-        "jenson":["^jenson"],
+        "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta"],
+        "correlation_ratio": [],
+        "downside_deviation": [],
+        "information_ratio": [],
         "macaulay": [
             "^macaulay_duration",
             "^macaulay.*"
         ],
-        "modified_duration": [
+        "mod_duration": [
             "^modified_duration",
-            "^modified.*"
+            "^modified.*",
+            "^modied_duration"
         ],
-        "ptr": [
+        "port_turnover_ratio": [
             "^portfolio_turnover_ratio",
-            "Portfolio Turnover Ratio"
+            "Portfolio Turnover Ratio",
+            "^port_turnover.*aggregate"
         ],
-        "residual_maturity": [
-            "^residual_maturity"
-        ],
-        "r_squared": ["R Squared"],
-        "roe": [
+        "r_squared_ratio": ["R Squared","^r_squared"],
+        "roe_ratio": [
             "^roe"
         ],
-        "sharpe": ["^Sharpe Ratio","^Sharpe.*"],
-        "sortino": [],
-        "std_dev": ["Standard Deviation",".*deviation"],
-        "ter": [],
-        "tracking_error": [],
-        "treynor": ["^Treynor"],
+        "sharpe": ["^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio"],
+        "sortino_ratio": [],
+        "std_dev": ["^Standard Deviation", ".*deviation", "^std dev"],
+        "treynor_ratio": ["^Treynor", "^treynor"],
+        "upside_deviation": [],
         "ytm": [
-            "^annualised_portfolio_ytm"
+            "^annualised_portfolio_ytm",
+            "^yield_to_maturity"
         ]
     }
+    
 }
