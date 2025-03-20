@@ -92,8 +92,8 @@ class GrandFundData:
             for match in matches:
                 entry_,exit_ = match
             
-            final_dict['entry_load'] = entry_
-            final_dict['exit_load'] = exit_
+            final_dict['entry_load'] = entry_.strip()
+            final_dict['exit_load'] = exit_.strip()
         return {main_key:final_dict}
      
     def _extract_amt_data(self,main_key:str, data, pattern:str):
@@ -183,20 +183,59 @@ class GrandFundData:
 
     #     return data
     
+    # def _merge_fund_data(self, data: dict):
+    #     if not isinstance(data, dict):
+    #         return data  # Only process dicts
+
+    #     for new_key, keys_to_merge in self.MERGEKEYS.items():
+    #         values = [data[key] for key in keys_to_merge if key in data]
+
+    #         if all(isinstance(v, list) for v in values):
+    #             # Merge as a list
+    #             merged_value = []
+    #             for v in values:
+    #                 merged_value.extend(v)
+    #         elif all(isinstance(v, dict) for v in values):
+    #             # Merge as a dictionary
+    #             merged_value = {}
+    #             for v in values:
+    #                 merged_value.update(v)
+    #         else:
+    #             # Mixed types: Handle string + dict
+    #             merged_value = {}
+    #             for key in keys_to_merge:
+    #                 if key in data:
+    #                     if isinstance(data[key], dict):
+    #                         merged_value.update(data[key])  # Merge dict normally
+    #                     else:
+    #                         merged_value[key] = data[key]  # Store string under its key
+            
+    #         for key in keys_to_merge:
+    #             data.pop(key, None)
+    #         if merged_value:
+    #             data[new_key] = merged_value  
+
+    #     return data
+    
     def _merge_fund_data(self, data: dict):
         if not isinstance(data, dict):
             return data  # Only process dicts
 
-        for new_key, keys_to_merge in self.MERGEKEYS.items():
+        for new_key, patterns in self.MERGEKEYS.items():
+            # Find matching keys using regex patterns
+            keys_to_merge = [key for key in data if any(re.search(pattern, key, re.IGNORECASE) for pattern in patterns)]
+
+            
+            # for key in data:
+            #     if any(re.search(pattern, key,re.IGNORECASE) for pattern in patterns):
+            #         print(f"Matched key: {key}")
             values = [data[key] for key in keys_to_merge if key in data]
 
-            if all(isinstance(v, list) for v in values):
-                # Merge as a list
+            if all(isinstance(v, list) for v in values): #list + list
                 merged_value = []
                 for v in values:
                     merged_value.extend(v)
-            elif all(isinstance(v, dict) for v in values):
-                # Merge as a dictionary
+            elif all(isinstance(v, dict) for v in values): #dict + dict
                 merged_value = {}
                 for v in values:
                     merged_value.update(v)
@@ -210,12 +249,16 @@ class GrandFundData:
                         else:
                             merged_value[key] = data[key]  # Store string under its key
             
-            for key in keys_to_merge:
+            for key in keys_to_merge: #remove original keys
                 data.pop(key, None)
+
+            # Add the merged value if it's not empty
             if merged_value:
                 data[new_key] = merged_value  
 
         return data
+
+    
     
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):
@@ -291,6 +334,10 @@ class ThreeSixtyOne(Reader,GrandFundData):
                 name, exp = match
                 final_list.append(self._return_manager_data(name = name, exp = exp))
         return {main_key: final_list}
+    
+    def _extract_ptr_data(self,main_key:str,data:str,pattern:str):
+        matches = re.findall(self.REGEX[pattern],data,re.IGNORECASE)
+        return{main_key: matches[0] if matches else ""}
 
 #2 
 class BajajFinServ(Reader,GrandFundData):
@@ -343,6 +390,10 @@ class BankOfIndia(Reader,GrandFundData):
             name, since,exp = match
             final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
         return {main_key:final_list}
+
+    def _extract_ptr_data(self,main_key:str,data:str,pattern:str):
+        matches = re.findall(self.REGEX[pattern],data,re.IGNORECASE)
+        return{main_key: matches[0] if matches else ""}
 
 #5 <>
 class BarodaBNP(Reader,GrandFundData): #Lupsum issues
@@ -1378,7 +1429,7 @@ class Zerodha(Reader,GrandFundData):
         return {main_key:final_list}
     
 #41 Aditya Birla
-class AdityaBirla(Reader,GrandFundData):
+class Birla(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params

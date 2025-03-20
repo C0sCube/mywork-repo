@@ -602,17 +602,17 @@ class Reader:
         regex = FundRegex()
         for fund, content in data.items():
             temp = content
+            temp = self._merge_fund_data(temp)
+            
             if select:
                 temp = self._select_by_regex(temp)
+            
             if map:
                 mappend_data = {}
                 for key, value in temp.items():
                     new_key = regex._map_json_keys_to_dict(key) or key
                     mappend_data[new_key] = value
                 temp = mappend_data
-            
-            
-            temp = self._merge_fund_data(temp)
             
             #flatten min/add data
             new_values = {}
@@ -647,9 +647,6 @@ class Reader:
                 new_metrics[new_key] = metric_value
             temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
 
-            
-                 
-         
             finalData[fund] = dict(sorted(temp.items()))
             
 

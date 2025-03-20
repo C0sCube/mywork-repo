@@ -45,16 +45,16 @@
             line_side: "left",
             max_financial_index_highlight: 0,
             stop_words: [
-                "equity",
-                "debt",
-                "ytm",
-                "vaidyanathan",
-                "saravanaraj",
-                "mr_manumaharaj",
+                // "equity",
+                // "debt",
+                // "ytm",
+                // "vaidyanathan",
+                // "saravanaraj",
+                // "mr_manumaharaj",
             ],
         },
         REGEX: {
-            manager: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s]+)has.*?([0-9\\.]+ years)",
+            manager:"(?:Mr|Mrs|Ms)\\.?[\\s]*([A-Za-z\\s]+?)\\s*has.*?([0-9\\.]+\\s*years)",
             min_amt: "([\\d,]+).*?([\\d,]+)",
             nav: "(.+(?:Growth|IDCW))\\s*([\\d,\\-]+\\.?\\d+)",
             ter: "(.+Plan)\\s*([\\d,\\-]+\\.?\\d+)",
@@ -76,6 +76,7 @@
                 "Portfolio Turnover",
                 "EOL",
             ],
+            ptr:"([\\d\\.]+).*",
             metrics: "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Macaulay Duration|Annualised Portfolio)\\s+([\\d,\\-]+\\.?\\d+|NA)\\s+([\\d,\\-]+\\.?\\d+|NA)",
             escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
         },
@@ -88,22 +89,30 @@
                 "_extract_generic_data",
                 "aum",
             ],
-            "^nav.*": [
-                "_extract_generic_data",
-                "nav",
-            ],
+            // "^nav.*": [
+            //     "_extract_generic_data",
+            //     "nav",
+            // ],
             "^scheme.*": [
                 "_extract_scheme_data",
                 "scheme",
             ],
-            "^total.*": [
-                "_extract_generic_data",
-                "ter",
-            ],
-            "^(fund_mana|co_fund).*": [
+            // "^total.*": [
+            //     "_extract_generic_data",
+            //     "ter",
+            // ],
+            "^(fund_mana|co_fund_mana).*": [
                 "_extract_manager_data",
                 "manager",
             ],
+            "^(equity|debt).*": [
+                "_extract_manager_data",
+                "manager",
+            ],
+            "^saravanaraj.*":[
+                "_extract_manager_data",
+                "manager",
+            ]
         },
         SECONDARY_PATTERN_TO_FUNCTION: {
             ".*(minimum_application|additional_purchase)$": [
@@ -114,12 +123,17 @@
                 "_extract_generic_data",
                 "metrics",
             ],
+            ".*portfolio_turnover": [
+                "_extract_ptr_data",
+                "ptr",
+            ],
         },
         TERTIARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: [
             ".*(entry_load|exit_load)",
             ".*(date_of_allotment|benchmark_index)$",
             "^(fund|co_fund)_manager",
+            ".*(alpha|bravo|charlie)",
             "metrics",
             "aum.monthly_average_aum",
             "main_scheme_name",
@@ -128,12 +142,28 @@
             "mutual_fund_name",
             "amc_name",
             ".*(additional_purchase|minimum_application)",
+            "^equity",
+            "^debt",
+            ".*portfolio_turnover",
+            "^saravanaraj.*",
         ],
         MERGEKEYS: {
             load: [
                 "scheme_details.entry_load",
                 "scheme_details.exit_load",
             ],
+            metrics:[
+                "metrics",
+                ".*portfolio_turnover"
+            ],
+            fund_manager:[
+                "^equity$",
+                "^debt$",
+                "^fund_manager$", 
+                "^co_fund_manager$",
+                "^saravanaraj.*"
+            ]
+
         },
         COMMENTS: [
             "No issues as of now.",
@@ -554,6 +584,7 @@
             method: "line",
             line_side: "both",
             max_financial_index_highlight: 0,
+            stop_words:[],
             fund: {
                 flag: [
                     20,
@@ -598,13 +629,14 @@
         },
         REGEX: {
             load: "Entry Load\\s*(Nil|.*?)\\s*Exit Load\\s*(.+?)$",
+            ptr:"([\\d\\.]+).*",
             manager: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<actual_name>[A-Za-z]+\\s[A-Za-z]+)(?:\\s+\\(w\\.e\\.f\\.?s*(?P<wef>[A-Za-z]+\\s*[\\d,\\s]+)\\))?.*?(?P<experience>\\d{1,2}\\s+years)",
             min_amt: "([\\d,]+).*?([\\d,]+)",
-            metrics: "^(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*/\\s*Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+)",
+            metrics: "^(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*\\_?Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+)",
             escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualized\\)",
         },
         PATTERN_TO_FUNCTION: {
-            "^(investment|benchmark|date|average|latest|minimum|additional).*": [
+            "^(investment|benchmark|date|average|latest|minimum|additional|portfolio_turn).*": [
                 "_extract_str_data",
                 null,
             ],
@@ -626,6 +658,10 @@
                 "_extract_amt_data",
                 "min_amt",
             ],
+            "^portfolio_turn.*":[
+                "_extract_ptr_data",
+                "ptr"
+            ]
         },
         SELECTKEYS: [
             "load",
@@ -641,8 +677,14 @@
             "fund_manager",
             "date_of_allotment",
             "benchmark_index",
+            "^portfolio_turn"
         ],
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            metrics:[
+                "metrics",
+                "^portfolio_turnover_ratio.*"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Bank of India Investment Managers Private Limited",
@@ -768,6 +810,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[],
             fund: {
                 flag: [
                     4,
@@ -783,6 +826,7 @@
                     -14475488,
                 ],
                 countmax_header_check: 15,
+        
             },
             clip_bbox: [
                 [
@@ -833,9 +877,9 @@
                 "EXIT LOAD",
                 "EXPENSE RATIO",
                 "BENCHMARK",
-                "FUND MANAGER\\s*",
+                "FUND MANAGER",
                 "TOTAL EXPERIENCE",
-                "MANAGING THIS FUND\\s*",
+                "MANAGING THIS FUND",
                 "EOL",
             ],
             escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
@@ -1071,11 +1115,11 @@
             nav: "(Growth Plan|IDCW Plan|Direct Growth Plan|Direct IDCW Plan)\\s*([\\d\\-,]+\\.\\d+)",
             metric: "(Sharpe Ratio|Standard Deviation|Beta|Annualised)[\\s]+([\\d\\-,]+\\.\\d+)",
             expense: "(Regular|Direct)\\s*([\\d,.-]+)",
-            load: "ENTRY LOA(.*?)\\s*EXIT LOAD\\s*(.*?)$",
+            load: "ENTRY LOAD(.*?)\\s*EXIT LOAD\\s*(.*?)$",
             min_amt: "([\\d,]+).*?([\\d,]+)",
             manager: "\\b(?:[A-Z]\\.|[A-Z][a-z]+)(?:\\s(?:[A-Z]\\.|[A-Z][a-z]+)){1,2}\\b(?![^()]*\\))",
             aum: "(Month End|Monthly Average)\\s*([\\d,.\\-]+)",
-            ptr: "^(Portfolio Turnover|Total Portfolio).*\\s*([\\d\\-,]+\\.\\d+)",
+            ptr: "(Portfolio\\s*Turnover(?:\\s*\\(Equity\\d*\\))?)\\s*(\\d{1,3}(?:,\\d{3})*\\.\\d+)%?",
             escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
         },
         PATTERN_TO_FUNCTION: {
@@ -1094,6 +1138,10 @@
             "^fund_manager": [
                 "_extract_manager_data",
                 "manager",
+            ],
+             "^portfolio_turnover_ratio": [
+                "_extract_generic_data",
+                "ptr",
             ],
         },
         SELECTKEYS: [
@@ -1125,12 +1173,13 @@
                 "_extract_load_data",
                 "load",
             ],
-            "^portfolio_turnover_ratio": [
-                "_extract_generic_data",
-                "ptr",
-            ],
         },
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            metrics:[
+                "metrics",
+                "^portfolio_turnover_ratio"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Franklin Templeton Asset Management (India) Private Limited",
@@ -1140,7 +1189,10 @@
         },
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
-        PRE_DATA_SELECT: [],
+        PRE_DATA_SELECT: [
+            "^fund_manager",
+            "load.*"
+        ],
         HEADER_MAPPER: {},
     },
     "Groww Mutual Fund": {
@@ -1190,6 +1242,7 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 7,
+            stop_words:[]
         },
         REGEX: {
             aum: "(.+\\s*AUM)\\s*([\\d,.]+)",
@@ -1204,7 +1257,7 @@
             ],
             min_amt: "([\\d,]+).*?([\\d,]+)",
             metrics: [
-                "(Standard|Sharpe|Portfolio|Beta|R\\s*Square)",
+                "(Standard|Sharpe|Portfolio|Beta|R\\s*Square|Modied|Average|Macaulay|Annualized)",
                 "\\d+\\.?\\d+",
             ],
             manager: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<name>[A-Za-z\\s]+)(?:\\s*\\((?P<designation>[^)]+)\\))?\\s*\\(Managing Fund Since (?P<managing_since>[\\w\\d\\s,]+)\\)?\\s*Total experience\\s*-\\s*over\\s*(?P<experience>\\d+\\s+years)",
@@ -1614,17 +1667,18 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
         REGEX: {
             load: "(?:Entry Load)?(.*?)\\s*Exit Load\\s*(.+)$",
             min_amt: "([\\d,]+).*?([\\d,]+)",
             aum: "([\\d,.]+) crores",
             manager: "(?P<name>[A-Za-z\\s]+)\\s+Total Experience\\s+(?P<experience>\\d+ years).*?\\s*Experience in managing this fund.*?\\s*Since\\s+(?P<managing_since>[A-Za-z]+\\s[0-9]+,?\\s[0-9]+)",
-            metrics: "(Modified Duration|Macaulay Duration|Average Maturity|Standard Deviation|Beta|Sharpe Ratio|Fund PE|Fund PB|Modified Duration)\\s*([\\d,.]+)",
+            metrics: "(Modified Duration|Macaulay Duration|Average Maturity|Standard Deviation|Beta|Sharpe Ratio|Fund PE .*FY25E5?|Fund PB|Modified Duration)\\s*([\\d,]+\\.?\\d+)",
             escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
         },
         PATTERN_TO_FUNCTION: {
-            "^(date_of_allotment|benchmark_index|investment.*)": [
+            "^(date_of_allotment|benchmark_index|portfolio_turnover_ratio|investment.*)": [
                 "_extract_str_data",
                 null,
             ],
@@ -1664,10 +1718,17 @@
             "monthly_aaum_date",
             "page_number",
             "mutual_fund_name",
+            "^portfolio_turnover_ratio"
         ],
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            metrics:[
+                "metrics",
+                "^portfolio_turnover_ratio"
+            ]
+        },
         COMMENTS: [
             "two funds on same page",
+            "FUND PE regex tricky"
         ],
         IMP_DATA: {
             amc_name: "Invesco Asset Management (India) Private Limited",
@@ -1863,6 +1924,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
         REGEX: {
             aum: "(.+\\s*AUM).*?([\\d,]+\\.?\\d+)",

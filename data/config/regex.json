@@ -31,10 +31,9 @@
             "fund_size"
         ],
         "fund_manager": [
-            "fund_mana",
-            "fund_and_co",
-            "name_of_the",
-            "saravanaraj"
+            "^fund_mana",
+            "^fund_and_co",
+            "^name_of_the"
         ],
         "fund_facts": "^(fund_facts).*$",
         "co_fund_manager": "co_fund_manager.*",
@@ -72,7 +71,8 @@
             "debt_quant",
             "^other_parameter",
             "performance_attri",
-            "quantave_data"
+            "quantave_data",
+            "^maturity_and_yield$"
         ],
         "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
@@ -262,7 +262,9 @@
             "^avg_maturity",
             "Average_maturity",
             "Average maturity",
-            "^average_maturity"
+            "^average_maturity",
+            ".*residual_maturity",
+            "^average$"
         ],
         "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta"],
         "correlation_ratio": [],
@@ -270,30 +272,39 @@
         "information_ratio": [],
         "macaulay": [
             "^macaulay_duration",
-            "^macaulay.*"
+            "^macaulay.*",
+            "^Macaulay Duration"
         ],
         "mod_duration": [
             "^modified_duration",
             "^modified.*",
-            "^modied_duration"
+            "^modied_duration",
+            "^Modified Duration",
+            "^modied$"
         ],
         "port_turnover_ratio": [
-            "^portfolio_turnover_ratio",
+            "^portfolio_turnover_ratio$",
+            "^portfolio_turnover_ratio.*",
             "Portfolio Turnover Ratio",
-            "^port_turnover.*aggregate"
+            "^port_turnover.*aggregate",
+            ".*portfolio_turnover$",
+            "^portfolio$"
         ],
-        "r_squared_ratio": ["R Squared","^r_squared"],
+        "r_squared_ratio": ["R Squared","^r_squared","^r_square$"],
         "roe_ratio": [
             "^roe"
         ],
         "sharpe": ["^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio"],
         "sortino_ratio": [],
-        "std_dev": ["^Standard Deviation", ".*deviation", "^std dev"],
+        "std_dev": ["^Standard Deviation", ".*deviation", "^std dev","^standard$"],
         "treynor_ratio": ["^Treynor", "^treynor"],
         "upside_deviation": [],
         "ytm": [
             "^annualised_portfolio_ytm",
-            "^yield_to_maturity"
+            "^yield_to_maturity",
+            "^Annualised Yield",
+            "^annualised_yield$",
+            "^annualized$"
         ]
     }
     

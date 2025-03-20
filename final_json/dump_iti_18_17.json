@@ -17,8 +17,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of unitNsil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti multi cap fund",
         "metrics": {
@@ -54,7 +54,7 @@
         "page_number": [
             9
         ],
-        "scheme_launch_date": "15-May-19"
+        "scheme_launch_date": "(Date of Allotment) 15-May-19"
     },
     "iti elss tax saver fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -74,8 +74,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "Nil"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti elss tax saver fund",
         "metrics": {
@@ -111,7 +111,7 @@
         "page_number": [
             10
         ],
-        "scheme_launch_date": "18-Oct-19"
+        "scheme_launch_date": "(Date of Allotment) 18-Oct-19"
     },
     "iti large cap fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -131,8 +131,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of unitsNil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti large cap fund",
         "metrics": {
@@ -168,7 +168,7 @@
         "page_number": [
             11
         ],
-        "scheme_launch_date": "24-Dec-20"
+        "scheme_launch_date": "(Date of Allotment) 24-Dec-20"
     },
     "iti mid cap fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -188,8 +188,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "If units are redeemed switched out within 12 months - 1. Nil hereafter"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti mid cap fund",
         "metrics": {
@@ -225,7 +225,7 @@
         "page_number": [
             12
         ],
-        "scheme_launch_date": "05-Mar-2021"
+        "scheme_launch_date": "(Date of Allotment) 05-Mar-2021"
     },
     "iti small cap fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -245,8 +245,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "If units are redeemed switched out within 12 months - 1. Nil"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti small cap fund",
         "metrics": {
@@ -282,7 +282,7 @@
         "page_number": [
             13
         ],
-        "scheme_launch_date": "17-Feb-20"
+        "scheme_launch_date": "(Date of Allotment) 17-Feb-20"
     },
     "iti value fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -302,8 +302,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti value fund",
         "metrics": {
@@ -339,7 +339,7 @@
         "page_number": [
             14
         ],
-        "scheme_launch_date": "14-June-2021"
+        "scheme_launch_date": "(Date of Allotment) 14-June-2021"
     },
     "iti pharma and healthcare fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -359,8 +359,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti pharma and healthcare fund",
         "metrics": {
@@ -396,7 +396,7 @@
         "page_number": [
             15
         ],
-        "scheme_launch_date": "08-Nov-2021"
+        "scheme_launch_date": "(Date of Allotment) 08-Nov-2021"
     },
     "iti banking and financial services fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -416,8 +416,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti banking and financial services fund",
         "metrics": {
@@ -453,7 +453,7 @@
         "page_number": [
             16
         ],
-        "scheme_launch_date": "06-Dec-21"
+        "scheme_launch_date": "(Date of Allotment) 06-Dec-21"
     },
     "iti flexi cap fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -473,8 +473,8 @@
             }
         ],
         "load": {
-            "entry_load": "Not Applicable",
-            "exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti flexi cap fund",
         "metrics": {
@@ -510,7 +510,7 @@
         "page_number": [
             17
         ],
-        "scheme_launch_date": "17-Feb-23"
+        "scheme_launch_date": "(Date of Allotment) 17-Feb-23"
     },
     "iti focused equity fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -530,8 +530,8 @@
             }
         ],
         "load": {
-            "entry_load": "Not Applicable",
-            "exit_load": "1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti focused equity fund",
         "metrics": {
@@ -567,7 +567,7 @@
         "page_number": [
             18
         ],
-        "scheme_launch_date": "19-June-23"
+        "scheme_launch_date": "(Date of Allotment) 19-June-23"
     },
     "iti large & mid cap fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -587,8 +587,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "0.50 if redeemed or switched out on or before completion of 3 months from the date of allotment of units  Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units. No Entry  Exit Load shall be levied on units allotted on Reinvestment of Income Distribution cum Capital Withdrawal Option. In respect of Systematic Transactions such as SIP, STP, SWP, Exit Load, if any, prevailing on the date of registration  enrolment for SIPSTPSWP shall be levied for all the opted installments. Redemption of units would be done on First in First out Basis (FIFO). The entire Exit Load, net of Goods  service tax, shall be credited to the Scheme"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti large & mid cap fund",
         "metrics": {
@@ -624,7 +624,7 @@
         "page_number": [
             19
         ],
-        "scheme_launch_date": "Sept 11, 2024"
+        "scheme_launch_date": "(Date of Allotment) Sept 11, 2024"
     },
     "iti balanced advantage fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -644,8 +644,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "10 of the units allotted may be redeemed without any exit load, on or before completion of 3 months from the date of allotment of units. Any redemption in excess of such limit in the first 3 months from the date of allotment shall be subject to the following exit load i. 1 if redeemed or switched out on or before completion of 3 months from the date of allotment of units ii. Nil, if redeemed or switched out after completion of 3 months from the date of allotment of units."
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti balanced advantage fund",
         "metrics": {
@@ -681,7 +681,7 @@
         "page_number": [
             20
         ],
-        "scheme_launch_date": "31-Dec-19"
+        "scheme_launch_date": "(Date of Allotment) 31-Dec-19"
     },
     "iti arbitrage fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -707,8 +707,8 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "If the Units are redeemed  switched out on or before 30 days from the date of allotment - 0.25. If the Units are redeemed switched out after 30 days from the date of allotment - NIL"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti arbitrage fund",
         "metrics": {
@@ -744,7 +744,7 @@
         "page_number": [
             21
         ],
-        "scheme_launch_date": "09-Sep-19"
+        "scheme_launch_date": "(Date of Allotment) 09-Sep-19"
     },
     "iti overnight fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -758,18 +758,17 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "Nil"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti overnight fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
-            "average_maturity": "3",
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
@@ -796,7 +795,7 @@
         "page_number": [
             22
         ],
-        "scheme_launch_date": "25-Oct-19"
+        "scheme_launch_date": "(Date of Allotment) 25-Oct-19"
     },
     "iti liquid fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -810,18 +809,17 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "Investor exit upon subscription Exit Load  Up to Day 1 0.0070 Day 2 0.0065 Day 3 0.0060 Day 4 0.0055 Day 5 0.0050 Day 6 0.0045 Day 7 onwards0.0000"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti liquid fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
-            "average_maturity": "23",
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "23",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
@@ -848,7 +846,7 @@
         "page_number": [
             23
         ],
-        "scheme_launch_date": "24-Apr-19"
+        "scheme_launch_date": "(Date of Allotment) 24-Apr-19"
     },
     "iti ultra short duration fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -862,18 +860,17 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "Nil"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti ultra short duration fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
-            "average_maturity": "117",
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "117",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
@@ -900,7 +897,7 @@
         "page_number": [
             24
         ],
-        "scheme_launch_date": "05-May-2021"
+        "scheme_launch_date": "(Date of Allotment) 05-May-2021"
     },
     "iti banking & psu debt fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -914,18 +911,17 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "Nil"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti banking & psu debt fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
-            "average_maturity": "2.07",
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "2.07",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
@@ -952,7 +948,7 @@
         "page_number": [
             25
         ],
-        "scheme_launch_date": "22-Oct-20"
+        "scheme_launch_date": "(Date of Allotment) 22-Oct-20"
     },
     "iti dynamic bond fund": {
         "amc_name": "ITI Asset Management Limited",
@@ -966,18 +962,17 @@
             }
         ],
         "load": {
-            "entry_load": "Nil",
-            "exit_load": "Nil"
+            "entry_load": null,
+            "exit_load": null
         },
         "main_scheme_name": "iti dynamic bond fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
-            "average_maturity": "8.46",
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "8.46",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
@@ -1004,6 +999,6 @@
         "page_number": [
             26
         ],
-        "scheme_launch_date": "14-Jul-21"
+        "scheme_launch_date": "(Date of Allotment) 14-Jul-21"
     }
 }
