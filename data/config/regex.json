@@ -72,7 +72,9 @@
             "^other_parameter",
             "performance_attri",
             "quantave_data",
-            "^maturity_and_yield$"
+            "^maturity_and_yield$",
+            "^portfolio_information$"
+
         ],
         "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
@@ -105,7 +107,8 @@
         "benchmark_index": [
             ".*benchmark_index$",
             ".*benchmark$",
-            "^benchmark_index"
+            "^benchmark_index",
+            ".*benchmark$"
         ],
         "field_location": [],
         "fund_manager": [
@@ -114,7 +117,8 @@
         ],
         "load": [
             "^load",
-            ".*load_structure$"
+            ".*load_structure$",
+            ".*load"
         ],
         "main_scheme_name": [
             "main_scheme_name"
@@ -135,7 +139,10 @@
             "^multiples_for_existing.*",
             ".*additional_investment_amount$",
             ".*minimum_additional_investment",
-            "application_amount.*"
+            "application_amount.*",
+            ".*minimum_addl_amt$",
+            "^minimum_addl$"
+
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -148,7 +155,9 @@
             "minimum_investment",
             ".*minimum_application$",
             "^multiples_for_new.*",
-            ".*minimum_investment_amount$"
+            ".*minimum_investment_amount$",
+            ".*minimum_amt$",
+            "^initial__additional_investment$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -173,7 +182,9 @@
             "inceptionallotment_date",
             "^date_of_allotment$",
             ".*date_of_allotment$",
-            ".*inception_date$"
+            ".*inception_date$",
+            ".*scheme_date$",
+            ".*allotment_date$"
         ],
         "page_number": [
             "^page_number",
@@ -256,8 +267,8 @@
         "alpha": [],
         "arithmetic_mean_ratio": [],
         "average_div_yld": [],
-        "average_pb": [".*_pb"],
-        "average_pe": [".*_pe"],
+        "average_pb": [".*_pb","^pbv$"],
+        "average_pe": [".*_pe","^pe$"],
         "avg_maturity": [
             "^avg_maturity",
             "Average_maturity",
@@ -304,7 +315,8 @@
             "^yield_to_maturity",
             "^Annualised Yield",
             "^annualised_yield$",
-            "^annualized$"
+            "^annualized$",
+            "^annualised_ytm$"
         ]
     }
     

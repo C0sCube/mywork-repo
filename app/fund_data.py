@@ -27,6 +27,7 @@ class GrandFundData:
         self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
         self.IMP_DATA = fund_config.get("IMP_DATA",{})
         self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
+        self.CLONEKEYS = fund_config.get("CLONEKEYS",[])
         
     #extract 
     def _extract_dummy_data(self,key:str,data):
@@ -228,7 +229,7 @@ class GrandFundData:
             
             # for key in data:
             #     if any(re.search(pattern, key,re.IGNORECASE) for pattern in patterns):
-            #         print(f"Matched key: {key}")
+            #         # print(f"Matched key: {key}")
             values = [data[key] for key in keys_to_merge if key in data]
 
             if all(isinstance(v, list) for v in values): #list + list
@@ -258,8 +259,15 @@ class GrandFundData:
 
         return data
 
-    
-    
+    def _clone_fund_data(self, data: dict):
+        for clone_key, regex_pattern in self.CLONEKEYS.items():  
+            pattern = re.compile(regex_pattern)
+            for key in data:
+                if pattern.match(key):
+                    data[clone_key] = data[key]
+                    break
+        return data
+
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):
             return data
@@ -715,16 +723,20 @@ class Kotak(Reader,GrandFundData): #Lupsum issues
         
         return {main_key:final_list}
     
-    def _extract_nav_data(self,main_key:str, data:list,pattern:str):
-        final_dict = {}
-        for text in data:
-            text = re.sub(self.REGEX['escape'],"",text).strip()
-            if matches := re.findall(self.REGEX[pattern], text, re.IGNORECASE):
-                for index, reg, direct in matches:
-                    final_dict[f'Regular {index}'] = reg
-                    final_dict[f'Direct {index}'] = direct
-        return {main_key:final_dict}
+    def _extract_appl_data(self,main_key:str, data, pattern:str):
 
+        amt_data = " ".join(data) if isinstance(data,list) else data
+        amt_data = re.sub(self.REGEX['escape'],"",amt_data).strip()
+        matches = re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE)
+        final_dict = {}
+        for match in matches:
+            if len(match) == 2:
+                amt, thraftr = match
+        final_dict["minimum_amount"] = {"amt":amt,"thraftr":thraftr}
+        final_dict["minimum_appl_amount"] = {"amt":amt,"thraftr":thraftr}
+        
+                
+        return {main_key:final_dict}
 #18
 class LIC(Reader,GrandFundData): #Lupsum issues
     
@@ -1429,7 +1441,7 @@ class Zerodha(Reader,GrandFundData):
         return {main_key:final_list}
     
 #41 Aditya Birla
-class Birla(Reader,GrandFundData):
+class AdityaBirla(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
@@ -1442,5 +1454,27 @@ class JMMF(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
+    
+    def _extract_lump_data(self,main_key:str,data):
+        final_dict = {"minimum_amt":data[1],"minimum_addl_amt":data[3]}
+        return {main_key:final_dict}
+    
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        final_list = []
 
+        manager_data = " ".join(data)
+        manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
+
+        if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
+            for match in matches:
+                name,since,exp = match
+                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        return {main_key:final_list}
+
+    def _extract_ptr_data(self, main_key:str,data = ""):
+        s = main_key.replace("portfolio_turnover_ratio_","")
+        data = f"{ s[:-4]}.{s[-4:]}"
+        return {main_key:data}
+
+    def _extract_date_data(self,main_key:str,data:list):
+        return{main_key:{"scheme_date":main_key.replace("inception_date_",""),"benchmark":data[1]}}

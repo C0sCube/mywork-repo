@@ -604,6 +604,8 @@ class Reader:
             temp = content
             temp = self._merge_fund_data(temp)
             
+            temp = self._clone_fund_data(temp)
+            
             if select:
                 temp = self._select_by_regex(temp)
             
@@ -628,11 +630,12 @@ class Reader:
             
             #regex load data
             new_load = {"entry_load": None,"exit_load": None}
+            # print(temp.get("load",{}))
 
             for load_key, load_value in temp.get("load", {}).items():
-                if re.search(r"entry", load_key, re.IGNORECASE):
+                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
                     new_load["entry_load"] = load_value
-                elif re.search(r"exit", load_key, re.IGNORECASE):
+                elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
                     new_load["exit_load"] = load_value
                 else:
                     new_load[load_key] = load_value
