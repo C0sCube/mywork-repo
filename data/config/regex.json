@@ -53,7 +53,6 @@
             "data_as"
         ],
         "metrics": [
-            "^ratios.*",
             "key_statistics",
             "statistical_debt",
             "expense_ratio__quantitative_data",
@@ -73,7 +72,10 @@
             "performance_attri",
             "quantave_data",
             "^maturity_and_yield$",
-            "^portfolio_information$"
+            "^quantitative_information.*",
+            "^portfolio_information$",
+            "^quantave_indicators",
+            "^porolio_parameters$"
 
         ],
         "min_amt": "^minimum_appl",
@@ -85,7 +87,8 @@
             "\\bportfolio_turnover\\b(?!\\d)",
             "\\bturn_over\\b(?!\\d)",
             "\\bturnover\\b(?!\\d)",
-            "\\bportfolio_turnover_ratio\\b(?!\\d)"
+            "\\bportfolio_turnover_ratio\\b(?!\\d)",
+            "^ratios.*"
         ],
         "additional_investment": "^(additional_investment|minimum_additional_investment).*",
         "benchmark_index": "^(benchmark|amfi_tier_1_bench).*",
@@ -113,7 +116,8 @@
         "field_location": [],
         "fund_manager": [
             "^fund_manager",
-            ".*fund_manager$"
+            ".*fund_manager$",
+            ".*fund_managers$"
         ],
         "load": [
             "^load",
@@ -141,7 +145,8 @@
             ".*minimum_additional_investment",
             "application_amount.*",
             ".*minimum_addl_amt$",
-            "^minimum_addl$"
+            "^minimum_addl$",
+            "^additional_purchase_amount$"
 
         ],
         "min_addl_multiple": [],
@@ -157,14 +162,17 @@
             "^multiples_for_new.*",
             ".*minimum_investment_amount$",
             ".*minimum_amt$",
-            "^initial__additional_investment$"
+            ".*min_investment$",
+            "^initial__additional_investment$",
+            "^mini_inv$",
+            ".*minimum_amount$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
             "monthly_aaum_date"
         ],
         "monthly_aaum_value": [
-            "^aaum$f",
+            "^aaum$",
             "^average_aum$",
             "scheme_details.aum$",
             ".*average_aum",
@@ -173,7 +181,9 @@
             ".*monthly_average$",
             ".*monthly_avg_aum$",
             ".*aaum$",
-            ".*monthly_aaum$"
+            ".*monthly_aaum$",
+            ".*monthly_average$",
+            ".*month_end_aum$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -184,7 +194,9 @@
             ".*date_of_allotment$",
             ".*inception_date$",
             ".*scheme_date$",
-            ".*allotment_date$"
+            ".*allotment_date$",
+            "^inception_date$",
+            ".*inceptionallotment$"
         ],
         "page_number": [
             "^page_number",
@@ -267,7 +279,7 @@
         "alpha": [],
         "arithmetic_mean_ratio": [],
         "average_div_yld": [],
-        "average_pb": [".*_pb","^pbv$"],
+        "average_pb": [".*_pb","^pbv$","^pb$"],
         "average_pe": [".*_pe","^pe$"],
         "avg_maturity": [
             "^avg_maturity",
@@ -275,12 +287,15 @@
             "Average maturity",
             "^average_maturity",
             ".*residual_maturity",
-            "^average$"
+            "^average$",
+            "^weighted_average_maturity$"
         ],
         "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta"],
         "correlation_ratio": [],
         "downside_deviation": [],
-        "information_ratio": [],
+        "information_ratio": [
+            "information_ratio"
+        ],
         "macaulay": [
             "^macaulay_duration",
             "^macaulay.*",
@@ -291,7 +306,8 @@
             "^modified.*",
             "^modied_duration",
             "^Modified Duration",
-            "^modied$"
+            "^modied$",
+            "^modied_duraon$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -299,15 +315,18 @@
             "Portfolio Turnover Ratio",
             "^port_turnover.*aggregate",
             ".*portfolio_turnover$",
-            "^portfolio$"
+            "^portfolio$",
+            "^portfolio_turn_over_ratio$",
+            "^porolio_turnover$",
+            "turnover_ratio$"
         ],
         "r_squared_ratio": ["R Squared","^r_squared","^r_square$"],
         "roe_ratio": [
             "^roe"
         ],
-        "sharpe": ["^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio"],
+        "sharpe": ["^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio","^sharpe_rao$"],
         "sortino_ratio": [],
-        "std_dev": ["^Standard Deviation", ".*deviation", "^std dev","^standard$"],
+        "std_dev": ["^standard_deviaon$","^Standard Deviation", ".*deviation", "^std dev","^standard$"],
         "treynor_ratio": ["^Treynor", "^treynor"],
         "upside_deviation": [],
         "ytm": [
