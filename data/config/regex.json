@@ -43,7 +43,8 @@
             "scheme_det",
             "fund_details",
             "fund_snapshot",
-            "fund_feat"
+            "fund_feat",
+            "^scheme_snapshot"
         ],
         "investment_objective": [
             "current_investment",
@@ -54,6 +55,7 @@
         ],
         "metrics": [
             "key_statistics",
+            "^statistical_debt_indicators$",
             "statistical_debt",
             "expense_ratio__quantitative_data",
             "portfolio_parameters",
@@ -75,7 +77,8 @@
             "^quantitative_information.*",
             "^portfolio_information$",
             "^quantave_indicators",
-            "^porolio_parameters$"
+            "^porolio_parameters$",
+            "^risk_ratio$"
 
         ],
         "min_amt": "^minimum_appl",
@@ -129,7 +132,9 @@
         ],
         "metrics": [
             ".*key_statistics$",
-            "^metrics"
+            "^metrics",
+            ".*aum_as_on$",
+            ".*risk_adjusted_measures"
         ],
         "min_addl_amt": [
             "multiples_for_existing_investors",
@@ -146,8 +151,11 @@
             "application_amount.*",
             ".*minimum_addl_amt$",
             "^minimum_addl$",
-            "^additional_purchase_amount$"
-
+            "^additional_purchase_amount$",
+            ".*add_amt$",
+            ".*additional_purchase$",
+            ".*minimum_additional_application_amount$",
+            ".*subsequent_investment$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -165,7 +173,11 @@
             ".*min_investment$",
             "^initial__additional_investment$",
             "^mini_inv$",
-            ".*minimum_amount$"
+            ".*minimum_amount$",
+            ".*min_amt$",
+            ".*application_amount$",
+            ".*minimum_investment_amount$",
+            ".*minimum_investment$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -183,7 +195,11 @@
             ".*aaum$",
             ".*monthly_aaum$",
             ".*monthly_average$",
-            ".*month_end_aum$"
+            ".*month_end_aum$",
+            ".*monthly_aaum$",
+            ".*average_aum$",
+            ".*net_aum$",
+            ".*fund_size$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -221,6 +237,7 @@
         "page_number": []
     },
     "stop_words": [
+        "@",
         "#Note:",
         "folio count data as on 30th november",
         "2024.",
@@ -276,7 +293,7 @@
         "(Date of Allotment)"
     ],
     "metrics_headers": {
-        "alpha": [],
+        "alpha": ["^jensens_alpha"],
         "arithmetic_mean_ratio": [],
         "average_div_yld": [],
         "average_pb": [".*_pb","^pbv$","^pb$"],
@@ -326,7 +343,14 @@
         ],
         "sharpe": ["^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio","^sharpe_rao$"],
         "sortino_ratio": [],
-        "std_dev": ["^standard_deviaon$","^Standard Deviation", ".*deviation", "^std dev","^standard$"],
+        "std_dev": [
+            "^standard_deviaon$",
+            "^Standard Deviation", 
+            ".*deviation", 
+            "^std dev",
+            "^standard$",
+            "^Standard_Deviation_of_Fund"
+        ],
         "treynor_ratio": ["^Treynor", "^treynor"],
         "upside_deviation": [],
         "ytm": [
@@ -335,7 +359,9 @@
             "^Annualised Yield",
             "^annualised_yield$",
             "^annualized$",
-            "^annualised_ytm$"
+            "^annualised_ytm$",
+            "^annualised_portfolio$",
+            "^portfolio_yield$"
         ]
     }
     

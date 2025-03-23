@@ -561,16 +561,13 @@ class Reader:
             for head, content in item.items():
                 if clean_head:=  regex.header_mapper(head):
                     content = self._match_regex_to_content(clean_head, content) # applies regex to clean data
-                    content = regex.transform_keys(content) #lowercase all keys
-                    # if content:
-                    #     content_dict.update(content)
-                        
+                    content = regex.transform_keys(content) #lowercase
+                    key, value = next(iter(content.items()))  # Extract key-value once
+
                     if clean_head in content_dict:
                         unique_key = self._get_unique_key(clean_head, content_dict)
-                        key, value = next(iter(content.items()))
                         content_dict[unique_key] = value
                     else:
-                        key, value = next(iter(content.items()))
                         content_dict[clean_head] = value
                         
             primary_refine[fund] = content_dict
@@ -597,7 +594,7 @@ class Reader:
         return tertiary_refine
     
     #SELECT/MERGE
-    def merge_and_select_data(self, data: dict, select = False, map = False, flat = False):
+    def merge_and_select_data(self, data: dict, select = False, map = False,special = False):
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():
@@ -649,8 +646,14 @@ class Reader:
                 new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
                 new_metrics[new_key] = metric_value
             temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
+            
+            if special:
+                for head, content in temp.items():
+                    updated_content = self._special_match_regex_to_content(head, content)
+                    if updated_content:
+                        temp.update(updated_content)
 
             finalData[fund] = dict(sorted(temp.items()))
             
 
-        return {fund: regex.flatten_dict(data) for fund, data in finalData.items()} if flat else finalData
+        return finalData
