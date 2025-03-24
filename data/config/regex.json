@@ -44,7 +44,8 @@
             "fund_details",
             "fund_snapshot",
             "fund_feat",
-            "^scheme_snapshot"
+            "^scheme_snapshot",
+            "^(nippon|cpse).*"
         ],
         "investment_objective": [
             "current_investment",
@@ -134,7 +135,8 @@
             ".*key_statistics$",
             "^metrics",
             ".*aum_as_on$",
-            ".*risk_adjusted_measures"
+            ".*risk_adjusted_measures",
+            ".*nav_as_on"
         ],
         "min_addl_amt": [
             "multiples_for_existing_investors",
@@ -199,7 +201,8 @@
             ".*monthly_aaum$",
             ".*average_aum$",
             ".*net_aum$",
-            ".*fund_size$"
+            ".*fund_size$",
+            ".*average_for_month$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -290,12 +293,13 @@
         "nd ",
         "",
         "`",
-        "(Date of Allotment)"
+        "(Date of Allotment)",
+        "Last 12 months"
     ],
     "metrics_headers": {
         "alpha": ["^jensens_alpha"],
         "arithmetic_mean_ratio": [],
-        "average_div_yld": [],
+        "average_div_yld": ["^dividend_yield$"],
         "average_pb": [".*_pb","^pbv$","^pb$"],
         "average_pe": [".*_pe","^pe$"],
         "avg_maturity": [
@@ -335,7 +339,10 @@
             "^portfolio$",
             "^portfolio_turn_over_ratio$",
             "^porolio_turnover$",
-            "turnover_ratio$"
+            "turnover_ratio$",
+            "^total_turnover$",
+            "^portfolio_turnover_times$",
+            "^last_[0-9]+_months$"
         ],
         "r_squared_ratio": ["R Squared","^r_squared","^r_square$"],
         "roe_ratio": [
@@ -361,7 +368,8 @@
             "^annualized$",
             "^annualised_ytm$",
             "^annualised_portfolio$",
-            "^portfolio_yield$"
+            "^portfolio_yield$",
+            "^annualized_portfolio_ytm$"
         ]
     }
     

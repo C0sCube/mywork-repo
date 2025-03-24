@@ -990,15 +990,110 @@
     },
     "DSP Mutual Fund": {
         PARAMS: {
+            fund: {
+                flag: [
+                    20,
+                    16,
+                ],
+                regex: "^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)",
+                size: [
+                    14,
+                    24,
+                ],
+                color: [
+                    -1,
+                ],
+                countmax_header_check: 15,
+            },
+            clip_bbox: [
+                [
+                    0,
+                    5,
+                    120,
+                    812,
+                ],
+                [
+                    480,
+                    5,
+                    596,
+                    812,
+                ],
+            ],
+            data: {
+                size: [
+                    7,
+                    11,
+                ],
+                update_size: 30.0,
+                font: [
+                    "TrebuchetMS-Bold",
+                ],
+                color: [
+                    -1, //-16777216
+                ],
+            },
+            content_size: [
+                30.0,
+                10.0,
+            ],
+            line_x: 180.0,
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[
+                "last_12_months"
+            ]
         },
-        REGEX: {},
-        PATTERN_TO_FUNCTION: {},
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
-        MERGEKEYS: {},
+        REGEX: {
+            scheme:[
+                "INCEPTION DATE",
+                "BENCHMARK",
+                "NAV AS ON",
+                "TOTAL AUM",
+                "MONTHLY AVERAGE AUM",
+                "Portfolio Turnover Ratio",
+                "Month End Expense",
+                "EOL"
+            ],
+            metrics:"(\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*([\\d,.]+\\s*(?:years|days|months)?)", //first regex of ptr
+            escape:"[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
+        },
+        PATTERN_TO_FUNCTION: {
+            "^(inception_date|benchmark_index|total_aum|monthly_average_aum)":[
+                "_extract_str_data",
+                null
+            ],
+            "^(before|dummy).*":[
+                "_extract_scheme_data",
+                "scheme"
+            ],
+        },
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            "^(dummy|before).*portfolio_turnover.*":[
+                "_extract_generic_data",
+                "metrics"
+            ],
+            ".*month_end_expense":[
+                "_extract_generic_data",
+                "metrics"
+            ]
+        },
+        SELECTKEYS: [
+            "amc_name",
+            "main_scheme_name",
+            "page_number",
+            "mutual_fund_name",
+            "monthly_aaum_date",
+            ".*(benchmark|inception_date|monthly_average_aum|portfolio_turnover_ratio)",
+            "metrics",
+            ".*month_end_expense"
+        ],
+        MERGEKEYS: {
+            metrics:[
+                ".*portfolio_turnover_ratio",
+                ".*month_end_expense"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "DSP Investment Managers Private Limited",
@@ -1418,8 +1513,8 @@
             clip_bbox: [
                 [
                     0,
-                    100,
-                    200,
+                    70,
+                    190,
                     812,
                 ],
             ],
@@ -1432,30 +1527,33 @@
                 color: [
                     -15970928,
                     -14401393,
+                    -15971185,
                     -1,
                 ],
                 update_size: 30.0,
                 font: [
                     "Taz-SemiBold",
+                    "Cambria-Bold"
                 ],
             },
             content_size: [
                 30.0,
                 10.0,
             ],
-            method: "line",
-            line_side: "left",
+            method: "clip",
+            line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
         REGEX: {
             aum: "(As on|Average for Month).*?([\\d,.]+)\\s*Cr",
             escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
             load: "",
-            manager: "([\\w\\s]+)\\s*(?:\\((.*?)\\))?\\s*\\(since (.*?)\\)\\s*Total Experience Over\\s*([0-9]+ years)",
-            metric: "(Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+)",
+            manager: "",
+            metric: "(Regular|Total Turnover|Equity Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
         },
         PATTERN_TO_FUNCTION: {
-            "^(date_of_allotment|benchmark_index|exit_load|addl_benchmark_index|aum).*$": [
+            "^(tracking_error|date_of_allotment|_?benchmark_index|exit_load|addl_benchmark_index).*$": [
                 "_extract_str_data",
                 null,
             ],
@@ -1463,35 +1561,45 @@
                 "_extract_manager_data",
                 "manager",
             ],
+            "^aum": [
+                "_extract_generic_data",
+                "aum",
+            ],
         },
         SECONDARY_PATTERN_TO_FUNCTION: {
             metrics: [
                 "_extract_generic_data",
                 "metric",
             ],
-            aum: [
+            tracking_error:[
                 "_extract_generic_data",
-                "aum",
+                "metric"
             ],
         },
         SELECTKEYS: [
             "fund_manager",
-            "aum",
-            "metrics",
-            "benchmark_index",
+            ".*average_for_month$", //aaum
+            "metrics", //merge
+            "_?benchmark_index",
             "addl_benchmark_index",
-            "exit_load",
+            "exit_load", //merge
             "^date_of_allotment.*",
             "amc_name",
             "main_scheme_name",
             "monthly_aaum_date",
             "page_number",
             "mutual_fund_name",
+            "tracking_error", //merge
+            "load" //after merge
         ],
         MERGEKEYS: {
             load: [
                 "exit_load",
             ],
+            metrics:[
+                "metrics",
+                "tracking_error"
+            ]
         },
         COMMENTS: [
             "color white text also added",
@@ -2785,24 +2893,26 @@
         },
         REGEX: {
             nav: "(.+option)\\s*([\\d,.]+)",
-            min_amt: "([\\d,]+)\\s+and in multiples of\\s+([\\d,]+)",
+            tracking:"(Tracking Error).+?\\s*([\\d,.]+)",
+            min_amt: "([\\d,]+).*?(\\d+)",
             load: "(?:Entry Load)?\\s*(.*?)\\s*Exit Load\\s*(.*)$",
             aum: "(AUM|Monthly Average AUM)\\s*([\\d,.]+)",
-            metric: "^(TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*([\\d.]+)%?",
-            manager: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([A-Za-z\\s]+?)(?:\\s*a co fund manager is|\\s*)\\s*managing this fund w.e.f.\\s*([\\d]{1,2}[a-z]{2}\\s+[A-Za-z,]+\\s+\\d{4})",
+            metric:"(Portfolio Turnover Ratio\\s*\\(Times\\)|TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*([\\d,.]+)",
+            manager: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:is managing|a co fund manager).*?fund\\s*w\\.e\\.f\\.?\\s*([0-9A-Za-z.]+\\s*[A-Za-z]+\\,?\\s*[0-9]+)",
             scheme: [
                 "Inception Date",
+                "Index\\s*(?:Niy|BSE|NASDAQ|CRSP|NSE)",
                 "Minimum Application",
                 "Load Structure",
                 "Asset Allocation",
-                "Portfolio Turnover Ratio",
                 "EOL",
             ],
-            ptr:"",
+            date:"([0-9]+(?:th|rd|st|nd)?\\s*[A-Za-z]+\\,?\\s*[0-9]+)",
+            benchmark:"((?:Niy|CRSP|NASDAQ|BSE|CIRSIL)\\s*.*)$",
             escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
         },
         PATTERN_TO_FUNCTION: {
-            "^investment.*": [
+            "^(investment|tracking).*": [
                 "_extract_str_data",
                 null,
             ],
@@ -2820,14 +2930,31 @@
             ],
         },
         SECONDARY_PATTERN_TO_FUNCTION: {
-            // ".*minimum_application$": [
-            //     "_extract_amt_data",
-            //     "min_amt",
-            // ],
+            ".*minimum_application$": [
+                "_extract_amt_data",
+                "min_amt",
+            ],
             ".*load_structure": [
                 "_extract_load_data",
                 "load",
             ],
+            ".*asset_allocation":[
+                "_extract_generic_data",
+                "metric"
+            ],
+            ".*index.*$":[
+                "_extract_benchmark_data",
+                "benchmark"
+            ],
+            ".*inception_date":[
+                "_extract_generic_data",
+                "date"
+            ],
+            "tracking_error":[
+                "_extract_generic_data",
+                "tracking"
+            ]
+
         },
         SELECTKEYS: [
             "amc_name",
@@ -2836,10 +2963,20 @@
             "main_scheme_name",
             "page_number",
             "fund_manager",
-            "^aum",
-            ".*(index|inception_date|load_structure|application_amount)$",
+            ".*(inception_date|load_structure|minimum_application)$",
+            "metrics",
+            ".*asset_allocation",
+            "tracking_error",
+            ".*monthly_average_aum",
+            ".*index.*",
+            "benchmark_index"
         ],
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            metrics:[
+                ".*asset_allocation",
+                "tracking_error"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Navi AMC Limited",
@@ -2852,7 +2989,8 @@
         PRE_DATA_SELECT: [],
         HEADER_MAPPER: {},
         CLONEKEYS: {},
-        SPECIAL_FUNCTIONS: {},
+        SPECIAL_FUNCTIONS: {
+        },
     },
     "Nippon India Mutual Fund": {
         PARAMS: {
@@ -2879,6 +3017,18 @@
                     220,
                     812,
                 ],
+                 [
+                    220,
+                    300,
+                    565,
+                    812,
+                ],
+                 [
+                    400,
+                    380,
+                    565,
+                    812,
+                ],
             ],
             line_x: 180.0,
             data: {
@@ -2887,12 +3037,13 @@
                     12,
                 ],
                 color: [
-                    -16777216,
+                    -1,
                 ],
                 update_size: 30.0,
                 font: [
                     "HelveticaNeueCondensed-C",
                     "HelveticaNeueLTPro-BdCn",
+                    "HelveticaNeueLTStd-MdCn"
                 ],
             },
             content_size: [
@@ -2902,54 +3053,84 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
         REGEX: {
             aum: "(Month End|Monthly Average).*?([\\d,]+\\.\\d{2})",
-            nav: "(Growth Plan|IDCW Plan|Direct\\s+Growth Plan|Direct\\s+IDCW Plan|Bonus Option)\\s*([\\d,.]+)",
-            metric: "(Standard Deviation|Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Beta|Treynor [A-Za-z]+|Sharpe [A-Za-z]+)\\s*([\\d,.]+)",
-            ter: "(Regular|Direct).*\\s*([\\d,]+\\.\\d{2})",
+            scheme:[
+                "Type of Scheme",
+                "Current Investment Philosophy",
+                "Date of Allotment",
+                "Fund Manager",
+                "Benchmark",
+                "Fund Size",
+                "Monthly Average",
+                "Month End",
+                "NAV as on",
+                "Total Expense Ratio",
+                "Load structure",
+                "Please refer",
+                "EOL"
+            ],
+            metric: "(PE|PB|Dividend Yield|Tracking Error|Standard Deviation|Portfolio Turnover\\s*\\(times\\)|Annualized Portfolio YTM|Average Maturity|Macaulay Duration|Residual Maturity|Modi?f?ied Duration|Beta|Treynor Ratio|Sharpe Ratio)\\s*([\\d,.]+\\s*(?:years|months|days)?)",
             manager: "([A-Za-z\\s]+)\\s*\\(?(.*?)\\)?\\s*\\(Managing Since (.*?)\\)\\s*Total Experience of more than\\s*(.* years)",
             load: "Entry Load(.*?)\\s*Exit Load(.*)$",
-            escape: "[^a-zA-Z0-9.,\\s]+",
+            escape:"[^A-Za-z0-9\\s\\-\\(\\).,]+",
         },
         PATTERN_TO_FUNCTION: {
-            "^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
-                "_extract_str_data",
-                null,
-            ],
-            "^fund_mana.*": [
-                "_extract_manager_data",
-                "manager",
-            ],
-            "^aum.*": [
-                "_extract_generic_data",
-                "aum",
-            ],
+            // "^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
+            //     "_extract_str_data",
+            //     null,
+            // ],
+            // "^fund_mana.*": [
+            //     "_extract_manager_data",
+            //     "manager",
+            // ],
+            // "^aum.*": [
+            //     "_extract_generic_data",
+            //     "aum",
+            // ],
+            "scheme.*":[
+                "_extract_scheme_data",
+                "scheme"
+            ]
         },
         SECONDARY_PATTERN_TO_FUNCTION: {
-            "^metric.*": [
+            ".*(nav_as_on|valuation)": [ //comes under metric
                 "_extract_generic_data",
                 "metric",
             ],
-            "load.*": [
+            "^(measures|industry_allocation|metrics).*":[
+                "_extract_generic_data",
+                "metric",
+            ],
+            ".*load_structure": [
                 "_extract_load_data",
                 "load",
             ],
         },
         SELECTKEYS: [
-            "date_of_allotment",
-            "fund_manager",
-            "benchmark_index",
-            "aum.monthly_average",
-            "metrics",
-            "load",
+           ".*(date_of_allotment|fund_manager|benchmark|monthly_average|nav_as_on|load_structure)",//6
             "amc_name",
             "main_scheme_name",
             "monthly_aaum_date",
             "page_number",
             "mutual_fund_name",
+            "^metrics$",
+            "^industry_allocation$",
+            ".*_valuation.*$",
+            ".*nav_as_on$",
+            "^measures$"
         ],
-        MERGEKEYS: {},
+        MERGEKEYS: {
+            metrics:[
+                "^metrics$",
+                "^industry_allocation$",
+                ".*_valuation.*$",
+                ".*nav_as_on$",
+                "^measures$"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Nippon Life India Asset Management Limited",

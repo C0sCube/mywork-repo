@@ -332,8 +332,6 @@ class GrandFundData:
         return "".join(formatted_date.split())
     
     def _update_imp_data(self,data:dict,fund:str, pgn:list):
-        # print("_update_imp_data")
-        
         return data.update({
             "amc_name":self.IMP_DATA['amc_name'],
             "main_scheme_name":fund,
@@ -530,39 +528,11 @@ class Canara(Reader,GrandFundData):
 
 
 #7
-class DSP(Reader):
-    
-    PARAMS = {
-        'fund': [[20,16], r'^(DSP|Bharat).*(Fund|ETF|FTF|FOF)$|^(DSP|Bharat)',[14,24],[-1]],
-        'clip_bbox': [(0,5,120,812),],#[480,5,596,812]],
-        'line_x': 120.0,
-        'data': [[7,10], [-16777216], 30.0, ['TrebuchetMS-Bold']],
-        'content_size':[30.0,10.0]
-    }
-    
-    
-    def __init__(self, paths_config:str):
-        super().__init__(paths_config, self.PARAMS)
-        
-    #REGEX
-    def __return_all_data(self,main_key,data:list):
-        return {main_key:data}
-    
-    def __extract_inv_data(self,main_key:str, data:list):            
-        return {main_key: ' '.join(data)}
-    
-    #MAPPING
-    def match_regex_to_content(self, string:str, data:list):
-        check_header = string
-        if re.match(r"^investment.*", check_header, re.IGNORECASE):
-            return self.__extract_inv_data(string,data)
-        # elif re.match(r"^aum.*", check_header, re.IGNORECASE):
-        #     return self.__extract_aum_data(string, data)
-        # elif re.match(r"^fund_mana.*", check_header, re.IGNORECASE):
-        #     return self.__extract_manager_data(string, data)
-        # elif re.match(r"^metrics.*", check_header, re.IGNORECASE):
-        #     return self.__extract_metric_data(string, data)
-        return self.__return_all_data(string,data)
+class DSP(Reader,GrandFundData):
+
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
 #8 <>
 class Edelweiss(Reader,GrandFundData):
@@ -644,14 +614,27 @@ class HDFC(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
     
     def _extract_manager_data(self, main_key: str, data, pattern:str):
-        manager_data = " ".join(data) if isinstance(data, list) else data
-        manager_data = re.sub(self.REGEX["escape"], "", manager_data).strip()
-        final_list = []
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name,desig,since,exp = match
-                final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
-        return {main_key: final_list}    
+        DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
+        NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
+        EXP_PATTERN = r"over (\d+)"
+        YEAR_PATTERN = r"(\d{4})"
+
+        all_text = " ".join(data)
+        all_text = re.sub(r"[^A-Za-z0-9\s\-\(\).,]+|Name|Since|Total|Exp|years", "", all_text).strip()
+
+        experience_years = re.findall(EXP_PATTERN, all_text, re.IGNORECASE)
+        dates = re.findall(DATE_PATTERN, all_text, re.IGNORECASE)[:len(experience_years)]
+        years = re.findall(YEAR_PATTERN, all_text, re.IGNORECASE)[:len(experience_years)]
+        names = re.findall(NAME_PATTERN, all_text, re.IGNORECASE)[:len(experience_years)]
+        
+        managing_since = [f"{date}, {year}" for date, year in zip(dates, years)]
+        experience_list = [f"{exp} years" for exp in experience_years]
+        final_list = [
+            self._return_manager_data(name=name,since=since,exp=exp)
+            for since, exp, name in zip(managing_since, experience_list, names)
+        ]
+        
+        return {main_key:final_list}    
     
 
 #11
@@ -948,11 +931,10 @@ class NAVI(Reader,GrandFundData): #Lupsum issues
         final_list = []
         manager_data = " ".join(data)
         manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        for text in data:
-            matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
-            for match in matches:
-                name, since = match
-                final_list.append(self._return_manager_data(name=name,since=since))
+        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
+        for match in matches:
+            name, since = match
+            final_list.append(self._return_manager_data(name=name,since=since))
         
         return {main_key:final_list}
 
@@ -962,12 +944,16 @@ class NAVI(Reader,GrandFundData): #Lupsum issues
         
         with fitz.open(path) as doc:
             for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 500, 200)).split("\n"))
+                text = " ".join(page.get_text("text", clip=(0, 0, 500, 150)).split("\n"))
                 text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                if matches := re.findall(pattern, text,re.IGNORECASE):
+                if matches := re.findall(pattern, text):
                     title[pgn] = matches[0]
         return title
-
+    
+    def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
+        if matches:=re.findall(self.REGEX[pattern],f"{main_key} {data}",re.IGNORECASE):
+            return {"benchmark_index":matches[0]}
+        return{"benchmark_index":data}
 #23 <>
 class Nippon(Reader,GrandFundData):
     
