@@ -645,6 +645,7 @@ class Reader:
             for metric_key,metric_value in temp['metrics'].items():
                 new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
                 new_metrics[new_key] = metric_value
+            #populate metrics
             temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
             
             if special:

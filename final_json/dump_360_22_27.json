@@ -40,6 +40,7 @@
             "sharpe": "0.47",
             "sortino_ratio": null,
             "std_dev": "13.68",
+            "tracking_error": null,
             "treynor_ratio": "0.57",
             "upside_deviation": null,
             "ytm": null
@@ -97,6 +98,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -154,6 +156,7 @@
             "sharpe": "0.86",
             "sortino_ratio": null,
             "std_dev": "16.98",
+            "tracking_error": null,
             "treynor_ratio": "1.03",
             "upside_deviation": null,
             "ytm": null
@@ -211,6 +214,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.11",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -240,7 +244,7 @@
             },
             {
                 "managing_fund_since": "",
-                "name": "Mody",
+                "name": "Milan Mody",
                 "qualification": "",
                 "total_exp": "20 Years"
             }
@@ -256,12 +260,12 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.2725 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "2.8642",
+            "macaulay": "2.8642 years",
             "mod_duration": null,
             "port_turnover_ratio": "0.61",
             "r_squared_ratio": null,
@@ -269,6 +273,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.4549"
@@ -292,7 +297,7 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mody",
+                "name": "Milan Mody",
                 "qualification": "",
                 "total_exp": "20 Years"
             }
@@ -308,12 +313,12 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "6.2085 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "4.7121",
+            "macaulay": "4.7121 years",
             "mod_duration": null,
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
@@ -321,6 +326,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.4631"
@@ -343,7 +349,7 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mody",
+                "name": "Milan Mody",
                 "qualification": "",
                 "total_exp": "20 Years"
             }
@@ -359,12 +365,12 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.1372 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "0.1367",
+            "macaulay": "0.1367 years",
             "mod_duration": null,
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
@@ -372,6 +378,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.2154"

@@ -70,7 +70,7 @@
                 "EOL",
             ],
             ptr: "([\\d\\.]+).*",
-            metrics: "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|Residual Maturity|R Squared|Treynor|Macaulay Duration|Annualised Portfolio)\\s*([\\d,\\-]+\\.?\\d+|NA)\\s*(?:([\\d,\\-]+\\.?\\d+|NA))?",
+            metrics: "^(Std\\.? Dev|Sharpe Ratio|Portfolio Beta|Residual Maturity|R Squared|Treynor|Macaulay Duration|Annualised Portfolio)\\s*(\\-?[\\d,]+\\.?\\d+\\s*(?:years|days|months)?|NA)\\s*(?:([\\d,\\-]+\\.?\\d+|NA))?",
             escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
         },
         PATTERN_TO_FUNCTION: {
@@ -1771,6 +1771,47 @@
     },
     "HSBC Mutual Fund": {
         PARAMS: {
+            fund: {
+                flag: [
+                    20,
+                ],
+                regex: "^Helios.*Fund$",
+                size: [
+                    16,
+                    24,
+                ],
+                color: [
+                    -1,
+                ],
+                countmax_header_check: 15,
+            },
+            clip_bbox: [
+                [
+                    0,
+                    5,
+                    245,
+                    812,
+                ],
+            ],
+            line_x: 245.0,
+            data: {
+                size: [
+                    7,
+                    10,
+                ],
+                color: [
+                    -1,
+                    -2545112,
+                ],
+                update_size: 30.0,
+                font: [
+                    "Poppins-SemiBold",
+                ],
+            },
+            content_size: [
+                30.0,
+                10.0,
+            ],
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
@@ -1796,12 +1837,85 @@
     },
     "ICICI Prudential Mutual Fund": {
         PARAMS: {
+            fund: {
+                flag: [
+                    20,
+                ],
+                regex: "^ICICI.*(Funds?|ETF|FOF|Paths?|Index|FTF|EOF)$",
+                size: [
+                    12,
+                    24,
+                ],
+                color: [
+                    -65794,
+                ],
+                countmax_header_check: 15,
+            },
+            clip_bbox: [
+                [
+                    0,
+                    175,
+                    200,
+                    700,
+                ],
+                [
+                    200,
+                    175,
+                    380,
+                    700,
+                ],
+                [
+                    380,
+                    175,
+                    570,
+                    700,
+                ],
+            ],
+            line_x: 175.0,
+            data: {
+                size: [
+                    5,
+                    9,
+                ],
+                color: [
+                    -65794,
+                ],
+                update_size: 30.0,
+                font: [
+                    "Mulish-Regular",
+                ],
+            },
+            content_size: [
+                30.0,
+                10.0,
+            ],
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
-        REGEX: {},
-        PATTERN_TO_FUNCTION: {},
+        REGEX: {
+            scheme:[
+                "Fund Managers",
+                "Indicative Investment Horizon",
+                "Allotment date",
+                "Monthly AAUM as on",
+                "Closing AUM as on",
+                "NAV",
+                "Minimum application amount",
+                "Exit load for",
+                "Exchange Listed on",
+                "Total Expense Ratio",
+                "EOL"
+            ],
+            escape:"[^a-zA-Z0-9.,\\s\\-\\(\\)]"
+        },
+        PATTERN_TO_FUNCTION: {
+            "^(before|dummy|scheme_Details).*":[
+                "_extract_scheme_data",
+                "scheme"
+            ]
+        },
         SECONDARY_PATTERN_TO_FUNCTION: {},
         SELECTKEYS: [],
         MERGEKEYS: {},

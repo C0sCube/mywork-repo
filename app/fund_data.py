@@ -1,4 +1,4 @@
-import re, os,json, json5 #type:ignore
+import re, os,json, json5,ocrmypdf #type:ignore
 from app.parse_pdf import Reader
 from logging_config import logger
 import fitz #type:ignore
@@ -775,25 +775,29 @@ class LIC(Reader,GrandFundData): #Lupsum issues
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
-    def get_proper_fund_names(self,path: str): #send ocr path btw
-        doc = fitz.open(path)
-        title = {}
-        for pgn in range(doc.page_count):
-            page = doc[pgn]
-            blocks = page.get_text("dict")['blocks']
-            text_all = " ".join(
-                span["text"].strip()
-                for block in blocks[:4]
-                for line in block.get("lines", [])
-                for span in line.get("spans", [])
-                if span["text"].strip()
-            )
+    def get_proper_fund_names(input_pdf, bbox = (0, 0, 400, 100)):
+        clipped_pdf = input_pdf.replace(".pdf", "_clipped.pdf")
+        ocr_pdf = input_pdf.replace(".pdf", "_ocr.pdf")
+        
+        with fitz.open(input_pdf) as doc:
+            with fitz.open() as new_doc:
+                for page_num in range(len(doc)):
+                    new_page = new_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
+                    new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
+                new_doc.save(clipped_pdf)
+        
+        ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
+        
+        pattern = r"((?:LI?i?C|BSE|BANK|SMALL|HEALTH).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|FUND\s*OF\s*FUND))"
+        extracted_titles = {}
 
-            text_all = re.sub(self.REGEX['escape'], '', text_all).strip()
-            matches = re.findall(self.PARAMS['fund']['regex'], text_all, re.IGNORECASE)
-            title[pgn] = matches[0] if matches else ""
-
-        return title
+        with fitz.open(ocr_pdf) as doc:
+            for page_num, page in enumerate(doc):
+                page_content = page.get_text("text")
+                text = " ".join(page_content.split("\n"))
+                if matches := re.findall(pattern, text, re.IGNORECASE):
+                    extracted_titles[page_num] = matches[0]
+        return extracted_titles
     
     def _extract_manager_data(self,main_key:str, data:list, pattern:str):
         final_list = []

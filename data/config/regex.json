@@ -309,7 +309,8 @@
             "^average_maturity",
             ".*residual_maturity",
             "^average$",
-            "^weighted_average_maturity$"
+            "^weighted_average_maturity$",
+            "^residual_maturity$"
         ],
         "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta"],
         "correlation_ratio": [],
@@ -358,6 +359,7 @@
             "^standard$",
             "^Standard_Deviation_of_Fund"
         ],
+        "tracking_error":["^tracking_error$"],
         "treynor_ratio": ["^Treynor", "^treynor"],
         "upside_deviation": [],
         "ytm": [
