@@ -112,11 +112,9 @@ class FundRegex():
         if not isinstance(data, dict):
             raise TypeError(f"Expected dictionary, got {type(data)}")
             return
-        
-        for key, value in data.items():
-            if isinstance(value, str) and value.strip().lower() == "na":
-                data[key] = None
-        
+        # for key, value in data.items():
+        #     if isinstance(value, str) and value.strip().lower() == "na":
+        #         data[key] = None
         for key in self.METRIC_HEADER:
             if key not in data:
                 data[key] = None

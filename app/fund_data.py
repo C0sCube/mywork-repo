@@ -122,15 +122,18 @@ class GrandFundData:
         amt_data = " ".join(data) if isinstance(data,list) else data
         amt_data = re.sub(self.REGEX['escape'],"",amt_data).strip()
         matches = re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE)
-        final_dict = {}
-        for match in matches:
-            if len(match) == 2:
-                amt, thraftr = match
-                final_dict['amt'], final_dict['thraftr'] = amt,thraftr
-            elif len(match) == 3:
-                min_type,amt,thraftr = match
+        final_dict = {'amt':"",'thraftr':""}
+        if matches:= re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE):
+            amt,thraftr = matches[0]
+            final_dict['amt'], final_dict['thraftr'] = amt,thraftr
+        # for match in matches:
+        #     if len(match) == 2:
+        #         amt, thraftr = match
+        #         final_dict['amt'], final_dict['thraftr'] = amt,thraftr
+        #     elif len(match) == 3:
+        #         min_type,amt,thraftr = match
                 
-                final_dict[min_type] = {"amt": amt,"thraftr":thraftr,}
+        #         final_dict[min_type] = {"amt": amt,"thraftr":thraftr,}
                 
         return {main_key:final_dict}
     
@@ -842,54 +845,28 @@ class MahindraManu(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
         
-    def get_proper_fund_names(self,path:str,pages:list):
+    def get_proper_fund_names(self,path: str):
+        pattern = r'\b(Mahindra.*?(?:Fund|ETF|EOF|FOF|FTF|Path|FO))\b'
+        title = {}
         
-        doc = fitz.open(path)
-        final_fund_names = dict()
-        
-        for pgn in range(doc.page_count):
-            fund_names = ''
-            if pgn in pages:
-                page = doc[pgn]            
-                blocks = page.get_text("dict")['blocks']
-                
-                sorted_blocks = sorted(blocks,key=lambda k:(k['bbox'][1],k['bbox'][0]))
-                for count,block in enumerate(sorted_blocks):
-                    for line in block.get("lines", []):
-                        for span in line.get("spans", []):
-                            text = span['text'].strip()
-                            if count in range(0,2): #contains fund name        
-                                fund_names += f'{text} '
-            if matches:= re.search(r'\bMahindra.*?(Fund|ETF|EOF|FOF|FTF|Path)\b', fund_names, re.IGNORECASE):           
-                final_fund_names[pgn] = matches.group()
-            else:
-                final_fund_names[pgn] = ''
-
-        return final_fund_names
+        with fitz.open(path) as doc:
+            for pgn, page in enumerate(doc):
+                text = " ".join(page.get_text("text", clip=(170,0,450,80)).split("\n"))
+                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
+                if matches := re.findall(pattern, text):
+                    title[pgn] = matches[0]
+        return title
 
     def _extract_manager_data(self,main_key:str, data:list, pattern:str):
         final_list = []
-        manager_data = " ".join(data)
+        manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
         matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
         for match in matches:
-            name,exp,since = match
+            name,exp,_,since = match
             final_list.append(self._return_manager_data(name=name,exp=exp,since=since))
         return {main_key:final_list}
     
-    def _extract_nav_data(self,main_key:str, data:list,pattern:str):
-        final_dict = {}
-        nav_data = data
-        for text in nav_data:
-            text = re.sub(self.REGEX['escape'], "", text.strip())
-            if matches := re.findall(self.REGEX[pattern], text, re.IGNORECASE):
-                for index, reg, direct in matches:
-                    final_dict[f'Regular {index}'] = reg
-                    final_dict[f'Direct {index}'] = direct
-        
-        return {main_key: final_dict}
-    
-    #something
 
 #20 <>
 class MIRAE(Reader,GrandFundData):
@@ -929,7 +906,7 @@ class MotilalOswal(Reader,GrandFundData): #Lupsum issues
     
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
-        manager_data = " ".join(data)
+        manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
         if matches:= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
             for match in matches:
@@ -1085,6 +1062,18 @@ class Quantum(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+    
+    def get_proper_fund_names(self,path: str):
+        pattern =  "(QUANTUM.*?(?:OF FUNDS?|FUNDS?|ETF|EOF|FOF|FTF|PATH))"
+        title = {}
+        
+        with fitz.open(path) as doc:
+            for pgn, page in enumerate(doc):
+                text = " ".join(page.get_text("text", clip=(0, 0, 450, 90)).split("\n"))
+                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
+                if matches := re.findall(pattern, text):
+                    title[pgn] = matches[0]
+        return title
     
     def _extract_manager_data(self, main_key: str, data: list, pattern: str):
         final_list = []

@@ -27,6 +27,7 @@
             "sharpe": "0.85",
             "sortino_ratio": null,
             "std_dev": "12.97",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -71,6 +72,7 @@
             "sharpe": "0.85",
             "sortino_ratio": null,
             "std_dev": "13.32",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -115,6 +117,7 @@
             "sharpe": "0.79",
             "sortino_ratio": null,
             "std_dev": "14.13",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -159,6 +162,7 @@
             "sharpe": "0.97",
             "sortino_ratio": null,
             "std_dev": "15.41",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -203,6 +207,7 @@
             "sharpe": "0.38",
             "sortino_ratio": null,
             "std_dev": "13.92",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -247,6 +252,7 @@
             "sharpe": "0.93",
             "sortino_ratio": null,
             "std_dev": "16.11",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -337,6 +343,7 @@
             "sharpe": "1.02",
             "sortino_ratio": null,
             "std_dev": "14.32",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -381,6 +388,7 @@
             "sharpe": "0.45",
             "sortino_ratio": null,
             "std_dev": "13.86",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -425,6 +433,7 @@
             "sharpe": "0.59",
             "sortino_ratio": null,
             "std_dev": "13.94",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -469,6 +478,7 @@
             "sharpe": "0.56",
             "sortino_ratio": null,
             "std_dev": "14.24",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -513,6 +523,7 @@
             "sharpe": "1.12",
             "sortino_ratio": null,
             "std_dev": "17.25",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -557,6 +568,7 @@
             "sharpe": "0.78",
             "sortino_ratio": null,
             "std_dev": "15.18",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -601,6 +613,7 @@
             "sharpe": "0.83",
             "sortino_ratio": null,
             "std_dev": "14.12",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -645,6 +658,7 @@
             "sharpe": "0.01",
             "sortino_ratio": null,
             "std_dev": "15.47",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -689,6 +703,7 @@
             "sharpe": "0.45",
             "sortino_ratio": null,
             "std_dev": "16.89",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -733,6 +748,7 @@
             "sharpe": "0.24",
             "sortino_ratio": null,
             "std_dev": "26.82",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -777,6 +793,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -821,6 +838,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "6.73"
@@ -865,6 +883,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.30"
@@ -909,6 +928,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.59"
@@ -953,6 +973,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.81"
@@ -997,6 +1018,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.81"
@@ -1041,6 +1063,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.43"
@@ -1085,6 +1108,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.34"
@@ -1129,6 +1153,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.63"
@@ -1173,6 +1198,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.64"
@@ -1217,6 +1243,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.07"
@@ -1261,6 +1288,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "8.96"
@@ -1305,6 +1333,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "8.03"
@@ -1323,7 +1352,7 @@
     },
     "nippon india income fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
-        "benchmark_index": "NIFTY Medium to Long Duration Debt Index A-III",
+        "benchmark_index": "NIFTY Medium to Long Duration Debt Index  A-III",
         "fund_manager": "(s) Vivek Sharma (Managing Since Feb 2020) Total Experience of more than 18 years AMFI Tier 1",
         "load": {
             "entry_load": "Not Applicable",
@@ -1349,6 +1378,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.14"
@@ -1393,6 +1423,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.12"
@@ -1437,6 +1468,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.02"
@@ -1482,6 +1514,7 @@
             "sharpe": "0.65",
             "sortino_ratio": null,
             "std_dev": "6.83",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.90"
@@ -1527,6 +1560,7 @@
             "sharpe": "0.67",
             "sortino_ratio": null,
             "std_dev": "9.93",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "8.27"
@@ -1536,7 +1570,7 @@
         "min_amt": null,
         "min_amt_multiple": null,
         "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": "3,756.57 Cr.9.33 Cr.0.00 Cr.",
+        "monthly_aaum_value": "3,756.57 Cr. 9.33 Cr.0.00 Cr.",
         "mutual_fund_name": "Nippon India Mutual Fund",
         "page_number": [
             38
@@ -1572,6 +1606,7 @@
             "sharpe": "0.22",
             "sortino_ratio": null,
             "std_dev": "3.87",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.19"
@@ -1617,6 +1652,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": "0.58",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1661,6 +1697,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "8.94"
@@ -1752,6 +1789,7 @@
             "sharpe": "0.38",
             "sortino_ratio": null,
             "std_dev": "12.71",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1796,6 +1834,7 @@
             "sharpe": "0.35",
             "sortino_ratio": null,
             "std_dev": "12.38",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1840,6 +1879,7 @@
             "sharpe": "0.55",
             "sortino_ratio": null,
             "std_dev": "19.31",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1884,6 +1924,7 @@
             "sharpe": "0.80",
             "sortino_ratio": null,
             "std_dev": "16.19",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1928,6 +1969,7 @@
             "sharpe": "0.63",
             "sortino_ratio": null,
             "std_dev": "13.18",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1972,6 +2014,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2016,6 +2059,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2060,6 +2104,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2104,6 +2149,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.28"
@@ -2148,6 +2194,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.23"
@@ -2192,6 +2239,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "6.95"
@@ -2236,6 +2284,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "6.71"
@@ -2280,6 +2329,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "6.93"
@@ -2324,6 +2374,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.78"
@@ -2368,6 +2419,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.72"
@@ -3312,6 +3364,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -3356,6 +3409,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -3400,6 +3454,7 @@
             "sharpe": "0.48",
             "sortino_ratio": null,
             "std_dev": "13.93",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -3444,6 +3499,7 @@
             "sharpe": "1.23",
             "sortino_ratio": null,
             "std_dev": "7.60",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -3488,6 +3544,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null

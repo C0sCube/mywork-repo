@@ -40,6 +40,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -55,7 +56,6 @@
             2
         ],
         "portfolio_turnover_timesequity_turnover": "0.58",
-        "portfolio_turnover_timestotal_turnover": "0.58",
         "scheme_launch_date": "13th November 2023"
     },
     "helios financial services fund": {
@@ -99,6 +99,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -114,7 +115,6 @@
             4
         ],
         "portfolio_turnover_timesequity_turnover": "0.38",
-        "portfolio_turnover_timestotal_turnover": "0.38",
         "scheme_launch_date": "24th June 2024"
     },
     "helios large & mid cap fund": {
@@ -158,6 +158,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -173,7 +174,6 @@
             6
         ],
         "portfolio_turnover_timesequity_turnover": "0.03",
-        "portfolio_turnover_timestotal_turnover": "0.03",
         "scheme_launch_date": "30th October 2024"
     },
     "helios balanced advantage fund": {
@@ -223,6 +223,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -238,7 +239,6 @@
             8
         ],
         "portfolio_turnover_timesequity_turnover": "0.49",
-        "portfolio_turnover_timestotal_turnover": "3.56",
         "scheme_launch_date": "27th March 2024"
     },
     "helios overnight fund": {
@@ -269,26 +269,27 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "1",
+            "avg_maturity": "1 day",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "1",
-            "mod_duration": "1",
+            "macaulay": "1 day",
+            "mod_duration": "1 day",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "6.60"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
-        "min_amt": "25,000",
+        "min_amt": "5,000",
         "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "145.35",

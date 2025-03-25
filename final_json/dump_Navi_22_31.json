@@ -92,6 +92,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -143,6 +144,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -396,7 +398,7 @@
         "benchmark_index": "niy 50 TRI",
         "fund_manager": [
             {
-                "managing_fund_since": "2.0Th March, 2023",
+                "managing_fund_since": "20Th March, 2023",
                 "name": "Aditya Mulki",
                 "qualification": "",
                 "total_exp": ""
@@ -454,7 +456,7 @@
         "benchmark_index": "bse SENSEX TRI",
         "fund_manager": [
             {
-                "managing_fund_since": "0.4Th September, 2023",
+                "managing_fund_since": "04Th September, 2023",
                 "name": "Aditya Mulki",
                 "qualification": "",
                 "total_exp": ""

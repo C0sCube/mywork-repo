@@ -162,7 +162,8 @@
             ".*subsequent$",
             ".*additional$",
             ".*minimum_additional_purchase$",
-            ".*additional_investment$"
+            ".*additional_investment$",
+            "^additional_application$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -208,7 +209,8 @@
             ".*average_aum$",
             ".*net_aum$",
             ".*fund_size$",
-            ".*average_for_month$"
+            ".*average_for_month$",
+            ".*average_aum$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -304,7 +306,7 @@
         "Last 12 months"
     ],
     "metrics_headers": {
-        "alpha": ["^jensens_alpha"],
+        "alpha": ["^jensens_alpha","^jensons_alpha$"],
         "arithmetic_mean_ratio": [],
         "average_div_yld": ["^dividend_yield$"],
         "average_pb": [".*_pb","^pbv$","^pb$"],
@@ -351,7 +353,9 @@
             "turnover_ratio$",
             "^total_turnover$",
             "^portfolio_turnover_times$",
-            "^last_[0-9]+_months$"
+            "^last_[0-9]+_months$",
+            ".*portfolio_turnover_ratio$",
+            ".*timestotal_turnover$"
         ],
         "r_squared_ratio": ["R Squared","^r_squared","^r_square$"],
         "roe_ratio": [

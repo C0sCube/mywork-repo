@@ -580,6 +580,7 @@ class Reader:
                 if clean_head:=  regex.header_mapper(head):
                     content = self._match_regex_to_content(clean_head, content) # applies regex to clean data
                     content = regex.transform_keys(content) #lowercase
+                    
                     key, value = next(iter(content.items()))  # Extract key-value once
 
                     if clean_head in content_dict:
@@ -617,6 +618,7 @@ class Reader:
         regex = FundRegex()
         for fund, content in data.items():
             temp = content
+            temp = self._clone_fund_data(temp)
             temp = self._merge_fund_data(temp)
             
             temp = self._clone_fund_data(temp)
