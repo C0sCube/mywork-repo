@@ -52,7 +52,7 @@ class GrandFundData:
 
 
         final_dict = {}
-        scheme_data = " ".join(data)
+        scheme_data = " ".join(data) if isinstance(data,list) else data
         scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
         unique_set = set()
         for pattern in patterns:
@@ -67,22 +67,41 @@ class GrandFundData:
     def _extract_str_data(self, main_key: str, data: list):
         return {main_key: ' '.join(data)}
     
+    # def _extract_generic_data(self, main_key: str, data, pattern: str):
+    #     final_dict = {}
+
+    #     generic_data = [data] if isinstance(data,str) else data 
+    #     for text in generic_data:
+    #         text = re.sub(self.REGEX['escape'], "", text).strip()
+    #         matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
+    #         for match in matches:
+    #             if isinstance(match, str):
+    #                 return {main_key: match}
+    #             elif len(match) == 2:
+    #                 key, value = match
+    #                 final_dict[key.strip()] = value.strip()
+    #             elif len(match) == 3:
+    #                 key,v1,v2 = match
+    #                 final_dict[key.strip()] = v1.strip()
+                    
+    #     return {main_key:final_dict}
+    
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         final_dict = {}
 
-        generic_data = [data] if isinstance(data,str) else data 
-        for text in generic_data:
-            text = re.sub(self.REGEX['escape'], "", text).strip()
-            matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
-            for match in matches:
-                if isinstance(match, str):
-                    return {main_key: match}
-                elif len(match) == 2:
-                    key, value = match
-                    final_dict[key.strip()] = value.strip()
-                elif len(match) == 3:
-                    key,v1,v2 = match
-                    final_dict[key.strip()] = v1.strip()
+        generic_data = " ".join(data) if isinstance(data,list) else data
+        generic_data = re.sub(self.REGEX['escape'], "", generic_data).strip()
+      
+        matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
+        for match in matches:
+            if isinstance(match, str):
+                return {main_key: match}
+            elif len(match) == 2:
+                key, value = match
+                final_dict[key.strip()] = value.strip()
+            elif len(match) == 3:
+                key,v1,v2 = match
+                final_dict[key.strip()] = v1.strip()
                     
         return {main_key:final_dict}
 
@@ -444,27 +463,18 @@ class BarodaBNP(Reader,GrandFundData): #Lupsum issues
         return {main_key:final_dict}
     
     
-    def get_proper_fund_names(self, path:str, pages:list, bbox:set):
-        doc = fitz.open(path)
+    def get_proper_fund_names(self,path: str):
+        pattern = "(Baroda BNP.*?(?:Fund|Path|ETF|FTF|FOF|Index|Fund of Fund))"
+        title = {}
         
-        fund_titles = dict()
-        for pgn in range(doc.page_count):
-            if pgn in pages:
-                page = doc[pgn]
-                blocks = page.get_text('dict', clip=bbox)['blocks']
-                combined_text = []
-        
-                for block in blocks:
-                    for line in block.get('lines', []):
-                        for span in line.get('spans', []):
-                            text = span.get('text', "")
-                            if re.search(r'^Baroda BNP', text) or re.search(r'Fund$', text):
-                                combined_text.append(text)
-                fund_titles[pgn] = " ".join(combined_text)
-            else:
-                fund_titles[pgn] = ""
-        doc.close()
-        return fund_titles
+        with fitz.open(path) as doc:
+            for pgn, page in enumerate(doc):
+                text = " ".join(page.get_text("text", clip=(0, 0, 220, 120)).split("\n"))
+                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
+                # print(text)
+                if matches := re.findall(pattern, text, re.DOTALL):
+                    title[pgn] = matches[0] 
+        return title
     
     def _extract_lump_data(self,main_key:str,data:list, pattern:str):
         load_data = " ".join(data) if isinstance(data,list) else data
@@ -689,6 +699,22 @@ class Helios(Reader,GrandFundData):
 #13 
 
 #14
+class ICICI(Reader,GrandFundData): #Lupsum issues
+    
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+    
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        manager_data = "".join(data)
+        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
+        final_list = []
+        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
+        for match in matches:
+            name,since,exp = match
+            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        
+        return {main_key:final_list}
 
 #15 <>
 class Invesco(Reader,GrandFundData): #Lupsum issues

@@ -1,4 +1,4 @@
-import os, re, math, json,logging, subprocess
+import os, re, math, json,logging, subprocess, time
 import fitz # type: ignore
 from collections import defaultdict
 import pdfplumber # type: ignore
@@ -432,8 +432,8 @@ class Reader:
         g = (c >> 8) & 0xFF
         b = c & 0xFF
         return (r/255.0, g/255.0, b/255.0)
-    
-    def _generate_pdf_from_data(self,data: dict, output_path: str) -> None:
+    @staticmethod
+    def _generate_pdf_from_data(data: dict, output_path: str) -> None:
         with fitz.open() as doc:
             TITLE_FONT_SIZE = 24
             TITLE_POSITION = 72
@@ -516,29 +516,47 @@ class Reader:
 
             doc.save(output_path)
    
- 
-    def _extract_data_from_pdf(self,path: str,fund:str):
-        with pdfplumber.open(path) as pdf:
-            final_data = {}
+    # @staticmethod
+    # def _extract_data_from_pdf(path: str):
+    #     with pdfplumber.open(path) as pdf:
+    #         final_data = {}
 
-            for page in pdf.pages:
-                content = page.extract_text().encode("ascii", "ignore").decode().split('\n')
-                key,val = content[0], content[1:] #str, list
-                if self._get_prev_text(key):
-                    val = self.TEXT_ONLY[fund][key]
-                final_data[key] = val #First text will he Header rest values
+    #         for page in pdf.pages:
+    #             content = page.extract_text().encode("ascii", "ignore").decode().split('\n')
+    #             key,val = content[0], content[1:]
+    #             final_data[key] = val #First text will he Header rest values
+
+    #     return final_data
+    
+    @staticmethod
+    def _extract_data_from_pdf(path: str):
+        final_data = {}
+
+        with fitz.open(path) as doc:
+            for page in doc:
+                content = page.get_text("text").split("\n")
+                if content:
+                    key, val = content[0], content[1:]
+                    final_data[key] = val
 
         return final_data
 
     def get_generated_content(self, data:list):
-        extracted_text= {}
+        extracted_text = {}
         output_path  = self.DRYPATH
+        # print(f"FUNDS at LOC:")
         for content in data:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
-        
-            self._generate_pdf_from_data(blocks, output_path)
-            print(f'\n---<<{fund}>>---at: {output_path}')
-            extracted_text[fund] = self._extract_data_from_pdf(output_path, fund)
+            
+            print(f'---<<{fund}>>---')
+            start_time = time.time()
+            Reader._generate_pdf_from_data(blocks, output_path)
+            print(f"PDF Generation Time: {time.time() - start_time:.2f} sec")
+            
+            start_time = time.time()
+            extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
+            print(f"PDF Extraction Time: {time.time() - start_time:.2f} sec")
+            
             self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text
     

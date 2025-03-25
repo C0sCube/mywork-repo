@@ -136,7 +136,8 @@
             "^metrics",
             ".*aum_as_on$",
             ".*risk_adjusted_measures",
-            ".*nav_as_on"
+            ".*nav_as_on",
+            "^nav$"
         ],
         "min_addl_amt": [
             "multiples_for_existing_investors",
@@ -157,7 +158,11 @@
             ".*add_amt$",
             ".*additional_purchase$",
             ".*minimum_additional_application_amount$",
-            ".*subsequent_investment$"
+            ".*subsequent_investment$",
+            ".*subsequent$",
+            ".*additional$",
+            ".*minimum_additional_purchase$",
+            ".*additional_investment$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -186,6 +191,7 @@
             "monthly_aaum_date"
         ],
         "monthly_aaum_value": [
+            ".*aaum$",
             "^aaum$",
             "^average_aum$",
             "scheme_details.aum$",
@@ -215,7 +221,8 @@
             ".*scheme_date$",
             ".*allotment_date$",
             "^inception_date$",
-            ".*inceptionallotment$"
+            ".*inceptionallotment$",
+            ".*date_of_allotment$"
         ],
         "page_number": [
             "^page_number",
@@ -320,6 +327,7 @@
         ],
         "macaulay": [
             "^macaulay_duration",
+            "^macaulay_duration$",
             "^macaulay.*",
             "^Macaulay Duration"
         ],
@@ -359,7 +367,7 @@
             "^standard$",
             "^Standard_Deviation_of_Fund"
         ],
-        "tracking_error":["^tracking_error$"],
+        "tracking_error":["^tracking_error$","^tracking_error_regular$"],
         "treynor_ratio": ["^Treynor", "^treynor"],
         "upside_deviation": [],
         "ytm": [
@@ -371,7 +379,8 @@
             "^annualised_ytm$",
             "^annualised_portfolio$",
             "^portfolio_yield$",
-            "^annualized_portfolio_ytm$"
+            "^annualized_portfolio_ytm$",
+            "^yield$"
         ]
     }
     

@@ -37,27 +37,25 @@
             "port_turnover_ratio": "0.3",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.95",
             "sharpe": "0.42",
             "sortino_ratio": null,
             "std_dev": "12.40",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "12,421.79 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             8
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "September 16, 2003"
     },
     "canara robeco blue chip equity fund (crbcef)": {
@@ -98,27 +96,25 @@
             "port_turnover_ratio": "0.25",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.97",
             "sharpe": "0.54",
             "sortino_ratio": null,
             "std_dev": "11.50",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "14,556.17 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             9
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 "
-        },
         "scheme_launch_date": null
     },
     "canara robeco emerging equities (cree)": {
@@ -140,7 +136,7 @@
         ],
         "load": {
             "entry_load": "Nil",
-            "exit_load": "1 - If redeemedswitched out within 1 year from the date of allotment  management fees.  Please refer page no. 59 for Definition Source ICRA MFI Explorer   Monthend AUM as on 31.01.2"
+            "exit_load": "1 - If redeemedswitched out within 1 year from the date of allotment  Source ICRA MFI Explorer   Monthend AUM as on 31.01.2 management fees.  Please refer page no. 59 for Definition"
         },
         "main_scheme_name": "canara robeco emerging equities (cree)",
         "metrics": {
@@ -159,27 +155,25 @@
             "port_turnover_ratio": "0.65",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.91",
             "sharpe": "0.56",
             "sortino_ratio": null,
             "std_dev": "13.30",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "23,809.72 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             10
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "March 11, 2005"
     },
     "canara robeco small cap fund (crscf)": {
@@ -201,7 +195,7 @@
         ],
         "load": {
             "entry_load": "Nil",
-            "exit_load": "In respect of each purchase  switch-in of units,1 - if Units are redeemed  switched-out within 1  Source ICRA MFI E 12"
+            "exit_load": "In respect of each purchase  switch-in of units,1 - if Units are redeemed  switched-out within 1  12 Source ICRA MFI E"
         },
         "main_scheme_name": "canara robeco small cap fund (crscf)",
         "metrics": {
@@ -220,32 +214,30 @@
             "port_turnover_ratio": "0.26",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.90",
             "sharpe": "0.63",
             "sortino_ratio": null,
             "std_dev": "15.24",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "11,884.61 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             11
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "February 15, 2019"
     },
     "canara robeco infrastructure (cri)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "BSE India Infrastructure TRI  management fees.  Please refer page no. 59 for Definition Source ICRA MFI Explorer   Monthend AUM as on 31.01.2",
+        "benchmark_index": "BSE India Infrastructure TRI  Source ICRA MFI Explorer   Monthend AUM as on 31.01.2 management fees.  Please refer page no. 59 for Definition",
         "fund_manager": [
             {
                 "managing_fund_since": "26-June-21",
@@ -281,27 +273,25 @@
             "port_turnover_ratio": "0.36",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.61",
             "sharpe": "0.98",
             "sortino_ratio": null,
             "std_dev": "16.95",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "832.91 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             12
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "December 2, 2005"
     },
     "canara robeco consumer trends fund (crctf)": {
@@ -342,27 +332,25 @@
             "port_turnover_ratio": "0.23",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.79",
             "sharpe": "0.68",
             "sortino_ratio": null,
             "std_dev": "13.54",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "1,704.70   Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             13
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "September 14, 2009"
     },
     "canara robeco elss tax saver (crets)": {
@@ -403,27 +391,25 @@
             "port_turnover_ratio": "0.3",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.95",
             "sharpe": "0.49",
             "sortino_ratio": null,
             "std_dev": "12.53",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "8,472.45 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             14
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "500 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 500 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "March 31, 1993"
     },
     "canara robeco focused equity fund (crfef)": {
@@ -464,27 +450,25 @@
             "port_turnover_ratio": "0.51",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.91",
             "sharpe": "0.66",
             "sortino_ratio": null,
             "std_dev": "12.26",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "2,471.67 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             15
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "Lumpsum Purchase 5,000.00 and multiples of 1.00 thereafter. ",
-            "add_amt": " 1000.00 and multiples of 1.00 thereafter. "
-        },
         "scheme_launch_date": "May 17, 2021"
     },
     "canara robeco value fund (crvf)": {
@@ -505,7 +489,7 @@
             }
         ],
         "load": {
-            "entry_load": "Nil  GST on investment management fees.  Please refer page n Source ICRA MFI Explorer   Monthend AUM as on 31.01.2",
+            "entry_load": "Nil  Source ICRA MFI Explorer   Monthend AUM as on 31.01.2 GST on investment management fees.  Please refer page n",
             "exit_load": "1 - If redeemedswitched out within 365 days from the date of allotment. Nil - if redeemedswitched out after 365 days from the date of allotment"
         },
         "main_scheme_name": "canara robeco value fund (crvf)",
@@ -525,27 +509,25 @@
             "port_turnover_ratio": "0.4",
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.95",
             "sharpe": "0.89",
             "sortino_ratio": null,
             "std_dev": "12.51",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "1,217.10 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             16
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "Lumpsum Purchase 5,000.00 and multiples of 1.00 thereafter. ",
-            "add_amt": " 1000.00 and multiples of 1.00 thereafter. "
-        },
         "scheme_launch_date": "September 03, 2021"
     },
     "canara robeco mid cap fund (crmcf)": {
@@ -589,24 +571,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "2,669.57 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             17
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "Lumpsum Purchase 5,000.00 and multiples of 1.00 thereafter. ",
-            "add_amt": " 1000.00 and multiples of 1.00 thereafter. "
-        },
         "scheme_launch_date": "December 02, 2022"
     },
     "canara robeco multi cap fund (crmucf)": {
@@ -650,24 +629,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "3,831.68 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             18
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "Lumpsum Purchase 5,000.00 and multiples of 1.00 thereafter. ",
-            "add_amt": " 1000.00 and multiples of 1.00 thereafter. "
-        },
         "scheme_launch_date": "28th July 2023"
     },
     "canara robeco manufacturing fund (crmtf)": {
@@ -711,24 +687,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "1,627.80 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             19
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "Lump sum Investment Purchase 5,000 and multiples of 1 thereafter. ",
-            "add_amt": " 1000 and multiples of 1 "
-        },
         "scheme_launch_date": "11th March 2024"
     },
     "canara robeco overnight fund (crof)": {
@@ -748,6 +721,7 @@
         },
         "main_scheme_name": "canara robeco overnight fund (crof)",
         "metrics": {
+            "": "99.49",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -766,24 +740,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "382.52 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             20
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "I. Lump sum Investment Minimum amount 5,000.00 and multiples of 1.00 thereafter. ",
-            "add_amt": " Minimum amount of 1000.00 and multiples of 1.00 thereafter. II. "
-        },
         "scheme_launch_date": "24th July, 2019"
     },
     "canara robeco liquid fund (crl)": {
@@ -814,37 +785,34 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "0.11",
+            "avg_maturity": "0.11 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "0.11",
-            "mod_duration": "0.10",
+            "macaulay": "0.11 Years",
+            "mod_duration": "0.10 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.26"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "4,444.53 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             21
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiple of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1  thereafter "
-        },
         "scheme_launch_date": "January 15, 2002"
     },
     "canara robeco ultra short term fund (crustf)": {
@@ -875,37 +843,34 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "0.69",
+            "avg_maturity": "0.69 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "0.45",
-            "mod_duration": "0.42",
+            "macaulay": "0.45 Years",
+            "mod_duration": "0.42 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.57"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "568.96 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             22
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "500 and in multiples of 1 thereafter. ",
-            "add_amt": " Minimum amount of 500 and multiples of 1 thereafter. "
-        },
         "scheme_launch_date": "September 16, 2003"
     },
     "canara robeco savings fund (crsf)": {
@@ -936,37 +901,34 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "0.89",
+            "avg_maturity": "0.89 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "0.83",
-            "mod_duration": "0.78",
+            "macaulay": "0.83 Years",
+            "mod_duration": "0.78 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.59"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "836.94 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             23
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "March 4, 2005"
     },
     "canara robeco short duration fund (crsdf)": {
@@ -988,10 +950,11 @@
         ],
         "load": {
             "entry_load": "Nil",
-            "exit_load": "Nil Source ICRA MFI Explorer  Monthend AUM as on 31.01  GST on investment management fees. Please refer page January 07, 2025 for change in the risk-o-meter of the benc"
+            "exit_load": "Nil  Source ICRA MFI Explorer  Monthend AUM as on 31.01 GST on investment management fees. Please refer page January 07, 2025 for change in the risk-o-meter of the benc"
         },
         "main_scheme_name": "canara robeco short duration fund (crsdf)",
         "metrics": {
+            "": "47.51",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1010,24 +973,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "347.91 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             24
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": null
     },
     "canara robeco income fund (crinc)": {
@@ -1036,9 +996,15 @@
         "fund_manager": [
             {
                 "managing_fund_since": "25-June-14",
-                "name": "Kunal Jain",
+                "name": "Avnish Jain",
                 "qualification": "",
                 "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "18-July-22",
+                "name": "Kunal Jain",
+                "qualification": "",
+                "total_exp": "17 Years"
             }
         ],
         "load": {
@@ -1047,6 +1013,7 @@
         },
         "main_scheme_name": "canara robeco income fund (crinc)",
         "metrics": {
+            "": "71.81",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1065,24 +1032,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "119.52 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             25
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "September 19, 2002"
     },
     "canara robeco dynamic bond fund (crdbf)": {
@@ -1108,6 +1072,7 @@
         },
         "main_scheme_name": "canara robeco dynamic bond fund (crdbf)",
         "metrics": {
+            "": "95.71",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1126,24 +1091,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "125.01   Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             26
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "May 29, 2009"
     },
     "canara robeco corporate bond fund (crcbf)": {
@@ -1169,6 +1131,7 @@
         },
         "main_scheme_name": "canara robeco corporate bond fund (crcbf)",
         "metrics": {
+            "": "44",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1187,24 +1150,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "130.93 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             27
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": null
     },
     "canara robeco gilt fund (crgilt)": {
@@ -1212,13 +1172,13 @@
         "benchmark_index": "CRISIL Dynamic Gilt Index",
         "fund_manager": [
             {
-                "managing_fund_since": "18-July-22",
+                "managing_fund_since": "",
                 "name": "Kunal Jain",
                 "qualification": "",
                 "total_exp": "17 Years"
             },
             {
-                "managing_fund_since": "01-April-22",
+                "managing_fund_since": "",
                 "name": "Avnish Jain",
                 "qualification": "",
                 "total_exp": "30  Years"
@@ -1230,6 +1190,7 @@
         },
         "main_scheme_name": "canara robeco gilt fund (crgilt)",
         "metrics": {
+            "": "93.30",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1248,24 +1209,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "138.38 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             28
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "December 29, 1999"
     },
     "canara robeco banking and psu debt fund (crbpdf)": {
@@ -1291,6 +1249,7 @@
         },
         "main_scheme_name": "canara robeco banking and psu debt fund (crbpdf)",
         "metrics": {
+            "": "42",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1309,6 +1268,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1344,10 +1304,11 @@
         ],
         "load": {
             "entry_load": "Nil",
-            "exit_load": "For any redemption  switch out upto 10 of units within 1 Year from the date of allotment - Nil For any redemption  switch out more than 10 of units within 1 Year from the date of allotment - 1 For any redemption  switch out after 1 Year from the date of allotment - Nil management fees. Please refer page no. 59 for Definitio Source ICRA MFI Explorer  Monthend AUM as on 31.01"
+            "exit_load": "For any redemption  switch out upto 10 of units within 1 Year from the date of allotment - Nil For any redemption  switch out more than 10 of units within 1 Year from the date of allotment - 1 For any redemption  switch out after 1 Year from the date of allotment - Nil  Source ICRA MFI Explorer  Monthend AUM as on 31 01"
         },
         "main_scheme_name": "canara robeco conservative hybrid fund (crchf)",
         "metrics": {
+            "": "48.13",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1366,24 +1327,21 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "938.14 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             30
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "April 24, 1988"
     },
     "canara robeco equity hybrid fund (crehf)": {
@@ -1415,42 +1373,41 @@
         },
         "main_scheme_name": "canara robeco equity hybrid fund (crehf)",
         "metrics": {
+            "": "0.6",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "7.21",
+            "avg_maturity": "7.21 Years",
             "beta": "1.02",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "3.80",
-            "mod_duration": "3.61",
+            "macaulay": "3.80 Years",
+            "mod_duration": "3.61 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
+            "rsquared": "0.95",
             "sharpe": "0.48",
             "sortino_ratio": null,
             "std_dev": "9.63",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.32"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "10,527.59 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             31
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": "5000 and in multiples of 1 thereafter ",
-            "add_amt": " Minimum amount of 1000 and multiples of 1 thereafter "
-        },
         "scheme_launch_date": "February 1, 1993"
     },
     "canara robeco balanced advantage fund (crbaf)": {
@@ -1493,37 +1450,34 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "5.02",
+            "avg_maturity": "5.02 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "3.35",
-            "mod_duration": "3.19",
+            "macaulay": "3.35 Years",
+            "mod_duration": "3.19 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "7.23"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "31.01",
+        "min_amt_multiple": "2",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "1,448.34 Crores",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             32
         ],
-        "scheme_detailsminimum_investment": {
-            "min_amt": {},
-            "add_amt": {}
-        },
         "scheme_launch_date": "2nd August, 2024"
     }
 }

@@ -1,7 +1,7 @@
 {
     "aditya birla sun life frontline equity fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY 100 TRI",
+        "benchmark_index": "NIFTY 100 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 17, 2005",
@@ -41,6 +41,7 @@
             "sharpe": "0.49",
             "sortino_ratio": null,
             "std_dev": "12.56",
+            "tracking_error": null,
             "treynor_ratio": "0.07",
             "upside_deviation": null,
             "ytm": null
@@ -55,11 +56,11 @@
         "page_number": [
             17
         ],
-        "scheme_launch_date": "August 30, 2002"
+        "scheme_launch_date": "August 30, 2002 "
     },
     "aditya birla sun life focused fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "May 07, 2021",
@@ -99,6 +100,7 @@
             "sharpe": "0.47",
             "sortino_ratio": null,
             "std_dev": "13.03",
+            "tracking_error": null,
             "treynor_ratio": "0.07",
             "upside_deviation": null,
             "ytm": null
@@ -113,11 +115,11 @@
         "page_number": [
             19
         ],
-        "scheme_launch_date": "October 24, 2005"
+        "scheme_launch_date": "October 24, 2005 "
     },
     "aditya birla sun life flexi cap fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY 500 TRI",
+        "benchmark_index": "NIFTY 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 03, 2023",
@@ -157,6 +159,7 @@
             "sharpe": "0.48",
             "sortino_ratio": null,
             "std_dev": "13.54",
+            "tracking_error": null,
             "treynor_ratio": "0.07",
             "upside_deviation": null,
             "ytm": null
@@ -171,11 +174,11 @@
         "page_number": [
             21
         ],
-        "scheme_launch_date": "August 27, 1998"
+        "scheme_launch_date": "August 27, 1998 "
     },
     "aditya birla sun life equity advantage fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Large Midcap 250 TRI",
+        "benchmark_index": "Nifty Large Midcap 250 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 21, 2022",
@@ -215,6 +218,7 @@
             "sharpe": "0.06",
             "sortino_ratio": null,
             "std_dev": "14.90",
+            "tracking_error": null,
             "treynor_ratio": "0.01",
             "upside_deviation": null,
             "ytm": null
@@ -229,11 +233,11 @@
         "page_number": [
             23
         ],
-        "scheme_launch_date": "February 24, 1995"
+        "scheme_launch_date": "February 24, 1995 "
     },
     "aditya birla sun life mnc fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty MNC TRI",
+        "benchmark_index": "Nifty MNC TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 28, 2021",
@@ -273,6 +277,7 @@
             "sharpe": "0.21",
             "sortino_ratio": null,
             "std_dev": "13.69",
+            "tracking_error": null,
             "treynor_ratio": "0.03",
             "upside_deviation": null,
             "ytm": null
@@ -287,11 +292,11 @@
         "page_number": [
             25
         ],
-        "scheme_launch_date": "December 27, 1999"
+        "scheme_launch_date": "December 27, 1999 "
     },
     "aditya birla sun life midcap fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Midcap 150 TRI",
+        "benchmark_index": "NIFTY Midcap 150 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -331,6 +336,7 @@
             "sharpe": "0.54",
             "sortino_ratio": null,
             "std_dev": "15.53",
+            "tracking_error": null,
             "treynor_ratio": "0.09",
             "upside_deviation": null,
             "ytm": null
@@ -345,11 +351,11 @@
         "page_number": [
             27
         ],
-        "scheme_launch_date": "October 03, 2002"
+        "scheme_launch_date": "October 03, 2002 "
     },
     "aditya birla sun life multi-cap fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 500 Multicap 50:25:25 TRI",
+        "benchmark_index": "Nifty 500 Multicap 50:25:25 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -395,6 +401,7 @@
             "sharpe": "0.50",
             "sortino_ratio": null,
             "std_dev": "13.46",
+            "tracking_error": null,
             "treynor_ratio": "0.08",
             "upside_deviation": null,
             "ytm": null
@@ -409,11 +416,11 @@
         "page_number": [
             29
         ],
-        "scheme_launch_date": "May 07, 2021"
+        "scheme_launch_date": "May 07, 2021 "
     },
     "aditya birla sun life small cap fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE 250 SmallCap TRI",
+        "benchmark_index": "BSE 250 SmallCap TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -453,6 +460,7 @@
             "sharpe": "0.36",
             "sortino_ratio": null,
             "std_dev": "16.92",
+            "tracking_error": null,
             "treynor_ratio": "0.07",
             "upside_deviation": null,
             "ytm": null
@@ -467,11 +475,11 @@
         "page_number": [
             31
         ],
-        "scheme_launch_date": "May 31, 2007"
+        "scheme_launch_date": "May 31, 2007 "
     },
     "aditya birla sun life pure value fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 22, 2022",
@@ -511,6 +519,7 @@
             "sharpe": "0.65",
             "sortino_ratio": null,
             "std_dev": "16.87",
+            "tracking_error": null,
             "treynor_ratio": "0.10",
             "upside_deviation": null,
             "ytm": null
@@ -525,11 +534,11 @@
         "page_number": [
             33
         ],
-        "scheme_launch_date": "March 27, 2008"
+        "scheme_launch_date": "March 27, 2008 "
     },
     "aditya birla sun life manufacturing equity fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE India Manufacturing TRI",
+        "benchmark_index": "BSE India Manufacturing TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 03, 2023",
@@ -563,6 +572,7 @@
             "sharpe": "0.62",
             "sortino_ratio": null,
             "std_dev": "14.70",
+            "tracking_error": null,
             "treynor_ratio": "0.10",
             "upside_deviation": null,
             "ytm": null
@@ -577,11 +587,11 @@
         "page_number": [
             35
         ],
-        "scheme_launch_date": "January 31, 2015"
+        "scheme_launch_date": "January 31, 2015 "
     },
     "aditya birla sun life banking and financial services fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Financial Services TRI",
+        "benchmark_index": "Nifty Financial Services TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 26, 2015",
@@ -621,6 +631,7 @@
             "sharpe": "0.27",
             "sortino_ratio": null,
             "std_dev": "15.54",
+            "tracking_error": null,
             "treynor_ratio": "0.04",
             "upside_deviation": null,
             "ytm": null
@@ -635,11 +646,11 @@
         "page_number": [
             37
         ],
-        "scheme_launch_date": "December 14, 2013"
+        "scheme_launch_date": "December 14, 2013 "
     },
     "aditya birla sun life dividend yield fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 500 TRI Nifty Dividend Opportunities 50 Index TRI",
+        "benchmark_index": "Nifty 500 TRI Nifty Dividend Opportunities 50 Index TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "April 01, 2022",
@@ -679,6 +690,7 @@
             "sharpe": "0.91",
             "sortino_ratio": null,
             "std_dev": "14.74",
+            "tracking_error": null,
             "treynor_ratio": "0.13",
             "upside_deviation": null,
             "ytm": null
@@ -693,11 +705,11 @@
         "page_number": [
             39
         ],
-        "scheme_launch_date": "February 26, 2003"
+        "scheme_launch_date": "February 26, 2003 "
     },
     "aditya birla sun life infrastructure fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Infrastructure TRI",
+        "benchmark_index": "Nifty Infrastructure TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 22, 2022",
@@ -743,6 +755,7 @@
             "sharpe": "0.91",
             "sortino_ratio": null,
             "std_dev": "15.75",
+            "tracking_error": null,
             "treynor_ratio": "0.16",
             "upside_deviation": null,
             "ytm": null
@@ -757,11 +770,11 @@
         "page_number": [
             41
         ],
-        "scheme_launch_date": "March 17, 2006"
+        "scheme_launch_date": "March 17, 2006 "
     },
     "aditya birla sun life digital india fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE Teck TRI",
+        "benchmark_index": "BSE Teck TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "January 16, 2014",
@@ -801,6 +814,7 @@
             "sharpe": "0.17",
             "sortino_ratio": null,
             "std_dev": "17.75",
+            "tracking_error": null,
             "treynor_ratio": "0.03",
             "upside_deviation": null,
             "ytm": null
@@ -815,11 +829,11 @@
         "page_number": [
             43
         ],
-        "scheme_launch_date": "January 15, 2000"
+        "scheme_launch_date": "January 15, 2000 "
     },
     "aditya birla sun life india gennext fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY India Consumption TRI",
+        "benchmark_index": "NIFTY India Consumption TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 26, 2015",
@@ -859,6 +873,7 @@
             "sharpe": "0.53",
             "sortino_ratio": null,
             "std_dev": "13.93",
+            "tracking_error": null,
             "treynor_ratio": "0.08",
             "upside_deviation": null,
             "ytm": null
@@ -873,11 +888,11 @@
         "page_number": [
             45
         ],
-        "scheme_launch_date": "August 05, 2005"
+        "scheme_launch_date": "August 05, 2005 "
     },
     "aditya birla sun life pharma & healthcare fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE Healthcare TRI",
+        "benchmark_index": "BSE Healthcare TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "July 11, 2019",
@@ -917,6 +932,7 @@
             "sharpe": "0.69",
             "sortino_ratio": null,
             "std_dev": "16.06",
+            "tracking_error": null,
             "treynor_ratio": "0.11",
             "upside_deviation": null,
             "ytm": null
@@ -931,11 +947,11 @@
         "page_number": [
             49
         ],
-        "scheme_launch_date": "July 11, 2019"
+        "scheme_launch_date": "July 11, 2019 "
     },
     "aditya birla sun life bal bhavishya yojna": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 500 TRI",
+        "benchmark_index": "Nifty 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 22, 2021",
@@ -980,6 +996,7 @@
             "sharpe": "0.29",
             "sortino_ratio": null,
             "std_dev": "13.25",
+            "tracking_error": null,
             "treynor_ratio": "0.04",
             "upside_deviation": null,
             "ytm": null
@@ -994,11 +1011,11 @@
         "page_number": [
             50
         ],
-        "scheme_launch_date": "February 11, 2019"
+        "scheme_launch_date": "February 11, 2019 "
     },
     "aditya birla sun life retirement fund - the 30s plan": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY 500 TRI",
+        "benchmark_index": "NIFTY 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -1037,6 +1054,7 @@
             "sharpe": "0.33",
             "sortino_ratio": null,
             "std_dev": "13.10",
+            "tracking_error": null,
             "treynor_ratio": "0.05",
             "upside_deviation": null,
             "ytm": null
@@ -1051,11 +1069,11 @@
         "page_number": [
             52
         ],
-        "scheme_launch_date": "March 11, 2019"
+        "scheme_launch_date": "March 11, 2019 "
     },
     "aditya birla sun life retirement fund - the 40s plan": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index",
+        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 22, 2021",
@@ -1087,22 +1105,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "11.35 years",
             "beta": "1.06",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "5.84 years",
+            "mod_duration": "5.64 years",
             "port_turnover_ratio": "0.33",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.33",
             "sortino_ratio": null,
             "std_dev": "10.54",
+            "tracking_error": null,
             "treynor_ratio": "0.04",
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.90"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -1114,11 +1133,11 @@
         "page_number": [
             54
         ],
-        "scheme_launch_date": "March 11, 2019"
+        "scheme_launch_date": "March 11, 2019 "
     },
     "aditya birla sun life retirement fund - the 50s plan": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Short Term Debt Hybrid 75+25 Index",
+        "benchmark_index": "CRISIL Short Term Debt Hybrid 75+25 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 22, 2021",
@@ -1144,22 +1163,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.66 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.84 years",
+            "mod_duration": "2.73 years",
             "port_turnover_ratio": "0.11",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.80"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -1171,11 +1191,11 @@
         "page_number": [
             56
         ],
-        "scheme_launch_date": "March 11, 2019"
+        "scheme_launch_date": "March 11, 2019 "
     },
     "aditya birla sun life psu equity fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE PSU TRI",
+        "benchmark_index": "BSE PSU TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 22, 2022",
@@ -1215,6 +1235,7 @@
             "sharpe": "1.05",
             "sortino_ratio": null,
             "std_dev": "20.49",
+            "tracking_error": null,
             "treynor_ratio": "0.22",
             "upside_deviation": null,
             "ytm": null
@@ -1229,11 +1250,11 @@
         "page_number": [
             58
         ],
-        "scheme_launch_date": "December 30, 2019"
+        "scheme_launch_date": "December 30, 2019 "
     },
     "aditya birla sun life special opportunities fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE 500 TRI",
+        "benchmark_index": "BSE 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -1273,6 +1294,7 @@
             "sharpe": "0.48",
             "sortino_ratio": null,
             "std_dev": "14.69",
+            "tracking_error": null,
             "treynor_ratio": "0.07",
             "upside_deviation": null,
             "ytm": null
@@ -1287,11 +1309,11 @@
         "page_number": [
             60
         ],
-        "scheme_launch_date": "October 23, 2020"
+        "scheme_launch_date": "October 23, 2020 "
     },
     "aditya birla sun life esg integration strategy fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 100 ESG TRI",
+        "benchmark_index": "Nifty 100 ESG TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 21, 2022",
@@ -1331,6 +1353,7 @@
             "sharpe": "0.16",
             "sortino_ratio": null,
             "std_dev": "14.71",
+            "tracking_error": null,
             "treynor_ratio": "0.02",
             "upside_deviation": null,
             "ytm": null
@@ -1345,11 +1368,11 @@
         "page_number": [
             62
         ],
-        "scheme_launch_date": "December 24, 2020"
+        "scheme_launch_date": "December 24, 2020 "
     },
     "aditya birla sun life business cycle fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE 500 TRI",
+        "benchmark_index": "BSE 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 03, 2023",
@@ -1395,6 +1418,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1409,11 +1433,11 @@
         "page_number": [
             64
         ],
-        "scheme_launch_date": "December 03, 2021"
+        "scheme_launch_date": "December 03, 2021 "
     },
     "aditya birla sun life transportation and logistics fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Transportation and Logistics TRI",
+        "benchmark_index": "Nifty Transportation and Logistics TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 17, 2023",
@@ -1452,6 +1476,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1466,11 +1491,11 @@
         "page_number": [
             66
         ],
-        "scheme_launch_date": "November 17, 2023"
+        "scheme_launch_date": "November 17, 2023 "
     },
     "aditya birla sun life elss tax saver fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY 500 TRI",
+        "benchmark_index": "NIFTY 500 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -1510,6 +1535,7 @@
             "sharpe": "0.24",
             "sortino_ratio": null,
             "std_dev": "13.19",
+            "tracking_error": null,
             "treynor_ratio": "0.03",
             "upside_deviation": null,
             "ytm": null
@@ -1524,11 +1550,11 @@
         "page_number": [
             69
         ],
-        "scheme_launch_date": "March 29, 1996"
+        "scheme_launch_date": "March 29, 1996 "
     },
     "aditya birla sun life equity hybrid \u201895 fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index",
+        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 23, 2016",
@@ -1561,22 +1587,23 @@
             "average_dividend_yield": "0.83",
             "average_pb": "4.27",
             "average_pe": "28.81",
-            "avg_maturity": null,
+            "avg_maturity": "6.02years",
             "beta": "1.02",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "4.42 years",
+            "mod_duration": "4.18 years",
             "port_turnover_ratio": "0.74",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.38",
             "sortino_ratio": null,
             "std_dev": "9.96",
+            "tracking_error": null,
             "treynor_ratio": "0.04",
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.47"
         },
         "min_addl_amt": "100",
         "min_addl_amt_multiple": "1",
@@ -1588,11 +1615,11 @@
         "page_number": [
             72
         ],
-        "scheme_launch_date": "February 10, 1995"
+        "scheme_launch_date": "February 10, 1995 "
     },
     "aditya birla sun life equity savings fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Equity Savings TRI",
+        "benchmark_index": "NIFTY Equity Savings TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -1625,22 +1652,23 @@
             "average_dividend_yield": "1.27",
             "average_pb": "2.54",
             "average_pe": "16.29",
-            "avg_maturity": null,
+            "avg_maturity": "3.68 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.00 years",
+            "mod_duration": "2.89 years",
             "port_turnover_ratio": "6.75",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.86"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -1652,11 +1680,11 @@
         "page_number": [
             75
         ],
-        "scheme_launch_date": "November 28, 2014"
+        "scheme_launch_date": "November 28, 2014 "
     },
     "aditya birla sun life regular savings fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 85+15 - Conservative Index",
+        "benchmark_index": "CRISIL Hybrid 85+15 - Conservative Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -1682,22 +1710,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "7.77 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
-            "port_turnover_ratio": null,
+            "macaulay": "4.99 years",
+            "mod_duration": "4.75 years",
+            "port_turnover_ratio": "1.58",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.48"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -1709,11 +1738,11 @@
         "page_number": [
             78
         ],
-        "scheme_launch_date": "May 22, 2004"
+        "scheme_launch_date": "May 22, 2004 "
     },
     "aditya birla sun life multi asset allocation fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "65% BSE 200 TRI + 25% CRISIL Short Term Bond Index + 5% of Domestic prices of Gold + 5% of Domestic prices of Silver",
+        "benchmark_index": "65% BSE 200 TRI + 25% CRISIL Short Term Bond Index + 5% of Domestic prices of Gold + 5% of Domestic prices of Silver ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -1752,22 +1781,23 @@
             "average_dividend_yield": "0.86",
             "average_pb": "3.92",
             "average_pe": "26.80",
-            "avg_maturity": null,
+            "avg_maturity": "1.29 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.24 years",
+            "mod_duration": "1.17years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.25"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -1779,11 +1809,11 @@
         "page_number": [
             80
         ],
-        "scheme_launch_date": "January 31, 2023"
+        "scheme_launch_date": "January 31, 2023 "
     },
     "aditya birla sun life balanced advantage fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index",
+        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "April 01, 2017",
@@ -1816,22 +1846,23 @@
             "average_dividend_yield": "1.07",
             "average_pb": "3.46",
             "average_pe": "23.50",
-            "avg_maturity": null,
+            "avg_maturity": "4.18 years",
             "beta": "0.93",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.38 years",
+            "mod_duration": "3.22 years",
             "port_turnover_ratio": "3.05",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.60",
             "sortino_ratio": null,
             "std_dev": "7.02",
+            "tracking_error": null,
             "treynor_ratio": "0.05",
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.55"
         },
         "min_addl_amt": "100",
         "min_addl_amt_multiple": "1",
@@ -1843,11 +1874,11 @@
         "page_number": [
             82
         ],
-        "scheme_launch_date": "April 25, 2000"
+        "scheme_launch_date": "April 25, 2000 "
     },
     "aditya birla sun life overnight fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Liquid Overnight Index",
+        "benchmark_index": "CRISIL Liquid Overnight Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 1, 2018",
@@ -1867,22 +1898,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.01 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.01 years",
+            "mod_duration": "0.01 years",
             "port_turnover_ratio": "0.00",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.66"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "500",
@@ -1894,11 +1926,11 @@
         "page_number": [
             86
         ],
-        "scheme_launch_date": "November 1, 2018"
+        "scheme_launch_date": "November 1, 2018 "
     },
     "aditya birla sun life liquid fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Liquid Index A-I",
+        "benchmark_index": "NIFTY Liquid Index A-I ",
         "fund_manager": [
             {
                 "managing_fund_since": "July 15, 2011",
@@ -1930,22 +1962,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.12 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.12 years",
+            "mod_duration": "0.12 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.33"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -1957,11 +1990,11 @@
         "page_number": [
             87
         ],
-        "scheme_launch_date": "June 16, 1997"
+        "scheme_launch_date": "June 16, 1997 "
     },
     "aditya birla sun life money manager fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Money Market A-I Index",
+        "benchmark_index": "CRISIL Money Market A-I Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "July 15, 2011",
@@ -1993,22 +2026,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.56 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.56 years",
+            "mod_duration": "0.56 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.60"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2020,11 +2054,11 @@
         "page_number": [
             89
         ],
-        "scheme_launch_date": "June 05, 2003"
+        "scheme_launch_date": "June 05, 2003 "
     },
     "aditya birla sun life low duration fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Low Duration Debt Index A-I",
+        "benchmark_index": "NIFTY Low Duration Debt Index A-I ",
         "fund_manager": [
             {
                 "managing_fund_since": "July 15, 2011",
@@ -2050,22 +2084,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.41 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.00 years",
+            "mod_duration": "0.94 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.73"
         },
         "min_addl_amt": "100",
         "min_addl_amt_multiple": "1",
@@ -2077,11 +2112,11 @@
         "page_number": [
             91
         ],
-        "scheme_launch_date": "May 14, 1998"
+        "scheme_launch_date": "May 14, 1998 "
     },
     "aditya birla sun life savings fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Ultra Short Duration Debt Index A-I",
+        "benchmark_index": "NIFTY Ultra Short Duration Debt Index A-I ",
         "fund_manager": [
             {
                 "managing_fund_since": "July 15, 2011",
@@ -2113,22 +2148,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.64 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.51 years",
+            "mod_duration": "0.47 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.84"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2140,11 +2176,11 @@
         "page_number": [
             93
         ],
-        "scheme_launch_date": "April 15, 2003"
+        "scheme_launch_date": "April 15, 2003 "
     },
     "aditya birla sun life floating rate fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Low Duration Debt Index A-I",
+        "benchmark_index": "NIFTY Low Duration Debt Index A-I ",
         "fund_manager": [
             {
                 "managing_fund_since": "June 20, 2014",
@@ -2170,22 +2206,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "2.15 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.16 years",
+            "mod_duration": "1.09 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.80"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2197,11 +2234,11 @@
         "page_number": [
             95
         ],
-        "scheme_launch_date": "June 05, 2003"
+        "scheme_launch_date": "June 05, 2003 "
     },
     "aditya birla sun life corporate bond fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Corporate Bond Index A-II",
+        "benchmark_index": "NIFTY Corporate Bond Index A-II ",
         "fund_manager": [
             {
                 "managing_fund_since": "April 01, 2017",
@@ -2221,22 +2258,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "5.72 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.99 years",
+            "mod_duration": "3.79 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.48"
         },
         "min_addl_amt": "100",
         "min_addl_amt_multiple": "1",
@@ -2248,11 +2286,11 @@
         "page_number": [
             98
         ],
-        "scheme_launch_date": "March 3, 1997"
+        "scheme_launch_date": "March 3, 1997 "
     },
     "aditya birla sun life short term fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Short Duration Debt Index A-II",
+        "benchmark_index": "NIFTY Short Duration Debt Index A-II ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 11, 2014",
@@ -2278,22 +2316,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.93 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.02 years",
+            "mod_duration": "2.87 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.72"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2305,11 +2344,11 @@
         "page_number": [
             101
         ],
-        "scheme_launch_date": "May 09, 2003"
+        "scheme_launch_date": "May 09, 2003 "
     },
     "aditya birla sun life banking & psu debt fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Banking & PSU Debt Index A-II",
+        "benchmark_index": "Nifty Banking & PSU Debt Index A-II ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 29, 2009",
@@ -2335,22 +2374,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "4.67 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.55 years",
+            "mod_duration": "3.35 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.43"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2362,11 +2402,11 @@
         "page_number": [
             103
         ],
-        "scheme_launch_date": "April 19, 2002"
+        "scheme_launch_date": "April 19, 2002 "
     },
     "aditya birla sun life medium term plan*": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Medium Duration Debt A-III Index",
+        "benchmark_index": "CRISIL Medium Duration Debt A-III Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 1, 2014",
@@ -2392,22 +2432,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "5.14 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.97 years",
+            "mod_duration": "3.80 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.72"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2419,11 +2460,11 @@
         "page_number": [
             106
         ],
-        "scheme_launch_date": "March 25, 2009"
+        "scheme_launch_date": "March 25, 2009 "
     },
     "aditya birla sun life credit risk fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Credit Risk Debt B-II Index",
+        "benchmark_index": "CRISIL Credit Risk Debt B-II Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "April 17, 2015",
@@ -2449,22 +2490,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.44 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.31 years",
+            "mod_duration": "2.20 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "8.24"
         },
         "min_addl_amt": "100",
         "min_addl_amt_multiple": "1",
@@ -2476,11 +2518,11 @@
         "page_number": [
             108
         ],
-        "scheme_launch_date": "April 17, 2015"
+        "scheme_launch_date": "April 17, 2015 "
     },
     "aditya birla sun life dynamic bond fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Composite Debt Index A-III",
+        "benchmark_index": "NIFTY Composite Debt Index A-III ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 06, 2020",
@@ -2506,22 +2548,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "15.33 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "8.27 years",
+            "mod_duration": "7.93 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.32"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2533,11 +2576,11 @@
         "page_number": [
             110
         ],
-        "scheme_launch_date": "September 27, 2004"
+        "scheme_launch_date": "September 27, 2004 "
     },
     "aditya birla sun life income fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Medium to Long Duration Debt A-III Index",
+        "benchmark_index": "CRISIL Medium to Long Duration Debt A-III Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 06, 2020",
@@ -2557,22 +2600,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "15.43 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "6.92 years",
+            "mod_duration": "6.66 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.33"
         },
         "min_addl_amt": "5,000",
         "min_addl_amt_multiple": "1",
@@ -2584,11 +2628,11 @@
         "page_number": [
             112
         ],
-        "scheme_launch_date": "October 21, 1995"
+        "scheme_launch_date": "October 21, 1995 "
     },
     "aditya birla sun life government securities fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY All Duration G-Sec Index",
+        "benchmark_index": "NIFTY All Duration G-Sec Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 06, 2020",
@@ -2608,22 +2652,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "25.93 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "11.13 years",
+            "mod_duration": "10.75 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.08"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2635,11 +2680,11 @@
         "page_number": [
             114
         ],
-        "scheme_launch_date": "October 11, 1999"
+        "scheme_launch_date": "October 11, 1999 "
     },
     "aditya birla sun life retirement fund 'the 50s plus - debt plan'": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Short Term Bond Index",
+        "benchmark_index": "CRISIL Short Term Bond Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 01, 2024",
@@ -2659,22 +2704,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "6.54 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.62 years",
+            "mod_duration": "3.49 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.84"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2686,11 +2732,11 @@
         "page_number": [
             115
         ],
-        "scheme_launch_date": "March 11, 2019"
+        "scheme_launch_date": "March 11, 2019 "
     },
     "aditya birla sun life arbitrage fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 50 Arbitrage TRI",
+        "benchmark_index": "Nifty 50 Arbitrage TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 15, 2014",
@@ -2710,22 +2756,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.99 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.65 years",
+            "mod_duration": "0.62 years",
             "port_turnover_ratio": "13.53",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.63"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -2737,11 +2784,11 @@
         "page_number": [
             116
         ],
-        "scheme_launch_date": "July 24, 2009"
+        "scheme_launch_date": "July 24, 2009 "
     },
     "aditya birla sun life long duration fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NIFTY Long Duration Debt Index A-III",
+        "benchmark_index": "NIFTY Long Duration Debt Index A-III ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 08, 2022",
@@ -2767,22 +2814,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "29.35 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "11.42 years",
+            "mod_duration": "11.00 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.18"
         },
         "min_addl_amt": "100",
         "min_addl_amt_multiple": "1",
@@ -2794,11 +2842,11 @@
         "page_number": [
             118
         ],
-        "scheme_launch_date": "August 08, 2022"
+        "scheme_launch_date": "August 08, 2022 "
     },
     "aditya birla sun life crisil ibx 60:40 sdl + aaa psu - apr 2025 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX 60:40 SDL + AAA PSU Index  April 2025",
+        "benchmark_index": "CRISIL IBX 60:40 SDL + AAA PSU Index \u00b7 April 2025 ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 30, 2022",
@@ -2818,22 +2866,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.16 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.15 years",
+            "mod_duration": "0.15 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.04"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -2845,11 +2894,11 @@
         "page_number": [
             119
         ],
-        "scheme_launch_date": "March 30, 2022"
+        "scheme_launch_date": "March 30, 2022 "
     },
     "aditya birla sun life nifty sdl plus psu bond sep 2026 60:40 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty SDL Plus PSU Bond Sep 2026 60:40 Index",
+        "benchmark_index": "Nifty SDL Plus PSU Bond Sep 2026 60:40 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 24, 2021",
@@ -2869,22 +2918,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.42 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.35 years",
+            "mod_duration": "1.28 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.21"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -2896,11 +2946,11 @@
         "page_number": [
             121
         ],
-        "scheme_launch_date": "September 24, 2021"
+        "scheme_launch_date": "September 24, 2021 "
     },
     "aditya birla sun life nifty sdl apr 2027 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty SDL Apr 2027 Index",
+        "benchmark_index": "Nifty SDL Apr 2027 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "January 28, 2022",
@@ -2926,22 +2976,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.84 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.73 years",
+            "mod_duration": "1.67 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.93"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -2953,11 +3004,11 @@
         "page_number": [
             123
         ],
-        "scheme_launch_date": "January 28, 2022"
+        "scheme_launch_date": "January 28, 2022 "
     },
     "aditya birla sun life crisil ibx 60:40 sdl + aaa psu - apr 2027 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX 60:40 SDL + AAA PSU Index - April 2027",
+        "benchmark_index": "CRISIL IBX 60:40 SDL + AAA PSU Index - April 2027 ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 29, 2022",
@@ -2977,22 +3028,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.86 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.73 years",
+            "mod_duration": "1.65 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.16"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3004,11 +3056,11 @@
         "page_number": [
             125
         ],
-        "scheme_launch_date": "March 29, 2022"
+        "scheme_launch_date": "March 29, 2022 "
     },
     "aditya birla sun life nifty sdl sep 2025 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty SDL Sep 2025 Index",
+        "benchmark_index": "Nifty SDL Sep 2025 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "September 28, 2022",
@@ -3034,22 +3086,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.43 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.43 years",
+            "mod_duration": "0.41 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.86"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3061,11 +3114,11 @@
         "page_number": [
             127
         ],
-        "scheme_launch_date": "September 28, 2022"
+        "scheme_launch_date": "September 28, 2022 "
     },
     "aditya birla sun life crisil ibx gilt - april 2026 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX Gilt Index  April 2026",
+        "benchmark_index": "CRISIL IBX Gilt Index \u00b7 April 2026 ",
         "fund_manager": [
             {
                 "managing_fund_since": "October 07, 2022",
@@ -3091,22 +3144,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.13 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.10 years",
+            "mod_duration": "1.06 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.69"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3118,11 +3172,11 @@
         "page_number": [
             128
         ],
-        "scheme_launch_date": "October 07, 2022"
+        "scheme_launch_date": "October 07, 2022 "
     },
     "aditya birla sun life crisil ibx 50:50 gilt plus sdl apr 2028 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX 50:50 Gilt Plus SDL Index  April 2028",
+        "benchmark_index": "CRISIL IBX 50:50 Gilt Plus SDL Index \u00b7 April 2028 ",
         "fund_manager": [
             {
                 "managing_fund_since": "October 13, 2022",
@@ -3148,22 +3202,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.05 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.73 years",
+            "mod_duration": "2.64 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.88"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3175,11 +3230,11 @@
         "page_number": [
             129
         ],
-        "scheme_launch_date": "October 13, 2022"
+        "scheme_launch_date": "October 13, 2022 "
     },
     "aditya birla sun life crisil ibx gilt apr 2029 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX Gilt Index  April 2029",
+        "benchmark_index": "CRISIL IBX Gilt Index \u00b7 April 2029 ",
         "fund_manager": [
             {
                 "managing_fund_since": "October 19, 2022",
@@ -3205,22 +3260,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "4.20 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.66 years",
+            "mod_duration": "3.55 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.75"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3232,11 +3288,11 @@
         "page_number": [
             130
         ],
-        "scheme_launch_date": "October 19, 2022"
+        "scheme_launch_date": "October 19, 2022 "
     },
     "aditya birla sun life nifty sdl sep 2027 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty SDL Sep 2027 Index",
+        "benchmark_index": "Nifty SDL Sep 2027 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 14, 2023",
@@ -3256,22 +3312,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "2.44 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.26 years",
+            "mod_duration": "2.19 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.90"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3283,11 +3340,11 @@
         "page_number": [
             131
         ],
-        "scheme_launch_date": "March 10, 2023"
+        "scheme_launch_date": "March 10, 2023 "
     },
     "aditya birla sun life crisil ibx gilt apr 2028 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX Gilt Apr 2028 Index",
+        "benchmark_index": "CRISIL IBX Gilt Apr 2028 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 15, 2023",
@@ -3313,22 +3370,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "2.73 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.48 years",
+            "mod_duration": "2.40 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.73"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3340,11 +3398,11 @@
         "page_number": [
             132
         ],
-        "scheme_launch_date": "March 15, 2023"
+        "scheme_launch_date": "March 15, 2023 "
     },
     "aditya birla sun life crisil ibx sdl jun 2032 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX SDL Index  June 2032",
+        "benchmark_index": "CRISIL IBX SDL Index \u00b7 June 2032 ",
         "fund_manager": [
             {
                 "managing_fund_since": "February 14, 2023",
@@ -3370,22 +3428,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "7.02 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "5.51 years",
+            "mod_duration": "5.32 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.14"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3397,11 +3456,11 @@
         "page_number": [
             133
         ],
-        "scheme_launch_date": "February 14, 2023"
+        "scheme_launch_date": "February 14, 2023 "
     },
     "aditya birla sun life crisil ibx 60:40 sdl + aaa psu apr 2026 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX 60:40 SDL + AAA PSU Index  April 2026",
+        "benchmark_index": "CRISIL IBX 60:40 SDL + AAA PSU Index \u00b7 April 2026 ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 02, 2022",
@@ -3427,22 +3486,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.99 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.96 years",
+            "mod_duration": "0.92 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.13"
         },
         "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
@@ -3454,11 +3514,11 @@
         "page_number": [
             134
         ],
-        "scheme_launch_date": "December 02, 2022"
+        "scheme_launch_date": "December 02, 2022 "
     },
     "aditya birla sun life crisil ibx gilt april 2033 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX Gilt Index  April 2033",
+        "benchmark_index": "CRISIL IBX Gilt Index \u00b7 April 2033 ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 22, 2023",
@@ -3484,22 +3544,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "7.69 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "5.80 years",
+            "mod_duration": "5.61 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.85"
         },
         "min_addl_amt": "1000",
         "min_addl_amt_multiple": "1",
@@ -3511,11 +3572,11 @@
         "page_number": [
             135
         ],
-        "scheme_launch_date": "December 22, 2023"
+        "scheme_launch_date": "December 22, 2023 "
     },
     "aditya birla sun life crisil ibx gilt june 2027 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL IBX Gilt Index  June 2027",
+        "benchmark_index": "CRISIL IBX Gilt Index \u00b7 June 2027 ",
         "fund_manager": [
             {
                 "managing_fund_since": "June 05, 2024",
@@ -3541,22 +3602,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "2.31 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.15 years",
+            "mod_duration": "2.08 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.71"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -3568,11 +3630,11 @@
         "page_number": [
             136
         ],
-        "scheme_launch_date": "June 05, 2024"
+        "scheme_launch_date": "June 05, 2024 "
     },
     "aditya birla sun life crisil-ibx aaa nbfc-hfc index \u2013 dec 2025 fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL-IBX AAA NBFC-HFC Index  Dec 2025",
+        "benchmark_index": "CRISIL-IBX AAA NBFC-HFC Index \u00b7 Dec 2025 ",
         "fund_manager": [
             {
                 "managing_fund_since": "October 15, 2024",
@@ -3598,22 +3660,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.79 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.79 years",
+            "mod_duration": "0.74 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.92"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "100",
@@ -3625,11 +3688,11 @@
         "page_number": [
             137
         ],
-        "scheme_launch_date": "October 15, 2024"
+        "scheme_launch_date": "October 15, 2024 "
     },
     "aditya birla sun life crisil-ibx aaa nbfc-hfc index \u2013 sep 2026 fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL-IBX AAA NBFC-HFC Index  Sep 2026",
+        "benchmark_index": "CRISIL-IBX AAA NBFC-HFC Index \u00b7 Sep 2026 ",
         "fund_manager": [
             {
                 "managing_fund_since": "October 08, 2024",
@@ -3655,22 +3718,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.46 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "1.38 years",
+            "mod_duration": "1.28 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.87"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "100",
@@ -3682,11 +3746,11 @@
         "page_number": [
             138
         ],
-        "scheme_launch_date": "October 08, 2024"
+        "scheme_launch_date": "October 08, 2024 "
     },
     "aditya birla sun life crisil-ibx aaa financial services index - sep 2027 fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL-IBX AAA Financial Services Index  Sep 2027",
+        "benchmark_index": "CRISIL-IBX AAA Financial Services Index \u00b7 Sep 2027 ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 13, 2024",
@@ -3712,22 +3776,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "2.42 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.20 years",
+            "mod_duration": "2.04 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.79"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "100",
@@ -3739,11 +3804,11 @@
         "page_number": [
             139
         ],
-        "scheme_launch_date": "November 13, 2024"
+        "scheme_launch_date": "November 13, 2024 "
     },
     "aditya birla sun life crisil-ibx financial services 3 to 6 months debt index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL-IBX Financial Services 3 to 6 Months Debt Index",
+        "benchmark_index": "CRISIL-IBX Financial Services 3 to 6 Months Debt Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 17, 2024",
@@ -3769,22 +3834,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.34 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.34 years",
+            "mod_duration": "0.33 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.77"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
@@ -3796,11 +3862,11 @@
         "page_number": [
             140
         ],
-        "scheme_launch_date": "December 17, 2024"
+        "scheme_launch_date": "December 17, 2024 "
     },
     "aditya birla sun life nifty 50 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 50 TRI",
+        "benchmark_index": "Nifty 50 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -3833,6 +3899,7 @@
             "sharpe": "0.37",
             "sortino_ratio": null,
             "std_dev": "12.71",
+            "tracking_error": null,
             "treynor_ratio": "0.05",
             "upside_deviation": null,
             "ytm": null
@@ -3847,11 +3914,11 @@
         "page_number": [
             141
         ],
-        "scheme_launch_date": "September 18, 2002"
+        "scheme_launch_date": "September 18, 2002 "
     },
     "aditya birla sun life nifty 50 equal weight index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 50 Equal Weight TRI",
+        "benchmark_index": "Nifty 50 Equal Weight TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -3884,6 +3951,7 @@
             "sharpe": "0.56",
             "sortino_ratio": null,
             "std_dev": "14.26",
+            "tracking_error": null,
             "treynor_ratio": "0.08",
             "upside_deviation": null,
             "ytm": null
@@ -3898,11 +3966,11 @@
         "page_number": [
             143
         ],
-        "scheme_launch_date": "June 08, 2021"
+        "scheme_launch_date": "June 08, 2021 "
     },
     "aditya birla sun life nifty midcap 150 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Midcap 150 Index TRI",
+        "benchmark_index": "Nifty Midcap 150 Index TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -3935,6 +4003,7 @@
             "sharpe": "0.82",
             "sortino_ratio": null,
             "std_dev": "16.21",
+            "tracking_error": null,
             "treynor_ratio": "0.13",
             "upside_deviation": null,
             "ytm": null
@@ -3949,11 +4018,11 @@
         "page_number": [
             147
         ],
-        "scheme_launch_date": "April 01,2021"
+        "scheme_launch_date": "April 01,2021 "
     },
     "aditya birla sun life nifty smallcap 50 index fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Smallcap 50 TRI",
+        "benchmark_index": "Nifty Smallcap 50 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -3986,6 +4055,7 @@
             "sharpe": "0.39",
             "sortino_ratio": null,
             "std_dev": "21.74",
+            "tracking_error": null,
             "treynor_ratio": "0.09",
             "upside_deviation": null,
             "ytm": null
@@ -4000,11 +4070,11 @@
         "page_number": [
             149
         ],
-        "scheme_launch_date": "April 01, 2021"
+        "scheme_launch_date": "April 01, 2021 "
     },
     "aditya birla sun life nifty 50 etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 50 TRI",
+        "benchmark_index": "Nifty 50 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4037,6 +4107,7 @@
             "sharpe": "0.42",
             "sortino_ratio": null,
             "std_dev": "12.73",
+            "tracking_error": null,
             "treynor_ratio": "0.05",
             "upside_deviation": null,
             "ytm": null
@@ -4051,11 +4122,11 @@
         "page_number": [
             153
         ],
-        "scheme_launch_date": "July 21, 2011"
+        "scheme_launch_date": "July 21, 2011 "
     },
     "aditya birla sun life bse sensex etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "BSE Sensex TRI",
+        "benchmark_index": "BSE Sensex TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4088,6 +4159,7 @@
             "sharpe": "0.39",
             "sortino_ratio": null,
             "std_dev": "12.38",
+            "tracking_error": null,
             "treynor_ratio": "0.05",
             "upside_deviation": null,
             "ytm": null
@@ -4102,11 +4174,11 @@
         "page_number": [
             155
         ],
-        "scheme_launch_date": "July 18, 2016"
+        "scheme_launch_date": "July 18, 2016 "
     },
     "aditya birla sun life nifty next 50 etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Next 50 TR Index",
+        "benchmark_index": "Nifty Next 50 TR Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4139,6 +4211,7 @@
             "sharpe": "0.51",
             "sortino_ratio": null,
             "std_dev": "18.75",
+            "tracking_error": null,
             "treynor_ratio": "0.10",
             "upside_deviation": null,
             "ytm": null
@@ -4153,11 +4226,11 @@
         "page_number": [
             157
         ],
-        "scheme_launch_date": "December 18, 2018"
+        "scheme_launch_date": "December 18, 2018 "
     },
     "aditya birla sun life nifty bank etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Bank TRI",
+        "benchmark_index": "Nifty Bank TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4190,6 +4263,7 @@
             "sharpe": "0.23",
             "sortino_ratio": null,
             "std_dev": "14.55",
+            "tracking_error": null,
             "treynor_ratio": "0.03",
             "upside_deviation": null,
             "ytm": null
@@ -4204,11 +4278,11 @@
         "page_number": [
             159
         ],
-        "scheme_launch_date": "October 23, 2019"
+        "scheme_launch_date": "October 23, 2019 "
     },
     "aditya birla sun life nifty healthcare etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty Healthcare TRI",
+        "benchmark_index": "Nifty Healthcare TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4241,6 +4315,7 @@
             "sharpe": "0.79",
             "sortino_ratio": null,
             "std_dev": "16.45",
+            "tracking_error": null,
             "treynor_ratio": "0.13",
             "upside_deviation": null,
             "ytm": null
@@ -4255,11 +4330,11 @@
         "page_number": [
             160
         ],
-        "scheme_launch_date": "October 20, 2021"
+        "scheme_launch_date": "October 20, 2021 "
     },
     "aditya birla sun life nifty it etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty IT TRI",
+        "benchmark_index": "Nifty IT TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4292,6 +4367,7 @@
             "sharpe": "0.11",
             "sortino_ratio": null,
             "std_dev": "20.02",
+            "tracking_error": null,
             "treynor_ratio": "0.02",
             "upside_deviation": null,
             "ytm": null
@@ -4306,11 +4382,11 @@
         "page_number": [
             161
         ],
-        "scheme_launch_date": "October 29, 2021"
+        "scheme_launch_date": "October 29, 2021 "
     },
     "aditya birla sun life nifty pse etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty PSE Index",
+        "benchmark_index": "Nifty PSE Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4343,6 +4419,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4357,11 +4434,11 @@
         "page_number": [
             162
         ],
-        "scheme_launch_date": "May 17, 2024"
+        "scheme_launch_date": "May 17, 2024 "
     },
     "aditya birla sun life gold etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Domestic Price of Physical Gold",
+        "benchmark_index": "Domestic Price of Physical Gold ",
         "fund_manager": [
             {
                 "managing_fund_since": "February 23, 2022",
@@ -4394,6 +4471,7 @@
             "sharpe": "0.98",
             "sortino_ratio": null,
             "std_dev": "12.12",
+            "tracking_error": null,
             "treynor_ratio": "0.12",
             "upside_deviation": null,
             "ytm": null
@@ -4408,11 +4486,11 @@
         "page_number": [
             163
         ],
-        "scheme_launch_date": "May 13, 2011"
+        "scheme_launch_date": "May 13, 2011 "
     },
     "aditya birla sun life silver etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Price of silver",
+        "benchmark_index": "Price of silver ",
         "fund_manager": [
             {
                 "managing_fund_since": "January 31, 2022",
@@ -4445,6 +4523,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4459,11 +4538,11 @@
         "page_number": [
             164
         ],
-        "scheme_launch_date": "January 31, 2022"
+        "scheme_launch_date": "January 31, 2022 "
     },
     "aditya birla sun life nifty 200 momentum 30 etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 200 Momentum 30 TRI",
+        "benchmark_index": "Nifty 200 Momentum 30 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4496,6 +4575,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4510,11 +4590,11 @@
         "page_number": [
             165
         ],
-        "scheme_launch_date": "August 12, 2022"
+        "scheme_launch_date": "August 12, 2022 "
     },
     "aditya birla sun life nifty 200 quality 30 etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Nifty 200 Quality 30 TRI",
+        "benchmark_index": "Nifty 200 Quality 30 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -4547,6 +4627,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4561,11 +4642,11 @@
         "page_number": [
             166
         ],
-        "scheme_launch_date": "August 12, 2022"
+        "scheme_launch_date": "August 12, 2022 "
     },
     "aditya birla sun life crisil liquid overnight etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Liquid Overnight Index",
+        "benchmark_index": "CRISIL Liquid Overnight Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 13, 2023",
@@ -4604,6 +4685,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4618,11 +4700,11 @@
         "page_number": [
             167
         ],
-        "scheme_launch_date": "March 13, 2023"
+        "scheme_launch_date": "March 13, 2023 "
     },
     "aditya birla sun life crisil broad based gilt etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Broad Based Gilt Index",
+        "benchmark_index": "CRISIL Broad Based Gilt Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "July 05, 2024",
@@ -4654,22 +4736,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "11.61 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "7.00 years",
+            "mod_duration": "6.77 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.88"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
@@ -4681,11 +4764,11 @@
         "page_number": [
             168
         ],
-        "scheme_launch_date": "July 05, 2024"
+        "scheme_launch_date": "July 05, 2024 "
     },
     "aditya birla sun life crisil 10 year gilt etf": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL 10 Year Gilt Index",
+        "benchmark_index": "CRISIL 10 Year Gilt Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 13, 2024",
@@ -4717,22 +4800,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "9.30 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "6.83 years",
+            "mod_duration": "6.61 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
-            "std_dev": "1",
+            "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.80"
         },
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
@@ -4744,11 +4828,11 @@
         "page_number": [
             169
         ],
-        "scheme_launch_date": "August 13, 2024"
+        "scheme_launch_date": "August 13, 2024 "
     },
     "aditya birla sun life asset allocator fof": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index",
+        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 16, 2019",
@@ -4787,6 +4871,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4801,11 +4886,11 @@
         "page_number": [
             170
         ],
-        "scheme_launch_date": "August 17, 2006"
+        "scheme_launch_date": "August 17, 2006 "
     },
     "aditya birla sun life financial planning fof - aggressive plan": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index",
+        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 16, 2019",
@@ -4844,6 +4929,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4858,11 +4944,11 @@
         "page_number": [
             171
         ],
-        "scheme_launch_date": "May 09, 2011"
+        "scheme_launch_date": "May 09, 2011 "
     },
     "aditya birla sun life financial planning fof - moderate plan": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index",
+        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 16, 2019",
@@ -4901,6 +4987,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4915,11 +5002,11 @@
         "page_number": [
             172
         ],
-        "scheme_launch_date": "May 09, 2011"
+        "scheme_launch_date": "May 09, 2011 "
     },
     "aditya birla sun life financial planning fof - conservative plan": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "CRISIL Short Term Debt Hybrid 75+25 Index",
+        "benchmark_index": "CRISIL Short Term Debt Hybrid 75+25 Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "August 16, 2019",
@@ -4958,6 +5045,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -4972,11 +5060,11 @@
         "page_number": [
             173
         ],
-        "scheme_launch_date": "May 09, 2011"
+        "scheme_launch_date": "May 09, 2011 "
     },
     "aditya birla sun life nasdaq 100 fof*": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "NASDAQ 100 TRI",
+        "benchmark_index": "NASDAQ 100 TRI ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 21, 2022",
@@ -5009,6 +5097,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -5023,11 +5112,11 @@
         "page_number": [
             175
         ],
-        "scheme_launch_date": "November 01, 2021"
+        "scheme_launch_date": "November 01, 2021 "
     },
     "aditya birla sun life global excellence equity fund of fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "MSCI World Index",
+        "benchmark_index": "MSCI World Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 21, 2022",
@@ -5060,6 +5149,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -5074,11 +5164,11 @@
         "page_number": [
             176
         ],
-        "scheme_launch_date": "December 31, 2007"
+        "scheme_launch_date": "December 31, 2007 "
     },
     "aditya birla sun life global emerging opportunities fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "MSCI ACWI Index",
+        "benchmark_index": "MSCI ACWI Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 21, 2022",
@@ -5111,6 +5201,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -5125,11 +5216,11 @@
         "page_number": [
             177
         ],
-        "scheme_launch_date": "September 17, 2008"
+        "scheme_launch_date": "September 17, 2008 "
     },
     "aditya birla sun life gold fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Domestic price of physical gold",
+        "benchmark_index": "Domestic price of physical gold ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -5162,6 +5253,7 @@
             "sharpe": "1.02",
             "sortino_ratio": null,
             "std_dev": "11.42",
+            "tracking_error": null,
             "treynor_ratio": "0.13",
             "upside_deviation": null,
             "ytm": null
@@ -5176,11 +5268,11 @@
         "page_number": [
             178
         ],
-        "scheme_launch_date": "March 20, 2012"
+        "scheme_launch_date": "March 20, 2012 "
     },
     "aditya birla sun life silver etf fund of fund": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Price of silver (as per the regulatory norms Silver daily spot fixing price)",
+        "benchmark_index": "Price of silver (as per the regulatory norms Silver daily spot fixing price) ",
         "fund_manager": [
             {
                 "managing_fund_since": "December 31, 2024",
@@ -5213,6 +5305,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -5227,11 +5320,11 @@
         "page_number": [
             179
         ],
-        "scheme_launch_date": "February 02, 2022"
+        "scheme_launch_date": "February 02, 2022 "
     },
     "aditya birla sun life multi - index fund of funds": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "50% Nifty 500 TRI + 30% Nifty Low Duration Debt Index+ A 1-01% MSCI AC World Index + 5% Domestic Price of Physical Gold + 5% Price of silver",
+        "benchmark_index": "50% Nifty 500 TRI + 30% Nifty Low Duration Debt Index A-1 + 10% MSCI AC World Index + 5% Domestic Price of Physical Gold + 5% Price of silver ",
         "fund_manager": [
             {
                 "managing_fund_since": "March 10, 2023",
@@ -5270,6 +5363,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -5284,11 +5378,11 @@
         "page_number": [
             180
         ],
-        "scheme_launch_date": "October 14, 2022"
+        "scheme_launch_date": "October 14, 2022 "
     },
     "aditya birla sun life us treasury 1-3 year bond etfs fund of funds*": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Bloomberg US Treasury 1-3 Year Index",
+        "benchmark_index": "Bloomberg US Treasury 1-3 Year Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 02, 2023",
@@ -5314,22 +5408,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "1.87 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
             "macaulay": null,
-            "mod_duration": null,
+            "mod_duration": "1.78 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "4.25"
         },
         "min_addl_amt": "10,000",
         "min_addl_amt_multiple": "1",
@@ -5341,11 +5436,11 @@
         "page_number": [
             181
         ],
-        "scheme_launch_date": "October 31, 2023"
+        "scheme_launch_date": "October 31, 2023 "
     },
     "aditya birla sun life us treasury 3-10 year bond etfs fund of funds*": {
         "amc_name": "Aditya Birla Sun Life AMC Limited",
-        "benchmark_index": "Bloomberg US Treasury 3-10 Year Index",
+        "benchmark_index": "Bloomberg US Treasury 3-10 Year Index ",
         "fund_manager": [
             {
                 "managing_fund_since": "November 02, 2023",
@@ -5371,22 +5466,23 @@
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "5.58 years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
             "macaulay": null,
-            "mod_duration": null,
+            "mod_duration": "4.89 years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "4.41"
         },
         "min_addl_amt": "10,000",
         "min_addl_amt_multiple": "1",
@@ -5398,6 +5494,6 @@
         "page_number": [
             182
         ],
-        "scheme_launch_date": "October 31, 2023"
+        "scheme_launch_date": "October 31, 2023 "
     }
 }

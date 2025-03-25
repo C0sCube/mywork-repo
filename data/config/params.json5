@@ -31,6 +31,7 @@
                 ],
                 color: [
                     -10791002,
+                    5986214
                 ],
                 update_size: 30.0,
                 font: [
@@ -51,7 +52,7 @@
             min_amt: "([\\d,]+).*?([\\d,]+)",
             nav: "(.+(?:Growth|IDCW))\\s*([\\d,\\-]+\\.?\\d+)",
             ter: "(.+Plan)\\s*([\\d,\\-]+\\.?\\d+)",
-            aum: "(.+ AUM)\\s*([\\d,\\-,]+\\.?\\d+)",
+            aum: "(Net\\s*AUM|Monthly Average AUM)\\s*(-?[\\d,.]+)",
             scheme: [
                 "Date of Allotment",
                 "Bloomberg\\s*Code",
@@ -213,6 +214,7 @@
                 ],
                 color: [
                     -1,
+                    0
                 ],
                 update_size: 30.0,
                 font: [
@@ -229,11 +231,11 @@
             stop_words: [],
         },
         REGEX: {
-            aum: "(.*AUM).*?\\s*([\\d,.]+) crores",
+            aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
             load: "Entry Load(.*?)\\s*Exit Load(.*)$",
             manager: "",
             min_amt: "([\\d,]+).*?([\\d,]+)",
-            metric: "^(Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield).*?\\s*([\\d,.]+)",
+            metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)", //"^(Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield).*?\\s*([\\d,.]+)",
             escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
         },
         PATTERN_TO_FUNCTION: {
@@ -895,9 +897,8 @@
             line_x: 180.0,
         },
         REGEX: {
-            metric: "^(Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|Annualised Portfolio YTM|RSquared|Treynor)\\s*(-?[\\d,.]+)",
+            metric: "(Modified Duration||Annualised Portfolio YTM||Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor)\\s*(-?[\\d,.]+\\s*(?:years|days|months)?)",
             scheme: [
-                "CATEGORY\\s*TYPE",
                 "SCHEME OBJECTIVE",
                 "Monthend AUM",
                 "Monthly AVG AUM",
@@ -905,17 +906,20 @@
                 "DATE OF ALLOTMENT",
                 "ASSET ALLOCATION",
                 "MINIMUM INVESTMENT",
+                "Subsequent|Additional",
+                "SIP",
                 "PLANS\\s*OPTIONS",
-                "ENTRY LOAD",
-                "EXIT LOAD",
+                "ENTRY LOAD|EOL",
+                "EXIT LOAD|EOL",
                 "EXPENSE RATIO",
                 "BENCHMARK",
                 "FUND",
                 "TOTAL.*?ENCE",
-                "MANAGING.*?FUND",
+                "MANAGING\\s*THIS\\s*FUND",
                 "EOL",
             ],
             lumpsum: "(.+?)(?:Subsequent|Additional)\\s*purchases?(.+?)(?:SIP|Systematic)",
+            min_amt:"([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
             escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
         },
         PATTERN_TO_FUNCTION: {
@@ -937,9 +941,9 @@
                 "_extract_generic_data",
                 "metric",
             ],
-            ".*minimum_investment": [
-                "_extract_lump_data",
-                "lumpsum"
+            ".*(minimum_investment|subsequent|additional)": [
+                "_extract_amt_data",
+                "min_amt"
             ]
         },
         SELECTKEYS: [
@@ -948,7 +952,7 @@
             ".*(entry_load|exit_load)",
             ".*monthly_avg_aum",
             ".*(fund|total_experience|managing_this_fund)$",
-            ".*minimum_investment",
+            ".*(minimum_investment|subsequent_purchases)", //4
             "metrics",
             "load",
             "fund_manager",
@@ -4073,9 +4077,9 @@
             },
             clip_bbox: [
                 [
-                    35,
+                    0,
                     120,
-                    250,
+                    165,
                     765,
                 ],
             ],
@@ -4087,6 +4091,8 @@
                 ],
                 color: [
                     -16763806,
+                    -14206313,
+                    -10398813
                 ],
                 update_size: 30.0,
                 font: [
@@ -4097,15 +4103,77 @@
                 30.0,
                 10.0,
             ],
-            method: "line",
-            line_side: "left",
+            method: "clip",
+            line_side: "",
             max_financial_index_highlight: 0,
+            stop_words:[]
         },
-        REGEX: {},
-        PATTERN_TO_FUNCTION: {},
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
-        MERGEKEYS: {},
+        REGEX: {
+            aum:"([\\d,.]+)\\s*crores",
+            scheme:[
+               "Type of Scheme",
+                "Date of Allotment",
+                "Report As On",
+                "AAUM",
+                "AUM as on",
+                "Fund Manager",
+                "First Tier Benchmark",
+                "Exit Load",
+                "Entry Load",
+                "Plans Available",
+                "Minimum Investment",
+                "Additional Investment",
+                "EOL"
+            ],
+            metrics:"(Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Total Turnover)\\s*([\\d,.]+\\s*(?:years|months|days|day|year|month)?)",
+            min_amt:"\\b([\\d,]+(?:\\.\\d+)?)\\b.*?\\b([\\d,]+(?:\\.\\d+)?)\\b",
+            escape:"[^a-zA-Z0-9.,\\(\\)\\s]+",
+        },
+        PATTERN_TO_FUNCTION: {
+            "^(investment_objective|metrics)":[
+                "_extract_str_data",
+                null
+            ],
+            "scheme_details":[
+                "_extract_scheme_data",
+                "scheme"
+            ],
+        },
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            ".*aaum":[
+                "_extract_generic_data",
+                "aum"
+            ],
+            ".*(minimum_investment|additional_investment)$":[
+                "_extract_amt_data",
+                "min_amt"
+            ],
+            "metrics":[
+                "_extract_generic_data",
+                "metrics"
+            ]
+        },
+        SELECTKEYS: [
+            ".*date_of_allotment",
+            ".*aaum",
+            ".*first_tier_benchmark",
+            ".*fund_manager",
+            ".*(exit_load|entry_load)",
+            ".*(minimum_investment|additional_investment)", //4
+            "metrics",
+            "amc_name",
+            "main_scheme_name",
+            "monthly_aaum_date",
+            "page_number",
+            "mutual_fund_name",
+            "load"
+        ],
+        MERGEKEYS: {
+            load:[
+                ".*exit_load",
+                ".*entry_load"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "SBI Funds Management Limited",
@@ -4573,8 +4641,11 @@
                 "Load Structure",
                 "Benchmark",
                 "Minimum Additional Purchase|Minimum Investment",
+                "EOL"
             ],
-            metrics: "^(Yield|Average Maturity|Port?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+\\s*(?:days|years)?)",
+            min_amt:"([\\d,.]+).*?([\\d.,]+)",
+            amt:"([\\d,]+)()",
+            metrics: "(Yield|Average Maturity|Port?f?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\\s*(-?[\\d.]+\\s*(?:days|years|months)?)",
         },
         PATTERN_TO_FUNCTION: {
             scheme_details: [
@@ -4603,6 +4674,14 @@
                 "_extract_manager_data",
                 "manager",
             ],
+            ".*(minimum_additional_purchase)":[
+                "_extract_amt_data",
+                "min_amt"
+            ],
+            ".*minimum_investment":[
+                "_extract_amt_data",
+                "amt"
+            ]
         },
         SELECTKEYS: [
             "amc_name",
@@ -4612,7 +4691,12 @@
             "monthly_aaum_date",
             ".*date_of_allotment",
             ".*benchmark",
+            ".*load_structure",
             "nav",
+            ".*fund_size$",
+            ".*fund_manager",
+            ".*(minimum_investment|minimum_additional_purchase)", //2,
+            "monthly_aaum_value"
         ],
         MERGEKEYS: {},
         COMMENTS: [],

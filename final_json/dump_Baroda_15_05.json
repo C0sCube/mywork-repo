@@ -40,6 +40,7 @@
             "sharpe": "0.60",
             "sortino_ratio": null,
             "std_dev": "12.69",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -56,7 +57,7 @@
         ],
         "scheme_launch_date": "September 23, 2004"
     },
-    "Baroda BNP Paribas Large & Mid Cap Fund": {
+    "Baroda BNP Paribas Large  Mid Cap Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) BSE 250 Large  Mid Cap TRI",
         "fund_manager": [
@@ -77,7 +78,7 @@
             "entry_load": "",
             "exit_load": "Upto 365 days  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 365 days - Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Large & Mid Cap Fund",
+        "main_scheme_name": "Baroda BNP Paribas Large  Mid Cap Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -97,6 +98,7 @@
             "sharpe": "0.63",
             "sortino_ratio": null,
             "std_dev": "14.80",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -154,6 +156,7 @@
             "sharpe": "0.81",
             "sortino_ratio": null,
             "std_dev": "13.86",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -211,6 +214,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -268,6 +272,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -325,6 +330,7 @@
             "sharpe": "0.69",
             "sortino_ratio": null,
             "std_dev": "14.26",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -382,6 +388,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -439,6 +446,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -455,28 +463,28 @@
         ],
         "scheme_launch_date": "September 11, 2024"
     },
-    "Baroda BNP Paribas": {
+    "Baroda BNP Paribas Focused Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
-        "benchmark_index": "(Tier 1) Domestic Price of Gold",
+        "benchmark_index": "(Tier 1) Nifty 500 TRI",
         "fund_manager": [
             {
-                "managing_fund_since": "21-Oct-24",
-                "name": "Gurvinder Singh",
+                "managing_fund_since": "14-Mar-22",
+                "name": "Sanjay Chawla",
                 "qualification": "",
-                "total_exp": "21 Years"
+                "total_exp": "33 Years"
             },
             {
                 "managing_fund_since": "01-Jan-25",
-                "name": "Madhav Vyas",
+                "name": "Kirtan Mehta",
                 "qualification": "",
-                "total_exp": "9 Years"
+                "total_exp": "26 Years"
             }
         ],
         "load": {
             "entry_load": "",
-            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+            "exit_load": "Upto 12 months  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment  1 After 12 months - Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas",
+        "main_scheme_name": "Baroda BNP Paribas Focused Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -484,44 +492,52 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.93",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": null,
+            "port_turnover_ratio": "1.45",
             "r_squared_ratio": null,
-            "roe_ratio": null,
-            "sharpe": null,
+            "roe_ratio": "16.1",
+            "sharpe": "0.43",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "13.73",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": "76.53",
+        "monthly_aaum_value": "654.26",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
-            14,
-            28,
-            33,
-            34,
-            37,
-            45,
-            46
+            14
         ],
-        "scheme_launch_date": "December 13, 2023"
+        "scheme_launch_date": "October 06, 2017"
     },
     "Baroda BNP Paribas ELSS Tax Saver Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
-        "benchmark_index": null,
-        "fund_manager": [],
+        "benchmark_index": "Nifty 500 TRI",
+        "fund_manager": [
+            {
+                "managing_fund_since": "14-Mar-22",
+                "name": "Sanjay Chawla",
+                "qualification": "",
+                "total_exp": "33 Years"
+            },
+            {
+                "managing_fund_since": "14-Mar-22",
+                "name": "Pratish Krishnan",
+                "qualification": "",
+                "total_exp": "23 Years"
+            }
+        ],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -534,33 +550,34 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.93",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": null,
+            "port_turnover_ratio": "0.87",
             "r_squared_ratio": null,
-            "roe_ratio": null,
-            "sharpe": null,
+            "roe_ratio": "16.05",
+            "sharpe": "0.57",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "13.70",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "500",
+        "min_amt": "500",
+        "min_amt_multiple": "500",
         "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "monthly_aaum_value": "913.00",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             15
         ],
-        "scheme_launch_date": null
+        "scheme_launch_date": "January 05, 2006"
     },
     "Baroda BNP Paribas India Consumption Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
@@ -603,6 +620,7 @@
             "sharpe": "0.71",
             "sortino_ratio": null,
             "std_dev": "13.88",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -660,6 +678,7 @@
             "sharpe": "0.58",
             "sortino_ratio": null,
             "std_dev": "14.43",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -676,7 +695,7 @@
         ],
         "scheme_launch_date": "September 15, 2021"
     },
-    "Baroda BNP Paribas Services Fund": {
+    "Baroda BNP Paribas Banking  Financial Services Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) Nifty Financial Services TRI",
         "fund_manager": [
@@ -697,7 +716,7 @@
             "entry_load": "",
             "exit_load": "If units of the Scheme are redeemed or switched out within 30 days of the date of allotment - 1 of the applicable Net Asset Value (NAV)  If units of the Scheme are redeemed or switched out after 30 days of allotment - Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Services Fund",
+        "main_scheme_name": "Baroda BNP Paribas Banking  Financial Services Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -717,6 +736,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -774,6 +794,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -831,6 +852,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -847,7 +869,7 @@
         ],
         "scheme_launch_date": "June 28, 2024"
     },
-    "Baroda BNP Paribas Aqua Fund of Fund": {
+    "Baroda BNP Paribas Aqua Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) MSCI World Index (TRI)",
         "fund_manager": [
@@ -862,7 +884,7 @@
             "entry_load": "",
             "exit_load": "Redeemed or switched out from the date of allotment upto 12 month 1 after 12 month Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Aqua Fund of Fund",
+        "main_scheme_name": "Baroda BNP Paribas Aqua Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -882,6 +904,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -898,66 +921,77 @@
         ],
         "scheme_launch_date": "May 07, 2021"
     },
-    "Baroda BNP Paribas Fund": {
+    "Baroda BNP Paribas Balanced Advantage Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
-        "benchmark_index": "(Tier 1) CRISIL Banking and PSU Debt A-II Index",
+        "benchmark_index": "(Tier 1) NIFTY 50 Hybrid Composite debt 5050 Index",
         "fund_manager": [
             {
-                "managing_fund_since": "21-Oct-24",
-                "name": "Gurvinder Singh",
+                "managing_fund_since": "14-Nov-18",
+                "name": "Sanjay Chawla",
                 "qualification": "",
-                "total_exp": "21 Years"
+                "total_exp": "33 Years"
             },
             {
-                "managing_fund_since": "11-Jul-24",
-                "name": "Vikram Pamnani",
+                "managing_fund_since": "05-Aug-21",
+                "name": "Pratish Krishnan",
                 "qualification": "",
-                "total_exp": "14 Years"
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Neeraj Saxena",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder Singh Wasan",
+                "qualification": "",
+                "total_exp": "21 Years"
             }
         ],
         "load": {
             "entry_load": "",
-            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+            "exit_load": "Upto 1 year  Redeemed or switched out upto 10 of the allotment Nil  Redeemed or switched out more than 10 of the allotment 1 After 1 year - Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Fund",
+        "main_scheme_name": "Baroda BNP Paribas Balanced Advantage Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": "4.91",
-            "beta": null,
+            "avg_maturity": "6.00",
+            "beta": "1.25",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": "3.84",
-            "mod_duration": "3.66",
-            "port_turnover_ratio": null,
+            "macaulay": "3.74",
+            "mod_duration": "3.59",
+            "port_turnover_ratio": "2.30",
             "r_squared_ratio": null,
-            "roe_ratio": null,
-            "sharpe": null,
+            "roe_ratio": "16.54",
+            "sharpe": "0.57",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "9.31",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
-            "ytm_": "7.16"
+            "ytm_": "7.85"
         },
         "min_addl_amt": "1,000",
         "min_addl_amt_multiple": "1",
-        "min_amt": "1,000",
+        "min_amt": "5,000",
         "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": "25.99",
+        "monthly_aaum_value": "4,123.52",
         "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
         "page_number": [
             22,
-            27,
-            36,
-            48
+            23
         ],
-        "scheme_launch_date": "December 17, 2020"
+        "scheme_launch_date": "November 14, 2018"
     },
     "Baroda BNP Paribas Aggressive Hybrid Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
@@ -1006,6 +1040,7 @@
             "sharpe": "0.64",
             "sortino_ratio": null,
             "std_dev": "9.78",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1070,6 +1105,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1140,6 +1176,7 @@
             "sharpe": "0.41",
             "sortino_ratio": null,
             "std_dev": "4.91",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1156,6 +1193,136 @@
             26
         ],
         "scheme_launch_date": "July 25, 2019"
+    },
+    "Baroda BNP Paribas Conservative Hybrid Fund": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) CRISIL Hybrid 8515  Conservative Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "14-Mar-22",
+                "name": "Pratish",
+                "qualification": "",
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "01-Jan-25",
+                "name": "Ankeet",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "21-Oct-22",
+                "name": "Prashant",
+                "qualification": "",
+                "total_exp": "24 Years"
+            },
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder",
+                "qualification": "",
+                "total_exp": "21 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Redeemed or switched out from the date of allotment upto 6 months. 1 after 6 months Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Conservative Hybrid Fund",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "3.80",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "3.02",
+            "mod_duration": "2.86",
+            "port_turnover_ratio": "1.48",
+            "r_squared_ratio": null,
+            "roe_ratio": "16.83",
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null,
+            "ytm_": "7.62"
+        },
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "1,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "740.86",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            27
+        ],
+        "scheme_launch_date": "September 23, 2004"
+    },
+    "Baroda BNP Paribas Arbitrage Fund": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) Nifty 50 Arbitrage Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "14-Mar-22",
+                "name": "Neeraj Saxena",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "16-Mar-22",
+                "name": "Vikram Pamnani",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "0.25 if redeemed on or before 15 days from the date of allotment of units. Nil if redeemed after 15 days from the date of allotment of units. For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Arbitrage Fund",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "0.38",
+            "beta": "0.72",
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "0.34",
+            "mod_duration": "0.33",
+            "port_turnover_ratio": "18.66",
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": "0.66",
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null,
+            "ytm_": "6.73"
+        },
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "1,286.74",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            28
+        ],
+        "scheme_launch_date": "December 28, 2016"
     },
     "Baroda BNP Paribas Retirement Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
@@ -1204,6 +1371,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1221,7 +1389,7 @@
         ],
         "scheme_launch_date": "May 28, 2024"
     },
-    "Baroda BNP Paribas Children's Fund": {
+    "Baroda BNP Paribas Childrens Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) Nifty 500 TRI",
         "fund_manager": [
@@ -1242,7 +1410,7 @@
             "entry_load": "",
             "exit_load": "1 if redeemed or switched out from the scheme within 1 year from the date of allotment. Nil - if redeemed or switched out from the scheme after 1 year from the date of allotment. For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Children's Fund",
+        "main_scheme_name": "Baroda BNP Paribas Childrens Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1262,6 +1430,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1320,6 +1489,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1378,6 +1548,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1394,6 +1565,124 @@
             32
         ],
         "scheme_launch_date": "April 25, 2019"
+    },
+    "Baroda BNP Paribas Ultra Short Duration Fund": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) CRISIL Ultra Short Duration Debt A-I Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "14-Mar-22",
+                "name": "Vikram Pamnani",
+                "qualification": "",
+                "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder Singh",
+                "qualification": "",
+                "total_exp": "21 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Ultra Short Duration Fund",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "0.47",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "0.45",
+            "mod_duration": "0.44",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null,
+            "ytm_": "7.46"
+        },
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "1,337.57",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            33
+        ],
+        "scheme_launch_date": "June 01, 2018"
+    },
+    "Baroda BNP Paribas Low Duration Fund": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) CRISIL Low Duration Debt A-I Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "27-Dec-17",
+                "name": "Vikram Pamnani",
+                "qualification": "",
+                "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder Singh",
+                "qualification": "",
+                "total_exp": "21 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Low Duration Fund",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "1.02",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "0.96",
+            "mod_duration": "0.91",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null,
+            "ytm_": "7.79"
+        },
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "224.57",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            34
+        ],
+        "scheme_launch_date": "October 21, 2005"
     },
     "Baroda BNP Paribas Money Market Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
@@ -1436,6 +1725,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1452,6 +1742,124 @@
             35
         ],
         "scheme_launch_date": "June 19, 2019"
+    },
+    "Baroda BNP Paribas Banking and PSU Bond Fund": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) CRISIL Banking and PSU Debt A-II Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder Singh",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "11-Jul-24",
+                "name": "Vikram Pamnani",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Banking and PSU Bond Fund",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "4.91",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "3.84",
+            "mod_duration": "3.66",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null,
+            "ytm_": "7.16"
+        },
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "25.99",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            36
+        ],
+        "scheme_launch_date": "December 17, 2020"
+    },
+    "Baroda BNP Paribas Short Duration Fund": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) CRISIL Short Duration Debt A-II Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder Singh",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "14-Mar-22",
+                "name": "Vikram Pamnani",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Short Duration Fund",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "3.45",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "2.98",
+            "mod_duration": "2.82",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null,
+            "ytm_": "7.43"
+        },
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "197.69",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            37
+        ],
+        "scheme_launch_date": "June 30, 2010"
     },
     "Baroda BNP Paribas Credit Risk Fund": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
@@ -1494,6 +1902,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1552,6 +1961,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1610,6 +2020,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1668,6 +2079,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1685,7 +2097,7 @@
         ],
         "scheme_launch_date": "March 21, 2002"
     },
-    "Baroda BNP Paribas 2026 Index Fund": {
+    "Baroda BNP Paribas NIFTY SDL December 2026 Index": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) NIFTY SDL December 2026 Index",
         "fund_manager": [
@@ -1706,7 +2118,7 @@
             "entry_load": "",
             "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas 2026 Index Fund",
+        "main_scheme_name": "Baroda BNP Paribas NIFTY SDL December 2026 Index",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1726,8 +2138,8 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.72",
             "tracking_error_direct": "0.72",
-            "tracking_error_regular": "0.72",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1745,7 +2157,7 @@
         ],
         "scheme_launch_date": "January 25, 2023"
     },
-    "Baroda BNP Paribas 2028 Index Fund": {
+    "Baroda BNP Paribas NIFTY SDL December 2028 Index": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) NIFTY SDL December 2028 Index",
         "fund_manager": [
@@ -1766,7 +2178,7 @@
             "entry_load": "",
             "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas 2028 Index Fund",
+        "main_scheme_name": "Baroda BNP Paribas NIFTY SDL December 2028 Index",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1786,8 +2198,8 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "1.17",
             "tracking_error_direct": "1.17",
-            "tracking_error_regular": "1.17",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null,
@@ -1805,7 +2217,7 @@
         ],
         "scheme_launch_date": "March 24, 2023"
     },
-    "Baroda BNP Paribas Nifty 50 Index Fund": {
+    "Baroda BNP Paribas Nifty 50 Index": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) Nifty 50 TRI",
         "fund_manager": [
@@ -1820,7 +2232,7 @@
             "entry_load": "",
             "exit_load": "0.2 - if redeemed on or before 30 days from the date of allotment.  Nil - if redeemed after 30 days from the date of allotment For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Nifty 50 Index Fund",
+        "main_scheme_name": "Baroda BNP Paribas Nifty 50 Index",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1840,8 +2252,8 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.18",
             "tracking_error_direct": "0.18",
-            "tracking_error_regular": "0.18",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1858,7 +2270,117 @@
         ],
         "scheme_launch_date": "January 29, 2024"
     },
-    "Baroda BNP Paribas Index Fund": {
+    "Baroda BNP Paribas Gold ETF": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) Domestic Price of Gold",
+        "fund_manager": [
+            {
+                "managing_fund_since": "21-Oct-24",
+                "name": "Gurvinder Singh",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "01-Jan-25",
+                "name": "Madhav Vyas",
+                "qualification": "",
+                "total_exp": "9 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas Gold ETF",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "76.53",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            45
+        ],
+        "scheme_launch_date": "December 13, 2023"
+    },
+    "Baroda BNP Paribas NIFTY BANK ETF": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) Nifty Bank TRI",
+        "fund_manager": [
+            {
+                "managing_fund_since": "18-Jun-24",
+                "name": "Neeraj Saxena",
+                "qualification": "",
+                "total_exp": "20 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "Nil For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas NIFTY BANK ETF",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": "1.77",
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "7.19",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            46
+        ],
+        "scheme_launch_date": "June 18, 2024"
+    },
+    "Baroda BNP Paribas Nifty200 Momentum 30 Index": {
         "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
         "benchmark_index": "(Tier 1) Nifty 200 Momentum 30 TRI",
         "fund_manager": [
@@ -1873,7 +2395,7 @@
             "entry_load": "",
             "exit_load": "0.2- If redeemed on or before 7 days from the date of allotment Nil- If redeemed after 7 days from the date of allotment For detailed load structure please refer Scheme Information Document of the scheme."
         },
-        "main_scheme_name": "Baroda BNP Paribas Index Fund",
+        "main_scheme_name": "Baroda BNP Paribas Nifty200 Momentum 30 Index",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1893,8 +2415,8 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.31",
             "tracking_error_direct": "0.31",
-            "tracking_error_regular": "0.31",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1910,5 +2432,58 @@
             47
         ],
         "scheme_launch_date": "October 15, 2024"
+    },
+    "Baroda BNP Paribas NIFTY Midcap 150 Index": {
+        "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
+        "benchmark_index": "(Tier 1) Nifty Midcap 150 Total Returns Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "04-Nov-24",
+                "name": "Neeraj Saxena",
+                "qualification": "",
+                "total_exp": "20 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "",
+            "exit_load": "0.2- If redeemed on or before 7 days from the date of allotment Nil- If redeemed after 7 days from the date of allotment For detailed load structure please refer Scheme Information Document of the scheme."
+        },
+        "main_scheme_name": "Baroda BNP Paribas NIFTY Midcap 150 Index",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": "0.37",
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "0.25",
+            "tracking_error_direct": "0.25",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "1,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "8.42",
+        "mutual_fund_name": "Baroda BNP Paribas Mutual Fund",
+        "page_number": [
+            48
+        ],
+        "scheme_launch_date": "November 04, 2024"
     }
 }
