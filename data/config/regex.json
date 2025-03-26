@@ -180,12 +180,14 @@
             ".*minimum_amt$",
             ".*min_investment$",
             "^initial__additional_investment$",
+            "^initial.*nal_investment",
             "^mini_inv$",
             ".*minimum_amount$",
             ".*min_amt$",
             ".*application_amount$",
             ".*minimum_investment_amount$",
-            ".*minimum_investment$"
+            ".*minimum_investment$",
+            "^minimum_investment_clone$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -210,7 +212,8 @@
             ".*net_aum$",
             ".*fund_size$",
             ".*average_for_month$",
-            ".*average_aum$"
+            ".*average_aum$",
+            ".*monthly_average$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -224,7 +227,8 @@
             ".*allotment_date$",
             "^inception_date$",
             ".*inceptionallotment$",
-            ".*date_of_allotment$"
+            ".*date_of_allotment$",
+            "^date_of_inceptionallotment$"
         ],
         "page_number": [
             "^page_number",
@@ -306,7 +310,7 @@
         "Last 12 months"
     ],
     "metrics_headers": {
-        "alpha": ["^jensens_alpha","^jensons_alpha$"],
+        "alpha": ["^jensens_alpha","^jensons_alpha$","^jenson$"],
         "arithmetic_mean_ratio": [],
         "average_div_yld": ["^dividend_yield$"],
         "average_pb": [".*_pb","^pbv$","^pb$"],
@@ -371,7 +375,7 @@
             "^standard$",
             "^Standard_Deviation_of_Fund"
         ],
-        "tracking_error":["^tracking_error$","^tracking_error_regular$"],
+        "tracking_error":["^tracking_error$","^tracking_error_regular$","^regular$"],
         "treynor_ratio": ["^Treynor", "^treynor"],
         "upside_deviation": [],
         "ytm": [
@@ -384,7 +388,9 @@
             "^annualised_portfolio$",
             "^portfolio_yield$",
             "^annualized_portfolio_ytm$",
-            "^yield$"
+            "^yield$",
+            "^annualized_yield_to_maturity.*",
+            "^ytm4$"
         ]
     }
     

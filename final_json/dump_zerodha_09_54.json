@@ -34,6 +34,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.03",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -48,7 +49,7 @@
         "page_number": [
             3
         ],
-        "scheme_launch_date": null
+        "scheme_launch_date": "8th Nov 2023"
     },
     "zerodha elss tax saver nifty": {
         "amc_name": "Zerodha Asset Management Private Limited",
@@ -85,6 +86,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.04",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -99,7 +101,7 @@
         "page_number": [
             5
         ],
-        "scheme_launch_date": null
+        "scheme_launch_date": "8th Nov 2023"
     },
     "zerodha nifty 1d rate": {
         "amc_name": "Zerodha Asset Management Private Limited",
@@ -136,6 +138,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.02",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -193,6 +196,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.37",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -244,6 +248,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.07",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -260,7 +265,6 @@
         ],
         "scheme_launch_date": "12th Jun 2024"
     },
-
     "zerodha nifty 150 ETF": {
         "amc_name": "Zerodha Asset Management Private Limited",
         "benchmark_index": "Nifty Midcap 150 Index-TRI",
@@ -296,6 +300,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": "0.07",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -353,6 +358,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null

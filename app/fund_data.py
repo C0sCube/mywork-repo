@@ -296,6 +296,7 @@ class GrandFundData:
         return data
 
     def _clone_fund_data(self, data: dict):
+        # print("RUNNING")
         for clone_key, regex_pattern in self.CLONEKEYS.items():  
             pattern = re.compile(regex_pattern)
             for key in data:
@@ -700,6 +701,11 @@ class Helios(Reader,GrandFundData):
         return {main_key: final_list}
 
 #13 
+class HSBC(Reader,GrandFundData):
+    
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
 #14
 class ICICI(Reader,GrandFundData): #Lupsum issues
@@ -777,9 +783,9 @@ class Kotak(Reader,GrandFundData): #Lupsum issues
         final_list = []
         for text in data:
             text = re.sub(self.REGEX['escape'],'',text).strip()
-            matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
-            name = matches
-            final_list.append(self._return_manager_data(name=" ".join(name)))
+            if matches:= re.findall(self.REGEX[pattern], text, re.IGNORECASE):
+                name = matches[0]
+                final_list.append(self._return_manager_data(name=name))
         
         return {main_key:final_list}
     
@@ -804,7 +810,7 @@ class LIC(Reader,GrandFundData): #Lupsum issues
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
-    def get_proper_fund_names(input_pdf, bbox = (0, 0, 400, 100)):
+    def get_proper_fund_names(self,input_pdf:str, bbox = (0, 0, 400, 100)):
         clipped_pdf = input_pdf.replace(".pdf", "_clipped.pdf")
         ocr_pdf = input_pdf.replace(".pdf", "_ocr.pdf")
         
@@ -977,7 +983,9 @@ class Nippon(Reader,GrandFundData):
                 name, desig, since,exp = matches[0]
                 final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
         return {main_key:final_list}
-
+    
+    def _update_manager_data(self):
+        pass
 #24
 class NJMF(Reader,GrandFundData):
    
@@ -1330,7 +1338,7 @@ class JMMF(Reader,GrandFundData):
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
 
-        manager_data = " ".join(data)
+        manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
 
         if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
