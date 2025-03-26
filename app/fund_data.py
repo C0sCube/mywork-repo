@@ -974,18 +974,16 @@ class Nippon(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
     
-    def _extract_manager_data(self,main_key:str,data:list, pattern:str):
-        manager_data = data
+    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
         final_list = []
-        for idx in range(0,len(manager_data),2):
-            df = " ".join(manager_data[idx:idx+2])
-            if matches := re.findall(self.REGEX[pattern], df, re.IGNORECASE):
-                name, desig, since,exp = matches[0]
-                final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
-        return {main_key:final_list}
-    
-    def _update_manager_data(self):
-        pass
+        manager_data = "".join(data)
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
+            for match in matches:
+                name,desig,since,exp = match
+                final_list.append(self._return_manager_data(name=name,since=since, exp=exp,desig=desig))
+        return {main_key: final_list}
+
 #24
 class NJMF(Reader,GrandFundData):
    

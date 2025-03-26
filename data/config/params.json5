@@ -3250,18 +3250,14 @@
                 "EOL"
             ],
             metric: "(Tracking Error|PE|PB|Dividend Yield|Tracking Error|Standard Deviation|Portfolio Turnover\\s*\\(times\\)|Annualized Portfolio YTM|Average Maturity|Macaulay Duration|Residual Maturity|Modi?f?ied Duration|Beta|Treynor Ratio|Sharpe Ratio)\\s*([\\d,.]+\\s*(?:years|months|days)?)",
-            manager: "([A-Za-z\\s]+)\\s*\\(?(.*?)\\)?\\s*\\(Managing Since (.*?)\\)\\s*Total Experience of more than\\s*(.* years)",
+            manager:"([\\w\\s]+)(?:\\(([\\w\\s-]+)\\))?\\s*\\((?:Managing since|w.e.f)?\\s*([A-Za-z]+\\s*[0-9]+).*?\\)\\s*Total Experience .+?more than\\s*([0-9]+ years)",
             load: "Entry Load(.*?)\\s*Exit Load(.*)$",
-            escape:"[^A-Za-z0-9\\s\\-\\(\\).,]+",
+            escape:"[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(s\\)",
         },
         PATTERN_TO_FUNCTION: {
             // "^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
             //     "_extract_str_data",
             //     null,
-            // ],
-            // "^fund_mana.*": [
-            //     "_extract_manager_data",
-            //     "manager",
             // ],
             // "^aum.*": [
             //     "_extract_generic_data",
@@ -3284,6 +3280,10 @@
             ".*load_structure": [
                 "_extract_load_data",
                 "load",
+            ],
+            ".*fund_manager": [
+                "_extract_manager_data",
+                "manager",
             ],
         },
         SELECTKEYS: [

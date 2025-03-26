@@ -2,7 +2,20 @@
     "nippon india large cap fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE 100 TRI",
-        "fund_manager": "(s) Sailesh Raj Bhan (Managing Since Aug 2007) Total Experience of more than 29 years Bhavik Dave (Assistant Fund Manager) (Managing Since Aug 2024) Total Experience of more than 12 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Aug 2007",
+                "name": "Sailesh Raj Bhan",
+                "qualification": "",
+                "total_exp": "29 Years"
+            },
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Bhavik Dave",
+                "qualification": "Assistant Fund Manager",
+                "total_exp": "12 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 7 days from the date of allotment of units. Nil, thereafter."
@@ -47,7 +60,20 @@
     "nippon india vision fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty LargeMidcap 250 TRI",
-        "fund_manager": "(s) Amar Kalkundrikar(Managing Since Jun 2021) Total Experience of more than 22 years Aishwarya Deepak Agarwal (Managing Since Jun 2021) Total Experience of more than 24 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jun 2021",
+                "name": "Amar Kalkundrikar",
+                "qualification": "",
+                "total_exp": "22 Years"
+            },
+            {
+                "managing_fund_since": "Jun 2021",
+                "name": "Aishwarya Deepak Agarwal",
+                "qualification": "",
+                "total_exp": "24 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load, Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, thereafter."
@@ -92,7 +118,14 @@
     "nippon india quant fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE 200 TRI",
-        "fund_manager": "(s) Ashutosh Bhargava (Managing Since Sep 2017) Total Experience of more than 19 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep 2017",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -137,7 +170,14 @@
     "nippon india growth fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Midcap 150 TRI",
-        "fund_manager": "(s) Rupesh Patel (Managing Since Jan 2023) Total Experience of more than 25 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan 2023",
+                "name": "Rupesh Patel",
+                "qualification": "",
+                "total_exp": "25 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -182,7 +222,20 @@
     "nippon india focused equity fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE 500 TRI",
-        "fund_manager": "(s) Vinay Sharma (Managing Since May 2018) Total Experience of more than 20 years Rishit Parikh (Assistant Fund Manager) (Managing Since Aug 2024) Total Experience of more than 16 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "May 2018",
+                "name": "Vinay Sharma",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Rishit Parikh",
+                "qualification": "Assistant Fund Manager",
+                "total_exp": "16 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load, Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, thereafter."
@@ -227,7 +280,14 @@
     "nippon india small cap fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Smallcap 250 TRI",
-        "fund_manager": "(s) Samir Rachh (Managing Since Jan 2017) Total Experience of more than 33 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan 2017",
+                "name": "Samir Rachh",
+                "qualification": "",
+                "total_exp": "33 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 year from the date of allotment of units. Nil, thereafter Investors are requested to note that Nippon India Mutual Fund has decided to limit the subscription of units in Nippon India Small Cap Fund (the Scheme) wef. July 07, 2023. Kindly refer to Notice cum addendum no. 20. Dated July 06, 2023, Notice cum addendum no. 94. Dated Mar 19, 2024  Notice cum addendum no. 33 dated Aug 12,2024."
@@ -272,7 +332,20 @@
     "nippon india etf nifty 50 value 20": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 50 Value 20 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -318,7 +391,20 @@
     "nippon india multi cap fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY 500 Multicap 502525 TRI",
-        "fund_manager": "(s) Sailesh Raj Bhan (Managing Since Mar 2005) Total Experience of more than 29 years Ashutosh Bhargava (Co-Fund Manager) (Managing Since Sep 2021) Total Experience of more than 19 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2005",
+                "name": "Sailesh Raj Bhan",
+                "qualification": "",
+                "total_exp": "29 Years"
+            },
+            {
+                "managing_fund_since": "Sep 2021",
+                "name": "Ashutosh Bhargava",
+                "qualification": "Co-Fund Manager",
+                "total_exp": "19 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load, Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, thereafter."
@@ -363,7 +449,20 @@
     "nippon india flexi cap fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 500 TRI",
-        "fund_manager": "(s) Meenakshi Dawar (Managing Since Jan 2023) Total Experience of more than 15 years Dhrumil Shah (Managing Since Aug 2021) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan 2023",
+                "name": "Meenakshi Dawar",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Aug 2021",
+                "name": "Dhrumil Shah",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load. Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, thereafter."
@@ -408,7 +507,20 @@
     "nippon india elss tax saver fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 500 TRI",
-        "fund_manager": "(s) Rupesh Patel (Managing Since Jul 2021) Total Experience of more than 25 years Ritesh Rathod (Co - Fund Manager) (Managing Since Aug 2024) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jul 2021",
+                "name": "Rupesh Patel",
+                "qualification": "",
+                "total_exp": "25 Years"
+            },
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Ritesh Rathod",
+                "qualification": "Co - Fund Manager",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -453,7 +565,20 @@
     "nippon india banking & financial services fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Financial Services TRI",
-        "fund_manager": "(s) Vinay Sharma (Managing Since Apr 2018) Total Experience of more than 20 years Bhavik Dave (Co-Fund Manager) (Managing Since Jun 2021) Total Experience of more than 12 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Apr 2018",
+                "name": "Vinay Sharma",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Jun 2021",
+                "name": "Bhavik Dave",
+                "qualification": "Co-Fund Manager",
+                "total_exp": "12 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -498,7 +623,14 @@
     "nippon india power & infra fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Infrastructure TRI",
-        "fund_manager": "(s) Rahul Modi (Managing Since Aug 2024) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Rahul Modi",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -543,7 +675,14 @@
     "nippon india pharma fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE Healthcare TRI",
-        "fund_manager": "(s) Sailesh Raj Bhan (Managing Since Jun 2004) Total Experience of more than 29 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jun 2004",
+                "name": "Sailesh Raj Bhan",
+                "qualification": "",
+                "total_exp": "29 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -588,7 +727,14 @@
     "nippon india consumption fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty India Consumption TRI",
-        "fund_manager": "(s) Amar Kalkundrikar (Managing Since Oct 2020) Total Experience of more than 22 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2020",
+                "name": "Amar Kalkundrikar",
+                "qualification": "",
+                "total_exp": "22 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -633,7 +779,14 @@
     "nippon yusen kabushiki kaisha": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "SP Japan 500 TRI",
-        "fund_manager": "(s) Kinjal Desai (Managing Since May 2018) Total Experience of more than 12 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "May 2018",
+                "name": "Kinjal Desai",
+                "qualification": "",
+                "total_exp": "12 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 year from the date of allotment of units. Nil, thereafter."
@@ -678,7 +831,14 @@
     "nippon india us equity opportunities fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "SP 500 TRI",
-        "fund_manager": "(s) Kinjal Desai (Managing Since May 2018) Total Experience of more than 12 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "May 2018",
+                "name": "Kinjal Desai",
+                "qualification": "",
+                "total_exp": "12 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil"
@@ -723,7 +883,14 @@
     "nippon india taiwan equity fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Taiwan Capitalization Weighted Stock Index (TAIEX) TRI",
-        "fund_manager": "(s) Kinjal Desai (Managing Since Dec 2021) Total Experience of more than 12 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2021",
+                "name": "Kinjal Desai",
+                "qualification": "",
+                "total_exp": "12 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 3 months from the date of allotment of units. Nil, thereafter"
@@ -768,7 +935,20 @@
     "nippon india innovation fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 500 TRI",
-        "fund_manager": "(s) Vinay Sharma (Managing Since Aug 2023) Total Experience of more than 20 years Rishit Parikh (Co - Fund Manager) (Managing Since Aug 2024) Total Experience of more than 16 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Aug 2023",
+                "name": "Vinay Sharma",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Rishit Parikh",
+                "qualification": "Co - Fund Manager",
+                "total_exp": "16 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 if redeemed or switched out on or before completion of 1 year from the date of allotment of units. Nil, thereafter"
@@ -813,7 +993,14 @@
     "nippon india overnight fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Liquid Overnight Index",
-        "fund_manager": "(s) Siddharth Deb (Managing Since Mar 2022) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low A-I (Class I) Moderate (Class II) Relatively High (Class III)"
@@ -858,7 +1045,20 @@
     "nippon india liquid fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Liquid Index A-I",
-        "fund_manager": "(s) Vikash Agarwal (Managing Since Sep 2024) Total Experience of more than 18 years Siddharth Deb (Managing Since Mar 2022) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep 2024",
+                "name": "Vikash Agarwal",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Mar 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable Investor exit upon subscription",
             "exit_load": "as  of redemption  switchout amount (including systematic transactions) Up to Day 1 0.0070 Day 2 0.0065 Day 3 0.0060 Day 4 0.0055 Day 5 0.0050 Day 6 0.0045 Day 7 Onwards 0.0000 PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low B-I (Class I) Moderate (Class II) Relatively High (Class III)"
@@ -903,7 +1103,14 @@
     "nippon india money market fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Money Market Index A-I",
-        "fund_manager": "(s) Vikash Agarwal (Managing Since Sep 2024) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep 2024",
+                "name": "Vikash Agarwal",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low B-I (Class I) Moderate (Class II) Relatively High (Class III)"
@@ -948,7 +1155,14 @@
     "nippon india ultra short duration fund (number of segregated portfolio -1)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Ultra Short Duration Debt A-I Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Oct 2013) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2013",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Not applicable for Segregated Portfolio PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate B-II (Class II) Relatively High (Class III) Segregated Portfolio 1 Due to credit event (Default of debt servicing by Altico Capital India Limited (ACIL) on Sep 13, 2019), securities of ACIL have been segregated from the schemes portfolio w.e.f. Sep 25, 2019. Part payments received on Dec 30,2019 (6.06 of total exposure), on Oct 8, 2020 (3.64 of total exposure), on Mar 12, 2021 (55.87 of total exposure) and on Jun 8, 2021 (1.02 of total exposure). Final settlement payment from Altico Capital India Limited (ACIL) amounting INR 9.50 Cr (which is 6.04 of the total exposure in ACIL) received on March 10, 2022. Considering this, the total recovery from ACIL is 72.63 of the total exposure. The segregated portfolio of Nippon India Ultra Short Duration Fund will now cease to exist."
@@ -993,7 +1207,14 @@
     "nippon india low duration fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Low Duration Debt A-I Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Feb 2020) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High B-III (Class III)"
@@ -1038,7 +1259,14 @@
     "nippon india corporate bond fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Corporate Bond Index A-II",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Feb 2020) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High B-III (Class III)"
@@ -1083,7 +1311,20 @@
     "nippon india banking & psu debt fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Banking and PSU Debt A-II Index",
-        "fund_manager": "(s) Pranay Sinha (Managing Since Mar 2021) Total Experience of more than 18 years Vivek Sharma (Managing Since Jun 2020) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Jun 2020",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High B-III (Class III)"
@@ -1128,7 +1369,14 @@
     "nippon india floating rate fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Short Duration Debt Index A-II",
-        "fund_manager": "(s) Vikash Agarwal (Managing Since Sep 2024) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep 2024",
+                "name": "Vikash Agarwal",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -1173,7 +1421,20 @@
     "nippon india short term fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Short Duration Debt A-II Index",
-        "fund_manager": "(s) Sushil Budhia (Managing Since Mar 2021) Total Experience of more than 23 years Vivek Sharma (Managing Since Feb 2020) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High B-III (Class III)"
@@ -1218,7 +1479,14 @@
     "nippon india nivesh lakshya fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Long Duration Debt A-III Index",
-        "fund_manager": "(s) Pranay Sinha (Managing Since Mar 2021) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1  if redeemed or switched out on or before completion of 1 Month from the date of allotment of units. Nil, thereafter. PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -1263,7 +1531,14 @@
     "nippon india credit risk fund (number of segregated portfolios- 2)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Credit Risk Debt B-II Index",
-        "fund_manager": "(s) Sushil Budhia (Managing Since Feb 2020) Total Experience of more than 23 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load. Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units. Not applicable for Segregated Portfolio Segregated Portfolio 1 Vodafone Idea Limited was segregated from the schemes portfolio due to some adverse developments and rating downgrade by CARE to BB- on Feb 17, 2020. An amount of 4.30 of total exposure realized on Sep 16, 2020. The annual coupon amounting Rs 6.98 cr received on Jan 27, 2021. Further entire due amount of Rs 93.78 Cr (Face Value  Accrued Interest) was received on January 27, 2022, subsequently all the units in this segregated portfolio were redeemed and the portfolio was closed, and the investors were duly paid in proportion to their holding. Segregated Portfolio 2 Yes Bank Limited has been segregated from the schemes portfolio due to rating downgrade by ICRA to D on March 6, 2020. Kindly refer to SIDKIM for complete details on segregation of portfolio PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High C-III (Class III)"
@@ -1308,7 +1583,14 @@
     "nippon india strategic debt fund (number of segregated portfolios - 2)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Medium Duration Debt A-III Index",
-        "fund_manager": "(s) Sushil Budhia (Managing Since Feb 2020) Total Experience of more than 23 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1, if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil thereafter. Not applicable for Segregated Portfolio Segregated Portfolio 1 Vodafone Idea Limited was segregated from the schemes portfolio due to some adverse developments and rating downgrade by CARE to BB- on Feb 17, 2020. An amount of 4.64 of total exposure realized on Sep 16, 2020. The annual coupon amounting Rs 1.82 cr received on Jan 27, 2021. Further entire due amount of Rs 24.42 Cr (Face Value  Accrued Interest) was received on January 27, 2022, subsequently all the units in this segregated portfolio were redeemed and the portfolio was closed, and the investors were duly paid in proportion to their holding. Segregated Portfolio 2 Yes Bank Limited has been segregated from the schemes portfolio due to rating downgrade by ICRA to D on March 6, 2020. Kindly refer to SIDKIM for complete details on segregation of portfolio PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High C-III (Class III)"
@@ -1353,7 +1635,14 @@
     "nippon india income fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Medium to Long Duration Debt Index  A-III",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Feb 2020) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25, if redeemed or switched out on or before completion of 15 days from the date of allotment of units. Nil, thereafter. PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -1398,7 +1687,20 @@
     "nippon india dynamic bond fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY Composite Debt Index A-III",
-        "fund_manager": "(s) Pranay Sinha (Managing Since Mar 2021) Total Experience of more than 18 years Vivek Sharma (Managing Since Jun 2020) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Jun 2020",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -1443,7 +1745,14 @@
     "nippon india gilt securities fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY All Duration G-Sec Index",
-        "fund_manager": "(s) Pranay Sinha (Managing Since Mar 2021) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25, if redeemed or switched out on or before completion of 7 days from the date of allotment of units. Nil, thereafter. PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -1488,7 +1797,26 @@
     "nippon india balanced advantage fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Hybrid 5050 - Moderate Index",
-        "fund_manager": "(s) Amar Kalkundrikar (Managing Since Oct 2020) Total Experience of more than 22 years Ashutosh Bhargava (Managing Since May 2018) Total Experience of more than 19 years Sushil Budhia (Managing Since Mar 2021) Total Experience of more than 23 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2020",
+                "name": "Amar Kalkundrikar",
+                "qualification": "",
+                "total_exp": "22 Years"
+            },
+            {
+                "managing_fund_since": "May 2018",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the rst 12 months from the date of allotment shall be subject to the following exit load. Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, thereafter. Average Maturity, Modied Duration  YTM details provided for Debt portion of Portfolio only."
@@ -1534,7 +1862,20 @@
     "nippon india equity hybrid fund (number of segregated portfolios- 2)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL Hybrid 3565 - Aggressive Index",
-        "fund_manager": "(s) Sushil Budhia (Managing Since Feb 2020) Total Experience of more than 23 years Meenakshi Dawar (Managing Since Sep 2021) Total Experience of more than 15 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "Sep 2021",
+                "name": "Meenakshi Dawar",
+                "qualification": "",
+                "total_exp": "15 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load, Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, thereafter. Not applicable for Segregated Portfolio Average Maturity, Modified Duration  YTM details provided for Debt portion of Portfolio only. Segregated Portfolio 1 Due to credit event (Default of debt servicing by Reliance Capital Limited (RCL) on September 20, 2019), securities of RCL have been segregated from the schemes portfolio w.e.f. September 25, 2019. Segregated Portfolio 2 Yes Bank Limited has been segregated from the schemes portfolio due to rating downgrade by ICRA to D on March 6, 2020. Kindly refer to SIDKIM for complete details on segregation of portfolio"
@@ -1580,7 +1921,20 @@
     "nippon india equity savings fund (number of segregated portfolios- 2)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Equity Savings Index",
-        "fund_manager": "(s) Ashutosh Bhargava (Managing Since Apr 2024) Total Experience of more than 19 years Sushil Budhia (Managing Since Feb 2020) Total Experience of more than 23 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Apr 2024",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 15 days from the date of allotment of units. Any redemption in excess of such limit within 15 days from the date of allotment shall be subject to the following exit load, Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 15 days from the date of allotment of units. Nil, thereafter. Not applicable for Segregated Portfolio w.e.f Aug 05, 2024 Average Maturity, Modified Duration  YTM details provided for Debt portion of Portfolio only. Segregated Portfolio 1 Due to credit event (Default of debt servicing by Reliance Capital Limited (RCL) on September 20, 2019), securities of RCL have been segregated from the schemes portfolio w.e.f. September 25, 2019. Segregated Portfolio 2 Yes Bank Limited has been segregated from the schemes portfolio due to rating downgrade by ICRA to D on March 6, 2020. Kindly refer to SIDKIM for complete details on segregation of portfolio"
@@ -1626,7 +1980,26 @@
     "nippon india mutual fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 50 Arbitrage Index",
-        "fund_manager": "(s) Vikash Agarwal (Managing Since Sep 2024) Total Experience of more than 18 years Siddharth Deb (Managing Since Sep 2024) Total Experience of more than 18 years Rohit Hashmukh Shah (Co-fund manager) (Managing Since Apr 2024) Total Experience of more than 13 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep 2024",
+                "name": "Vikash Agarwal",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Sep 2024",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Apr 2024",
+                "name": "Rohit Hashmukh Shah",
+                "qualification": "Co-Fund Manager",
+                "total_exp": "13 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "0.25 if redeemed or switched out on or before completion of 1 month from the date of allotment of units. Nil, thereafter."
@@ -1672,7 +2045,20 @@
     "nippon india hybrid bond fund (number of segregated portfolios - 2)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Crisil Hybrid 8515 - Conservative Index",
-        "fund_manager": "(s) Sushil Budhia (Managing Since Feb 2020) Total Experience of more than 23 years Dhrumil Shah (Co-Fund Manager) (Managing Since Sep 2021) Total Experience of more than 18 years AMFI Tier 1",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2020",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "Sep 2021",
+                "name": "Dhrumil Shah",
+                "qualification": "Co-Fund Manager",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "10 of the units allotted shall be redeemed without any exit load, on or before completion of 12 months from the date of allotment of units. Any redemption in excess of such limit in the first 12 months from the date of allotment shall be subject to the following exit load. Redemption of units would be done on First in First out Basis (FIFO) 1 if redeemed or switched out on or before completion of 12 months from the date of allotment of units. Nil, if redeemed or switched out after completion of 12 months from the date of allotment of units. Not applicable for Segregated Portfolio Average Maturity, Modified Duration  YTM details provided for Debt portion of Portfolio only. Segregated Portfolio 1 Vodafone Idea Limited was segregated from the schemes portfolio due to some adverse developments and rating downgrade by CARE to BB- on Feb 17, 2020 and the Impact of segregation on NAV was negative (3.33). Interest payment of Rs 9.31 Cr was received on June 12, 2020 which was distributed between the investor in proportion to their holding. Further entire due amount of Rs 113.61 Cr (Face Value  Interest) was received on July 10, 2020, subsequent to that all the units in the segregated portfolio were redeemed and the portfolio was closed, the investors were duly paid in the proportion to their holding. Segregated Portfolio 2 Yes Bank Limited has been segregated from the schemes portfolio due to rating downgrade by ICRA to D on March 6, 2020. Kindly refer to SIDKIM for complete details on segregation of portfolio"
@@ -1717,7 +2103,14 @@
     "nippon india silver etf": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Domestic Price of Silver (based on LBMA Silver daily spot fixing price)",
-        "fund_manager": "(s) Vikram Dhawan (Managing Since Feb 2022) Total Experience of more than 30 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2022",
+                "name": "Vikram Dhawan",
+                "qualification": "",
+                "total_exp": "30 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -1764,7 +2157,14 @@
     "nippon india index fund - nifty 50 plan": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 50 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "NIL w.e.f. October 15, 2024."
@@ -1809,7 +2209,14 @@
     "nippon india index fund - bse sensex plan": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE Sensex TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "NIL w.e.f. October 15, 2024."
@@ -1854,7 +2261,14 @@
     "nippon india nifty smallcap 250 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Smallcap 250 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -1899,7 +2313,14 @@
     "nippon india nifty midcap 150 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Midcap 150 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -1944,7 +2365,20 @@
     "nippon india nifty 50 value 20 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 50 Value 20 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -1989,7 +2423,20 @@
     "nippon india nifty alpha low volatility 30 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Alpha Low Volatility 30 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2034,7 +2481,20 @@
     "nippon india nifty auto index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Auto TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2024 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2079,7 +2539,20 @@
     "nippon india nifty realty index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Realty TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2024 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2124,7 +2597,20 @@
     "nippon india nifty aaa cpse bond plus sdl - apr 2027 maturity 60:40 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty AAA CPSE Bond Plus SDL Apr 2027 6040 Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Mar 2022) Total Experience of more than 18 years Siddharth Deb (Managing Since Mar 2022) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2022",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Mar 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.30  0.30  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -2169,7 +2655,20 @@
     "nippon india nifty aaa psu bond plus sdl - sep 2026 maturity 50:50 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty AAA PSU Bond Plus SDL Sep 2026 5050 Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Oct 2022) Total Experience of more than 18 years Siddharth Deb (Managing Since Oct 2022) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2022",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Oct 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.32  0.32  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -2214,7 +2713,20 @@
     "nippon india nifty sdl plus g-sec - jun 2028 maturity 70:30 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty SDL Plus G-Sec Jun 2028 7030 Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Nov 2022) Total Experience of more than 18 years Siddharth Deb (Managing Since Nov 2022) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Nov 2022",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Nov 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.60  0.60  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -2259,7 +2771,20 @@
     "nippon india nifty g-sec sep 2027 maturity index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty G-Sec Sep 2027 Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Dec 2022) Total Experience of more than 18 years Siddharth Deb (Managing Since Dec 2022) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2022",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.19  0.19  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -2304,7 +2829,20 @@
     "nippon india nifty g-sec jun 2036 maturity index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty G-Sec Jun 2036 Index",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Dec 2022) Total Experience of more than 18 years Siddharth Deb (Managing Since Dec 2022) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2022",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2022",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.73  0.73  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate (Class II) Relatively High A-III (Class III)"
@@ -2349,7 +2887,20 @@
     "nippon india crisil-ibx aaa financial services - dec 2026 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL-IBX AAA Financial Services Index  Dec 2026",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Oct 2024) Total Experience of more than 18 years Siddharth Deb (Managing Since Oct 2024) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2024",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Oct 2024",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.31  0.31  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate A-II (Class II) Relatively High (Class III)"
@@ -2394,7 +2945,20 @@
     "nippon india crisil-ibx aaa financial services - jan 2028 index fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "CRISIL-IBX AAA Financial Services Index  Jan 2028",
-        "fund_manager": "(s) Vivek Sharma (Managing Since Oct 2024) Total Experience of more than 18 years Siddharth Deb (Managing Since Oct 2024) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2024",
+                "name": "Vivek Sharma",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Oct 2024",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil Regular Direct Plan Tracking Error Plan 0.40  0.40  PRC Matrix Potential Risk Class Credit Risk Relatively Relatively Low Moderate High Interest Rate (Class A) (Class B) Risk (Class C) Relatively Low (Class I) Moderate A-II (Class II) Relatively High (Class III)"
@@ -2439,7 +3003,14 @@
     "nippon india etf nifty 50 bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 50 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2484,7 +3055,14 @@
     "nippon india etf bse sensex": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE Sensex TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -2529,7 +3107,14 @@
     "nippon india etf nifty next 50 junior bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Next 50 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2574,7 +3159,14 @@
     "nippon india etf nifty 100": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 100 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -2619,7 +3211,20 @@
     "nippon india etf nifty india consumption": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty India Consumption TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -2664,7 +3269,20 @@
     "nippon india etf nifty dividend opportunities 50": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Dividend Opportunities 50 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -2709,7 +3327,20 @@
     "nippon india etf nifty infrastructure bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Infrastructure TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2754,7 +3385,14 @@
     "nippon india etf nifty bank bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Bank TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2799,7 +3437,20 @@
     "nippon india etf nifty psu bank bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty PSU Bank TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2844,7 +3495,20 @@
     "nippon india etf nifty 50 shariah bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty50 Shariah TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -2889,7 +3553,14 @@
     "nippon india etf nifty midcap 150": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Midcap 150 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -2934,7 +3605,20 @@
     "nippon india etf hang seng bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Hang Seng TRI",
-        "fund_manager": "(s) Kinjal Desai (Managing Since May 2018) Total Experience of more than 12 years Siddharth Deb (Managing Since Nov 2016) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "May 2018",
+                "name": "Kinjal Desai",
+                "qualification": "",
+                "total_exp": "12 Years"
+            },
+            {
+                "managing_fund_since": "Nov 2016",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil 1For foreign securities 2For debt securities"
@@ -2979,7 +3663,14 @@
     "nippon india etf bse sensex next 50": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "BSE Sensex Next 50 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -3024,7 +3715,20 @@
     "nippon india etf nifty it": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "NIFTY IT TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -3069,7 +3773,20 @@
     "nippon india nifty pharma etf": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Pharma TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -3114,7 +3831,20 @@
     "cpse etf": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty CPSE TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01, 2025) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            },
+            {
+                "managing_fund_since": "Feb 01",
+                "name": "Jitendra Tolani",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -3159,7 +3889,14 @@
     "nippon india etf nifty 1d rate liquid bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 1D Rate Index",
-        "fund_manager": "(s) Siddharth Deb (Managing Since Nov 2012) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Nov 2012",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -3204,7 +3941,20 @@
     "nippon india etf nifty 8-13 yr g-sec long term gilt": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 8-13 yr G-Sec Index",
-        "fund_manager": "(s) Pranay Sinha (Managing Since Mar 2021) Total Experience of more than 18 years Siddharth Deb (Managing Since Mar 2021) Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -3248,8 +3998,21 @@
     },
     "nippon india etf nifty 5 yr benchmark g-sec": {
         "amc_name": "Nippon Life India Asset Management Limited",
-        "benchmark_index": "G- Sec Index. Relatively High interest rate risk and Relatively Low Credit Risk. Current Investment Philosophy The fund employs a passive approach designed to track the performance of Nifty 5 Yr Benchmark G-sec Index. It will invest mainly in securities constituting Nifty 5 Yr Benchmark G-Sec Index which has the portfolio of Government Securities. Date of Allotment April 05, 2021 Fund Manager(s) Pranay Sinha (Managing Since Apr 2021) Total Experience of more than 18 years Siddharth Deb (Managing Since Apr 2021) Total Experience of more than 18 years Benchmark Nifty 5 Yr Benchmark G-Sec Index",
-        "fund_manager": "(s) Pranay Sinha (Managing Since Apr 2021) Total Experience of more than 18 years Siddharth Deb (Managing Since Apr 2021) Total Experience of more than 18 years",
+        "benchmark_index": "G- Sec Index. Relatively High interest rate risk and Relatively Low Credit Risk. Current Investment Philosophy The fund employs a passive approach designed to track the performance of Nifty 5 Yr Benchmark G-sec Index. It will invest mainly in securities constituting Nifty 5 Yr Benchmark G-Sec Index which has the portfolio of Government Securities. Date of Allotment April 05, 2021 Fund Manager Pranay Sinha (Managing Since Apr 2021) Total Experience of more than 18 years Siddharth Deb (Managing Since Apr 2021) Total Experience of more than 18 years Benchmark Nifty 5 Yr Benchmark G-Sec Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Apr 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Apr 2021",
+                "name": "Siddharth Deb",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Not Applicable"
@@ -3294,7 +4057,14 @@
     "nippon india etf gold bees": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Domestic Price of Gold",
-        "fund_manager": "(s) Vikram Dhawan (Managing Since Feb 2022) Total Experience of more than 30 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2022",
+                "name": "Vikram Dhawan",
+                "qualification": "",
+                "total_exp": "30 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -3339,7 +4109,14 @@
     "nippon india gold savings fund": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Domestic Price of Gold",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 If redeemed or switched out on or before completion of 15 days from the date of allotment of units. Nil, thereafter"
@@ -3384,7 +4161,14 @@
     "nippon india nifty next 50 junior bees fof": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty Next 50 TRI",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023) Total Experience of more than 5 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "Nil"
@@ -3429,7 +4213,14 @@
     "nippon india passive flexicap fof": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Nifty 500 TRI",
-        "fund_manager": "(s) Ashutosh Bhargava (Managing Since Jan 2023) Total Experience of more than 19 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan 2023",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            }
+        ],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -3474,7 +4265,20 @@
     "nippon india asset allocator fof": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "90 CRISIL Hybrid 5050 - Moderate Index  10 of Domestic prices of Gold",
-        "fund_manager": "(s) Sushil Budhia (Managing Since Mar 2021) Total Experience of more than 23 years Ashutosh Bhargava (Managing Since Feb 2021) Total Experience of more than 19 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Sushil Budhia",
+                "qualification": "",
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "Feb 2021",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            }
+        ],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -3519,7 +4323,14 @@
     "nippon india silver etf fund of fund (fof)": {
         "amc_name": "Nippon Life India Asset Management Limited",
         "benchmark_index": "Domestic Price of Silver (based on LBMA Silver daily spot xing price)",
-        "fund_manager": "(s) Himanshu Mange (Managing Since Dec 2023 till 31st Jan 2025) Total Experience of more than 5 years Jitendra Tolani (w.e.f Feb 01 Total Experience of more than 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Himanshu Mange",
+                "qualification": "",
+                "total_exp": "5 Years"
+            }
+        ],
         "load": {
             "entry_load": "Not Applicable",
             "exit_load": "1 - If redeemed or switched out on or before completion of 15 days from the date of allotment of units. Nil - If redeemed or switched out after completion of 15 days from the date of allotment of units."
@@ -3560,5 +4371,122 @@
             92
         ],
         "scheme_launch_date": "February 02, 2022"
+    },
+    "nippon india retirement fund - income generation scheme": {
+        "amc_name": "Nippon Life India Asset Management Limited",
+        "benchmark_index": "CRISIL Hybrid 8515 - Conservative Index",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Apr 2024",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": null
+        },
+        "main_scheme_name": "nippon india retirement fund - income generation scheme",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "18.05 Years",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "9.91 Years",
+            "mod_duration": "9.58 Years",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": "7.02"
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": null,
+        "min_amt_multiple": null,
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "154.07 Cr.",
+        "mutual_fund_name": "Nippon India Mutual Fund",
+        "page_number": [
+            93
+        ],
+        "scheme_launch_date": "February 11, 2015"
+    },
+    "nippon india retirement fund - wealth creation scheme": {
+        "amc_name": "Nippon Life India Asset Management Limited",
+        "benchmark_index": "BSE 500 TRI",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Apr 2024",
+                "name": "Ashutosh Bhargava",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "Mar 2021",
+                "name": "Pranay Sinha",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": null
+        },
+        "main_scheme_name": "nippon india retirement fund - wealth creation scheme",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": "0.97",
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "portfolio_turnovertimes": "0.46",
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": "0.61",
+            "sortino_ratio": null,
+            "std_dev": "14.19",
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": null,
+        "min_amt_multiple": null,
+        "monthly_aaum_date": "28FEBRUARY2025",
+        "monthly_aaum_value": "3,161.54 Cr.",
+        "mutual_fund_name": "Nippon India Mutual Fund",
+        "page_number": [
+            94
+        ],
+        "scheme_launch_date": "February 11, 2015"
     }
 }
