@@ -3371,7 +3371,7 @@
       aum: "(.+Average|.+AUM)\\s*([\\d,.]+)",
       ter: "^(Regular|Direct)[\\s:?]+([\\d]+\\.\\d+)",
       load: "Entry Load(.*)Exit Load(.*)$",
-      min_amt: "Growth\\s*([\\d,]\\.?\\d+\\-?)()",
+      min_amt: "(?:Growth)?\\s*([\\d,]+\\.?\\d+)\\-?\\D*\\s*((?:[\\d,.]+)?)",
       manager: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+).*?Managing (?:the|this) scheme since\\s*([A-Za-z]+\\s*[0-9]+|Inception|[0-9]+-[A-Za-z]+-[0-9]+)",
       metrics: "(Yield to Maturity|Weighted Average Maturity|Modied Duraon|Macaulay Durat?i?on|Standard Deviat?i?on|Beta|Sharpe Rat?i?o|Port?f?olio Turnover|Tracking Error|PE|ROE|PB)\\s*([\\d,.]+\\s*(ye?a?rs?|days?|months?)?)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
