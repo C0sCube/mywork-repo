@@ -551,11 +551,11 @@ class Reader:
             print(f'---<<{fund}>>---')
             start_time = time.time()
             Reader._generate_pdf_from_data(blocks, output_path)
-            print(f"PDF Generation Time: {time.time() - start_time:.2f} sec")
+            # print(f"PDF Generation Time: {time.time() - start_time:.2f} sec")
             
             start_time = time.time()
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
-            print(f"PDF Extraction Time: {time.time() - start_time:.2f} sec")
+            # print(f"PDF Extraction Time: {time.time() - start_time:.2f} sec")
             
             self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text

@@ -60,8 +60,11 @@ def insert_metrics(cursor, amc_id, mutual_fund_id, details):
 
 
 if __name__ == "__main__":
+# '360', 'Aditya', 'Bajaj', 'Bandhan', 'Bank', 'Baroda', 'Canara', 'Dsp', 'Edelweiss', 'Groww', 'Hdfc', 'Helios', 'Invesco', 'Iti', 'Jm', 'Kotak', 'Lic', 
+# 'Mahindra', 'Mirae', 'Navi', 'Nippon', 'Nj', 'Old', 'Pgim', 'Quantum', 'Quant', 'Samco', 'Sbi', 'Sundaram', 'Tata', 'Taurus', 'Trustmf', 'Whiteoak', 'Zerodha'
     json_paths = get_json_paths(base_dir)
-    get_data = json_paths['360']
+    amc_path_name = "360"
+    get_data = json_paths[amc_path_name]
 
     with open(get_data, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -83,6 +86,8 @@ if __name__ == "__main__":
         insert_fund_managers(cursor, amc_id, mutual_fund_id, details)
         insert_load(cursor, amc_id, mutual_fund_id, details)
         insert_metrics(cursor, amc_id, mutual_fund_id, details)
+    
+    print(f"Success for {amc_path_name} !!")
 
     conn.commit()
     cursor.close()

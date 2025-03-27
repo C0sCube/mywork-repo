@@ -126,15 +126,6 @@ class GrandFundData:
         if matches:= re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE):
             amt,thraftr = matches[0]
             final_dict['amt'], final_dict['thraftr'] = amt,thraftr
-        # for match in matches:
-        #     if len(match) == 2:
-        #         amt, thraftr = match
-        #         final_dict['amt'], final_dict['thraftr'] = amt,thraftr
-        #     elif len(match) == 3:
-        #         min_type,amt,thraftr = match
-                
-        #         final_dict[min_type] = {"amt": amt,"thraftr":thraftr,}
-                
         return {main_key:final_dict}
     
     #match
@@ -261,11 +252,6 @@ class GrandFundData:
         for new_key, patterns in self.MERGEKEYS.items():
             # Find matching keys using regex patterns
             keys_to_merge = [key for key in data if any(re.search(pattern, key, re.IGNORECASE) for pattern in patterns)]
-
-            
-            # for key in data:
-            #     if any(re.search(pattern, key,re.IGNORECASE) for pattern in patterns):
-            #         # print(f"Matched key: {key}")
             values = [data[key] for key in keys_to_merge if key in data]
 
             if all(isinstance(v, list) for v in values): #list + list
@@ -351,7 +337,7 @@ class GrandFundData:
         today = datetime.today()
         last_day = today.replace(day=1) - relativedelta(days=1)
         formatted_date = f"{last_day.day} {last_day.strftime('%B').strip().upper()} {last_day.year}"
-        
+        # print(formatted_date)
         return "".join(formatted_date.split())
     
     def _update_imp_data(self,data:dict,fund:str, pgn:list):
@@ -633,13 +619,13 @@ class HDFC(Reader,GrandFundData):
         EXP_PATTERN = r"over (\d+)"
         YEAR_PATTERN = r"(\d{4})"
 
-        all_text = " ".join(data)
-        all_text = re.sub(r"[^A-Za-z0-9\s\-\(\).,]+|Name|Since|Total|Exp|years", "", all_text).strip()
+        manager_data = " ".join(data)
+        manager_data = re.sub(r"[^A-Za-z0-9\s\-\(\).,]+|Name|Since|Total|Exp|years", "", manager_data).strip()
 
-        experience_years = re.findall(EXP_PATTERN, all_text, re.IGNORECASE)
-        dates = re.findall(DATE_PATTERN, all_text, re.IGNORECASE)[:len(experience_years)]
-        years = re.findall(YEAR_PATTERN, all_text, re.IGNORECASE)[:len(experience_years)]
-        names = re.findall(NAME_PATTERN, all_text, re.IGNORECASE)[:len(experience_years)]
+        experience_years = re.findall(EXP_PATTERN, manager_data, re.IGNORECASE)
+        dates = re.findall(DATE_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        years = re.findall(YEAR_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        names = re.findall(NAME_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
         
         managing_since = [f"{date}, {year}" for date, year in zip(dates, years)]
         experience_list = [f"{exp} years" for exp in experience_years]
@@ -1063,6 +1049,17 @@ class QuantMF(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+    
+    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
+        final_list = []
+        manager_data = "".join(data) if isinstance(data,list) else data
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
+            for match in matches:
+                name = match
+                final_list.append(self._return_manager_data(name=name))
+        return {main_key: final_list}
+        
 #29 
 class Quantum(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
@@ -1116,6 +1113,24 @@ class SBI(Reader, GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+    
+    def _extract_manager_data(self, main_key: str, data, pattern: str):
+        name = "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z.]+\\s*[A-Za-z]+)"
+        since = "((?:\\(w.e.f\\.?)?[A-Za-z]+\\s*\\d{4}\\s*(?:\\()?)"
+        exp = "([0-9]+ years)"
+
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(name,manager_data, re.IGNORECASE)
+        s = re.findall(since,manager_data, re.IGNORECASE)
+        e = re.findall(exp,manager_data, re.IGNORECASE)
+        
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n,s = adjust(n,e),adjust(s,e)
+        for name,since,exp in zip(n,s,e):
+            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        return {main_key: final_list}
 
 #32
 
@@ -1230,36 +1245,11 @@ class WhiteOak(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def get_proper_fund_names(self,path:str,pages:list):
-        
-        doc = fitz.open(path)
-        final_fund_names = dict()
-        
-        for pgn in range(doc.page_count):
-            fund_names = ''
-            if pgn in pages:
-                page = doc[pgn]            
-                blocks = page.get_text("dict")['blocks']
-                
-                sorted_blocks = sorted(blocks,key=lambda k:(k['bbox'][1],k['bbox'][0]))
-                for count,block in enumerate(sorted_blocks):
-                    for line in block.get("lines", []):
-                        for span in line.get("spans", []):
-                            text = span['text'].strip()
-                            if count in range(0,2): #contains fund name        
-                                fund_names += f'{text} '
-            if matches:= re.search(r'\bMahindra.*?(Fund|ETF|EOF|FOF|FTF|Path)\b', fund_names, re.IGNORECASE):           
-                final_fund_names[pgn] = matches.group()
-            else:
-                final_fund_names[pgn] = ''
-
-        return final_fund_names
     
     def _extract_manager_data(self, main_key:str, data:list,pattern:str):
         final_list = []
     
-        manager_data = " ".join(data)
+        manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
 
         if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
@@ -1321,7 +1311,35 @@ class AdityaBirla(Reader,GrandFundData):
         return {main_key:final_list}
  
 #42 Axis Mutual
+class AXISMF(Reader,GrandFundData):
+    
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
+    
+    def get_proper_fund_names(self,path: str):
+        pattern = r"(Axis\s*.+?(?:Fund|Path|ETF|FOF|Path))"
+        title = {}
+        with fitz.open(path) as doc:
+            for pgn, page in enumerate(doc):
+                text = " ".join(page.get_text("text", clip=(0, 0, 500, 80)).split("\n"))
+                text = re.sub(self.REGEX["escape"], "", text).strip()
+                if matches := re.findall(pattern, text, re.DOTALL):
+                    title[pgn] = matches[0] 
+        return title
+    
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        final_list = []
 
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
+
+        if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
+            for match in matches:
+                name,exp, since = match
+                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        return {main_key:final_list}
+    
 #43 JMMF
 class JMMF(Reader,GrandFundData):
     

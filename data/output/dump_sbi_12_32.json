@@ -2,7 +2,20 @@
     "sbi contra fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 500 TRI",
-        "fund_manager": "Mr. Dinesh Balachandran  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Dinesh May2018 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Dinesh Over 21 Years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "May2018",
+                "name": "Dinesh Balachandran",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 year from the date of allotment  1  For exit after 1 year from the date of allotment  Nil."
@@ -48,7 +61,26 @@
     "sbi small cap fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 250 Small Cap Index TRI",
-        "fund_manager": "Mr. R. Srinivasan, Mr. Mohan Lal  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. R. Srinivasan Nov  2013 Mr. Mohan Lal May  2024 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. R. Srinivasan Over 30 years Mr. Mohan Lal Over 17 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Nov  2013",
+                "name": "R. Srinivasan",
+                "qualification": "",
+                "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "May  2024",
+                "name": "Mohan Lal",
+                "qualification": "",
+                "total_exp": "17 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within one year from the date of allotment 1 For exit after one year from the date of allotment  Nil"
@@ -94,7 +126,20 @@
     "sbi quant fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 200 TRI  Entry Load N.A",
-        "fund_manager": "Ms. Sukanya Ghosh  Mr. Pradeep Kesavan (overseas investments) Managing Since Dec 2024 Total Experience Ms. Sukanya Ghosh Over 10 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Sukanya Ghosh",
+                "qualification": "",
+                "total_exp": "10 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A  Exit Load 0.5 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out on or before 6 months from the date of allotment. NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 6 months from the date of allotment.",
             "exit_load": "0.5 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out on or before 6 months from the date of allotment. NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 6 months from the date of allotment.  Plans Available Regular, Direct  Options Growth, IDCW  SIP Daily  Minimum 500  in multiples of 1 thereafter for minimum 12 Instalments. Weekly  Minimum 1000  in multiples of 1 thereafter for minimum of six installments or minimum 500  in multiples of 1 thereafter for minimum 12 installments. Monthly  Minimum 1000  in multiples of 1 thereafter for minimum six months (or) minimum 500  in multiples of 1 thereafter for minimum one year. Quarterly  Minimum 1500  in multiples of 1 thereafter for minimum one year. SemiAnnual  Minimum amount of investment will be 3,000 and in multiples of 1 thereafter for minimum 4 number of installments. Annual  Minimum amount of investment will be 5,000 and in multiples of 1 thereafter for minimum 4 number of installments.  Minimum Investment 5000 and in multiples of 1 thereafter  Additional Investment 1000 and in multiples of 1 thereafter"
@@ -140,7 +185,20 @@
     "sbi blue chip fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 100 (TRI)",
-        "fund_manager": "Mr. Saurabh Pant  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Saurabh Pant (w.e.f. Apr 2024) Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Saurabh Pant Over 16 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Apr 2024",
+                "name": "Saurabh Pant",
+                "qualification": "",
+                "total_exp": "16 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 year from the date of allotment  1  For exit after 1 year from the date of allotment  Nil"
@@ -185,7 +243,20 @@
     "sbi esg exclusionary strategy fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty 100 ESG TRI",
-        "fund_manager": "Mr. Rohit Shimpi  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rohit Shimpi Jan2022 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Rohit Shimpi Over 18 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan2022",
+                "name": "Rohit Shimpi",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 year from the date of allotment  1  For exit after 1 year from the date of allotment  Nil"
@@ -230,7 +301,26 @@
     "sbi flexicap fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 500 (TRI)",
-        "fund_manager": "Mr. Dinesh Balachandran, Mr. Anup Upadhyay (Co fund Manager)  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Dinesh Balachandran (w.e.f. Dec 2024) Mr. Anup Upadhyay (w.e.f. Dec 2024) Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Dinesh Balachandran Over 21 years Mr. Anup Upadhyay Over 14 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Dinesh Balachandran",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Anup Upadhyay",
+                "qualification": "",
+                "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.10 For exit after 30 days from the date of allotment Nil"
@@ -275,7 +365,26 @@
     "sbi multicap fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY 500 Multicap 502525 TRI",
-        "fund_manager": "Mr. R. Srinivasan, Mr. Saurabh Pant  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. R. Srinivasan March2022 Mr. Saurabh Pant (w.e.f. April 2024) Mr. Pradeep Kesavan Dec2023 Total Experience Mr. R. Srinivasan Over 30 years Mr. Saurabh Pant Over 16 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "March2022",
+                "name": "R. Srinivasan",
+                "qualification": "",
+                "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "April 2024",
+                "name": "Saurabh Pant",
+                "qualification": "",
+                "total_exp": "16 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10 of the units (the limit) purchased or switched on or before 1 year from the date of allotment. 1 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit on or before 1 year from the date of allotment NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment"
@@ -321,7 +430,20 @@
     "sbi dividend yield fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY 500 TRI",
-        "fund_manager": "Mr. Rohit Shimpi  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rohit Shimpi March2023 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Rohit Shimpi Over 18 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "March2023",
+                "name": "Rohit Shimpi",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10 of the units (the limit) purchased or switched on or before 1 year from the date of allotment. 1 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit on or before 1 year from the date of allotment. NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment"
@@ -368,7 +490,20 @@
     "sbi large & midcap fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY LargeMidCap 250 Index (TRI)",
-        "fund_manager": "Mr. Saurabh Pant  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Saurabh Pant Sep2016 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Saurabh Pant Over 16 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep2016",
+                "name": "Saurabh Pant",
+                "qualification": "",
+                "total_exp": "16 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.10 For exit after 30 days from the date of allotment Nil"
@@ -413,7 +548,20 @@
     "sbi focused equity fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 500 (TRI)",
-        "fund_manager": "Mr. R. Srinivasan  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. R. Srinivasan May2009 Mr. Pradeep Kesavan Dec2023  Total Experience Mr. R. Srinivasan Over 30 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "May2009",
+                "name": "R. Srinivasan",
+                "qualification": "",
+                "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 year from the date of allotment  1  For exit after 1 year from the date of allotment  Nil."
@@ -458,7 +606,20 @@
     "sbi magnum midcap fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Midcap 150 Index (TRI)",
-        "fund_manager": "Mr. Bhavin Vithlani  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Bhavin Vithlani (w.e.f. April 2024) Mr. Pradeep Kesavan (w.e.f. Dec 2023) Total Experience Mr. Bhavin Vithlani Over 19 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "April 2024",
+                "name": "Bhavin Vithlani",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 year from the date of allotment  1  For exit after 1 year from the date of allotment  Nil"
@@ -503,7 +664,20 @@
     "sbi magnum global fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty MNC Index (TRI)",
-        "fund_manager": "Mr. Tanmaya Desai  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Tanmaya Desai (w.e.f. Feb 2025) Mr. Pradeep Kesavan (w.e.f. Dec 2023) Total Experience Mr. Tanmaya Desai Over 15 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2025",
+                "name": "Tanmaya Desai",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 12 months from the date of allotment  1.00 For exit after 12 months from the date of allotment  Nil"
@@ -548,7 +722,14 @@
     "sbi long term equity fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE 500 (TRI)",
-        "fund_manager": "Mr. Dinesh Balachandran Managing Since Sep2016 Total Experience Over 21 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Sep2016",
+                "name": "Dinesh Balachandran",
+                "qualification": "",
+                "total_exp": "21 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL"
@@ -593,7 +774,20 @@
     "sbi healthcare opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE HEALTHCARE (TRI)",
-        "fund_manager": "Mr. Tanmaya Desai  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Tanmaya Desai Jun2011 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Tanmaya Desai Over 15 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jun2011",
+                "name": "Tanmaya Desai",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 15 Days from the date of allotment  0.50 For exit after 15 Days from the date of allotment  Nil."
@@ -638,7 +832,20 @@
     "sbi banking & financial services fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Financial Services Index (TRI)",
-        "fund_manager": "Mr. Milind Agrawal  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Milind Agrawal Aug2019 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Milind Agrawal Over 10 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Aug2019",
+                "name": "Milind Agrawal",
+                "qualification": "",
+                "total_exp": "10 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.50 For exit after 30 days from the date of allotment  Nil"
@@ -683,7 +890,14 @@
     "sbi psu fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE PSU (TRI)",
-        "fund_manager": "Mr. Rohit Shimpi Managing Since June 2024 Total Experience Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "June 2024",
+                "name": "Rohit Shimpi",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.50 For exit after 30 days from the date of allotment  Nil"
@@ -728,7 +942,20 @@
     "sbi magnum comma fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Commodities Index (TRI)",
-        "fund_manager": "Mr. Dinesh Balachandran  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Dinesh Balachandran June2024 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Dinesh Balachandran Over 21 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "June2024",
+                "name": "Dinesh Balachandran",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.50 For exit after 30 days from the date of allotment  Nil"
@@ -773,7 +1000,20 @@
     "sbi infrastructure fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Infrastructure Index (TRI)",
-        "fund_manager": "Mr. Bhavin Vithlani  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Bhavin Vithlani Jan2022 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Bhavin Vithlani Over 19 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan2022",
+                "name": "Bhavin Vithlani",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.50 For exit after 30 days from the date of allotment  Nil"
@@ -819,7 +1059,20 @@
     "sbi consumption opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty India Consumption Index (TRI)",
-        "fund_manager": "Mr. Ashit Desai  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Ashit Desai (w.e.f. April 2024) Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Ashit Desai Over 18 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "April 2024",
+                "name": "Ashit Desai",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "Nil",
             "exit_load": "For exit on or before 30 days from the date of allotment  0.10 For exit after 30 days from the date of allotment Nil"
@@ -864,7 +1117,20 @@
     "sbi technology opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "BSE Teck (TRI)",
-        "fund_manager": "Mr. Vivek Gedda  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Vivek Gedda (w.e.f. April 2024) Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Vivek Gedda Over 13 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "April 2024",
+                "name": "Vivek Gedda",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 15 days from the date of allotment  0.50 For exit after 15 days from the date of allotment  Nil."
@@ -909,7 +1175,20 @@
     "sbi equity minimum variance fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty 50 Index (TRI)",
-        "fund_manager": "Mr. Raviprakash Sharma  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Raviprakash March2019 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Raviprakash Over 24 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "March2019",
+                "name": "Raviprakash Sharma",
+                "qualification": "",
+                "total_exp": "24 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 15 days from the date of allotment  0.5 For exit after 15 days from the date of allotment  Nil"
@@ -954,7 +1233,14 @@
     "sbi international access - us equity fof": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "SP 500 Index, after converting it to Indian Rupee  Entry Load N.A",
-        "fund_manager": "Mr. Rohit Shimpi Managing Since (w.e.f. Feb 2025) Total Experience Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2025",
+                "name": "Rohit Shimpi",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A  Exit Load For exit on or before 1 year from the date of allotment  1.00 For exit after 1 year from the date of allotment  Nil",
             "exit_load": "For exit on or before 1 year from the date of allotment  1.00 For exit after 1 year from the date of allotment  Nil  Plans Available Regular, Direct  Options Growth, IDCW  SIP Daily  Minimum 500  in multiples of 1 thereafter for minimum 12 Instalments. Weekly  Minimum 1000  in multiples of 1 thereafter for minimum of six installments or minimum 500  in multiples of 1 thereafter for minimum 12 installments. Monthly  Minimum 1000  in multiples of 1 thereafter for minimum six months (or) minimum 500  in multiples of 1 thereafter for minimum one year. Quarterly  Minimum 1500  in multiples of 1 thereafter for minimum one year. SemiAnnual  Minimum amount of investment will be 3,000 and in multiples of 1 thereafter for minimum 4 number of installments. Annual  Minimum amount of investment will be 5,000 and in multiples of 1 thereafter for minimum 4 number of installments.  Minimum Investment 5000 and in multiples of 1 thereafter  Additional Investment 1000 and in multiples of 1 thereafter N Subscriptions through lumpsum investment w (including additional purchases  Switch in) and fresh registrations through Systematic Investment Plan (SIP)  Systematic Transfer Plan (STP)  Transfer of IDCW ins etc. is accepted in SBI International Access  US Equity FoF (the Scheme) with effect from July 3, 2023. Existing systematic registrations like SIPs STPs Transfer of IDCWins etc. in the Scheme shall remain continue under the Scheme till further notice."
@@ -984,8 +1270,8 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": "3",
-        "min_addl_amt_multiple": "2023",
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
         "min_amt": "5000",
         "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
@@ -999,7 +1285,20 @@
     "sbi energy opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Energy TRI  Entry Load N.A",
-        "fund_manager": "Mr. Raj Gandhi  Mr. Pradeep Kesavan (overseas investments) Managing Since (w.e.f. Feb 2024) Total Experience Mr.Raj Ghandhi Over 16 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb 2024",
+                "name": "Raj Gandhi",
+                "qualification": "",
+                "total_exp": "16 Years"
+            },
+            {
+                "managing_fund_since": "Feb 2024",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A  Exit Load For exit on or before 1 year from the date of allotment 1 and For exit after 1 year from the date of allotment Nil",
             "exit_load": "For exit on or before 1 year from the date of allotment 1 and For exit after 1 year from the date of allotment Nil  Plans Available Regular, Direct  Options Growth, IDCW  SIP Daily  Minimum 500  in multiples of 1 thereafter for minimum 12 Instalments. Weekly  Minimum 1000  in multiples of 1 thereafter for minimum of six installments or minimum 500  in multiples of 1 thereafter for minimum 12 installments. Monthly  Minimum 1000  in multiples of 1 thereafter for minimum six months (or) minimum 500  in multiples of 1 thereafter for minimum one year. Quarterly  Minimum 1500  in multiples of 1 thereafter for minimum one year. SemiAnnual  Minimum amount of investment will be 3,000 and in multiples of 1 thereafter for minimum 4 number of installments. Annual  Minimum amount of investment will be 5,000 and in multiples of 1 thereafter for minimum 4 number of installments.  Minimum Investment 5000 and in multiples of 1 thereafter  Additional Investment 1000 and in multiples of 1 thereafter"
@@ -1044,7 +1343,20 @@
     "sbi automotive opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY Auto TRI  Entry Load N.A",
-        "fund_manager": "Mr. Tanmaya Desai  Mr. Pradeep Kesavan (overseas investments) Managing Since June 2024 Total Experience Mr. Tanmaya Desai Over 15 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "June 2024",
+                "name": "Tanmaya Desai",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "June 2024",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A  Exit Load For exit on or before 1 year from the date of allotment 1 and For exit after 1 year from the date of allotment Nil The AMC reserves the right to modify  change the load structure on a prospective basis.",
             "exit_load": "For exit on or before 1 year from the date of allotment 1 and For exit after 1 year from the date of allotment Nil The AMC reserves the right to modify  change the load structure on a prospective basis.  Plans Available Regular, Direct  Options Growth, IDCW  SIP Daily  Minimum 500  in multiples of 1 thereafter for minimum 12 Instalments. Weekly  Minimum 1000  in multiples of 1 thereafter for minimum of six installments or minimum 500  in multiples of 1 thereafter for minimum 12 installments. Monthly  Minimum 1000  in multiples of 1 thereafter for minimum six months (or) minimum 500  in multiples of 1 thereafter for minimum one year. Quarterly  Minimum 1500  in multiples of 1 thereafter for minimum one year. SemiAnnual  Minimum amount of investment will be 3,000 and in multiples of 1 thereafter for minimum 4 number of installments. Annual  Minimum amount of investment will be 5,000 and in multiples of 1 thereafter for minimum 4 number of installments.  Minimum Investment 5000 and in multiples of 1 thereafter  Additional Investment 1000 and in multiples of 1 thereafter"
@@ -1089,7 +1401,20 @@
     "sbi innovative opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty 500 TRI  Entry Load N.A",
-        "fund_manager": "Mr. Prasad Padala  Mr. Pradeep Kesavan (overseas investments) Managing Since Aug 2024 Total Experience Mr. Prasad Padala Over 15 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Prasad Padala",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Aug 2024",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A  Exit Load 1 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out on or before 1 year from the date of allotment. NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment.",
             "exit_load": "1 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out on or before 1 year from the date of allotment. NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment.  Plans Available Regular, Direct  Options Growth, IDCW  SIP Daily  Minimum 500  in multiples of 1 thereafter for minimum 12 Instalments. Weekly  Minimum 1000  in multiples of 1 thereafter for minimum of six installments or minimum 500  in multiples of 1 thereafter for minimum 12 installments. Monthly  Minimum 1000  in multiples of 1 thereafter for minimum six months (or) minimum 500  in multiples of 1 thereafter for minimum one year. Quarterly  Minimum 1500  in multiples of 1 thereafter for minimum one year. SemiAnnual  Minimum amount of investment will be 3,000 and in multiples of 1 thereafter for minimum 4 number of installments. Annual  Minimum amount of investment will be 5,000 and in multiples of 1 thereafter for minimum 4 number of installments.  Minimum Investment 5000 and in multiples of 1 thereafter  Additional Investment 1000 and in multiples of 1 thereafter"
@@ -1134,7 +1459,32 @@
     "sbi equity hybrid fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Hybrid 3565  Aggressive Index",
-        "fund_manager": "Debt  Mr. Pradeep Kesavan overseas investments Managing Since Mr. R. Srinivasan Jan2012 Mr. Rajeev Radhakrishnan (w.e.f. Nov2023) Ms. Mansi Sajeja (w.e.f. Dec2023) Mr. Pradeep Kesavan (w.e.f. Dec2023) Total Experience Mr. R. Srinivasan  Over 30 years Mr. Rajeev Radhakrishnan  Over 20 years Ms. Mansi Sajeja  Over 15 years Mr. Pradeep Kesavan  Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan2012",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "Nov2023",
+                "name": "R. Srinivasan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Mansi Sajeja",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 12 months from the date of allotment For 10 of investment  Nil For remaining investments  1.00 For exit after 12 months from the date of allotment  Nil."
@@ -1225,7 +1575,32 @@
     "sbi multi asset allocation fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "45 BSE 500 TRI  40 Crisil Composite Bond Fund Index  10 Domestic prices of Gold  5 Domestic prices of silver. (W.e.f. 31 October 2023)",
-        "fund_manager": "Mr. Dinesh Balachandran (Equity Portfolio) Ms. Mansi Sajeja (Debt Portion)  Ms. Vandna Soni (for Commodities Portion)  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Dinesh Balachandran  Dec 2023 Ms. Mansi Sajeja Dec 2023 Ms. Vandna Soni  Jan 2024 Mr. Pradeep Kesavan  Dec 2023 Total Experience Mr. Dinesh Balachandran  Over 21 years Ms. Mansi Sajeja  Over 15 years Ms. Vandna Soni  Over 14 years Mr. Pradeep Kesavan  Over 18 Years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Dinesh Balachandran",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Mansi Sajeja",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Jan 2024",
+                "name": "Vandna Soni",
+                "qualification": "",
+                "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 12 months from the date of allotment For 10 of investments  Nil For remaining investment 1.00 For exit after 12 months from the date of allotment  Nil"
@@ -1270,7 +1645,38 @@
     "sbi equity savings fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY Equity Savings Index",
-        "fund_manager": "Ms. Nidhi Chawla (Equity Portion) Ms. Mansi Sajeja (Debt Portion) Mr. Neeraj Kumar (Arbitrage Portion) Mr. Pradeep Kesavan (overseas investments) Ms. Vandna Soni (Commodities Portion) Managing Since Ms. Nidhi Chawla  Jan 2022 Ms. Mansi Sajeja  June 2021 Mr. Neeraj Kumar  May 2015 Mr. Pradeep Kesavan Dec2023 Ms. Vandna Soni  Jan 2024 Total Experience Ms. Nidhi Chawla  Over 17 years Ms. Mansi Sajeja  Over 15 years Mr. Neeraj Kumar  Over 25 years Mr. Pradeep Kesavan  Over 18 years Ms. Vandna Soni  Over 14 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan 2022",
+                "name": "Nidhi Chawla",
+                "qualification": "",
+                "total_exp": "17 Years"
+            },
+            {
+                "managing_fund_since": "June 2021",
+                "name": "Mansi Sajeja",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "May 2015",
+                "name": "Neeraj Kumar",
+                "qualification": "",
+                "total_exp": "25 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            },
+            {
+                "managing_fund_since": "Jan 2024",
+                "name": "Vandna Soni",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit on or before 15 days from the date of allotment  0.10 For exit after 15 days from the date of allotment  Nil"
@@ -1315,7 +1721,20 @@
     "sbi arbitrage opportunities fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty 50 Arbitrage Index",
-        "fund_manager": "Mr. Neeraj Kumar  Equity Portion Mr. Ardhendu Bhattacharya  Debt Portion Managing Since Mr. Neeraj Kumar  Oct 2012 Mr. Ardhendu Bhattacharya  Dec  2021 Total Experience Mr. Neeraj Kumar  Over 25 years Mr. Ardhendu Bhattacharya  Over 13 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Oct 2012",
+                "name": "Neeraj Kumar",
+                "qualification": "",
+                "total_exp": "25 Years"
+            },
+            {
+                "managing_fund_since": "Dec  2021",
+                "name": "Ardhendu Bhattacharya",
+                "qualification": "",
+                "total_exp": "13 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 month from the date of allotment  0.25 For exit after 1 month from the date of allotment  Nil"
@@ -1360,7 +1779,38 @@
     "sbi balanced advantage fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty 50 Hybrid Composite Debt 5050 Index",
-        "fund_manager": "Mr. Dinesh Balachandran  (Equity Portion) Mr. Anup Upadhyay (Co Fund Manager Equity Portion) Ms. Mansi Sajeja  (Debt Portion) Mr. Rajeev Radhakrishnan  (Co Fund Manager Debt Portion) Mr. Pradeep Kesavan  (overseas investment) Managing Since Mr. Dinesh Balachandran August 2021 Mr. Anup Upadhyay (w.e.f. Dec 2024) Ms. Mansi Sajeja Dec 2023 Mr. Rajeev Radhakrishnan Nov 2023 Mr. Pradeep Kesavan Dec 2023 Total Experience Mr. Dinesh Balachandran  Over 21 years Mr. Anup Upadhyay  Over 14 years Ms. Mansi Sajeja  Over 15 years Mr. Rajeev Radhakrishnan  Over 20 years Mr. Pradeep Kesavan  Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "August 2021",
+                "name": "Dinesh Balachandran",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Anup Upadhyay",
+                "qualification": "",
+                "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Mansi Sajeja",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Nov 2023",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10 of the units (the limit) purchased or switched on or before 1 year from the date of allotment. 1 of the applicable NAV  If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit on or before 1 year from the date of allotment NIL  If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment"
@@ -1405,7 +1855,20 @@
     "sbi magnum gilt fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty All Duration GSec Index",
-        "fund_manager": "Mr. Rajeev Radhakrishnan  Mr. Tejas Soman (Co Fund Manager) (w.e.f. Nov2023) Managing Since Mr. Rajeev Radhakrishnan (w.e.f. Nov2023) Mr. Tejas Soman (w.e.f. Dec2023) Total Experience Mr. Rajeev Radhakrishnan Over 20 years Mr. Tejas Soman Over 8 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Nov2023",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Nov2023",
+                "name": "Tejas Soman",
+                "qualification": "",
+                "total_exp": "8 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL"
@@ -1451,7 +1914,14 @@
     "sbi liquid fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY Liquid Index AI",
-        "fund_manager": "Mr. Rajeev Radhakrishnan Managing Since Mr. Rajeev Radhakrishnan Dec2023 Total Experience Mr. Rajeev Radhakrishnan Over 20 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "lnvestor exit upon Exit Load as a  of subscription  switchIn redemption Proceeds Day 1 0.0070 Day 2 0.0065 Day 3 0.0060 Day 4 0.0055 Day 5 0.0050 Day 6 0.0045 Day 7 onwards 0.0000"
@@ -1481,9 +1951,9 @@
             "upside_deviation": null,
             "ytm": "7.26"
         },
-        "min_addl_amt": "5000",
+        "min_addl_amt": "500",
         "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
+        "min_amt": "500",
         "min_amt_multiple": "1",
         "monthly_aaum_date": "28FEBRUARY2025",
         "monthly_aaum_value": "68,022.75",
@@ -1497,7 +1967,26 @@
     "sbi magnum income fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Medium to Long Duration Debt AIII Index",
-        "fund_manager": "Mr. Lokesh Mallya Mr. Adesh Sharma (Co Fund Manager)  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Lokesh Mallya (w.e.f. Dec2023) Mr. Adesh Sharma (w.e.f. Dec2023) Mr. Pradeep Kesavan (w.e.f. Dec2023) Total Experience Mr. Lokesh Mallya Over 17 years Mr. Adesh Sharma Over 15 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Lokesh Mallya",
+                "qualification": "",
+                "total_exp": "17 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Adesh Sharma",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 year from the date of allotment. For 10 of investment  Nil For remaining investment 1.00 For exit after one year from the date of allotment  Nil"
@@ -1542,7 +2031,26 @@
     "sbi dynamic bond fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Dynamic Bond AIII Index",
-        "fund_manager": "Mr. Rajeev Radhakrishnan Mr. Tejas Soman (Co Fund Manager)  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rajeev Radhakrishnan (w.e.f. Nov2023) Mr. Tejas Soman (w.e.f. Dec 2023) Mr. Pradeep Kesavan (w.e.f. Dec 2023) Total Experience Mr. Rajeev Radhakrishnan Over 20 years Mr. Tejas Soman Over 8 years Mr. Pradeep Kesavan Over 18 Years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Nov2023",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Tejas Soman",
+                "qualification": "",
+                "total_exp": "8 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 1 month from the date of allotment For 10 of investment  Nil For remaining investment 0.25 For exit after one month from the date of allotment  Nil"
@@ -1587,7 +2095,26 @@
     "sbi corporate bond fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY Corporate Bond Index AII",
-        "fund_manager": "Mr. Rajeev Radhakrishnan Mr. Ardhendu Bhattacharya (CoFund Manager) Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rajeev Radhakrishnan Jan2019 Mr. Ardhendu Bhattacharya Dec 2023 Mr. Pradeep Kesavan Dec 2023 Total Experience Mr. Rajeev Radhakrishnan Over 20 years Mr. Ardhendu Bhattacharya Over 13 years Mr. Pradeep Kesavan Over 18 Years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jan2019",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Ardhendu Bhattacharya",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -1632,7 +2159,26 @@
     "sbi credit risk fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY Credit Risk Bond Index BII",
-        "fund_manager": "Mr. Lokesh Mallya Mr. Adesh Sharma  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Lokesh Mallya Feb2017 Mr. Adesh Sharma (w.e.f. Dec2023) Mr. Pradeep Kesavan (w.e.f. Dec2023) Total Experience Mr. Lokesh Mallya Over 17 years Mr. Adesh Sharma Over 15 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Feb2017",
+                "name": "Lokesh Mallya",
+                "qualification": "",
+                "total_exp": "17 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Adesh Sharma",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 12 months from the date of allotment For 8 of the investment  Nil For the remaining investment  3 For exit after 12 months but within 24 months from the date of allotment For 8 of the investment  Nil For the remaining investment 1.5 For exit after 24 months but within 36 months from the date of allotment For 8 of the investment  Nil For the remaining investment  0.75 For exit after 36 months from the date of allotment  Nil"
@@ -1677,7 +2223,26 @@
     "sbi magnum medium duration fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "NIFTY Medium Duration Debt Index AIII",
-        "fund_manager": ") Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Lokesh Mallya (w.e.f. Dec 2023) Mr. Mohit Jain (w.e.f. Dec 2023) Mr. Pradeep Kesavan (w.e.f. Dec 2023) Total Experience Mr. Lokesh Mallya Over 17 years Mr. Mohit Jain Over 10 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "17 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Lokesh Mallya",
+                "qualification": "",
+                "total_exp": "10 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Mohit Jain",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 3 months from the date of allotment  1 For exit after 3 months from the date of allotment Nil"
@@ -1722,7 +2287,26 @@
     "sbi short term debt fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Short Duration Debt AII Index",
-        "fund_manager": "Mr. Rajeev Radhakrishnan  Ms. Mansi Sajeja Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rajeev Jun2008 Ms. Mansi Dec2023 Mr. Pradeep Dec2023 Total Experience Mr. Rajeev Over 20 years Ms. Mansi Over 15 years Mr. Pradeep Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jun2008",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Mansi Sajeja",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -1767,7 +2351,14 @@
     "sbi magnum constant maturity fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty 10 yr Benchmark GSec",
-        "fund_manager": "Mr. Tejas Soman Managing Since (w.e.f. Dec2023) Total Experience Over 8 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Tejas Soman",
+                "qualification": "",
+                "total_exp": "8 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL"
@@ -1813,7 +2404,20 @@
     "sbi magnum low duration fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Low Duration Debt AI Index",
-        "fund_manager": "Mr. Rajeev Radhakrishnan  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rajeev Jun2008 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Rajeev Over 20 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Jun2008",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -1859,7 +2463,20 @@
     "sbi savings fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Money Market AI Index",
-        "fund_manager": "Mr. Rajeev Radhakrishnan  Mr. Pradeep Kesavan (overseas investments) Managing Since Rajeev Radhakrishnan Dec2023 Mr. Pradeep Kesavan Dec2023 Total Experience Mr. Rajeev Radhakrishnan Over 20 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -1904,7 +2521,26 @@
     "sbi banking & psu fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Banking  PSU Debt Index AII",
-        "fund_manager": "Mr. Rajeev Radhakrishnan Mr. Ardhendhu Bhattacharya (Co Fund Manager) Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Rajeev Nov 2013 Mr. Ardhendhu (w.e.f.Dec 2023) Mr. Pradeep (w.e.f.Dec 2023) Total Experience Mr. Rajeev Radhakrishnan  Over 20 years Mr. Ardhendhu Bhattacharya  Over 13 years Mr. Pradeep Kesavan  Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Nov 2013",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "(W.E.F.Dec 2023",
+                "name": "Ardhendhu Bhattacharya",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "(W.E.F.Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -1949,7 +2585,20 @@
     "sbi magnum ultra short duration fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Ultra Short Duration Debt AI Index",
-        "fund_manager": "Mr. Ardhendhu Bhattacharya  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr.  Ardhendhu Bhattacharya Dec2023 Mr. Pradeep Kesavan Dec2023 Total Experience Mr.  Ardhendhu Bhattacharya Over 13 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Ardhendhu Bhattacharya",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "Dec2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -1994,7 +2643,26 @@
     "sbi floating rate debt fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "Nifty Short Duration Debt Index AII",
-        "fund_manager": "Mr. Ardhendu Bhattacharya Mr. Rajeev Radhakrishnan (CoFund Manager) Mr. Pradeep Kesavan(overseas investments) Managing Since Ardhendu Bhattacharya  June 2021 Rajeev Radhakrishnan  Oct 2020 Mr. Pradeep Kesavan Dec 2023 Total Experience Mr. Rajeev Radhakrishnan  Over 20 years Mr. Ardhendu Bhattacharya  Over 13 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "June 2021",
+                "name": "Ardhendu Bhattacharya",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "Oct 2020",
+                "name": "Rajeev Radhakrishnan",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "For exit within 3 days from the date of allotment 0.10, For exit on or after 3 days from the date of allotment Nil"
@@ -2039,7 +2707,20 @@
     "sbi long duration fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Long Duration Debt AIII Index",
-        "fund_manager": "Mr. Tejas Soman  Mr. Pradeep Kesavan (overseas investments) Managing Since Mr. Tejas Soman (w.e.f. Dec 2023) Mr. Pradeep Kesavan (w.e.f. Dec 2023) Total Experience Mr. Tejas Soman Over 8 years Mr. Pradeep Kesavan Over 18 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Tejas Soman",
+                "qualification": "",
+                "total_exp": "8 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2023",
+                "name": "Pradeep Kesavan",
+                "qualification": "",
+                "total_exp": "18 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "Nil"
@@ -2085,7 +2766,20 @@
     "sbi overnight fund": {
         "amc_name": "SBI Funds Management Limited",
         "benchmark_index": "CRISIL Liquid Overnight Index",
-        "fund_manager": "Ms. Ranjhana Gupta  Mr. Tejas Soman Managing Since (w.e.f. Dec 2024) Total Experience Ms. Ranjhana Gupta Over 21 years Mr. Tejas Soman Over 8 years",
+        "fund_manager": [
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Ranjhana Gupta",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "Dec 2024",
+                "name": "Tejas Soman",
+                "qualification": "",
+                "total_exp": "8 Years"
+            }
+        ],
         "load": {
             "entry_load": "N.A.",
             "exit_load": "NIL"
