@@ -63,7 +63,7 @@
         "min_amt",
       ],
       "^metrics.*": ["_extract_generic_data", "metrics"],
-      ".*portfolio_turnover": ["_extract_ptr_data", "ptr"],
+      ".*portfolio_turnover": ["_extract_generic_data", "ptr"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -223,58 +223,37 @@
       method: "line",
       line_side: "both",
       max_financial_index_highlight: 0,
-      stop_words:[]
+      stop_words: [],
     },
     REGEX: {
-        scheme:[
-            "Inception Date",
-            "AAUM for the month",
-            "Benchmark",
-            "Underlying Index|Entry Load",
-            "Exchange Listed|Load Structure",
-            "Basket Size|Minimum Investment",
-            "EOL"
-        ],
-        aum:"of\\s*[A-Za-z]\\s*([\\d.]+) cr.",
-        min_amt:"([\\d.,]+)\\s*and\\s*([\\d.,]+)\\s*there",
-        manager:"(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([\\w\\s]+)Work experience\\s*([0-9]+ years).+?fund since\\s*([0-9]+(?:rd|nd|st|th)\\s*[A-Za-z]+\\s*[0-9]+)",
-        metrics:"(Tracking Error\\s*(?:1 year|since inception)?|PE\\s*Multiple|PB\\s*Multiple|Dividend Yield|Residual Maturity|Modified Duration|Maculay Duration|Annualised Portfolio YTM)\\s*(-?[\\d.]+\\s*(?:years|months|days)?)",
-        escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
+      scheme: [
+        "Inception Date",
+        "AAUM for the month",
+        "Benchmark",
+        "Underlying Index|Entry Load",
+        "Exchange Listed|Load Structure",
+        "Basket Size|Minimum Investment",
+        "EOL",
+      ],
+      aum: "of\\s*[A-Za-z]\\s*([\\d.]+) cr.",
+      min_amt: "([\\d.,]+)\\s*and\\s*([\\d.,]+)\\s*there",
+      manager: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([\\w\\s]+)Work experience\\s*([0-9]+ years).+?fund since\\s*([0-9]+(?:rd|nd|st|th)\\s*[A-Za-z]+\\s*[0-9]+)",
+      metrics: "(Tracking Error\\s*(?:1 year|since inception)?|PE\\s*Multiple|PB\\s*Multiple|Dividend Yield|Residual Maturity|Modified Duration|Maculay Duration|Annualised Portfolio YTM)\\s*(-?[\\d.]+\\s*(?:years|months|days)?)",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
-        "^(investment_objective|type_of_scheme)":[
-            "_extract_str_data",
-            null
-        ],
-        "^scheme_details":[
-            "_extract_scheme_data",
-            "scheme"
-        ],
-        "fund_manager":[
-            "_extract_manager_data",
-            "manager"
-        ]
+      "^(investment_objective|type_of_scheme)": ["_extract_str_data", null],
+      "^scheme_details": ["_extract_scheme_data", "scheme"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-        "^(metrics|index_facts|debt_quant)":[
-            "_extract_generic_data",
-            "metrics"
-        ],
-        ".*aaum_for_the_month":[
-            "_extract_generic_data",
-            "aum"
-        ],
-        ".*minimum_investment":[
-            "_extract_amt_data",
-            "min_amt"
-        ]
+      "^(metrics|index_facts|debt_quant)": ["_extract_generic_data", "metrics"],
+      ".*aaum_for_the_month": ["_extract_generic_data", "aum"],
+      ".*minimum_investment": ["_extract_amt_data", "min_amt"],
     },
     SELECTKEYS: ["main_scheme_name", "pgn"],
     MERGEKEYS: {
-        load:[
-            ".*entry_load",
-            ".*load_structure"
-        ]
+      load: [".*entry_load", ".*load_structure"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -513,7 +492,7 @@
       load: ["_extract_load_data", "load"],
       metrics: ["_extract_generic_data", "metrics"],
       "^(additional_purchase_amount|min_amt)": ["_extract_amt_data", "min_amt"],
-      "^portfolio_turn.*": ["_extract_ptr_data", "ptr"],
+      "^portfolio_turn.*": ["_extract_generic_data", "ptr"],
     },
     SELECTKEYS: [
       "load",
@@ -617,7 +596,7 @@
       "^minimum_investment.*": ["_extract_amt_data", "min_amt"],
       ".*monthly_aaum$": ["_extract_generic_data", "aum"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*(expense_ratio|key_statistics)$": ["_extract_metric_data", "metric"],
+      ".*(expense_ratio|key_statistics)$": ["_extract_generic_data", "metric"],
     },
     MERGEKEYS: {
       metrics: [".*key_statistics$", ".*expense_ratio$"],
@@ -684,6 +663,8 @@
         "MANAGING\\s*THIS\\s*FUND",
         "EOL",
       ],
+      //name,exp,since
+      manager:["(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)","\b\\d+\\s*Years?\b","\bSince\\s*([0-9]+\\s*-\\s*[A-Za-z]+\\.?\\s*-\\s*[0-9]+)\b"],
       lumpsum: "(.+?)(?:Subsequent|Additional)\\s*purchases?(.+?)(?:SIP|Systematic)",
       min_amt: "([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
       escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
@@ -1241,30 +1222,77 @@
   "HSBC Mutual Fund": {
     PARAMS: {
       fund: {
-        flag: [20],
-        regex: "^Helios.*Fund$",
-        size: [16, 24],
-        color: [-1],
+        flag: [20, 16],
+        regex: "^(HSBC|Bharat).*Fund$",
+        size: [12, 24],
+        color: [-1237724],
         countmax_header_check: 15,
       },
-      clip_bbox: [[0, 5, 245, 812]],
-      line_x: 245.0,
+      clip_bbox: [[0, 100, 180, 812],[370,90,580,812]],
+      line_x: 180.0,
       data: {
-        size: [7, 10],
-        color: [-1, -2545112],
+        size: [6, 9],
+        color: [-1], //-16777216
         update_size: 30.0,
-        font: ["Poppins-SemiBold"],
+        font: ["Arial-BoldMT"],
       },
       content_size: [30.0, 10.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
+      stop_words: [],
     },
-    REGEX: {},
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
-    MERGEKEYS: {},
+    REGEX: {
+      scheme: [
+        "Date of Allotment",
+        "AUM",
+        "AAUM",
+        "Fund Manager",
+        "Minimum Investment\\s*[0-9]+",
+        "Additional Purchase",
+        "Entry load",
+        "Exit load",
+        "Quantitative Data",
+        "EOL|Month End Total",
+        "Portfolio Turnover",
+        "EOL"
+      ],
+
+      date:"^(\\d{2}-?[A-Za-z]+-?\\d{2}).+$",
+      benchmark:"^(\\d{2}-?[A-Za-z]+-?\\d{2})\\s*(?:.+?)?Benchmark(.+?)NAV",
+      min_amt:".*?(?:lumpsum)?\\s*([\\d,.]+)()",
+      ptr:"^([\\d.]+)",
+      aum:"\\D+([\\d,.]+\\s*cr)",
+      manager:"(?:Experience\\s*)?([A-Za-z\\s\\.]+)\\s*(?:\\(([^)]+)\\))?\\s*Total Experience\\s*(?:over\\s*)?([0-9]+(?:\\.[0-9]+)?\\s*Years)\\s*Managing this fund Since\\s*([A-Za-z]+,?\\s+\\d{1,2},?\\s+\\d{4}|[A-Za-z]+,\\s+\\d{4})",
+      metrics:"(Beta\\D+|YTM|Average Maturity|Modified Duration|Macaulay Duration|Standard Deviation|Sharpe Ratio[0-9]+|R[0-9]+)\\s*(-?[\\d.]+\\s*(?:year?s?|mont?h?s?|days?)?)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+    },
+    PATTERN_TO_FUNCTION: {
+      "before.*": ["_extract_scheme_data", "scheme"],
+      "dummy.*": ["_extract_scheme_data", "scheme"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*(minimum_investment|additional_purchase)": ["_extract_amt_data", "min_amt"],
+      ".*quantitative_data":["_extract_generic_data","metrics"],
+      ".*portfolio_turnover":["_extract_generic_data","ptr"],
+      ".*aaum$":["_extract_generic_data","aum"],
+      ".*fund_manag":["_extract_manager_data","manager"],
+      // ".*date_of_allotment":["_extract_generic_data","date"]
+    },
+    SELECTKEYS: [
+      "amc_name",
+      "main_scheme_name",
+      "mutual_fund_name",
+      "page_number",
+      "load",
+      "metrics",
+      ".*additional_purchase",
+      ".*(entry_load|exit_load|quantitative_data|portfolio_turnover|benchmark|date_of_allotment|aaum|minimum_investment|fund_manager)"
+    ],
+    MERGEKEYS: {
+      load: [".*entry_load", ".*exit_load"],
+      metrics:[".*quantitative_data",".*portfolio_turnover"],
+    },
     COMMENTS: [],
     IMP_DATA: {
       amc_name: "HSBC Asset Management (India) Private Limited",
@@ -1276,8 +1304,13 @@
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
     HEADER_MAPPER: {},
-    CLONEKEYS: {},
-    SPECIAL_FUNCTIONS: {},
+    CLONEKEYS: {
+     "benchmarking":".*date_of_allotment"
+    },
+    SPECIAL_FUNCTIONS: {
+      ".*date_of_allotment":"_update_date_data",
+      // "benchmarking":"_update_benchmark_data"
+    },
   },
   "ICICI Prudential Mutual Fund": {
     PARAMS: {
@@ -2004,7 +2037,6 @@
       ],
       "^fund_mana.*": ["_extract_manager_data", "manager"],
       min_amt$: ["_extract_load_data", "lumpsum"],
-      "^metric.*": ["_extract_generic_data", "metric"],
     },
     SELECTKEYS: [
       "benchmark_index",
@@ -2020,25 +2052,16 @@
       "monthly_aaum_date",
       "minimum_application",
       "additional_application",
+      "check_monthly_aaum",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load.*": ["_extract_load_data", "load"],
+      "^metric.*": ["_extract_generic_data", "metric"],
       ".*(entry_load|exit_load)": ["_extract_amt_data", "min_amt"],
     },
     MERGEKEYS: {
-      minimum_application: ["min_amt.?entry_load"],
-      additional_application: ["min_amt.?exit_load"],
-      metrics: [
-        "metrics.*beta",
-        "metrics.*portfolio_turnover_ratio",
-        "metrics.*standard_deviation",
-        "metrics.*sharpe_ratio",
-        "metrics.*ytm",
-        "metrics.*average_maturity",
-        "metrics.*macaulay_duration",
-        "metrics.*modif?i?ed_duration",
-        "metrics.*standard_deviation",
-      ],
+      minimum_application: ["min_amt\\.?entry_load"],
+      additional_application: ["min_amt\\.?exit_load"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -2897,7 +2920,7 @@
   "SBI Mutual Fund Passive": {
     PARAMS: {
       fund: {
-        flag: [20,16],
+        flag: [20, 16],
         regex: "^SBI.*(fund|ETF|FTF|FOF|Path|Plan)$",
         size: [4, 10],
         color: [-14475488],
@@ -2909,7 +2932,7 @@
         size: [6, 10],
         color: [-1],
         update_size: 30.0,
-        font: ['HelveticaNeue-Medium'],
+        font: ["HelveticaNeue-Medium"],
       },
       content_size: [30.0, 10.0],
       method: "line",

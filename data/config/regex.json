@@ -325,7 +325,7 @@
             "^weighted_average_maturity$",
             "^residual_maturity$"
         ],
-        "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta"],
+        "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta",".*beta$"],
         "correlation_ratio": [],
         "downside_deviation": [],
         "information_ratio": [
@@ -365,7 +365,7 @@
         "roe_ratio": [
             "^roe"
         ],
-        "sharpe": ["^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio","^sharpe_rao$"],
+        "sharpe": [".*sharpe_ratio$","^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio","^sharpe_rao$"],
         "sortino_ratio": [],
         "std_dev": [
             "^standard_deviaon$",

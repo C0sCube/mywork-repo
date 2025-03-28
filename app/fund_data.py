@@ -175,13 +175,11 @@ class GrandFundData:
         return self._extract_dummy_data(string, data) #fallback
     
     def _special_match_regex_to_content(self, string: str, data):
-        # print(f"{string} working !!") #it is indeed
         try:
             for pattern,func_name, in self.SPECIAL_FUNCTIONS.items():
-                if re.match("fund_manager", string, re.IGNORECASE):
+                if re.match(pattern,string,re.IGNORECASE):
                     func = getattr(self, func_name) #dynamic function lookup
-                    return func(string, data)
-            
+                    return func(string, data)    
         except Exception as e:
             logger.error(e)
             return
@@ -282,7 +280,6 @@ class GrandFundData:
         return data
 
     def _clone_fund_data(self, data: dict):
-        # print("RUNNING")
         for clone_key, regex_pattern in self.CLONEKEYS.items():  
             pattern = re.compile(regex_pattern)
             for key in data:
@@ -319,10 +316,9 @@ class GrandFundData:
 
     def _select_by_regex(self, data:dict):
         finalData = {}
-
         for key, value in data.items():
             if any(re.match(pattern, key, re.IGNORECASE) for pattern in self.SELECTKEYS):
-                finalData[key] = value  # Keep only matching keys
+                finalData[key] = value
         return finalData
     
     def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
@@ -332,19 +328,12 @@ class GrandFundData:
             "qualification": desig.title().strip(),
             "total_exp": exp.title().strip()
         }
-        
-    def __last_day_of_previous_month(self):
-        today = datetime.today()
-        last_day = today.replace(day=1) - relativedelta(days=1)
-        formatted_date = f"{last_day.day} {last_day.strftime('%B').strip().upper()} {last_day.year}"
-        # print(formatted_date)
-        return "".join(formatted_date.split())
     
     def _update_imp_data(self,data:dict,fund:str, pgn:list):
         return data.update({
             "amc_name":self.IMP_DATA['amc_name'],
             "main_scheme_name":fund,
-            "monthly_aaum_date": self.__last_day_of_previous_month(),
+            "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%d%B%Y").upper(),
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
         })
@@ -365,10 +354,6 @@ class ThreeSixtyOne(Reader,GrandFundData):
                 name, exp = match
                 final_list.append(self._return_manager_data(name = name, exp = exp))
         return {main_key: final_list}
-    
-    def _extract_ptr_data(self,main_key:str,data:str,pattern:str):
-        matches = re.findall(self.REGEX[pattern],data,re.IGNORECASE)
-        return{main_key: matches[0] if matches else ""}
 
 #2 
 class BajajFinServ(Reader,GrandFundData):
@@ -402,9 +387,6 @@ class Bandhan(Reader,GrandFundData):
             name, since = match
             final_list.append(self._return_manager_data(name= name,since= since))
         return {main_key:final_list}
-        
-        
-
 #4
 class BankOfIndia(Reader,GrandFundData):
     
@@ -422,10 +404,6 @@ class BankOfIndia(Reader,GrandFundData):
             final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
         return {main_key:final_list}
 
-    def _extract_ptr_data(self,main_key:str,data:str,pattern:str):
-        matches = re.findall(self.REGEX[pattern],data,re.IGNORECASE)
-        return{main_key: matches[0] if matches else ""}
-
 #5 <>
 class BarodaBNP(Reader,GrandFundData): #Lupsum issues
     
@@ -442,16 +420,6 @@ class BarodaBNP(Reader,GrandFundData): #Lupsum issues
             name, since, exp = match
             final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
         return {main_key:final_list}
-    
-    def _extract_metric_data(self,main_key:str, data:str,pattern:str):
-        final_dict = {}
-        metric_data = re.sub(self.REGEX["escape"],"",data).strip()
-        if matches:= re.findall(self.REGEX[pattern],metric_data,re.IGNORECASE):
-            for match in matches:
-                k,v = match
-                final_dict[k.strip()] = v.strip()
-        return {main_key:final_dict}
-    
     
     def get_proper_fund_names(self,path: str):
         pattern = "(Baroda BNP.*?(?:Fund|Path|ETF|FTF|FOF|Index|Fund of Fund))"
@@ -519,11 +487,7 @@ class Canara(Reader,GrandFundData):
         msample += [""] * (nlength - len(msample))
         esample += [""] * (nlength - len(esample))
         
-        final_list = [
-        self._return_manager_data(since=m,name=n,exp=e)
-            for n, m, e in zip(nsample, msample, esample)
-        ]
-        
+        final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
         return {main_key:final_list}
 
 
@@ -692,7 +656,32 @@ class HSBC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-
+    
+    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+        manager_data = "".join(data)
+        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
+        final_list = []
+        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
+        for match in matches:
+            name,desig,exp,since = match
+            final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
+        
+        return {main_key:final_list}
+    
+    def _update_date_data(self,main_key:str,data):
+        date = "^(\\d{2}-?[A-Za-z]+-?\\d{2}).+$"
+        date_data = " ".join(data) if isinstance(data,list) else data
+        if matches:=re.findall(date,date_data,re.IGNORECASE):
+            return{"scheme_launch_date":matches[0]}
+        return{"scheme_launch_date":data}
+    
+    def _update_benchmark_data(self, main_key:str,data):
+        benchmark="^\\d{2}-?[A-Za-z]+-?\\d{2}\\s*(?:(.+?))?Benchmark(.+?)*\\s*NAV"
+        bench_data = " ".join(data) if isinstance(data,list) else data
+        if matches:=re.findall(benchmark,bench_data,re.IGNORECASE):
+            print(matches)
+            return {"benchmark_index":'tp'}
+        return {main_key:data}
 #14
 class ICICI(Reader,GrandFundData): #Lupsum issues
     
@@ -735,18 +724,7 @@ class ITI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-     
-    def _extract_nav_data(self,main_key:str, data:list, pattern:str):
-        final_dict = {}
-        for text in data:
-            text = re.sub(self.REGEX['escape'], "", text).strip()
-            if matches := re.findall(self.REGEX[pattern], text, re.IGNORECASE):
-                for match in matches:
-                    key, regular, direct = match
-                    final_dict[f'Regular {key}'] = regular
-                    final_dict[f'Direct {key}'] = direct
-        return {main_key: final_dict}
-    
+        
     def _extract_manager_data(self, main_key:str, data:list, pattern:str):
         manager_data = " ".join(data)
         manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
@@ -918,6 +896,7 @@ class MotilalOswal(Reader,GrandFundData): #Lupsum issues
             final_dict['min_amt'] = entry_.strip()
             final_dict['add_amt'] = exit_.strip()
         return {main_key:final_dict}
+
 
 #22 <>
 class NAVI(Reader,GrandFundData): #Lupsum issues
