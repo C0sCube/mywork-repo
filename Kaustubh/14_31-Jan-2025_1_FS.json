@@ -1,0 +1,5404 @@
+{
+ "metadata": {
+  "document_name": "14_31-Jan-2025_1_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250217"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 50 TRI (Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.0259% p. a.",
+    "field_location": [
+     {
+      "amc_name": "9",
+      "benchmark_index": "9",
+      "count": 62,
+      "creation_unit": "9",
+      "exchange_listed": "9",
+      "fund_manager_managing_fund_since": "9",
+      "fund_manager_name": "9",
+      "fund_manager_total_exp": "9",
+      "indicative_inv_horizon": "9",
+      "load_exit": "9",
+      "main_scheme_name": "9",
+      "metrics_average_div_yield": "9",
+      "metrics_average_pb": "9",
+      "metrics_beta": "9",
+      "metrics_port_turnover_ratio": "9",
+      "metrics_sharpe": "9",
+      "metrics_std_dev": "9",
+      "metrics_tracking_error": "9",
+      "monthly_aaum_date": "9",
+      "monthly_aaum_value": "9",
+      "mutual_fund_name": "9",
+      "scheme_launch_date": "9"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 50 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.43"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.51"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.38"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "22,502.29 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20130320"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Next 50 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.10% p. a.",
+    "field_location": [
+     {
+      "amc_name": "10",
+      "benchmark_index": "10",
+      "count": 62,
+      "exchange_listed": "10",
+      "fund_manager_managing_fund_since": "10",
+      "fund_manager_name": "10",
+      "fund_manager_total_exp": "10",
+      "indicative_inv_horizon": "10",
+      "load_exit": "10",
+      "main_scheme_name": "10",
+      "metrics_average_div_yield": "10",
+      "metrics_average_pb": "10",
+      "metrics_beta": "10",
+      "metrics_port_turnover_ratio": "10",
+      "metrics_sharpe": "10",
+      "metrics_std_dev": "10",
+      "metrics_tracking_error": "10",
+      "monthly_aaum_date": "10",
+      "monthly_aaum_value": "10",
+      "mutual_fund_name": "10",
+      "scheme_launch_date": "10"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Next 50 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.54"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.51"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.24"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,188.78 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20180823"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 100 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.48% p. a.",
+    "field_location": [
+     {
+      "amc_name": "12",
+      "benchmark_index": "12",
+      "count": 62,
+      "creation_unit": "12",
+      "exchange_listed": "12",
+      "fund_manager_managing_fund_since": "12",
+      "fund_manager_name": "12",
+      "fund_manager_total_exp": "12",
+      "indicative_inv_horizon": "12",
+      "load_exit": "12",
+      "main_scheme_name": "12",
+      "metrics_average_div_yield": "12",
+      "metrics_average_pb": "12",
+      "metrics_beta": "12",
+      "metrics_port_turnover_ratio": "12",
+      "metrics_sharpe": "12",
+      "metrics_std_dev": "12",
+      "metrics_tracking_error": "12",
+      "monthly_aaum_date": "12",
+      "monthly_aaum_value": "12",
+      "mutual_fund_name": "12",
+      "scheme_launch_date": "12"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 100 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.40"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.51"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.36"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "105.26 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20130820"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Midcap 150 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.15% p. a.",
+    "field_location": [
+     {
+      "amc_name": "14",
+      "benchmark_index": "14",
+      "count": 62,
+      "exchange_listed": "14",
+      "fund_manager_managing_fund_since": "14",
+      "fund_manager_name": "14",
+      "fund_manager_total_exp": "14",
+      "indicative_inv_horizon": "14",
+      "load_exit": "14",
+      "main_scheme_name": "14",
+      "metrics_average_div_yield": "14",
+      "metrics_average_pb": "14",
+      "metrics_beta": "14",
+      "metrics_port_turnover_ratio": "14",
+      "metrics_sharpe": "14",
+      "metrics_std_dev": "14",
+      "metrics_tracking_error": "14",
+      "monthly_aaum_date": "14",
+      "monthly_aaum_value": "14",
+      "mutual_fund_name": "14",
+      "scheme_launch_date": "14"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Midcap 150 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.84"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "5.20"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.82"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "425.90 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20200124"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE Midcap Select TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.15% p. a.",
+    "field_location": [
+     {
+      "amc_name": "16",
+      "benchmark_index": "16",
+      "count": 62,
+      "creation_unit": "16",
+      "exchange_listed": "16",
+      "fund_manager_managing_fund_since": "16",
+      "fund_manager_name": "16",
+      "fund_manager_total_exp": "16",
+      "indicative_inv_horizon": "16",
+      "load_exit": "16",
+      "main_scheme_name": "16",
+      "metrics_average_div_yield": "16",
+      "metrics_average_pb": "16",
+      "metrics_beta": "16",
+      "metrics_port_turnover_ratio": "16",
+      "metrics_sharpe": "16",
+      "metrics_std_dev": "16",
+      "metrics_tracking_error": "16",
+      "monthly_aaum_date": "16",
+      "monthly_aaum_value": "16",
+      "mutual_fund_name": "16",
+      "scheme_launch_date": "16"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BSE Midcap Select ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.65"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "5.43"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.68"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "78.86 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20160704"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE SENSEX TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.0254% p. a.",
+    "field_location": [
+     {
+      "amc_name": "17",
+      "benchmark_index": "17",
+      "count": 62,
+      "creation_unit": "17",
+      "exchange_listed": "17",
+      "fund_manager_managing_fund_since": "17",
+      "fund_manager_name": "17",
+      "fund_manager_total_exp": "17",
+      "indicative_inv_horizon": "17",
+      "load_exit": "17",
+      "main_scheme_name": "17",
+      "metrics_average_div_yield": "17",
+      "metrics_average_pb": "17",
+      "metrics_beta": "17",
+      "metrics_port_turnover_ratio": "17",
+      "metrics_sharpe": "17",
+      "metrics_std_dev": "17",
+      "metrics_tracking_error": "17",
+      "monthly_aaum_date": "17",
+      "monthly_aaum_value": "17",
+      "mutual_fund_name": "17",
+      "scheme_launch_date": "17"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BSE Sensex ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.41"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.99"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.18"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "14,654.28 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20030110"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE 500 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.32% p. a.",
+    "field_location": [
+     {
+      "amc_name": "18",
+      "benchmark_index": "18",
+      "count": 62,
+      "exchange_listed": "18",
+      "fund_manager_managing_fund_since": "18",
+      "fund_manager_name": "18",
+      "fund_manager_total_exp": "18",
+      "indicative_inv_horizon": "18",
+      "load_exit": "18",
+      "main_scheme_name": "18",
+      "metrics_average_div_yield": "18",
+      "metrics_average_pb": "18",
+      "metrics_beta": "18",
+      "metrics_port_turnover_ratio": "18",
+      "metrics_sharpe": "18",
+      "metrics_std_dev": "18",
+      "metrics_tracking_error": "18",
+      "monthly_aaum_date": "18",
+      "monthly_aaum_value": "18",
+      "mutual_fund_name": "18",
+      "scheme_launch_date": "18"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BSE 500 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.53"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.91"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.13"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "343.56 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20180509"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Bank TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.15% p. a.",
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 62,
+      "exchange_listed": "19",
+      "fund_manager_managing_fund_since": "19",
+      "fund_manager_name": "19",
+      "fund_manager_total_exp": "19",
+      "indicative_inv_horizon": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "metrics_average_div_yield": "19",
+      "metrics_average_pb": "19",
+      "metrics_beta": "19",
+      "metrics_port_turnover_ratio": "19",
+      "metrics_sharpe": "19",
+      "metrics_std_dev": "19",
+      "metrics_tracking_error": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19",
+      "scheme_launch_date": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Bank ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.27"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "2.18"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.01"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,615.12 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20190710"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Private Bank TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.15% p. a.",
+    "field_location": [
+     {
+      "amc_name": "20",
+      "benchmark_index": "20",
+      "count": 62,
+      "exchange_listed": "20",
+      "fund_manager_managing_fund_since": "20",
+      "fund_manager_name": "20",
+      "fund_manager_total_exp": "20",
+      "indicative_inv_horizon": "20",
+      "load_exit": "20",
+      "main_scheme_name": "20",
+      "metrics_average_div_yield": "20",
+      "metrics_average_pb": "20",
+      "metrics_beta": "20",
+      "metrics_port_turnover_ratio": "20",
+      "metrics_sharpe": "20",
+      "metrics_std_dev": "20",
+      "metrics_tracking_error": "20",
+      "monthly_aaum_date": "20",
+      "monthly_aaum_value": "20",
+      "mutual_fund_name": "20",
+      "scheme_launch_date": "20"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Private Bank ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.21"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.61"
+     },
+     {
+      "name": "average_pb",
+      "value": "2.21"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.60"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,024.47 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20190809"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Auto TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.20% p. a.",
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 62,
+      "creation_unit": "21",
+      "exchange_listed": "21",
+      "fund_manager_managing_fund_since": "21",
+      "fund_manager_name": "21",
+      "fund_manager_total_exp": "21",
+      "indicative_inv_horizon": "21",
+      "load_exit": "21",
+      "main_scheme_name": "21",
+      "metrics_average_div_yield": "21",
+      "metrics_average_pb": "21",
+      "metrics_beta": "21",
+      "metrics_port_turnover_ratio": "21",
+      "metrics_sharpe": "21",
+      "metrics_std_dev": "21",
+      "metrics_tracking_error": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21",
+      "scheme_launch_date": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Auto ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.03"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.29"
+     },
+     {
+      "name": "average_pb",
+      "value": "4.70"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.99"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "118.74 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220112"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty IT TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.20% p. a.",
+    "field_location": [
+     {
+      "amc_name": "22",
+      "benchmark_index": "22",
+      "count": 62,
+      "exchange_listed": "22",
+      "fund_manager_managing_fund_since": "22",
+      "fund_manager_name": "22",
+      "fund_manager_total_exp": "22",
+      "indicative_inv_horizon": "22",
+      "load_exit": "22",
+      "main_scheme_name": "22",
+      "metrics_average_div_yield": "22",
+      "metrics_average_pb": "22",
+      "metrics_beta": "22",
+      "metrics_port_turnover_ratio": "22",
+      "metrics_sharpe": "22",
+      "metrics_std_dev": "22",
+      "metrics_tracking_error": "22",
+      "monthly_aaum_date": "22",
+      "monthly_aaum_value": "22",
+      "mutual_fund_name": "22",
+      "scheme_launch_date": "22"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty IT ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.20"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.69"
+     },
+     {
+      "name": "average_pb",
+      "value": "8.82"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "2.41"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "506.44 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20200817"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "NIFTY Healthcare TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.15% p. a.",
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 62,
+      "creation_unit": "23",
+      "exchange_listed": "23",
+      "fund_manager_managing_fund_since": "23",
+      "fund_manager_name": "23",
+      "fund_manager_total_exp": "23",
+      "indicative_inv_horizon": "23",
+      "load_exit": "23",
+      "main_scheme_name": "23",
+      "metrics_average_div_yield": "23",
+      "metrics_average_pb": "23",
+      "metrics_beta": "23",
+      "metrics_port_turnover_ratio": "23",
+      "metrics_sharpe": "23",
+      "metrics_std_dev": "23",
+      "metrics_tracking_error": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23",
+      "scheme_launch_date": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "may 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Healthcare ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.76"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.30"
+     },
+     {
+      "name": "average_pb",
+      "value": "5.85"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.57"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "136.70 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20210518"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "NIFTY FMCG TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.20% p. a.",
+    "field_location": [
+     {
+      "amc_name": "24",
+      "benchmark_index": "24",
+      "count": 62,
+      "creation_unit": "24",
+      "exchange_listed": "24",
+      "fund_manager_managing_fund_since": "24",
+      "fund_manager_name": "24",
+      "fund_manager_total_exp": "24",
+      "indicative_inv_horizon": "24",
+      "load_exit": "24",
+      "main_scheme_name": "24",
+      "metrics_average_div_yield": "24",
+      "metrics_average_pb": "24",
+      "metrics_beta": "24",
+      "metrics_port_turnover_ratio": "24",
+      "metrics_sharpe": "24",
+      "metrics_std_dev": "24",
+      "metrics_tracking_error": "24",
+      "monthly_aaum_date": "24",
+      "monthly_aaum_value": "24",
+      "mutual_fund_name": "24",
+      "scheme_launch_date": "24"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty FMCG ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.76"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.24"
+     },
+     {
+      "name": "average_pb",
+      "value": "11.23"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.82"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "525.52 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20210805"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty India Consumption TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.20% p. a.",
+    "field_location": [
+     {
+      "amc_name": "25",
+      "benchmark_index": "25",
+      "count": 62,
+      "creation_unit": "25",
+      "exchange_listed": "25",
+      "fund_manager_managing_fund_since": "25",
+      "fund_manager_name": "25",
+      "fund_manager_total_exp": "25",
+      "indicative_inv_horizon": "25",
+      "load_exit": "25",
+      "main_scheme_name": "25",
+      "metrics_average_div_yield": "25",
+      "metrics_average_pb": "25",
+      "metrics_beta": "25",
+      "metrics_port_turnover_ratio": "25",
+      "metrics_sharpe": "25",
+      "metrics_std_dev": "25",
+      "metrics_tracking_error": "25",
+      "monthly_aaum_date": "25",
+      "monthly_aaum_value": "25",
+      "mutual_fund_name": "25",
+      "scheme_launch_date": "25"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "october 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty India Consumption ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.75"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.55"
+     },
+     {
+      "name": "average_pb",
+      "value": "8.83"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.97"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "57.50 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "28-OCTOBER-21"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Infrastructure TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.50% p. a.",
+    "field_location": [
+     {
+      "amc_name": "26",
+      "benchmark_index": "26",
+      "count": 62,
+      "creation_unit": "26",
+      "exchange_listed": "26",
+      "fund_manager_managing_fund_since": "26",
+      "fund_manager_name": "26",
+      "fund_manager_total_exp": "26",
+      "indicative_inv_horizon": "26",
+      "load_exit": "26",
+      "main_scheme_name": "26",
+      "metrics_average_div_yield": "26",
+      "metrics_average_pb": "26",
+      "metrics_beta": "26",
+      "metrics_port_turnover_ratio": "26",
+      "metrics_sharpe": "26",
+      "metrics_std_dev": "26",
+      "metrics_tracking_error": "26",
+      "monthly_aaum_date": "26",
+      "monthly_aaum_value": "26",
+      "mutual_fund_name": "26",
+      "scheme_launch_date": "26"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Infrastructure ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.00"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.77"
+     },
+     {
+      "name": "average_pb",
+      "value": "2.90"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.20"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "113.68 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220817"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE Bharat 22 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.07% p. a.",
+    "field_location": [
+     {
+      "amc_name": "27",
+      "benchmark_index": "27",
+      "count": 62,
+      "exchange_listed": "27",
+      "fund_manager_managing_fund_since": "27",
+      "fund_manager_name": "27",
+      "fund_manager_total_exp": "27",
+      "indicative_inv_horizon": "27",
+      "load_exit": "27",
+      "main_scheme_name": "27",
+      "metrics_beta": "27",
+      "metrics_port_turnover_ratio": "27",
+      "metrics_sharpe": "27",
+      "metrics_std_dev": "27",
+      "metrics_tracking_error": "27",
+      "monthly_aaum_date": "27",
+      "monthly_aaum_value": "27",
+      "mutual_fund_name": "27",
+      "scheme_launch_date": "27"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "BHARAT 22 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.31"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "17,873.24 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20171124"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Financial Services EX-Bank TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.20% p. a.",
+    "field_location": [
+     {
+      "amc_name": "28",
+      "benchmark_index": "28",
+      "count": 62,
+      "exchange_listed": "28",
+      "fund_manager_managing_fund_since": "28",
+      "fund_manager_name": "28",
+      "fund_manager_total_exp": "28",
+      "indicative_inv_horizon": "28",
+      "load_exit": "28",
+      "main_scheme_name": "28",
+      "metrics_beta": "28",
+      "metrics_port_turnover_ratio": "28",
+      "metrics_sharpe": "28",
+      "metrics_std_dev": "28",
+      "metrics_tracking_error": "28",
+      "monthly_aaum_date": "28",
+      "monthly_aaum_value": "28",
+      "mutual_fund_name": "28",
+      "scheme_launch_date": "28"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "november 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Financial Services Ex-Bank ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.91"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "91.93 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221125"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Commodities TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.30% p. a.",
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 62,
+      "exchange_listed": "29",
+      "fund_manager_managing_fund_since": "29",
+      "fund_manager_name": "29",
+      "fund_manager_total_exp": "29",
+      "indicative_inv_horizon": "29",
+      "load_exit": "29",
+      "main_scheme_name": "29",
+      "metrics_beta": "29",
+      "metrics_port_turnover_ratio": "29",
+      "metrics_sharpe": "29",
+      "metrics_std_dev": "29",
+      "metrics_tracking_error": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29",
+      "scheme_launch_date": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "december 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Commodities ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.59"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "57.62 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221215"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "NIFTY PSU Bank Index"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.40% p. a.",
+    "field_location": [
+     {
+      "amc_name": "30",
+      "benchmark_index": "30",
+      "count": 62,
+      "exchange_listed": "30",
+      "fund_manager_managing_fund_since": "30",
+      "fund_manager_name": "30",
+      "fund_manager_total_exp": "30",
+      "indicative_inv_horizon": "30",
+      "load_exit": "30",
+      "main_scheme_name": "30",
+      "metrics_beta": "30",
+      "metrics_port_turnover_ratio": "30",
+      "metrics_sharpe": "30",
+      "metrics_std_dev": "30",
+      "metrics_tracking_error": "30",
+      "monthly_aaum_date": "30",
+      "monthly_aaum_value": "30",
+      "mutual_fund_name": "30",
+      "scheme_launch_date": "30"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 2023",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty PSU Bank ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.05"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "74.40 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20230315"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Oil & Gas TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.40% p. a.",
+    "field_location": [
+     {
+      "amc_name": "31",
+      "benchmark_index": "31",
+      "count": 62,
+      "creation_unit": "31",
+      "exchange_listed": "31",
+      "fund_manager_managing_fund_since": "31",
+      "fund_manager_name": "31",
+      "fund_manager_total_exp": "31",
+      "indicative_inv_horizon": "31",
+      "load_exit": "31",
+      "main_scheme_name": "31",
+      "metrics_port_turnover_ratio": "31",
+      "monthly_aaum_date": "31",
+      "monthly_aaum_value": "31",
+      "mutual_fund_name": "31",
+      "scheme_launch_date": "31"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "july 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Oil & Gas ETF",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.03"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "157.88 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20240719"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Metal TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.40% p. a.",
+    "field_location": [
+     {
+      "amc_name": "32",
+      "benchmark_index": "32",
+      "count": 62,
+      "creation_unit": "32",
+      "exchange_listed": "32",
+      "fund_manager_managing_fund_since": "32",
+      "fund_manager_name": "32",
+      "fund_manager_total_exp": "32",
+      "indicative_inv_horizon": "32",
+      "main_scheme_name": "32",
+      "metrics_port_turnover_ratio": "32",
+      "monthly_aaum_date": "32",
+      "monthly_aaum_value": "32",
+      "mutual_fund_name": "32",
+      "scheme_launch_date": "32"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "aug, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 04, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "nov 04, 2024",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "main_scheme_name": "ICICI Prudential Nifty Metal ETF",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.49"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "112.51 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20240814"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 100 Low Volatility 30 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.41% p. a.",
+    "field_location": [
+     {
+      "amc_name": "33",
+      "benchmark_index": "33",
+      "count": 62,
+      "creation_unit": "33",
+      "exchange_listed": "33",
+      "fund_manager_managing_fund_since": "33",
+      "fund_manager_name": "33",
+      "fund_manager_total_exp": "33",
+      "indicative_inv_horizon": "33",
+      "load_exit": "33",
+      "main_scheme_name": "33",
+      "metrics_average_div_yield": "33",
+      "metrics_average_pb": "33",
+      "metrics_beta": "33",
+      "metrics_port_turnover_ratio": "33",
+      "metrics_sharpe": "33",
+      "metrics_std_dev": "33",
+      "metrics_tracking_error": "33",
+      "monthly_aaum_date": "33",
+      "monthly_aaum_value": "33",
+      "mutual_fund_name": "33",
+      "scheme_launch_date": "33"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 100 Low Volatility 30 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.65"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "5.95"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.22"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,461.44 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20170703"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty50 Value 20 Index (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.25% p. a.",
+    "field_location": [
+     {
+      "amc_name": "34",
+      "benchmark_index": "34",
+      "count": 62,
+      "creation_unit": "34",
+      "exchange_listed": "34",
+      "fund_manager_managing_fund_since": "34",
+      "fund_manager_name": "34",
+      "fund_manager_total_exp": "34",
+      "indicative_inv_horizon": "34",
+      "load_exit": "34",
+      "main_scheme_name": "34",
+      "metrics_average_div_yield": "34",
+      "metrics_average_pb": "34",
+      "metrics_beta": "34",
+      "metrics_port_turnover_ratio": "34",
+      "metrics_sharpe": "34",
+      "metrics_std_dev": "34",
+      "metrics_tracking_error": "34",
+      "monthly_aaum_date": "34",
+      "monthly_aaum_value": "34",
+      "mutual_fund_name": "34",
+      "scheme_launch_date": "34"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty50 Value 20 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.68"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.39"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "2.40"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "177.88 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20160617"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Alpha Low-Volatility 30 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.40% p. a.",
+    "field_location": [
+     {
+      "amc_name": "35",
+      "benchmark_index": "35",
+      "count": 62,
+      "creation_unit": "35",
+      "exchange_listed": "35",
+      "fund_manager_managing_fund_since": "35",
+      "fund_manager_name": "35",
+      "fund_manager_total_exp": "35",
+      "indicative_inv_horizon": "35",
+      "load_exit": "35",
+      "main_scheme_name": "35",
+      "metrics_alpha": "35",
+      "metrics_average_div_yield": "35",
+      "metrics_average_pb": "35",
+      "metrics_beta": "35",
+      "metrics_port_turnover_ratio": "35",
+      "metrics_sharpe": "35",
+      "metrics_std_dev": "35",
+      "metrics_tracking_error": "35",
+      "monthly_aaum_date": "35",
+      "monthly_aaum_value": "35",
+      "mutual_fund_name": "35",
+      "scheme_launch_date": "35"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Alpha Low - Volatility 30 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.66"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.76"
+     },
+     {
+      "name": "alpha",
+      "value": "30"
+     },
+     {
+      "name": "average_pb",
+      "value": "6.24"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.13"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,662.44 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20200812"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty200 Momentum 30 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.30% p. a.",
+    "field_location": [
+     {
+      "amc_name": "36",
+      "benchmark_index": "36",
+      "count": 62,
+      "exchange_listed": "36",
+      "fund_manager_managing_fund_since": "36",
+      "fund_manager_name": "36",
+      "fund_manager_total_exp": "36",
+      "indicative_inv_horizon": "36",
+      "load_exit": "36",
+      "main_scheme_name": "36",
+      "metrics_average_div_yield": "36",
+      "metrics_average_pb": "36",
+      "metrics_beta": "36",
+      "metrics_port_turnover_ratio": "36",
+      "metrics_sharpe": "36",
+      "metrics_std_dev": "36",
+      "metrics_tracking_error": "36",
+      "monthly_aaum_date": "36",
+      "monthly_aaum_value": "36",
+      "mutual_fund_name": "36",
+      "scheme_launch_date": "36"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 200 Momentum 30 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.72"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "7.67"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.14"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "404.08 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220804"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "NIFTY200 Quality 30 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.30% p. a.",
+    "field_location": [
+     {
+      "amc_name": "37",
+      "benchmark_index": "37",
+      "count": 62,
+      "creation_unit": "37",
+      "exchange_listed": "37",
+      "fund_manager_managing_fund_since": "37",
+      "fund_manager_name": "37",
+      "indicative_inv_horizon": "37",
+      "load_exit": "37",
+      "main_scheme_name": "37",
+      "metrics_average_div_yield": "37",
+      "metrics_average_pb": "37",
+      "metrics_beta": "37",
+      "metrics_port_turnover_ratio": "37",
+      "metrics_sharpe": "37",
+      "metrics_tracking_error": "37",
+      "monthly_aaum_date": "37",
+      "monthly_aaum_value": "37",
+      "mutual_fund_name": "37",
+      "scheme_launch_date": "37"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 2023",
+      "name": "Ms. Priya Sridhar",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "nov 24",
+      "name": "Index Methodology",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 200 Quality 30 ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.93"
+     },
+     {
+      "name": "beta",
+      "value": "1.00"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.78"
+     },
+     {
+      "name": "average_pb",
+      "value": "9.00"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "2.12"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "122.58 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20230807"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty200 Value 30 TRI"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.30% p. a.",
+    "field_location": [
+     {
+      "amc_name": "38",
+      "benchmark_index": "38",
+      "count": 62,
+      "creation_unit": "38",
+      "exchange_listed": "38",
+      "fund_manager_managing_fund_since": "38",
+      "indicative_inv_horizon": "38",
+      "main_scheme_name": "38",
+      "metrics_port_turnover_ratio": "38",
+      "monthly_aaum_date": "38",
+      "mutual_fund_name": "38",
+      "scheme_launch_date": "38"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "oct, 2024",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "nov, 2024",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "main_scheme_name": "ICICI Prudential Nifty200 Value 30 ETF",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.11"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20241017"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE Liquid Rate Index (Benchmark) () 1 Year T Bill (Additional Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.25% p. a.",
+    "field_location": [
+     {
+      "amc_name": "39",
+      "benchmark_index": "39",
+      "count": 62,
+      "exchange_listed": "39",
+      "fund_manager_managing_fund_since": "39",
+      "fund_manager_name": "39",
+      "fund_manager_total_exp": "39",
+      "indicative_inv_horizon": "39",
+      "load_exit": "39",
+      "main_scheme_name": "39",
+      "metrics_avg_maturity": "39",
+      "metrics_beta": "39",
+      "metrics_macaulay": "39",
+      "metrics_mod_duration": "39",
+      "metrics_sharpe": "39",
+      "metrics_std_dev": "39",
+      "metrics_tracking_error": "39",
+      "metrics_ytm": "39",
+      "monthly_aaum_date": "39",
+      "monthly_aaum_value": "39",
+      "mutual_fund_name": "39",
+      "scheme_launch_date": "39"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "sept 2024",
+      "name": "Mr. Darshil Dedhia",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "dec 2020",
+      "name": "Nikhil Kabra",
+      "qualification": "",
+      "total_exp": "11 years"
+     }
+    ],
+    "indicative_inv_horizon": "1 year",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BSE Liquid Rate ETF – IDCW",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-3.64"
+     },
+     {
+      "name": "std_dev",
+      "value": "0.29%"
+     },
+     {
+      "name": "beta",
+      "value": "0.85"
+     },
+     {
+      "name": "ytm",
+      "value": "6.58%"
+     },
+     {
+      "name": "macaulay",
+      "value": "1.99 Days"
+     },
+     {
+      "name": "tracking_error",
+      "value": "3"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1.87 Days"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "2.99 Days"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,376.35 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20180925"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 5 yr Benchmark G-Sec Index"
+    ],
+    "exchange_listed": "Rating Profile (as % of debt component)",
+    "field_location": [
+     {
+      "amc_name": "40",
+      "benchmark_index": "40",
+      "count": 62,
+      "creation_unit": "40",
+      "exchange_listed": "40",
+      "fund_manager_managing_fund_since": "40",
+      "fund_manager_name": "40",
+      "fund_manager_total_exp": "40",
+      "indicative_inv_horizon": "40",
+      "load_exit": "40",
+      "main_scheme_name": "40",
+      "metrics_avg_maturity": "40",
+      "metrics_beta": "40",
+      "metrics_macaulay": "40",
+      "metrics_mod_duration": "40",
+      "metrics_sharpe": "40",
+      "metrics_std_dev": "40",
+      "metrics_tracking_error": "40",
+      "metrics_ytm": "40",
+      "monthly_aaum_date": "40",
+      "monthly_aaum_value": "40",
+      "mutual_fund_name": "40",
+      "scheme_launch_date": "40"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 2024",
+      "name": "Credit Risk Relatively",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "june 2023",
+      "name": "Moderate Relatively Darshil",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Interest Rate Risk",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": ": Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 5 yr Benchmark G-SEC ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-0.15"
+     },
+     {
+      "name": "std_dev",
+      "value": "2.24%"
+     },
+     {
+      "name": "beta",
+      "value": "0.98"
+     },
+     {
+      "name": "ytm",
+      "value": "6.73%"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.75 Years"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.63 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.30 Years"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "61.47 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220307"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "NIFTY 10 yr Benchmark G-Sec Index"
+    ],
+    "exchange_listed": "Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other Other : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% 0.14% p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a.",
+    "field_location": [
+     {
+      "amc_name": "41",
+      "benchmark_index": "41",
+      "count": 62,
+      "exchange_listed": "41",
+      "fund_manager_managing_fund_since": "41",
+      "fund_manager_name": "41",
+      "fund_manager_total_exp": "41",
+      "indicative_inv_horizon": "41",
+      "load_exit": "41",
+      "main_scheme_name": "41",
+      "metrics_avg_maturity": "41",
+      "metrics_beta": "41",
+      "metrics_macaulay": "41",
+      "metrics_mod_duration": "41",
+      "metrics_port_turnover_ratio": "41",
+      "metrics_sharpe": "41",
+      "metrics_std_dev": "41",
+      "metrics_tracking_error": "41",
+      "metrics_ytm": "41",
+      "monthly_aaum_date": "41",
+      "monthly_aaum_value": "41",
+      "mutual_fund_name": "41",
+      "scheme_launch_date": "41"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "december, 2022",
+      "name": "Credit Risk Relatively",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": " january, 2024",
+      "name": "Interest Rate Risk",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "january 22, 2024",
+      "name": "Moderate Rohit Lakhotia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Relatively High",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 10 yr Benchmark G-Sec ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.73"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "ytm",
+      "value": "6.81%"
+     },
+     {
+      "name": "macaulay",
+      "value": "7.10 Years"
+     },
+     {
+      "name": "mod_duration",
+      "value": "6.87 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.67 Years"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "513.63 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221213"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "LBMA AM Fixing Prices (Domestic Prices of Gold) (Benchmark)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.50% p. a.",
+    "field_location": [
+     {
+      "amc_name": "42",
+      "benchmark_index": "42",
+      "count": 62,
+      "exchange_listed": "42",
+      "fund_manager_managing_fund_since": "42",
+      "fund_manager_name": "42",
+      "fund_manager_total_exp": "42",
+      "indicative_inv_horizon": "42",
+      "load_exit": "42",
+      "main_scheme_name": "42",
+      "metrics_beta": "42",
+      "metrics_sharpe": "42",
+      "metrics_tracking_error": "42",
+      "monthly_aaum_date": "42",
+      "monthly_aaum_value": "42",
+      "mutual_fund_name": "42",
+      "scheme_launch_date": "42"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august, 2021",
+      "name": "Gaurav Chikane",
+      "qualification": "",
+      "total_exp": "10 years of"
+     },
+     {
+      "managing_fund_since": "december 18, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "14 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Gold ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.94"
+     },
+     {
+      "name": "beta",
+      "value": "0.98"
+     },
+     {
+      "name": "tracking_error",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "5,100.44 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20100824"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "LBMA AM fixing Prices (Domestic Price of Silver)"
+    ],
+    "exchange_listed": "Total Expense Ratio @@ : Other : : 0.40% p. a.",
+    "field_location": [
+     {
+      "amc_name": "43",
+      "benchmark_index": "43",
+      "count": 62,
+      "creation_unit": "43",
+      "exchange_listed": "43",
+      "fund_manager_managing_fund_since": "43",
+      "fund_manager_name": "43",
+      "fund_manager_total_exp": "43",
+      "indicative_inv_horizon": "43",
+      "load_exit": "43",
+      "main_scheme_name": "43",
+      "metrics_beta": "43",
+      "metrics_sharpe": "43",
+      "metrics_tracking_error": "43",
+      "monthly_aaum_date": "43",
+      "monthly_aaum_value": "43",
+      "mutual_fund_name": "43",
+      "scheme_launch_date": "43"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 2022",
+      "name": "Gaurav Chikane",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "14 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Silver ETF",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.41"
+     },
+     {
+      "name": "beta",
+      "value": "0.97"
+     },
+     {
+      "name": "tracking_error",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,542.71 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "24-JANUARY-22"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 50 TRI (Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "44",
+      "benchmark_index": "44",
+      "count": 62,
+      "fund_manager_managing_fund_since": "44",
+      "fund_manager_name": "44",
+      "fund_manager_total_exp": "44",
+      "indicative_inv_horizon": "44",
+      "load_exit": "44",
+      "main_scheme_name": "44",
+      "metrics_average_div_yield": "44",
+      "metrics_average_pb": "44",
+      "metrics_beta": "44",
+      "metrics_port_turnover_ratio": "44",
+      "metrics_sharpe": "44",
+      "metrics_std_dev": "44",
+      "metrics_tracking_error": "44",
+      "min_amt": "44",
+      "monthly_aaum_date": "44",
+      "monthly_aaum_value": "44",
+      "mutual_fund_name": "44",
+      "scheme_launch_date": "44"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan, 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb, 2024",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 50 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.40"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.51"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.38"
+     }
+    ],
+    "min_amt": "100",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "11,903.29 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20020226"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Next 50 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "45",
+      "benchmark_index": "45",
+      "count": 62,
+      "fund_manager_managing_fund_since": "45",
+      "fund_manager_name": "45",
+      "fund_manager_total_exp": "45",
+      "indicative_inv_horizon": "45",
+      "load_exit": "45",
+      "main_scheme_name": "45",
+      "metrics_average_div_yield": "45",
+      "metrics_average_pb": "45",
+      "metrics_beta": "45",
+      "metrics_port_turnover_ratio": "45",
+      "metrics_sharpe": "45",
+      "metrics_std_dev": "45",
+      "metrics_tracking_error": "45",
+      "min_amt": "45",
+      "monthly_aaum_date": "45",
+      "monthly_aaum_value": "45",
+      "mutual_fund_name": "45",
+      "scheme_launch_date": "45"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Next 50 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.50"
+     },
+     {
+      "name": "beta",
+      "value": "1.00"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.51"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.24"
+     }
+    ],
+    "min_amt": "100",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "6,674.91 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20100625"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE SENSEX TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "47",
+      "benchmark_index": "47",
+      "count": 62,
+      "fund_manager_managing_fund_since": "47",
+      "fund_manager_name": "47",
+      "fund_manager_total_exp": "47",
+      "indicative_inv_horizon": "47",
+      "load_exit": "47",
+      "main_scheme_name": "47",
+      "metrics_average_div_yield": "47",
+      "metrics_average_pb": "47",
+      "metrics_beta": "47",
+      "metrics_port_turnover_ratio": "47",
+      "metrics_sharpe": "47",
+      "metrics_std_dev": "47",
+      "metrics_tracking_error": "47",
+      "min_amt": "47",
+      "monthly_aaum_date": "47",
+      "monthly_aaum_value": "47",
+      "mutual_fund_name": "47",
+      "scheme_launch_date": "47"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BSE Sensex Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.38"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.99"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.18"
+     }
+    ],
+    "min_amt": "100",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,727.75 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20170921"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Smallcap 250 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "48",
+      "benchmark_index": "48",
+      "count": 62,
+      "fund_manager_managing_fund_since": "48",
+      "fund_manager_name": "48",
+      "fund_manager_total_exp": "48",
+      "indicative_inv_horizon": "48",
+      "load_exit": "48",
+      "main_scheme_name": "48",
+      "metrics_average_div_yield": "48",
+      "metrics_average_pb": "48",
+      "metrics_beta": "48",
+      "metrics_port_turnover_ratio": "48",
+      "metrics_sharpe": "48",
+      "metrics_std_dev": "48",
+      "metrics_tracking_error": "48",
+      "min_addl_amt": "48",
+      "min_addl_amt_multiple": "48",
+      "min_amt": "48",
+      "min_amt_multiple": "48",
+      "monthly_aaum_date": "48",
+      "monthly_aaum_value": "48",
+      "mutual_fund_name": "48",
+      "scheme_launch_date": "48"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "november 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Smallcap 250 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.55"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.66"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.99"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "452.49 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "2-NOVEMBER-21"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Midcap 150 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "50",
+      "benchmark_index": "50",
+      "count": 62,
+      "fund_manager_managing_fund_since": "50",
+      "fund_manager_name": "50",
+      "fund_manager_total_exp": "50",
+      "indicative_inv_horizon": "50",
+      "load_exit": "50",
+      "main_scheme_name": "50",
+      "metrics_average_div_yield": "50",
+      "metrics_average_pb": "50",
+      "metrics_beta": "50",
+      "metrics_port_turnover_ratio": "50",
+      "metrics_sharpe": "50",
+      "metrics_std_dev": "50",
+      "metrics_tracking_error": "50",
+      "min_addl_amt": "50",
+      "min_addl_amt_multiple": "50",
+      "min_amt": "50",
+      "min_amt_multiple": "50",
+      "monthly_aaum_date": "50",
+      "monthly_aaum_value": "50",
+      "mutual_fund_name": "50",
+      "scheme_launch_date": "50"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "december 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Midcap 150 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.78"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "5.20"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.82"
+     }
+    ],
+    "min_addl_amt": "100",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "614.21 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "22-DECEMBER-21"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty LargeMidcap 250 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "52",
+      "benchmark_index": "52",
+      "count": 62,
+      "fund_manager_managing_fund_since": "52",
+      "fund_manager_name": "52",
+      "fund_manager_total_exp": "52",
+      "indicative_inv_horizon": "52",
+      "load_exit": "52",
+      "main_scheme_name": "52",
+      "metrics_average_div_yield": "52",
+      "metrics_average_pb": "52",
+      "metrics_port_turnover_ratio": "52",
+      "min_amt": "52",
+      "min_amt_multiple": "52",
+      "monthly_aaum_date": "52",
+      "monthly_aaum_value": "52",
+      "mutual_fund_name": "52",
+      "scheme_launch_date": "52"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "mar, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty LargeMidcap 250 Index Fund",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.16"
+     },
+     {
+      "name": "average_pb",
+      "value": "4.17"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.09"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "179.23 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20240313"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "54",
+      "benchmark_index": "54",
+      "count": 62,
+      "fund_manager_managing_fund_since": "54",
+      "fund_manager_name": "54",
+      "indicative_inv_horizon": "54",
+      "load_exit": "54",
+      "main_scheme_name": "54",
+      "metrics_port_turnover_ratio": "54",
+      "min_amt": "54",
+      "min_amt_multiple": "54",
+      "monthly_aaum_date": "54",
+      "monthly_aaum_value": "54",
+      "mutual_fund_name": "54",
+      "scheme_launch_date": "54"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Refer Disclaimer",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 500 Index Fund",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.01"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "15.79 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20241220"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty SDL Sep 2026 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "56",
+      "benchmark_index": "56",
+      "count": 62,
+      "fund_manager_managing_fund_since": "56",
+      "fund_manager_name": "56",
+      "fund_manager_total_exp": "56",
+      "indicative_inv_horizon": "56",
+      "load_exit": "56",
+      "main_scheme_name": "56",
+      "metrics_avg_maturity": "56",
+      "metrics_beta": "56",
+      "metrics_macaulay": "56",
+      "metrics_mod_duration": "56",
+      "metrics_port_turnover_ratio": "56",
+      "metrics_sharpe": "56",
+      "metrics_std_dev": "56",
+      "metrics_tracking_error": "56",
+      "metrics_ytm": "56",
+      "min_amt": "56",
+      "min_amt_multiple": "56",
+      "monthly_aaum_date": "56",
+      "mutual_fund_name": "56",
+      "scheme_launch_date": "56"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january, 2024",
+      "name": "Credit Risk Relatively",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "january 22, 2024",
+      "name": "Interest Rate Risk",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "june, 2023",
+      "name": "Moderate Rohit Lakhotia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Relatively High",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "1 year",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty SDL Sep 2026 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.53"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "ytm",
+      "value": "6.94%"
+     },
+     {
+      "name": "macaulay",
+      "value": "1.37 Years"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1.33 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1.45 Years"
+     }
+    ],
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221221"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty PSU Bond Plus SDL Sep 2027 40:60 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "57",
+      "benchmark_index": "57",
+      "count": 62,
+      "fund_manager_managing_fund_since": "57",
+      "fund_manager_name": "57",
+      "fund_manager_total_exp": "57",
+      "indicative_inv_horizon": "57",
+      "load_exit": "57",
+      "main_scheme_name": "57",
+      "metrics_avg_maturity": "57",
+      "metrics_beta": "57",
+      "metrics_macaulay": "57",
+      "metrics_mod_duration": "57",
+      "metrics_sharpe": "57",
+      "metrics_std_dev": "57",
+      "metrics_tracking_error": "57",
+      "metrics_ytm": "57",
+      "min_addl_amt": "57",
+      "min_addl_amt_multiple": "57",
+      "min_amt": "57",
+      "min_amt_multiple": "57",
+      "monthly_aaum_date": "57",
+      "monthly_aaum_value": "57",
+      "mutual_fund_name": "57",
+      "scheme_launch_date": "57"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january, 2024",
+      "name": "Credit Risk Relatively",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "january 22, 2024",
+      "name": "Interest Rate Risk",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "june, 2023",
+      "name": "Moderate Rohit Lakhotia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "june 12, 2023",
+      "name": "Relatively High",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": ": Nil (w.e.f. 15th Nov 2021)",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-0.41"
+     },
+     {
+      "name": "std_dev",
+      "value": "2.10%"
+     },
+     {
+      "name": "beta",
+      "value": "1.00"
+     },
+     {
+      "name": "ytm",
+      "value": "7.17%"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.26 Years"
+     },
+     {
+      "name": "tracking_error",
+      "value": "3"
+     },
+     {
+      "name": "mod_duration",
+      "value": "2.15 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "2.47 Years"
+     }
+    ],
+    "min_addl_amt": "2",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "8,795.49 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20210928"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty SDL Sep 2027 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "59",
+      "benchmark_index": "59",
+      "count": 62,
+      "fund_manager_managing_fund_since": "59",
+      "fund_manager_name": "59",
+      "indicative_inv_horizon": "59",
+      "load_exit": "59",
+      "main_scheme_name": "59",
+      "metrics_avg_maturity": "59",
+      "metrics_beta": "59",
+      "metrics_macaulay": "59",
+      "metrics_mod_duration": "59",
+      "metrics_sharpe": "59",
+      "metrics_std_dev": "59",
+      "metrics_tracking_error": "59",
+      "metrics_ytm": "59",
+      "min_addl_amt": "59",
+      "min_addl_amt_multiple": "59",
+      "min_amt": "59",
+      "min_amt_multiple": "59",
+      "monthly_aaum_date": "59",
+      "monthly_aaum_value": "59",
+      "mutual_fund_name": "59",
+      "scheme_launch_date": "59"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 2024",
+      "name": "Mr. Darshil Dedhia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "june 2023",
+      "name": "Index Methodology",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct Direct : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% 0.20% p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. p. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a. a.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": ": Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty SDL Sep 2027 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-0.33"
+     },
+     {
+      "name": "std_dev",
+      "value": "2.23%"
+     },
+     {
+      "name": "beta",
+      "value": "1.00"
+     },
+     {
+      "name": "ytm",
+      "value": "6.98%"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.27 Years"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "mod_duration",
+      "value": "2.20 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "2.48 Years"
+     }
+    ],
+    "min_addl_amt": "2",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,763.50 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "24-MARCH-22"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty SDL Dec 2028 Index."
+    ],
+    "field_location": [
+     {
+      "amc_name": "60",
+      "benchmark_index": "60",
+      "count": 62,
+      "fund_manager_managing_fund_since": "60",
+      "fund_manager_name": "60",
+      "fund_manager_total_exp": "60",
+      "indicative_inv_horizon": "60",
+      "load_exit": "60",
+      "main_scheme_name": "60",
+      "metrics_avg_maturity": "60",
+      "metrics_beta": "60",
+      "metrics_macaulay": "60",
+      "metrics_mod_duration": "60",
+      "metrics_sharpe": "60",
+      "metrics_std_dev": "60",
+      "metrics_tracking_error": "60",
+      "metrics_ytm": "60",
+      "min_amt": "60",
+      "min_amt_multiple": "60",
+      "monthly_aaum_date": "60",
+      "mutual_fund_name": "60",
+      "scheme_launch_date": "60"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " january, 2024",
+      "name": "Credit Risk Relatively",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "january 22, 2024",
+      "name": "Interest Rate Risk",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "june, 2023",
+      "name": "Moderate Rohit Lakhotia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "june 12, 2023",
+      "name": "Relatively High",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": "Nil Rs. 980.84 crores `",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty SDL Dec 2028 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.00"
+     },
+     {
+      "name": "std_dev",
+      "value": "1.25%"
+     },
+     {
+      "name": "beta",
+      "value": "0.83"
+     },
+     {
+      "name": "ytm",
+      "value": "7.05%"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.23 Years"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.13 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.73 Years"
+     }
+    ],
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221012"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty G-sec Dec 2030 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "61",
+      "benchmark_index": "61",
+      "count": 62,
+      "fund_manager_managing_fund_since": "61",
+      "fund_manager_name": "61",
+      "fund_manager_total_exp": "61",
+      "indicative_inv_horizon": "61",
+      "load_exit": "61",
+      "main_scheme_name": "61",
+      "metrics_avg_maturity": "61",
+      "metrics_beta": "61",
+      "metrics_macaulay": "61",
+      "metrics_mod_duration": "61",
+      "metrics_sharpe": "61",
+      "metrics_std_dev": "61",
+      "metrics_tracking_error": "61",
+      "metrics_ytm": "61",
+      "min_amt": "61",
+      "min_amt_multiple": "61",
+      "monthly_aaum_date": "61",
+      "mutual_fund_name": "61",
+      "scheme_launch_date": "61"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january, 2024",
+      "name": "Credit Risk Relatively",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "january 22, 2024",
+      "name": "Interest Rate Risk",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "june, 2023",
+      "name": "Moderate Rohit Lakhotia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "june 12, 2023",
+      "name": "Relatively High",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": "Nil Rs. 981.33 crores `",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty G-Sec Dec 2030 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.89"
+     },
+     {
+      "name": "std_dev",
+      "value": "1.76%"
+     },
+     {
+      "name": "beta",
+      "value": "0.92"
+     },
+     {
+      "name": "ytm",
+      "value": "6.81%"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.56 Years"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "mod_duration",
+      "value": "4.42 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "5.65 Years"
+     }
+    ],
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221011"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "CRISIL-IBX AAA Financial Services Index – Dec 2026"
+    ],
+    "field_location": [
+     {
+      "amc_name": "62",
+      "benchmark_index": "62",
+      "count": 62,
+      "fund_manager_managing_fund_since": "62",
+      "fund_manager_name": "62",
+      "fund_manager_total_exp": "62",
+      "indicative_inv_horizon": "62",
+      "main_scheme_name": "62",
+      "min_addl_amt": "62",
+      "min_addl_amt_multiple": "62",
+      "min_amt": "62",
+      "min_amt_multiple": "62",
+      "monthly_aaum_date": "62",
+      "monthly_aaum_value": "62",
+      "mutual_fund_name": "62",
+      "scheme_launch_date": "62"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january, 2025",
+      "name": "Darshil Dedhia",
+      "qualification": "",
+      "total_exp": "12 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Rohit Lakhotia",
+      "qualification": "",
+      "total_exp": "14 years"
+     }
+    ],
+    "indicative_inv_horizon": "1 year",
+    "main_scheme_name": "ICICI Prudential CRISIL-IBX AAA Bond Financial Services Index – Dec 2026 Fund",
+    "min_addl_amt": "500",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "39.56 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20250127"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "NASDAQ-100 TRI ®"
+    ],
+    "field_location": [
+     {
+      "amc_name": "63",
+      "benchmark_index": "63",
+      "count": 62,
+      "fund_manager_managing_fund_since": "63",
+      "fund_manager_name": "63",
+      "indicative_inv_horizon": "63",
+      "load_exit": "63",
+      "main_scheme_name": "63",
+      "metrics_beta": "63",
+      "metrics_port_turnover_ratio": "63",
+      "metrics_sharpe": "63",
+      "metrics_std_dev": "63",
+      "metrics_tracking_error": "63",
+      "min_addl_amt": "63",
+      "min_addl_amt_multiple": "63",
+      "min_amt": "63",
+      "min_amt_multiple": "63",
+      "monthly_aaum_date": "63",
+      "monthly_aaum_value": "63",
+      "mutual_fund_name": "63",
+      "scheme_launch_date": "63"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 2022",
+      "name": "Nitya Mishra",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "nov 2024",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum Investment Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential NASDAQ 100 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.60"
+     },
+     {
+      "name": "beta",
+      "value": "0.99"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     }
+    ],
+    "min_addl_amt": "500",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,793.72 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20211018"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Bank Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "65",
+      "benchmark_index": "65",
+      "count": 62,
+      "fund_manager_managing_fund_since": "65",
+      "fund_manager_name": "65",
+      "fund_manager_total_exp": "65",
+      "indicative_inv_horizon": "65",
+      "load_exit": "65",
+      "main_scheme_name": "65",
+      "metrics_average_div_yield": "65",
+      "metrics_average_pb": "65",
+      "metrics_beta": "65",
+      "metrics_port_turnover_ratio": "65",
+      "metrics_sharpe": "65",
+      "metrics_std_dev": "65",
+      "metrics_tracking_error": "65",
+      "min_addl_amt": "65",
+      "min_addl_amt_multiple": "65",
+      "min_amt": "65",
+      "min_amt_multiple": "65",
+      "monthly_aaum_date": "65",
+      "monthly_aaum_value": "65",
+      "mutual_fund_name": "65",
+      "scheme_launch_date": "65"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "mar, 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "inception",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Bank Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.36"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "2.18"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.01"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "504.36 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "2-MARCH-22"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty IT TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "66",
+      "benchmark_index": "66",
+      "count": 62,
+      "fund_manager_managing_fund_since": "66",
+      "fund_manager_name": "66",
+      "fund_manager_total_exp": "66",
+      "indicative_inv_horizon": "66",
+      "load_exit": "66",
+      "main_scheme_name": "66",
+      "metrics_average_div_yield": "66",
+      "metrics_average_pb": "66",
+      "metrics_beta": "66",
+      "metrics_port_turnover_ratio": "66",
+      "metrics_sharpe": "66",
+      "metrics_std_dev": "66",
+      "metrics_tracking_error": "66",
+      "min_addl_amt": "66",
+      "min_addl_amt_multiple": "66",
+      "min_amt": "66",
+      "min_amt_multiple": "66",
+      "monthly_aaum_date": "66",
+      "monthly_aaum_value": "66",
+      "mutual_fund_name": "66",
+      "scheme_launch_date": "66"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty IT Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.71"
+     },
+     {
+      "name": "beta",
+      "value": "0.99"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "8.82"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "2.41"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "567.38 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220818"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Auto TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "67",
+      "benchmark_index": "67",
+      "count": 62,
+      "fund_manager_managing_fund_since": "67",
+      "fund_manager_name": "67",
+      "fund_manager_total_exp": "67",
+      "indicative_inv_horizon": "67",
+      "load_exit": "67",
+      "main_scheme_name": "67",
+      "metrics_average_div_yield": "67",
+      "metrics_average_pb": "67",
+      "metrics_beta": "67",
+      "metrics_port_turnover_ratio": "67",
+      "metrics_sharpe": "67",
+      "metrics_std_dev": "67",
+      "metrics_tracking_error": "67",
+      "min_amt": "67",
+      "min_amt_multiple": "67",
+      "monthly_aaum_date": "67",
+      "monthly_aaum_value": "67",
+      "mutual_fund_name": "67",
+      "scheme_launch_date": "67"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "october, 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Auto Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.03"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "4.70"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.99"
+     }
+    ],
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "134.82 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221011"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Pharma TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "68",
+      "benchmark_index": "68",
+      "count": 62,
+      "fund_manager_managing_fund_since": "68",
+      "fund_manager_name": "68",
+      "fund_manager_total_exp": "68",
+      "indicative_inv_horizon": "68",
+      "load_exit": "68",
+      "main_scheme_name": "68",
+      "metrics_average_div_yield": "68",
+      "metrics_average_pb": "68",
+      "metrics_beta": "68",
+      "metrics_port_turnover_ratio": "68",
+      "metrics_sharpe": "68",
+      "metrics_std_dev": "68",
+      "metrics_tracking_error": "68",
+      "min_amt": "68",
+      "min_amt_multiple": "68",
+      "monthly_aaum_date": "68",
+      "monthly_aaum_value": "68",
+      "mutual_fund_name": "68",
+      "scheme_launch_date": "68"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "december, 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Pharma Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.12"
+     },
+     {
+      "name": "beta",
+      "value": "1.00"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "5.24"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "0.66"
+     }
+    ],
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "87.23 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221214"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty200 Momentum 30 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "69",
+      "benchmark_index": "69",
+      "count": 62,
+      "fund_manager_managing_fund_since": "69",
+      "fund_manager_name": "69",
+      "fund_manager_total_exp": "69",
+      "indicative_inv_horizon": "69",
+      "load_exit": "69",
+      "main_scheme_name": "69",
+      "metrics_average_div_yield": "69",
+      "metrics_average_pb": "69",
+      "metrics_beta": "69",
+      "metrics_port_turnover_ratio": "69",
+      "metrics_sharpe": "69",
+      "metrics_std_dev": "69",
+      "metrics_tracking_error": "69",
+      "min_amt": "69",
+      "min_amt_multiple": "69",
+      "monthly_aaum_date": "69",
+      "monthly_aaum_value": "69",
+      "mutual_fund_name": "69",
+      "scheme_launch_date": "69"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august, 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 200 Momentum 30 Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.67"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "7.67"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.14"
+     }
+    ],
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "485.29 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220805"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty50 Equal Weight TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "70",
+      "benchmark_index": "70",
+      "count": 62,
+      "fund_manager_managing_fund_since": "70",
+      "fund_manager_name": "70",
+      "fund_manager_total_exp": "70",
+      "indicative_inv_horizon": "70",
+      "load_exit": "70",
+      "main_scheme_name": "70",
+      "metrics_average_div_yield": "70",
+      "metrics_average_pb": "70",
+      "metrics_beta": "70",
+      "metrics_port_turnover_ratio": "70",
+      "metrics_sharpe": "70",
+      "metrics_std_dev": "70",
+      "metrics_tracking_error": "70",
+      "min_amt": "70",
+      "min_amt_multiple": "70",
+      "monthly_aaum_date": "70",
+      "monthly_aaum_value": "70",
+      "mutual_fund_name": "70",
+      "scheme_launch_date": "70"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "october, 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty50 Equal Weight Index Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.77"
+     },
+     {
+      "name": "beta",
+      "value": "1"
+     },
+     {
+      "name": "tracking_error",
+      "value": "1"
+     },
+     {
+      "name": "std_dev",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.55"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "1.51"
+     }
+    ],
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "99.05 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20221003"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 50 Value 20 TRI (Benchmark) - Nifty 50 TRI (Additional Benchmark) -10.53"
+    ],
+    "field_location": [
+     {
+      "amc_name": "72",
+      "benchmark_index": "72",
+      "count": 62,
+      "fund_manager_managing_fund_since": "72",
+      "fund_manager_name": "72",
+      "fund_manager_total_exp": "72",
+      "indicative_inv_horizon": "72",
+      "load_exit": "72",
+      "main_scheme_name": "72",
+      "metrics_average_div_yield": "72",
+      "metrics_average_pb": "72",
+      "metrics_port_turnover_ratio": "72",
+      "min_amt": "72",
+      "min_amt_multiple": "72",
+      "monthly_aaum_date": "72",
+      "monthly_aaum_value": "72",
+      "mutual_fund_name": "72",
+      "scheme_launch_date": "72"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "feb, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty50 Value 20 Index Fund",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.25"
+     },
+     {
+      "name": "average_pb",
+      "value": "3.39"
+     },
+     {
+      "name": "average_div_yield",
+      "value": "2.40"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "90.08 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20240205"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty200 Value 30 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "73",
+      "benchmark_index": "73",
+      "count": 62,
+      "fund_manager_managing_fund_since": "73",
+      "fund_manager_name": "73",
+      "fund_manager_total_exp": "73",
+      "indicative_inv_horizon": "73",
+      "load_exit": "73",
+      "main_scheme_name": "73",
+      "metrics_port_turnover_ratio": "73",
+      "min_amt": "73",
+      "min_amt_multiple": "73",
+      "monthly_aaum_date": "73",
+      "monthly_aaum_value": "73",
+      "mutual_fund_name": "73",
+      "scheme_launch_date": "73"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "oct, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty200 Value 30 Index Fund",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.12"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "75.80 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20241018"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 200 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "74",
+      "benchmark_index": "74",
+      "count": 62,
+      "fund_manager_managing_fund_since": "74",
+      "fund_manager_name": "74",
+      "indicative_inv_horizon": "74",
+      "load_exit": "74",
+      "main_scheme_name": "74",
+      "min_addl_amt": "74",
+      "min_addl_amt_multiple": "74",
+      "min_amt": "74",
+      "min_amt_multiple": "74",
+      "monthly_aaum_date": "74",
+      "monthly_aaum_value": "74",
+      "mutual_fund_name": "74",
+      "scheme_launch_date": "74"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "nov 2024",
+      "name": "Ms. Masoomi Jhurmarvala",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sankaran Naren",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dharmesh Kakkad",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": ": • If units purchased or switched in from another scheme of the Fund are redeemed or switched out up to 15 days from the date of allotment – 1% of the Applicable NAV • If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 15 days from the date of allotment - Nil (w.e.f. 1st July 2021)",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Passive Strategy Fund (FOF)",
+    "min_addl_amt": "500",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "Rs 5,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "172.54 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20210701"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "(CRISIL Hybrid 50+50- Moderate Index (80% weightage) + Global 1200 Index (15% weightage) + Domestic Gold Price (5% weightage)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "75",
+      "benchmark_index": "75",
+      "count": 62,
+      "fund_manager_managing_fund_since": "75",
+      "fund_manager_name": "75",
+      "indicative_inv_horizon": "75",
+      "load_exit": "75",
+      "main_scheme_name": "75",
+      "metrics_mod_duration": "75",
+      "min_addl_amt": "75",
+      "min_addl_amt_multiple": "75",
+      "min_amt": "75",
+      "min_amt_multiple": "75",
+      "monthly_aaum_date": "75",
+      "monthly_aaum_value": "75",
+      "mutual_fund_name": "75",
+      "scheme_launch_date": "75"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2022",
+      "name": "Sankaran Naren",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "jan 2022",
+      "name": "Manish Banthia",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "jan 2022",
+      "name": "Ritesh Lunawat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "jan 2022",
+      "name": "Mr. Dharmesh Kakkad",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "jan 2022",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "apr 2022",
+      "name": "Ms. Masoomi Jhurmarvala",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "nov 2024",
+      "name": "",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": ": If the amount sought to be redeemed or switched out up to 12 months from allotment: 1.00% of applicable NAV . If the amount sought to be redeemed or switched out more than 12 months from allotment: Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Passive Multi-Asset Fund of Fund",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "80"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,096.09 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220114"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty 100  Volatility 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "76",
+      "benchmark_index": "76",
+      "count": 62,
+      "fund_manager_managing_fund_since": "76",
+      "fund_manager_name": "76",
+      "fund_manager_total_exp": "76",
+      "indicative_inv_horizon": "76",
+      "load_exit": "76",
+      "main_scheme_name": "76",
+      "metrics_beta": "76",
+      "min_addl_amt": "76",
+      "min_addl_amt_multiple": "76",
+      "min_amt": "76",
+      "min_amt_multiple": "76",
+      "monthly_aaum_date": "76",
+      "monthly_aaum_value": "76",
+      "mutual_fund_name": "76",
+      "scheme_launch_date": "76"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "apr, 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "december 18, 2024",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": ": Nil (w.e.f. 15th Nov 2021)",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF",
+    "metrics": [
+     {
+      "name": "beta",
+      "value": "2."
+     }
+    ],
+    "min_addl_amt": "500",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,397.31 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20210412"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Nifty Alpha  -Volatility 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "77",
+      "benchmark_index": "77",
+      "count": 62,
+      "fund_manager_managing_fund_since": "77",
+      "fund_manager_name": "77",
+      "fund_manager_total_exp": "77",
+      "indicative_inv_horizon": "77",
+      "load_exit": "77",
+      "main_scheme_name": "77",
+      "metrics_alpha": "77",
+      "min_addl_amt": "77",
+      "min_addl_amt_multiple": "77",
+      "min_amt": "77",
+      "min_amt_multiple": "77",
+      "monthly_aaum_date": "77",
+      "monthly_aaum_value": "77",
+      "mutual_fund_name": "77",
+      "scheme_launch_date": "77"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": ": Nil (w.e.f. 15th Nov 2021)",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Nifty Alpha Low - Volatility 30 ETF FOF",
+    "metrics": [
+     {
+      "name": "alpha",
+      "value": "30"
+     }
+    ],
+    "min_addl_amt": "500",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "877.99 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20210920"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Size BSE Bharat 22 TRI (Benchmark) Large"
+    ],
+    "field_location": [
+     {
+      "amc_name": "78",
+      "benchmark_index": "78",
+      "count": 62,
+      "fund_manager_managing_fund_since": "78",
+      "fund_manager_name": "78",
+      "fund_manager_total_exp": "78",
+      "load_exit": "78",
+      "main_scheme_name": "78",
+      "min_amt": "78",
+      "min_amt_multiple": "78",
+      "monthly_aaum_date": "78",
+      "monthly_aaum_value": "78",
+      "mutual_fund_name": "78",
+      "scheme_launch_date": "78"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "jan 2021",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "dec 24",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "feb 24",
+      "name": "Ajaykumar Solanki",
+      "qualification": "",
+      "total_exp": "10 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": ": Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BHARAT 22 FOF",
+    "min_amt": "5,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,170.87 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20180629"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "BSE 500 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "79",
+      "benchmark_index": "79",
+      "count": 62,
+      "fund_manager_managing_fund_since": "79",
+      "fund_manager_name": "79",
+      "fund_manager_total_exp": "79",
+      "indicative_inv_horizon": "79",
+      "load_exit": "79",
+      "main_scheme_name": "79",
+      "min_addl_amt": "79",
+      "min_addl_amt_multiple": "79",
+      "min_amt": "79",
+      "min_amt_multiple": "79",
+      "monthly_aaum_date": "79",
+      "monthly_aaum_value": "79",
+      "mutual_fund_name": "79",
+      "scheme_launch_date": "79"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 18, 2024",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ashwini Shinde",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": ": If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10% of the units (the limit) purchased or switched within 1 year from the date of allotment – Nil • If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit within 1 Year from the date of allotment - 1% of the applicable NAV • If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 Year from the date of allotment - Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential BSE 500 ETF FOF",
+    "min_addl_amt": "500",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "117.68 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20211201"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     ": Domestic price of gold as derived from the LBMA AM fixing prices `"
+    ],
+    "field_location": [
+     {
+      "amc_name": "80",
+      "benchmark_index": "80",
+      "count": 62,
+      "fund_manager_managing_fund_since": "80",
+      "fund_manager_name": "80",
+      "fund_manager_total_exp": "80",
+      "indicative_inv_horizon": "80",
+      "load_exit": "80",
+      "main_scheme_name": "80",
+      "min_addl_amt": "80",
+      "min_addl_amt_multiple": "80",
+      "min_amt": "80",
+      "min_amt_multiple": "80",
+      "monthly_aaum_date": "80",
+      "monthly_aaum_value": "80",
+      "mutual_fund_name": "80",
+      "scheme_launch_date": "80"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "sep, 2012",
+      "name": "Manish Banthia",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "dec, 2020",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     }
+    ],
+    "indicative_inv_horizon": "5 years",
+    "load": [
+     {
+      "comment": "for Redemption / Switch out :- Lumpsum & SIP / STP / SWP Option Upto 15 days from allotment - 1% of applicable NAV, more than 15 days - Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Regular Gold Savings Fund (FOF)",
+    "min_addl_amt": "100",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,476.17 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20111011"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "benchmark_index": [
+     "Domestic price of silver as derived from the LBMA AM fixing prices"
+    ],
+    "field_location": [
+     {
+      "amc_name": "81",
+      "benchmark_index": "81",
+      "count": 62,
+      "fund_manager_managing_fund_since": "81",
+      "fund_manager_name": "81",
+      "fund_manager_total_exp": "81",
+      "indicative_inv_horizon": "81",
+      "load_exit": "81",
+      "main_scheme_name": "81",
+      "min_addl_amt": "81",
+      "min_addl_amt_multiple": "81",
+      "min_amt": "81",
+      "min_amt_multiple": "81",
+      "monthly_aaum_date": "81",
+      "monthly_aaum_value": "81",
+      "mutual_fund_name": "81",
+      "scheme_launch_date": "81"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "feb 2022",
+      "name": "Manish Banthia",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Nishit Patel",
+      "qualification": "",
+      "total_exp": "7 years"
+     }
+    ],
+    "indicative_inv_horizon": "3 years",
+    "load": [
+     {
+      "comment": ": If the amount sought to be redeemed or switched out is invested for a period upto 15 days from the date of allotment - 1% of the applicable Net Asset Value; If the amount sought to be redeemed or switched out is invested for a period more than 15 days from the date of allotment – Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ICICI Prudential Silver ETF Fund of Fund",
+    "min_addl_amt": "100",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "962.26 crores",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund",
+    "scheme_launch_date": "20220201"
+   }
+  }
+ ]
+}

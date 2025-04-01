@@ -1,0 +1,2663 @@
+{
+ "metadata": {
+  "document_name": "37_31-Jan-25_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250211"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 100 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "8",
+      "benchmark_index": "8",
+      "count": 33,
+      "fund_manager_name": "8",
+      "load_exit": "8",
+      "main_scheme_name": "8",
+      "metrics_beta": "8",
+      "metrics_correlation_ratio": "8",
+      "metrics_information_ratio": "8",
+      "metrics_port_turnover_ratio": "8",
+      "metrics_sharpe": "8",
+      "metrics_std_dev": "8",
+      "min_amt": "8",
+      "min_amt_multiple": "8",
+      "monthly_aaum_date": "8",
+      "monthly_aaum_value": "8",
+      "mutual_fund_name": "8",
+      "scheme_launch_date": "8"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 20.20 21.57",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Large Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.4"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.4"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "34.1"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.4"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "3,331 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JUL 30"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty MidCap 150 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "9",
+      "benchmark_index": "9",
+      "count": 33,
+      "fund_manager_name": "9",
+      "load_exit": "9",
+      "main_scheme_name": "9",
+      "metrics_beta": "9",
+      "metrics_information_ratio": "9",
+      "metrics_port_turnover_ratio": "9",
+      "metrics_sharpe": "9",
+      "metrics_std_dev": "9",
+      "min_amt": "9",
+      "min_amt_multiple": "9",
+      "monthly_aaum_date": "9",
+      "monthly_aaum_value": "9",
+      "mutual_fund_name": "9",
+      "scheme_launch_date": "9"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "S Bharath",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "B Varier",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 1270.61 1382.02",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Mid Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.0"
+     },
+     {
+      "name": "std_dev",
+      "value": "15.2"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "38.0"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.2"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "11,940 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JUL 30"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Small Cap 250 TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "10",
+      "benchmark_index": "10",
+      "count": 33,
+      "fund_manager_name": "10",
+      "load_exit": "10",
+      "main_scheme_name": "10",
+      "metrics_beta": "10",
+      "metrics_information_ratio": "10",
+      "metrics_port_turnover_ratio": "10",
+      "metrics_sharpe": "10",
+      "metrics_std_dev": "10",
+      "min_amt": "10",
+      "min_amt_multiple": "10",
+      "monthly_aaum_date": "10",
+      "monthly_aaum_value": "10",
+      "mutual_fund_name": "10",
+      "scheme_launch_date": "10"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 240.72 265.18",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Small Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.7"
+     },
+     {
+      "name": "std_dev",
+      "value": "15.0"
+     },
+     {
+      "name": "beta",
+      "value": "0.7"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "64.9"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.2"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "3,251 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "FEB 15"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Large Mid Cap 250 TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "11",
+      "benchmark_index": "11",
+      "count": 33,
+      "fund_manager_name": "11",
+      "load_exit": "11",
+      "main_scheme_name": "11",
+      "metrics_beta": "11",
+      "metrics_correlation_ratio": "11",
+      "metrics_information_ratio": "11",
+      "metrics_port_turnover_ratio": "11",
+      "metrics_sharpe": "11",
+      "metrics_std_dev": "11",
+      "min_amt": "11",
+      "min_amt_multiple": "11",
+      "monthly_aaum_date": "11",
+      "monthly_aaum_value": "11",
+      "mutual_fund_name": "11",
+      "scheme_launch_date": "11"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Ashish Aggarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 79.73 89.25",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Large and Mid Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.5"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.9"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "32.1"
+     },
+     {
+      "name": "information_ratio",
+      "value": "1.1"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "6,607 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "FEB 27"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 500 Multicap 50:25:25 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "12",
+      "benchmark_index": "12",
+      "count": 33,
+      "fund_manager_name": "12",
+      "load_exit": "12",
+      "main_scheme_name": "12",
+      "metrics_beta": "12",
+      "metrics_correlation_ratio": "12",
+      "metrics_information_ratio": "12",
+      "metrics_port_turnover_ratio": "12",
+      "metrics_sharpe": "12",
+      "metrics_std_dev": "12",
+      "min_amt": "12",
+      "min_amt_multiple": "12",
+      "monthly_aaum_date": "12",
+      "monthly_aaum_value": "12",
+      "mutual_fund_name": "12",
+      "scheme_launch_date": "12"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "B Varier",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 353.94 392.15",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Multi Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.5"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.7"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "64.8"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.9"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "2,680 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "OCT 25"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "13",
+      "benchmark_index": "13",
+      "count": 33,
+      "fund_manager_name": "13",
+      "load_exit": "13",
+      "main_scheme_name": "13",
+      "metrics_port_turnover_ratio": "13",
+      "min_amt": "13",
+      "min_amt_multiple": "13",
+      "monthly_aaum_date": "13",
+      "monthly_aaum_value": "13",
+      "mutual_fund_name": "13",
+      "scheme_launch_date": "13"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Pathanjali Srinivasan",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 13.76 14.30",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Flexi Cap Fund",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "24.9"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "2,006 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "SEP 6, 2022"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "14",
+      "benchmark_index": "14",
+      "count": 33,
+      "fund_manager_name": "14",
+      "load_exit": "14",
+      "main_scheme_name": "14",
+      "metrics_beta": "14",
+      "metrics_correlation_ratio": "14",
+      "metrics_information_ratio": "14",
+      "metrics_port_turnover_ratio": "14",
+      "metrics_sharpe": "14",
+      "metrics_std_dev": "14",
+      "min_amt": "14",
+      "min_amt_multiple": "14",
+      "monthly_aaum_date": "14",
+      "monthly_aaum_value": "14",
+      "mutual_fund_name": "14",
+      "scheme_launch_date": "14"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Ashwin Jain",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "0.25% within 7 days from the date of allotment; >7 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 153.83 169.61",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Focused Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.4"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.7"
+     },
+     {
+      "name": "beta",
+      "value": "1.0"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "65.5"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.7"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 300",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,071 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "NOV 11"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "15",
+      "benchmark_index": "15",
+      "count": 33,
+      "fund_manager_name": "15",
+      "load_exit": "15",
+      "main_scheme_name": "15",
+      "metrics_beta": "15",
+      "metrics_correlation_ratio": "15",
+      "metrics_information_ratio": "15",
+      "metrics_port_turnover_ratio": "15",
+      "metrics_sharpe": "15",
+      "metrics_std_dev": "15",
+      "min_amt": "15",
+      "min_amt_multiple": "15",
+      "monthly_aaum_date": "15",
+      "monthly_aaum_value": "15",
+      "mutual_fund_name": "15",
+      "scheme_launch_date": "15"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Rohit Seksaria",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil (lock in period 36 months) NET ASSET VALUE (NAV) Regular Direct Growth 473.94 505.46",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram ELSS Tax Saver Fund*",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.5"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.4"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "29.4"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.5"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 500",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,310 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAR 31"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "16",
+      "benchmark_index": "16",
+      "count": 33,
+      "fund_manager_name": "16",
+      "load_exit": "16",
+      "main_scheme_name": "16",
+      "metrics_beta": "16",
+      "metrics_correlation_ratio": "16",
+      "metrics_information_ratio": "16",
+      "metrics_port_turnover_ratio": "16",
+      "metrics_sharpe": "16",
+      "metrics_std_dev": "16",
+      "min_amt": "16",
+      "min_amt_multiple": "16",
+      "monthly_aaum_date": "16",
+      "monthly_aaum_value": "16",
+      "mutual_fund_name": "16",
+      "scheme_launch_date": "16"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "B Varier",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ashish Aggarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 24%, within 365 days from the date of allotment: Nil. More than 24% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 130.40 141.53",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Dividend Yield Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.7"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.6"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "46.7"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.2"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 5000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "899 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "OCT 15"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty India Consumption TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "17",
+      "benchmark_index": "17",
+      "count": 33,
+      "fund_manager_name": "17",
+      "load_exit": "17",
+      "main_scheme_name": "17",
+      "metrics_beta": "17",
+      "metrics_information_ratio": "17",
+      "metrics_port_turnover_ratio": "17",
+      "metrics_sharpe": "17",
+      "metrics_std_dev": "17",
+      "min_amt": "17",
+      "min_amt_multiple": "17",
+      "monthly_aaum_date": "17",
+      "monthly_aaum_value": "17",
+      "mutual_fund_name": "17",
+      "scheme_launch_date": "17"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "B Varier",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "0.5% - For redemption, withdrawn by way of SWP or transfer by way of Switch/STP within 30 days from the date of allotment. NIL - For redemption or withdrawn by way of SWP or transfer by way of Switch/STP after 30 days from the date of allotment NET ASSET VALUE (NAV) Regular Direct Growth 94.14 102.78",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Consumption Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.8"
+     },
+     {
+      "name": "std_dev",
+      "value": "14.2"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "24.6"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.0"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,534 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAY 12"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Services Sector TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "18",
+      "benchmark_index": "18",
+      "count": 33,
+      "fund_manager_name": "18",
+      "load_exit": "18",
+      "main_scheme_name": "18",
+      "metrics_beta": "18",
+      "metrics_information_ratio": "18",
+      "metrics_port_turnover_ratio": "18",
+      "metrics_sharpe": "18",
+      "metrics_std_dev": "18",
+      "min_amt": "18",
+      "min_amt_multiple": "18",
+      "monthly_aaum_date": "18",
+      "monthly_aaum_value": "18",
+      "mutual_fund_name": "18",
+      "scheme_launch_date": "18"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Overseas Equities",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 31.64 34.07",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Services Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.6"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.5"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "78.3"
+     },
+     {
+      "name": "information_ratio",
+      "value": "1.1"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "3,824 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "SEP 21"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Infrastructure TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 33,
+      "fund_manager_name": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "metrics_beta": "19",
+      "metrics_information_ratio": "19",
+      "metrics_port_turnover_ratio": "19",
+      "metrics_sharpe": "19",
+      "metrics_std_dev": "19",
+      "min_amt": "19",
+      "min_amt_multiple": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19",
+      "scheme_launch_date": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "B Varier",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "0.5% - For redemption, withdrawn by way of SWP or transfer by way of Switch/STP within 30 days from the date of allotment. NIL - For redemption or withdrawn by way of SWP or transfer by way of Switch/STP after 30 days from the date of allotment NET ASSET VALUE (NAV) Regular Direct Growth 86.92 92.66",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Infrastructure Advantage Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.8"
+     },
+     {
+      "name": "std_dev",
+      "value": "15.2"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "36.5"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.1"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "931 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "SEP 29"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Financial Services Index TR ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "20",
+      "benchmark_index": "20",
+      "count": 33,
+      "fund_manager_name": "20",
+      "load_exit": "20",
+      "main_scheme_name": "20",
+      "metrics_beta": "20",
+      "metrics_information_ratio": "20",
+      "metrics_port_turnover_ratio": "20",
+      "metrics_sharpe": "20",
+      "metrics_std_dev": "20",
+      "min_amt": "20",
+      "min_amt_multiple": "20",
+      "monthly_aaum_date": "20",
+      "monthly_aaum_value": "20",
+      "mutual_fund_name": "20",
+      "scheme_launch_date": "20"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Ashish Aggarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "0.5% - For redemption, withdrawn by way of SWP or transfer by way of Switch/STP within 30 days from the date of allotment. NIL - For redemption or withdrawn by way of SWP or transfer by way of Switch/STP after 30 days from the date of allotment NET ASSET VALUE (NAV) Regular Direct Growth 92.92 104.22",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Financial Services Opportunities Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.6"
+     },
+     {
+      "name": "std_dev",
+      "value": "14.5"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "74.2"
+     },
+     {
+      "name": "information_ratio",
+      "value": "1.1"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,386 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JUN 16"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) NIFTY 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 33,
+      "fund_manager_name": "21",
+      "load_exit": "21",
+      "main_scheme_name": "21",
+      "metrics_port_turnover_ratio": "21",
+      "min_amt": "21",
+      "min_amt_multiple": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21",
+      "scheme_launch_date": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "B Varier",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bharath",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Sandeep",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Pathanjali Srinivasan",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 10.14 10.24",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Business Cycle Fund",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "20.4"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,577 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JUN 25"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) MSCI ACWI TRI (INR) ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "22",
+      "benchmark_index": "22",
+      "count": 33,
+      "fund_manager_name": "22",
+      "load_exit": "22",
+      "main_scheme_name": "22",
+      "min_amt": "22",
+      "min_amt_multiple": "22",
+      "monthly_aaum_date": "22",
+      "monthly_aaum_value": "22",
+      "mutual_fund_name": "22",
+      "scheme_launch_date": "22"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil ₹ NET ASSET VALUE (NAV) Regular Direct Growth 34.37 37.49",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Global Brand Fund",
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "118 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAR 29"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) NIFTY 100 Equal Weighted Index TR ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 33,
+      "fund_manager_name": "23",
+      "load_exit": "23",
+      "main_scheme_name": "23",
+      "metrics_beta": "23",
+      "metrics_information_ratio": "23",
+      "metrics_port_turnover_ratio": "23",
+      "metrics_sharpe": "23",
+      "metrics_std_dev": "23",
+      "min_amt": "23",
+      "min_amt_multiple": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23",
+      "scheme_launch_date": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Ashish Aggarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 161.79 170.04",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Nifty 100 Equal Weight Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.5"
+     },
+     {
+      "name": "std_dev",
+      "value": "15.0"
+     },
+     {
+      "name": "beta",
+      "value": "1.0"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "27.7"
+     },
+     {
+      "name": "information_ratio",
+      "value": "2.1"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "96 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JUL 27"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) CRISIL Hybrid 35+65 Aggressive Index ",
+     "Additional Benchmark NIFTY 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "24",
+      "benchmark_index": "24",
+      "count": 33,
+      "fund_manager_name": "24",
+      "load_exit": "24",
+      "main_scheme_name": "24",
+      "metrics_avg_maturity": "24",
+      "metrics_beta": "24",
+      "metrics_information_ratio": "24",
+      "metrics_macaulay": "24",
+      "metrics_mod_duration": "24",
+      "metrics_port_turnover_ratio": "24",
+      "metrics_sharpe": "24",
+      "metrics_std_dev": "24",
+      "metrics_ytm": "24",
+      "min_amt": "24",
+      "min_amt_multiple": "24",
+      "monthly_aaum_date": "24",
+      "monthly_aaum_value": "24",
+      "mutual_fund_name": "24",
+      "scheme_launch_date": "24"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Clyton Richard Fernandes",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 151.77 173.10",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Aggressive Hybrid Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.4"
+     },
+     {
+      "name": "std_dev",
+      "value": "9.9"
+     },
+     {
+      "name": "beta",
+      "value": "1.0"
+     },
+     {
+      "name": "ytm",
+      "value": "6.77 %"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "56.3"
+     },
+     {
+      "name": "mod_duration",
+      "value": "4.22 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "6.35 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.15 Years"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.2"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "5,460 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JAN 14"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Equity Savings Index TRI ",
+     "Additional Benchmark CRISIL 10Y Gilt Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "25",
+      "benchmark_index": "25",
+      "count": 33,
+      "fund_manager_name": "25",
+      "load_exit": "25",
+      "main_scheme_name": "25",
+      "metrics_avg_maturity": "25",
+      "metrics_beta": "25",
+      "metrics_information_ratio": "25",
+      "metrics_macaulay": "25",
+      "metrics_mod_duration": "25",
+      "metrics_port_turnover_ratio": "25",
+      "metrics_sharpe": "25",
+      "metrics_std_dev": "25",
+      "metrics_ytm": "25",
+      "min_amt": "25",
+      "min_amt_multiple": "25",
+      "monthly_aaum_date": "25",
+      "monthly_aaum_value": "25",
+      "mutual_fund_name": "25",
+      "scheme_launch_date": "25"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Rohit Seksaria",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "0.5% if redeemed within 7 days from the date of allotment. > 7 Days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 67.17 77.45",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Equity Savings Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.6"
+     },
+     {
+      "name": "std_dev",
+      "value": "5.6"
+     },
+     {
+      "name": "beta",
+      "value": "1.1"
+     },
+     {
+      "name": "ytm",
+      "value": "7.13 %"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "55.4"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.12 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.34 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.24 Years"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.5"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,057 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAY 23"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) NIFTY 50 Hybrid Composite debt 50:50 Index ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "26",
+      "benchmark_index": "26",
+      "count": 33,
+      "fund_manager_name": "26",
+      "load_exit": "26",
+      "main_scheme_name": "26",
+      "metrics_avg_maturity": "26",
+      "metrics_beta": "26",
+      "metrics_information_ratio": "26",
+      "metrics_macaulay": "26",
+      "metrics_mod_duration": "26",
+      "metrics_port_turnover_ratio": "26",
+      "metrics_sharpe": "26",
+      "metrics_std_dev": "26",
+      "metrics_ytm": "26",
+      "min_amt": "26",
+      "min_amt_multiple": "26",
+      "monthly_aaum_date": "26",
+      "monthly_aaum_value": "26",
+      "mutual_fund_name": "26",
+      "scheme_launch_date": "26"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Clyton Richard Fernandes",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 365 days from the date of allotment: Nil. More than 25% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 33.38 38.90",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Balanced Advantage Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.4"
+     },
+     {
+      "name": "std_dev",
+      "value": "7.6"
+     },
+     {
+      "name": "beta",
+      "value": "1.0"
+     },
+     {
+      "name": "ytm",
+      "value": "7.04 %"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "64.3"
+     },
+     {
+      "name": "mod_duration",
+      "value": "4.26 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "6.84 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.45 Years"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.1"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,506 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "DEC 16"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) NIFTY 500 TRI (65%) + NIFTY Short Duration Debt Index (10%) + Domestic Prices of Gold (25%) ",
+     "Additional Benchmark"
+    ],
+    "field_location": [
+     {
+      "amc_name": "27",
+      "benchmark_index": "27",
+      "count": 33,
+      "fund_manager_name": "27",
+      "load_exit": "27",
+      "main_scheme_name": "27",
+      "metrics_avg_maturity": "27",
+      "metrics_macaulay": "27",
+      "metrics_mod_duration": "27",
+      "metrics_port_turnover_ratio": "27",
+      "metrics_ytm": "27",
+      "min_amt": "27",
+      "min_amt_multiple": "27",
+      "monthly_aaum_date": "27",
+      "monthly_aaum_value": "27",
+      "mutual_fund_name": "27",
+      "scheme_launch_date": "27"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Clyton Richard Fernandes",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Arjun Nagarajan",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 30%, within 365 days from the date of allotment: Nil. More than 30% within 365 days from the date of allotment: 1%. >365 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 11.22 11.42",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Multi Asset Allocation Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.75"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.52 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.40 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.64 Years"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "54."
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "2,429 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "JAN 25"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) NIFTY 50 Arbitrage Index TRI ",
+     "Additional Benchmark CRISIL 1Y Tbill"
+    ],
+    "field_location": [
+     {
+      "amc_name": "28",
+      "benchmark_index": "28",
+      "count": 33,
+      "fund_manager_name": "28",
+      "load_exit": "28",
+      "main_scheme_name": "28",
+      "metrics_avg_maturity": "28",
+      "metrics_beta": "28",
+      "metrics_information_ratio": "28",
+      "metrics_macaulay": "28",
+      "metrics_mod_duration": "28",
+      "metrics_port_turnover_ratio": "28",
+      "metrics_sharpe": "28",
+      "metrics_std_dev": "28",
+      "metrics_ytm": "28",
+      "min_amt": "28",
+      "min_amt_multiple": "28",
+      "monthly_aaum_date": "28",
+      "monthly_aaum_value": "28",
+      "mutual_fund_name": "28",
+      "scheme_launch_date": "28"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Ashish Aggarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Upto 25%, within 15 days from the date of allotment: Nil. More than 25% within 15 days from the date of allotment: 0.25%. >15 days: Nil NET ASSET VALUE (NAV) Regular Direct Growth 14.07 14.78",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Arbitrage Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-1.0"
+     },
+     {
+      "name": "std_dev",
+      "value": "0.7"
+     },
+     {
+      "name": "beta",
+      "value": "0.8"
+     },
+     {
+      "name": "ytm",
+      "value": "5.46 %"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "89.8"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.00 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.52 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.49 Years"
+     },
+     {
+      "name": "information_ratio",
+      "value": "1.7"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "220 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "APR 21"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 33,
+      "fund_manager_name": "29",
+      "load_exit": "29",
+      "main_scheme_name": "29",
+      "metrics_beta": "29",
+      "metrics_correlation_ratio": "29",
+      "metrics_information_ratio": "29",
+      "metrics_port_turnover_ratio": "29",
+      "metrics_sharpe": "29",
+      "metrics_std_dev": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29",
+      "scheme_launch_date": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Rohit Seksaria",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil (Lock in period of 36 months) NET ASSET VALUE (NAV) Regular Direct Growth 206.24 217.96",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Diversified Equity Fund*",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.4"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.5"
+     },
+     {
+      "name": "beta",
+      "value": "0.9"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "24.7"
+     },
+     {
+      "name": "information_ratio",
+      "value": "0.8"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "1,483 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "NOV 22"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) BSE 500 TRI ",
+     "Additional Benchmark Nifty 50 TRI Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "30",
+      "benchmark_index": "30",
+      "count": 33,
+      "fund_manager_name": "30",
+      "load_exit": "30",
+      "main_scheme_name": "30",
+      "metrics_port_turnover_ratio": "30",
+      "monthly_aaum_date": "30",
+      "monthly_aaum_value": "30",
+      "mutual_fund_name": "30",
+      "scheme_launch_date": "30"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sudhir Kedia",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NAV* Series I Regular Direct Growth INR 30.66 INR 31.39",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Long Term Tax Advantage Fund - Series I - IV",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "3"
+     }
+    ],
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "19",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAR 26"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Liquid Index A-I ",
+     "Additional Benchmark CRISIL 1Y Tbill Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "32",
+      "benchmark_index": "32",
+      "count": 33,
+      "fund_manager_name": "32",
+      "load_exit": "32",
+      "main_scheme_name": "32",
+      "metrics_avg_maturity": "32",
+      "metrics_macaulay": "32",
+      "metrics_mod_duration": "32",
+      "metrics_ytm": "32",
+      "min_amt": "32",
+      "min_amt_multiple": "32",
+      "monthly_aaum_date": "32",
+      "monthly_aaum_value": "32",
+      "mutual_fund_name": "32",
+      "scheme_launch_date": "32"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Exit day from subscription Exit Load as a % of redemption proceeds: Day 1 0.0070%; Day 2 0.0065%; Day 3 0.0060%; Day 4 0.0055%; Day 5 0.0050%; Day 6 0.0045%; Day 7 onwards Nil NET ASSET VALUE (NAV) Regular Direct Growth 2239.15 2263.23",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Liquid Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.33 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.10 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.10 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.10 Years"
+     }
+    ],
+    "min_amt": "INR 1000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "6,752 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "AUG 30"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) NIFTY1D Rate Index ",
+     "Additional Benchmark CRISIL 1Y Tbill Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "33",
+      "benchmark_index": "33",
+      "count": 33,
+      "fund_manager_name": "33",
+      "load_exit": "33",
+      "main_scheme_name": "33",
+      "metrics_avg_maturity": "33",
+      "metrics_macaulay": "33",
+      "metrics_mod_duration": "33",
+      "metrics_ytm": "33",
+      "min_amt": "33",
+      "min_amt_multiple": "33",
+      "monthly_aaum_date": "33",
+      "monthly_aaum_value": "33",
+      "mutual_fund_name": "33",
+      "scheme_launch_date": "33"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 1335.01 1342.89",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Overnight Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.60 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.00 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.01 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.01 Years"
+     }
+    ],
+    "min_amt": "INR 5000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "766 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAR 20"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Ultra Short Duration Debt Index A-I ",
+     "Additional Benchmark CRISIL 1Y Tbill Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "34",
+      "benchmark_index": "34",
+      "count": 33,
+      "fund_manager_name": "34",
+      "load_exit": "34",
+      "main_scheme_name": "34",
+      "metrics_avg_maturity": "34",
+      "metrics_correlation_ratio": "34",
+      "metrics_macaulay": "34",
+      "metrics_mod_duration": "34",
+      "metrics_ytm": "34",
+      "min_amt": "34",
+      "min_amt_multiple": "34",
+      "monthly_aaum_date": "34",
+      "monthly_aaum_value": "34",
+      "mutual_fund_name": "34",
+      "scheme_launch_date": "34"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 2612.22 2834.43",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Ultra Short Duration Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.53 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.43 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.44 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.44 Years"
+     },
+     {
+      "name": "correlation_ratio",
+      "value": "6.65"
+     }
+    ],
+    "min_amt": "INR 100",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "2,327 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "DEC 28"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Money Market Index A-I ",
+     "Additional Benchmark CRISIL 1Y Tbill Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "35",
+      "benchmark_index": "35",
+      "count": 33,
+      "fund_manager_name": "35",
+      "load_exit": "35",
+      "main_scheme_name": "35",
+      "metrics_avg_maturity": "35",
+      "metrics_macaulay": "35",
+      "metrics_mod_duration": "35",
+      "metrics_ytm": "35",
+      "min_amt": "35",
+      "min_amt_multiple": "35",
+      "monthly_aaum_date": "35",
+      "monthly_aaum_value": "35",
+      "mutual_fund_name": "35",
+      "scheme_launch_date": "35"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 14.50 14.59",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Money Market Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.42 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.40 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.40 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.40 Years"
+     }
+    ],
+    "min_amt": "INR 1000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "587 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "SEP 26"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Low Duration Debt Index A-I ",
+     "Additional Benchmark CRISIL 1Y Tbill Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "36",
+      "benchmark_index": "36",
+      "count": 33,
+      "fund_manager_name": "36",
+      "load_exit": "36",
+      "main_scheme_name": "36",
+      "metrics_avg_maturity": "36",
+      "metrics_macaulay": "36",
+      "metrics_mod_duration": "36",
+      "metrics_ytm": "36",
+      "min_amt": "36",
+      "min_amt_multiple": "36",
+      "monthly_aaum_date": "36",
+      "monthly_aaum_value": "36",
+      "mutual_fund_name": "36",
+      "scheme_launch_date": "36"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 3351.79 3582.21",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Low Duration Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.74"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.93 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1.18 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.98 Years"
+     }
+    ],
+    "min_amt": "INR 1000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "400 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "SEP 14"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Banking & PSU Debt Index A-II ",
+     "Additional Benchmark CRISIL 1Y Tbill Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "37",
+      "benchmark_index": "37",
+      "count": 33,
+      "fund_manager_name": "37",
+      "load_exit": "37",
+      "main_scheme_name": "37",
+      "metrics_avg_maturity": "37",
+      "metrics_macaulay": "37",
+      "metrics_mod_duration": "37",
+      "metrics_ytm": "37",
+      "min_amt": "37",
+      "min_amt_multiple": "37",
+      "monthly_aaum_date": "37",
+      "monthly_aaum_value": "37",
+      "mutual_fund_name": "37",
+      "scheme_launch_date": "37"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 41.44 42.00",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Banking & PSU Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.28 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.21 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.43 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.40 Years"
+     }
+    ],
+    "min_amt": "Rs 5,000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "336 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "DEC 29"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Short Duration Debt Index A-II ",
+     "Additional Benchmark CRISIL 10Y Gilt Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "38",
+      "benchmark_index": "38",
+      "count": 33,
+      "fund_manager_name": "38",
+      "load_exit": "38",
+      "main_scheme_name": "38",
+      "metrics_avg_maturity": "38",
+      "metrics_macaulay": "38",
+      "metrics_mod_duration": "38",
+      "metrics_ytm": "38",
+      "min_amt": "38",
+      "min_amt_multiple": "38",
+      "monthly_aaum_date": "38",
+      "monthly_aaum_value": "38",
+      "mutual_fund_name": "38",
+      "scheme_launch_date": "38"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 42.70 46.08",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Short Duration Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.49 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "2.74 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.66 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.88 Years"
+     }
+    ],
+    "min_amt": "INR 5000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "217 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "SEP 4, 2002"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Medium Duration Debt Index A-III ",
+     "Additional Benchmark CRISIL 10Y Gilt Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "39",
+      "benchmark_index": "39",
+      "count": 33,
+      "fund_manager_name": "39",
+      "load_exit": "39",
+      "main_scheme_name": "39",
+      "metrics_avg_maturity": "39",
+      "metrics_macaulay": "39",
+      "metrics_mod_duration": "39",
+      "metrics_ytm": "39",
+      "min_amt": "39",
+      "min_amt_multiple": "39",
+      "monthly_aaum_date": "39",
+      "monthly_aaum_value": "39",
+      "mutual_fund_name": "39",
+      "scheme_launch_date": "39"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 66.88 74.42",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Medium Duration Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.96 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.66 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.88 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.79 Years"
+     }
+    ],
+    "min_amt": "INR 5000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "44 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "DEC 18"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) Nifty Corporate Bond Index A-II ",
+     "Additional Benchmark CRISIL 10Y Gilt Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "40",
+      "benchmark_index": "40",
+      "count": 33,
+      "fund_manager_name": "40",
+      "load_exit": "40",
+      "main_scheme_name": "40",
+      "metrics_avg_maturity": "40",
+      "metrics_macaulay": "40",
+      "metrics_mod_duration": "40",
+      "metrics_ytm": "40",
+      "min_amt": "40",
+      "min_amt_multiple": "40",
+      "monthly_aaum_date": "40",
+      "monthly_aaum_value": "40",
+      "mutual_fund_name": "40",
+      "scheme_launch_date": "40"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Agarwal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 38.65 39.92",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Corporate Bond Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.32 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.76 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "5.60 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.98 Years"
+     }
+    ],
+    "min_amt": "INR 5000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "712 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "DEC 29"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Sundaram Asset Management Company Limited",
+    "benchmark_index": [
+     "(Tier I) CRISIL Hybrid 85+15 - Conservative Index ",
+     "Additional Benchmark CRISIL 10Y Gilt Plans Regular/Direct"
+    ],
+    "field_location": [
+     {
+      "amc_name": "41",
+      "benchmark_index": "41",
+      "count": 33,
+      "fund_manager_name": "41",
+      "load_exit": "41",
+      "main_scheme_name": "41",
+      "metrics_avg_maturity": "41",
+      "metrics_macaulay": "41",
+      "metrics_mod_duration": "41",
+      "metrics_ytm": "41",
+      "min_amt": "41",
+      "min_amt_multiple": "41",
+      "monthly_aaum_date": "41",
+      "monthly_aaum_value": "41",
+      "mutual_fund_name": "41",
+      "scheme_launch_date": "41"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Dwijendra Srivastava",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Sandeep",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bharath",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Ashish",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Month End",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil NET ASSET VALUE (NAV) Regular Direct Growth 28.64 31.45",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Sundaram Conservative Hybrid Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.87 %"
+     },
+     {
+      "name": "mod_duration",
+      "value": "6.41 Years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "11.75 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "6.63 Years"
+     }
+    ],
+    "min_amt": "INR 5000",
+    "min_amt_multiple": "INR 1",
+    "monthly_aaum_date": "JUL 30, 2002",
+    "monthly_aaum_value": "27 Cr",
+    "mutual_fund_name": "Sundaram Mutual Fund",
+    "scheme_launch_date": "MAR 8, 2010"
+   }
+  }
+ ]
+}

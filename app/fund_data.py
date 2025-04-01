@@ -128,6 +128,22 @@ class GrandFundData:
             final_dict['amt'], final_dict['thraftr'] = amt,thraftr
         return {main_key:final_dict}
     
+    def _extract_manager_data(self, main_key: str, data, pattern: str):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data, list) else data
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+
+        pattern_info = self.REGEX[pattern]
+        regex_pattern = pattern_info['pattern']
+        field_names = pattern_info['fields']
+
+        if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
+            for match in matches:
+                record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))}
+                final_list.append(self._return_manager_data(**record))
+
+        return {main_key: final_list}
+
     #match
     def _match_regex_to_content(self, string: str, data: list,*args):
         try:
@@ -339,88 +355,32 @@ class GrandFundData:
         })
 
 #1 <>
-class ThreeSixtyOne(Reader,GrandFundData):
-    
+class ThreeSixtyOne(Reader,GrandFundData):   
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data: list, pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name, exp = match
-                final_list.append(self._return_manager_data(name = name, exp = exp))
-        return {main_key: final_list}
 
 #2 
-class BajajFinServ(Reader,GrandFundData):
-    
+class BajajFinServ(Reader,GrandFundData):  
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data: list, pattern:str):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name, desig,since ,exp = match
-                final_list.append(self._return_manager_data(name = name,desig=desig,since=since,exp = exp))
-        return {main_key: final_list}
 #3 <>
-class Bandhan(Reader,GrandFundData):
-    
+class Bandhan(Reader,GrandFundData):  
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name, since = match
-            final_list.append(self._return_manager_data(name= name,since= since))
-        return {main_key:final_list}
 #4
-class BankOfIndia(Reader,GrandFundData):
-    
+class BankOfIndia(Reader,GrandFundData):   
     def __init__(self,paths_config:str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name, since,exp = match
-            final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
-        return {main_key:final_list}
-
 #5 <>
 class BarodaBNP(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
-        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = "".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name, since, exp = match
-            final_list.append(self._return_manager_data(name= name,since= since, exp=exp))
-        return {main_key:final_list}
-    
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params  
     def get_proper_fund_names(self,path: str):
         pattern = "(Baroda BNP.*?(?:Fund|Path|ETF|FTF|FOF|Index|Fund of Fund))"
         title = {}
@@ -532,19 +492,7 @@ class Edelweiss(Reader,GrandFundData):
         date_data = "".join(main_key)
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
         return {"inception_date": " ".join(matches)}
-    
-    def _extract_manager_data(self, main_key:str, data:list, pattern:str):
-        manager_data = data
-        final_list = []
-        for text in manager_data:
-            text = text.strip()
-            if matches:= re.findall(self.REGEX[pattern], text, re.IGNORECASE):
-                for match in matches:
-                    name,exp,since = match
-                    final_list.append(self._return_manager_data(name=name,exp=exp,since=since))
-                
-        return {main_key:final_list}
-    
+
     def _extract_aum_data(self,main_key:str, data:list,pattern:str):
         final_dict = {}
         for text in data:
@@ -560,16 +508,6 @@ class FranklinTempleton(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data, pattern:str):
-        manager_data = " ".join(data) if isinstance(data, list) else data
-        manager_data = re.sub(self.REGEX["escape"], "", manager_data).strip()
-        final_list = []
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name = match
-                final_list.append(self._return_manager_data(name=name))
-        return {main_key: final_list}
 
 #10 
 class HDFC(Reader,GrandFundData):
@@ -606,17 +544,7 @@ class GROWW(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data, pattern:str):
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX["escape"], "", manager_data).strip()
-        final_list = []
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name,desig,since,exp = match
-                final_list.append(self._return_manager_data(name=name,desig=desig,exp=exp, since=since))
-        return {main_key: final_list}
-
+        
     def _extract_date_data(self, main_key:str,data:list, pattern:str):
         date_data = "".join(main_key)
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
@@ -635,20 +563,9 @@ class GROWW(Reader,GrandFundData):
         return {main_key:final_dict}        
 #12 <>
 class Helios(Reader,GrandFundData):
-    
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data, pattern:str):
-        manager_data = re.sub(self.REGEX['escape'],"", data).strip()
-        final_list = []
-        if matches:= re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
-            for match in matches:
-                name,since,exp = match
-                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        
-        return {main_key: final_list}
 
 #13 
 class HSBC(Reader,GrandFundData):
@@ -656,17 +573,6 @@ class HSBC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        manager_data = "".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        final_list = []
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name,desig,exp,since = match
-            final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
-        
-        return {main_key:final_list}
     
     def _update_date_data(self,main_key:str,data):
         date = "^(\\d{2}-?[A-Za-z]+-?\\d{2}).+$"
@@ -689,70 +595,34 @@ class ICICI(Reader,GrandFundData): #Lupsum issues
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
     
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        manager_data = "".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        final_list = []
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name,since,exp = match
-            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+    # def _extract_manager_data(self, main_key:str, data:list,pattern:str):
+    #     manager_data = "".join(data)
+    #     manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
+    #     final_list = []
+    #     matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
+    #     for match in matches:
+    #         name,since,exp = match
+    #         final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         
-        return {main_key:final_list}
+    #     return {main_key:final_list}
 
 #15 <>
-class Invesco(Reader,GrandFundData): #Lupsum issues
-    
+class Invesco(Reader,GrandFundData): #Lupsum issues  
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        final_list = []
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name,exp,since = match
-            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        
-        return {main_key:final_list}
-
 #16 <>
 class ITI(Reader,GrandFundData):
-    
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data:list, pattern:str):
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-        final_list = []  
-        matches= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name,since,exp = match
-            final_list.append(self._return_manager_data(name=name,since=since, exp=exp))
-                
-        return {main_key:final_list}
-
 #17 <>
 class Kotak(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        for text in data:
-            text = re.sub(self.REGEX['escape'],'',text).strip()
-            if matches:= re.findall(self.REGEX[pattern], text, re.IGNORECASE):
-                name = matches[0]
-                final_list.append(self._return_manager_data(name=name))
-        
-        return {main_key:final_list}
-    
+           
     def _extract_appl_data(self,main_key:str, data, pattern:str):
 
         amt_data = " ".join(data) if isinstance(data,list) else data
@@ -797,17 +667,6 @@ class LIC(Reader,GrandFundData): #Lupsum issues
                 if matches := re.findall(pattern, text, re.IGNORECASE):
                     extracted_titles[page_num] = matches[0]
         return extracted_titles
-    
-    def _extract_manager_data(self,main_key:str, data:list, pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name,exp = match
-            final_list.append(self._return_manager_data(name=name,exp=exp))
-        return {main_key:final_list}
-    
 #19 <>
 class MahindraManu(Reader,GrandFundData):
     
@@ -826,16 +685,6 @@ class MahindraManu(Reader,GrandFundData):
                 if matches := re.findall(pattern, text):
                     title[pgn] = matches[0]
         return title
-
-    def _extract_manager_data(self,main_key:str, data:list, pattern:str):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name,exp,_,since = match
-            final_list.append(self._return_manager_data(name=name,exp=exp,since=since))
-        return {main_key:final_list}
     
 
 #20 <>
@@ -856,35 +705,11 @@ class MIRAE(Reader,GrandFundData):
                 if matches := re.findall(pattern, text, re.DOTALL):
                     title[pgn] = matches[0] 
         return title
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = "".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches:= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name, desig = match
-                final_list.append(self._return_manager_data(name=name,desig=desig))
-        
-        return {main_key:final_list}
-
 #21 <>
 class MotilalOswal(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches:= re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name, since, exp = match
-                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        
-        return {main_key:final_list}
-    
     def _extract_lump_data(self,main_key:str,data:list, pattern:str):
         load_data = " ".join(data) if isinstance(data,list) else data
         load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
@@ -904,18 +729,6 @@ class NAVI(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-        for match in matches:
-            name, since = match
-            final_list.append(self._return_manager_data(name=name,since=since))
-        
-        return {main_key:final_list}
-
     def get_proper_fund_names(self,path: str):
         pattern = "(Navi.*?(?:Fund|Fund of Fund))"
         title = {}
@@ -938,17 +751,6 @@ class Nippon(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
-        final_list = []
-        manager_data = "".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name,desig,since,exp = match
-                final_list.append(self._return_manager_data(name=name,since=since, exp=exp,desig=desig))
-        return {main_key: final_list}
-
 #24
 class NJMF(Reader,GrandFundData):
    
@@ -968,17 +770,6 @@ class PGIM(Reader, GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
-        final_list = []
-        manager_data = "".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                since,name,desig, exp = match
-                final_list.append(self._return_manager_data(name=name,since=since, exp=exp,desig=desig))
-        return {main_key: final_list}
-    
     def get_proper_fund_names(self,path:str):
         pattern = "([A-Z0-9\\s\\-]+\\s*PGIM INDIA)"
         title = {}
@@ -1028,17 +819,6 @@ class QuantMF(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
-        final_list = []
-        manager_data = "".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name = match
-                final_list.append(self._return_manager_data(name=name))
-        return {main_key: final_list}
-        
 #29 
 class Quantum(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
@@ -1056,36 +836,12 @@ class Quantum(Reader,GrandFundData): #Lupsum issues
                 if matches := re.findall(pattern, text):
                     title[pgn] = matches[0]
         return title
-    
-    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
-        final_list = []
-        manager_data = "".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches := re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE):
-            for match in matches:
-                name, exp,since = match
-                final_list.append(self._return_manager_data(name=name,since=since, exp=exp))
-        return {main_key: final_list}
-    
-
 #30 <>
 class Samco(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-
-    def _extract_manager_data(self, main_key: str, data: list, pattern: str):
-        final_list = []
-        for i in range(0, len(data), 3):
-            txt = " ".join(data[i:i+3])
-            txt = re.sub(self.REGEX['escape'], "", txt).strip()
-            if matches := re.findall(self.REGEX[pattern], txt, re.IGNORECASE):
-                for match in matches:
-                    name, desig, since, exp = match
-                    final_list.append(self._return_manager_data(name=name,desig=desig,since=since, exp=exp))
-        return {main_key: final_list}
-
 #31
 class SBI(Reader, GrandFundData):
     
@@ -1114,77 +870,29 @@ class SBI(Reader, GrandFundData):
 #32
 
 #33 <>
-class Sundaram(Reader,GrandFundData): #Lupsum issues
-    
+class Sundaram(Reader,GrandFundData): #Lupsum issues   
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data,pattern:str):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data.strip())
-        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
-            for match in matches:
-                name = match
-                final_list.append(self._return_manager_data(name=name))
-        
-        return {main_key:final_list} 
-  
-#34 <>
-class Tata(Reader,GrandFundData): #Lupsum issues
-    
-    def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
-        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
-            for match in matches:
-                name,since,exp = match
-                final_list.append(self._return_manager_data(since = since,name = name,exp=exp))
-        
-        return {main_key:final_list} 
 
+#34 <>
+class Tata(Reader,GrandFundData): #Lupsum issues   
+    def __init__(self, paths_config: str,fund_name:str):
+        GrandFundData.__init__(self,fund_name) #load from Grand first
+        Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 #35 <>
 class Taurus(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-        
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
-            for match in matches:
-                name,since,exp = match
-                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        
-        return {main_key:final_list}
-
 #36
 class Trust(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
-            for match in matches:
-                name,since,exp = match
-                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         
-        return {main_key:final_list}
-    
     def _extract_aum_data(self,main_key:str,data,pattern:str):
         aum_data = re.sub(self.REGEX['escape'],data, re.IGNORECASE).strip()
         matches = re.findall(self.REGEX[pattern],aum_data,re.IGNORECASE)
@@ -1193,8 +901,7 @@ class Trust(Reader,GrandFundData):
         return {main_key:v if v else "null"}
     
 #37
-class Union(Reader,GrandFundData):
-   
+class Union(Reader,GrandFundData):   
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params 
@@ -1206,56 +913,18 @@ class UTI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data.strip())
-        if matches:=re.findall(self.REGEX[pattern],manager_data,re.IGNORECASE):
-            for match in matches:
-                name,since = match
-                final_list.append(self._return_manager_data(name=name,since=since))
-        
-        return {main_key:final_list}
-    
 #39 <>
 class WhiteOak(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-    
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
-
-        if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
-            for match in matches:
-                name,desig,since,exp = match
-                final_list.append(self._return_manager_data(name=name,desig=desig,since=since,exp=exp))
-        return {main_key:final_list}
-
 #40
 class Zerodha(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name)
         Reader.__init__(self,paths_config, self.PARAMS)
-        
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-
-        manager_data = " ".join(data)
-        manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
-
-        if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
-            for match in matches:
-                name,exp,since = match
-                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        return {main_key:final_list}
-    
 #41 Aditya Birla
 class AdityaBirla(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
@@ -1330,18 +999,6 @@ class JMMF(Reader,GrandFundData):
         final_dict = {"minimum_amt":data[1],"minimum_addl_amt":data[3]}
         return {main_key:final_dict}
     
-    def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-        final_list = []
-
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data = re.sub(self.REGEX['escape'],"", manager_data).strip()
-
-        if matches:= re.findall(self.REGEX[pattern],manager_data, re.IGNORECASE):
-            for match in matches:
-                name,since,exp = match
-                final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        return {main_key:final_list}
-
     def _extract_ptr_data(self, main_key:str,data = ""):
         s = main_key.replace("portfolio_turnover_ratio_","")
         data = f"{ s[:-4]}.{s[-4:]}"
