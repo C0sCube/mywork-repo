@@ -604,7 +604,7 @@
       "monthly_aaum_date",
       "mutual_fund_name",
       "page_number",
-      ".*(key_statistics|expense_ratio)",
+      ".*(key_statistics|expense_ratio)"
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load_structure": ["_extract_load_data", "load"],

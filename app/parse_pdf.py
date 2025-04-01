@@ -183,20 +183,6 @@ class Reader:
                     fund_seen[fundName] = new_entry
         return finalData
 
-    def extract_pdf_data(self,input:str, pages:list, titles:dict)->list:
-        with fitz.open(input) as doc:
-            finalData = []
-            for pgn in pages:
-                page = doc[pgn]
-                fundName = titles[pgn]
-            
-                blocks = page.get_text('dict')['blocks']
-                filtered_blocks = [block for block in blocks if block['type'] == 0 and 'lines' in block] #type 0 are text
-                sorted_blocks = sorted(filtered_blocks, key= lambda x: (x['bbox'][1], x['bbox'][0]))
-                finalData.append(self._create_data_entry(pgn,fundName,sorted_blocks))
-                
-        return finalData
-
     def extract_span_data(self, data: list,*args)->list:  # all
         finalData = []
         for page in data:

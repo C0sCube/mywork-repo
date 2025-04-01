@@ -143,6 +143,22 @@ class GrandFundData:
                 final_list.append(self._return_manager_data(**record))
 
         return {main_key: final_list}
+    
+    def _extract_lump_data(self, main_key: str, data, pattern:list):
+        load_data = " ".join(data) if isinstance(data, list) else data
+        load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
+        final_dict = {"min_amt": {}, "add_amt": {}}
+
+        matches = re.findall(self.REGEX[pattern], load_data, re.IGNORECASE)
+        if not matches:
+            return {main_key: final_dict}
+
+        for match in matches:
+            min_amt, add_amt = match
+            final_dict['min_amt'] = min_amt
+            final_dict['add_amt'] = add_amt
+    
+        return {main_key: final_dict}
 
     #match
     def _match_regex_to_content(self, string: str, data: list,*args):
@@ -394,40 +410,12 @@ class BarodaBNP(Reader,GrandFundData): #Lupsum issues
                     title[pgn] = matches[0] 
         return title
     
-    def _extract_lump_data(self,main_key:str,data:list, pattern:str):
-        load_data = " ".join(data) if isinstance(data,list) else data
-        load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
-        final_dict = {}
-        if matches:= re.findall(self.REGEX[pattern],load_data.strip(), re.IGNORECASE):
-            for match in matches:
-                entry_,exit_ = match
-            
-            final_dict['min_amt'] = entry_.strip()
-            final_dict['add_amt'] = exit_.strip()
-        return {main_key:final_dict}
-
 #6 
 class Canara(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _extract_lump_data(self, main_key: str, data, pattern:list):
-        load_data = " ".join(data) if isinstance(data, list) else data
-        load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
-        final_dict = {"min_amt": {}, "add_amt": {}}
-
-        matches = re.findall(self.REGEX[pattern], load_data, re.IGNORECASE)
-        if not matches:
-            return {main_key: final_dict}
-
-        for match in matches:
-            min_amt, add_amt = match
-            final_dict['min_amt'] = min_amt
-            final_dict['add_amt'] = add_amt
-    
-        return {main_key: final_dict}
     
     def _update_manager_data(self,main_key:str,manager_data):
         name = r"(?:Mr\.?|Mrs\.?|Ms\.?)\s+([A-Z][a-z]+\s[A-Z][a-z]+)"
@@ -465,28 +453,19 @@ class Edelweiss(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
     
-    def get_proper_fund_names(self, path: str, pages: list):
-        doc = fitz.open(path)
-        final_fund_names,final_objectives = {},{}
-
-        for pgn in pages:
-            fund_names, objective_names = [], []
-            page = doc[pgn]  
-            blocks = page.get_text("dict").get("blocks", [])
-
-            for count, block in enumerate(blocks):
-                for line in block.get("lines", []):
-                    for span in line.get("spans", []):
-                        text = span["text"].strip()
-                        if count == 1:  # Fund
-                            fund_names.append(text)
-                        elif count == 4:  # Objective
-                            objective_names.append(text)
-
-            final_fund_names[pgn] = " ".join(fund_names)
-            final_objectives[pgn] = " ".join(objective_names)
-
-        return final_fund_names, final_objectives
+    def get_proper_fund_names(path: str):
+        pattern = r"(Edelweiss\s*.+?(?:Fund|Path|ETF|FOF|Path))"
+        title = {}
+        
+        with fitz.open(path) as doc:
+            for pgn, page in enumerate(doc):
+                text = " ".join(page.get_text("text", clip=(0, 0, 150, 100)).split("\n"))
+                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
+                # print(text)
+                if matches := re.findall(pattern, text, re.DOTALL):
+                    title[pgn] = matches[0]
+                    print(matches[0])
+        return title
       
     def _extract_date_data(self, main_key:str,data:list, pattern:str):
         date_data = "".join(main_key)
@@ -710,19 +689,6 @@ class MotilalOswal(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    def _extract_lump_data(self,main_key:str,data:list, pattern:str):
-        load_data = " ".join(data) if isinstance(data,list) else data
-        load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
-        final_dict = {}
-        if matches:= re.findall(self.REGEX[pattern],load_data.strip(), re.IGNORECASE):
-            for match in matches:
-                entry_,exit_ = match
-            
-            final_dict['min_amt'] = entry_.strip()
-            final_dict['add_amt'] = exit_.strip()
-        return {main_key:final_dict}
-
-
 #22 <>
 class NAVI(Reader,GrandFundData): #Lupsum issues
     
