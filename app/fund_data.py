@@ -26,6 +26,7 @@ class GrandFundData:
         self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
         self.CLONEKEYS = fund_config.get("CLONEKEYS",[])
         self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS",{})
+        self.PROMOTE_KEYS = fund_config.get("PROMOTE_KEYS",{})
         
         self.PATTERN = {
             "primary":fund_config.get("PATTERN_TO_FUNCTION", {}),
@@ -275,6 +276,21 @@ class GrandFundData:
                     data[clone_key] = data[key]
                     break
         return data
+    
+    def _promote_key_from_dict(self,data:dict):
+        for section_key, promote_map in self.PROMOTE_KEYS.items():
+            if section_key not in data:
+                continue
+
+            for new_key, pattern_str in promote_map.items():
+                pattern = re.compile(pattern_str, re.IGNORECASE)
+                for key, val in data[section_key].items():
+                    if pattern.match(key):
+                        data[new_key] = val
+                        del data[section_key][key]
+                        break
+        return data
+            
 
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):

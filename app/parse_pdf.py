@@ -5,6 +5,7 @@ import pdfplumber # type: ignore
 
 from app.utils import Helper
 from app.parse_regex import *
+from app.fund_data import *
 from logging_config import *
 
 class Reader:
@@ -22,10 +23,10 @@ class Reader:
 
         self.BASEPATH = dirs.get("base_path", "")
         self.DRYPATH = os.path.join(self.BASEPATH, paths.get("dry", ""))
-        self.INDICEPATH = os.path.join(self.BASEPATH, paths.get("fin", ""))
+        # self.INDICEPATH = os.path.join(self.BASEPATH, paths.get("fin", ""))
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
-        self.CSVPATH = os.path.join(self.BASEPATH, paths.get("csv", ""))
+        # self.CSVPATH = os.path.join(self.BASEPATH, paths.get("csv", ""))
         
         #other instance initialize
         self.TEXT_ONLY = {}
@@ -112,7 +113,7 @@ class Reader:
                                 blocks.append(block)
                     sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
                     
-                    #add dummy data
+                    #dummy data
                     fontz = self.PARAMS['data']['font'][0]
                     colorz = self.PARAMS['data']['color'][0]
                     sorted_blocks.append(FundRegex()._dummy_block(fontz,colorz))
@@ -214,13 +215,13 @@ class Reader:
         for content in data:
             pgn,fundName,blocks = content['page'],content['fundname'],content['block']
     
-            cleaned_blocks = [] # Clean blocks
+            cleaned_blocks = [] #remove stop words
             for block in blocks:
                 size, text, *_ = block
                 if text.lower() not in combined_stop_words:
                     cleaned_blocks.append(block)
 
-            processed_blocks = [] # Process blocks (adjust size based on conditions)
+            processed_blocks = [] #update size
             for block in cleaned_blocks:
                 size, text, color, origin, bbox, font = block
                 conditions = [
@@ -297,24 +298,21 @@ class Reader:
             finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
 
         return finalData
-
-    def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
+    # def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
         
-        data = self.extract_data_relative_line(path,pages,side,title)
-        data = self.extract_span_data(data,[])
-        clean_data = self.process_text_data(data)
-        nested = self.create_nested_dict(clean_data)
-        return nested
+    #     data = self.extract_data_relative_line(path,pages,side,title)
+    #     data = self.extract_span_data(data,[])
+    #     clean_data = self.process_text_data(data)
+    #     nested = self.create_nested_dict(clean_data)
+    #     return nested
     
-    def get_data_via_clip(self,path:str,pages:list, title:dict, *args): #args bcz pass clip boox externally
+    # def get_data_via_clip(self,path:str,pages:list, title:dict, *args): #args bcz pass clip boox externally
         
-        data = self.extract_clipped_data(path,pages,title, *args)
-        data = self.extract_span_data(data,[])
-        clean_data = self.process_text_data(data)
-        nested = self.create_nested_dict(clean_data)
-        return nested
-    
-    
+    #     data = self.extract_clipped_data(path,pages,title, *args)
+    #     data = self.extract_span_data(data,[])
+    #     clean_data = self.process_text_data(data)
+    #     nested = self.create_nested_dict(clean_data)
+    #     return nested
     def get_data(self, path: str, pages: list, title: dict):
         
         method = self.PARAMS['method'] #clip/line/both
@@ -341,72 +339,6 @@ class Reader:
     
     #PROCESS
     @staticmethod
-    # def _generate_pdf_from_data(data: dict, output_path: str) -> None:
-    #     with fitz.open() as doc:
-    #         TITLE_FONT_SIZE = 24
-    #         TITLE_POSITION = 72
-    #         TITLE_COLOR = (0, 0, 1)
-    #         FONT_NAME = "helv"
-            
-    #         font = fitz.Font(FONT_NAME)  # Create a font object for measuring text
-
-    #         for header, content in data.items():
-    #             page = doc.new_page()
-    #             text_position = TITLE_POSITION
-
-    #             try:
-    #                 page.insert_text(
-    #                     (72, text_position),
-    #                     header,
-    #                     fontsize=TITLE_FONT_SIZE,
-    #                     fontname=FONT_NAME,
-    #                     color=TITLE_COLOR,
-    #                 )
-    #                 text_position += TITLE_FONT_SIZE * 2
-    #             except Exception:
-    #                 pass
-
-    #             # Group content by approximate Y-position
-    #             line_dict = defaultdict(list)
-    #             for block in content:
-    #                 size, text, color, origin, bbox, fontname = block
-    #                 y_rounded = round(origin[1] / 2) * 2  # Normalize Y to prevent slight shifts
-    #                 line_dict[y_rounded].append((origin[0], text, size, color, fontname))
-
-    #             # Process lines
-    #             for y_pos in sorted(line_dict.keys()):
-    #                 line_dict[y_pos].sort()  # Sort text by X-position
-                    
-    #                 line_text = ""
-    #                 prev_x = None
-
-    #                 for x, text, size, color, fontname in line_dict[y_pos]:
-    #                     if prev_x is not None:
-    #                         text_width = font.text_length(text, fontsize=size)  # Correct way to get text width
-    #                         if x - prev_x > text_width * 0.5:
-    #                             line_text += " "
-                        
-    #                     line_text += text
-    #                     prev_x = x + font.text_length(text, fontsize=size)
-
-    #                 try:
-    #                     page.insert_text(
-    #                         (72, y_pos),
-    #                         line_text,
-    #                         fontsize=size,
-    #                         fontname=FONT_NAME,
-    #                         color=(color & 0xFFFFFF, color & 0xFFFFFF, color & 0xFFFFFF),
-    #                     )
-    #                 except Exception:
-    #                     page.insert_text(
-    #                         (72, y_pos),
-    #                         line_text,
-    #                         fontsize=size,
-    #                         fontname=FONT_NAME,
-    #                         color=(1, 0, 0),
-    #                     )
-
-    #         doc.save(output_path)
     def _to_rgb_tuple(color_int):
         c = color_int & 0xFFFFFF
         r = (c >> 16) & 0xFF
@@ -517,26 +449,21 @@ class Reader:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
             
             print(f'---<<{fund}>>---')
-            start_time = time.time()
-            Reader._generate_pdf_from_data(blocks, output_path)
-            # print(f"PDF Generation Time: {time.time() - start_time:.2f} sec")
+            Reader._generate_pdf_from_data(blocks, output_path) #1sec
             start_time = time.time()
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
-            # print(f"PDF Extraction Time: {time.time() - start_time:.2f} sec")
-            
             self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text
     
     #REFINE
     
     def _get_unique_key(self,base_key:str, data:dict):
-        phonetic_codes = ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]
-
-        for suffix in phonetic_codes:
+        for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:
             new_key = f"{base_key}_{suffix}"
             if new_key not in data:
                 return new_key
         return "exhaust"
+
     
     def refine_extracted_data(self, extracted_text: dict,flatten = False):
         primary_refine = {}
@@ -596,7 +523,6 @@ class Reader:
             temp = content
             temp = self._clone_fund_data(temp)
             temp = self._merge_fund_data(temp)
-            
             temp = self._clone_fund_data(temp)
             
             if select:
@@ -649,6 +575,8 @@ class Reader:
                     updated_content = self._special_match_regex_to_content(head, content)
                     if updated_content:
                         temp.update(updated_content)
+                        
+            temp = self._promote_key_from_dict(temp)
 
             finalData[fund] = dict(sorted(temp.items()))
             
