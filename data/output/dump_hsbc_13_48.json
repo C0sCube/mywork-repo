@@ -1,13 +1,8 @@
 {
     "hsbc large cap fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "1848.94 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "10-Dec-02 Benchmark Nifty 100 TRI6 NAV (as on 31.01.25) Growth  451.7527 Direct Growth  499.5844",
-        "beforefund_manager": [
+        "benchmark_index": "10-Dec-02 Benchmark Nifty 100 TRI6",
+        "fund_manager": [
             {
                 "managing_fund_since": "May 27, 2013",
                 "name": "Neelotpal Sahai",
@@ -27,13 +22,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "10-Dec-02 Benchmark Nifty 100 TRI6 NAV (as on 31.01.25) Growth  451.7527 Direct Growth  499.5844",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -64,27 +52,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "1848.94 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             10
         ],
-        "scheme_launch_date": "10-Dec-02"
+        "scheme_launch_date": "10-Dec-02 Benchmark Nifty 100 TRI6"
     },
     "hsbc large and mid cap fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "4056.39 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "28-Mar-19 NIFTY Large Midcap Benchmark 6 250 TRI NAV (as on 31.01.25) Growth  24.7602 Direct Growth  26.9246",
-        "beforefund_manager": [
+        "benchmark_index": "28-Mar-19 NIFTY Large Midcap Benchmark 6 250 TRI",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 26, 2022",
                 "name": "Cheenu Gupta",
@@ -104,13 +87,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "NIFTY Large Midcap ",
-        "benchmarking": "28-Mar-19 NIFTY Large Midcap Benchmark 6 250 TRI NAV (as on 31.01.25) Growth  24.7602 Direct Growth  26.9246",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) with- in 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1 If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -141,27 +117,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "4056.39 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             11
         ],
-        "scheme_launch_date": "28-Mar-19"
+        "scheme_launch_date": "28-Mar-19 NIFTY Large Midcap Benchmark 6 250 TRI"
     },
     "hsbc midcap fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "11407.69 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "09-Aug-04 Benchmark NIFTY Midcap 150 TRI NAV (as on 31.01.25) Growth  352.1413 Direct Growth  396.0737",
-        "beforefund_manager": [
+        "benchmark_index": "09-Aug-04 Benchmark NIFTY Midcap 150 TRI",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 26 2022",
                 "name": "Cheenu Gupta",
@@ -181,13 +152,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "09-Aug-04 Benchmark NIFTY Midcap 150 TRI NAV (as on 31.01.25) Growth  352.1413 Direct Growth  396.0737",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -218,27 +182,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "11407.69 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             12
         ],
-        "scheme_launch_date": "09-Aug-04"
+        "scheme_launch_date": "09-Aug-04 Benchmark NIFTY Midcap 150 TRI"
     },
     "hsbc flexi cap fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "4821.17 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "24-Feb-04 Benchmark NIFTY 500 TRI6 NAV (as on 31.01.25) Growth  202.7874 Direct Growth  225.3904",
-        "beforefund_manager": [
+        "benchmark_index": "24-Feb-04 Benchmark NIFTY 500 TRI6",
+        "fund_manager": [
             {
                 "managing_fund_since": "Mar, 01  2024",
                 "name": "Abhishek Gupta",
@@ -258,13 +217,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "24-Feb-04 Benchmark NIFTY 500 TRI6 NAV (as on 31.01.25) Growth  202.7874 Direct Growth  225.3904",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1 If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -295,27 +247,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "4821.17 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             13
         ],
-        "scheme_launch_date": "24-Feb-04"
+        "scheme_launch_date": "24-Feb-04 Benchmark NIFTY 500 TRI6"
     },
     "hsbc multi cap fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "4335.94 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "30-Jan-23 NIFTY 500 Multicap Benchmark 4 502525 TRI NAV (as on 31.01.25) Growth  17.2896 Direct Growth  17.7587",
-        "beforefund_manager": [
+        "benchmark_index": "30-Jan-23 NIFTY 500 Multicap Benchmark 4 502525 TRI",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jan 30, 2023",
                 "name": "Venugopal Manghat",
@@ -341,13 +288,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "NIFTY 500 Multicap ",
-        "benchmarking": "30-Jan-23 NIFTY 500 Multicap Benchmark 4 502525 TRI NAV (as on 31.01.25) Growth  17.2896 Direct Growth  17.7587",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If units redeemed or switched out are upto 10 of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1 If units are redeemed or switched out on or after 1 year from the date of allotment.  Nil Month End Total Expenses Ratios (Annualized) 2 Regular3 1.87 Direct 0.60 Portfolio Turnover 0.28 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. Note - Criteria for Large, Mid  Small companies - SEBI has demarcated the definitions of large cap, mid cap and small cap companies as given below. Large Cap 1st -100th company in terms of full market capitalization, Mid Cap 101st -250th company in terms of full market capitalization, Small Cap 251st company onwards in terms of full market capitalization of large midsmall cap companies. A list of stocks as per above criteria will be uploaded on AMFI website and updated every six months by AMFI. derate Moderat Mo Hig ely Risk h Risk to e Hi ow erat Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
@@ -377,27 +317,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "4335.94 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             14
         ],
-        "scheme_launch_date": "30-Jan-23"
+        "scheme_launch_date": "30-Jan-23 NIFTY 500 Multicap Benchmark 4 502525 TRI"
     },
     "hsbc small cap fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "16285.21 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "12-May-14 NIFTY Small Cap Benchmark 6 250 TRI NAV (as on 31.01.25) Growth  78.1329 Direct Growth  86.3989",
-        "beforefund_manager": [
+        "benchmark_index": "12-May-14 NIFTY Small Cap Benchmark 6 250 TRI",
+        "fund_manager": [
             {
                 "managing_fund_since": "Dec 17, 2019",
                 "name": "Venugopal Manghat",
@@ -417,13 +352,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "NIFTY Small Cap ",
-        "benchmarking": "12-May-14 NIFTY Small Cap Benchmark 6 250 TRI NAV (as on 31.01.25) Growth  78.1329 Direct Growth  86.3989",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -454,27 +382,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "16285.21 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             15
         ],
-        "scheme_launch_date": "12-May-14"
+        "scheme_launch_date": "12-May-14 NIFTY Small Cap Benchmark 6 250 TRI"
     },
     "hsbc focused fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "1692.89 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "22-July-2020 Benchmark Nifty 500 TRI4 NAV (as on 31.01.25) Growth  23.4051 Direct Growth  24.9772",
-        "beforefund_manager": [
+        "benchmark_index": "22-July-2020 Benchmark Nifty 500 TRI4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jul 29, 2020",
                 "name": "Neelotpal Sahai",
@@ -494,13 +417,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "20 ",
-        "benchmarking": "22-July-2020 Benchmark Nifty 500 TRI4 NAV (as on 31.01.25) Growth  23.4051 Direct Growth  24.9772",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1 If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -531,27 +447,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "1692.89 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             16
         ],
-        "scheme_launch_date": "22-July-20"
+        "scheme_launch_date": "22-July-2020 Benchmark Nifty 500 TRI4"
     },
     "hsbc infrastructure fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "2371.99 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "27-Sep-07 NIFTY Infrastructure Benchmark 6 TRI NAV (as on 31.01.25) Growth  44.4153 Direct Growth  49.6987",
-        "beforefund_manager": [
+        "benchmark_index": "27-Sep-07 NIFTY Infrastructure Benchmark 6 TRI",
+        "fund_manager": [
             {
                 "managing_fund_since": "Dec 17, 2019",
                 "name": "Venugopal Manghat",
@@ -571,13 +482,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "NIFTY Infrastructure ",
-        "benchmarking": "27-Sep-07 NIFTY Infrastructure Benchmark 6 TRI NAV (as on 31.01.25) Growth  44.4153 Direct Growth  49.6987",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -608,27 +512,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "2371.99 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             17
         ],
-        "scheme_launch_date": "27-Sep-07"
+        "scheme_launch_date": "27-Sep-07 NIFTY Infrastructure Benchmark 6 TRI"
     },
     "hsbc value fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "13009.25 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "08-Jan-10 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  101.3216 Direct Growth  112.6088",
-        "beforefund_manager": [
+        "benchmark_index": "08-Jan-10 Benchmark Nifty 500 TRI6",
+        "fund_manager": [
             {
                 "managing_fund_since": "Oct 01, 2023",
                 "name": "Gautam Bhupal",
@@ -642,13 +541,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "08-Jan-10 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  101.3216 Direct Growth  112.6088",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1 If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -679,27 +571,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "13009.25 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             18
         ],
-        "scheme_launch_date": "08-Jan-10"
+        "scheme_launch_date": "08-Jan-10 Benchmark Nifty 500 TRI6"
     },
     "hsbc business cycles fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "982.09 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "20-Aug-14 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  39.2392 Direct Growth  42.9632",
-        "beforefund_manager": [
+        "benchmark_index": "20-Aug-14 Benchmark Nifty 500 TRI6",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jun 01 2023",
                 "name": "Gautam Bhupal",
@@ -719,13 +606,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "20-Aug-14 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  39.2392 Direct Growth  42.9632",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
@@ -756,27 +636,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "982.09 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             19
         ],
-        "scheme_launch_date": "20-Aug-14"
+        "scheme_launch_date": "20-Aug-14 Benchmark Nifty 500 TRI6"
     },
     "hsbc consumption fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "1531.44 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "31-Aug-23 Nifty India Benchmark Consumption Index TRI4 NAV (as on 31.01.25) Growth  13.5983 Direct Growth  13.8683",
-        "beforefund_manager": [
+        "benchmark_index": "31-Aug-23 Nifty India Benchmark Consumption Index TRI4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Aug 31, 2023",
                 "name": "Gautam Bhupal",
@@ -796,13 +671,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "Nifty India ",
-        "benchmarking": "31-Aug-23 Nifty India Benchmark Consumption Index TRI4 NAV (as on 31.01.25) Growth  13.5983 Direct Growth  13.8683",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If units redeemed or switched out are upto 10 of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1 If units are redeemed or switched out on or after 1 year from the date of allotment  Nil Month End Total Expenses Ratios (Annualized) 2 Regular3 2.11 Direct 0.74 Portfolio Turnover 0.06 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
@@ -832,27 +700,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "1531.44 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             20
         ],
-        "scheme_launch_date": "31-Aug-23"
+        "scheme_launch_date": "31-Aug-23 Nifty India Benchmark Consumption Index TRI4"
     },
     "hsbc india export opportunities fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "1791.89 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "25-Sep-24 Benchmark Nifty 500 TRI4 NAV (as on 31.01.25) Growth  9.3826 Direct Growth  9.4298",
-        "beforefund_manager": [
+        "benchmark_index": "25-Sep-24 Benchmark Nifty 500 TRI4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Sep 30, 2024",
                 "name": "Abhishek Gupta",
@@ -872,13 +735,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "25-Sep-24 Benchmark Nifty 500 TRI4 NAV (as on 31.01.25) Growth  9.3826 Direct Growth  9.4298",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment  Nil. If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1. If units are redeemed or switched out on or after 1 year from the date of allotment  Nil. Month End Total Expenses Ratios (Annualized) 2 Regular3 2.07 Direct 0.65 Portfolio Turnover 0.01 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
@@ -908,27 +764,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "1791.89 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             21
         ],
-        "scheme_launch_date": "25-Sep-24"
+        "scheme_launch_date": "25-Sep-24 Benchmark Nifty 500 TRI4"
     },
     "hsbc nifty 50 index fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "287.91 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "15-Apr-20 Benchmark Nifty 50 TRI4 NAV (as on 31.01.25) Growth  26.9524 Direct Growth  27.3883",
-        "beforefund_manager": [
+        "benchmark_index": "15-Apr-20 Benchmark Nifty 50 TRI4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Apr 15, 2020",
                 "name": "Praveen Ayathan",
@@ -942,13 +793,6 @@
                 "total_exp": "13 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "15-Apr-20 Benchmark Nifty 50 TRI4 NAV (as on 31.01.25) Growth  26.9524 Direct Growth  27.3883",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allotment - 1  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.45 Direct 0.20 Portfolio Turnover 0.07 Tracking Difference Regular -0.84 Direct -0.43 Tracking Error Regular 0.07 Direct 0.06 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
@@ -978,27 +822,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "287.91 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             22
         ],
-        "scheme_launch_date": "15-Apr-20"
+        "scheme_launch_date": "15-Apr-20 Benchmark Nifty 50 TRI4"
     },
     "hsbc nifty next 50 index fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "126.05 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "15-Apr-20 Benchmark Nifty Next 50 TRI4 NAV (as on 31.01.25) Growth  26.9707 Direct Growth  27.5597",
-        "beforefund_manager": [
+        "benchmark_index": "15-Apr-20 Benchmark Nifty Next 50 TRI4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Apr 15, 2020",
                 "name": "Praveen Ayathan",
@@ -1012,13 +851,6 @@
                 "total_exp": "13 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "15-Apr-20 Benchmark Nifty Next 50 TRI4 NAV (as on 31.01.25) Growth  26.9707 Direct Growth  27.5597",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allot- ment - 1  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.80 Direct 0.35 Portfolio Turnover 0.59 Tracking Difference Regular -1.34 Direct -0.79 Tracking Error Regular 0.15 Direct 0.14 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo k High ely Ris Risk to te Hig ow era Ris h L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
@@ -1048,27 +880,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "126.05 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             23
         ],
-        "scheme_launch_date": "15-Apr-20"
+        "scheme_launch_date": "15-Apr-20 Benchmark Nifty Next 50 TRI4"
     },
     "hsbc elss tax saver fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "4100.39 Cr",
-        "beforeadditional_purchase": {
-            "amt": "500",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "27-Feb-06 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  125.1445 Direct Growth  135.8964",
-        "beforefund_manager": [
+        "benchmark_index": "27-Feb-06 Benchmark Nifty 500 TRI6",
+        "fund_manager": [
             {
                 "managing_fund_since": "Mar, 01  2024",
                 "name": "Abhishek Gupta",
@@ -1088,13 +915,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "500",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "27-Feb-06 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  125.1445 Direct Growth  135.8964",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "Nil"
@@ -1125,27 +945,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "4100.39 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             24
         ],
-        "scheme_launch_date": "27-Feb-06"
+        "scheme_launch_date": "27-Feb-06 Benchmark Nifty 500 TRI6"
     },
     "hsbc tax saver equity fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "248.24 Cr",
-        "beforeadditional_purchase": {
-            "amt": "500",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "05-Jan-07 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  87.7949 Direct Growth  98.2017",
-        "beforefund_manager": [
+        "benchmark_index": "05-Jan-07 Benchmark Nifty 500 TRI6",
+        "fund_manager": [
             {
                 "managing_fund_since": "July 23, 2019",
                 "name": "Gautam Bhupal",
@@ -1159,13 +974,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "500",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "05-Jan-07 Benchmark Nifty 500 TRI6 NAV (as on 31.01.25) Growth  87.7949 Direct Growth  98.2017",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "Nil"
@@ -1196,27 +1004,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "248.24 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             25
         ],
-        "scheme_launch_date": "05-Jan-07"
+        "scheme_launch_date": "05-Jan-07 Benchmark Nifty 500 TRI6"
     },
     "hsbc aggressive hybrid fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "5452.38 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "07-Feb-11 Benchmark NIFTY 50 Hybrid Composite Debt 6535 Index6 NAV (as on 31.01.25) Growth  51.5078 Direct Growth  58.2443",
-        "beforefund_manager": [
+        "benchmark_index": "07-Feb-11 Benchmark NIFTY 50 Hybrid Composite Debt 6535 Index6",
+        "fund_manager": [
             {
                 "managing_fund_since": "July 02, 2021",
                 "name": "Cheenu Gupta",
@@ -1248,13 +1051,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "07-Feb-11 Benchmark NIFTY 50 Hybrid Composite Debt 6535 Index6 NAV (as on 31.01.25) Growth  51.5078 Direct Growth  58.2443",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "Any redemption  switch-out of units with- in 1 year from the date of allotment shall be subject to exit load as under a. For 10 of the units redeemed  switched-out Nil b. For remaining units redeemed or switched-out 1.00 No Exit Load will be charged, if Units are redeemed  switchedout after 1 year from the date of allotment."
@@ -1285,27 +1081,22 @@
             "upside_deviation": null,
             "ytm": "7.32"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "5452.38 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             26
         ],
-        "scheme_launch_date": "07-Feb-11"
+        "scheme_launch_date": "07-Feb-11 Benchmark NIFTY 50 Hybrid Composite Debt 6535 Index6"
     },
     "hsbc multi asset allocation fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "2139.89 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "28-Feb-24 Benchmark BSE 200 TRI (65)  NIFTY Short Duration Debt Index (20) Domestic Price of Gold (10)Domestic Price of Silver (5)4 NAV (as on 31.01.25) Growth  11.0408 Direct Growth  11.1827",
-        "beforefund_manager": [
+        "benchmark_index": "28-Feb-24 Benchmark BSE 200 TRI (65)  NIFTY Short Duration Debt Index (20) Domestic Price of Gold (10)Domestic Price of Silver (5)4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 28, 2024",
                 "name": "Cheenu Gupta",
@@ -1337,13 +1128,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "28-Feb-24 Benchmark BSE 200 TRI (65)  NIFTY Short Duration Debt Index (20) Domestic Price of Gold (10)Domestic Price of Silver (5)4 NAV (as on 31.01.25) Growth  11.0408 Direct Growth  11.1827",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If units redeemed or switched out are upto 10 of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1 If units are redeemed or switched out on or after 1 year from the date of allotment  Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 1.87 Direct 0.51 Portfolio Turnover 0.47 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized. The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk c"
@@ -1373,27 +1157,22 @@
             "upside_deviation": null,
             "ytm": "7.42"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "2139.89 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             27
         ],
-        "scheme_launch_date": "28-Feb-24"
+        "scheme_launch_date": "28-Feb-24 Benchmark BSE 200 TRI (65)  NIFTY Short Duration Debt Index (20) Domestic Price of Gold (10)Domestic Price of Silver (5)4"
     },
     "hsbc balanced advantage fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "1498.58 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "07-Feb-11 Benchmark Nifty 50 Hybrid composite debt 5050 Index4 NAV (as on 31.01.25) Growth  41.4722 Direct Growth  47.7622",
-        "beforefund_manager": [
+        "benchmark_index": "07-Feb-11 Benchmark Nifty 50 Hybrid composite debt 5050 Index4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 26, 2022",
                 "name": "Neelotpal Sahai",
@@ -1437,13 +1216,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "07-Feb-11 Benchmark Nifty 50 Hybrid composite debt 5050 Index4 NAV (as on 31.01.25) Growth  41.4722 Direct Growth  47.7622",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1 If units are redeemed or switched out on or after 1 year from the date of allotment. - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 2.12 Direct 0.78 Portfolio Turnover 3.24 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is High Risk Please note that the above risk-o-meter is as per the product T labelling of the scheme available as on the date of this communication disclosure. Any change in risk-o-meter shall be communicated by way of Notice cum Addendum and by way of an e-mail or SMS to unitholders of that particular Scheme."
@@ -1473,27 +1245,22 @@
             "upside_deviation": null,
             "ytm": "7.32"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "1498.58 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             28
         ],
-        "scheme_launch_date": "07-Feb-11"
+        "scheme_launch_date": "07-Feb-11 Benchmark Nifty 50 Hybrid composite debt 5050 Index4"
     },
     "hsbc equity savings fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "662.03 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "18-Oct-11 NIFTY Equity Benchmark 4 Savings Index NAV (as on 31.01.25) Growth  31.6453 Direct Growth  34.9644",
-        "beforefund_manager": [
+        "benchmark_index": "18-Oct-11 NIFTY Equity Benchmark 4 Savings Index",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jul 02, 2021",
                 "name": "Cheenu Gupta",
@@ -1537,13 +1304,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "NIFTY Equity ",
-        "benchmarking": "18-Oct-11 NIFTY Equity Benchmark 4 Savings Index NAV (as on 31.01.25) Growth  31.6453 Direct Growth  34.9644",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "If the units redeemed or switched out are upto 10 of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil If redeemed or switched out units are over and above the limit i.e beyond 10 of the allotted units within 1 month exit load applicable - 0.50 If units are redeemed or switched out on or after 1 Month from the date of Purchase - Nil Month End Total Expenses Ratios (Annualized) 2 Regular 5 1.51 Direct 0.61 Portfolio Turnover 5.33 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Moderate Risk"
@@ -1573,27 +1333,22 @@
             "upside_deviation": null,
             "ytm": "7.06"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "662.03 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             29
         ],
-        "scheme_launch_date": "18-Oct-11"
+        "scheme_launch_date": "18-Oct-11 NIFTY Equity Benchmark 4 Savings Index"
     },
     "hsbc arbitrage fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "2373.87 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "30-Jun-14 Benchmark Nifty 50 Arbitrage Index4 NAV (as on 31.01.25) Growth  18.4907 Direct Growth  19.7417",
-        "beforefund_manager": [
+        "benchmark_index": "30-Jun-14 Benchmark Nifty 50 Arbitrage Index4",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jun 30, 2014",
                 "name": "Praveen Ayathan",
@@ -1619,13 +1374,6 @@
                 "total_exp": "15.5 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "30-Jun-14 Benchmark Nifty 50 Arbitrage Index4 NAV (as on 31.01.25) Growth  18.4907 Direct Growth  19.7417",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "Any redemptionswitch-out of units on or before 1 month from the date of allotment 0.25 If units are redeemed or switched out after 1 Month from the date of allotment NIL (Effective date August 01, 2023) Month End Total Expenses Ratios (Annualized) 2 Regular3 0.92 Direct 0.25 Portfolio Turnover 13.75 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans Portfolio Classification By Market Segment Class () 10.09 16.52 49.59 23.80 Large Cap Debt Mid Cap Small Cap derate Moderat Mo Hig ely Risk hRisk to e Hi owerat Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Low Risk Please note that the above risk-o-meter is as per the product labelling of the scheme available as on the date of this T communication disclosure. Any change in risk-o-meter shall be communicated by way of Notice cum Addendum and by way of an  e-mail or SMS to unitholders of that particular Scheme.  a"
@@ -1655,33 +1403,21 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "2373.87 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             30
         ],
-        "scheme_launch_date": "30-Jun-14"
+        "scheme_launch_date": "30-Jun-14 Benchmark Nifty 50 Arbitrage Index4"
     },
     "hsbc brazil fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": {},
-        "beforeadditional_purchase": {
-            "amt": "",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "Benchmark MS NAV (as on 28.01.25) Growth Direct Growth",
-        "beforefund_manager": [],
-        "beforeminimum_investment_1": {
-            "amt": "",
-            "thraftr": ""
-        },
-        "benchmark_index": null,
-        "benchmarking": "Benchmark MS NAV (as on 28.01.25) Growth Direct Growth",
+        "benchmark_index": "Benchmark MS",
         "fund_manager": [],
         "load": {
             "entry_load": "",
@@ -1712,27 +1448,22 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": {},
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             32
         ],
-        "scheme_launch_date": "Benchmark MS NAV (as on 28.01.25) Growth Direct Growth"
+        "scheme_launch_date": "Benchmark MS"
     },
     "hsbc overnight fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "3081.72 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "22-May-19 NIFTY 1D Rate Benchmark 5,6 Index NAV (as on 31.01.25) Growth  1,312.7647 Direct Growth  1,322.6768",
-        "beforefund_manager": [
+        "benchmark_index": "22-May-19 NIFTY 1D Rate Benchmark 5,6 Index",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 26, 2022",
                 "name": "Mahesh Chhabria",
@@ -1740,13 +1471,6 @@
                 "total_exp": "14.5 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "NIFTY 1D Rate ",
-        "benchmarking": "22-May-19 NIFTY 1D Rate Benchmark 5,6 Index NAV (as on 31.01.25) Growth  1,312.7647 Direct Growth  1,322.6768",
-        "fund_manager": [],
         "load": {
             "entry_load": "NA",
             "exit_load": "NIL Month End Total Expenses Ratios (Annualized) 2 Regular3 0.16 Direct 0.06 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD- PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore, the same is effective from 01 December 2021. 6Funds benchmark has changed with effect from April 01, 2022. YTM is annualized. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Low Risk r"
@@ -1776,27 +1500,22 @@
             "upside_deviation": null,
             "ytm": "6.64"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "3081.72 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             34
         ],
-        "scheme_launch_date": "22-May-19"
+        "scheme_launch_date": "22-May-19 NIFTY 1D Rate Benchmark 5,6 Index"
     },
     "hsbc liquid fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "22030.98 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "04-Dec-02 Benchmark NIFTY Liquid Index A-I6 NAV (as on 31.01.25) Growth  2,530.3379 Direct Growth  2,552.9218",
-        "beforefund_manager": [
+        "benchmark_index": "04-Dec-02 Benchmark NIFTY Liquid Index A-I6",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 01, 2025",
                 "name": "Mahesh Chhabria",
@@ -1810,13 +1529,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "04-Dec-02 Benchmark NIFTY Liquid Index A-I6 NAV (as on 31.01.25) Growth  2,530.3379 Direct Growth  2,552.9218",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -1846,27 +1558,22 @@
             "upside_deviation": null,
             "ytm": "7.25"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "22030.98 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             35
         ],
-        "scheme_launch_date": "04-Dec-02"
+        "scheme_launch_date": "04-Dec-02 Benchmark NIFTY Liquid Index A-I6"
     },
     "hsbc money market fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "2626.87 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "10-Aug-05 Benchmark NIFTY Money Market Index A-I6 NAV (as on 31.01.25) Growth  25.5445 Direct Growth  26.7665",
-        "beforefund_manager": [
+        "benchmark_index": "10-Aug-05 Benchmark NIFTY Money Market Index A-I6",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 01, 2025",
                 "name": "Mahesh Chhabria",
@@ -1880,13 +1587,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "10-Aug-05 Benchmark NIFTY Money Market Index A-I6 NAV (as on 31.01.25) Growth  25.5445 Direct Growth  26.7665",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -1916,27 +1616,22 @@
             "upside_deviation": null,
             "ytm": "7.50"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "2626.87 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             36
         ],
-        "scheme_launch_date": "10-Aug-05"
+        "scheme_launch_date": "10-Aug-05 Benchmark NIFTY Money Market Index A-I6"
     },
     "hsbc low duration fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "503.10 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "04-Dec-10 Benchmark NIFTY Low Duration Debt Index A-I 5 NAV (as on 31.01.25) Growth  27.3849 Direct Growth  28.8298",
-        "beforefund_manager": [
+        "benchmark_index": "04-Dec-10 Benchmark NIFTY Low Duration Debt Index A-I 5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 24, 2012",
                 "name": "Shriram Ramanathan",
@@ -1950,13 +1645,6 @@
                 "total_exp": "15 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "04-Dec-10 Benchmark NIFTY Low Duration Debt Index A-I 5 NAV (as on 31.01.25) Growth  27.3849 Direct Growth  28.8298",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -1986,27 +1674,22 @@
             "upside_deviation": null,
             "ytm": "7.72"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "503.10 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             37
         ],
-        "scheme_launch_date": "04-Dec-10"
+        "scheme_launch_date": "04-Dec-10 Benchmark NIFTY Low Duration Debt Index A-I 5"
     },
     "hsbc ultra short duration fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "2686.88 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "29-Jan-20 Benchmark NIFTY Ultra Short Duration Debt Index A-I 5 NAV (as on 31.01.25) Growth  1,311.5859 Direct Growth  1,328.7644",
-        "beforefund_manager": [
+        "benchmark_index": "29-Jan-20 Benchmark NIFTY Ultra Short Duration Debt Index A-I 5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 26, 2022",
                 "name": "Mahesh Chhabria",
@@ -2014,13 +1697,6 @@
                 "total_exp": "14.5 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "29-Jan-20 Benchmark NIFTY Ultra Short Duration Debt Index A-I 5 NAV (as on 31.01.25) Growth  1,311.5859 Direct Growth  1,328.7644",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2050,27 +1726,22 @@
             "upside_deviation": null,
             "ytm": "7.47"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "2686.88 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             38
         ],
-        "scheme_launch_date": "29-Jan-20"
+        "scheme_launch_date": "29-Jan-20 Benchmark NIFTY Ultra Short Duration Debt Index A-I 5"
     },
     "hsbc short duration fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "3709.02 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "27-Dec-11 Benchmark NIFTY Short Duration Debt Index A-II (effective September 04, 2023)5 NAV (as on 31.01.25) Growth  25.4500 Direct Growth  26.9310",
-        "beforefund_manager": [
+        "benchmark_index": "27-Dec-11 Benchmark NIFTY Short Duration Debt Index A-II (effective September 04, 2023)5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jan 16, 2024",
                 "name": "Mohd Asif Rizwi",
@@ -2084,13 +1755,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "27-Dec-11 Benchmark NIFTY Short Duration Debt Index A-II (effective September 04, 2023)5 NAV (as on 31.01.25) Growth  25.4500 Direct Growth  26.9310",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2120,27 +1784,22 @@
             "upside_deviation": null,
             "ytm": "7.37"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "3709.02 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             39
         ],
-        "scheme_launch_date": "27-Dec-11"
+        "scheme_launch_date": "27-Dec-11 Benchmark NIFTY Short Duration Debt Index A-II (effective September 04, 2023)5"
     },
     "hsbc medium duration fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "746.34 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "02-Feb-15 Benchmark NIFTY Medium Duration Debt Index A-III5 NAV (as on 31.01.25) Growth  19.6346 Direct Growth  21.3659",
-        "beforefund_manager": [
+        "benchmark_index": "02-Feb-15 Benchmark NIFTY Medium Duration Debt Index A-III5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 02, 2015",
                 "name": "Shriram Ramanathan",
@@ -2148,13 +1807,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "02-Feb-15 Benchmark NIFTY Medium Duration Debt Index A-III5 NAV (as on 31.01.25) Growth  19.6346 Direct Growth  21.3659",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2184,27 +1836,22 @@
             "upside_deviation": null,
             "ytm": "7.77"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "746.34 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             40
         ],
-        "scheme_launch_date": "02-Feb-15"
+        "scheme_launch_date": "02-Feb-15 Benchmark NIFTY Medium Duration Debt Index A-III5"
     },
     "hsbc medium to long duration fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "49.57 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "10-Dec-02 Benchmark NIFTY Medium to Long Dura- tion Debt Index A-III (effective September 04, 2023) 5 NAV (as on 31.01.25) Growth  40.7026 Direct Growth  45.2202",
-        "beforefund_manager": [
+        "benchmark_index": "10-Dec-02 Benchmark NIFTY Medium to Long Dura- tion Debt Index A-III (effective September 04, 2023) 5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 01, 2025",
                 "name": "Mohd. Asif Rizwi",
@@ -2218,13 +1865,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "10-Dec-02 Benchmark NIFTY Medium to Long Dura- tion Debt Index A-III (effective September 04, 2023) 5 NAV (as on 31.01.25) Growth  40.7026 Direct Growth  45.2202",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2254,27 +1894,22 @@
             "upside_deviation": null,
             "ytm": "6.91"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "49.57 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             41
         ],
-        "scheme_launch_date": "10-Dec-02"
+        "scheme_launch_date": "10-Dec-02 Benchmark NIFTY Medium to Long Dura- tion Debt Index A-III (effective September 04, 2023) 5"
     },
     "hsbc dynamic bond fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "158.46 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "27-Sep-10 Benchmark NIFTY Composite Debt Index A-III 5 NAV (as on 31.01.25) Growth  28.5780 Direct Growth  30.8839",
-        "beforefund_manager": [
+        "benchmark_index": "27-Sep-10 Benchmark NIFTY Composite Debt Index A-III 5",
+        "fund_manager": [
             {
                 "managing_fund_since": "May 1, 2024",
                 "name": "Mahesh Chhabria",
@@ -2288,13 +1923,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "27-Sep-10 Benchmark NIFTY Composite Debt Index A-III 5 NAV (as on 31.01.25) Growth  28.5780 Direct Growth  30.8839",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2324,27 +1952,22 @@
             "upside_deviation": null,
             "ytm": "7.03"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "158.46 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             42
         ],
-        "scheme_launch_date": "27-Sep-10"
+        "scheme_launch_date": "27-Sep-10 Benchmark NIFTY Composite Debt Index A-III 5"
     },
     "hsbc corporate bond fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "5750.94 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "31-Mar-97 Benchmark NIFTY Corporate Bond Index A-II5 NAV (as on 31.01.25) Growth  70.2795 Direct Growth  74.7588",
-        "beforefund_manager": [
+        "benchmark_index": "31-Mar-97 Benchmark NIFTY Corporate Bond Index A-II5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 01, 2025",
                 "name": "Mohd. Asif Rizwi",
@@ -2358,13 +1981,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "31-Mar-97 Benchmark NIFTY Corporate Bond Index A-II5 NAV (as on 31.01.25) Growth  70.2795 Direct Growth  74.7588",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2394,27 +2010,22 @@
             "upside_deviation": null,
             "ytm": "7.29"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "5750.94 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             43
         ],
-        "scheme_launch_date": "31-Mar-97"
+        "scheme_launch_date": "31-Mar-97 Benchmark NIFTY Corporate Bond Index A-II5"
     },
     "hsbc banking and psu debt fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "4145.65 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "12-Sep-12 Benchmark Nifty Banking  PSU Debt Index A-II5 NAV (as on 31.01.25) Growth  23.3250 Direct Growth  24.5307",
-        "beforefund_manager": [
+        "benchmark_index": "12-Sep-12 Benchmark Nifty Banking  PSU Debt Index A-II5",
+        "fund_manager": [
             {
                 "managing_fund_since": "May 1, 2024",
                 "name": "Mohd. Asif Rizwi",
@@ -2422,13 +2033,6 @@
                 "total_exp": "15.5 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "12-Sep-12 Benchmark Nifty Banking  PSU Debt Index A-II5 NAV (as on 31.01.25) Growth  23.3250 Direct Growth  24.5307",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2458,27 +2062,22 @@
             "upside_deviation": null,
             "ytm": "7.41"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "4145.65 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             44
         ],
-        "scheme_launch_date": "12-Sep-12"
+        "scheme_launch_date": "12-Sep-12 Benchmark Nifty Banking  PSU Debt Index A-II5"
     },
     "hsbc credit risk fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "583.65 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "08-Oct-09 Benchmark NIFTY Credit Risk Bond Index B-II5 NAV (as on 31.01.25) Growth  27.7615 Direct Growth  30.0005",
-        "beforefund_manager": [
+        "benchmark_index": "08-Oct-09 Benchmark NIFTY Credit Risk Bond Index B-II5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Nov 24, 2012",
                 "name": "Shriram Ramanathan",
@@ -2486,13 +2085,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "08-Oct-09 Benchmark NIFTY Credit Risk Bond Index B-II5 NAV (as on 31.01.25) Growth  27.7615 Direct Growth  30.0005",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2522,27 +2114,22 @@
             "upside_deviation": null,
             "ytm": "8.14"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "583.65 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             45
         ],
-        "scheme_launch_date": "08-Oct-09"
+        "scheme_launch_date": "08-Oct-09 Benchmark NIFTY Credit Risk Bond Index B-II5"
     },
     "hsbc gilt fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "262.14 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "29-Mar-00 Benchmark NIFTY All Duration G-Sec Index5 NAV (as on 31.01.25) Growth  64.1735 Direct Growth  73.2230",
-        "beforefund_manager": [
+        "benchmark_index": "29-Mar-00 Benchmark NIFTY All Duration G-Sec Index5",
+        "fund_manager": [
             {
                 "managing_fund_since": "May 1, 2024",
                 "name": "Mohd Asif Rizwi",
@@ -2556,13 +2143,6 @@
                 "total_exp": "24 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "29-Mar-00 Benchmark NIFTY All Duration G-Sec Index5 NAV (as on 31.01.25) Growth  64.1735 Direct Growth  73.2230",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2592,27 +2172,22 @@
             "upside_deviation": null,
             "ytm": "7.03"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "262.14 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             46
         ],
-        "scheme_launch_date": "29-Mar-00"
+        "scheme_launch_date": "29-Mar-00 Benchmark NIFTY All Duration G-Sec Index5"
     },
     "hsbc conservative hybrid fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "150.50 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "24-Feb-04 Benchmark NIFTY 50 Hybrid Composite Debt 1585 Index5 NAV (as on 31.01.25) Growth  58.6067 Direct Growth  65.3176",
-        "beforefund_manager": [
+        "benchmark_index": "24-Feb-04 Benchmark NIFTY 50 Hybrid Composite Debt 1585 Index5",
+        "fund_manager": [
             {
                 "managing_fund_since": "Feb 01, 2025",
                 "name": "Mohd. Asif Rizwi",
@@ -2626,9 +2201,6 @@
                 "total_exp": "20 Years"
             }
         ],
-        "benchmark_index": "",
-        "benchmarking": "24-Feb-04 Benchmark NIFTY 50 Hybrid Composite Debt 1585 Index5 NAV (as on 31.01.25) Growth  58.6067 Direct Growth  65.3176",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2658,27 +2230,22 @@
             "upside_deviation": null,
             "ytm": "6.97"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
         "min_amt": null,
         "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "150.50 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             47
         ],
-        "scheme_launch_date": "24-Feb-04"
+        "scheme_launch_date": "24-Feb-04 Benchmark NIFTY 50 Hybrid Composite Debt 1585 Index5"
     },
     "hsbc crisil ibx 50:50 gilt plus sdl apr 2028 index fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "1886.13 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "31-Mar-22 Benchmark CRISIL IBX 5050 Gilt Plus SDL Index - April 20285 NAV (as on 31.01.25) Growth  11.9504 Direct Growth  12.0189",
-        "beforefund_manager": [
+        "benchmark_index": "31-Mar-22 Benchmark CRISIL IBX 5050 Gilt Plus SDL Index - April 20285",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jul 15, 2023",
                 "name": "Mahesh Chhabria",
@@ -2692,13 +2259,6 @@
                 "total_exp": "15.5 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "31-Mar-22 Benchmark CRISIL IBX 5050 Gilt Plus SDL Index - April 20285 NAV (as on 31.01.25) Growth  11.9504 Direct Growth  12.0189",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2728,27 +2288,22 @@
             "upside_deviation": null,
             "ytm": "6.88"
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "1886.13 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             48
         ],
-        "scheme_launch_date": "31-Mar-22"
+        "scheme_launch_date": "31-Mar-22 Benchmark CRISIL IBX 5050 Gilt Plus SDL Index - April 20285"
     },
     "hsbc crisil ibx gilt june 2027 index fund": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
-        "beforeaaum": "194.95 Cr",
-        "beforeadditional_purchase": {
-            "amt": "1,000",
-            "thraftr": ""
-        },
-        "beforedate_of_allotment": "23-Mar-23 Benchmark CRISIL-IBX Gilt Index - June 20275 NAV (as on 31.01.25) Growth  11.4520 Direct Growth  11.5118",
-        "beforefund_manager": [
+        "benchmark_index": "23-Mar-23 Benchmark CRISIL-IBX Gilt Index - June 20275",
+        "fund_manager": [
             {
                 "managing_fund_since": "Jul 15, 2023",
                 "name": "Mahesh Chhabria",
@@ -2762,13 +2317,6 @@
                 "total_exp": "15.5 Years"
             }
         ],
-        "beforeminimum_investment_1": {
-            "amt": "5,000",
-            "thraftr": ""
-        },
-        "benchmark_index": "",
-        "benchmarking": "23-Mar-23 Benchmark CRISIL-IBX Gilt Index - June 20275 NAV (as on 31.01.25) Growth  11.4520 Direct Growth  11.5118",
-        "fund_manager": [],
         "load": {
             "entry_load": null,
             "exit_load": null
@@ -2798,16 +2346,16 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
-        "monthly_aaum_date": "28FEBRUARY2025",
-        "monthly_aaum_value": null,
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31MARCH2025",
+        "monthly_aaum_value": "194.95 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "page_number": [
             49
         ],
-        "scheme_launch_date": "23-Mar-23"
+        "scheme_launch_date": "23-Mar-23 Benchmark CRISIL-IBX Gilt Index - June 20275"
     }
 }

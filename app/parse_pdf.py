@@ -36,7 +36,7 @@ class Reader:
         
         with fitz.open(path) as doc:
             page_count = doc.page_count
-            indices = Helper._get_financial_indices(self.INDICEPATH)
+            indices = FundRegex().FINANCIAL_TERMS
     
             #checkers
             fund_cond = self.PARAMS['fund']
@@ -92,9 +92,7 @@ class Reader:
         with fitz.open(input) as doc:
             finalData = []
             fund_seen = {}
-
             bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
-
             for pgn in pages:
                 fundName = title.get(pgn, "").strip()
                 if not fundName:
@@ -104,7 +102,7 @@ class Reader:
                 all_blocks = []
                 for bbox in bboxes:
                     blocks, seen_blocks = [], set()
-                    page_blocks = page.get_text('dict', clip=bbox)['blocks']
+                    page_blocks = page.get_text('dict', clip=bbox)['blocks'] #only get clipped data
 
                     for block in page_blocks:
                         if block['type'] == 0 and 'lines' in block:
@@ -200,8 +198,7 @@ class Reader:
         return finalData
 
     #CLEAN 
-    def process_text_data(self, data: list)->list:
-        
+    def process_text_data(self, data: list)->list: 
         stop_words,finalData = FundRegex().STOP_WORDS,[]
         #checkers
         data_cond = self.PARAMS['data']
@@ -276,32 +273,30 @@ class Reader:
         return finalData
 
     def create_nested_dict(self,data: list,*args)->list:
-
-            header_size, content_size = self.PARAMS['content_size']
-            finalData = []
+        header_size, content_size = self.PARAMS['content_size']
+        finalData = []
+        for content in data:
+            pgn,fundName,blocks = content['page'],content['fundname'], content['block']
+            nested_dict = {}
+            curr_head = "before"
             
-            for content in data:
-                pgn,fundName,blocks = content['page'],content['fundname'], content['block']
-                nested_dict = {}
-                curr_head = "before"
+            if curr_head not in nested_dict:
+                nested_dict[curr_head] = []
                 
-                if curr_head not in nested_dict:
+            for block in blocks:
+                size,text, *open = block
+                if size == header_size:
+                    curr_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
                     nested_dict[curr_head] = []
+                elif size<= content_size and curr_head:
+                    nested_dict[curr_head].append(block)
                     
-                for block in blocks:
-                    size,text, *open = block
-                    if size == header_size:
-                        curr_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
-                        nested_dict[curr_head] = []
-                    elif size<= content_size and curr_head:
-                        nested_dict[curr_head].append(block)
-                     
-                if nested_dict['before'] == []:
-                    del nested_dict['before']    
-                
-                finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
-    
-            return finalData
+            if nested_dict['before'] == []:
+                del nested_dict['before']    
+            
+            finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
+
+        return finalData
 
     def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
         
@@ -501,19 +496,7 @@ class Reader:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
             doc.save(output_path)
-   
-    # @staticmethod
-    # def _extract_data_from_pdf(path: str):
-    #     with pdfplumber.open(path) as pdf:
-    #         final_data = {}
-
-    #         for page in pdf.pages:
-    #             content = page.extract_text().encode("ascii", "ignore").decode().split('\n')
-    #             key,val = content[0], content[1:]
-    #             final_data[key] = val #First text will he Header rest values
-
-    #     return final_data
-    
+            
     @staticmethod
     def _extract_data_from_pdf(path: str):
         final_data = {}
@@ -530,7 +513,6 @@ class Reader:
     def get_generated_content(self, data:list):
         extracted_text = {}
         output_path  = self.DRYPATH
-        # print(f"FUNDS at LOC:")
         for content in data:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
             
@@ -538,7 +520,6 @@ class Reader:
             start_time = time.time()
             Reader._generate_pdf_from_data(blocks, output_path)
             # print(f"PDF Generation Time: {time.time() - start_time:.2f} sec")
-            
             start_time = time.time()
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
             # print(f"PDF Extraction Time: {time.time() - start_time:.2f} sec")
@@ -559,14 +540,18 @@ class Reader:
     
     def refine_extracted_data(self, extracted_text: dict,flatten = False):
         primary_refine = {}
-        regex = FundRegex() 
+        regex = FundRegex()
+        
+        header_map = {} #keep track of headers after each iteration, its imp
         for fund, item in extracted_text.items():
             content_dict = {}
+            header_map[fund] = {}
             for head, content in item.items():
                 if clean_head:=  regex.header_mapper(head):
-                    content = self._match_regex_to_content(clean_head, content) # applies regex to clean data
-                    content = regex.transform_keys(content) #lowercase
+                    header_map[fund][head] = clean_head
                     
+                    content = self._match_with_patterns(clean_head, content,level = "primary") # applies regex to clean data
+                    content = regex.transform_keys(content) #lowercase
                     key, value = next(iter(content.items()))  # Extract key-value once
 
                     if clean_head in content_dict:
@@ -583,7 +568,11 @@ class Reader:
         for fund, item in primary_refine.items():
             content_dict = {}
             for head, content in item.items():
-                content = self._secondary_match_regex_to_content(head, content)
+                clean_head = header_map[fund].get(head, head)
+                content = self._match_with_patterns(clean_head, content,level = "secondary")
+                
+                # if clean_head in self.FLATTENABLE_KEYS: wip
+                #     content = regex.flatten_dict(content)
                 content_dict.update(content)
 
             secondary_refine[fund] = content_dict
@@ -592,7 +581,8 @@ class Reader:
         for fund, item in secondary_refine.items():
             content_dict = {}
             for head, content in item.items():
-                content = self._tertiary_match_regex_to_content(head, content)
+                clean_head = header_map[fund].get(head, head)
+                content = self._match_with_patterns(clean_head, content,level = "tertiary")
                 content_dict.update(content)
 
             tertiary_refine[fund] = content_dict

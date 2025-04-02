@@ -113,6 +113,7 @@
     SPECIAL_FUNCTIONS: {
       fund_manager: "_update_manger_data",
     },
+    FLATTEN_KEYS: [],
   },
   "Aditya Birla Sun Life Mutual Fund": {
     PARAMS: {
@@ -146,7 +147,7 @@
       load: "Entry Load(.*?)\\s*Exit Load(.*)$",
       manager: "",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)", //"^(Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield).*?\\s*([\\d,.]+)",
+      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
@@ -199,6 +200,7 @@
     SPECIAL_FUNCTIONS: {
       fund_manager: "_update_manager_data",
     },
+    FLATTEN_KEYS: [],
   },
   "Axis Mutual Fund": {
     PARAMS: {
@@ -209,16 +211,11 @@
         color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [
-        [0, 85, 180, 812],
-        // [180, 85, 360, 812],
-        // [0, 100, 270, 812],
-        // [0, 100, 350, 812],
-      ],
+      clip_bbox: [[0, 85, 180, 812]],
       line_x: 260.0,
       data: {
         size: [6, 12],
-        color: [-6876083], //-16777216
+        color: [-6876083],
         update_size: 30.0,
         font: ["Lato-Bold"],
       },
@@ -271,6 +268,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Axis Mutual Fund Passive": {
     PARAMS: {
@@ -296,6 +294,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Bajaj finserv Mutual Fund": {
     PARAMS: {
@@ -375,6 +374,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Bandhan Mutual Fund": {
     PARAMS: {
@@ -458,6 +458,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Bank of India Mutual Fund": {
     PARAMS: {
@@ -538,6 +539,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Baroda BNP Paribas Mutual Fund": {
     PARAMS: {
@@ -604,7 +606,7 @@
       "monthly_aaum_date",
       "mutual_fund_name",
       "page_number",
-      ".*(key_statistics|expense_ratio)"
+      ".*(key_statistics|expense_ratio)",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load_structure": ["_extract_load_data", "load"],
@@ -629,6 +631,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Canara Robeco Mutual Fund": {
     PARAMS: {
@@ -678,7 +681,6 @@
         "MANAGING\\s*THIS\\s*FUND",
         "EOL",
       ],
-      //name,exp,since
       manager: [
         "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
         "\b\\d+\\s*Years?\b",
@@ -706,7 +708,7 @@
       ".*(entry_load|exit_load)",
       ".*monthly_avg_aum",
       ".*(fund|total_experience|managing_this_fund)$",
-      ".*(minimum_investment|subsequent_purchases)", //4
+      ".*(minimum_investment|subsequent_purchases)",
       "metrics",
       "load",
       "fund_manager",
@@ -735,6 +737,7 @@
     SPECIAL_FUNCTIONS: {
       fund_manager: "_update_manager_data",
     },
+    FLATTEN_KEYS: [],
   },
   "DSP Mutual Fund": {
     PARAMS: {
@@ -753,9 +756,7 @@
         size: [7, 11],
         update_size: 30.0,
         font: ["TrebuchetMS-Bold"],
-        color: [
-          -1, //-16777216
-        ],
+        color: [-1],
       },
       content_size: [30.0, 10.0],
       line_x: 180.0,
@@ -775,7 +776,7 @@
         "Month End Expense",
         "EOL",
       ],
-      metrics: "(\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*([\\d,.]+\\s*(?:years|days|months)?)", //first regex of ptr
+      metrics: "(\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
       escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
@@ -818,6 +819,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Edelweiss Mutual Fund": {
     PARAMS: {
@@ -900,6 +902,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Franklin Templeton Mutual Fund": {
     PARAMS: {
@@ -934,6 +937,7 @@
         pattern: "\\b(?:[A-Z]\\.|[A-Z][a-z]+)(?:\\s(?:[A-Z]\\.|[A-Z][a-z]+)){1,2}\\b(?![^()]*\\))",
         fields: ["name"],
       },
+      trim: 40,
       aum: "(Month End|Monthly Average)\\s*([\\d,.\\-]+)",
       ptr: "(Portfolio\\s*Turnover(?:\\s*\\(Equity\\d*\\))?)\\s*(\\d{1,3}(?:,\\d{3})*\\.\\d+)%?",
       escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
@@ -943,18 +947,21 @@
         "_extract_str_data",
         null,
       ],
+      "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)": [
+        "_extract_and_trim_data",
+        "trim",
+      ],
       "^nav.*": ["_extract_generic_data", "nav"],
       "^aum.*": ["_extract_generic_data", "aum"],
-      "^fund_manager": ["_extract_manager_data", "manager"],
       "^portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
     },
     SELECTKEYS: [
-      "date_of_allotment",
+      "^date_of_allotment",
       "fund_manager",
       "benchmark_index",
       "aum.monthly_average",
-      "multiples_for_new_investors",
-      "multiples_for_existing_investors",
+      ".*for_new_investors",
+      ".*for_existing_investors",
       "load",
       "metrics",
       "portfolio_turnover_ratio",
@@ -963,17 +970,23 @@
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
+      "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^(multiples_for|multiples_for_existing)": [
+      "^(multiples_for|multiples_for_existing|for_new.*|for_existing.*)": [
         "_extract_amt_data",
         "min_amt",
       ],
+      "^fund_manager": ["_extract_manager_data", "manager"],
       "^metrics": ["_extract_generic_data", "metric"],
       "^load": ["_extract_load_data", "load"],
     },
     MERGEKEYS: {
-      metrics: ["metrics", "^portfolio_turnover_ratio"],
+      metrics: [
+        "metrics",
+        "^portfolio_turnover_ratio",
+        "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)",
+      ],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -988,6 +1001,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Groww Mutual Fund": {
     PARAMS: {
@@ -1074,6 +1088,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "HDFC Mutual Fund": {
     PARAMS: {
@@ -1084,7 +1099,10 @@
         color: [-1],
         countmax_header_check: 15,
       },
-      clip_bbox: [[0, 70, 190, 812]],
+      clip_bbox: [
+        [0, 70, 190, 812],
+        [370, 100, 570, 812],
+      ],
       line_x: 200.0,
       data: {
         size: [5, 13],
@@ -1120,19 +1138,19 @@
     },
     SELECTKEYS: [
       "fund_manager",
-      ".*average_for_month$", //aaum
-      "metrics", //merge
+      ".*average_for_month$",
+      "metrics",
       "_?benchmark_index",
       "addl_benchmark_index",
-      "exit_load", //merge
+      "exit_load",
       "^date_of_allotment.*",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "tracking_error", //merge
-      "load", //after merge
+      "tracking_error",
+      "load",
     ],
     MERGEKEYS: {
       load: ["exit_load"],
@@ -1154,6 +1172,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Helios Mutual Fund": {
     PARAMS: {
@@ -1247,6 +1266,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "HSBC Mutual Fund": {
     PARAMS: {
@@ -1259,12 +1279,12 @@
       },
       clip_bbox: [
         [0, 100, 180, 812],
-        [370, 90, 580, 812],
+        [370, 90, 600, 812],
       ],
       line_x: 180.0,
       data: {
         size: [6, 9],
-        color: [-1], //-16777216
+        color: [-1],
         update_size: 30.0,
         font: ["Arial-BoldMT"],
       },
@@ -1277,6 +1297,7 @@
     REGEX: {
       scheme: [
         "Date of Allotment",
+        "NAV",
         "AUM",
         "AAUM",
         "Fund Manager",
@@ -1289,7 +1310,6 @@
         "Portfolio Turnover",
         "EOL",
       ],
-
       date: "^(\\d{2}-?[A-Za-z]+-?\\d{2}).+$",
       benchmark: "^(\\d{2}-?[A-Za-z]+-?\\d{2})\\s*(?:.+?)?Benchmark(.+?)NAV",
       min_amt: ".*?(?:lumpsum)?\\s*([\\d,.]+)()",
@@ -1315,7 +1335,6 @@
       ".*portfolio_turnover": ["_extract_generic_data", "ptr"],
       ".*aaum$": ["_extract_generic_data", "aum"],
       ".*fund_manag": ["_extract_manager_data", "manager"],
-      // ".*date_of_allotment":["_extract_generic_data","date"]
     },
     SELECTKEYS: [
       "amc_name",
@@ -1325,6 +1344,7 @@
       "load",
       "metrics",
       ".*additional_purchase",
+      // ".*fund_details",
       ".*(entry_load|exit_load|quantitative_data|portfolio_turnover|benchmark|date_of_allotment|aaum|minimum_investment|fund_manager)",
     ],
     MERGEKEYS: {
@@ -1343,12 +1363,11 @@
     PRE_DATA_SELECT: [],
     HEADER_MAPPER: {},
     CLONEKEYS: {
-      benchmarking: ".*date_of_allotment",
+      benchmark_index: ".*date_of_allotment",
     },
     SPECIAL_FUNCTIONS: {
-      ".*date_of_allotment": "_update_date_data",
-      // "benchmarking":"_update_benchmark_data"
     },
+    FLATTEN_KEYS: [],
   },
   "ICICI Prudential Mutual Fund": {
     PARAMS: {
@@ -1378,6 +1397,8 @@
       stop_words: [],
     },
     REGEX: {
+      aum:"([\\d,.]+\\s*crores)",
+      date:".*Allotment date(.+)?",
       scheme: [
         "Fund Managers",
         "Indicative Investment Horizon",
@@ -1386,19 +1407,50 @@
         "Closing AUM as on",
         "NAV",
         "Minimum application amount",
-        "Exit load for",
+        "Exit load",
         "Exchange Listed on",
         "Total Expense Ratio",
         "EOL",
       ],
+      manager:{
+        pattern:"\\s*([\\w\\s]+)\\s\\(Managing this fund since\\s*([A-Za-z]+\\,?\\s*[0-9]+)\\s*overall\\s*([0-9]+ years).+?\\)",
+        fields:["name","since","exp"]
+      },
+      metrics:{
+        key:"\\b(PE|PB|Dividend Yield|Std Dev|Annual Portfolio Turnover Ratio|Sharpe Ratio|Portfolio Beta|Tracking Error|Average Maturity|Macaulay Duration|Modified Duration|YTM)\\b",
+        value:"\\b(-?[\\d.]+\\s*(?:days?|years?|months?|times?)?)\\b"
+      },
       escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dummy|scheme_Details).*": ["_extract_scheme_data", "scheme"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
-    MERGEKEYS: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      metrics:["_extract_metric_data","metrics"],
+      ".*indicative_investment_horizon":["_extract_generic_data","date"],
+      ".*monthly_aaum.*":["_extract_generic_data","aum"],
+      ".*fund_managers":["_extract_manager_data","manager"]
+    },
+    SELECTKEYS: [
+      "amc_name",
+      "main_scheme_name",
+      "monthly_aaum_date",
+      "monthly_aaum_value",
+      "mutual_fund_name",
+      "page_number",
+      ".*exit_load",
+      ".*indicative_investment_horizon",
+      ".*fund_managers",
+      ".*minimum_applic",
+      "metrics",
+      "load",//after merge
+      ".*monthly_aaum_as_of"
+    ],
+    MERGEKEYS: {
+      load:[
+        ".*exit_load"
+      ]
+    },
     COMMENTS: [],
     IMP_DATA: {
       amc_name: "ICICI Prudential Asset Management Company Limited",
@@ -1412,6 +1464,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Invesco Mutual Fund": {
     PARAMS: {
@@ -1472,7 +1525,7 @@
       "aaum",
       "fund_manager",
       "metrics",
-      "^asset_alloc.*", //metrics
+      "^asset_alloc.*",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
@@ -1496,6 +1549,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "ITI Mutual Fund": {
     PARAMS: {
@@ -1563,8 +1617,8 @@
       "fund_manager",
       ".*aaum$",
       "metrics",
-      "quantitative_data", //metrics
-      ".*income_portion", //metrics
+      "quantitative_data",
+      ".*income_portion",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
@@ -1589,6 +1643,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "JM Financial Mutual Fund": {
     PARAMS: {
@@ -1639,20 +1694,12 @@
     },
     PATTERN_TO_FUNCTION: {
       "^(investment|exit_load).*": ["_extract_str_data", null],
-      // "^fund_manager.*": [
-      //     "_extract_manager_data",
-      //     "manager",
-      // ],
       aum: ["_extract_generic_data", "aum"],
       "inception_date.*": ["_extract_date_data", null],
       "^portfolio_turnover.*": ["_extract_ptr_data", null],
       min_amt: ["_extract_lump_data", null],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      // metrics: [
-      //     "_extract_generic_data",
-      //     "metric",
-      // ],
       min_amt: ["_extract_amt_data", "min_amt"],
     },
     SELECTKEYS: [
@@ -1695,6 +1742,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Kotak Mahindra Mutual Fund": {
     PARAMS: {
@@ -1776,6 +1824,7 @@
       minimum_investment_clone: ".*additional_investment",
     },
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "LIC Mutual Fund": {
     PARAMS: {
@@ -1848,6 +1897,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Mahindra Manulife Mutual Fund": {
     PARAMS: {
@@ -1862,15 +1912,7 @@
       line_x: 200.0,
       data: {
         size: [7, 10],
-        color: [
-          // -7392877,
-          // -16749906,
-          // -7953091,
-          // -7767504,
-          // -12402502,
-          // -945627,
-          -1,
-        ],
+        color: [-1],
         update_size: 30.0,
         font: ["QuantumRise-Bold", "QuantumRise", "QuantumRise-Semibold"],
       },
@@ -1906,7 +1948,7 @@
         "NAV",
         "EOL",
       ],
-      aum: "([\\d,.]+)\\s*Monthly", //aaum only
+      aum: "([\\d,.]+)\\s*Monthly",
       load: "Entry Load\\s*(.+?)\\s*Exit Load\\s*(.+)$",
       min_amt: "Rs\\.?\\s*([\\d,]+)(?:-)?\\D+R[es]?\\.?\\s*([\\d,]+)",
       metrics: "(Modif?i?ed Duration|Residual Maturity|Macaulay Duration|Annualised\\s*Portfolio YTM\\s*2?|Portfolio Turnover Ratio\\s*\\(.*?\\)|Standard Deviation|Treynor|Beta|Sharpe Ratio|Jensons Alpha)\\s*(-?[\\d,\\.]+\\s*(?:years|days|months)?)",
@@ -1919,11 +1961,7 @@
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load": ["_extract_load_data", "load"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*monthly_aaum$": [
-        //conflicting with monthly_aaum_date
-        "_extract_generic_data",
-        "aum",
-      ],
+      ".*monthly_aaum$": ["_extract_generic_data", "aum"],
       ".*(minimum_application_amount|minimum_additional_purchase_amount)": [
         "_extract_amt_data",
         "min_amt",
@@ -1969,6 +2007,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Mirae Asset Mutual Fund": {
     PARAMS: {
@@ -2053,6 +2092,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Motilal Oswal Mutual Fund": {
     PARAMS: {
@@ -2136,6 +2176,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Navi Mutual Fund": {
     PARAMS: {
@@ -2228,6 +2269,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Nippon India Mutual Fund": {
     PARAMS: {
@@ -2286,22 +2328,10 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(s\\)",
     },
     PATTERN_TO_FUNCTION: {
-      // "^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
-      //     "_extract_str_data",
-      //     null,
-      // ],
-      // "^aum.*": [
-      //     "_extract_generic_data",
-      //     "aum",
-      // ],
       "scheme.*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*(nav_as_on|valuation)": [
-        //comes under metric
-        "_extract_generic_data",
-        "metric",
-      ],
+      ".*(nav_as_on|valuation)": ["_extract_generic_data", "metric"],
       "^(measures|industry_allocation|metrics).*": [
         "_extract_generic_data",
         "metric",
@@ -2310,7 +2340,7 @@
       ".*fund_manager": ["_extract_manager_data", "manager"],
     },
     SELECTKEYS: [
-      ".*(date_of_allotment|fund_manager|benchmark|monthly_average|nav_as_on|load_structure)", //6
+      ".*(date_of_allotment|fund_manager|benchmark|monthly_average|nav_as_on|load_structure)",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
@@ -2344,6 +2374,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "NJ Mutual Fund": {
     PARAMS: {
@@ -2398,7 +2429,7 @@
       "mutual_fund_name",
       "page_number",
       "monthly_average_aum",
-      "additional_investment", //2
+      "additional_investment",
       "metrics",
       "minimum_investment",
       "benchmark_index",
@@ -2425,6 +2456,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Old Bridge Mutual Fund": {
     PARAMS: {
@@ -2472,6 +2504,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "PGIM India Mutual Fund": {
     PARAMS: {
@@ -2494,7 +2527,7 @@
         font: ["PrudentialModern-Bold"],
       },
       content_size: [30.0, 10.0],
-      method: "clip", //clip
+      method: "clip",
       line_side: "",
       max_financial_index_highlight: 0,
       stop_words: [],
@@ -2541,8 +2574,8 @@
       ".*benchmark": ["_extract_generic_data", "benchmark"],
     },
     SELECTKEYS: [
-      ".*(additional_purchase|application_amount)$", //4
-      ".*(fund_manager|benchmark|average_aum|aum_as_on)", //4
+      ".*(additional_purchase|application_amount)$",
+      ".*(fund_manager|benchmark|average_aum|aum_as_on)",
       ".*load_structure",
       "amc_name",
       "main_scheme_name",
@@ -2568,6 +2601,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "PPFAS Mutual Fund": {
     PARAMS: {
@@ -2593,6 +2627,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Quant Mutual Fund": {
     PARAMS: {
@@ -2673,7 +2708,7 @@
       "mutual_fund_name",
       "page_number",
       "monthly_aaum_date",
-      ".*(subsequent_investment|minimum_investment|benchmark_index|inception_date)", //6
+      ".*(subsequent_investment|minimum_investment|benchmark_index|inception_date)",
       ".*fund_managers",
       ".*load_structure",
       ".*risk.*measures$",
@@ -2693,6 +2728,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Quantum Mutual Fund": {
     PARAMS: {
@@ -2707,10 +2743,7 @@
       line_x: 180.0,
       data: {
         size: [6, 11],
-        color: [
-          // -1,
-          -23,
-        ],
+        color: [-23],
         update_size: 30.0,
         font: ["Prompt-SemiBold"],
       },
@@ -2815,6 +2848,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Samco Mutual Fund": {
     PARAMS: {
@@ -2904,6 +2938,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "SBI Mutual Fund": {
     PARAMS: {
@@ -2956,10 +2991,6 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*aaum$": ["_extract_generic_data", "aum"],
-      // ".*(minimum_investment|additional_investment)$":[
-      //     "_extract_amt_data",
-      //     "min_amt"
-      // ],
       metrics: ["_extract_generic_data", "metrics"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
     },
@@ -2969,7 +3000,7 @@
       ".*first_tier_benchmark",
       ".*fund_manager",
       ".*(exit_load|entry_load)",
-      ".*(minimum_investment|additional_investment)", //4
+      ".*(minimum_investment|additional_investment)",
       "metrics",
       "amc_name",
       "main_scheme_name",
@@ -2994,6 +3025,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "SBI Mutual Fund Passive": {
     PARAMS: {
@@ -3046,10 +3078,6 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*aaum$": ["_extract_generic_data", "aum"],
-      // ".*(minimum_investment|additional_investment)$":[
-      //     "_extract_amt_data",
-      //     "min_amt"
-      // ],
       metrics: ["_extract_generic_data", "metrics"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
     },
@@ -3059,7 +3087,7 @@
       ".*first_tier_benchmark",
       ".*fund_manager",
       ".*(exit_load|entry_load)",
-      ".*(minimum_investment|additional_investment)", //4
+      ".*(minimum_investment|additional_investment)",
       "metrics",
       "amc_name",
       "main_scheme_name",
@@ -3084,6 +3112,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Shriram Mutual Fund": {
     PARAMS: {
@@ -3109,6 +3138,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Sundaram Mutual Fund": {
     PARAMS: {
@@ -3181,7 +3211,7 @@
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
-      ".*weighted_avg", //metrics
+      ".*weighted_avg",
       "mutual_fund_name",
     ],
     MERGEKEYS: {
@@ -3200,6 +3230,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Tata Mutual Fund": {
     PARAMS: {
@@ -3287,6 +3318,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Taurus Mutual Fund": {
     PARAMS: {
@@ -3366,6 +3398,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Trust Mutual Fund": {
     PARAMS: {
@@ -3435,7 +3468,7 @@
       "nav",
       ".*fund_size$",
       ".*fund_manager",
-      ".*(minimum_investment|minimum_additional_purchase)", //2,
+      ".*(minimum_investment|minimum_additional_purchase)",
       "monthly_aaum_value",
     ],
     MERGEKEYS: {},
@@ -3452,6 +3485,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "UTI Mutual Fund": {
     PARAMS: {
@@ -3533,6 +3567,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Union Mutual Fund": {
     PARAMS: {
@@ -3561,10 +3596,10 @@
       stop_words: [],
     },
     REGEX: {
-      aum: ".*Average for.*\\s*([\\d,.]+) crores",
+      aum: ".*average for\\s*[A-Za-z\\s]+\\.?\\s*[0-9]+\\s*([\\d,.]+\\s*crore)",
       scheme: [
         "Investment Objective",
-        "CoFund Managers",
+        "Co\\-?Fund Managers",
         "Indicative Investment Horizon",
         "Date of allotment",
         "Assets Under Management",
@@ -3574,21 +3609,39 @@
         "Active Stock Position in Scheme",
         "EOL",
       ],
+      metrics:{
+        key:"(Std\\.?|Sharpe|Beta|Turnover Ratio|Macaulay|Modified|Yield\\s*(?:Maturity)?|Residual)",
+        value:"(-?\\d+\\.?\\d+\\s*(?:days?|months?|years?)?)"
+      },
       load: "Entry Load(.*)Exit Load(.*)$",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      manager:{
+        pattern:"([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?(?:field of|in the|in)\\s*([A-Za-z\\s]+?)\\.?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
+        fields:["name","exp","desig","since"]
+      },
+      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment|minimum|entry|exit|load|plans|scheme_launch|benchmark).*": [
-        "_extract_str_data",
-        null,
-      ],
-      "^scheme_details": ["_extract_scheme_data", "scheme"],
+      "scheme_details": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load_structure": ["_extract_load_data", "load"],
+      "^metrics.*":["_extract_metric_data","metrics"],
+      ".*assets_under.*":["_extract_generic_data","aum"],
+      ".*fund_managers":["_extract_manager_data","manager"]
     },
-    SELECTKEYS: [],
-    MERGEKEYS: {},
+    SELECTKEYS: [
+      ".*load_structure",
+      "^metrics.*",
+      ".*(benchmark_index|date_of_allotment|fund_managers|assets_under_management)",
+      "amc_name",
+      "main_scheme_name",
+      "page_number",
+      "monthly_aaum_date",
+      "mutual_fund_name"
+    ],
+    MERGEKEYS: {
+      metrics:["^metrics.*"]
+    },
     COMMENTS: [],
     IMP_DATA: {
       amc_name: "Union Asset Management Company Private Limited",
@@ -3602,6 +3655,7 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "WhiteOak Mutual Fund": {
     PARAMS: {
@@ -3683,6 +3737,7 @@
       mini_inv: "additional_purchase_amount",
     },
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
   "Zerodha Mutual Fund": {
     PARAMS: {
@@ -3763,5 +3818,6 @@
     HEADER_MAPPER: {},
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
+    FLATTEN_KEYS: [],
   },
 }

@@ -19,9 +19,6 @@ class GrandFundData:
         #amc indicators
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
-        self.PATTERN_TO_FUNCTION = fund_config.get("PATTERN_TO_FUNCTION", {})
-        self.SECONDARY_PATTERN_TO_FUNCTION = fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{})
-        self.TERTIARY_PATTERN_TO_FUNCTION = fund_config.get("TERTIARY_PATTERN_TO_FUNCTION",{})
         self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
         self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
@@ -30,9 +27,20 @@ class GrandFundData:
         self.CLONEKEYS = fund_config.get("CLONEKEYS",[])
         self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS",{})
         
+        self.PATTERN = {
+            "primary":fund_config.get("PATTERN_TO_FUNCTION", {}),
+            "secondary":fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{}),
+            "tertiary":fund_config.get("TERTIARY_PATTERN_TO_FUNCTION",{})
+        }
+        
     #extract 
-    def _extract_dummy_data(self,key:str,data):
-        return {key:data}
+    def _extract_dummy_data(self,main_key:str,data):
+        return {main_key:data}
+    
+    def _extract_and_trim_data(self,main_key:str,data,pattern:str):
+        trim_data = " ".join(data) if isinstance(data,list) else data
+        trim_data = re.sub(self.REGEX["escape"],"",trim_data).strip()
+        return {main_key:trim_data[:self.REGEX[pattern]] if len(trim_data)>self.REGEX[pattern] else trim_data}
     
     def _extract_bench_data(self,main_key:str,data,pattern:str):
         data = " ".join(data) if isinstance(data,list) else data
@@ -67,25 +75,6 @@ class GrandFundData:
     def _extract_str_data(self, main_key: str, data: list):
         return {main_key: ' '.join(data)}
     
-    # def _extract_generic_data(self, main_key: str, data, pattern: str):
-    #     final_dict = {}
-
-    #     generic_data = [data] if isinstance(data,str) else data 
-    #     for text in generic_data:
-    #         text = re.sub(self.REGEX['escape'], "", text).strip()
-    #         matches = re.findall(self.REGEX[pattern], text, re.IGNORECASE)
-    #         for match in matches:
-    #             if isinstance(match, str):
-    #                 return {main_key: match}
-    #             elif len(match) == 2:
-    #                 key, value = match
-    #                 final_dict[key.strip()] = value.strip()
-    #             elif len(match) == 3:
-    #                 key,v1,v2 = match
-    #                 final_dict[key.strip()] = v1.strip()
-                    
-    #     return {main_key:final_dict}
-    
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         final_dict = {}
 
@@ -108,20 +97,16 @@ class GrandFundData:
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
         load_data = " ".join(data) if isinstance(data,list) else data
         load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
-        final_dict = {}
+        final_dict = {'entry_load':"","exit_load":""}
         if matches:= re.findall(self.REGEX[pattern],load_data.strip(), re.IGNORECASE):
             for match in matches:
-                entry_,exit_ = match
-            
-            final_dict['entry_load'] = entry_.strip()
-            final_dict['exit_load'] = exit_.strip()
+                entry_,exit_ = match 
+            final_dict['entry_load'], final_dict['exit_load'] = entry_.strip(),exit_.strip()
         return {main_key:final_dict}
      
     def _extract_amt_data(self,main_key:str, data, pattern:str):
-
         amt_data = " ".join(data) if isinstance(data,list) else data
         amt_data = re.sub(self.REGEX['escape'],"",amt_data).strip()
-        matches = re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE)
         final_dict = {'amt':"",'thraftr':""}
         if matches:= re.findall(self.REGEX[pattern],amt_data,re.IGNORECASE):
             amt,thraftr = matches[0]
@@ -139,7 +124,9 @@ class GrandFundData:
 
         if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
             for match in matches:
-                record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))}
+                if isinstance(match, str):
+                    match = (match,)
+                record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
                 final_list.append(self._return_manager_data(**record))
 
         return {main_key: final_list}
@@ -160,52 +147,21 @@ class GrandFundData:
     
         return {main_key: final_dict}
 
-    #match
-    def _match_regex_to_content(self, string: str, data: list,*args):
-        try:
-            for pattern, (func_name, regex_key) in self.PATTERN_TO_FUNCTION.items():
+    # #match
+    def _match_with_patterns(self, string: str, data: list, level:str):
+        try: 
+            for pattern, (func_name, regex_key) in self.PATTERN[level].items():
                 if re.match(pattern, string, re.IGNORECASE):
-                    func = getattr(self, func_name) #dynamic function lookup
+                    func = getattr(self, func_name)  # dynamic function lookup
                     if regex_key:
                         return func(string, data, regex_key)
                     return func(string, data)
-                
         except Exception as e:
             logger.error(e)
             return
-        
-        return self._extract_dummy_data(string, data) #fallback
-    
-    def _secondary_match_regex_to_content(self, string: str, data: list,*args):
-        try:
-            for pattern, (func_name, regex_key) in self.SECONDARY_PATTERN_TO_FUNCTION.items():
-                if re.match(pattern, string, re.IGNORECASE):
-                    func = getattr(self, func_name) #dynamic function lookup
-                    if regex_key:
-                        return func(string, data, regex_key)
-                    return func(string, data)
-            
-        except Exception as e:
-            logger.error(e)
-            return
-        
-        return self._extract_dummy_data(string, data) #fallback
-    
-    def _tertiary_match_regex_to_content(self, string: str, data: list,*args):
-        try:
-            for pattern, (func_name, regex_key) in self.TERTIARY_PATTERN_TO_FUNCTION.items():
-                if re.match(pattern, string, re.IGNORECASE):
-                    func = getattr(self, func_name) #dynamic function lookup
-                    if regex_key:
-                        return func(string, data, regex_key)
-                    return func(string, data)
-            
-        except Exception as e:
-            logger.error(e)
-            return
-        
-        return self._extract_dummy_data(string, data) #fallback
-    
+
+        return self._extract_dummy_data(string, data)  # fallback
+
     def _special_match_regex_to_content(self, string: str, data):
         try:
             for pattern,func_name, in self.SPECIAL_FUNCTIONS.items():
@@ -453,18 +409,15 @@ class Edelweiss(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
     
-    def get_proper_fund_names(path: str):
+    def get_proper_fund_names(self,path: str):
         pattern = r"(Edelweiss\s*.+?(?:Fund|Path|ETF|FOF|Path))"
         title = {}
-        
         with fitz.open(path) as doc:
             for pgn, page in enumerate(doc):
                 text = " ".join(page.get_text("text", clip=(0, 0, 150, 100)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                # print(text)
+                text = re.sub(self.REGEX['escape'], "", text).strip()
                 if matches := re.findall(pattern, text, re.DOTALL):
                     title[pgn] = matches[0]
-                    print(matches[0])
         return title
       
     def _extract_date_data(self, main_key:str,data:list, pattern:str):
@@ -552,39 +505,22 @@ class HSBC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    def _update_date_data(self,main_key:str,data):
-        date = "^(\\d{2}-?[A-Za-z]+-?\\d{2}).+$"
-        date_data = " ".join(data) if isinstance(data,list) else data
-        if matches:=re.findall(date,date_data,re.IGNORECASE):
-            return{"scheme_launch_date":matches[0]}
-        return{"scheme_launch_date":data}
-    
-    def _update_benchmark_data(self, main_key:str,data):
-        benchmark="^\\d{2}-?[A-Za-z]+-?\\d{2}\\s*(?:(.+?))?Benchmark(.+?)*\\s*NAV"
-        bench_data = " ".join(data) if isinstance(data,list) else data
-        if matches:=re.findall(benchmark,bench_data,re.IGNORECASE):
-            print(matches)
-            return {"benchmark_index":'tp'}
-        return {main_key:data}
 #14
 class ICICI(Reader,GrandFundData): #Lupsum issues
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
-    
-    # def _extract_manager_data(self, main_key:str, data:list,pattern:str):
-    #     manager_data = "".join(data)
-    #     manager_data = re.sub(self.REGEX['escape'],"",manager_data).strip()
-    #     final_list = []
-    #     matches = re.findall(self.REGEX[pattern], manager_data, re.IGNORECASE)
-    #     for match in matches:
-    #         name,since,exp = match
-    #         final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         
-    #     return {main_key:final_list}
-
+    def _extract_metric_data(self,main_key:str, data,pattern:str):
+        metric_data = " ".join(data) if isinstance(data,list) else data
+        metric_data = re.sub(self.REGEX["escape"],"",metric_data).strip()
+        final_dict = {}
+        values = re.findall(self.REGEX[pattern]["value"],metric_data,re.IGNORECASE)
+        keys = re.findall(self.REGEX[pattern]["key"],metric_data,re.IGNORECASE)
+        for k,v in zip(keys,values):
+            final_dict[k.strip()] = v.strip()
+        return{main_key:final_dict}
 #15 <>
 class Invesco(Reader,GrandFundData): #Lupsum issues  
     def __init__(self, paths_config: str,fund_name:str):
@@ -871,6 +807,28 @@ class Union(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params 
+        
+    def get_proper_fund_names(self,path: str):
+        pattern = r"(Union\s*[A-Za-z\s]+?(?:FUND|PATH|ETF|FOF))"
+        title = {}
+        
+        with fitz.open(path) as doc:
+            for pgn, page in enumerate(doc):
+                text = " ".join(page.get_text("text", clip=(0, 0, 180, 150)).split("\n"))
+                text = re.sub(self.REGEX["escape"], "", text).strip()
+                if matches := re.findall(pattern, text, re.DOTALL):
+                    title[pgn] = matches[0]
+        return title
+
+    def _extract_metric_data(self,main_key:str, data,pattern:str):
+        metric_data = " ".join(data) if isinstance(data,list) else data
+        metric_data = re.sub(self.REGEX["escape"],"",metric_data).strip()
+        final_dict = {}
+        values = re.findall(self.REGEX[pattern]["value"],metric_data,re.IGNORECASE)
+        keys = re.findall(self.REGEX[pattern]["key"],metric_data,re.IGNORECASE)
+        for k,v in zip(keys,values):
+            final_dict[k.strip()] = v.strip()
+        return{main_key:final_dict}
     
   
 

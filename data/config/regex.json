@@ -79,8 +79,10 @@
             "^portfolio_information$",
             "^quantave_indicators",
             "^porolio_parameters$",
-            "^risk_ratio$"
-
+            "^risk_ratio$",
+            "^quantitative_indicators",
+            "^equity_portion_of_portfolio",
+            "^fixed_income_portion_of_portfolio"
         ],
         "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
@@ -141,6 +143,7 @@
         ],
         "min_addl_amt": [
             "multiples_for_existing_investors",
+            "^for_existing_investors",
             ".*minimum_additional_purchase_amount$",
             "^additional_purchase",
             "^additional_purchase_amount",
@@ -172,7 +175,7 @@
             "^min_amt",
             ".*minapplication$",
             "^scheme_details.min_application",
-            "multiples_for_new_investment",
+            "^for_new_inves",
             "minimum_investment",
             ".*minimum_application$",
             "^multiples_for_new.*",
@@ -187,7 +190,8 @@
             ".*application_amount$",
             ".*minimum_investment_amount$",
             ".*minimum_investment$",
-            "^minimum_investment_clone$"
+            "^minimum_investment_clone$",
+            ".*minimum_investment_[0-9]+"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -213,7 +217,8 @@
             ".*fund_size$",
             ".*average_for_month$",
             ".*average_aum$",
-            ".*monthly_average$"
+            ".*monthly_average$",
+            ".*assets_under_management$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -228,7 +233,8 @@
             "^inception_date$",
             ".*inceptionallotment$",
             ".*date_of_allotment$",
-            "^date_of_inceptionallotment$"
+            "^date_of_inceptionallotment$",
+            "^date_of_allotment.*"
         ],
         "page_number": [
             "^page_number",
@@ -264,6 +270,8 @@
         "Mutual Fund investments are subject to market risks, read all scheme related documents carefully.",
         "SCHEME FEATURES",
         "2.",
+        "(Equity Portion of Portfolio)",
+        "(Fixed Income Portion of Portfolio)",
         "Experience",
         "and Experience",
         "otherwise specified.",
@@ -310,11 +318,24 @@
         "Last 12 months"
     ],
     "metrics_headers": {
-        "alpha": ["^jensens_alpha","^jensons_alpha$","^jenson$"],
+        "alpha": [
+            "^jensens_alpha",
+            "^jensons_alpha$",
+            "^jenson$"
+        ],
         "arithmetic_mean_ratio": [],
-        "average_div_yld": ["^dividend_yield$"],
-        "average_pb": [".*_pb","^pbv$","^pb$"],
-        "average_pe": [".*_pe","^pe$"],
+        "average_div_yld": [
+            "^dividend_yield$"
+        ],
+        "average_pb": [
+            ".*_pb",
+            "^pbv$",
+            "^pb$"
+        ],
+        "average_pe": [
+            ".*_pe",
+            "^pe$"
+        ],
         "avg_maturity": [
             "^avg_maturity",
             "Average_maturity",
@@ -323,9 +344,15 @@
             ".*residual_maturity",
             "^average$",
             "^weighted_average_maturity$",
-            "^residual_maturity$"
+            "^residual_maturity$",
+            "^residual$"
         ],
-        "beta": ["^Portfolio Beta", "^beta", "^portfolio_beta",".*beta$"],
+        "beta": [
+            "^Portfolio Beta",
+            "^beta",
+            "^portfolio_beta",
+            ".*beta$"
+        ],
         "correlation_ratio": [],
         "downside_deviation": [],
         "information_ratio": [
@@ -335,7 +362,8 @@
             "^macaulay_duration",
             "^macaulay_duration$",
             "^macaulay.*",
-            "^Macaulay Duration"
+            "^Macaulay Duration",
+            "^macaulay$"
         ],
         "mod_duration": [
             "^modified_duration",
@@ -343,7 +371,8 @@
             "^modied_duration",
             "^Modified Duration",
             "^modied$",
-            "^modied_duraon$"
+            "^modied_duraon$",
+            "^modified$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -359,24 +388,43 @@
             "^portfolio_turnover_times$",
             "^last_[0-9]+_months$",
             ".*portfolio_turnover_ratio$",
-            ".*timestotal_turnover$"
+            ".*timestotal_turnover$",
+            "^turnover_ratio$"
         ],
-        "r_squared_ratio": ["R Squared","^r_squared","^r_square$"],
+        "r_squared_ratio": [
+            "R Squared",
+            "^r_squared",
+            "^r_square$"
+        ],
         "roe_ratio": [
             "^roe"
         ],
-        "sharpe": [".*sharpe_ratio$","^Sharpe Ratio", "^Sharpe.*", "^sharpe_ratio","^sharpe_rao$"],
+        "sharpe": [
+            ".*sharpe_ratio$",
+            "^Sharpe Ratio",
+            "^Sharpe.*",
+            "^sharpe_ratio",
+            "^sharpe_rao$"
+        ],
         "sortino_ratio": [],
         "std_dev": [
             "^standard_deviaon$",
-            "^Standard Deviation", 
-            ".*deviation", 
+            "^Standard Deviation",
+            ".*deviation",
             "^std dev",
             "^standard$",
-            "^Standard_Deviation_of_Fund"
+            "^Standard_Deviation_of_Fund",
+            "^std."
         ],
-        "tracking_error":["^tracking_error$","^tracking_error_regular$","^regular$"],
-        "treynor_ratio": ["^Treynor", "^treynor"],
+        "tracking_error": [
+            "^tracking_error$",
+            "^tracking_error_regular$",
+            "^regular$"
+        ],
+        "treynor_ratio": [
+            "^Treynor",
+            "^treynor"
+        ],
         "upside_deviation": [],
         "ytm": [
             "^annualised_portfolio_ytm",
@@ -390,8 +438,158 @@
             "^annualized_portfolio_ytm$",
             "^yield$",
             "^annualized_yield_to_maturity.*",
-            "^ytm4$"
+            "^ytm4$",
+            "^yield_maturity$"
         ]
-    }
-    
+    },
+    "financial_indices": [
+        "aaum",
+        "about the fund",
+        "add. amt",
+        "add. mult.",
+        "additional amount",
+        "additional multiple",
+        "additional multiples",
+        "additional purchase",
+        "Additional investment amount",
+        "addl. amount",
+        "addl. multiple",
+        "alpha",
+        "alpha coefficient",
+        "alpha ratio",
+        "assets under management",
+        "average asset under management",
+        "average aum",
+        "average div yield",
+        "average dividend yield",
+        "average maturity",
+        "average maturity of bonds",
+        "average p/b",
+        "average p/e",
+        "average price to book ratio",
+        "average price to earnings ratio",
+        "avg asset under management",
+        "avg p/b ratio",
+        "avg p/e ratio",
+        "avg. aum",
+        "avg. dividend yield",
+        "avg. maturity",
+        "benchmark",
+        "benchmark index",
+        "benchmark risk level",
+        "benchmark riskometer",
+        "beta of portfolio",
+        "creation unit size",
+        "date of allotment",
+        "date of inception",
+        "downside deviation",
+        "downside risk measure",
+        "downside risk ratio",
+        "downside variability",
+        "duration (macaulay)",
+        "duration (modified)",
+        "entry load",
+        "equity returns",
+        "etf creation size",
+        "exit load",
+        "face value",
+        "fund goals",
+        "fund manager",
+        "fund name",
+        "fund scheme",
+        "fund start date",
+        "inception date",
+        "index benchmark",
+        "indexes",
+        "info ratio",
+        "information ratio",
+        "investment objective",
+        "investment risk indicator",
+        "investment scheme",
+        "ir",
+        "jenson",
+        "load",
+        "Macaulay Duraon",
+        "macaulay duration",
+        "macaulay's duration",
+        "managed by",
+        "management experience",
+        "managing scheme",
+        "maturity yield",
+        "min invest",
+        "min multiple",
+        "min.application",
+        "Minimum application amount",
+        "minimum invest amount",
+        "minimum investment amount",
+        "minimum multiple",
+        "mod duration",
+        "Modified Duraon",
+        "modified duration",
+        "month end aum",
+        "monthly avg aum",
+        "nav",
+        "nominal value",
+        "objective",
+        "other parameter",
+        "p/b",
+        "p/e",
+        "par value",
+        "pb",
+        "pb ratio",
+        "pe",
+        "pe ratio",
+        "performance deviation",
+        "Porolio Turnover",
+        "portfolio beta",
+        "portfolio manager",
+        "portfolio turnover",
+        "portfolio turnover rate",
+        "portfolio turnover ratio",
+        "Portfolio Turnover Ratio",
+        "portfolio's beta",
+        "positive deviation",
+        "price to book",
+        "price to earnings",
+        "quantitative data",
+        "r squared",
+        "r squared ratio - fund",
+        "r-squared for fund",
+        "r^2",
+        "return on equity",
+        "risk adjusted measure",
+        "risk adjusted return ratio",
+        "risk level",
+        "riskometer for benchmark",
+        "roe",
+        "rsquared",
+        "scheme management",
+        "scheme name",
+        "scheme objective",
+        "scheme riskometer",
+        "sharpe",
+        "sharpe ratio",
+        "sharpe's ratio",
+        "sortino ratio",
+        "sortino's ratio",
+        "Standard Deviaon",
+        "standard deviation",
+        "std dev",
+        "std. dev",
+        "std deviation",
+        "total experience",
+        "track error",
+        "tracking error",
+        "treynor",
+        "treynor ratio",
+        "treynor's ratio",
+        "turnover ratio",
+        "unit size of creation",
+        "upside deviation",
+        "upside risk",
+        "volatility measure",
+        "years of experience",
+        "yield to maturity",
+        "ytm"
+    ]
 }
