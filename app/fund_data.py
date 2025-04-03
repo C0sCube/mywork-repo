@@ -143,6 +143,8 @@ class GrandFundData:
 
         for match in matches:
             min_amt, add_amt = match
+            if not min_amt.strip() and not add_amt.strip():
+                continue
             final_dict['min_amt'] = min_amt
             final_dict['add_amt'] = add_amt
     
@@ -395,9 +397,6 @@ class Canara(Reader,GrandFundData):
         since = r"\bSince\s*([0-9]+\s*-\s*[A-Za-z]+\.?\s*-\s*[0-9]+)\b"
         nsample, msample, esample = [], [], []
         nlength = 0
-        
-        final_list = [self._return_manager_data()]
-        
         value = " ".join(manager_data.values())
         nsample = re.findall(name, value, re.IGNORECASE)
         esample = re.findall(exp, value, re.IGNORECASE)
@@ -418,7 +417,7 @@ class DSP(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
 
-#8 <>
+#8 <> 
 class Edelweiss(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
@@ -440,17 +439,6 @@ class Edelweiss(Reader,GrandFundData):
         date_data = "".join(main_key)
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
         return {"inception_date": " ".join(matches)}
-
-    def _extract_aum_data(self,main_key:str, data:list,pattern:str):
-        final_dict = {}
-        for text in data:
-            text = re.sub(self.REGEX['escape'],"",text).strip()
-            if matches:= re.findall(self.REGEX[pattern],text, re.IGNORECASE):
-                for value1, value2 in matches:
-                    final_dict['Month End Aum'], final_dict['Monthly Average Aum'] = value1, value2
-
-        return {main_key:final_dict}
-
 #9 <>
 class FranklinTempleton(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
@@ -872,21 +860,18 @@ class AdityaBirla(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS) #Pass params
         
     def _update_manager_data(self,main_key:str,manager_data):
-        name = r"(?:Mr\.?|Mrs\.?|Ms\.?)?\s+([A-Z][a-z]+\s[A-Z][a-z]+)"
-        exp = r"\d+\.\d+\s*Years?"
-        date = r"[A-Za-z]+\s*\d{1,2},\s*\d{4}"
         nsample, msample, esample = [], [], []
         nlength = 0
         for key, value in manager_data.items():
             if re.search(r"\bfund_manager\b", key, re.IGNORECASE):
-                nsample = re.findall(name, value, re.IGNORECASE)
+                nsample = re.findall(self.REGEX["manager"]["name"], value, re.IGNORECASE)
                 nlength = len(nsample)
 
             elif re.search(r"^managing", key, re.IGNORECASE):
-                msample = re.findall(date, value, re.IGNORECASE)
+                msample = re.findall(self.REGEX["manager"]["since"], value, re.IGNORECASE)
                 
             elif re.search(r"^experience", key, re.IGNORECASE):
-                esample = re.findall(exp, value, re.IGNORECASE)
+                esample = re.findall(self.REGEX["manager"]["exp"], value, re.IGNORECASE)
         nlength = len(nsample)
         msample += [""] * (nlength - len(msample))
         esample += [""] * (nlength - len(esample))

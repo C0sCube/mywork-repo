@@ -82,7 +82,8 @@
             "^risk_ratio$",
             "^quantitative_indicators",
             "^equity_portion_of_portfolio",
-            "^fixed_income_portion_of_portfolio"
+            "^fixed_income_portion_of_portfolio",
+            "^index_facts"
         ],
         "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
@@ -117,7 +118,8 @@
             ".*benchmark_index$",
             ".*benchmark$",
             "^benchmark_index",
-            ".*benchmark$"
+            ".*benchmark$",
+            "investment_objective"
         ],
         "field_location": [],
         "fund_manager": [
@@ -218,7 +220,8 @@
             ".*average_for_month$",
             ".*average_aum$",
             ".*monthly_average$",
-            ".*assets_under_management$"
+            ".*assets_under_management$",
+            ".*monthly_average$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -234,7 +237,8 @@
             ".*inceptionallotment$",
             ".*date_of_allotment$",
             "^date_of_inceptionallotment$",
-            "^date_of_allotment.*"
+            "^date_of_allotment.*",
+            ".*of_allotment$"
         ],
         "page_number": [
             "^page_number",
@@ -376,8 +380,7 @@
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
-            "^portfolio_turnover_ratio.*",
-            "Portfolio Turnover Ratio",
+            "^portfolio_turnover_ratio(?!\\.?tracking_error).*",
             "^port_turnover.*aggregate",
             ".*portfolio_turnover$",
             "^portfolio$",
@@ -419,7 +422,8 @@
         "tracking_error": [
             "^tracking_error$",
             "^tracking_error_regular$",
-            "^regular$"
+            "^regular$",
+            "^portfolio_turnover_ratio.?tracking_error$"
         ],
         "treynor_ratio": [
             "^Treynor",
@@ -439,7 +443,8 @@
             "^yield$",
             "^annualized_yield_to_maturity.*",
             "^ytm4$",
-            "^yield_maturity$"
+            "^yield_maturity$",
+            "^ytm.*$"
         ]
     },
     "financial_indices": [

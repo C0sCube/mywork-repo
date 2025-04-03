@@ -1,31 +1,26 @@
 {
     "motilal oswal nasdaq 100 fund of fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "NASDAQ-100 TRI ",
+        "benchmark_index": "NASDAQ-100 TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 26-July-2019. He has 13",
-            "years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.24%",
-            "Regular",
-            "0.58%",
-            "Note :- Investors are requested to note that they",
-            "will be bearing the recurring expenses of the fund",
-            "of funds (FoF) scheme, in addition to the",
-            "expenses of underlying scheme (0.58% of Motilal",
-            "Oswal NASDAQ 100 ETF) in which the fund of",
-            "funds scheme makes investments.",
-            ""
+            {
+                "managing_fund_since": "26-July-2019",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -70,29 +65,20 @@
     },
     "motilal oswal nifty 500 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 500 Index TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Swapnil has managed this fund since inception.",
-            "Swapnil has over 13 years of experience in the",
-            "fund management and product development.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.20%",
-            "Regular",
-            "0.88%",
-            ""
+            {
+                "managing_fund_since": "Inception",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -137,29 +123,20 @@
     },
     "motilal oswal nifty midcap 150 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty Midcap 150 Index TRI ",
+        "benchmark_index": "Nifty Midcap 150 Index TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Swapnil has managed this fund since inception.",
-            "Swapnil has over 13 years of experience in the",
-            "fund management and product development.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.30%",
-            "Regular",
-            "1.00%",
-            ""
+            {
+                "managing_fund_since": "Inception",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -204,29 +181,20 @@
     },
     "motilal oswal nifty smallcap 250 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Index FundNifty Smallcap 250 TRI ",
+        "benchmark_index": "Nifty Smallcap 250 TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Swapnil has managed this fund since inception.",
-            "Swapnil has over 13 years of experience in the",
-            "fund management and product development.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.36%",
-            "Regular",
-            "1.04%",
-            ""
+            {
+                "managing_fund_since": "Inception",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -271,29 +239,20 @@
     },
     "motilal oswal nifty bank index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty Bank TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Swapnil has managed this fund since inception.",
-            "Swapnil has over 13 years of experience in the",
-            "fund management and product development.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.33%",
-            "Regular",
-            "1.00%",
-            ""
+            {
+                "managing_fund_since": "Inception",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -338,30 +297,20 @@
     },
     "motilal oswal nifty 50 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Index FundNifty 50 TRI ",
+        "benchmark_index": "Nifty 50 TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Swapnil has managed this fund since inception.",
-            "Swapnil has over 13 years of experience in the",
-            "fund management and product development.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.15%",
-            "Regular",
-            "0.55%",
-            "*Against the benchmark Nifty 50 Index.",
-            ""
+            {
+                "managing_fund_since": "Inception",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -406,27 +355,26 @@
     },
     "motilal oswal nifty next 50 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty Next 50 TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Swapnil has managed this fund since inception.",
-            "Swapnil has over 13 years of experience in the",
-            "fund management and product development.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024.",
-            "He has more than 11 years of rich experience.",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.36%",
-            "Regular",
-            "1.04%",
-            "*Against the benchmark Nifty Next 50 Index.",
-            ""
+            {
+                "managing_fund_since": "Inception",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -471,21 +419,14 @@
     },
     "motilal oswal s&p 500 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "S&P 500 Index TRI ",
+        "benchmark_index": "SP 500 Index TRI",
         "fund_manager": [
-            "Mr. Sunil Sawant",
-            "He has been appointed as the Fund Manager for",
-            "Foreign securities w.e.f. July 1, 2024.",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.62%",
-            "Regular",
-            "1.13%",
-            ""
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -530,26 +471,21 @@
     },
     "motilal oswal nifty 50 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 50 TRI ",
+        "benchmark_index": "Nifty 50 Index, subject to tracking error. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved.",
+        "category": "ETF Nifty 50 TRI ",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 26-July-2019 He has",
-            "13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.06%",
-            ""
+            {
+                "managing_fund_since": "26-July-2019",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -580,10 +516,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "48.53",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -594,26 +530,21 @@
     },
     "motilal oswal nifty midcap 100 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty Midcap 100 TRI ",
+        "benchmark_index": "Nifty Midcap 100 Total Return Index, subject to tracking error. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved",
+        "category": "ETF Nifty Midcap 100 TRI ",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 26-July-2019 He has",
-            "13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.22%",
-            ""
+            {
+                "managing_fund_since": "26-July-2019",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -644,10 +575,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "528.30",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -658,16 +589,9 @@
     },
     "motilal oswal nasdaq 100 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "NASDAQ - 100 TRI ",
-        "fund_manager": [
-            "Mr. Sunil Sawant",
-            "He has been appointed as the Fund Manager for",
-            "Foreign securities w.e.f. July 1, 2024.",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.58%",
-            ""
-        ],
+        "benchmark_index": "NASDAQ- 100 Index, subject to tracking error. However, there can be no assurance or guarantee that the investment objective of the Scheme would be achieved.",
+        "category": "ETF NASDAQ - 100 TRI ",
+        "fund_manager": [],
         "load": {
             "entry_load": "Nil",
             "exit_load": "Nil"
@@ -697,10 +621,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "9,063.11",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -711,15 +635,14 @@
     },
     "motilal oswal nifty 5 year benchmark g-sec etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 5 year Benchmark G-sec TRI ",
+        "benchmark_index": "Nifty 5 year Benchmark G-sec TRI",
         "fund_manager": [
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.24%",
-            ""
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -750,10 +673,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "95.85",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -764,23 +687,14 @@
     },
     "motilal oswal 5 year g-sec fund of fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 5 yr Benchmark G-sec TRI ",
+        "benchmark_index": "Nifty 5 yr Benchmark G-sec TRI",
         "fund_manager": [
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.13%",
-            "Regular",
-            "0.20%",
-            "Note :- Investors are requested to note that they",
-            "will be bearing the recurring expenses of the fund",
-            "of funds (FoF) scheme, in addition to the",
-            "expenses of underlying scheme (0.24% of Motilal",
-            "Oswal Nifty 5 YR Benchmark G Sec ETF) in which",
-            "the fund of funds scheme makes investments.",
-            ""
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -825,18 +739,14 @@
     },
     "motilal oswal nasdaq q 50 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nasdaq Q-50 TRI ",
+        "benchmark_index": "Nasdaq Q-50 TRI",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Sunil Sawant",
-            "Managing this fund since July 1, 2024. He has",
-            "been an alternate fund manager prior to Mutual",
-            "Fund, fund manager.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -867,10 +777,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "60.30",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -881,21 +791,26 @@
     },
     "motilal oswal nifty 200 momentum 30 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 200 Momentum 30 Total Return Index ",
+        "benchmark_index": "Nifty 200 Momentum 30 Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 10-Feb-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "10-Feb-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -926,10 +841,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "114.86",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -940,21 +855,26 @@
     },
     "motilal oswal nifty 200 momentum 30 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 200 Momentum 30 Total Return Index ",
+        "benchmark_index": "Nifty 200 Momentum 30 Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 10-Feb-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "10-Feb-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -999,21 +919,26 @@
     },
     "motilal oswal bse low volatility index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Low Volatility Total Return Index ",
+        "benchmark_index": "BSE Low Volatility Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 23-Mar-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "23-Mar-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1058,21 +983,26 @@
     },
     "motilal oswal bse low volatility etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Low Volatility Total Return Index ",
+        "benchmark_index": "BSE Low Volatility Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 23-Mar-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "23-Mar-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1103,10 +1033,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "95.19",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1117,21 +1047,26 @@
     },
     "motilal oswal bse financials ex bank 30 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Financials ex Bank 30 Total Return Index ",
+        "benchmark_index": "BSE Financials ex Bank 30 Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 29-July-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "29-July-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1176,21 +1111,26 @@
     },
     "motilal oswal bse healthcare etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Healthcare Total Return Index ",
+        "benchmark_index": "BSE Healthcare Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 29-July-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "29-July-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1221,10 +1161,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "32.21",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1235,21 +1175,26 @@
     },
     "motilal oswal bse enhanced value index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Enhanced Value Total Return Index ",
+        "benchmark_index": "BSE Enhanced Value Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 22-Aug-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "22-Aug-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1294,21 +1239,26 @@
     },
     "motilal oswal bse enhanced value etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Enhanced Value Total Return Index ",
+        "benchmark_index": "BSE Enhanced Value Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 22-Aug-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "22-Aug-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1339,10 +1289,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "129.81",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1353,21 +1303,26 @@
     },
     "motilal oswal bse quality index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Quality Total Return Index ",
+        "benchmark_index": "BSE Quality Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 22-Aug-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "22-Aug-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1412,21 +1367,26 @@
     },
     "motilal oswal bse quality etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "BSE Quality Total Return Index ",
+        "benchmark_index": "BSE Quality Total Return Index",
         "fund_manager": [
-            "For Equity component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 22-Aug-2022. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 15-Oct-2024. He has",
-            "more than 11 years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 22-Nov-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "22-Aug-2022",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Oct-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "22-Nov-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1457,10 +1417,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "17.82",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1471,17 +1431,20 @@
     },
     "motilal oswal gold and silver etfs fund of funds": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "LBMA Price of Gold and Silver ",
+        "benchmark_index": {},
         "fund_manager": [
-            "Mr. Bhalchandra Shinde",
-            "Mr. Bhalchandra Shinde has been managing this",
-            "fund since 24-Dec-2024. He has more than 13",
-            "years of rich experience.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 24-Dec-2022. He has a",
-            "rich experience of more than 14 years",
-            ""
+            {
+                "managing_fund_since": "24-Dec-2024",
+                "name": "Bhalchandra Shinde Has Been",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "24-Dec-2022",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1526,28 +1489,20 @@
     },
     "motilal oswal nifty microcap 250 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty Microcap 250 Total Return Index ",
+        "benchmark_index": "Nifty Microcap 250 Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 05-July-2023 He has a",
-            "rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 20-Dec-2024. He has",
-            "more than 14 years of rich experience.",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.43%",
-            "Regular",
-            "1.07%",
-            ""
+            {
+                "managing_fund_since": "05-July-2023",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-Dec-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1578,10 +1533,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "1,875.13",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1592,22 +1547,14 @@
     },
     "motilal oswal developed market ex us etf's fund of funds": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "S&P Developed Ex-U.S. BMI Total Return Index ",
+        "benchmark_index": "BMI Total Return Index",
         "fund_manager": [
-            "Mr. Sunil Sawant",
-            "Managing this fund since July 1, 2024. He has",
-            "been an alternate fund manager prior to Mutual",
-            "Fund, fund manager.",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 21-Sep-2023. He has a",
-            "rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.15%",
-            "Regular",
-            "0.55%",
-            ""
+            {
+                "managing_fund_since": "21-Sep-2023",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1638,10 +1585,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "28.45",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1652,26 +1599,20 @@
     },
     "motilal oswal nifty 500 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 500 Total Return Index ",
+        "benchmark_index": "Nifty 500 Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 29-Sep-2023. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 29-Sep-2023. He has a",
-            "rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.21%",
-            ""
+            {
+                "managing_fund_since": "29-Sep-2023",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "29-Sep-2023",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1702,10 +1643,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "106.82",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1716,26 +1657,20 @@
     },
     "motilal oswal nifty realty etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty Realty Total Return Index ",
+        "benchmark_index": "Nifty Realty Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 15-Mar-2024. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 15-Mar-2024. He has a",
-            "rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.40%",
-            ""
+            {
+                "managing_fund_since": "15-Mar-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Mar-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1766,10 +1701,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "53.14",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1780,26 +1715,20 @@
     },
     "motilal oswal nifty smallcap 250 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty Smallcap 250 TRI ",
+        "benchmark_index": "Nifty Smallcap 250 TRI",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 15-Mar-2024. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 15-Mar-2024. He has",
-            "a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.30%",
-            ""
+            {
+                "managing_fund_since": "15-Mar-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "15-Mar-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1830,10 +1759,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "64.14",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1844,26 +1773,20 @@
     },
     "motilal oswal nifty india defence index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty India Defence Total Return Index ",
+        "benchmark_index": "Nifty India Defence Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 03-July-2024 He has a",
-            "rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 03-July-2024 He has a",
-            "rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.29%",
-            "Regular",
-            "1.06%",
-            ""
+            {
+                "managing_fund_since": "03-July-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "03-July-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1894,10 +1817,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "2,286.07",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1908,26 +1831,20 @@
     },
     "motilal oswal nifty india defence etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty India Defence Total Return Index ",
+        "benchmark_index": "Nifty India Defence Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 21-Aug-2024. He has",
-            "more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 21-Aug-2024. He has a",
-            "rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.40%",
-            ""
+            {
+                "managing_fund_since": "21-Aug-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "21-Aug-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -1958,10 +1875,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "107.18",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -1972,26 +1889,20 @@
     },
     "motilal oswal nifty 500 momentum 50 index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 500 Momentum 50 Total Return Index ",
+        "benchmark_index": "Nifty 500 Momentum 50 Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 24-September-2024",
-            "He has a rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 24-September-2024",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.36%",
-            "Regular",
-            "1.07%",
-            ""
+            {
+                "managing_fund_since": "24-September-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "24-September-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2022,10 +1933,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "471.88",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -2036,26 +1947,20 @@
     },
     "motilal oswal nifty 500 momentum 50 etf": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty 500 Momentum 50 Total Return Index ",
+        "benchmark_index": "Nifty 500 Momentum 50 Total Return Index",
         "fund_manager": [
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 24-September-2024.",
-            "He has more than 13 years of rich experience.",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since",
-            "15 Oct-202 . He has",
-            "4",
-            "more than 1  years of rich experience.",
-            "1",
-            "For Debt component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 24-September-2024.",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Regular",
-            "0.40%",
-            ""
+            {
+                "managing_fund_since": "24-September-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "24-September-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2086,10 +1991,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "1",
+        "min_amt_multiple": "25",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "77.57",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -2100,26 +2005,26 @@
     },
     "motilal oswal nifty midsmall healthcare index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty MidSmall Healthcare Total Return Index ",
+        "benchmark_index": "Nifty MidSmall Healthcare Total Return Index",
         "fund_manager": [
-            "For Equity Component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 20-December-2024",
-            "He has a rich experience of more than 11 years",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.61%",
-            "Regular",
-            "1.11%",
-            ""
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-December-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2150,10 +2055,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "20.55",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -2164,26 +2069,26 @@
     },
     "motilal oswal nifty midsmall india consumption index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty MidSmall India Consumption Total Return Index ",
+        "benchmark_index": "Nifty MidSmall India Consumption Total Return Index",
         "fund_manager": [
-            "For Equity Component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 20-December-2024",
-            "He has a rich experience of more than 11 years",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.61%",
-            "Regular",
-            "1.11%",
-            ""
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-December-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2214,10 +2119,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "13.02",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -2228,26 +2133,26 @@
     },
     "motilal oswal nifty midsmall financial services index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty MidSmall Financial Services Total Return Index. ",
+        "benchmark_index": "Nifty MidSmall Financial Services Total Return Index.",
         "fund_manager": [
-            "For Equity Component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 20-December-2024",
-            "He has a rich experience of more than 11 years",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.61%",
-            "Regular",
-            "1.11%",
-            ""
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-December-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2278,10 +2183,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "14.55",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -2292,26 +2197,26 @@
     },
     "motilal oswal nifty midsmall it and telecom index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty MidSmall IT and Telecom Total Return Index. ",
+        "benchmark_index": "Nifty MidSmall IT and Telecom Total Return Index.",
         "fund_manager": [
-            "For Equity Component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 20-December-2024",
-            "He has a rich experience of more than 11 years",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 19-November-2024",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.61%",
-            "Regular",
-            "1.11%",
-            ""
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-December-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "19-November-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2342,10 +2247,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "19.46",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
@@ -2356,26 +2261,26 @@
     },
     "motilal oswal nifty capital market index fund": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
-        "benchmark_index": "Nifty Capital Market Total Return Index ",
+        "benchmark_index": "Nifty Capital Market Total Return Index",
         "fund_manager": [
-            "For Equity Component",
-            "Mr. Swapnil Mayekar",
-            "Managing this fund since 16-December-2024",
-            "He has a rich experience of more than 13 years",
-            "Associate Fund Manager",
-            "Mr. Dishant Mehta",
-            "Managing this fund since 20-December-2024",
-            "He has a rich experience of more than 11 years",
-            "For Debt Component",
-            "Mr. Rakesh Shetty",
-            "Managing this fund since 16-December-2024",
-            "He has a rich experience of more than 14 years",
-            "Total Expenses Ratio",
-            "Direct",
-            "0.39%",
-            "Regular",
-            "1.09%",
-            ""
+            {
+                "managing_fund_since": "16-December-2024",
+                "name": "Swapnil Mayekar",
+                "qualification": "",
+                "total_exp": "13 Years"
+            },
+            {
+                "managing_fund_since": "20-December-2024",
+                "name": "Dishant Mehta",
+                "qualification": "",
+                "total_exp": "11 Years"
+            },
+            {
+                "managing_fund_since": "16-December-2024",
+                "name": "Rakesh Shetty",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
         ],
         "load": {
             "entry_load": "Nil",
@@ -2406,10 +2311,10 @@
             "upside_deviation": null,
             "ytm": null
         },
-        "min_addl_amt": null,
-        "min_addl_amt_multiple": null,
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
         "monthly_aaum_date": "31MARCH2025",
         "monthly_aaum_value": "85.28",
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
