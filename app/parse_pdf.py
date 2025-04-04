@@ -32,7 +32,7 @@ class Reader:
         self.TEXT_ONLY = {}
         
     #HIGHLIGHT            
-    def check_and_highlight(self, path: str, count: int):
+    def check_and_highlight(self, path: str):
         output_path = path.replace(".pdf", "_hltd.pdf")
         
         with fitz.open(path) as doc:
@@ -80,7 +80,7 @@ class Reader:
                                     break
 
             doc.save(output_path)
-        df = Helper._save_pdf_data(data, self.REPORTPATH, count) #imp
+        df = Helper._save_pdf_data(data, self.REPORTPATH, self.PARAMS['max_financial_index_highlight']) #imp
         return output_path, df
     
     #EXTRACT
@@ -438,7 +438,10 @@ class Reader:
                 content = page.get_text("text").split("\n")
                 if content:
                     key, val = content[0], content[1:]
-                    final_data[key] = val
+                    if key not in final_data:
+                        final_data[key] = val
+                    else:
+                        final_data[key].extend(val)
 
         return final_data
 

@@ -83,7 +83,8 @@
             "^quantitative_indicators",
             "^equity_portion_of_portfolio",
             "^fixed_income_portion_of_portfolio",
-            "^index_facts"
+            "^index_facts",
+            "^other_parameters$"
         ],
         "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
@@ -119,7 +120,8 @@
             ".*benchmark$",
             "^benchmark_index",
             ".*benchmark$",
-            "investment_objective"
+            "investment_objective",
+            ".*underlying_index$"
         ],
         "field_location": [],
         "fund_manager": [
@@ -221,7 +223,8 @@
             ".*average_aum$",
             ".*monthly_average$",
             ".*assets_under_management$",
-            ".*monthly_average$"
+            ".*monthly_average$",
+            ".*aaum_for_the_month$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -344,7 +347,7 @@
             "^avg_maturity",
             "Average_maturity",
             "Average maturity",
-            "^average_maturity",
+            "^average_maturity(?!.*macaulay)",
             ".*residual_maturity",
             "^average$",
             "^weighted_average_maturity$",
@@ -367,7 +370,8 @@
             "^macaulay_duration$",
             "^macaulay.*",
             "^Macaulay Duration",
-            "^macaulay$"
+            "^macaulay$",
+            ".*macaulay_duration.*"
         ],
         "mod_duration": [
             "^modified_duration",
@@ -376,7 +380,8 @@
             "^Modified Duration",
             "^modied$",
             "^modied_duraon$",
-            "^modified$"
+            "^modified$",
+            "^modified_duration.*"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -423,7 +428,8 @@
             "^tracking_error$",
             "^tracking_error_regular$",
             "^regular$",
-            "^portfolio_turnover_ratio.?tracking_error$"
+            "^portfolio_turnover_ratio.?tracking_error$",
+            "^tracking_error.*year$"
         ],
         "treynor_ratio": [
             "^Treynor",
