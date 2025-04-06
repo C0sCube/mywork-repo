@@ -31,70 +31,110 @@ class Reader:
         #other instance initialize
         self.TEXT_ONLY = {}
         
-    #HIGHLIGHT            
-    def check_and_highlight(self, path: str):
-        output_path = path.replace(".pdf", "_hltd.pdf")
-        
+    #HIGHLIGHT 
+    def get_relevant_pages(self, path: str):
+        data = []
         with fitz.open(path) as doc:
-            page_count = doc.page_count
             indices = FundRegex().FINANCIAL_TERMS
-    
-            #checkers
-            fund_cond = self.PARAMS['fund']
-            flag_check = fund_cond['flag']
-            amc_regex = fund_cond['regex']
-            size_check = fund_cond['size']
-            amc_block_max = fund_cond['countmax_header_check'] #First 15 blocks
+            title_regex,bbox = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox']
+
+            for pgn, page in enumerate(doc):
+                title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
+                title_text = re.sub(self.REGEX["escape"], "", title_text).strip()
+                title_match = re.findall(title_regex, title_text, re.DOTALL)
+                title = title_match[0] if title_match else ""
                 
-            data = [{"title": "", "highlights": 0, "detect_idx": []} for _ in range(page_count)]
+                if title:
+                    print(f"{pgn:02d} -- {title}")
 
-            for dpgn, page in enumerate(doc):
-                page_blocks = page.get_text("dict")["blocks"]
-                sorted_blocks = sorted(page_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+                highlight_count,found_indices = 0,[]
 
-                for block_count, block in enumerate(sorted_blocks):
+                blocks = page.get_text("dict")["blocks"]
+                for block in blocks:
                     if "lines" not in block:
                         continue
                     for line in block["lines"]:
                         for span in line["spans"]:
-                            text, size, flag, color = (span["text"].strip().lower(), span["size"], span["flags"], span["color"])
-                            
-                            fund_conditions = [
-                                flag in flag_check,
-                                block_count < amc_block_max,
-                                re.match(amc_regex, text, re.IGNORECASE),
-                                round(size) in range( size_check[0],  size_check[1])
-                            ]
-                            if all(fund_conditions):
-                                data[dpgn]["title"] = text
-                                page.add_rect_annot(fitz.Rect(span["bbox"]))
-                                print(text)
-                            
+                            text = span["text"].strip().lower()
                             for indice in indices:
-                                pattern = rf"\b{re.escape(indice)}\b"
-                                if re.search(pattern, text):
-                                    if indice not in data[dpgn]['detect_idx']:
-                                        data[dpgn]['detect_idx'].append(indice)
-                                        data[dpgn]['highlights'] += 1
-                                    page.add_highlight_annot(fitz.Rect(span["bbox"]))
+                                if re.search(rf"\b{re.escape(indice)}\b", text):
+                                    if indice not in found_indices:
+                                        found_indices.append(indice)
+                                        highlight_count += 1
                                     break
 
-            doc.save(output_path)
-        df = Helper._save_pdf_data(data, self.REPORTPATH, self.PARAMS['max_financial_index_highlight']) #imp
-        return output_path, df
+                data.append({"page": pgn,"title": title,"highlight_count": highlight_count,"indices": found_indices})
+        Helper._save_pdf_data(data, self.REPORTPATH)
+
+        return {
+            d["page"]: d["title"]
+            for d in data
+            if d["title"] and d["highlight_count"] >= self.PARAMS["max_financial_index_highlight"]
+        }
+       
+    # def check_and_highlight(self, path: str):
+    #     output_path = path.replace(".pdf", "_hltd.pdf")
+        
+    #     with fitz.open(path) as doc:
+    #         page_count = doc.page_count
+    #         indices = FundRegex().FINANCIAL_TERMS
+    
+    #         #checkers
+    #         fund_cond = self.PARAMS['fund']
+    #         flag_check = fund_cond['flag']
+    #         amc_regex = fund_cond['regex']
+    #         size_check = fund_cond['size']
+    #         amc_block_max = fund_cond['countmax_header_check'] #First 15 blocks
+                
+    #         data = [{"title": "", "highlights": 0, "detect_idx": []} for _ in range(page_count)]
+
+    #         for dpgn, page in enumerate(doc):
+    #             page_blocks = page.get_text("dict")["blocks"]
+    #             sorted_blocks = sorted(page_blocks, key=lambda x: (x["bbox"][1], x["bbox"][0]))
+
+    #             for block_count, block in enumerate(sorted_blocks):
+    #                 if "lines" not in block:
+    #                     continue
+    #                 for line in block["lines"]:
+    #                     for span in line["spans"]:
+    #                         text, size, flag, color = (span["text"].strip().lower(), span["size"], span["flags"], span["color"])
+                            
+    #                         fund_conditions = [
+    #                             flag in flag_check,
+    #                             block_count < amc_block_max,
+    #                             re.match(amc_regex, text, re.IGNORECASE),
+    #                             round(size) in range( size_check[0],  size_check[1])
+    #                         ]
+    #                         if all(fund_conditions):
+    #                             data[dpgn]["title"] = text
+    #                             page.add_rect_annot(fitz.Rect(span["bbox"]))
+    #                             print(text)
+                            
+    #                         for indice in indices:
+    #                             pattern = rf"\b{re.escape(indice)}\b"
+    #                             if re.search(pattern, text):
+    #                                 if indice not in data[dpgn]['detect_idx']:
+    #                                     data[dpgn]['detect_idx'].append(indice)
+    #                                     data[dpgn]['highlights'] += 1
+    #                                 page.add_highlight_annot(fitz.Rect(span["bbox"]))
+    #                                 break
+
+    #         doc.save(output_path)
+    #     df = Helper._save_pdf_data(data, self.REPORTPATH, self.PARAMS['max_financial_index_highlight']) #imp
+    #     return output_path, df
     
     #EXTRACT
     
     def _create_data_entry(self,*args)->dict:
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
-    def extract_clipped_data(self, input: str, pages: list, title: dict, *args)->list:
+    def extract_clipped_data(self, path: str, title:dict,*args)->list:
         
-        with fitz.open(input) as doc:
+        with fitz.open(path) as doc:
             finalData = []
             fund_seen = {}
             bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
-            for pgn in pages:
+            for pgn in title:
                 fundName = title.get(pgn, "").strip()
                 if not fundName:
                     continue
@@ -129,17 +169,16 @@ class Reader:
 
         return finalData
 
-    def extract_data_relative_line(self, input: str, pages: list, title: dict)->list:
+    def extract_data_relative_line(self, path: str,title: dict)->list:
     
-        with fitz.open(input) as doc:
+        with fitz.open(path) as doc:
             finalData = []
             fund_seen = {}
             line_x = self.PARAMS['line_x']
             side = self.PARAMS['line_side']
             
-            for pgn in pages:
-                page, fundName = doc[pgn],title[pgn]
-                
+            for pgn in title:
+                page, fundName = doc[pgn],title.get(pgn,"")
                 left_blocks, right_blocks, seen_blocks = [],[], set()
                 page_blocks = page.get_text("dict")["blocks"]
                 
@@ -313,17 +352,17 @@ class Reader:
     #     clean_data = self.process_text_data(data)
     #     nested = self.create_nested_dict(clean_data)
     #     return nested
-    def get_data(self, path: str, pages: list, title: dict):
+    def get_data(self, path: str, titles:dict):
         
         method = self.PARAMS['method'] #clip/line/both
         extracted_data = []
         
         if method in ["line", "both"]:
-            data = self.extract_data_relative_line(path, pages, title)
+            data = self.extract_data_relative_line(path, titles)
             extracted_data.extend(self.extract_span_data(data, []))
         
         if method in ["clip", "both"]:
-            data = self.extract_clipped_data(path, pages, title)
+            data = self.extract_clipped_data(path, titles)
             extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean

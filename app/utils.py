@@ -36,26 +36,24 @@ class Helper:
         return set(financial_indexes)
     
     @staticmethod
-    def _save_pdf_data(data,excel_path:str, threshold: int):
-    
+    def _save_pdf_data(data, excel_path: str):
         df = pd.DataFrame(data)
-        
-        if 'detect_idx' in df.columns: #try catch required
-            df_exp = df["detect_idx"].apply(lambda x: pd.Series(x) if isinstance(x, list) else pd.Series())
-            df_exp.columns = [f"idx_{i+1}" for i in range(df_exp.shape[1])]
-            df_exp = df_exp.dropna(axis=1, how='all') #drop empty values
-            df_final = pd.concat([df.drop(columns=["detect_idx"]), df_exp], axis=1)
-            
-        df_final.to_excel(excel_path, engine="openpyxl", index=True)
 
-        # Filter pages based on the threshold
-        pages = df.loc[ (df["highlights"] >= threshold) & (df["title"].str.contains(r"\w+", na=False, regex=True))].index.to_list()
-               
+        if 'indices' in df.columns:
+            try:
+                df_exp = df["indices"].apply(lambda x: pd.Series(x) if isinstance(x, list) else pd.Series())
+                df_exp.columns = [f"idx_{i+1}" for i in range(df_exp.shape[1])]
+                df_exp = df_exp.dropna(axis=1, how='all')
+                df_final = pd.concat([df.drop(columns=["indices"]), df_exp], axis=1)
+            except Exception as e:
+                print(f"[ERROR] Expanding indices failed: {e}")
+                df_final = df
+        else:
+            df_final = df
+
+        df_final.to_excel(excel_path, engine="openpyxl", index=False)
+
         print(f"\nDoc Saved At: {excel_path}")
-        print(f"\nPages to Extract: {pages}")
-
-        # Open the file on the screen
-        # subprocess.Popen([excel_path], shell=True)
         return df_final
     
     #JSON UN/LOAD 
