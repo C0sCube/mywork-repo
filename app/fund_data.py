@@ -378,23 +378,9 @@ class BankOfIndia(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS) 
 #5 <>
 class BarodaBNP(Reader,GrandFundData):
-    
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS)   
-    def get_proper_fund_names(self,path: str):
-        pattern = "(Baroda BNP.*?(?:Fund|Path|ETF|FTF|FOF|Index|Fund of Fund))"
-        title = {}
-        
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 220, 120)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                # print(text)
-                if matches := re.findall(pattern, text, re.DOTALL):
-                    title[pgn] = matches[0] 
-        return title
-    
 #6 
 class Canara(Reader,GrandFundData):
     
@@ -433,18 +419,6 @@ class Edelweiss(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) 
-    
-    def get_proper_fund_names(self,path: str):
-        pattern = r"(Edelweiss\s*.+?(?:Fund|Path|ETF|FOF|Path))"
-        title = {}
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 150, 100)).split("\n"))
-                text = re.sub(self.REGEX['escape'], "", text).strip()
-                if matches := re.findall(pattern, text, re.DOTALL):
-                    title[pgn] = matches[0]
-        return title
-      
     def _extract_date_data(self, main_key:str,data:list, pattern:str):
         date_data = "".join(main_key)
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
@@ -547,7 +521,7 @@ class LIC(Reader,GrandFundData): #Lupsum issues
         
         ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
         
-        pattern = r"((?:LI?i?C|BSE|BANK|SMALL|HEALTH).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|FUND\s*OF\s*FUND))"
+        pattern = "((?:LI?i?C|BSE|BANK|SMALL|HEALTH).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|FUND\\s*OF\\s*FUND))"
         extracted_titles = {}
 
         with fitz.open(ocr_pdf) as doc:
@@ -563,36 +537,11 @@ class MahindraManu(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) 
-        
-    def get_proper_fund_names(self,path: str):
-        pattern = r'\b(Mahindra.*?(?:Fund|ETF|EOF|FOF|FTF|Path|FO))\b'
-        title = {}
-        
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(170,0,450,80)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                if matches := re.findall(pattern, text):
-                    title[pgn] = matches[0]
-        return title
-    
-
 #20 <>
 class MIRAE(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) 
-     
-    def get_proper_fund_names(self,path: str):
-        pattern = r'MIRAE ASSET .*?\b(?:ETF|EOF|FOF|FTF|FUND|FUND OF FUND|INDEX FUND)\b'
-        title = {}
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 560, 140)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                if matches := re.findall(pattern, text, re.DOTALL):
-                    title[pgn] = matches[0] 
-        return title
 #21 <>
 class MotilalOswal(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
@@ -625,23 +574,24 @@ class Nippon(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) 
-    
-    def get_proper_fund_names(self,path: str):
-        pattern = r"((?:Nippon India|CPSE).*)$"
-        title = {}
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 500, 40)).split("\n"))
-                text = re.sub(self.REGEX["escape"], "", text).strip()
-                if matches := re.findall(pattern, text, re.DOTALL):
-                    title[pgn] = matches[0]
-        return title
 #24
 class NJMF(Reader,GrandFundData):
    
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
-        Reader.__init__(self,paths_config, self.PARAMS) 
+        Reader.__init__(self,paths_config, self.PARAMS)
+        
+    def _update_manager_data(self,main_key:str,manager_data):
+        exp ="\\d{1,2} years"
+        name = "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+)"
+        since = "(?:since|from)\\s*([A-Za-z]+\\s*\\d{1,2},\\s*\\d{3,4}|inception)"
+        nsample, msample, esample = [], [], []
+        value = " ".join(manager_data) if isinstance(manager_data,list) else manager_data
+        nsample = re.findall(name, value, re.IGNORECASE)
+        esample = re.findall(exp, value, re.IGNORECASE)
+        msample = re.findall(since, value, re.IGNORECASE)
+        final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
+        return {main_key:final_list}
 #25
 class OldBridge(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
@@ -649,23 +599,11 @@ class OldBridge(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #26
-
 class PGIM(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) 
-    def get_proper_fund_names(self,path:str):
-        pattern = "([A-Z0-9\\s\\-]+\\s*PGIM INDIA)"
-        title = {}
-        with fitz.open(path) as doc:
-            for pgn,page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip = (0, 0, 260, 80)).split("\n"))
-                text = re.sub(self.REGEX["escape"],"",text).strip()
-                if matches:= re.findall(pattern,text):
-                    title[pgn] = f"PGIM INDIA {" ".join(matches[0][:-11].split())}".lower()
-        
-        return title
         
 #27
 class PPFAS(Reader,GrandFundData):
@@ -676,7 +614,6 @@ class PPFAS(Reader,GrandFundData):
 
     def get_proper_fund_names(self,path: str):
         pattern = "(Parag Parikh.*?(?:Funds?|ETF|Fo?O?F|Plans?))"
-
         title = {}   
         with fitz.open(path) as doc:
             for pgn, page in enumerate(doc):
@@ -697,18 +634,6 @@ class Quantum(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand
         Reader.__init__(self,paths_config, self.PARAMS) 
-    
-    def get_proper_fund_names(self,path: str):
-        pattern =  "(QUANTUM.*?(?:OF FUNDS?|FUNDS?|ETF|EOF|FOF|FTF|PATH))"
-        title = {}
-        
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 450, 90)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                if matches := re.findall(pattern, text):
-                    title[pgn] = matches[0]
-        return title
 #30 <>
 class Samco(Reader, GrandFundData):
     
@@ -817,18 +742,6 @@ class Union(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS)  
-        
-    def get_proper_fund_names(self,path: str):
-        pattern = r"(Union\s*[A-Za-z\s]+?(?:FUND|PATH|ETF|FOF))"
-        title = {}
-        
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 180, 150)).split("\n"))
-                text = re.sub(self.REGEX["escape"], "", text).strip()
-                if matches := re.findall(pattern, text, re.DOTALL):
-                    title[pgn] = matches[0]
-        return title
 #38
 class UTI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):

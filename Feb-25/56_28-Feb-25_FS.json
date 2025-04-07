@@ -1,0 +1,364 @@
+{
+ "metadata": {
+  "document_name": "56_28-Feb-25_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250319"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "Navi Asset Management Company Limited",
+    "field_location": [
+     {
+      "amc_name": "3",
+      "count": 6,
+      "fund_manager_name": "3",
+      "load_exit": "3",
+      "main_scheme_name": "3",
+      "metrics_beta": "3",
+      "metrics_port_turnover_ratio": "3",
+      "metrics_sharpe": "3",
+      "min_amt": "3",
+      "min_amt_multiple": "3",
+      "monthly_aaum_date": "3",
+      "monthly_aaum_value": "3",
+      "mutual_fund_name": "3",
+      "scheme_launch_date": "3"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Aditya Mulki",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Ashutosh Shirwaikar",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": ": NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Navi Flexi Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.3703"
+     },
+     {
+      "name": "beta",
+      "value": "0.9164"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.75"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250228",
+    "monthly_aaum_value": "239.88 Crs",
+    "mutual_fund_name": "Navi Mutual Fund",
+    "scheme_launch_date": "20180709"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Navi Asset Management Company Limited",
+    "field_location": [
+     {
+      "amc_name": "5",
+      "count": 6,
+      "fund_manager_name": "5",
+      "load_exit": "5",
+      "main_scheme_name": "5",
+      "metrics_beta": "5",
+      "metrics_port_turnover_ratio": "5",
+      "metrics_sharpe": "5",
+      "min_amt": "5",
+      "min_amt_multiple": "5",
+      "monthly_aaum_date": "5",
+      "monthly_aaum_value": "5",
+      "mutual_fund_name": "5",
+      "scheme_launch_date": "5"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Aditya Mulki",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Ashutosh Shirwaikar",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": ": NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Navi Large & Midcap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.3605"
+     },
+     {
+      "name": "beta",
+      "value": "0.9283"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.78"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250228",
+    "monthly_aaum_value": "293.05 Crs",
+    "mutual_fund_name": "Navi Mutual Fund",
+    "scheme_launch_date": "20151207"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Navi Asset Management Company Limited",
+    "field_location": [
+     {
+      "amc_name": "7",
+      "count": 6,
+      "fund_manager_managing_fund_since": "7",
+      "fund_manager_name": "7",
+      "load_exit": "7",
+      "main_scheme_name": "7",
+      "metrics_beta": "7",
+      "metrics_macaulay": "7",
+      "metrics_mod_duration": "7",
+      "metrics_port_turnover_ratio": "7",
+      "metrics_sharpe": "7",
+      "min_amt": "7",
+      "min_amt_multiple": "7",
+      "monthly_aaum_date": "7",
+      "monthly_aaum_value": "7",
+      "mutual_fund_name": "7",
+      "scheme_launch_date": "7"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "1st february, 2024",
+      "name": "Mr. Aditya Mulki",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Ashutosh Shirwaikar",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Tanmay Sethi",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": ": NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Navi Aggressive Hybrid Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.5276"
+     },
+     {
+      "name": "beta",
+      "value": "1.0518"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.69"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.44"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.47"
+     }
+    ],
+    "min_amt": "100",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250228",
+    "monthly_aaum_value": "115.98 Crs",
+    "mutual_fund_name": "Navi Mutual Fund",
+    "scheme_launch_date": "20180430"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Navi Asset Management Company Limited",
+    "field_location": [
+     {
+      "amc_name": "9",
+      "count": 6,
+      "fund_manager_name": "9",
+      "load_exit": "9",
+      "main_scheme_name": "9",
+      "metrics_beta": "9",
+      "metrics_port_turnover_ratio": "9",
+      "metrics_sharpe": "9",
+      "min_amt": "9",
+      "min_amt_multiple": "9",
+      "monthly_aaum_date": "9",
+      "monthly_aaum_value": "9",
+      "mutual_fund_name": "9",
+      "scheme_launch_date": "9"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Aditya Mulki",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Ashutosh Shirwaikar",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": ": NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Navi ELSS Tax Saver Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.3612"
+     },
+     {
+      "name": "beta",
+      "value": "0.8969"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.34"
+     }
+    ],
+    "min_amt": "500",
+    "min_amt_multiple": "500",
+    "monthly_aaum_date": "20250228",
+    "monthly_aaum_value": "56.02 Crs",
+    "mutual_fund_name": "Navi Mutual Fund",
+    "scheme_launch_date": "20151230"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Navi Asset Management Company Limited",
+    "field_location": [
+     {
+      "amc_name": "11",
+      "count": 6,
+      "fund_manager_managing_fund_since": "11",
+      "fund_manager_name": "11",
+      "load_exit": "11",
+      "main_scheme_name": "11",
+      "metrics_avg_maturity": "11",
+      "metrics_beta": "11",
+      "metrics_macaulay": "11",
+      "metrics_sharpe": "11",
+      "monthly_aaum_date": "11",
+      "mutual_fund_name": "11",
+      "scheme_launch_date": "11"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "1st february, 2024",
+      "name": "Mr. Tanmay Sethi",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": ": Investment period i.e Exit Load as a % of no of days from date of Redemption subscription NAV Proceeds 1 Day 0.0070% 2 Days 0.0065% 3 Days 0.0060% 4 Days 0.0055% 5 Days 0.0050% 6 Days 0.0045% 7 Days or more NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Navi Liquid Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-0.4695"
+     },
+     {
+      "name": "beta",
+      "value": "0.7657"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "91 days"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.11"
+     }
+    ],
+    "monthly_aaum_date": "20250228",
+    "mutual_fund_name": "Navi Mutual Fund",
+    "scheme_launch_date": "19  FEB, 2010"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Navi Asset Management Company Limited",
+    "field_location": [
+     {
+      "amc_name": "12",
+      "count": 6,
+      "main_scheme_name": "12",
+      "metrics_mod_duration": "12",
+      "monthly_aaum_date": "12",
+      "mutual_fund_name": "12"
+     }
+    ],
+    "main_scheme_name": "Portfolio Holdings as on February 28, 2025 Portfolio Holdings CERTIFICATE OF DEPOSITS * AXIS BANK LIMITED * KOTAK MAHINDRA BANK LIMITED * PUNJAB NATIONAL BANK * NABARD COMMERCIAL PAPERS * TIME TECHNOPLAST LIMITED BAJAJ FINANCE LIMITED NON-CONVERTIBLE DEBENTURE / ZCB * LARSEN & TOUBRO LIMITED * LIC HOUSING FINANCE LIMITED MAHINDRA & MAHINDRA FINANCIAL SERV LTD. SIDBI TREASURY BILLS * 182 DAYS TBILL MAT 04-APR-2025 * 182 DAYS TREASURY BILL 17-APR-2025 * 364 DAYS TREASURY BILL  24-APR-2025 Alternat",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "monthly_aaum_date": "20250228",
+    "mutual_fund_name": "Navi Mutual Fund"
+   }
+  }
+ ]
+}

@@ -57,7 +57,7 @@ class Reader:
                         for span in line["spans"]:
                             text = span["text"].strip().lower()
                             for indice in indices:
-                                if re.search(rf"\b{re.escape(indice)}\b", text):
+                                if re.search(rf"\b{re.escape(indice)}\b", text,re.IGNORECASE):
                                     if indice not in found_indices:
                                         found_indices.append(indice)
                                         highlight_count += 1

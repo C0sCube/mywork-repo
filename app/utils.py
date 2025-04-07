@@ -61,7 +61,11 @@ class Helper:
     def quick_json_dump(extracted_text, path:str, indent=4):
         
         current = str(datetime.now().strftime('%H_%M'))
-        fund_name = list(extracted_text.keys())[0].split(" ")[0]
+        try:
+            fund_name = list(extracted_text.keys())[0].split(" ")[0]
+        except Exception as e:
+           print(e)
+           return
         output_path = path.replace(".json",f'_{fund_name}_{current}.json')
         with open(output_path, "w") as file:
             json.dump(extracted_text, file, indent=indent)

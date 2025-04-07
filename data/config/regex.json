@@ -84,7 +84,8 @@
             "^equity_portion_of_portfolio",
             "^fixed_income_portion_of_portfolio",
             "^index_facts",
-            "^other_parameters$"
+            "^other_parameters$",
+            "^quantave_data$"
         ],
         "min_amt": "^minimum_appl",
         "nav": "^(nav|nav_|net_asset).*",
@@ -241,7 +242,8 @@
             ".*date_of_allotment$",
             "^date_of_inceptionallotment$",
             "^date_of_allotment.*",
-            ".*of_allotment$"
+            ".*of_allotment$",
+            "^(inception_date.*|.*\\w{3}\\d{2})$"
         ],
         "page_number": [
             "^page_number",
@@ -520,6 +522,8 @@
         "ir",
         "jenson",
         "load",
+        "entry load",
+        "exit load",
         "Macaulay Duraon",
         "macaulay duration",
         "macaulay's duration",
@@ -563,6 +567,7 @@
         "price to book",
         "price to earnings",
         "quantitative data",
+        "qualitative data",
         "r squared",
         "r squared ratio - fund",
         "r-squared for fund",

@@ -35,7 +35,8 @@ class FundRegex():
             return text
 
     def header_mapper(self, text: str)->str:
-        text = re.sub(r"[^\w\s]+", "", text).strip()
+        text = re.sub(r"[^\w\s]+|\u00b7", "", text).strip()
+        # print(text)
         for replacement, patterns in self.HEADER_PATTERNS.items():
             try:
                 if isinstance(patterns, list):
