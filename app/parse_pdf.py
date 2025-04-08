@@ -26,9 +26,6 @@ class Reader:
         # self.INDICEPATH = os.path.join(self.BASEPATH, paths.get("fin", ""))
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
-        # self.CSVPATH = os.path.join(self.BASEPATH, paths.get("csv", ""))
-        
-        #other instance initialize
         self.TEXT_ONLY = {}
         
     #HIGHLIGHT 
@@ -487,10 +484,10 @@ class Reader:
     def get_generated_content(self, data:list):
         extracted_text = {}
         output_path  = self.DRYPATH
+        print("\nParsing Completed, Refining Data.....")
         for content in data:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
-            
-            print(f'---<<{fund}>>---')
+            print(f'--<<{fund}>>--')
             Reader._generate_pdf_from_data(blocks, output_path) #1sec
             start_time = time.time()
             extracted_text[fund] = Reader._extract_data_from_pdf(output_path)

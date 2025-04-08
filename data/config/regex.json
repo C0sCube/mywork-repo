@@ -118,9 +118,8 @@
         ],
         "benchmark_index": [
             ".*benchmark_index$",
-            ".*benchmark$",
+            "(?:before)?.*benchmark$",
             "^benchmark_index",
-            ".*benchmark$",
             "investment_objective",
             ".*underlying_index$"
         ],
@@ -133,7 +132,8 @@
         "load": [
             "^load",
             ".*load_structure$",
-            ".*load"
+            ".*loads?",
+            "load_structure"
         ],
         "main_scheme_name": [
             "main_scheme_name"
@@ -171,7 +171,8 @@
             ".*additional$",
             ".*minimum_additional_purchase$",
             ".*additional_investment$",
-            "^additional_application$"
+            "^additional_application$",
+            ".*additional_purchase_amount$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -243,7 +244,8 @@
             "^date_of_inceptionallotment$",
             "^date_of_allotment.*",
             ".*of_allotment$",
-            "^(inception_date.*|.*\\w{3}\\d{2})$"
+            "^(inception_date.*|.*\\w{3}\\d{2})$",
+            ".*about_the_fund"
         ],
         "page_number": [
             "^page_number",
@@ -399,7 +401,8 @@
             "^last_[0-9]+_months$",
             ".*portfolio_turnover_ratio$",
             ".*timestotal_turnover$",
-            "^turnover_ratio$"
+            "^turnover_ratio$",
+            "^portfolio_turnover.*equity_arbitrage$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -607,5 +610,55 @@
         "years of experience",
         "yield to maturity",
         "ytm"
-    ]
+    ],
+    "main_mapper": {
+        "360 ONE Mutual Fund": "ThreeSixtyOne",
+        "Aditya Birla Sun Life Mutual Fund": "AdityaBirla",
+        "Axis Mutual Fund": "AXISMF",
+        "Axis Mutual Fund Passive": "",
+        "BajaJ Finserv Mutual Fund": "BajajFinServ",
+        "Bandhan Mutual Fund": "Bandhan",
+        "Bank of India Mutual Fund": "BankOfIndia",
+        "Baroda BNP Paribas Mutual Fund": "BarodaBNP",
+        "Canara Robeco Mutual Fund": "Canara",
+        "DSP Mutual Fund": "DSP",
+        "Edelweiss Mutual Fund": "Edelweiss",
+        "Franklin Templeton Mutual Fund": "FranklinTempleton",
+        "Groww Mutual Fund": "GROWW",
+        "HDFC Mutual Fund": "HDFC",
+        "HDFC Mutual Fund Passive": "HDFC",
+        "HSBC Mutual Fund": "HSBC",
+        "Helios Mutual Fund": "Helios",
+        "ICICI Prudential Mutual Fund": "ICICI",
+        "ITI Mutual Fund": "ITI",
+        "Invesco Mutual Fund": "Invesco",
+        "JM Financial Mutual Fund": "JMMF",
+        "Kotak Mahindra Mutual Fund": "Kotak",
+        "LIC Mutual Fund": "LIC",
+        "Mahindra Manulife Mutual Fund": "MahindraManu",
+        "Mirae Asset Mutual Fund": "MIRAE",
+        "Mirae Asset Mutual Fund Passive": "MIRAE",
+        "Motilal Oswal Mutual Fund": "MotilalOswal",
+        "Motilal Oswal Mutual Fund Passive": "MotilalOswal",
+        "NJ Mutual Fund": "NJMF",
+        "Navi Mutual Fund": "NAVI",
+        "Nippon India Mutual Fund": "Nippon",
+        "Old Bridge Mutual Fund": "OldBridge",
+        "PGIM India Mutual Fund": "PGIM",
+        "PPFAS Mutual Fund": "PPFAS",
+        "Quant Mutual Fund": "QuantMF",
+        "Quantum Mutual Fund": "Quantum",
+        "SBI Mutual Fund": "SBI",
+        "SBI Mutual Fund Passive": "SBIPassive",
+        "Samco Mutual Fund": "Samco",
+        "Shriram Mutual fund": "Shriram",
+        "Sundaram Mutual Fund": "Sundaram",
+        "Tata Mutual Fund": "Tata",
+        "Taurus Mutual Fund": "Taurus",
+        "Trust Mutual Fund": "Trust",
+        "UTI Mutual Fund": "UTI",
+        "Union Mutual Fund": "Union",
+        "WhiteOak Mutual Fund": "WhiteOak",
+        "Zerodha Mutual Fund": "Zerodha"
+    }
 }

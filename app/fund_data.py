@@ -34,6 +34,7 @@ class GrandFundData:
             "secondary":fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{}),
             "tertiary":fund_config.get("TERTIARY_PATTERN_TO_FUNCTION",{})
         }
+        self.MAIN_MAP = fund_config.get("MAIN_MAP",{})
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
@@ -611,19 +612,6 @@ class PPFAS(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) #load from Grand first
         Reader.__init__(self,paths_config, self.PARAMS) 
-
-    def get_proper_fund_names(self,path: str):
-        pattern = "(Parag Parikh.*?(?:Funds?|ETF|Fo?O?F|Plans?))"
-        title = {}   
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0,0,400,60)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                # print(text)
-                if matches := re.findall(pattern, text, re.DOTALL):
-                    title[pgn] = " ".join(matches[0].strip().split())
-                    # print(matches[0],pgn)
-        return title
 #28
 class QuantMF(Reader,GrandFundData): #Lupsum issues
     def __init__(self, paths_config: str,fund_name:str):
