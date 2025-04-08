@@ -518,8 +518,8 @@ class Reader:
                     
                     content = self._match_with_patterns(clean_head, content,level = "primary") # applies regex to clean data
                     content = regex.transform_keys(content) #lowercase
-                    key, value = next(iter(content.items()))  # Extract key-value once
-
+                    key, value = next(iter(content.items()))
+        
                     if clean_head in content_dict:
                         unique_key = self._get_unique_key(clean_head, content_dict)
                         content_dict[unique_key] = value
