@@ -2,6 +2,7 @@
   "360 ONE Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(360 ONE.*FUND)",
         bbox: [0, 0, 520, 50],
       },
@@ -35,6 +36,7 @@
       date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4}+)",
       aum: "(Net\\s*AUM|Monthly Average AUM)\\s*(-?[\\d,.]+)",
       scheme: [
+        //case sensitive
         "Date of Allotment",
         "Bloomberg\\s*Code",
         "Benchmark\\s*Index",
@@ -122,17 +124,17 @@
     },
     PROMOTE_KEYS: {},
     MAIN_MAP: {
-      class_name: "ThreeSixtyOne",
+      class_name: "",
       flatten: true,
       select: true,
       map: true,
-      special: false,
-      ocr: false,
+      special: true,
     },
   },
   "Aditya Birla Sun Life Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: true,
         pattern: "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|FOF\\*?|Scheme|EOF|Funds\\*?|Yojna)?)$",
         bbox: [0, 0, 470, 25],
       },
@@ -223,22 +225,20 @@
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
     CLONEKEYS: {},
-    SPECIAL_FUNCTIONS: {
-      // fund_manager: "_update_manager_data",
-    },
+    SPECIAL_FUNCTIONS: {},
     PROMOTE_KEYS: {},
     MAIN_MAP: {
-      class_name: "AdityaBirla",
+      class_name: "",
       flatten: true,
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Axis Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Axis\\s*.+?(?:Fund\\s*(?:of Fund)?|Path|ETF|FOF|Path))",
         bbox: [0, 0, 500, 80],
       },
@@ -265,6 +265,7 @@
     },
     REGEX: {
       scheme: [
+        //case sensitive
         "Inception Date",
         "AAUM for the month",
         "Benchmark",
@@ -307,17 +308,17 @@
     SPECIAL_FUNCTIONS: {},
     PROMOTE_KEYS: {},
     MAIN_MAP: {
-      class_name: "AXISMF",
+      class_name: "",
       flatten: true,
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Axis Mutual Fund Passive": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Axis.*?(?:Funds?\\s*(?:of Fund)?|ETFs?\\s*(?:FO?o?F)?|Fo?O?F|Plans?))",
         bbox: [0, 0, 320, 110],
       },
@@ -346,6 +347,7 @@
       aum: "([\\d,.]+ cr.?)\\s*\\d{3,4}",
       min_amt: "([\\d.]+)\\s*and\\s*(\\d)",
       scheme: [
+        //case sensitive
         "Inception Date",
         "AAUM for the month",
         "Benchmark",
@@ -378,8 +380,8 @@
       "monthly_aaum_date",
       "monthly_aaum_value",
       ".*(benchmark|inception_date)",
-      "load", //after merge
-      "metrics", //after merge
+      "load",
+      "metrics",
       "pgn",
       ".*aaum_for_the_month",
       ".*minimum_investment",
@@ -410,12 +412,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Bajaj finserv Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Bajaj.*(?:Fund|Path|ETF|FOF|EOF|Growth))",
         bbox: [0, 0, 470, 50],
       },
@@ -501,12 +503,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Bandhan Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Bandhan.*?(?:Funds?\\s*(?:of Fund|.+?Plan)?|ETFs?\\s*(?:FO?o?F)?|Fo?O?F|Plans?))",
         bbox: [0, 0, 490, 45],
       },
@@ -594,7 +596,6 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Bank of India Mutual Fund": {
@@ -604,6 +605,7 @@
       max_financial_index_highlight: 7,
       stop_words: [],
       title: {
+        ocr: false,
         pattern: "(Bank of India.*?(?:Plan|Funds?|ETF|FOF|FTF))",
         bbox: [0, 55, 280, 105],
       },
@@ -686,12 +688,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Baroda BNP Paribas Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Baroda BNP.*?(?:Fund|Path|ETF|FTF|FOF|Index|Fund of Fund))",
         bbox: [0, 0, 220, 120],
       },
@@ -725,6 +727,7 @@
       },
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
       scheme: [
+        //case sensitive
         "NAV Details",
         "Benchmark Index",
         "Date of Allotment",
@@ -789,12 +792,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Canara Robeco Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "CANARA.*?\\)",
         bbox: [0, 0, 400, 55],
       },
@@ -825,6 +828,7 @@
     REGEX: {
       metric: "(Modified Duration|Annualised Portfolio YTM||Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
       scheme: [
+        //case sensitive
         "SCHEME OBJECTIVE",
         "Monthend AUM",
         "Monthly\\s*AVG\\s*AUM",
@@ -906,12 +910,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "DSP Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "((?:DSP|Bharat).*?(?:Fund\\s*(?:of Fund)?|FUND|ETF|FTF|FOF))",
         bbox: [0, 0, 500, 40],
       },
@@ -941,6 +945,7 @@
     },
     REGEX: {
       scheme: [
+        //case sensitive
         "INCEPTION DATE",
         "BENCHMARK",
         "NAV AS ON",
@@ -999,12 +1004,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Edelweiss Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Edelweiss\\s*.+?(?:Fund|Path|ETF|FOF|Path))",
         bbox: [0, 0, 150, 100],
       },
@@ -1091,12 +1096,12 @@
       select: true,
       map: true,
       special: true,
-      ocr: false,
     },
   },
   "Franklin Templeton Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "((?:Franklin|Templeton).*?(?:Fund\\s*(?:of Funds)?|Plan))",
         bbox: [0, 0, 470, 80],
       },
@@ -1207,6 +1212,7 @@
   "Groww Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(GROWW.*?(?:FUND|Fund|ETF\\s*(?:FOF)?))",
         bbox: [0, 0, 470, 60],
       },
@@ -1235,6 +1241,7 @@
       aum: "(Monthly Average AUM|Month end AUM)\\s*([\\d,.]+\\s*crore)",
       date: "\\(Date of Allotment\\)\\s*(.+)$",
       scheme: [
+        //case sensitive
         "Inception Date",
         "Benchmark",
         "Fund Manager",
@@ -1307,6 +1314,7 @@
   "HDFC Mutual Fund Passive": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(HDFC.*?(?:FUND|Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of Funds?)?))",
         bbox: [0, 0, 400, 60],
       },
@@ -1339,7 +1347,7 @@
       track: ".+?months\\s*(?:regular)?\\s*([\\d.]+)",
       escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+|\u00a5|\u00b7",
       load: "",
-      manager:"",
+      manager: "",
       metric: "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*(-?[\\d.]+\\s*(?:years|days|months)?)",
     },
     PATTERN_TO_FUNCTION: {
@@ -1402,6 +1410,7 @@
   "HDFC Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(HDFC.*?(?:FUND|Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of Funds?)?))",
         bbox: [0, 0, 400, 60],
       },
@@ -1497,6 +1506,7 @@
   "Helios Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Helios.*)",
         bbox: [0, 0, 600, 40],
       },
@@ -1524,6 +1534,7 @@
     REGEX: {
       metric: "(Sharpe Ratio|Standard Deviation|Beta|Annualised|Average Maturity|Modi?f?ied Duration|Macaulay Duration|Yield to Maturity)\\s*(-?[\\d,.]+\\s*(?:days?|months?|years?)?)",
       scheme: [
+        //case sensitive
         "Scheme Category",
         "Benchmark",
         "Plans and Options",
@@ -1600,6 +1611,7 @@
   "HSBC Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(HSBC.*?(?:FUND|Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of Funds?)?))",
         bbox: [0, 0, 600, 45],
       },
@@ -1629,6 +1641,7 @@
     },
     REGEX: {
       scheme: [
+        //case sensitive
         "Date of Allotment",
         "NAV",
         "AUM",
@@ -1710,6 +1723,7 @@
   "ICICI Prudential Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "((?:ICICI|BHARAT).*?(?:Fund\\s*(?:\\(FOF\\)|FOF|of Fund|\\D*?Plan)?|FOF))",
         bbox: [0, 0, 540, 60],
       },
@@ -1744,6 +1758,7 @@
       benchmark: "^(.+)?The",
       date: ".*allotment date(.+)?",
       scheme: [
+        //case sensitive
         "Fund Managers",
         "Indicative Investment Horizon",
         "NAV",
@@ -1821,6 +1836,7 @@
   "ICICI Prudential Mutual Fund Passive": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "((?:ICICI|BHARAT).*)",
         bbox: [0, 0, 490, 30],
       },
@@ -1853,6 +1869,7 @@
       aum: "([\\d,.]+\\s*crores)",
       date: ".*Allotment date(.+)?",
       scheme: [
+        //case sensitive
         "Fund Managers",
         "Indicative Investment Horizon",
         "Allotment date",
@@ -1927,6 +1944,7 @@
   "Invesco Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Invesco India.*?(?:Fund(?:of Funds?)?|ETF|FOF|Path))",
         bbox: [180, 0, 590, 40],
       },
@@ -2023,6 +2041,7 @@
   "ITI Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(ITI.*?(?:Fund(?:of Funds?)?|ETF|FOF|Path))",
         bbox: [0, 30, 300, 100],
       },
@@ -2056,6 +2075,7 @@
         fields: ["name", "since", "exp"],
       },
       scheme: [
+        //case sensitive
         "Inception Date",
         "Benchmark",
         "Minimum Applicati?o?n?",
@@ -2128,6 +2148,7 @@
   "JM Financial Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(JM.*?(?:Fund(?:of Funds?)?|ETF|FOF|Path))",
         bbox: [0, 0, 400, 50],
       },
@@ -2138,11 +2159,13 @@
         color: [-10987173],
         countmax_header_check: 15,
       },
-      clip_bbox: [[390, 105, 600, 812]],
+      clip_bbox: [[390, 105, 670, 812]],
       line_x: 390.0,
       data: {
         size: [6, 9],
-        color: [-1],
+        color: [
+          0, //-1
+        ],
         update_size: 30.0,
         font: ["MyriadPro-BoldCond"],
       },
@@ -2153,7 +2176,8 @@
       stop_words: [],
     },
     REGEX: {
-      aum: "(Month End AUM|Monthly AAUM)\\D*\\s*([\\d,.]+\\s*crore)",
+      aum: "\\D*\\s*([\\d,.]+\\s*crore)",
+      benchmark: "(.+?)Additional Benchmark",
       metric: "(Annualised Portfolio YTM|Modified Duration|Average Maturity|Macaulay Duration)\\s*([\\d,.]+\\s*(?:years?|days?|months?)?)",
       lumpsum: "Purchase(.+?)Additional Purchase(.+?)$",
       manager: {
@@ -2161,13 +2185,23 @@
         fields: ["name", "since", "exp"],
       },
       scheme: [
-        "Inception Date",
-        "Benchmark",
-        "Minimum Application",
-        "Load Structure",
-        "Entry Load",
-        "Exit Load",
-        "Total Expense Ratio",
+        //case sensitive
+        "INCEPTION DATE",
+        "Benchmark Index",
+        "FUND MANAGER DETAILS",
+        "NAV DETAILS",
+        "FUND SIZE",
+        "Month End AUM",
+        "Monthly AAUM",
+        "PORTFOLIO TURNOVER RATIO",
+        "MINIMUM APPLICATION AMOUNT\\s*Purchase",
+        "Additional Purchase",
+        "EXIT LOAD|EXPENSE RATIO",
+        "EXPENSE RATIO",
+        "RISK RATIOS",
+        "EOL",
+        "RISK RATIOS",
+        "PORTFOLIO STATISTICS",
         "EOL",
       ],
       ptr: ".*\\d+$",
@@ -2175,19 +2209,26 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment|exit_load).*": ["_extract_str_data", null],
-      aum: ["_extract_generic_data", "aum"],
-      "inception_date.*": ["_extract_date_data", null],
-      "^portfolio_turnover.*": ["_extract_ptr_data", null],
-      min_amt: ["_extract_lump_data", "lumpsum"],
+      "^before": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "min_amt.*": ["_extract_amt_data", "min_amt"],
-      fund_manager: ["_extract_manager_data", "manager"],
-      metrics: ["_extract_generic_data", "metric"],
+      ".*(month_end_aum|monthly_aaum)$": ["_extract_generic_data", "aum"],
+      // ".*fund_manager": [
+      //     "_extract_manager_data",
+      //     "manager",
+      // ],
+      // ".*(risk_ratio|Statistics)": [
+      //     "_extract_generic_data",
+      //     "metric",
+      // ],
+      ".*benchmark": ["_extract_generic_data", "benchmark"],
+      ".*(additional_purchase|amount_purchase)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
     },
     SELECTKEYS: [
-      "fund_manager",
+      ".*fund_manager",
       ".*monthly_aaum",
       "amc_name",
       "main_scheme_name",
@@ -2222,6 +2263,7 @@
       ".*application.*",
       ".*ratio.*",
       ".*inception_date.*",
+      "^before",
     ],
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
@@ -2238,6 +2280,7 @@
   "Kotak Mahindra Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(KOTAK.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF))",
         bbox: [0, 0, 450, 70],
       },
@@ -2331,12 +2374,13 @@
   "LIC Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: true,
         pattern: "((?:LI?i?C|BSE|BANK|SMALL|HEALTH).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|FUNDs*OFs*FUND))",
         bbox: [0, 0, 400, 100],
       },
       fund: {
         flag: [20, 16],
-        regex: "((?:LIC\\s*MF|BLNCED|LOW)\\s+.*?(?:FUND|ETF|FTF|FOF|PLAN|SAVER))",
+        regex: "((?:LIC\\s*MF|BLNCED|LOW)\\s+.*?(?:FUND|ETF|FTF|FOF|PLAN|SAVER)\\s*(?:OF FUNDS?)?)",
         size: [12, 20],
         color: [-15319437],
         countmax_header_check: 15,
@@ -2415,6 +2459,7 @@
   "Mahindra Manulife Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Mahindra.*?(?:Fund|ETF|EOF|FOF|FTF|Path|FO))",
         bbox: [170, 0, 450, 80],
       },
@@ -2445,6 +2490,7 @@
         fields: ["name", "exp", "desig", "since"],
       },
       scheme: [
+        //case sensitive
         "Investment Objective",
         "Fund Features",
         "Fund Manager",
@@ -2536,6 +2582,7 @@
   "Mirae Asset Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(MIRAE.*?(?:ETF|EOF|FOF|FTF|FUNDS?\\s*(?:OF FUNDS?)?|INDEX FUND))",
         bbox: [0, 0, 560, 140],
       },
@@ -2569,6 +2616,7 @@
       },
       metric: "(Volatility|R Squared|Portfolio Turnover\\s*(?:Ratio)?|Information Ratio|Average Maturity|Modified Duration|Macaulay Duration|Annualized Portfolio YTM|Beta|Sharpe Ratio|YTM|Jensons .*|Treynor .*)\\s*(-?[\\d.]+\\s*(?:Days|Years|Months)?)",
       scheme: [
+        //case sensitive
         "Fund Managers",
         "Allotment Date",
         "Benchmark",
@@ -2632,6 +2680,7 @@
   "Mirae Asset Mutual Fund Passive": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(MIRAE.*?(?:ETF|EOF|FOF|FTF|FUNDS?\\s*(?:OF FUNDS?)?|INDEX FUND))",
         bbox: [0, 0, 560, 140],
       },
@@ -2665,6 +2714,7 @@
       },
       metric: "(Volatility|R Squared|Portfolio Turnover\\s*(?:Ratio)?|Information Ratio|Average Maturity|Modified Duration|Macaulay Duration|Annualized Portfolio YTM|Beta|Sharpe Ratio|YTM|Jensons .*|Treynor .*)\\s*(-?[\\d.]+\\s*(?:Days|Years|Months)?)",
       scheme: [
+        //case sensitive
         "Fund Managers",
         "Allotment Date",
         "Benchmark",
@@ -2728,6 +2778,7 @@
   "Motilal Oswal Mutual Fund Passive": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Motilal.*?(?:Fund\\s*(?:o?O?f Funds?(?:.+?Aggressive|.+?Conservative)?)?|ETF(?:.+? of Funds?)?|FoF))",
         bbox: [0, 0, 600, 60],
       },
@@ -2759,6 +2810,7 @@
       lumpsum: "(?:Minimum Application\\s*Amount|)(.*?)(?:Additional Application\\s*Amount(.*))?$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       scheme: [
+        //case sensitive
         "Investment Objective",
         "Category",
         "Minimum application amount",
@@ -2842,6 +2894,7 @@
   "Motilal Oswal Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Motilal.*?(?:Fund\\s*(?:o?O?f Funds?(?:.+?Aggressive|.+?Conservative)?)?|ETF(?:.+? of Funds?)?|FoF))",
         bbox: [0, 0, 600, 60],
       },
@@ -2873,6 +2926,7 @@
       lumpsum: "(?:Minimum Application\\s*Amount|)(.*?)(?:Additional Application\\s*Amount(.*))?$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       scheme: [
+        //case sensitive
         "Investment Objective",
         "Category",
         "Minimum application amount",
@@ -2956,6 +3010,7 @@
   "Navi Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "",
         bbox: [],
       },
@@ -2992,6 +3047,7 @@
         fields: ["name", "since"],
       },
       scheme: [
+        //case sensitive
         "Inception Date",
         "Index\\s*(?:Niy|BSE|NASDAQ|CRSP|NSE)",
         "Minimum Application",
@@ -3060,6 +3116,7 @@
   "Nippon India Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: true,
         pattern: "((?:Nippon India|CPSE).*)$",
         bbox: [0, 0, 500, 40],
       },
@@ -3089,12 +3146,13 @@
       content_size: [30.0, 8.0],
       method: "clip",
       line_side: "",
-      max_financial_index_highlight: 7,
+      max_financial_index_highlight: 13,
       stop_words: [],
     },
     REGEX: {
       aum: "(Month End|Monthly Average).*?([\\d,]+\\.\\d{2})",
       scheme: [
+        //case sensitive
         "Type of Scheme",
         "Current Investment Philosophy",
         "Date of Allotment",
@@ -3176,6 +3234,7 @@
   "NJ Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(NJ.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF|SCHEME))",
         bbox: [0, 30, 480, 70],
       },
@@ -3326,6 +3385,7 @@
   "PGIM India Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "([A-Z0-9\\s\\-]+\\s*PGIM INDIA)",
         bbox: [0, 0, 300, 80],
       },
@@ -3356,6 +3416,7 @@
     REGEX: {
       aum: ".*Monthly Average AUM.*?([\\d,.]+)$",
       scheme: [
+        //case sensitive
         "Investment Objective",
         "Fund Manager",
         "Benchmark",
@@ -3434,6 +3495,7 @@
   "PPFAS Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Parag Parikh.*?(?:Funds?|ETF|Fo?O?F|Plans?))",
         bbox: [0, 0, 400, 60],
       },
@@ -3462,6 +3524,7 @@
       aum: ".+Average AUM\\D*\\s*([\\d,.]+\\s*Crores)",
       benchmark: "(.+?)Additional Bench",
       scheme: [
+        //case sensitive
         "Name of the Fund",
         "Type of the Scheme",
         "Name of the Fund",
@@ -3544,6 +3607,7 @@
   "Quant Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(quant.*?(?:FUND|Fund))",
         bbox: [0, 0, 480, 80],
       },
@@ -3574,6 +3638,7 @@
     },
     REGEX: {
       scheme: [
+        //case sensitive
         "INCEPTION DATE",
         "RISK ADJUSTED MEASURES",
         "CONTRIBUTION BY MARKET CAP",
@@ -3656,6 +3721,7 @@
   "Quantum Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(QUANTUM.*?(?:FUNDS?\\s*(?:OF FUNDS?)?|ETF\\s*(?:FUND OF FUNDS?)?|EOF|FOF|FTF|PATH))",
         bbox: [0, 0, 450, 90],
       },
@@ -3684,6 +3750,7 @@
       aum: "(Average AUM|Absolute AUM)\\s*([\\d,.]+)",
       load: "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$",
       scheme: [
+        //case sensitive
         "Category of Scheme",
         "Investment Objective",
         "Inception Date",
@@ -3787,6 +3854,7 @@
   "Samco Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Samco.*?Fund)",
         bbox: [0, 30, 600, 100],
       },
@@ -3818,6 +3886,7 @@
       nav: "(Regular Growth|Direct Growth|Regular IDCW|Direct IDCW)\\s*([\\d,.]+)",
       metric: "(Portfolio Turnover Ratio|Annualised Portfolio YTM|Macaulay Duration|Residual Maturity|Modified Duration|Residual Maturity|Beta|Treynor .*|Sharpe .*)\\s*([\\d,.]+\\s*(?:days?|months?|years?)?)",
       scheme: [
+        //case sensitive
         "Inception Date",
         "Benchmark",
         "Min.?\\s*Application",
@@ -3891,7 +3960,8 @@
   "SBI Mutual Fund": {
     PARAMS: {
       title: {
-        pattern: "(SBI.*?(?:Fund\\s*(?:of funds?|.*?Plan)?|ETF|FTF|FOF))",
+        ocr: true,
+        pattern: "((?:SBI|i\\s*_|S35).*?(?:Fund\\s*(?:of funds?|.*?Plan)?|ETF|FTF|FOF))",
         bbox: [160, 640, 550, 812],
       },
       fund: {
@@ -3918,6 +3988,7 @@
     REGEX: {
       aum: "([\\d,.]+)\\s*crores",
       scheme: [
+        //case sensitive
         "Type of Scheme",
         "Date of Allotment",
         "Report As On",
@@ -3989,7 +4060,8 @@
   "SBI Mutual Fund Passive": {
     PARAMS: {
       title: {
-        pattern: "((?:SBI|i\\s*_|S35).*$)",
+        ocr: true,
+        pattern: "((?:SBI|i\\s*_|S35).*?(?:Fund\\s*(?:of funds?|.*?Plan)?|ETF|FTF|FOF))",
         bbox: [0, 0, 400, 50],
       },
       fund: {
@@ -4016,6 +4088,7 @@
     REGEX: {
       aum: "([\\d,.]+\\s*crores?)",
       scheme: [
+        //case sensitive
         "Inception Date",
         "AAUM for the Month",
         "AUM as on",
@@ -4098,6 +4171,7 @@
   "Shriram Mutual fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(SHRIRAM.*?(?:FUNDS?|ETF))",
         bbox: [0, 0, 490, 90],
       },
@@ -4130,6 +4204,7 @@
       benchmark: "^.+?(?:Index|TRI)",
       date: "Date of Inception\\s*\\(Allotment Date\\)\\s*(\\d{1,2}\\s*[A-Za-z]+\\s*\\d{3,4})",
       scheme: [
+        //case sensitive
         "About the Fund",
         "Fund Managers",
         "Investment Objective",
@@ -4218,6 +4293,7 @@
   "Sundaram Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Sundaram.*?(?:Fund\\s*(?:of funds?|.*?Plan|Series)?|ETF|FTF|FOF))",
         bbox: [0, 0, 400, 40],
       },
@@ -4248,6 +4324,7 @@
       benchmark: "\\(Tier\\s*I\\)\\s*(.+?)Additional",
       metric: "(Information Ratio|Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Average Maturity\\D*|Modified Duration\\D*|YTM\\D*|Macaulay Duration\\D*)\\s*(-?[\\d.,]+\\s*(?:years?|months?|days?)?)",
       scheme: [
+        //case sensitive
         "Category",
         "Fund Managers",
         "Month End AUM",
@@ -4322,6 +4399,7 @@
   "Tata Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "((?:Tata|Treasury|TATA).*?(?:Funds?(?:.*?Plan)?|ETF|FOF|EOF|Plan.*?(?:days)?))",
         bbox: [0, 0, 540, 40],
       },
@@ -4421,6 +4499,7 @@
   "Taurus Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "((?:TAURUS|Taurus).*?(?:FUND|Fund))",
         bbox: [0, 0, 480, 40],
       },
@@ -4510,6 +4589,7 @@
   "Trust Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(TRUSTMF.*?(?:FUND|Fund))",
         bbox: [0, 0, 340, 45],
       },
@@ -4543,6 +4623,7 @@
         fields: ["name", "since", "exp"],
       },
       scheme: [
+        //case sensitive
         "Date of Allotment",
         "Fund Manager",
         "Fund Size",
@@ -4608,6 +4689,7 @@
   "UTI Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(UTI.*?(?:FUND(?:\\s*OF FUND|.+?DURATION)?|PLAN|ETF|FTF|FOF|Fund|ETF(?: FUND OF FUND)?)(?:\\s*\\(\\s*Erst.+?\\))?)",
         bbox: [0, 0, 460, 35],
       },
@@ -4701,6 +4783,7 @@
   "Union Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Union\\s*[A-Za-z\\s]+?(?:FUND|PATH|ETF|FOF))",
         bbox: [0, 0, 180, 150],
       },
@@ -4731,6 +4814,7 @@
     REGEX: {
       aum: ".*average for\\s*[A-Za-z\\s]+\\.?\\s*[0-9]+\\s*([\\d,.]+\\s*crore)",
       scheme: [
+        //case sensitive
         "Investment Objective",
         "Co\\-?Fund Managers",
         "Indicative Investment Horizon",
@@ -4800,6 +4884,7 @@
   "WhiteOak Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(WhiteOak.*?(?:Fund))",
         bbox: [0, 0, 410, 60],
       },
@@ -4893,6 +4978,7 @@
   "Zerodha Mutual Fund": {
     PARAMS: {
       title: {
+        ocr: false,
         pattern: "(Zerodha.*?(?:Fund|ETF(?:\\s*FoF)?|FoF))",
         bbox: [0, 60, 500, 180],
       },
@@ -4919,6 +5005,7 @@
     },
     REGEX: {
       scheme: [
+        //case sensitive
         "Allotment Date|Launched",
         "Min\\.? Investment",
         "Expense Ratio",

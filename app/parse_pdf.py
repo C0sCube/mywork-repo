@@ -12,7 +12,7 @@ class Reader:
     def __init__(self, config_path: str,params:dict):
         
         if not os.path.exists(config_path):
-            raise FileNotFoundError(f"Config file not found: {config_path}")
+            raise FileNotFoundError(f"Config FNF: {config_path}")
         with open(config_path,'r') as file:
             paths_data = json.load(file)
             
@@ -23,29 +23,46 @@ class Reader:
 
         self.BASEPATH = dirs.get("base_path", "")
         self.DRYPATH = os.path.join(self.BASEPATH, paths.get("dry", ""))
-        # self.INDICEPATH = os.path.join(self.BASEPATH, paths.get("fin", ""))
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
         self.TEXT_ONLY = {}
         
-    #HIGHLIGHT 
-    def get_relevant_pages(self, path: str):
-        data = []
+    #HIGHLIGHT
+    def _get_normal_title(self, path:str,regex:str,bbox):
+        title_detected = {}
         with fitz.open(path) as doc:
-            indices = FundRegex().FINANCIAL_TERMS
-            title_regex,bbox = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox']
-
             for pgn, page in enumerate(doc):
                 title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
                 title_text = re.sub(self.REGEX["escape"], "", title_text).strip()
-                title_match = re.findall(title_regex, title_text, re.DOTALL)
-                title = title_match[0] if title_match else ""
-                
+                title_match = re.findall(regex, title_text, re.DOTALL)
+                title = title_match[0].strip() if title_match else ""
                 if title:
                     print(f"{pgn:02d} -- {title}")
-
-                highlight_count,found_indices = 0,[]
-
+                title_detected[pgn] = title
+        return title_detected
+                
+    def _get_ocr_title(self,path:str,regex:str,bbox):
+        clipped_pdf = path.replace(".pdf", "_clipped.pdf")
+        ocr_pdf = path.replace(".pdf", "_ocr.pdf")
+        with fitz.open(path) as doc:
+            with fitz.open() as new_doc:
+                for page_num in range(len(doc)):
+                    new_page = new_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
+                    new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
+                new_doc.save(clipped_pdf)
+        
+        ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
+        
+        return self._get_normal_title(ocr_pdf,regex,bbox)
+    
+    def get_relevant_pages(self, path: str):
+        data = []
+        regex,bbox,ocr = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox'],self.PARAMS["title"]["ocr"]
+        detected_titles = self._get_ocr_title(path,regex,bbox) if ocr else self._get_normal_title(path,regex,bbox)
+        with fitz.open(path) as doc:
+            indices = FundRegex().FINANCIAL_TERMS
+            highlight_count,found_indices = 0,[]
+            for pgn, page in enumerate(doc):
                 blocks = page.get_text("dict")["blocks"]
                 for block in blocks:
                     if "lines" not in block:
@@ -53,14 +70,14 @@ class Reader:
                     for line in block["lines"]:
                         for span in line["spans"]:
                             text = span["text"].strip().lower()
+                            text =  re.sub("[^\\w\\s]", "", text)
                             for indice in indices:
                                 if re.search(rf"\b{re.escape(indice)}\b", text,re.IGNORECASE):
                                     if indice not in found_indices:
                                         found_indices.append(indice)
                                         highlight_count += 1
                                     break
-
-                data.append({"page": pgn,"title": title,"highlight_count": highlight_count,"indices": found_indices})
+                data.append({"page": pgn,"title": detected_titles[pgn],"highlight_count": highlight_count,"indices": found_indices})
         Helper._save_pdf_data(data, self.REPORTPATH)
 
         return {
@@ -381,20 +398,103 @@ class Reader:
         g = (c >> 8) & 0xFF
         b = c & 0xFF
         return (r/255.0, g/255.0, b/255.0)
+    
     @staticmethod
+    # def _generate_pdf_from_data(data: dict, output_path: str) -> None:
+    #     with fitz.open() as doc:
+    #         TITLE_FONT_SIZE = 24
+    #         TITLE_POSITION = 72
+    #         TITLE_COLOR = (0, 0, 1)
+    #         DEFAULT_FONT_NAME = "helv"
+    #         LEFT_MARGIN = 32        # Left margin for alignment
+    #         MIN_LINE_SPACING = 2     # Extra space between lines
+    #         Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
+
+    #         for header, content_blocks in data.items():
+    #             page = doc.new_page()
+
+    #             try:
+    #                 page.insert_text(
+    #                     (LEFT_MARGIN, TITLE_POSITION),
+    #                     header,
+    #                     fontsize=TITLE_FONT_SIZE,
+    #                     fontname=DEFAULT_FONT_NAME,
+    #                     color=TITLE_COLOR,
+    #                 )
+    #             except Exception as e:
+    #                 print(f"Error inserting header text: {e}")
+
+    #             current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
+
+    #             # Group words by approximate Y-line
+    #             lines_dict = defaultdict(list)
+    #             for block in content_blocks:
+    #                 size, text, color, (orig_x, orig_y), bbox, fontname = block
+                    
+    #                 # Snap Y values that are close together to a single baseline
+    #                 snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
+    #                 if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
+    #                     orig_y = snapped_y
+                    
+    #                 lines_dict[orig_y].append((orig_x, size, text, color, fontname))
+
+    #             # Sort lines by Y position
+    #             sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
+    #             adjusted_lines = []
+    #             last_line_bottom = current_y
+
+    #             for line_y, line_blocks in sorted_lines:
+    #                 # Sort words in line by their X position
+    #                 line_blocks.sort(key=lambda b: b[0])
+
+    #                 # Determine max font size for line spacing
+    #                 max_font_size = max(b[1] for b in line_blocks)
+    #                 line_height = max_font_size + MIN_LINE_SPACING
+                    
+    #                 if line_y < last_line_bottom + line_height:
+    #                     line_y = last_line_bottom + line_height
+
+    #                 adjusted_lines.append((line_y, line_blocks))
+    #                 last_line_bottom = line_y
+
+    #             # Insert text while ensuring proper alignment
+    #             for line_y, line_blocks in adjusted_lines:
+    #                 for orig_x, size, text, color, fontname in line_blocks:
+    #                     try:
+    #                         try:
+    #                            page.insert_text(
+    #                             (LEFT_MARGIN+ orig_x, line_y),
+    #                             text,
+    #                             fontsize=size,
+    #                             fontname=fontname,
+    #                             color=Reader._to_rgb_tuple(color),
+    #                         )
+
+    #                         except Exception:
+    #                             page.insert_text(
+    #                                 (LEFT_MARGIN+ orig_x, line_y),
+    #                                 text,
+    #                                 fontsize=size,
+    #                                 fontname=DEFAULT_FONT_NAME,
+    #                                 color=Reader._to_rgb_tuple(color),
+    #                             )
+    #                     except Exception as e:
+    #                         print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+
+    #         doc.save(output_path)
+    
     def _generate_pdf_from_data(data: dict, output_path: str) -> None:
         with fitz.open() as doc:
             TITLE_FONT_SIZE = 24
             TITLE_POSITION = 72
             TITLE_COLOR = (0, 0, 1)
             DEFAULT_FONT_NAME = "helv"
-            LEFT_MARGIN = 32        # Left margin for alignment
-            MIN_LINE_SPACING = 2     # Extra space between lines
-            Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
+            LEFT_MARGIN = 10  # Left margin
+            MIN_LINE_SPACING = 2  # Extra space between lines
+            Y_SNAP_THRESHOLD = 3  # If two words are within 3 units, snap to same Y
 
             for header, content_blocks in data.items():
                 page = doc.new_page()
-
                 try:
                     page.insert_text(
                         (LEFT_MARGIN, TITLE_POSITION),
@@ -418,18 +518,15 @@ class Reader:
                     if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
                         orig_y = snapped_y
                     
-                    lines_dict[orig_y].append((orig_x, size, text, color, fontname))
+                    lines_dict[orig_y].append((orig_x, size, text, color, DEFAULT_FONT_NAME))
 
-                # Sort lines by Y position
+                # Sort lines by Y position and adjust
                 sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
                 adjusted_lines = []
                 last_line_bottom = current_y
 
                 for line_y, line_blocks in sorted_lines:
-                    # Sort words in line by their X position
                     line_blocks.sort(key=lambda b: b[0])
-
-                    # Determine max font size for line spacing
                     max_font_size = max(b[1] for b in line_blocks)
                     line_height = max_font_size + MIN_LINE_SPACING
                     
@@ -443,28 +540,18 @@ class Reader:
                 for line_y, line_blocks in adjusted_lines:
                     for orig_x, size, text, color, fontname in line_blocks:
                         try:
-                            try:
-                               page.insert_text(
-                                (LEFT_MARGIN+ orig_x, line_y),
+                            page.insert_text(
+                                (LEFT_MARGIN + orig_x, line_y),
                                 text,
                                 fontsize=size,
-                                fontname=fontname,
-                                color=Reader._to_rgb_tuple(color),
+                                fontname=DEFAULT_FONT_NAME,
+                                color=color,
                             )
-
-                            except Exception:
-                                page.insert_text(
-                                    (LEFT_MARGIN+ orig_x, line_y),
-                                    text,
-                                    fontsize=size,
-                                    fontname=DEFAULT_FONT_NAME,
-                                    color=Reader._to_rgb_tuple(color),
-                                )
                         except Exception as e:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
             doc.save(output_path)
-            
+    
     @staticmethod
     def _extract_data_from_pdf(path: str):
         final_data = {}
@@ -588,8 +675,6 @@ class Reader:
             
             #regex load data
             new_load = {"entry_load": None,"exit_load": None}
-            # print(temp.get("load",{}))
-
             for load_key, load_value in temp.get("load", {}).items():
                 if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
                     new_load["entry_load"] = load_value
@@ -616,6 +701,8 @@ class Reader:
                         temp.update(updated_content)
                         
             temp = self._promote_key_from_dict(temp)
+            
+            temp = self._formalize_values(temp) # add rupee symbol scale further
 
             finalData[fund] = dict(sorted(temp.items()))
             

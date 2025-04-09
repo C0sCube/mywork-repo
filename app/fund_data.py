@@ -1,4 +1,5 @@
-import re, os,json, json5,ocrmypdf #type:ignore
+import re, os,json, json5,ocrmypdf,io,pytesseract #type:ignore
+from PIL import Image
 from app.parse_pdf import Reader
 from logging_config import logger
 import fitz #type:ignore
@@ -76,7 +77,7 @@ class GrandFundData:
         return {main_key:final_dict}
     
     def _extract_str_data(self, main_key: str, data: list):
-        return {main_key: ' '.join(data)}
+        return {main_key: " ".join(data)}
     
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         final_dict = {}
@@ -313,6 +314,13 @@ class GrandFundData:
                 finalData[key] = value
         return finalData
     
+    def _formalize_values(self,data:dict):
+        rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
+        for k,v in data.items():
+            if k in rupee_keys and isinstance(v,str) and re.match("^\\d",v):
+                data[k] =f"\u20B9 {v}"         
+        return data      
+    
     def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
         return {
             "managing_fund_since":since.title().strip(),
@@ -325,7 +333,7 @@ class GrandFundData:
         return data.update({
             "amc_name":self.IMP_DATA['amc_name'],
             "main_scheme_name":fund,
-            "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%d%B%Y").upper(),
+            "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%d-%m-%Y"),
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
         })
@@ -333,39 +341,38 @@ class GrandFundData:
     def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
         date_data = "".join(main_key)
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
-        return {"inception_date": " ".join(matches)} 
-    
+        return {"inception_date": " ".join(matches)}
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):   
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #2 
 class BajajFinServ(Reader,GrandFundData):  
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #3 <>
 class Bandhan(Reader,GrandFundData):  
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #4
 class BankOfIndia(Reader,GrandFundData):   
     def __init__(self,paths_config:str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #5 <>
 class BarodaBNP(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS)   
 #6 
 class Canara(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
     
     def _update_manager_data(self,main_key:str,manager_data):
@@ -389,137 +396,114 @@ class Canara(Reader,GrandFundData):
 #7
 class DSP(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #8 <> 
 class Edelweiss(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS)
 #9 <>
 class FranklinTempleton(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #10 
 class HDFC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
     
     def _extract_manager_data(self, main_key: str, data, pattern:str):
-        # DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
-        # NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
-        # EXP_PATTERN = r"over (\d+)"
-        # YEAR_PATTERN = r"(\d{4})"
+        DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
+        NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
+        EXP_PATTERN = r"over (\d+)"
+        YEAR_PATTERN = r"(\d{4})"
 
         manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data = re.sub(self.REGEX["escape"],"",manager_data).strip()
-        # manager_data = re.sub(r"[^A-Za-z0-9\s\-\(\).,]+|Name|Since|Total|Exp|years", "", manager_data).strip()
+        manager_data = re.sub(r"[^A-Za-z0-9\s\-\(\).,]+|Name|Since|Total|Exp|years", "", manager_data).strip()
 
-        # experience_years = re.findall(EXP_PATTERN, manager_data, re.IGNORECASE)
-        # dates = re.findall(DATE_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
-        # years = re.findall(YEAR_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
-        # names = re.findall(NAME_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        experience_years = re.findall(EXP_PATTERN, manager_data, re.IGNORECASE)
+        dates = re.findall(DATE_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        years = re.findall(YEAR_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        names = re.findall(NAME_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
         
-        # managing_since = [f"{date}, {year}" for date, year in zip(dates, years)]
-        # experience_list = [f"{exp} years" for exp in experience_years]
-        # final_list = [
-        #     self._return_manager_data(name=name,since=since,exp=exp)
-        #     for since, exp, name in zip(managing_since, experience_list, names)
-        # ]
+        managing_since = [f"{date}, {year}" for date, year in zip(dates, years)]
+        experience_list = [f"{exp} years" for exp in experience_years]
+        final_list = [
+            self._return_manager_data(name=name,since=since,exp=exp)
+            for since, exp, name in zip(managing_since, experience_list, names)
+        ]
         
         return {main_key:manager_data}    
 
 #11
 class GROWW(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #12 <>
 class Helios(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #13 
 class HSBC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #14
 class ICICI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #15 <>
 class Invesco(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #16 <>
 class ITI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #17 <>
-class Kotak(Reader,GrandFundData): #Lupsum issues
+class Kotak(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #18
-class LIC(Reader,GrandFundData): #Lupsum issues
+class LIC(Reader,GrandFundData): 
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
-        Reader.__init__(self,paths_config, self.PARAMS) 
+        GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS)
 
-    def get_proper_fund_names(self,input_pdf:str, bbox = (0, 0, 400, 100)):
-        clipped_pdf = input_pdf.replace(".pdf", "_clipped.pdf")
-        ocr_pdf = input_pdf.replace(".pdf", "_ocr.pdf")
-        
-        with fitz.open(input_pdf) as doc:
-            with fitz.open() as new_doc:
-                for page_num in range(len(doc)):
-                    new_page = new_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
-                    new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
-                new_doc.save(clipped_pdf)
-        
-        ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
-        
-        pattern = "((?:LI?i?C|BSE|BANK|SMALL|HEALTH).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|FUND\\s*OF\\s*FUND))"
-        extracted_titles = {}
-
-        with fitz.open(ocr_pdf) as doc:
-            for page_num, page in enumerate(doc):
-                page_content = page.get_text("text")
-                text = " ".join(page_content.split("\n"))
-                if matches := re.findall(pattern, text, re.IGNORECASE):
-                    extracted_titles[page_num] = matches[0]
-        return extracted_titles
 #19 <>
 class MahindraManu(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #20 <>
 class MIRAE(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #21 <>
-class MotilalOswal(Reader,GrandFundData): #Lupsum issues
+class MotilalOswal(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #22 <>
-class NAVI(Reader,GrandFundData): #Lupsum issues
+class NAVI(Reader,GrandFundData): 
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
     def get_proper_fund_names(self,path: str):
         pattern = "(Navi.*?(?:Fund|Fund of Fund))"
@@ -540,13 +524,13 @@ class NAVI(Reader,GrandFundData): #Lupsum issues
 class Nippon(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #24
 class NJMF(Reader,GrandFundData):
    
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS)
         
     def _update_manager_data(self,main_key:str,manager_data):
@@ -563,43 +547,43 @@ class NJMF(Reader,GrandFundData):
 #25
 class OldBridge(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #26
 class PGIM(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
         
 #27
 class PPFAS(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #28
-class QuantMF(Reader,GrandFundData): #Lupsum issues
+class QuantMF(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #29 
-class Quantum(Reader,GrandFundData): #Lupsum issues
+class Quantum(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #30 <>
 class Samco(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #31
 class SBI(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
     
     def _extract_manager_data(self, main_key: str, data, pattern: str):
@@ -624,34 +608,9 @@ class SBI(Reader, GrandFundData):
 class SBIPassive(Reader, GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
         
-    def get_proper_fund_names(self,input_pdf:str, bbox = (0, 0, 400, 50)):
-        clipped_pdf = input_pdf.replace(".pdf", "_clipped.pdf")
-        ocr_pdf = input_pdf.replace(".pdf", "_ocr.pdf")
-        
-        with fitz.open(input_pdf) as doc:
-            with fitz.open() as new_doc:
-                for page_num in range(len(doc)):
-                    new_page = new_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
-                    new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
-                new_doc.save(clipped_pdf)
-        
-        ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
-        
-        pattern = r"((?:SBI|i\s*_|S35).*$)"
-        extracted_titles = {}
-
-        with fitz.open(ocr_pdf) as doc:
-            for page_num, page in enumerate(doc):
-                page_content = page.get_text("text")
-                text = " ".join(page_content.split("\n"))
-                # print(text)
-                if matches := re.findall(pattern, text, re.IGNORECASE):
-                    extracted_titles[page_num] = matches[0]
-        return extracted_titles
-    
     def _update_manager_data(self,main_key:str,data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data, list) else data
@@ -672,41 +631,41 @@ class SBIPassive(Reader, GrandFundData):
 #33 <>
 class Sundaram(Reader,GrandFundData):  
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 
 #34 <>
 class Tata(Reader,GrandFundData):  
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #35 <>
-class Taurus(Reader,GrandFundData): #Lupsum issues
+class Taurus(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #36
 class Trust(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS)    
 #37
 class Union(Reader,GrandFundData):   
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS)  
 #38
 class UTI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #39 <>
 class WhiteOak(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #40
 class Zerodha(Reader,GrandFundData):
@@ -717,7 +676,7 @@ class Zerodha(Reader,GrandFundData):
 #41 Aditya Birla
 class AdityaBirla(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
         
     def _update_manager_data(self,main_key:str,manager_data):
@@ -748,25 +707,17 @@ class AdityaBirla(Reader,GrandFundData):
 class AXISMF(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #43 JMMF
 class JMMF(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
-        Reader.__init__(self,paths_config, self.PARAMS) 
-    
-    def _extract_ptr_data(self, main_key:str,data = ""):
-        s = main_key.replace("portfolio_turnover_ratio_","")
-        data = f"{ s[:-4]}.{s[-4:]}"
-        return {main_key:data}
-
-    def _extract_date_data(self,main_key:str,data:list):
-        return{main_key:{"scheme_date":main_key.replace("inception_date_",""),"benchmark":data[1]}}
-
+        GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS)
+        
 # 44 Shriram
 class Shriram(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
-        GrandFundData.__init__(self,fund_name) #load from Grand first
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 

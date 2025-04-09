@@ -49,22 +49,13 @@ class FundRegex():
             except Exception as e:
                 print(f"\n{e}")
         return text
-    
-    def select_imp_headers(self, text:str)->str:
-        text = re.sub(r"[^\w\s]+", "", text).strip()
-        for pattern in self.SELECTKEYS:
-            if re.match(f"^{pattern}.*",text, re.IGNORECASE):
-                return True
-        return False
-    
+
     def __clean_key(self,key: str) -> str:
-        
         key = re.sub(r"[^\w\s]", "", key)
         key = re.sub(r"\s+", "_", key)
         return key.strip().lower()
 
-    def transform_keys(self, data:dict)->dict:
-        """ lowercase_ all the keys"""
+    def transform_keys(self, data:dict)->dict: #lowercase
         if isinstance(data, dict):
             return {self.__clean_key(key): self.transform_keys(value) for key, value in data.items()}
         elif isinstance(data, list):
@@ -79,8 +70,7 @@ class FundRegex():
         for key, value in data.items():
             new_key = f"{parent_key}{sep}{key}" if parent_key else key
 
-            if isinstance(value, dict):  
-                # Recursively flatten nested dictionaries
+            if isinstance(value, dict):  #recurse
                 flattened.update(self.flatten_dict(value, new_key, sep))
             elif isinstance(value, list):
                 # Keep lists untouched
@@ -105,6 +95,9 @@ class FundRegex():
                     return json_key
                 
     def _populate_all_indices_in_json(self,data:dict):
+        if not isinstance(data, dict):
+            raise TypeError(f"Expected dict, got {type(data)}")
+            return
         for key, value in self.POPULATE_ALL_INDICE.items():
             if key not in data:
                 data[key] = value
@@ -112,11 +105,8 @@ class FundRegex():
     
     def _populate_all_metrics_in_json(self, data: dict):
         if not isinstance(data, dict):
-            raise TypeError(f"Expected dictionary, got {type(data)}")
+            raise TypeError(f"Expected dict, got {type(data)}")
             return
-        # for key, value in data.items():
-        #     if isinstance(value, str) and value.strip().lower() == "na":
-        #         data[key] = None
         for key in self.METRIC_HEADER:
             if key not in data:
                 data[key] = None
