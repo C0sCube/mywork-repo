@@ -376,19 +376,16 @@ class Canara(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS) 
     
     def _update_manager_data(self,main_key:str,manager_data):
-        name = r"(?:Mr\.?|Mrs\.?|Ms\.?)\s+([A-Z][a-z]+\s[A-Z][a-z]+)"
-        exp = r"\b\d+\s*Years?\b"
-        since = r"\bSince\s*([0-9]+\s*-\s*[A-Za-z]+\.?\s*-\s*[0-9]+)\b"
         nsample, msample, esample = [], [], []
         nlength = 0
         value = " ".join(manager_data.values())
-        nsample = re.findall(name, value, re.IGNORECASE)
-        esample = re.findall(exp, value, re.IGNORECASE)
-        msample = re.findall(since, value, re.IGNORECASE)
+        nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
+        esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
+        msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
         
         nlength = len(nsample)
-        msample += [""] * (nlength - len(msample))
-        esample += [""] * (nlength - len(esample))
+        msample += [""] * abs(nlength - len(msample))
+        esample += [""] * abs(nlength - len(esample))
         
         final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
         return {main_key:final_list}
@@ -416,7 +413,7 @@ class HDFC(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
     
-    def _extract_manager_data(self, main_key: str, data, pattern:str):
+    def _update_manager_data(self, main_key: str, data):
         DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
         NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
         EXP_PATTERN = r"over (\d+)"
@@ -438,7 +435,7 @@ class HDFC(Reader,GrandFundData):
             for since, exp, name in zip(managing_since, experience_list, names)
         ]
         
-        return {main_key:manager_data}    
+        return {main_key:final_list}    
 
 #11
 class GROWW(Reader,GrandFundData):
@@ -505,16 +502,6 @@ class NAVI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
-    def get_proper_fund_names(self,path: str):
-        pattern = "(Navi.*?(?:Fund|Fund of Fund))"
-        title = {}
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                text = " ".join(page.get_text("text", clip=(0, 0, 500, 150)).split("\n"))
-                text = re.sub("[^A-Za-z0-9\\s\\-\\(\\).,]+", "", text).strip()
-                if matches := re.findall(pattern, text):
-                    title[pgn] = matches[0]
-        return title
     
     def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
         if matches:=re.findall(self.REGEX[pattern],f"{main_key} {data}",re.IGNORECASE):
@@ -534,14 +521,11 @@ class NJMF(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS)
         
     def _update_manager_data(self,main_key:str,manager_data):
-        exp ="\\d{1,2} years"
-        name = "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+)"
-        since = "(?:since|from)\\s*([A-Za-z]+\\s*\\d{1,2},\\s*\\d{3,4}|inception)"
         nsample, msample, esample = [], [], []
         value = " ".join(manager_data) if isinstance(manager_data,list) else manager_data
-        nsample = re.findall(name, value, re.IGNORECASE)
-        esample = re.findall(exp, value, re.IGNORECASE)
-        msample = re.findall(since, value, re.IGNORECASE)
+        nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
+        esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
+        msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
         final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
         return {main_key:final_list}
 #25
@@ -580,23 +564,19 @@ class Samco(Reader, GrandFundData):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
 #31
-class SBI(Reader, GrandFundData):
+class SBI(Reader, GrandFundData): #OCR
     
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 
     
-    def _extract_manager_data(self, main_key: str, data, pattern: str):
-        name = "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z.]+\\s*[A-Za-z]+)"
-        since = "((?:\\(w.e.f\\.?)?[A-Za-z]+\\s*\\d{4}\\s*(?:\\()?)"
-        exp = "([0-9]+ years)"
-
+    def _update_manager_data(self, main_key: str, data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
-        n = re.findall(name,manager_data, re.IGNORECASE)
-        s = re.findall(since,manager_data, re.IGNORECASE)
-        e = re.findall(exp,manager_data, re.IGNORECASE)
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
         
         adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
         n,s = adjust(n,e),adjust(s,e)

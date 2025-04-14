@@ -55,29 +55,35 @@ class Reader:
         
         return self._get_normal_title(ocr_pdf,regex,bbox)
     
-    def get_relevant_pages(self, path: str):
+    def check_and_highlight(self, path: str):
         data = []
+        output_path = path.replace(".pdf", "_hltd.pdf")
         regex,bbox,ocr = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox'],self.PARAMS["title"]["ocr"]
+        
+        #detect title
         detected_titles = self._get_ocr_title(path,regex,bbox) if ocr else self._get_normal_title(path,regex,bbox)
+        
         with fitz.open(path) as doc:
             indices = FundRegex().FINANCIAL_TERMS
-            highlight_count,found_indices = 0,[]
             for pgn, page in enumerate(doc):
+                highlight_count,found_indices = 0,[]
                 blocks = page.get_text("dict")["blocks"]
                 for block in blocks:
                     if "lines" not in block:
                         continue
                     for line in block["lines"]:
                         for span in line["spans"]:
-                            text = span["text"].strip().lower()
-                            text =  re.sub("[^\\w\\s]", "", text)
+                            text =  re.sub("[^\\w\\s]", "", span["text"].strip().lower())
                             for indice in indices:
                                 if re.search(rf"\b{re.escape(indice)}\b", text,re.IGNORECASE):
                                     if indice not in found_indices:
                                         found_indices.append(indice)
                                         highlight_count += 1
+                                    page.add_highlight_annot(fitz.Rect(span["bbox"]))
                                     break
                 data.append({"page": pgn,"title": detected_titles[pgn],"highlight_count": highlight_count,"indices": found_indices})
+            doc.save(output_path)
+            print(f"\tHlted PDF at: {output_path}")
         Helper._save_pdf_data(data, self.REPORTPATH)
 
         return {
@@ -400,101 +406,19 @@ class Reader:
         return (r/255.0, g/255.0, b/255.0)
     
     @staticmethod
-    # def _generate_pdf_from_data(data: dict, output_path: str) -> None:
-    #     with fitz.open() as doc:
-    #         TITLE_FONT_SIZE = 24
-    #         TITLE_POSITION = 72
-    #         TITLE_COLOR = (0, 0, 1)
-    #         DEFAULT_FONT_NAME = "helv"
-    #         LEFT_MARGIN = 32        # Left margin for alignment
-    #         MIN_LINE_SPACING = 2     # Extra space between lines
-    #         Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
-
-    #         for header, content_blocks in data.items():
-    #             page = doc.new_page()
-
-    #             try:
-    #                 page.insert_text(
-    #                     (LEFT_MARGIN, TITLE_POSITION),
-    #                     header,
-    #                     fontsize=TITLE_FONT_SIZE,
-    #                     fontname=DEFAULT_FONT_NAME,
-    #                     color=TITLE_COLOR,
-    #                 )
-    #             except Exception as e:
-    #                 print(f"Error inserting header text: {e}")
-
-    #             current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
-
-    #             # Group words by approximate Y-line
-    #             lines_dict = defaultdict(list)
-    #             for block in content_blocks:
-    #                 size, text, color, (orig_x, orig_y), bbox, fontname = block
-                    
-    #                 # Snap Y values that are close together to a single baseline
-    #                 snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
-    #                 if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
-    #                     orig_y = snapped_y
-                    
-    #                 lines_dict[orig_y].append((orig_x, size, text, color, fontname))
-
-    #             # Sort lines by Y position
-    #             sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
-    #             adjusted_lines = []
-    #             last_line_bottom = current_y
-
-    #             for line_y, line_blocks in sorted_lines:
-    #                 # Sort words in line by their X position
-    #                 line_blocks.sort(key=lambda b: b[0])
-
-    #                 # Determine max font size for line spacing
-    #                 max_font_size = max(b[1] for b in line_blocks)
-    #                 line_height = max_font_size + MIN_LINE_SPACING
-                    
-    #                 if line_y < last_line_bottom + line_height:
-    #                     line_y = last_line_bottom + line_height
-
-    #                 adjusted_lines.append((line_y, line_blocks))
-    #                 last_line_bottom = line_y
-
-    #             # Insert text while ensuring proper alignment
-    #             for line_y, line_blocks in adjusted_lines:
-    #                 for orig_x, size, text, color, fontname in line_blocks:
-    #                     try:
-    #                         try:
-    #                            page.insert_text(
-    #                             (LEFT_MARGIN+ orig_x, line_y),
-    #                             text,
-    #                             fontsize=size,
-    #                             fontname=fontname,
-    #                             color=Reader._to_rgb_tuple(color),
-    #                         )
-
-    #                         except Exception:
-    #                             page.insert_text(
-    #                                 (LEFT_MARGIN+ orig_x, line_y),
-    #                                 text,
-    #                                 fontsize=size,
-    #                                 fontname=DEFAULT_FONT_NAME,
-    #                                 color=Reader._to_rgb_tuple(color),
-    #                             )
-    #                     except Exception as e:
-    #                         print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
-
-    #         doc.save(output_path)
-    
     def _generate_pdf_from_data(data: dict, output_path: str) -> None:
         with fitz.open() as doc:
             TITLE_FONT_SIZE = 24
             TITLE_POSITION = 72
             TITLE_COLOR = (0, 0, 1)
             DEFAULT_FONT_NAME = "helv"
-            LEFT_MARGIN = 10  # Left margin
-            MIN_LINE_SPACING = 2  # Extra space between lines
-            Y_SNAP_THRESHOLD = 3  # If two words are within 3 units, snap to same Y
+            LEFT_MARGIN = 32        # Left margin for alignment
+            MIN_LINE_SPACING = 2     # Extra space between lines
+            Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
 
             for header, content_blocks in data.items():
                 page = doc.new_page()
+
                 try:
                     page.insert_text(
                         (LEFT_MARGIN, TITLE_POSITION),
@@ -518,15 +442,18 @@ class Reader:
                     if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
                         orig_y = snapped_y
                     
-                    lines_dict[orig_y].append((orig_x, size, text, color, DEFAULT_FONT_NAME))
+                    lines_dict[orig_y].append((orig_x, size, text, color, fontname))
 
-                # Sort lines by Y position and adjust
+                # Sort lines by Y position
                 sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
                 adjusted_lines = []
                 last_line_bottom = current_y
 
                 for line_y, line_blocks in sorted_lines:
+                    # Sort words in line by their X position
                     line_blocks.sort(key=lambda b: b[0])
+
+                    # Determine max font size for line spacing
                     max_font_size = max(b[1] for b in line_blocks)
                     line_height = max_font_size + MIN_LINE_SPACING
                     
@@ -540,17 +467,28 @@ class Reader:
                 for line_y, line_blocks in adjusted_lines:
                     for orig_x, size, text, color, fontname in line_blocks:
                         try:
-                            page.insert_text(
-                                (LEFT_MARGIN + orig_x, line_y),
+                            try:
+                               page.insert_text(
+                                (LEFT_MARGIN+ orig_x, line_y),
                                 text,
                                 fontsize=size,
-                                fontname=DEFAULT_FONT_NAME,
-                                color=color,
+                                fontname=fontname,
+                                color=Reader._to_rgb_tuple(color),
                             )
+
+                            except Exception:
+                                page.insert_text(
+                                    (LEFT_MARGIN+ orig_x, line_y),
+                                    text,
+                                    fontsize=size,
+                                    fontname=DEFAULT_FONT_NAME,
+                                    color=Reader._to_rgb_tuple(color),
+                                )
                         except Exception as e:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
             doc.save(output_path)
+    
     
     @staticmethod
     def _extract_data_from_pdf(path: str):
@@ -675,22 +613,31 @@ class Reader:
             
             #regex load data
             new_load = {"entry_load": None,"exit_load": None}
-            for load_key, load_value in temp.get("load", {}).items():
-                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
-                    new_load["entry_load"] = load_value
-                elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
-                    new_load["exit_load"] = load_value
-                else:
-                    new_load[load_key] = load_value
+            try:
+                for load_key, load_value in temp.get("load", {}).items():
+                    if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
+                        new_load["entry_load"] = load_value
+                    elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
+                        new_load["exit_load"] = load_value
+                    else:
+                        new_load[load_key] = load_value
+            except Exception as e:
+                # logger.error(e)
+                print(f"\nLoad Error {e}")
 
             temp["load"] = new_load
 
                 
             #metrics convert
-            new_metrics = {}
-            for metric_key,metric_value in temp['metrics'].items():
-                new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
-                new_metrics[new_key] = metric_value
+            try:
+                new_metrics = {}
+                for metric_key,metric_value in temp.get("metrics",{}).items():
+                    new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
+                    new_metrics[new_key] = metric_value
+            except Exception as e:
+                # logger.error(e)
+                print(f"\n Metric Error {e}")
+            
             #populate metrics
             temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
             

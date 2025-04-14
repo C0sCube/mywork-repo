@@ -21,7 +21,7 @@ class Helper:
             for name in files:
                 if name.endswith((".pdf")) and not file_found:
                     tmp = root.split("\\")
-                    key = tmp[-1]
+                    key = tmp[-1].title()
                     value = rf'{root}\{name}'
                     mutual_fund_paths[key] = value
                     file_found = True
@@ -60,7 +60,7 @@ class Helper:
     @staticmethod
     def quick_json_dump(extracted_text, path:str, indent=4):
         
-        current = str(datetime.now().strftime('%H_%M'))
+        current = str(datetime.now().strftime('%H_%M_%S'))
         try:
             fund_name = list(extracted_text.keys())[0].split(" ")[0]
         except Exception as e:

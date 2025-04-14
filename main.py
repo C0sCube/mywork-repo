@@ -19,19 +19,23 @@ for amc_name,class_name in class_mapper.items():
     print(f"\nRunning for AMC:{amc_name}")
     print(f"\n----------------------------------------------------\n")
     try:
-        object = eval(class_mapper[amc_name])(PATHS_CONFIG,amc_name)
+        object = eval(class_mapper[amc_name])(PATHS_CONFIG, amc_name)
         path = mutual_fund[amc_name]
-        title = object.get_relevant_pages(path)
-        data = object.get_data(path,title)
+        title = object.check_and_highlight(path)
+        data = object.get_data(path, title)
         extracted_text = object.get_generated_content(data)
         final_text = object.refine_extracted_data(extracted_text, flatten=object.MAIN_MAP['flatten'])
-        dfs = object.merge_and_select_data(final_text, select=object.MAIN_MAP['select'], map= object.MAIN_MAP['map'])
+        dfs = object.merge_and_select_data(final_text, select=object.MAIN_MAP['select'], map=object.MAIN_MAP['map'], special=object.MAIN_MAP['special'])
         Helper.quick_json_dump(dfs, object.JSONPATH)
+
+        if not os.path.exists(object.JSONPATH): # if exists
+            raise FileNotFoundError(f"Expected output JSON not created: {object.JSONPATH}")
+
     except Exception as e:
-        print(f"\n{e}")
+        print(f"\n The Error:{e}")
         not_done.append(amc_name)
         continue
-    print("\nFinish")
+
     
 with open("amc_not_completed.txt",'w') as file:
     file.writelines(f"{item}\n" for item in not_done)

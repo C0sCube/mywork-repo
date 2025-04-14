@@ -1,5 +1,5 @@
-CREATE DATABASE updated_db;
-USE updated_db;
+CREATE DATABASE try_db;
+USE try_db;
 
 CREATE TABLE amcs (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,9 +12,10 @@ CREATE TABLE mutual_funds (
     amc_name VARCHAR(255),
     entered_time VARCHAR(40),
     amc_for_month VARCHAR(40),
+    data_from VARCHAR(100),
     benchmark_index TEXT,
-    main_scheme_name VARCHAR(255),
-    mutual_fund_name VARCHAR(255),
+    main_scheme_name TEXT,
+    mutual_fund_name TEXT,
     monthly_aaum_date VARCHAR(50),
     monthly_aaum_value TEXT,
     scheme_launch_date TEXT,
@@ -80,76 +81,4 @@ CREATE TABLE transformed_metrics (
     FOREIGN KEY (amc_id) REFERENCES amcs(id) ON DELETE CASCADE
 );
 
-
-SELECT * FROM transformed_loads;
-
-SELECT * FROM amcs;
-
-SELECT * FROM transformed_metrics;
-
-SELECT * FROM fund_managers;
-
-SELECT * FROM mutual_funds;
-
-    
-
-SELECT mf.mutual_fund_name, GROUP_CONCAT(fm.name SEPARATOR ', ') AS fund_managers
-FROM fund_managers fm
-JOIN mutual_funds mf ON fm.mutual_fund_id = mf.id
-GROUP BY mf.mutual_fund_name;
-
-
-SELECT 
-    mf.*,  
-    fm.name AS fund_manager_name, fm.qualification, fm.managing_fund_since, fm.total_exp,
-    tl.entry_load, tl.exit_load,
-    tm.*  
-FROM mutual_funds mf
-LEFT JOIN fund_managers fm ON mf.id = fm.mutual_fund_id
-LEFT JOIN transformed_loads tl ON mf.id = tl.mutual_fund_id
-LEFT JOIN transformed_metrics tm ON mf.id = tm.mutual_fund_id;
-
--- INSERT INTO amcs (amc_name) VALUES
--- ("360 ONE Mutual Fund"),
--- ("Aditya Birla Sun Life Mutual Fund"),
--- ("Axis Mutual Fund"),
--- ("Bajaj finserv Mutual Fund"),
--- ("Bandhan Mutual Fund"),
--- ("Bank of India Mutual Fund"),
--- ("Baroda BNP Paribas Mutual Fund"),
--- ("Canara Robeco Mutual Fund"),
--- ("DSP Mutual Fund"),
--- ("Edelweiss Mutual Fund"),
--- ("Franklin Templeton Mutual Fund"),
--- ("Groww Mutual Fund"),
--- ("Helios Mutual Fund"),
--- ("HSBC Mutual Fund"),
--- ("ICICI Prudential Mutual Fund"),
--- ("Invesco Mutual Fund"),
--- ("ITI Mutual Fund"),
--- ("JM Financial Mutual Fund"),
--- ("Kotak Mahindra Mutual Fund"),
--- ("LIC Mutual Fund"),
--- ("Mahindra Manulife Mutual Fund"),
--- ("Mirae Asset Mutual Fund"),
--- ("Motilal Oswal Mutual Fund"),
--- ("Navi Mutual Fund"),
--- ("Nippon India Mutual Fund"),
--- ("NJ Mutual Fund"),
--- ("Old Bridge Mutual Fund"),
--- ("PGIM India Mutual Fund"),
--- ("PPFAS Mutual Fund"),
--- ("Quant Mutual Fund"),
--- ("Quantum Mutual Fund"),
--- ("Samco Mutual Fund"),
--- ("SBI Mutual Fund"),
--- ("Shriram Mutual fund"),
--- ("Sundaram Mutual Fund"),
--- ("Tata Mutual Fund"),
--- ("Taurus Mutual Fund"),
--- ("Trust Mutual Fund"),
--- ("Union Mutual Fund"),
--- ("UTI Mutual Fund"),
--- ("WhiteOak Mutual Fund"),
--- ("Zerodha Mutual Fund");
-
+ALTER TABLE mutual_funds ADD COLUMN data_from VARCHAR(100);

@@ -62,8 +62,7 @@ class FundRegex():
             return [self.transform_keys(item) if isinstance(item, dict) else item for item in data]
         else:
             return data
-        
-    
+            
     def flatten_dict(self,data:dict, parent_key='', sep='.'):
         flattened = {}
 
@@ -112,8 +111,7 @@ class FundRegex():
                 data[key] = None
                 
         return {k:data[k] for k in sorted(data)} #sorted
-
-    
+  
     def _dummy_block(self,fontz:str,colorz:str):
         return {
                 "number": 0,

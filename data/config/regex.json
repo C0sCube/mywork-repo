@@ -121,13 +121,15 @@
             "(?:before)?.*benchmark$",
             "^benchmark_index",
             "investment_objective",
-            ".*underlying_index$"
+            ".*underlying_index$",
+            ".*benchmark$"
         ],
         "field_location": [],
         "fund_manager": [
             "^fund_manager",
             ".*fund_manager$",
-            ".*fund_managers$"
+            ".*fund_managers$",
+            ".*fund_manager_details"
         ],
         "load": [
             "^load",
@@ -172,7 +174,9 @@
             ".*minimum_additional_purchase$",
             ".*additional_investment$",
             "^additional_application$",
-            ".*additional_purchase_amount$"
+            ".*additional_purchase_amount$",
+            ".*additional_purchase",
+            ".*minaddlinvestment$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -197,7 +201,9 @@
             ".*minimum_investment_amount$",
             ".*minimum_investment$",
             "^minimum_investment_clone$",
-            ".*minimum_investment_[0-9]+"
+            ".*minimum_investment_[0-9]+",
+            ".*minimum_application_amount_purchase",
+            ".*application_amount$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -226,7 +232,8 @@
             ".*monthly_average$",
             ".*assets_under_management$",
             ".*monthly_average$",
-            ".*aaum_for_the_month$"
+            ".*aaum_for_the_month$",
+            ".*monthly_aaum_as_on$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -245,7 +252,8 @@
             "^date_of_allotment.*",
             ".*of_allotment$",
             "^(inception_date.*|.*\\w{3}\\d{2})$",
-            ".*about_the_fund"
+            ".*about_the_fund",
+            ".*allotment_date$"
         ],
         "page_number": [
             "^page_number",
@@ -612,53 +620,54 @@
         "ytm"
     ],
     "main_mapper": {
-        "360 ONE Mutual Fund": "ThreeSixtyOne",
+        "360 One Mutual Fund": "ThreeSixtyOne",
         "Aditya Birla Sun Life Mutual Fund": "AdityaBirla",
         "Axis Mutual Fund": "AXISMF",
-        "Axis Mutual Fund Passive": "",
-        "BajaJ Finserv Mutual Fund": "BajajFinServ",
+        "Axis Mutual Fund Passive": "AXISMF",
+        "Bajaj Finserv Mutual Fund": "BajajFinServ",
         "Bandhan Mutual Fund": "Bandhan",
-        "Bank of India Mutual Fund": "BankOfIndia",
-        "Baroda BNP Paribas Mutual Fund": "BarodaBNP",
+        "Bank Of India Mutual Fund": "BankOfIndia",
+        "Baroda Bnp Paribas Mutual Fund": "BarodaBNP",
         "Canara Robeco Mutual Fund": "Canara",
-        "DSP Mutual Fund": "DSP",
+        "Dsp Mutual Fund": "DSP",
         "Edelweiss Mutual Fund": "Edelweiss",
         "Franklin Templeton Mutual Fund": "FranklinTempleton",
         "Groww Mutual Fund": "GROWW",
-        "HDFC Mutual Fund": "HDFC",
-        "HDFC Mutual Fund Passive": "HDFC",
-        "HSBC Mutual Fund": "HSBC",
+        "Hdfc Mutual Fund": "HDFC",
+        "Hdfc Mutual Fund Passive": "HDFC",
+        "Hsbc Mutual Fund": "HSBC",
         "Helios Mutual Fund": "Helios",
-        "ICICI Prudential Mutual Fund": "ICICI",
-        "ITI Mutual Fund": "ITI",
+        "Icici Prudential Mutual Fund": "ICICI",
+        "Icici Prudential Mutual Fund Passive": "ICICI",
+        "Iti Mutual Fund": "ITI",
         "Invesco Mutual Fund": "Invesco",
-        "JM Financial Mutual Fund": "JMMF",
+        "Jm Financial Mutual Fund": "JMMF",
         "Kotak Mahindra Mutual Fund": "Kotak",
-        "LIC Mutual Fund": "LIC",
+        "Lic Mutual Fund": "LIC",
         "Mahindra Manulife Mutual Fund": "MahindraManu",
         "Mirae Asset Mutual Fund": "MIRAE",
         "Mirae Asset Mutual Fund Passive": "MIRAE",
         "Motilal Oswal Mutual Fund": "MotilalOswal",
         "Motilal Oswal Mutual Fund Passive": "MotilalOswal",
-        "NJ Mutual Fund": "NJMF",
+        "Nj Mutual Fund": "NJMF",
         "Navi Mutual Fund": "NAVI",
         "Nippon India Mutual Fund": "Nippon",
         "Old Bridge Mutual Fund": "OldBridge",
-        "PGIM India Mutual Fund": "PGIM",
-        "PPFAS Mutual Fund": "PPFAS",
+        "Pgim India Mutual Fund": "PGIM",
+        "Ppfas Mutual Fund": "PPFAS",
         "Quant Mutual Fund": "QuantMF",
         "Quantum Mutual Fund": "Quantum",
-        "SBI Mutual Fund": "SBI",
-        "SBI Mutual Fund Passive": "SBIPassive",
+        "Sbi Mutual Fund": "SBI",
+        "Sbi Mutual Fund Passive": "SBIPassive",
         "Samco Mutual Fund": "Samco",
-        "Shriram Mutual fund": "Shriram",
+        "Shriram Mutual Fund": "Shriram",
         "Sundaram Mutual Fund": "Sundaram",
         "Tata Mutual Fund": "Tata",
         "Taurus Mutual Fund": "Taurus",
         "Trust Mutual Fund": "Trust",
-        "UTI Mutual Fund": "UTI",
+        "Uti Mutual Fund": "UTI",
         "Union Mutual Fund": "Union",
-        "WhiteOak Mutual Fund": "WhiteOak",
+        "Whiteoak Mutual Fund": "WhiteOak",
         "Zerodha Mutual Fund": "Zerodha"
     }
 }
