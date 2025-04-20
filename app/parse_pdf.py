@@ -97,7 +97,7 @@ class Reader:
             d["page"]: d["title"]
             for d in data
             if d["title"] and d["highlight_count"] >= self.PARAMS["max_financial_index_highlight"]
-        }
+        },path_pdf
        
     # def check_and_highlight(self, path: str):
     #     output_path = path.replace(".pdf", "_hltd.pdf")

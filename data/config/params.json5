@@ -7919,10 +7919,17 @@
                 "Benchmark",
                 "Expense Ratio",
                 "NAV",
+                "Month end AUM",
+                "Monthly average AUM",
+                "Quarterly average AUM",
+                "EOL",
+                "Fund Manager",
+                "Qualitative Data",
+                "EOL"
             ],
             aum: "(.+AUM)\\s*([\\d,.]+)",
             min_amt: "([\\d,]+).*?(\\d*)",
-            metrics: "(Portfolio Turnover Ratio|Average Maturity|Macaulay Duration)\\s*([\\d,.]+)",
+            metrics: "(Portfolio Turnover Ratio|Average Maturity|Macaulay Duration|Tracking Error)\\s*([\\d,.]+)",
             escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.]+|\u2028",
             manager: {
                 pattern: "([A-Za-z]+\\s*[A-Za-z]+)\\s*Total Experience([0-9]+ years)\\s*C?o?\\-?Managing.*?since\\s*([A-Za-z]+\\s*[0-9]+)",
@@ -7934,21 +7941,17 @@
             },
         },
         PATTERN_TO_FUNCTION: {
-            "^scheme_details": [
+            "before": [
                 "_extract_scheme_data",
                 "scheme",
             ],
-            aum: [
-                "_extract_generic_data",
-                "aum",
-            ],
-            "^fund_manager": [
-                "_extract_manager_data",
-                "manager",
+            "^dummy.*":[
+                "_extract_scheme_data",
+                "scheme"
             ],
         },
         SECONDARY_PATTERN_TO_FUNCTION: {
-            metrics: [
+            ".*qualitative_data": [
                 "_extract_generic_data",
                 "metrics",
             ],
@@ -7956,6 +7959,10 @@
                 "_extract_amt_data",
                 "min_amt",
             ],
+            // "^fund_manager": [
+            //     "_extract_manager_data",
+            //     "manager",
+            // ],
         },
         SELECTKEYS: [
             "amc_name",

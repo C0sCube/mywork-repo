@@ -21,8 +21,8 @@ for amc_name,class_name in class_mapper.items():
     try:
         object = eval(class_mapper[amc_name])(PATHS_CONFIG, amc_name)
         path = mutual_fund[amc_name]
-        title = object.check_and_highlight(path)
-        data = object.get_data(path, title)
+        title,path_pdf = object.check_and_highlight(path)
+        data = object.get_data(path_pdf, title)
         extracted_text = object.get_generated_content(data)
         final_text = object.refine_extracted_data(extracted_text, flatten=object.MAIN_MAP['flatten'])
         dfs = object.merge_and_select_data(final_text, select=object.MAIN_MAP['select'], map=object.MAIN_MAP['map'], special=object.MAIN_MAP['special'])
