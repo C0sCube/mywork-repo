@@ -337,7 +337,7 @@ class GrandFundData:
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
         })
-    
+   
     def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
         date_data = "".join(main_key)
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)

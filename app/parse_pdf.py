@@ -33,9 +33,9 @@ class Reader:
         with fitz.open(path) as doc:
             for pgn, page in enumerate(doc):
                 title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
-                title_text = re.sub(self.REGEX["escape"], "", title_text).strip()
+                title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
                 title_match = re.findall(regex, title_text, re.DOTALL)
-                title = title_match[0].strip() if title_match else ""
+                title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                 if title:
                     print(f"{pgn:02d} -- {title}")
                 title_detected[pgn] = title
@@ -55,6 +55,11 @@ class Reader:
         
         return self._get_normal_title(ocr_pdf,regex,bbox)
     
+    def _ocr_pdf(self,path:str):
+        ocr_path = path.replace(".pdf", "_all_ocr.pdf")
+        ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
+        return ocr_path
+    
     def check_and_highlight(self, path: str):
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
@@ -63,7 +68,9 @@ class Reader:
         #detect title
         detected_titles = self._get_ocr_title(path,regex,bbox) if ocr else self._get_normal_title(path,regex,bbox)
         
-        with fitz.open(path) as doc:
+        path_pdf = self._ocr_pdf(path) if self.PARAMS['pdf_ocr'] else path
+        
+        with fitz.open(path_pdf) as doc:
             indices = FundRegex().FINANCIAL_TERMS
             for pgn, page in enumerate(doc):
                 highlight_count,found_indices = 0,[]
@@ -148,12 +155,12 @@ class Reader:
     def _create_data_entry(self,*args)->dict:
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
-    def extract_clipped_data(self, path: str, title:dict,*args)->list:
-        
+    def extract_clipped_data(self, path: str, title: dict, *args) -> list:
+        finalData = []
+        fund_seen = {}
+        bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
+
         with fitz.open(path) as doc:
-            finalData = []
-            fund_seen = {}
-            bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
             for pgn in title:
                 fundName = title.get(pgn, "").strip()
                 if not fundName:
@@ -163,31 +170,41 @@ class Reader:
                 all_blocks = []
                 for bbox in bboxes:
                     blocks, seen_blocks = [], set()
-                    page_blocks = page.get_text('dict', clip=bbox)['blocks'] #only get clipped data
+                    page_blocks = page.get_text('dict', clip=bbox)['blocks']
 
                     for block in page_blocks:
                         if block['type'] == 0 and 'lines' in block:
-                            block_key = (tuple(block['bbox']), tuple(tuple(line['spans'][0]['text'] for line in block['lines'])))
+                            block_key_text = []
+                            for line in block['lines']:
+                                spans = line.get('spans', [])
+                                if spans:
+                                    block_key_text.append(spans[0]['text'])
+                                else:
+                                    block_key_text.append("")
+
+                            block_key = (tuple(block['bbox']), tuple(block_key_text))
                             if block_key not in seen_blocks:
                                 seen_blocks.add(block_key)
                                 blocks.append(block)
+
                     sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
-                    
-                    #dummy data
+
+                    # dummy data
                     fontz = self.PARAMS['data']['font'][0]
                     colorz = self.PARAMS['data']['color'][0]
-                    sorted_blocks.append(FundRegex()._dummy_block(fontz,colorz))
+                    sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz))
                     all_blocks.extend(sorted_blocks)
-                    
+
                 if fundName in fund_seen:
                     fund_seen[fundName]["block"].extend(all_blocks)
                     fund_seen[fundName]["page"].append(pgn)
                 else:
                     new_entry = {"page": [pgn], "fundname": fundName, "block": all_blocks}
                     finalData.append(new_entry)
-                    fund_seen[fundName] = new_entry  # Store reference to modify later
+                    fund_seen[fundName] = new_entry 
 
         return finalData
+
 
     def extract_data_relative_line(self, path: str,title: dict)->list:
     

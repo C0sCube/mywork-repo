@@ -24,6 +24,7 @@ class FundRegex():
         self.POPULATE_ALL_INDICE = data.get("add_json_headers",[])
         self.METRIC_HEADER = data.get("metrics_headers",{})
         self.FINANCIAL_TERMS = data.get("financial_indices",[])
+        self.ESCAPE = data.get("escape_regex","")
        
 
     @staticmethod

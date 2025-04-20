@@ -70,14 +70,14 @@ class Helper:
         with open(output_path, "w") as file:
             json.dump(extracted_text, file, indent=indent)
         
-        print(f'\n\tJSON saved at {output_path}')
+        print(f'\n  JSON saved at {output_path}')
     
     @staticmethod
     def quick_json_load(path:str):
         try:
             with open(path, "r", encoding="utf-8") as file:
                 data = json.load(file)
-            print(f"\n\tJSON loaded from {path}")
+            print(f"\n  JSON loaded from {path}")
             return data
         except Exception as e:
             print(f"Error loading JSON: {e}")

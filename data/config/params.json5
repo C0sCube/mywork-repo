@@ -55,6 +55,7 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 7,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -266,6 +267,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 9,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -414,6 +416,7 @@
             method: "line",
             line_side: "both",
             max_financial_index_highlight: 7,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -548,6 +551,7 @@
             method: "line",
             line_side: "both",
             max_financial_index_highlight: 9,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -715,6 +719,7 @@
             method: "both",
             line_side: "left",
             max_financial_index_highlight: 7,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -856,6 +861,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 11,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -951,6 +957,7 @@
             method: "line",
             line_side: "both",
             max_financial_index_highlight: 7,
+            pdf_ocr: false,
             stop_words: [],
             title: {
                 ocr: false,
@@ -1148,6 +1155,7 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 7,
+            pdf_ocr: false,
             stop_words: [],
         },
         REGEX: {
@@ -1270,10 +1278,6 @@
                     55,
                 ],
             },
-            method: "clip",
-            line_side: "",
-            max_financial_index_highlight: 0,
-            stop_words: [],
             fund: {
                 flag: [
                     4,
@@ -1322,6 +1326,11 @@
                 10.0,
             ],
             line_x: 180.0,
+            method: "clip",
+            line_side: "",
+            max_financial_index_highlight: 0,
+            pdf_ocr: false,
+            stop_words: [],
         },
         REGEX: {
             metric: "(Modified Duration|Annualised Portfolio YTM||Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
@@ -1384,7 +1393,7 @@
             ".*(entry_load|exit_load)",
             ".*monthly_avg_aum",
             ".*(fund|total_experience|managing_this_fund)$",
-            ".*(minimum_investment|subsequent_purchases)",
+            ".*(minimum_investment|subsequent)",
             "metrics",
             "load",
             "fund_manager",
@@ -1418,7 +1427,9 @@
             "fund_information",
             "dummy",
         ],
-        CLONEKEYS: {},
+        CLONEKEYS: {
+            "additional_investment": ".*subsequent"
+        },
         SPECIAL_FUNCTIONS: {
             fund_manager: "_update_manager_data",
         },
@@ -1494,6 +1505,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 5,
+            pdf_ocr:false,
             stop_words: [
                 "last_12_months",
             ],
@@ -1630,6 +1642,7 @@
             method: "line",
             line_side: "right",
             max_financial_index_highlight: 6,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -1773,6 +1786,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 6,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -1939,6 +1953,7 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 5,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -2042,7 +2057,7 @@
         PARAMS: {
             title: {
                 ocr: false,
-                pattern: "(HDFC.*?(?:FUND|Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of Funds?)?))",
+                pattern: "(HDFC.*?(?:FUND|Fund\\s*(?:of Funds?|.+?Plan)?|ETF\\s*(?:Fund of Funds?)?))",
                 bbox: [
                     0,
                     0,
@@ -2103,6 +2118,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -2251,6 +2267,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -2390,6 +2407,7 @@
             method: "line",
             line_side: "left",
             max_financial_index_highlight: 6,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -2564,6 +2582,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -2680,7 +2699,7 @@
         PARAMS: {
             title: {
                 ocr: false,
-                pattern: "((?:ICICI|BHARAT).*?(?:Fund\\s*(?:\\(FOF\\)|FOF|of Fund|\\D*?Plan)?|FOF))",
+                pattern: "((?:ICICI|BHARAT).*?(?:Fund\\s*(?:\\(FOF\\)|FOF|of Fund|\\D*?Plan\\)?)?|FOF))",
                 bbox: [
                     0,
                     0,
@@ -2749,6 +2768,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [
                 "v",
                 "s",
@@ -2763,8 +2783,8 @@
                 "Indicative Investment Horizon",
                 "NAV",
                 "Inception\\/?Allotment date",
-                "Monthly AAUM as on",
-                "Closing AUM as on",
+                "Monthly AAUM",
+                "Closing AUM",
                 "Min\\.?Addl\\.?Investment",
                 "NAV",
                 "Application Amount",
@@ -2802,7 +2822,7 @@
                 "_extract_metric_data",
                 "metrics",
             ],
-            ".*monthly_aaum_as.*": [
+            ".*(monthly_aaum|closing_aum)$": [
                 "_extract_generic_data",
                 "aum",
             ],
@@ -2832,7 +2852,7 @@
             "load",
             ".*allotment_date",
             ".*benchmark",
-            ".*monthly_aaum_as_on$",
+            ".*monthly_aaum",
             ".*(minaddlinvestment|application_amount)" //4
         ],
         MERGEKEYS: {
@@ -2934,6 +2954,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -3037,7 +3058,7 @@
         PARAMS: {
             title: {
                 ocr: false,
-                pattern: "(Invesco India.*?(?:Fund(?:of Funds?)?|ETF|FOF|Path))",
+                pattern: "(Invesco India.*?(?:Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of F?f?unds?)?|FOF|Path))",
                 bbox: [
                     180,
                     0,
@@ -3089,6 +3110,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -3246,6 +3268,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 8,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -3419,6 +3442,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -3598,6 +3622,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -3740,6 +3765,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -3881,11 +3907,13 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [
                 "experience",
             ],
         },
         REGEX: {
+            benchmark: "(?:Nifty|BSE|FTSE|CRISIL).+?(?:TRI|Index\\s*(?:TRI)?)",
             manager: {
                 pattern: "(?:Ms\\.?|Mrs\\.?|Mr\\.?)\\s*([\\w\\s]+?)(?:\\s*\\(.*?\\))?\\s+Total Experience\\s+([0-9]+(?:\\s+years)?)?\\s*Experience in managing this fund(.+?(?:months?|years?))\\s*\\(.*?Managing since\\s+([^)]+)\\)",
                 fields: [
@@ -3953,6 +3981,10 @@
                 "_extract_generic_data",
                 "metrics",
             ],
+            ".*benchmark": [
+                "_extract_generic_data",
+                "benchmark"
+            ]
         },
         SELECTKEYS: [
             ".*(date_of_allotment|benchmark|monthly_aaum|load_structure)",
@@ -4059,6 +4091,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -4204,6 +4237,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -4349,6 +4383,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [
                 "benchmark",
                 "category",
@@ -4527,6 +4562,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [
                 "benchmark",
                 "category",
@@ -4704,6 +4740,7 @@
             method: "line",
             line_side: "both",
             max_financial_index_highlight: 5,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -4890,7 +4927,8 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 13,
+            max_financial_index_highlight: 6,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -4988,7 +5026,7 @@
             select: true,
             map: true,
             special: true,
-            ocr: false,
+            ocr: true,
         },
         FINANCIAL_TERMS: [],
     },
@@ -5049,6 +5087,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -5144,12 +5183,12 @@
         PARAMS: {
             title: {
                 ocr: false,
-                pattern: "(NJ.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF|SCHEME))",
+                pattern: "(OLD BRIDGE.+?(?:FUND))",
                 bbox: [
                     0,
-                    30,
-                    480,
-                    70,
+                    0,
+                    520,
+                    80
                 ],
             },
             fund: {
@@ -5170,22 +5209,22 @@
             clip_bbox: [
                 [
                     0,
-                    100,
+                    160,
                     270,
-                    500,
+                    700
                 ],
                 [
                     270,
-                    100,
-                    410,
-                    812,
-                ],
+                    160,
+                    600,
+                    700
+                ]
             ],
             line_x: 270.0,
             data: {
                 size: [
-                    5,
-                    12,
+                    8,
+                    14,
                 ],
                 color: [
                     -11614235,
@@ -5193,7 +5232,7 @@
                 ],
                 update_size: 30.0,
                 font: [
-                    "Montserrat-Medium",
+                    'Montserrat-Bold',
                 ],
             },
             content_size: [
@@ -5202,16 +5241,91 @@
             ],
             method: "clip",
             line_side: "",
-            max_financial_index_highlight: 7,
+            max_financial_index_highlight: 10,
+            pdf_ocr:false,
             stop_words: [],
         },
-        REGEX: {},
-        PATTERN_TO_FUNCTION: {
-            "^(benchmark|inception_date)": [],
+        REGEX: {
+            benchmark: "(.+?TRI)",
+            aum: "([\\d.]+)",
+            scheme: [
+                "Scheme Category",
+                "Benchmark",
+                "Inception Date",
+                "Face Value",
+                "Minimum Investment Amount",
+                "Minimum Additional Subscription Amount",
+                "Minimum Redemption Amount",
+                "SIP Frequency",
+                "Fund Manager",
+                "Entry Load",
+                "Exit Load",
+                "Holdings",
+                "EOL",
+                "Direct Plan",
+                "Monthly",
+                "Avg AUM",
+                "Equity Turnover",
+                "Total Turnover",
+                "NAV",
+                "EOL"
+            ],
+            min_amt: "([\\d,]+).*?([\\d]+)",
+            manager: {
+                pattern: "([A-Za-z.]+(?:\\s+[A-Za-z.]+)+)\\s*\\(Managing since\\s*(Inception).*?experience\\s+(\\d+\\s+years)\\)",
+                fields: [
+                    "name",
+                    "since",
+                    "exp"
+                ]
+            },
+            escape: "[^a-zA-Z0-9.,\\(\\)\\s]+"
         },
-        SECONDARY_PATTERN_TO_FUNCTION: {},
-        SELECTKEYS: [],
-        MERGEKEYS: {},
+        PATTERN_TO_FUNCTION: {
+            "^(fund_features|scheme_details|dummy.*)": [
+                "_extract_scheme_data",
+                "scheme"
+            ],
+        },
+        SECONDARY_PATTERN_TO_FUNCTION: {
+            ".*benchmark": [
+                "_extract_generic_data",
+                "benchmark"
+            ],
+            ".*(minimum_investment_amount|minimum_additional_subscription)": [
+                "_extract_amt_data",
+                "min_amt"
+            ],
+            ".*monthly": [
+                "_extract_generic_data",
+                "aum"
+            ],
+            ".*fund_manager": [
+                "_extract_manager_data",
+                "manager"
+            ]
+        },
+        SELECTKEYS: [
+            "amc_name",
+            "main_scheme_name",
+            "mutual_fund_name",
+            "page_number",
+            "monthly_aaum_date",
+            "metrics",
+            "dummy.*?monthly$",
+            ".*(fund_manager|minimum_investment_amount|minimum_additional_subscription)", //5
+            ".*(benchmark|inception_date)", //2,
+            "load"
+        ],
+        MERGEKEYS: {
+            load: [
+                ".*entry_load",
+                ".*exit_load"
+            ],
+            metrics: [
+                ".*equity_turnover"
+            ]
+        },
         COMMENTS: [],
         IMP_DATA: {
             amc_name: "Old Bridge Asset Management Private Limited",
@@ -5222,7 +5336,9 @@
         TERTIARY_PATTERN_TO_FUNCTION: {},
         COMBINEKEYS: {},
         PRE_DATA_SELECT: [],
-        CLONEKEYS: {},
+        CLONEKEYS: {
+            "monthly_average_aum": "dummy.*?monthly"
+        },
         SPECIAL_FUNCTIONS: {},
         PROMOTE_KEYS: {},
         MAIN_MAP: {
@@ -5297,6 +5413,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -5471,6 +5588,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 9,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -5653,6 +5771,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 5,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -5818,6 +5937,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -6001,6 +6121,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [
                 "(Fixed Income Portion of Portfolio)",
             ],
@@ -6145,7 +6266,7 @@
                     0,
                     120,
                     165,
-                    765,
+                    812,
                 ],
             ],
             line_x: 165.0,
@@ -6171,6 +6292,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 10,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -6188,6 +6310,7 @@
                 "Plans Available",
                 "Minimum Investment",
                 "Additional Investment",
+                "Quantitative Data",
                 "EOL",
             ],
             manager: {
@@ -6204,7 +6327,7 @@
                 "_extract_str_data",
                 null,
             ],
-            scheme_details: [
+            "before": [
                 "_extract_scheme_data",
                 "scheme",
             ],
@@ -6214,7 +6337,7 @@
                 "_extract_generic_data",
                 "aum",
             ],
-            metrics: [
+            ".*quantitative_data": [
                 "_extract_generic_data",
                 "metrics",
             ],
@@ -6231,6 +6354,7 @@
             ".*(exit_load|entry_load)",
             ".*(minimum_investment|additional_investment)",
             "metrics",
+            ".*quantitative_data",
             "amc_name",
             "main_scheme_name",
             "monthly_aaum_value",
@@ -6325,6 +6449,7 @@
             method: "line",
             line_side: "both",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -6432,7 +6557,7 @@
         },
         FINANCIAL_TERMS: [],
     },
-    "Shriram Mutual fund": {
+    "Shriram Mutual Fund": {
         PARAMS: {
             title: {
                 ocr: false,
@@ -6494,6 +6619,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 6,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -6512,6 +6638,7 @@
                 "Annual Portfolio Turnover Ratio",
                 "Benchmark",
                 "Minimum Investment",
+                "Loads",
                 "EOL",
                 "Quantitative Data",
                 "EOL",
@@ -6575,7 +6702,7 @@
             "main_scheme_name",
             "page_number",
             ".*loads",
-            "load_structure",
+            "load",
             "before.benchmark",
             ".*average_aum",
             ".*minimum_investment",
@@ -6593,7 +6720,7 @@
                 ".*portfolio_turnover_ratio",
                 ".*quantitative_data",
             ],
-            load_structure: [
+            load: [
                 ".*loads",
             ],
         },
@@ -6679,6 +6806,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -6792,7 +6920,7 @@
         PARAMS: {
             title: {
                 ocr: false,
-                pattern: "((?:Tata|Treasury|TATA).*?(?:Funds?(?:.*?Plan)?|ETF|FOF|EOF|Plan.*?(?:days)?))",
+                pattern: "((?:Tata|Treasury|TATA).*?(?:Funds?(?:.*?Plan)?|ETF\\s*(?:Fund of Funds?)?|FOF|EOF|Plan.*?(?:days)?))",
                 bbox: [
                     0,
                     0,
@@ -6847,6 +6975,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -7001,6 +7130,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -7141,6 +7271,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -7311,6 +7442,7 @@
             method: "clip",
             line_side: "left",
             max_financial_index_highlight: 5,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -7464,6 +7596,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 7,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -7614,6 +7747,7 @@
             method: "clip",
             line_side: "",
             max_financial_index_highlight: 9,
+            pdf_ocr:false,
             stop_words: [],
         },
         REGEX: {
@@ -7773,6 +7907,7 @@
             method: "clip",
             line_side: "both",
             max_financial_index_highlight: 4,
+            pdf_ocr:true,
             stop_words: [],
         },
         REGEX: {
@@ -7788,7 +7923,7 @@
             aum: "(.+AUM)\\s*([\\d,.]+)",
             min_amt: "([\\d,]+).*?(\\d*)",
             metrics: "(Portfolio Turnover Ratio|Average Maturity|Macaulay Duration)\\s*([\\d,.]+)",
-            escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.]+",
+            escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.]+|\u2028",
             manager: {
                 pattern: "([A-Za-z]+\\s*[A-Za-z]+)\\s*Total Experience([0-9]+ years)\\s*C?o?\\-?Managing.*?since\\s*([A-Za-z]+\\s*[0-9]+)",
                 fields: [
