@@ -1029,7 +1029,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Edelweiss\\s*.+?(?:Fund|Path|ETF|FOF|Path))",
+        pattern:"((?:Edelweiss|Bharat)\\s*.+?(?:Fund|Path|ETF|FOF|Path)\\s*(?:F?f?und of F?f?und|[A-Za-z\\s]+\\s*[0-9]+)?)",
         bbox: [0, 0, 150, 100],
       },
       fund: {
@@ -2101,7 +2101,7 @@
       line_x: 180.0,
       data: {
         size: [5, 8],
-        color: [-1688818, -1165277, -1689074, -1097437],
+        color: [-1688818, -1165277, -1689074, -1097437,-1099741],
         update_size: 30.0,
         font: ["Calibri-Bold"],
       },
@@ -2136,16 +2136,16 @@
     PATTERN_TO_FUNCTION: {
       "^investment.*": ["_extract_str_data", null],
       "^portfolio_details.*": ["_extract_generic_data", "aum"],
-      "^scheme.*": ["_extract_scheme_data", "scheme"],
+      "^(scheme.*|before)": ["_extract_scheme_data", "scheme"],
       "^fund_manager": ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*minimum_application$": ["_extract_amt_data", "min_amt"],
-      "^(metrics|ratio|quantitative_data).*": [
-        "_extract_generic_data",
-        "metric",
-      ],
-      ".*income_portion": ["_extract_generic_data", "metric"],
+      // "^(metrics|ratio|quantitative_data).*": [
+      //   "_extract_generic_data",
+      //   "metric",
+      // ],
+      // ".*income_portion": ["_extract_generic_data", "metric"],
       ".*?benchmark.*": ["_extract_bench_data", "bench"],
     },
     SELECTKEYS: [
@@ -2224,6 +2224,10 @@
       aum: "\\D*\\s*([\\d,.]+\\s*crore)",
       benchmark: "(.+?)Additional Benchmark",
       metric: "(Annualised Portfolio YTM|Modified Duration|Average Maturity|Macaulay Duration)\\s*([\\d,.]+\\s*(?:years?|days?|months?)?)",
+      metric2:{
+        key:"(Beta|Sharpe|Std\\.? D)",
+        value:"(\\d+\\.\\d+)"
+      },
       lumpsum: "Purchase(.+?)Additional Purchase(.+?)$",
       manager: {
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)\\s*\\(Managing\\D+?(\\d+ years)",
@@ -2258,8 +2262,9 @@
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(month_end_aum|monthly_aaum)$": ["_extract_generic_data", "aum"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*(risk_ratio|statistics)": ["_extract_generic_data", "metric"],
-      ".*benchmark": ["_extract_generic_data", "benchmark"],
+      ".*statistics": ["_extract_generic_data", "metric"],
+      ".*risk_ratios":["_extract_metric_data","metric2"],
+      // ".*benchmark": ["_extract_generic_data", "benchmark"], // additional benchmarkin fink
       ".*(additional_purchase|amount_purchase)": [
         "_extract_amt_data",
         "min_amt",
@@ -2324,8 +2329,8 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(KOTAK.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF))",
-        bbox: [0, 0, 450, 70],
+        pattern: "(KOTAK.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF|INDEX\\s*(?:.*?FUND)?))",
+        bbox: [0, 0, 612, 70],
       },
       fund: {
         flag: [20, 16],
@@ -2704,6 +2709,7 @@
     ],
     MERGEKEYS: {
       load: [".*exit_load"],
+      metrics:["^metrics","^metrics_bravo"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -2803,6 +2809,7 @@
     ],
     MERGEKEYS: {
       load: [".*exit_load"],
+      metrics:["^metrics","^metrics_bravo"]
     },
     COMMENTS: [],
     IMP_DATA: {

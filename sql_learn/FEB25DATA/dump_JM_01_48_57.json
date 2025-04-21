@@ -1,7 +1,7 @@
 {
     "JM ELSS Tax Saver Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "BSE 500 TRI ",
+        "benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -34,7 +34,7 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.96",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -43,9 +43,9 @@
             "port_turnover_ratio": "0.959",
             "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "0.45",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "15.8",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -65,7 +65,7 @@
     },
     "JM Flexicap Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "BSE 500 TRI ",
+        "benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -98,7 +98,7 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.95",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -107,9 +107,9 @@
             "port_turnover_ratio": "1.4722",
             "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "0.45",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "15.87",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -129,7 +129,7 @@
     },
     "JM Midcap Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "Nifty Midcap 150 TRI ",
+        "benchmark_index": "Nifty Midcap 150 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -187,7 +187,7 @@
     },
     "JM Small Cap Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "Nifty Smallcap 250 TRI ",
+        "benchmark_index": "Nifty Smallcap 250 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -251,7 +251,7 @@
     },
     "JM Large Cap Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "BSE 100 TRI ",
+        "benchmark_index": "BSE 100 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -284,7 +284,7 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.91",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -293,9 +293,9 @@
             "port_turnover_ratio": "2.7616",
             "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "0.42",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "14.1",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -315,7 +315,7 @@
     },
     "JM Value Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "BSE 500 TRI ",
+        "benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -342,7 +342,7 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.97",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -351,9 +351,9 @@
             "port_turnover_ratio": "1.1521",
             "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "0.45",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "16.77",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -373,7 +373,7 @@
     },
     "JM Focused Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "BSE 500 TRI ",
+        "benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -406,7 +406,7 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": null,
+            "beta": "0.89",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -415,9 +415,9 @@
             "port_turnover_ratio": "2.006",
             "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "0.45",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "14.9",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -437,7 +437,7 @@
     },
     "JM Arbitrage Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "Nifty 50 Arbitrage Index ",
+        "benchmark_index": "Nifty 50 Arbitrage Index Additional Benchmark Index Crisil 1 Year T Bill Index  to NAV Name of Instrument  to NAV Ratin Futures Treasury Bills 13.13 182 Days T-Bill 4.68 SO 91 Days T-Bill 6.53 SO 364 Days T-Bill 1.92 SO Total Debt Holdings 19.48 TREPS  Others  10.97 Total Assets 100.00  includes net receivables  payables if any Total no. of Equity Stocks  67",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -502,7 +502,7 @@
     },
     "JM Aggressive Hybrid Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Hybrid 3565 Aggressive ",
+        "benchmark_index": "CRISIL Hybrid 3565 Aggressive Additional Benchmark Index Nifty 50 TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -523,7 +523,7 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": "4.4141",
-            "beta": null,
+            "beta": "9.60",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -532,9 +532,9 @@
             "port_turnover_ratio": "1.4010",
             "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "6.40",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "12.51",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -554,7 +554,7 @@
     },
     "JM Overnight Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Liquid Overnight Index ",
+        "benchmark_index": "CRISIL Liquid Overnight Index Additional Benchmark Index Crisil 1 Year T Bill Inde",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -618,7 +618,7 @@
     },
     "JM Liquid Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Liquid Debt A-I Index ",
+        "benchmark_index": "CRISIL Liquid Debt A-I Index Additional Benchmark Index Crisil 1 Year T Bill Index",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -682,7 +682,7 @@
     },
     "JM Short Duration Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Short Duration Debt A-I ",
+        "benchmark_index": "CRISIL Short Duration Debt A-I Additional Benchmark Index Crisil 1 Year T Bill Inde",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -746,7 +746,7 @@
     },
     "JM Dynamic Bond Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Dynamic Bond A-III Index ",
+        "benchmark_index": "CRISIL Dynamic Bond A-III Index Additional Benchmark Index Crisil 10 Year Gilt Index",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -810,7 +810,7 @@
     },
     "JM Low Duration Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Low Duration Debt A-I I ",
+        "benchmark_index": "CRISIL Low Duration Debt A-I I Additional Benchmark Index Crisil 1 Year T Bill Inde",
         "fund_manager": [
             {
                 "managing_fund_since": "",
@@ -874,7 +874,7 @@
     },
     "JM Medium to Long Duration Fund": {
         "amc_name": "JM Financial Asset Management Limited",
-        "benchmark_index": "CRISIL Medium to Long Duration ",
+        "benchmark_index": "CRISIL Medium to Long Duration Additional Benchmark Index Crisil 10 Year Gilt Index",
         "fund_manager": [
             {
                 "managing_fund_since": "",

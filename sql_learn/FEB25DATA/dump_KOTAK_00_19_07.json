@@ -2337,7 +2337,7 @@
         ],
         "scheme_launch_date": "March 11, 2024 "
     },
-    "KOTAK MULTI ASSET ALLOCATOR  FUND OF FUND": {
+    "KOTAK MULTI ASSET ALLOCATOR FUND OF FUND": {
         "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
         "benchmark_index": "90% Nifty 50 Hybrid Composite Debt 50:50 Index + 5% price of Physical Gold + 5% MSCI World Index ",
         "fund_manager": [
@@ -2358,7 +2358,7 @@
             "entry_load": "Nil. (applicable for all plans) ",
             "exit_load": "8% of the units allotted shall be redeemed without any Exit Load on or before completion of 1 Year from the date of allotment of units. Any redemption in excess of such limit within 1 Year from the date of allotment shall be subject to the following Exit Load: a) If redeemed or switched out on or before completion of 1 Year from the date of allotment of units- 1.00% b) If redeemed or switched out after completion of 1 Year from the date of allotment of units-NIL "
         },
-        "main_scheme_name": "KOTAK MULTI ASSET ALLOCATOR  FUND OF FUND",
+        "main_scheme_name": "KOTAK MULTI ASSET ALLOCATOR FUND OF FUND",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2834,8 +2834,8 @@
             }
         ],
         "load": {
-            "entry_load": null,
-            "exit_load": null
+            "entry_load": "Nil. ",
+            "exit_load": "Nil. "
         },
         "main_scheme_name": "KOTAK NIFTY PSU BANK ETF",
         "metrics": {
@@ -4450,6 +4450,162 @@
         ],
         "scheme_launch_date": "February 17, 2025 "
     },
+    "KOTAK NIFTY SDL APR 2027 TOP 12 EQUAL WEIGHT INDEX FUND": {
+        "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
+        "benchmark_index": "Nifty SDL Apr 2027 Top 12 Equal Weight Index ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Abhishek Bisen",
+                "qualification": "",
+                "total_exp": ""
+            }
+        ],
+        "load": {
+            "entry_load": "Nil. (applicable for all plans) ",
+            "exit_load": "For redemption / switch-out of units on or before 30 days from the date of allotment: 0.15% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment \u00b7 Nil. Any exit load charged (net off Goods and Services tax, if any) shall be credited back to the Scheme. Units issued on reinvestment of IDCW shall not be subject to entry and exit load. "
+        },
+        "main_scheme_name": "KOTAK NIFTY SDL APR 2027 TOP 12 EQUAL WEIGHT INDEX FUND",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "1.96 yrs",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "1.82 yrs",
+            "mod_duration": "1.76 yrs",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "0.71",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": "6.92"
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "any",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "any",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 7,748.86 crs ",
+        "mutual_fund_name": "Kotak Mahindra Mutual Fund",
+        "page_number": [
+            106
+        ],
+        "scheme_launch_date": "February 11, 2022 "
+    },
+    "KOTAK NIFTY SDL APR 2032 TOP 12 EQUAL WEIGHT INDEX FUND": {
+        "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
+        "benchmark_index": "Nifty SDL Apr 2032 Top 12 Equal Weight Index ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Abhishek Bisen",
+                "qualification": "",
+                "total_exp": ""
+            }
+        ],
+        "load": {
+            "entry_load": "Nil. (applicable for all plans) ",
+            "exit_load": "For redemption / switch-out of units on or before 30 days from the date of allotment: 0.15% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment \u00b7 Nil Redemption of units would be done on First in First out Basis (FIFO). Any exit load charged (net off Goods & Service Tax, if any) shall be credited back to the respective Scheme. Units issued on reinvestment of IDCW shall not be subject to entry and exit load. "
+        },
+        "main_scheme_name": "KOTAK NIFTY SDL APR 2032 TOP 12 EQUAL WEIGHT INDEX FUND",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "6.83 yrs",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "5.31 yrs",
+            "mod_duration": "5.13 yrs",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "1.49",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": "7.23"
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "any",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "any",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 2,921.19 crs ",
+        "mutual_fund_name": "Kotak Mahindra Mutual Fund",
+        "page_number": [
+            107
+        ],
+        "scheme_launch_date": "February 11, 2022 "
+    },
+    "KOTAK NIFTY SDL PLUS AAA PSU BOND JUL 2028 6040 INDEX FUND": {
+        "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
+        "benchmark_index": "Nifty SDL Plus AAA PSU Bond Jul 2028 60:40 Index ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Abhishek Bisen",
+                "qualification": "",
+                "total_exp": ""
+            }
+        ],
+        "load": {
+            "entry_load": "Nil. (applicable for all plans) ",
+            "exit_load": "For redemption / switch-out of units on or before 30 days from the date of allotment: 0.15% of applicable NAV. For redemption / switch-out of units after 30 days from the date of allotment \u00b7 Nil Redemption of units would be done on First in First out Basis (FIFO). Any exit load charged (net off Goods & Service Tax, if any) shall be credited back to the respective Scheme. Units issued on reinvestment of IDCW shall not be subject to entry and exit load. "
+        },
+        "main_scheme_name": "KOTAK NIFTY SDL PLUS AAA PSU BOND JUL 2028 6040 INDEX FUND",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "2.98 yrs",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "2.64 yrs",
+            "mod_duration": "2.52 yrs",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "0.71",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": "7.14"
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "any",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "any",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 588.89 crs ",
+        "mutual_fund_name": "Kotak Mahindra Mutual Fund",
+        "page_number": [
+            108
+        ],
+        "scheme_launch_date": "October 13, 2022 "
+    },
     "KOTAK NIFTY SDL JUL 2026 INDEX FUND": {
         "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
         "benchmark_index": "Nifty SDL Jul 2026 Index ",
@@ -4657,5 +4813,109 @@
             112
         ],
         "scheme_launch_date": "March 28, 2024 "
+    },
+    "KOTAK CRISIL-IBX AAA FINANCIAL SERVICES INDEX SEP 2027 FUND": {
+        "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
+        "benchmark_index": "CRISIL-IBX AAA Financial Services Index \u00b7 Sep 2027 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Abhishek Bisen",
+                "qualification": "",
+                "total_exp": ""
+            }
+        ],
+        "load": {
+            "entry_load": "Nil. (applicable for all plans) ",
+            "exit_load": "Nil. Fo\u00b7r redemption / switch-out of units on or before 30 days from the date of allotment: 0.25% of applicable NAV. Fo\u00b7r redemption / switch-out of units after 30 days from the date of allotment-Nil. "
+        },
+        "main_scheme_name": "KOTAK CRISIL-IBX AAA FINANCIAL SERVICES INDEX SEP 2027 FUND",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "2.26 yrs",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "2.04 yrs",
+            "mod_duration": "1.89 yrs",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "0.41",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": "7.71"
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "any",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "any",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 454.03 crs ",
+        "mutual_fund_name": "Kotak Mahindra Mutual Fund",
+        "page_number": [
+            113
+        ],
+        "scheme_launch_date": "September 13, 2024 "
+    },
+    "KOTAK CRISIL-IBX AAA BOND FINANCIAL SERVICES INDEX DEC 2026 FUND": {
+        "amc_name": "Kotak Mahindra Asset Management Company Limited(KMAMCL)",
+        "benchmark_index": "CRISIL-IBX AAA Financial Services Index \u00b7 Dec 2026 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Abhishek Bisen",
+                "qualification": "",
+                "total_exp": ""
+            }
+        ],
+        "load": {
+            "entry_load": "Nil. (applicable for all plans) ",
+            "exit_load": "Nil. "
+        },
+        "main_scheme_name": "KOTAK CRISIL-IBX AAA BOND FINANCIAL SERVICES INDEX DEC 2026 FUND",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": "1.59 yrs",
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": "1.51 yrs",
+            "mod_duration": "1.40 yrs",
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "0.23",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": "7.63"
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "any",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "any",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 71.36 crs ",
+        "mutual_fund_name": "Kotak Mahindra Mutual Fund",
+        "page_number": [
+            114
+        ],
+        "scheme_launch_date": "February 17, 2025 "
     }
 }

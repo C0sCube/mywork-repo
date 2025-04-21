@@ -571,7 +571,7 @@
         ],
         "scheme_launch_date": "29jul24"
     },
-    "Edelweiss  Consumption Fund": {
+    "Edelweiss Consumption Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "NIFTY India Consumption TRI ",
         "fund_manager": [
@@ -586,7 +586,7 @@
             "entry_load": null,
             "exit_load": "\u00b7 If the units are redeemed /switched out on o before 90 days from the date of allotment \u00b7  of the appliable NAV. \u00b7 If the units are redeemed /switched out afte days from the date of allotment - NIL "
         },
-        "main_scheme_name": "Edelweiss  Consumption Fund",
+        "main_scheme_name": "Edelweiss Consumption Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -727,7 +727,7 @@
         ],
         "scheme_launch_date": "13oct14"
     },
-    "Edelweiss  Aggressive Hybrid Fund": {
+    "Edelweiss Aggressive Hybrid Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index ",
         "fund_manager": [
@@ -742,7 +742,7 @@
             "entry_load": null,
             "exit_load": "\u00b7 10% of the units allotted shall be redeemed without any Exit Load on or before completi 90 days from the date of allotment of units.  redemption in excess of such limit within 90 from the date of allotment shall be subject to following Exit Load: \u00b7 If redeemed or switched out on or before completion of 90 days from the date of allot of units - 1.00% \u00b7 If redeemed or switched out after completion 90 days from the date of allotment of units - "
         },
-        "main_scheme_name": "Edelweiss  Aggressive Hybrid Fund",
+        "main_scheme_name": "Edelweiss Aggressive Hybrid Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -883,7 +883,7 @@
         ],
         "scheme_launch_date": "23jun23"
     },
-    "Edelweiss Gold and Silver ETF": {
+    "Edelweiss Gold and Silver ETF Fund of Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Domestic Gold and Silver Prices ",
         "fund_manager": [
@@ -898,7 +898,7 @@
             "entry_load": null,
             "exit_load": "\u00b7 If the units are redeemed / switched out on o before 15 days from the date of allotment - 0 \u00b7 If the units are redeemed / switched out afte days from the date of allotment - Nil "
         },
-        "main_scheme_name": "Edelweiss Gold and Silver ETF",
+        "main_scheme_name": "Edelweiss Gold and Silver ETF Fund of Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1299,7 +1299,7 @@
         ],
         "scheme_launch_date": "13feb14"
     },
-    "Edelweiss CRISIL IBX  5050 Gilt Plus SDL  Short Duration Index  Fund": {
+    "Edelweiss CRISIL IBX 5050 Gilt Plus SDL Short Duration Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "CRISIL IBX 50:50 Gilt Plus SDL Short Duratio Index Fund ",
         "fund_manager": [
@@ -1314,7 +1314,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss CRISIL IBX  5050 Gilt Plus SDL  Short Duration Index  Fund",
+        "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL Short Duration Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1351,7 +1351,59 @@
         ],
         "scheme_launch_date": "15feb23"
     },
-    "Edelweiss CRISIL  PSU Plus SDL 5050  Oct 2025 Index Fund": {
+    "Bharat Bond ETF APRIL 2025": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2025 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "22-J Mr. Rahul Dedhia 14 Years 23-N",
+                "name": "Dhawal Dalal",
+                "qualification": "",
+                "total_exp": "26 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": ""
+        },
+        "main_scheme_name": "Bharat Bond ETF APRIL 2025",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": "\u20b9 25",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 10,049.09 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            37
+        ],
+        "scheme_launch_date": "2july20"
+    },
+    "Edelweiss CRISIL PSU Plus SDL 5050 Oct 2025 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "CRISIL IBX 50:50 PSU + SDL Index \u00b7 Octobe ",
         "fund_manager": [
@@ -1366,7 +1418,7 @@
             "entry_load": null,
             "exit_load": "0.10% upto 30 days Nil after 30 days "
         },
-        "main_scheme_name": "Edelweiss CRISIL  PSU Plus SDL 5050  Oct 2025 Index Fund",
+        "main_scheme_name": "Edelweiss CRISIL PSU Plus SDL 5050 Oct 2025 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1507,7 +1559,7 @@
         ],
         "scheme_launch_date": "14oct21"
     },
-    "Edelweiss CRISIL IBX 5050 Gilt Plus SDL June 2027 Index  Fund": {
+    "Edelweiss CRISIL IBX 5050 Gilt Plus SDL June 2027 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "CRISIL IBX 50:50 Gilt Plus SDL Index \u00b7 June ",
         "fund_manager": [
@@ -1522,7 +1574,7 @@
             "entry_load": null,
             "exit_load": "0.10% upto 30 days Nil after 30 days "
         },
-        "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL June 2027 Index  Fund",
+        "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL June 2027 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1611,7 +1663,7 @@
         ],
         "scheme_launch_date": "10nov22"
     },
-    "Edelweiss CRISIL  IBX AAA Financial  Services Bond - Jan  2028 Index Fund": {
+    "Edelweiss CRISIL IBX AAA Financial Services Bond - Jan 2028 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "CRISIL IBX AAA Financial Services \u00b7 Jan 202 index. ",
         "fund_manager": [
@@ -1626,7 +1678,7 @@
             "entry_load": null,
             "exit_load": "0.10% upto 30 days Nil after 30 days "
         },
-        "main_scheme_name": "Edelweiss CRISIL  IBX AAA Financial  Services Bond - Jan  2028 Index Fund",
+        "main_scheme_name": "Edelweiss CRISIL IBX AAA Financial Services Bond - Jan 2028 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1663,7 +1715,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss CRISIL-IBX  AAA Bond NBFC-HFC -  Jun 2027 Index Fund": {
+    "Edelweiss CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "CRISIL-IBX AAA NBFC-HFC Index \u00b7 Jun 202 ",
         "fund_manager": [
@@ -1678,7 +1730,7 @@
             "entry_load": null,
             "exit_load": "0.10% upto 30 days Nil after 30 days "
         },
-        "main_scheme_name": "Edelweiss CRISIL-IBX  AAA Bond NBFC-HFC -  Jun 2027 Index Fund",
+        "main_scheme_name": "Edelweiss CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1714,6 +1766,214 @@
             44
         ],
         "scheme_launch_date": "18feb25"
+    },
+    "Bharat Bond ETF APRIL 2030": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2030 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "26-D Mr. Rahul Dedhia 14 Years 23-N",
+                "name": "Dhawal Dalal",
+                "qualification": "",
+                "total_exp": "26 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": ""
+        },
+        "main_scheme_name": "Bharat Bond ETF APRIL 2030",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": "\u20b9 25",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 18,512.52 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            45
+        ],
+        "scheme_launch_date": "26dec19"
+    },
+    "Bharat Bond ETF APRIL 2031": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2031 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "22-J Mr. Rahul Dedhia 14 Years 23-N",
+                "name": "Dhawal Dalal",
+                "qualification": "",
+                "total_exp": "26 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": ""
+        },
+        "main_scheme_name": "Bharat Bond ETF APRIL 2031",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": "\u20b9 25",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 12,807.67 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            46
+        ],
+        "scheme_launch_date": "22jul20"
+    },
+    "Bharat Bond ETF APRIL 2032": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2032 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "13-D Mr. Rahul Dedhia 14 Years 13-D",
+                "name": "Dhawal Dalal",
+                "qualification": "",
+                "total_exp": "26 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": ""
+        },
+        "main_scheme_name": "Bharat Bond ETF APRIL 2032",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": "\u20b9 25",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 10,649.20 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            47
+        ],
+        "scheme_launch_date": "13dec21"
+    },
+    "Bharat Bond ETF APRIL 2033": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2033 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "12-D Mr. Rahul Dedhia 14 Years 12-D",
+                "name": "Dhawal Dalal",
+                "qualification": "",
+                "total_exp": "26 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": ""
+        },
+        "main_scheme_name": "Bharat Bond ETF APRIL 2033",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": null,
+        "min_addl_amt_multiple": null,
+        "min_amt": "\u20b9 25",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 6,157.90 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            48
+        ],
+        "scheme_launch_date": "12dec22"
     },
     "Edelweiss CRISIL IBX 5050 Gilt Plus SDL Apr 2037 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
@@ -1767,7 +2027,7 @@
         ],
         "scheme_launch_date": "11oct22"
     },
-    "Edelweiss Nifty 50  Index Fund": {
+    "Edelweiss Nifty 50 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Nifty 50 Total Return Index ",
         "fund_manager": [
@@ -1782,7 +2042,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss Nifty 50  Index Fund",
+        "main_scheme_name": "Edelweiss Nifty 50 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1819,7 +2079,7 @@
         ],
         "scheme_launch_date": "08may15"
     },
-    "Edelweiss Nifty 100  Quality 30 Index  Fund": {
+    "Edelweiss Nifty 100 Quality 30 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Nifty 100 Quality 30 Total Return Index ",
         "fund_manager": [
@@ -1834,7 +2094,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss Nifty 100  Quality 30 Index  Fund",
+        "main_scheme_name": "Edelweiss Nifty 100 Quality 30 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1871,7 +2131,7 @@
         ],
         "scheme_launch_date": "25may16"
     },
-    "Edelweiss Nifty  Bank ETF": {
+    "Edelweiss Nifty Bank ETF": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Nifty Bank TRI ",
         "fund_manager": [
@@ -1886,7 +2146,7 @@
             "entry_load": null,
             "exit_load": "NIL "
         },
-        "main_scheme_name": "Edelweiss Nifty  Bank ETF",
+        "main_scheme_name": "Edelweiss Nifty Bank ETF",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1923,7 +2183,7 @@
         ],
         "scheme_launch_date": "06sep24"
     },
-    "Edelweiss BSE  Capital Markets &  Insurance ETF": {
+    "Edelweiss BSE Capital Markets & Insurance ETF": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "BSE Capital Markets & Insurance TRI ",
         "fund_manager": [
@@ -1938,7 +2198,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss BSE  Capital Markets &  Insurance ETF",
+        "main_scheme_name": "Edelweiss BSE Capital Markets & Insurance ETF",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -1975,7 +2235,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss Nifty500  Multicap Momentum  Quality 50 ETF": {
+    "Edelweiss Nifty500 Multicap Momentum Quality 50 ETF": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Nifty500 Multicap Momentum Quality 50 TRI ",
         "fund_manager": [
@@ -1990,7 +2250,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss Nifty500  Multicap Momentum  Quality 50 ETF",
+        "main_scheme_name": "Edelweiss Nifty500 Multicap Momentum Quality 50 ETF",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2027,7 +2287,7 @@
         ],
         "scheme_launch_date": "31oct24"
     },
-    "Edelweiss Nifty500  Multicap Momentum  Quality 50 Index  Fund": {
+    "Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Nifty500 Multicap Momentum Quality 50 TRI ",
         "fund_manager": [
@@ -2042,7 +2302,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss Nifty500  Multicap Momentum  Quality 50 Index  Fund",
+        "main_scheme_name": "Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2131,7 +2391,7 @@
         ],
         "scheme_launch_date": "24may24"
     },
-    "Edelweiss MSCI India  Domestic & World  Healthcare 45 Index Fund": {
+    "Edelweiss MSCI India Domestic & World Healthcare 45 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "MSCI India Domestic & World Healthcare 45  ",
         "fund_manager": [
@@ -2146,7 +2406,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss MSCI India  Domestic & World  Healthcare 45 Index Fund",
+        "main_scheme_name": "Edelweiss MSCI India Domestic & World Healthcare 45 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2183,7 +2443,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss Nifty  Large Mid Cap 250 Index Fund": {
+    "Edelweiss Nifty Large Mid Cap 250 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "NIFTY LargeMidcap 250 Index TRI ",
         "fund_manager": [
@@ -2198,7 +2458,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss Nifty  Large Mid Cap 250 Index Fund",
+        "main_scheme_name": "Edelweiss Nifty Large Mid Cap 250 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2235,7 +2495,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss Nifty  Next 50 Index Fund": {
+    "Edelweiss Nifty Next 50 Index Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Nifty Next 50 TRI ",
         "fund_manager": [
@@ -2250,7 +2510,7 @@
             "entry_load": null,
             "exit_load": ""
         },
-        "main_scheme_name": "Edelweiss Nifty  Next 50 Index Fund",
+        "main_scheme_name": "Edelweiss Nifty Next 50 Index Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2391,7 +2651,267 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss Greater  China Equity  Off-Shore Fund": {
+    "Bharat Bond FOF APRIL 2025": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2025 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "23-N Ms. Pranavi 17 Years 01-J Kulkarni",
+                "name": "Rahul Dedhia",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
+        },
+        "main_scheme_name": "Bharat Bond FOF APRIL 2025",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 4,161.98 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            62
+        ],
+        "scheme_launch_date": ""
+    },
+    "Bharat Bond FOF APRIL 2030": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2030 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "23-N Ms. Pranavi 17 Years 01-J Kulkarni",
+                "name": "Rahul Dedhia",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
+        },
+        "main_scheme_name": "Bharat Bond FOF APRIL 2030",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 6,961.24 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            63
+        ],
+        "scheme_launch_date": ""
+    },
+    "Bharat Bond FOF APRIL 2031": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2031 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "23-N Ms. Pranavi 17 Years 01-J Kulkarni",
+                "name": "Rahul Dedhia",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
+        },
+        "main_scheme_name": "Bharat Bond FOF APRIL 2031",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 4,723.13 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            64
+        ],
+        "scheme_launch_date": ""
+    },
+    "Bharat Bond ETF FOF APRIL 2032": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index \u00b7 April 2032 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "15-D Ms. Pranavi 17 Years 01-J Kulkarni",
+                "name": "Rahul Dedhia",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
+        },
+        "main_scheme_name": "Bharat Bond ETF FOF APRIL 2032",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 4,470.28 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            65
+        ],
+        "scheme_launch_date": ""
+    },
+    "Bharat Bond ETF FOF APRIL 2033": {
+        "amc_name": "Edelweiss Asset Management Limited",
+        "benchmark_index": "Nifty BHARAT Bond Index - April 2033 ",
+        "fund_manager": [
+            {
+                "managing_fund_since": "14-D Ms. Pranavi 17 Years 01-J Kulkarni",
+                "name": "Rahul Dedhia",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": null,
+            "exit_load": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
+        },
+        "main_scheme_name": "Bharat Bond ETF FOF APRIL 2033",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": null,
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 100",
+        "min_addl_amt_multiple": "",
+        "min_amt": "\u20b9 100",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 2,338.36 Crore",
+        "mutual_fund_name": "Edelweiss Mutual Fund",
+        "page_number": [
+            66
+        ],
+        "scheme_launch_date": ""
+    },
+    "Edelweiss Greater China Equity Off-Shore Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "MSCI Golden Dragon Index ",
         "fund_manager": [
@@ -2406,7 +2926,7 @@
             "entry_load": null,
             "exit_load": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
         },
-        "main_scheme_name": "Edelweiss Greater  China Equity  Off-Shore Fund",
+        "main_scheme_name": "Edelweiss Greater China Equity Off-Shore Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2443,7 +2963,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss US  Technology Equity  Fund": {
+    "Edelweiss US Technology Equity Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "Russel 1000 Equal Weighted Technology Ind ",
         "fund_manager": [
@@ -2458,7 +2978,7 @@
             "entry_load": null,
             "exit_load": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
         },
-        "main_scheme_name": "Edelweiss US  Technology Equity  Fund",
+        "main_scheme_name": "Edelweiss US Technology Equity Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2495,7 +3015,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss  Emerging Markets  Opportunities Equity  Offshore Fund": {
+    "Edelweiss Emerging Markets Opportunities Equity Offshore Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "MSCI Emerging Markets Index ",
         "fund_manager": [
@@ -2510,7 +3030,7 @@
             "entry_load": null,
             "exit_load": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
         },
-        "main_scheme_name": "Edelweiss  Emerging Markets  Opportunities Equity  Offshore Fund",
+        "main_scheme_name": "Edelweiss Emerging Markets Opportunities Equity Offshore Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2547,7 +3067,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss Asean Equity  Off-Shore Fund": {
+    "Edelweiss Asean Equity Off-Shore Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "MSCI AC ASEAN 10/40 Index** ",
         "fund_manager": [
@@ -2562,7 +3082,7 @@
             "entry_load": null,
             "exit_load": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
         },
-        "main_scheme_name": "Edelweiss Asean Equity  Off-Shore Fund",
+        "main_scheme_name": "Edelweiss Asean Equity Off-Shore Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,
@@ -2599,7 +3119,7 @@
         ],
         "scheme_launch_date": ""
     },
-    "Edelweiss Europe Dynamic  Equity Off-Shore  Fund": {
+    "Edelweiss Europe Dynamic Equity Off-Shore Fund": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": "MSCI Europe TR Index ",
         "fund_manager": [
@@ -2614,7 +3134,7 @@
             "entry_load": null,
             "exit_load": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
         },
-        "main_scheme_name": "Edelweiss Europe Dynamic  Equity Off-Shore  Fund",
+        "main_scheme_name": "Edelweiss Europe Dynamic Equity Off-Shore Fund",
         "metrics": {
             "alpha": null,
             "arithmetic_mean_ratio": null,

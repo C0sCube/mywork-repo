@@ -379,7 +379,8 @@
         "correlation_ratio": [],
         "downside_deviation": [],
         "information_ratio": [
-            "information_ratio"
+            "information_ratio",
+            "^information_ratio$"
         ],
         "macaulay": [
             "^macaulay_duration",
@@ -415,7 +416,8 @@
             ".*timestotal_turnover$",
             "^turnover_ratio$",
             "^portfolio_turnover.*equity_arbitrage$",
-            ".*equity_turnover$"
+            ".*equity_turnover$",
+            "^portfolio_turnover$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -440,7 +442,8 @@
             "^std dev",
             "^standard$",
             "^Standard_Deviation_of_Fund",
-            "^std."
+            "^std.",
+            "^std_d$"
         ],
         "tracking_error": [
             "^tracking_error$",
