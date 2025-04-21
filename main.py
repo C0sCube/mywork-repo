@@ -12,13 +12,13 @@ mutual_fund = Helper.get_fund_paths(PATH['dirs']['fund_path'])
 with open(os.path.join(os.getcwd(),PATH["configs"]['regex']),'r') as file:
     class_mapper = json.load(file)['main_mapper']
 
-print("Main File Running!!")
+print("Running file main.py")
 not_done = []
 
 for amc_name,class_name in class_mapper.items():
-    print(f"\nRunning for AMC:{amc_name}")
-    print(f"\n----------------------------------------------------\n")
+    print(f"\nRunning for AMC:{amc_name}\n**********************")
     try:
+        # print(class_mapper[amc_name])
         object = eval(class_mapper[amc_name])(PATHS_CONFIG, amc_name)
         path = mutual_fund[amc_name]
         title,path_pdf = object.check_and_highlight(path)

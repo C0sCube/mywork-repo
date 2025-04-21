@@ -112,7 +112,7 @@
         "plans_options": "^(plansoption)",
         "minimum_application_amount": "^(minimum_application|minimum_applicaon_amount)"
     },
-    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+]+",
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
     "json_headers": {
         "amc_name": [
             "amc_name"
@@ -148,7 +148,8 @@
             ".*risk_adjusted_measures",
             ".*nav_as_on",
             "^nav$",
-            ".*quantitative_data$"
+            ".*quantitative_data$",
+            ".*qualitative_data$"
         ],
         "min_addl_amt": [
             "multiples_for_existing_investors",
@@ -256,7 +257,7 @@
             ".*of_allotment$",
             "^(inception_date.*|.*\\w{3}\\d{2})$",
             ".*about_the_fund",
-            ".*allotment_date$"
+            ".*(allotment_date|launched)$"
         ],
         "page_number": [
             "^page_number",
@@ -624,6 +625,7 @@
         "ytm"
     ],
     "main_mapper": {
-        "Canara Robeco Mutual Fund": "Canara"
+        "Aditya Birla Sun Life Mutual Fund": "AdityaBirla",
+        "Lic Mutual Fund": "LIC"
     }
 }
