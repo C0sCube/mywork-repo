@@ -237,7 +237,9 @@
             ".*assets_under_management$",
             ".*monthly_average$",
             ".*aaum_for_the_month$",
-            "dummy.*?monthly$"
+            "dummy.*?monthly$",
+            ".*monthly_aver$",
+            ".*monthly_aaum_as_on$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -257,7 +259,9 @@
             ".*of_allotment$",
             "^(inception_date.*|.*\\w{3}\\d{2})$",
             ".*about_the_fund",
-            ".*(allotment_date|launched)$"
+            ".*(allotment_date|launched)$",
+            ".*inception_dat$",
+            ".*indicative_investment_horizon$"
         ],
         "page_number": [
             "^page_number",

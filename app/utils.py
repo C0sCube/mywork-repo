@@ -62,7 +62,7 @@ class Helper:
         
         current = str(datetime.now().strftime('%H_%M_%S'))
         try:
-            fund_name = list(extracted_text.keys())[0].split(" ")[0]
+            fund_name = list(extracted_text.keys())[0].split(" ")[0].lower()
         except Exception as e:
            print(e)
            return
@@ -86,7 +86,7 @@ class Helper:
     @staticmethod
     def quick_csv_dump(extracted_text, path: str):
         current = str(datetime.now().strftime('%H_%M'))
-        fund_name = list(extracted_text.keys())[0].split(" ")[0]
+        fund_name = list(extracted_text.keys())[0].split(" ")[0].lower()
         output_path = path.replace(".csv", f'_{fund_name}_{current}.csv')
 
         with open(output_path, mode="w", newline="", encoding="utf-8") as file:

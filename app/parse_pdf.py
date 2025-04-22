@@ -677,6 +677,8 @@ class Reader:
             temp = self._promote_key_from_dict(temp)
             
             temp = self._formalize_values(temp) # add rupee symbol scale further
+            
+            temp,_ = regex._check_replace_type(temp,fund) #_ has changes logged in a dict 
 
             finalData[fund] = dict(sorted(temp.items()))
             

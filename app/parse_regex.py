@@ -141,6 +141,40 @@ class FundRegex():
                 ],
             }
                 
+    def _check_replace_type(self,data:dict,fund:str):
+        expected_types = {
+            "amc_name": str,
+            "benchmark_index": str,
+            "fund_manager": list,
+            "load": dict,
+            "main_scheme_name": str,
+            "metrics": dict,
+            "min_addl_amt": str,
+            "min_addl_amt_multiple": str,
+            "min_amt": str,
+            "min_amt_multiple": str,
+            "monthly_aaum_date": str,
+            "monthly_aaum_value": str,
+            "mutual_fund_name": str,
+            "page_number": list,
+            "scheme_launch_date": str
+        }
+
+        changes = {}
+
+        for key, expected_type in expected_types.items():
+            if key in data and not isinstance(data[key], expected_type):
+                original_type = type(data[key]).__name__
+                default_value = expected_type()
+                data[key] = default_value
+                changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
+
+        return data, changes
+    
+    
+    @staticmethod
+    def sanitize_data(): #write function to clean entire data in folder json later
+        pass
 
 
      
