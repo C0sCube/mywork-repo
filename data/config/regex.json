@@ -368,7 +368,8 @@
             "^average$",
             "^weighted_average_maturity$",
             "^residual_maturity$",
-            "^residual$"
+            "^residual$",
+            "^avg_mat\\.?$"
         ],
         "beta": [
             "^Portfolio Beta",
@@ -471,7 +472,8 @@
             "^annualized_yield_to_maturity.*",
             "^ytm4$",
             "^yield_maturity$",
-            "^ytm.*$"
+            "^ytm.*$",
+            "^portfolio_yield$"
         ]
     },
     "financial_indices": [
@@ -581,6 +583,7 @@
         "portfolio turnover rate",
         "portfolio turnover ratio",
         "Portfolio Turnover Ratio",
+        "Portfolio Turn Over Ratio",
         "portfolio's beta",
         "positive deviation",
         "price to book",

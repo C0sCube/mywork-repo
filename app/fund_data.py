@@ -504,9 +504,11 @@ class NAVI(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS) 
     
     def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
-        if matches:=re.findall(self.REGEX[pattern],f"{main_key} {data}",re.IGNORECASE):
+        bench_data = f"{main_key} {data}"
+        bench_data = re.sub(self.REGEX["escape"],"",bench_data).strip()
+        if matches:=re.findall(self.REGEX[pattern],bench_data, re.IGNORECASE):
             return {"benchmark_index":matches[0]}
-        return{"benchmark_index":data}
+        return{"benchmark_index":f"{main_key} {data}"}
 #23 <>
 class Nippon(Reader,GrandFundData):
     

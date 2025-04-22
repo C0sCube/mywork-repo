@@ -946,7 +946,7 @@
       },
       clip_bbox: [
         [0, 5, 120, 812],
-        [480, 5, 596, 812],
+        [480, 5, 624, 812],
       ],
       data: {
         size: [7, 11],
@@ -964,13 +964,13 @@
     },
     REGEX: {
       scheme: [
-        "INCEPTION DATE",
+        "INCEPTION DAT",
         "BENCHMARK",
         "NAV AS ON",
         "TOTAL AUM",
-        "MONTHLY AVERAGE AUM",
-        "Portfolio Turnover Ratio",
-        "Month End Expense",
+        "MONTHLY AVER",
+        "Portfolio Turnove",
+        "Month End Exp",
         "EOL",
       ],
       metrics: "(\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
@@ -984,11 +984,11 @@
       "^(before|dummy).*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^(dummy|before).*portfolio_turnover.*": [
+      "^(dummy|before).*portfolio_turn.*": [
         "_extract_generic_data",
         "metrics",
       ],
-      ".*month_end_expense": ["_extract_generic_data", "metrics"],
+      ".*month_end": ["_extract_generic_data", "metrics"],
     },
     SELECTKEYS: [
       "amc_name",
@@ -996,12 +996,12 @@
       "page_number",
       "mutual_fund_name",
       "monthly_aaum_date",
-      ".*(benchmark|inception_date|monthly_average_aum|portfolio_turnover_ratio)",
+      ".*(benchmark|inception_dat|monthly_aver|portfolio_turn.*)",
       "metrics",
       ".*month_end_expense",
     ],
     MERGEKEYS: {
-      metrics: [".*portfolio_turnover_ratio", ".*month_end_expense"],
+      metrics: [".*portfolio_tur.*", ".*month_end.*"],
     },
     COMMENTS: ["fund manager and min/add in table"],
     IMP_DATA: {
@@ -3103,9 +3103,9 @@
       min_amt: "([\\d,]+).*?(\\d+)",
       load: "(?:Entry Load)?\\s*(.*?)\\s*Exit Load\\s*(.*)$",
       aum: "(AUM|Monthly Average AUM)\\s*([\\d,.]+)",
-      metric: "(Portfolio Turnover Ratio\\s*\\(Times\\)|TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Average Maturity|Modified Duration|YTM|Macaulay Duration)\\s*([\\d,.]+)",
+      metric: "(Portfolio Turnover Ratio\\s*\\(Times\\)|TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Std\\.?Dev|Beta|Sharpe Ratio|Tracking Error Regular|Tracking Error Direct|Tracking Error|Avg Mat\\.?|Modified Duration|Portfolio Yield|Macaulay Duration)\\s*([\\d,.]+)",
       manager: {
-        pattern: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:is managing|a co fund manager).*?fund\\s*w\\.e\\.f\\.?\\s*([0-9A-Za-z.]+\\s*[A-Za-z]+\\,?\\s*[0-9]+)",
+        pattern: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*.+?(?:until|from|as of|w\\.e\\.f\\.?)\\s*([A-Za-z]+\\s*\\d{2},?\\s*\\d{4}|\\d{1,2}(?:st|nd|rd|th)\\s*[A-Za-z]+\\,\\s*\\d{3,4})",
         fields: ["name", "since"],
       },
       scheme: [
@@ -3117,8 +3117,8 @@
         "EOL",
       ],
       date: "([0-9]+(?:th|rd|st|nd)?\\s*[A-Za-z]+\\,?\\s*[0-9]+)",
-      benchmark: "((?:Niy|CRSP|NASDAQ|BSE|CIRSIL)\\s*.*)$",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      benchmark: ".+?index(.+)$",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\u00b7|\\(Y?y?rs\\)",
     },
     PATTERN_TO_FUNCTION: {
       "^(investment|tracking).*": ["_extract_str_data", null],
@@ -3133,6 +3133,7 @@
       ".*index.*$": ["_extract_benchmark_data", "benchmark"],
       ".*inception_date": ["_extract_generic_data", "date"],
       tracking_error: ["_extract_generic_data", "tracking"],
+      "metrics.*":["_extract_generic_data","metric"]
     },
     SELECTKEYS: [
       "amc_name",
@@ -3143,6 +3144,8 @@
       "fund_manager",
       ".*(inception_date|load_structure|minimum_application)$",
       "metrics",
+      "risk_measures",
+      "debt_quants",
       ".*asset_allocation",
       "tracking_error",
       ".*monthly_average_aum",
@@ -3150,7 +3153,7 @@
       "benchmark_index",
     ],
     MERGEKEYS: {
-      metrics: [".*asset_allocation", "tracking_error"],
+      metrics: [".*asset_allocation", "tracking_error","metrics.*$"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -3209,7 +3212,7 @@
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 6,
-      pdf_ocr: false,
+      pdf_ocr: true,
       stop_words: [],
     },
     REGEX: {
