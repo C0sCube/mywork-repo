@@ -627,12 +627,15 @@ class Reader:
                 temp = mappend_data
             
             #flatten min/add data
-            new_values = {}
-            for key in ["min_amt", "min_addl_amt"]:
-                if key in temp:
-                    new_values[key] = temp[key].get("amt", "")
-                    new_values[f"{key}_multiple"] = temp[key].get("thraftr", "")
-            temp.update(new_values)
+            try:
+                new_values = {}
+                for key in ["min_amt", "min_addl_amt"]:
+                    if key in temp:
+                        new_values[key] = temp[key].get("amt", "")
+                        new_values[f"{key}_multiple"] = temp[key].get("thraftr", "")
+                temp.update(new_values)
+            except Exception as e:
+                print(f"Error in {fund}: {e}")
             
             #populate and lowercase
             temp = regex._populate_all_indices_in_json(temp)

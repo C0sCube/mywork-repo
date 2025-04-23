@@ -181,7 +181,8 @@
             ".*additional_purchase",
             ".*minaddlinvestment$",
             ".*subsequent$",
-            ".*minimum_additional_subscription_amount$"
+            ".*minimum_additional_subscription_amount$",
+            ".*minaddlinvestment$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -239,7 +240,7 @@
             ".*aaum_for_the_month$",
             "dummy.*?monthly$",
             ".*monthly_aver$",
-            ".*monthly_aaum_as_on$"
+            ".*monthly_aaum_as$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -373,7 +374,8 @@
             "^weighted_average_maturity$",
             "^residual_maturity$",
             "^residual$",
-            "^avg_mat\\.?$"
+            "^avg_mat\\.?$",
+            "average_matu?r?i?t?y?$"
         ],
         "beta": [
             "^Portfolio Beta",
@@ -393,7 +395,8 @@
             "^macaulay.*",
             "^Macaulay Duration",
             "^macaulay$",
-            ".*macaulay_duration.*"
+            ".*macaulay_duration.*",
+            "mac_duration$"
         ],
         "mod_duration": [
             "^modified_duration",
@@ -403,7 +406,8 @@
             "^modied$",
             "^modied_duraon$",
             "^modified$",
-            "^modified_duration.*"
+            "^modified_duration.*",
+            "^modified_dura?t?i?o?n?$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -477,7 +481,8 @@
             "^ytm4$",
             "^yield_maturity$",
             "^ytm.*$",
-            "^portfolio_yield$"
+            "^portfolio_yield$",
+            "^portfolio_ytm$"
         ]
     },
     "financial_indices": [

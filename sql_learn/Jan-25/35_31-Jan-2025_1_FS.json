@@ -1,0 +1,4679 @@
+{
+ "metadata": {
+  "document_name": "35_31-Jan-2025_1_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250213"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 100 (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "10",
+      "benchmark_index": "10",
+      "count": 55,
+      "fund_manager_managing_fund_since": "10",
+      "fund_manager_name": "10",
+      "fund_manager_total_exp": "10",
+      "load_entry": "10",
+      "load_exit": "10",
+      "main_scheme_name": "10",
+      "metrics_beta": "10",
+      "metrics_mod_duration": "10",
+      "metrics_port_turnover_ratio": "10",
+      "metrics_sharpe": "10",
+      "metrics_std_dev": "10",
+      "min_addl_amt": "10",
+      "min_addl_amt_multiple": "10",
+      "min_amt": "10",
+      "min_amt_multiple": "10",
+      "monthly_aaum_date": "10",
+      "monthly_aaum_value": "10",
+      "mutual_fund_name": "10",
+      "scheme_launch_date": "10"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "apr 2024",
+      "name": "Mr. Saurabh Pant",
+      "qualification": "",
+      "total_exp": "16 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment 1 %; For exit after 1 year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI BLUE CHIP FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.51"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.00%"
+     },
+     {
+      "name": "beta",
+      "value": "0.89"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.51"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "49,109.31 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20060214"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty 100 ESG TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "11",
+      "benchmark_index": "11",
+      "count": 55,
+      "fund_manager_managing_fund_since": "11",
+      "fund_manager_name": "11",
+      "fund_manager_total_exp": "11",
+      "load_entry": "11",
+      "load_exit": "11",
+      "main_scheme_name": "11",
+      "metrics_beta": "11",
+      "metrics_mod_duration": "11",
+      "metrics_port_turnover_ratio": "11",
+      "metrics_sharpe": "11",
+      "metrics_std_dev": "11",
+      "min_addl_amt": "11",
+      "min_addl_amt_multiple": "11",
+      "min_amt": "11",
+      "min_amt_multiple": "11",
+      "monthly_aaum_date": "11",
+      "monthly_aaum_value": "11",
+      "mutual_fund_name": "11",
+      "scheme_launch_date": "11"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jan-2022",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment 1 %; For exit after 1 year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI ESG EXCLUSIONARY STRATEGY FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.38"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.86%"
+     },
+     {
+      "name": "beta",
+      "value": "0.87"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.24"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 1000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "5,553.17 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19910101"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 500 (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "12",
+      "benchmark_index": "12",
+      "count": 55,
+      "fund_manager_managing_fund_since": "12",
+      "fund_manager_name": "12",
+      "fund_manager_total_exp": "12",
+      "load_entry": "12",
+      "load_exit": "12",
+      "main_scheme_name": "12",
+      "metrics_beta": "12",
+      "metrics_mod_duration": "12",
+      "metrics_port_turnover_ratio": "12",
+      "metrics_sharpe": "12",
+      "metrics_std_dev": "12",
+      "min_addl_amt": "12",
+      "min_addl_amt_multiple": "12",
+      "min_amt": "12",
+      "min_amt_multiple": "12",
+      "monthly_aaum_date": "12",
+      "monthly_aaum_value": "12",
+      "mutual_fund_name": "12",
+      "scheme_launch_date": "12"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 2024",
+      "name": "Mr. Dinesh Balachandran",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "dec 2024",
+      "name": "Mr. Anup Upadhyay",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.10% For exit after 30 days from the date of allotment- Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SB FLEXICAP FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.40"
+     },
+     {
+      "name": "std_dev",
+      "value": "11.89%"
+     },
+     {
+      "name": "beta",
+      "value": "0.84"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.78"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 1000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "21,677.91 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20050929"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY 500 Multicap 50:25:25 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "13",
+      "benchmark_index": "13",
+      "count": 55,
+      "fund_manager_managing_fund_since": "13",
+      "fund_manager_name": "13",
+      "fund_manager_total_exp": "13",
+      "load_entry": "13",
+      "load_exit": "13",
+      "main_scheme_name": "13",
+      "metrics_port_turnover_ratio": "13",
+      "metrics_tracking_error": "13",
+      "min_addl_amt": "13",
+      "min_addl_amt_multiple": "13",
+      "min_amt": "13",
+      "min_amt_multiple": "13",
+      "monthly_aaum_date": "13",
+      "monthly_aaum_value": "13",
+      "mutual_fund_name": "13",
+      "scheme_launch_date": "13"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " march-2022",
+      "name": "Mr. R. Srinivasan",
+      "qualification": "",
+      "total_exp": "30 years"
+     },
+     {
+      "managing_fund_since": "april 2024",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "16 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Saurabh Pant",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10% of the units (the limit) purchased or switched on or before 1 year from the date of allotment. 1% of the applicable NAV If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit on or before 1 year from the date of allotment NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MULTICAP FUND ",
+    "metrics": [
+     {
+      "name": "tracking_error",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.41"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "18,824.89 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20220308"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "14",
+      "benchmark_index": "14",
+      "count": 55,
+      "fund_manager_managing_fund_since": "14",
+      "fund_manager_name": "14",
+      "fund_manager_total_exp": "14",
+      "load_entry": "14",
+      "load_exit": "14",
+      "main_scheme_name": "14",
+      "min_addl_amt": "14",
+      "min_amt": "14",
+      "min_amt_multiple": "14",
+      "monthly_aaum_date": "14",
+      "monthly_aaum_value": "14",
+      "mutual_fund_name": "14",
+      "scheme_launch_date": "14"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " march-2023",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10% of the units (the limit) purchased or switched on or before 1 year from the date of allotment. 1% of the applicable NAV If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit on or before 1 year from the date of allotment. NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI DIVIDEND YIELD FUND ",
+    "min_addl_amt": "₹ 1000",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "9,180.29 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20230314"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "15",
+      "benchmark_index": "15",
+      "count": 55,
+      "fund_manager_managing_fund_since": "15",
+      "fund_manager_name": "15",
+      "fund_manager_total_exp": "15",
+      "load_entry": "15",
+      "load_exit": "15",
+      "main_scheme_name": "15",
+      "metrics_beta": "15",
+      "metrics_mod_duration": "15",
+      "metrics_port_turnover_ratio": "15",
+      "metrics_sharpe": "15",
+      "metrics_std_dev": "15",
+      "min_addl_amt": "15",
+      "min_addl_amt_multiple": "15",
+      "min_amt": "15",
+      "min_amt_multiple": "15",
+      "monthly_aaum_date": "15",
+      "monthly_aaum_value": "15",
+      "mutual_fund_name": "15",
+      "scheme_launch_date": "15"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " may-2018",
+      "name": "Mr. Dinesh Balachandran",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment %; For exit after 1 year from the date of allotment Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI CONTRA FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.07"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.93%"
+     },
+     {
+      "name": "beta",
+      "value": "0.90"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "1.77"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "12",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "41,756.87 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19990705"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY LargeMidCap 250 Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "16",
+      "benchmark_index": "16",
+      "count": 55,
+      "fund_manager_managing_fund_since": "16",
+      "fund_manager_name": "16",
+      "fund_manager_total_exp": "16",
+      "load_entry": "16",
+      "load_exit": "16",
+      "main_scheme_name": "16",
+      "metrics_beta": "16",
+      "metrics_mod_duration": "16",
+      "metrics_port_turnover_ratio": "16",
+      "metrics_sharpe": "16",
+      "metrics_std_dev": "16",
+      "min_addl_amt": "16",
+      "min_addl_amt_multiple": "16",
+      "min_amt": "16",
+      "min_amt_multiple": "16",
+      "monthly_aaum_date": "16",
+      "monthly_aaum_value": "16",
+      "mutual_fund_name": "16",
+      "scheme_launch_date": "16"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " sep-2016",
+      "name": "Mr. Saurabh Pant",
+      "qualification": "",
+      "total_exp": "16 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.10% For exit after 30 days from the date of allotment- Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI LARGE & MIDCAP FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.67"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.97%"
+     },
+     {
+      "name": "beta",
+      "value": "0.88"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.57"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "12",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "28,745.63 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19930228"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 500 (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "17",
+      "benchmark_index": "17",
+      "count": 55,
+      "fund_manager_managing_fund_since": "17",
+      "fund_manager_name": "17",
+      "fund_manager_total_exp": "17",
+      "load_entry": "17",
+      "load_exit": "17",
+      "main_scheme_name": "17",
+      "metrics_beta": "17",
+      "metrics_mod_duration": "17",
+      "metrics_port_turnover_ratio": "17",
+      "metrics_sharpe": "17",
+      "metrics_std_dev": "17",
+      "min_addl_amt": "17",
+      "min_addl_amt_multiple": "17",
+      "min_amt": "17",
+      "min_amt_multiple": "17",
+      "monthly_aaum_date": "17",
+      "monthly_aaum_value": "17",
+      "mutual_fund_name": "17",
+      "scheme_launch_date": "17"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " may-2009",
+      "name": "Mr. R. Srinivasan",
+      "qualification": "",
+      "total_exp": "30 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment 1 %; For exit after 1 year from the date of allotment Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI FOCUSED EQUITY FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.47"
+     },
+     {
+      "name": "std_dev",
+      "value": "11.04%"
+     },
+     {
+      "name": "beta",
+      "value": "0.69"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.33"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 34,367.09 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20040917"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Midcap 150 Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "18",
+      "benchmark_index": "18",
+      "count": 55,
+      "fund_manager_managing_fund_since": "18",
+      "fund_manager_name": "18",
+      "fund_manager_total_exp": "18",
+      "load_entry": "18",
+      "load_exit": "18",
+      "main_scheme_name": "18",
+      "metrics_beta": "18",
+      "metrics_mod_duration": "18",
+      "metrics_port_turnover_ratio": "18",
+      "metrics_sharpe": "18",
+      "metrics_std_dev": "18",
+      "min_addl_amt": "18",
+      "min_addl_amt_multiple": "18",
+      "min_amt": "18",
+      "min_amt_multiple": "18",
+      "monthly_aaum_date": "18",
+      "monthly_aaum_value": "18",
+      "mutual_fund_name": "18",
+      "scheme_launch_date": "18"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 2024",
+      "name": "Mr. Bhavin Vithlani",
+      "qualification": "",
+      "total_exp": "19 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment %; For exit after 1 year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM MIDCAP FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.78"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.13%"
+     },
+     {
+      "name": "beta",
+      "value": "0.75"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.52"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1.37"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "21,340.92 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20050329"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty MNC Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 55,
+      "fund_manager_managing_fund_since": "19",
+      "fund_manager_name": "19",
+      "fund_manager_total_exp": "19",
+      "load_entry": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "metrics_beta": "19",
+      "metrics_mod_duration": "19",
+      "metrics_port_turnover_ratio": "19",
+      "metrics_sharpe": "19",
+      "metrics_std_dev": "19",
+      "min_addl_amt": "19",
+      "min_addl_amt_multiple": "19",
+      "min_amt": "19",
+      "min_amt_multiple": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19",
+      "scheme_launch_date": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "feb 2025",
+      "name": "Mr. Tanmaya Desai",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 12 months from the date of allotment 1.00%; For exit after 12 months from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM GLOBAL FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.19"
+     },
+     {
+      "name": "std_dev",
+      "value": "10.91%"
+     },
+     {
+      "name": "beta",
+      "value": "0.58"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.53"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "6,425.79 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19940930"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 250 Small Cap Index TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "20",
+      "benchmark_index": "20",
+      "count": 55,
+      "fund_manager_managing_fund_since": "20",
+      "fund_manager_name": "20",
+      "fund_manager_total_exp": "20",
+      "load_entry": "20",
+      "load_exit": "20",
+      "main_scheme_name": "20",
+      "metrics_beta": "20",
+      "metrics_port_turnover_ratio": "20",
+      "metrics_sharpe": "20",
+      "metrics_std_dev": "20",
+      "monthly_aaum_date": "20",
+      "monthly_aaum_value": "20",
+      "mutual_fund_name": "20",
+      "scheme_launch_date": "20"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " nov 2013",
+      "name": "Mr. R. Srinivasan",
+      "qualification": "",
+      "total_exp": "30 years"
+     },
+     {
+      "managing_fund_since": " may 2024",
+      "name": "Mr. Mohan Lal",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within one year from the date of allotment 1% For exit after one year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI SMALL CAP FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.68"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.76%"
+     },
+     {
+      "name": "beta",
+      "value": "0.69"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.69"
+     }
+    ],
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "32,114.87 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20090909"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 500 (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 55,
+      "fund_manager_managing_fund_since": "21",
+      "fund_manager_name": "21",
+      "fund_manager_total_exp": "21",
+      "load_entry": "21",
+      "load_exit": "21",
+      "main_scheme_name": "21",
+      "metrics_beta": "21",
+      "metrics_mod_duration": "21",
+      "metrics_port_turnover_ratio": "21",
+      "metrics_sharpe": "21",
+      "metrics_std_dev": "21",
+      "min_addl_amt": "21",
+      "min_addl_amt_multiple": "21",
+      "min_amt": "21",
+      "min_amt_multiple": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21",
+      "scheme_launch_date": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "sep-2016",
+      "name": "Mr. Dinesh Balachandran",
+      "qualification": "",
+      "total_exp": "21 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI LONG TERM EQUITY FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.04"
+     },
+     {
+      "name": "std_dev",
+      "value": "14.27%"
+     },
+     {
+      "name": "beta",
+      "value": "0.99"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.20"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 500",
+    "min_addl_amt_multiple": "₹ 500",
+    "min_amt": "₹ 500",
+    "min_amt_multiple": "₹ 500",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "27,361.91 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19930331"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE HEALTHCARE (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "22",
+      "benchmark_index": "22",
+      "count": 55,
+      "fund_manager_managing_fund_since": "22",
+      "fund_manager_name": "22",
+      "fund_manager_total_exp": "22",
+      "load_entry": "22",
+      "load_exit": "22",
+      "main_scheme_name": "22",
+      "metrics_beta": "22",
+      "metrics_mod_duration": "22",
+      "metrics_port_turnover_ratio": "22",
+      "metrics_sharpe": "22",
+      "metrics_std_dev": "22",
+      "min_addl_amt": "22",
+      "min_addl_amt_multiple": "22",
+      "min_amt": "22",
+      "min_amt_multiple": "22",
+      "monthly_aaum_date": "22",
+      "monthly_aaum_value": "22",
+      "mutual_fund_name": "22",
+      "scheme_launch_date": "22"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jun-2011",
+      "name": "Mr. Tanmaya Desai",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 15 Days from the date of allotment 0.50%; For exit after 15 Days from the date of allotment Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI HEALTHCARE OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.13"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.84%"
+     },
+     {
+      "name": "beta",
+      "value": "0.85"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.30"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,573.76 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19990705"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Financial Services Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 55,
+      "fund_manager_managing_fund_since": "23",
+      "fund_manager_name": "23",
+      "fund_manager_total_exp": "23",
+      "load_entry": "23",
+      "load_exit": "23",
+      "main_scheme_name": "23",
+      "metrics_beta": "23",
+      "metrics_port_turnover_ratio": "23",
+      "metrics_sharpe": "23",
+      "metrics_std_dev": "23",
+      "min_addl_amt": "23",
+      "min_addl_amt_multiple": "23",
+      "min_amt": "23",
+      "min_amt_multiple": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23",
+      "scheme_launch_date": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " aug-2019",
+      "name": "Mr. Milind Agrawal",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.50% For exit after 30 days from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI BANKING & FINANCIAL SERVICES FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.58"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.43%"
+     },
+     {
+      "name": "beta",
+      "value": "0.84"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "2.69"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "6,480.69 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20150226"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE PSU (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "24",
+      "benchmark_index": "24",
+      "count": 55,
+      "fund_manager_managing_fund_since": "24",
+      "fund_manager_name": "24",
+      "fund_manager_total_exp": "24",
+      "load_entry": "24",
+      "load_exit": "24",
+      "main_scheme_name": "24",
+      "metrics_beta": "24",
+      "metrics_mod_duration": "24",
+      "metrics_port_turnover_ratio": "24",
+      "metrics_sharpe": "24",
+      "metrics_std_dev": "24",
+      "min_addl_amt": "24",
+      "min_addl_amt_multiple": "24",
+      "min_amt": "24",
+      "min_amt_multiple": "24",
+      "monthly_aaum_date": "24",
+      "monthly_aaum_value": "24",
+      "mutual_fund_name": "24",
+      "scheme_launch_date": "24"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "june 2024",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.50% For exit after 30 days from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SB PSU FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.03"
+     },
+     {
+      "name": "std_dev",
+      "value": "21.33%"
+     },
+     {
+      "name": "beta",
+      "value": "1.01"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.34"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "4,505.51 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20100707"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Commodities Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "25",
+      "benchmark_index": "25",
+      "count": 55,
+      "fund_manager_managing_fund_since": "25",
+      "fund_manager_name": "25",
+      "fund_manager_total_exp": "25",
+      "load_entry": "25",
+      "load_exit": "25",
+      "main_scheme_name": "25",
+      "metrics_beta": "25",
+      "metrics_mod_duration": "25",
+      "metrics_port_turnover_ratio": "25",
+      "metrics_sharpe": "25",
+      "metrics_std_dev": "25",
+      "min_addl_amt": "25",
+      "min_addl_amt_multiple": "25",
+      "min_amt": "25",
+      "min_amt_multiple": "25",
+      "monthly_aaum_date": "25",
+      "monthly_aaum_value": "25",
+      "mutual_fund_name": "25",
+      "scheme_launch_date": "25"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " june-2024",
+      "name": "Mr. Dinesh Balachandran",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.50% For exit after 30 days from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM COMMA FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.20"
+     },
+     {
+      "name": "std_dev",
+      "value": "16.48%"
+     },
+     {
+      "name": "beta",
+      "value": "0.76"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.58"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 622.09 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20050808"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Infrastructure Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "26",
+      "benchmark_index": "26",
+      "count": 55,
+      "fund_manager_managing_fund_since": "26",
+      "fund_manager_name": "26",
+      "fund_manager_total_exp": "26",
+      "load_entry": "26",
+      "load_exit": "26",
+      "main_scheme_name": "26",
+      "metrics_beta": "26",
+      "metrics_mod_duration": "26",
+      "metrics_port_turnover_ratio": "26",
+      "metrics_sharpe": "26",
+      "metrics_std_dev": "26",
+      "min_addl_amt": "26",
+      "min_addl_amt_multiple": "26",
+      "min_amt": "26",
+      "min_amt_multiple": "26",
+      "monthly_aaum_date": "26",
+      "monthly_aaum_value": "26",
+      "mutual_fund_name": "26",
+      "scheme_launch_date": "26"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jan-2022",
+      "name": "Mr. Bhavin Vithlani",
+      "qualification": "",
+      "total_exp": "19 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.50% For exit after 30 days from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI INFRASTRUCTURE FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.14"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.91%"
+     },
+     {
+      "name": "beta",
+      "value": "0.82"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.31"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "4,858.86 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20070706"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty India Consumption Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "27",
+      "benchmark_index": "27",
+      "count": 55,
+      "fund_manager_managing_fund_since": "27",
+      "fund_manager_name": "27",
+      "fund_manager_total_exp": "27",
+      "load_entry": "27",
+      "load_exit": "27",
+      "main_scheme_name": "27",
+      "metrics_beta": "27",
+      "metrics_mod_duration": "27",
+      "metrics_port_turnover_ratio": "27",
+      "metrics_sharpe": "27",
+      "metrics_std_dev": "27",
+      "min_addl_amt": "27",
+      "min_addl_amt_multiple": "27",
+      "min_amt": "27",
+      "min_amt_multiple": "27",
+      "monthly_aaum_date": "27",
+      "monthly_aaum_value": "27",
+      "mutual_fund_name": "27",
+      "scheme_launch_date": "27"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 2024",
+      "name": "Mr. Ashit Desai",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 30 days from the date of allotment 0.10% For exit after 30 days from the date of allotment- Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI CONSUMPTION OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.84"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.73%"
+     },
+     {
+      "name": "beta",
+      "value": "0.79"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.32"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,014.34 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19990705"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE Teck (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "28",
+      "benchmark_index": "28",
+      "count": 55,
+      "fund_manager_managing_fund_since": "28",
+      "fund_manager_name": "28",
+      "fund_manager_total_exp": "28",
+      "load_entry": "28",
+      "load_exit": "28",
+      "main_scheme_name": "28",
+      "metrics_beta": "28",
+      "metrics_mod_duration": "28",
+      "metrics_port_turnover_ratio": "28",
+      "metrics_sharpe": "28",
+      "metrics_std_dev": "28",
+      "min_addl_amt": "28",
+      "min_addl_amt_multiple": "28",
+      "min_amt": "28",
+      "min_amt_multiple": "28",
+      "monthly_aaum_date": "28",
+      "monthly_aaum_value": "28",
+      "mutual_fund_name": "28",
+      "scheme_launch_date": "28"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 2024",
+      "name": "Mr. Vivek Gedda",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 15 days from the date of allotment 0.50%; For exit after 15 days from the date of allotment Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SB TECHNOLOGY OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.44"
+     },
+     {
+      "name": "std_dev",
+      "value": "16.42%"
+     },
+     {
+      "name": "beta",
+      "value": "0.90"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.27"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "4,672.03 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19990705"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty 50 Index (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 55,
+      "fund_manager_managing_fund_since": "29",
+      "fund_manager_name": "29",
+      "fund_manager_total_exp": "29",
+      "load_entry": "29",
+      "load_exit": "29",
+      "main_scheme_name": "29",
+      "metrics_beta": "29",
+      "metrics_mod_duration": "29",
+      "metrics_port_turnover_ratio": "29",
+      "metrics_sharpe": "29",
+      "metrics_std_dev": "29",
+      "min_addl_amt": "29",
+      "min_addl_amt_multiple": "29",
+      "min_amt": "29",
+      "min_amt_multiple": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29",
+      "scheme_launch_date": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " march-2019",
+      "name": "Mr. Raviprakash Sharma",
+      "qualification": "",
+      "total_exp": "24 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 15 days from the date of allotment 0.5% For exit after 15 days from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI EQUITY MINIMUM VARIANCE FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.57"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.17%"
+     },
+     {
+      "name": "beta",
+      "value": "0.96"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.38"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "211.94 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20190302"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "S&P 500 Index, after converting it to Indian Rupee"
+    ],
+    "field_location": [
+     {
+      "amc_name": "30",
+      "benchmark_index": "30",
+      "count": 55,
+      "fund_manager_managing_fund_since": "30",
+      "fund_manager_name": "30",
+      "fund_manager_total_exp": "30",
+      "load_entry": "30",
+      "load_exit": "30",
+      "main_scheme_name": "30",
+      "min_addl_amt": "30",
+      "min_addl_amt_multiple": "30",
+      "min_amt": "30",
+      "min_amt_multiple": "30",
+      "monthly_aaum_date": "30",
+      "monthly_aaum_value": "30",
+      "mutual_fund_name": "30",
+      "scheme_launch_date": "30"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "feb 2025",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 1 year from the date of allotment 1.00% For exit after 1 year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI INTERNATIONAL ACCESS - US EQUITY FoF ",
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "₹1",
+    "min_amt": "₹5000",
+    "min_amt_multiple": "₹1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 985.69 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20210322"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Energy TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "31",
+      "benchmark_index": "31",
+      "count": 55,
+      "fund_manager_managing_fund_since": "31",
+      "fund_manager_name": "31",
+      "fund_manager_total_exp": "31",
+      "load_entry": "31",
+      "load_exit": "31",
+      "main_scheme_name": "31",
+      "metrics_port_turnover_ratio": "31",
+      "metrics_tracking_error": "31",
+      "min_addl_amt": "31",
+      "min_addl_amt_multiple": "31",
+      "min_amt": "31",
+      "min_amt_multiple": "31",
+      "monthly_aaum_date": "31",
+      "monthly_aaum_value": "31",
+      "mutual_fund_name": "31",
+      "scheme_launch_date": "31"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "feb 2024",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "16 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Raj Ghandhi",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 1 year from the date of allotment: 1% and For exit after 1 year from the date of allotment: Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI ENERGY OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "tracking_error",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.84"
+     }
+    ],
+    "min_addl_amt": "₹1000",
+    "min_addl_amt_multiple": "₹1",
+    "min_amt": "₹5000",
+    "min_amt_multiple": "₹1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "10,107.62 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20240226"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY Auto TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "32",
+      "benchmark_index": "32",
+      "count": 55,
+      "fund_manager_managing_fund_since": "32",
+      "fund_manager_name": "32",
+      "fund_manager_total_exp": "32",
+      "load_entry": "32",
+      "load_exit": "32",
+      "main_scheme_name": "32",
+      "metrics_mod_duration": "32",
+      "metrics_port_turnover_ratio": "32",
+      "metrics_tracking_error": "32",
+      "min_addl_amt": "32",
+      "min_addl_amt_multiple": "32",
+      "min_amt": "32",
+      "min_amt_multiple": "32",
+      "monthly_aaum_date": "32",
+      "monthly_aaum_value": "32",
+      "mutual_fund_name": "32",
+      "scheme_launch_date": "32"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "june 2024",
+      "name": "Mr. Tanmaya Desai",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 1 year from the date of allotment: 1% and For exit after 1 year from the date of allotment: Nil The AMC reserves the right to modify / change the load structure on a prospective basis.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI AUTOMOTIVE OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "tracking_error",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.52"
+     },
+     {
+      "name": "mod_duration",
+      "value": "182 Day"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "₹1",
+    "min_amt": "₹5000",
+    "min_amt_multiple": "₹1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "5,647.07 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20240607"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "33",
+      "benchmark_index": "33",
+      "count": 55,
+      "fund_manager_managing_fund_since": "33",
+      "fund_manager_name": "33",
+      "fund_manager_total_exp": "33",
+      "load_entry": "33",
+      "load_exit": "33",
+      "main_scheme_name": "33",
+      "metrics_port_turnover_ratio": "33",
+      "metrics_tracking_error": "33",
+      "min_addl_amt": "33",
+      "min_addl_amt_multiple": "33",
+      "min_amt": "33",
+      "min_amt_multiple": "33",
+      "monthly_aaum_date": "33",
+      "monthly_aaum_value": "33",
+      "mutual_fund_name": "33",
+      "scheme_launch_date": "33"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "aug 2024",
+      "name": "Mr. Prasad Padala",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A",
+      "type": "entry"
+     },
+     {
+      "comment": "1% of the applicable NAV If units purchased or switched in from another scheme of the Fund are redeemed or switched out on or before 1 year from the date of allotment. NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI INNOVATIVE OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.59"
+     },
+     {
+      "name": "tracking_error",
+      "value": "3"
+     }
+    ],
+    "min_addl_amt": "₹1000",
+    "min_addl_amt_multiple": "₹1",
+    "min_amt": "₹5000",
+    "min_amt_multiple": "₹1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "7,752.64 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20240820"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 200 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "34",
+      "benchmark_index": "34",
+      "count": 55,
+      "fund_manager_managing_fund_since": "34",
+      "fund_manager_name": "34",
+      "fund_manager_total_exp": "34",
+      "load_entry": "34",
+      "load_exit": "34",
+      "main_scheme_name": "34",
+      "metrics_port_turnover_ratio": "34",
+      "metrics_tracking_error": "34",
+      "min_addl_amt": "34",
+      "min_addl_amt_multiple": "34",
+      "min_amt": "34",
+      "min_amt_multiple": "34",
+      "monthly_aaum_date": "34",
+      "monthly_aaum_value": "34",
+      "mutual_fund_name": "34",
+      "scheme_launch_date": "34"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 2024",
+      "name": "Ms. Sukanya Ghosh",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A",
+      "type": "entry"
+     },
+     {
+      "comment": "0.5% of the applicable NAV If units purchased or switched in from another scheme of the Fund are redeemed or switched out on or before 6 months from the date of allotment. NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 6 months from the date of allotment.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "QUANT FUND",
+    "metrics": [
+     {
+      "name": "tracking_error",
+      "value": "3"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.41"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "₹1",
+    "min_amt": "₹5000",
+    "min_amt_multiple": "₹1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,571.53 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20241226"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 35+65 Aggressive Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "37",
+      "benchmark_index": "37",
+      "count": 55,
+      "fund_manager_managing_fund_since": "37",
+      "fund_manager_name": "37",
+      "fund_manager_total_exp": "37",
+      "load_entry": "37",
+      "load_exit": "37",
+      "main_scheme_name": "37",
+      "metrics_avg_maturity": "37",
+      "metrics_beta": "37",
+      "metrics_macaulay": "37",
+      "metrics_mod_duration": "37",
+      "metrics_port_turnover_ratio": "37",
+      "metrics_sharpe": "37",
+      "metrics_std_dev": "37",
+      "metrics_ytm": "37",
+      "min_addl_amt": "37",
+      "min_addl_amt_multiple": "37",
+      "min_amt": "37",
+      "min_amt_multiple": "37",
+      "monthly_aaum_date": "37",
+      "monthly_aaum_value": "37",
+      "mutual_fund_name": "37",
+      "scheme_launch_date": "37"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jan-2012",
+      "name": "Mr. R. Srinivasan",
+      "qualification": "",
+      "total_exp": "30 years"
+     },
+     {
+      "managing_fund_since": "nov-2023",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Ms. Mansi Sajeja",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 12 months from the date of allotment: For 10% of investment Nil For remaining investments 1.00%; For exit after 12 months from the date of allotment Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI EQUITY HYBRID FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.46"
+     },
+     {
+      "name": "std_dev",
+      "value": "9.09%"
+     },
+     {
+      "name": "beta",
+      "value": "0.95"
+     },
+     {
+      "name": "ytm",
+      "value": "7.44%"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.59"
+     },
+     {
+      "name": "mod_duration",
+      "value": "4.44 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "5.87 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.66 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 1000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 70,776.98 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19951009"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY 50 Hybrid Composite Debt 15:85 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "38",
+      "benchmark_index": "38",
+      "count": 55,
+      "fund_manager_managing_fund_since": "38",
+      "fund_manager_name": "38",
+      "fund_manager_total_exp": "38",
+      "load_entry": "38",
+      "load_exit": "38",
+      "main_scheme_name": "38",
+      "metrics_avg_maturity": "38",
+      "metrics_macaulay": "38",
+      "metrics_mod_duration": "38",
+      "metrics_ytm": "38",
+      "min_addl_amt": "38",
+      "min_addl_amt_multiple": "38",
+      "min_amt": "38",
+      "min_amt_multiple": "38",
+      "monthly_aaum_date": "38",
+      "monthly_aaum_value": "38",
+      "mutual_fund_name": "38",
+      "scheme_launch_date": "38"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " january 2022",
+      "name": "Mr. Saurabh Pant",
+      "qualification": "",
+      "total_exp": "16 years"
+     },
+     {
+      "managing_fund_since": " june 2021",
+      "name": "Ms. Mansi Sajeja",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": " -dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment For 10% of investment Nil For remaining investment: 1.00% For exit after one year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI CONSERVATIVE HYBRID FUND ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.78%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "7.01 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.52 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "9,807.54 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20010409"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "45% BSE 500 TRI + 40% Crisil Composite Bond Fund Index + 10% Domestic prices of Gold + 5% Domestic prices of silver. (W.e.f. 31 October 2023)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "39",
+      "benchmark_index": "39",
+      "count": 55,
+      "fund_manager_managing_fund_since": "39",
+      "fund_manager_name": "39",
+      "fund_manager_total_exp": "39",
+      "load_entry": "39",
+      "load_exit": "39",
+      "main_scheme_name": "39",
+      "metrics_avg_maturity": "39",
+      "metrics_macaulay": "39",
+      "metrics_mod_duration": "39",
+      "metrics_ytm": "39",
+      "min_addl_amt": "39",
+      "min_addl_amt_multiple": "39",
+      "min_amt": "39",
+      "min_amt_multiple": "39",
+      "monthly_aaum_date": "39",
+      "monthly_aaum_value": "39",
+      "mutual_fund_name": "39",
+      "scheme_launch_date": "39"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Dinesh Balachandran",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Ms. Mansi Sajeja",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": " jan 2024",
+      "name": "Ms. Vandna Soni",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 12 months from the date of allotment For 10% of investments Nil For remaining investment: 1.00% For exit after 12 months from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBN MULTI ASSET ALLOCATION FUND ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "8.16%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "6.97 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.11 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "7,052.05 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20180516"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY 50 Hybrid Composite Debt 15:85 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "40",
+      "benchmark_index": "40",
+      "count": 55,
+      "fund_manager_managing_fund_since": "40",
+      "fund_manager_name": "40",
+      "fund_manager_total_exp": "40",
+      "load_entry": "40",
+      "load_exit": "40",
+      "main_scheme_name": "40",
+      "metrics_avg_maturity": "40",
+      "metrics_macaulay": "40",
+      "metrics_mod_duration": "40",
+      "metrics_ytm": "40",
+      "min_addl_amt": "40",
+      "min_addl_amt_multiple": "40",
+      "min_amt": "40",
+      "min_amt_multiple": "40",
+      "monthly_aaum_date": "40",
+      "monthly_aaum_value": "40",
+      "mutual_fund_name": "40",
+      "scheme_launch_date": "40"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 13, 2021",
+      "name": "Mr. R Srinivasan",
+      "qualification": "",
+      "total_exp": "30 years"
+     },
+     {
+      "managing_fund_since": " jun-2008",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A",
+      "type": "entry"
+     },
+     {
+      "comment": "With respect to units not subject to lock-in period and the holding period is less than 3 years: 3% for redemption/switch out before 1 year from the date of allotment; 2% for redemption/switch out after 1 year and up to 2 years from the date of allotment; 1% for redemption/switch out after 2 years and up to 3 years from the date of allotment; Nil for redemption or switch-out after 3 years from the date of allotment",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM CHILDREN'S BENEFIT FUND - SAVINGS PLAN ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.26%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "5.88 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.20 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 121.55 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20020221"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY Equity Savings Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "41",
+      "benchmark_index": "41",
+      "count": 55,
+      "fund_manager_managing_fund_since": "41",
+      "fund_manager_name": "41",
+      "fund_manager_total_exp": "41",
+      "load_entry": "41",
+      "load_exit": "41",
+      "main_scheme_name": "41",
+      "metrics_avg_maturity": "41",
+      "metrics_macaulay": "41",
+      "metrics_mod_duration": "41",
+      "metrics_ytm": "41",
+      "min_addl_amt": "41",
+      "min_addl_amt_multiple": "41",
+      "min_amt": "41",
+      "min_amt_multiple": "41",
+      "monthly_aaum_date": "41",
+      "monthly_aaum_value": "41",
+      "mutual_fund_name": "41",
+      "scheme_launch_date": "41"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jan 2022",
+      "name": "Ms. Nidhi Chawla",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": " june 2021",
+      "name": "Ms. Mansi Sajeja",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": " may 2015",
+      "name": "Mr. Neeraj Kumar",
+      "qualification": "",
+      "total_exp": "25 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": " jan 2024",
+      "name": "Ms. Vandna Soni",
+      "qualification": "",
+      "total_exp": "14 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit on or before 15 days from the date of allotment 0.10% For exit after 15 days from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SB EQUITY SAVINGS FUND ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.73%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.34 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.66 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "1000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "5,761.69 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20150527"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty 50 Arbitrage Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "42",
+      "benchmark_index": "42",
+      "count": 55,
+      "fund_manager_managing_fund_since": "42",
+      "fund_manager_name": "42",
+      "fund_manager_total_exp": "42",
+      "load_entry": "42",
+      "load_exit": "42",
+      "main_scheme_name": "42",
+      "metrics_avg_maturity": "42",
+      "metrics_beta": "42",
+      "metrics_macaulay": "42",
+      "metrics_mod_duration": "42",
+      "metrics_port_turnover_ratio": "42",
+      "metrics_sharpe": "42",
+      "metrics_std_dev": "42",
+      "metrics_ytm": "42",
+      "min_addl_amt": "42",
+      "min_addl_amt_multiple": "42",
+      "min_amt": "42",
+      "min_amt_multiple": "42",
+      "monthly_aaum_date": "42",
+      "monthly_aaum_value": "42",
+      "mutual_fund_name": "42",
+      "scheme_launch_date": "42"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " -oct 2012",
+      "name": "Mr. Neeraj Kumar",
+      "qualification": "",
+      "total_exp": "25 years"
+     },
+     {
+      "managing_fund_since": " - dec 2021",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 month from the date of allotment 0.25%; For exit after 1 month from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI ARBITRAGE OPPORTUNITIES FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "-0.38"
+     },
+     {
+      "name": "std_dev",
+      "value": "0.61%"
+     },
+     {
+      "name": "beta",
+      "value": "0.70"
+     },
+     {
+      "name": "ytm",
+      "value": "7.69%"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "13.66"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.45 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.58 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.48 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹\n1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 31,802.12 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20061103"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty 50 Hybrid Composite Debt 50:50 Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "43",
+      "benchmark_index": "43",
+      "count": 55,
+      "fund_manager_managing_fund_since": "43",
+      "fund_manager_name": "43",
+      "fund_manager_total_exp": "43",
+      "load_entry": "43",
+      "load_exit": "43",
+      "main_scheme_name": "43",
+      "metrics_avg_maturity": "43",
+      "metrics_beta": "43",
+      "metrics_macaulay": "43",
+      "metrics_mod_duration": "43",
+      "metrics_port_turnover_ratio": "43",
+      "metrics_sharpe": "43",
+      "metrics_std_dev": "43",
+      "metrics_ytm": "43",
+      "min_addl_amt": "43",
+      "min_addl_amt_multiple": "43",
+      "min_amt": "43",
+      "min_amt_multiple": "43",
+      "monthly_aaum_date": "43",
+      "monthly_aaum_value": "43",
+      "mutual_fund_name": "43",
+      "scheme_launch_date": "43"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " august 2021",
+      "name": "Mr. Dinesh Balachandran",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "dec 2024",
+      "name": "Mr. Anup Upadhyay",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Ms. Mansi Sajeja",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": " nov 2023",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out upto 10% of the units (the limit) purchased or switched on or before 1 year from the date of allotment. 1% of the applicable NAV If units purchased or switched in from another scheme of the Fund are redeemed or switched out in excess of the limit on or before 1 year from the date of allotment NIL If units purchased or switched in from another scheme of the Fund are redeemed or switched out after 1 year from the date of allotment",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI BALANCED ADVANTAGE FUND ",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.91"
+     },
+     {
+      "name": "std_dev",
+      "value": "6.13%"
+     },
+     {
+      "name": "beta",
+      "value": "0.82"
+     },
+     {
+      "name": "ytm",
+      "value": "7.44%"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "5.07"
+     },
+     {
+      "name": "mod_duration",
+      "value": "4.99 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "7.31 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "5.24 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "33,152.15 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20210831"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 35+65 -Aggressive Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "44",
+      "benchmark_index": "44",
+      "count": 55,
+      "fund_manager_name": "44",
+      "fund_manager_total_exp": "44",
+      "load_entry": "44",
+      "load_exit": "44",
+      "main_scheme_name": "44",
+      "metrics_avg_maturity": "44",
+      "metrics_macaulay": "44",
+      "metrics_mod_duration": "44",
+      "metrics_ytm": "44",
+      "min_addl_amt": "44",
+      "min_addl_amt_multiple": "44",
+      "min_amt": "44",
+      "min_amt_multiple": "44",
+      "monthly_aaum_date": "44",
+      "monthly_aaum_value": "44",
+      "mutual_fund_name": "44",
+      "scheme_launch_date": "44"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. R Srinivasan",
+      "qualification": "",
+      "total_exp": "30 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "For all investments with respect to units not subject to lock-in period and the holding period is less than 3 years: 3% for redemption/switch out on or before 1 year from the date of allotment 2% for redemption/switch out after 1 year and up to 2 years from the date of allotment 1% for redemption/switch out after 2 years and up to 3 years from the date of allotment Nil for redemption or switch-out after 3 years from the date of allotment.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SB MAGNUM CHILDREN'S BENEFIT FUND - INVESTMENT PLAN ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.60%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.01 year"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.01 year"
+     },
+     {
+      "name": "macaulay",
+      "value": "0,01 year"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "₹ 3,179.85 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20250131"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "45",
+      "benchmark_index": "45",
+      "count": 55,
+      "fund_manager_managing_fund_since": "45",
+      "fund_manager_name": "45",
+      "fund_manager_total_exp": "45",
+      "load_entry": "45",
+      "load_exit": "45",
+      "main_scheme_name": "45",
+      "metrics_avg_maturity": "45",
+      "metrics_macaulay": "45",
+      "metrics_mod_duration": "45",
+      "metrics_ytm": "45",
+      "min_addl_amt": "45",
+      "min_addl_amt_multiple": "45",
+      "min_amt": "45",
+      "min_amt_multiple": "45",
+      "monthly_aaum_date": "45",
+      "monthly_aaum_value": "45",
+      "mutual_fund_name": "45",
+      "scheme_launch_date": "45"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "oct 2021",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "june 2021",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI RETIREMENT BENEFIT FUND- AGGRESSIVE PLAN ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.12%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1000"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1.59 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "1.11 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,674.04 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20210210"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 35+65 -Aggressive Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "46",
+      "benchmark_index": "46",
+      "count": 55,
+      "fund_manager_managing_fund_since": "46",
+      "fund_manager_name": "46",
+      "fund_manager_total_exp": "46",
+      "load_entry": "46",
+      "load_exit": "46",
+      "main_scheme_name": "46",
+      "metrics_avg_maturity": "46",
+      "metrics_macaulay": "46",
+      "metrics_mod_duration": "46",
+      "metrics_ytm": "46",
+      "min_addl_amt": "46",
+      "min_addl_amt_multiple": "46",
+      "min_amt": "46",
+      "min_amt_multiple": "46",
+      "monthly_aaum_date": "46",
+      "monthly_aaum_value": "46",
+      "mutual_fund_name": "46",
+      "scheme_launch_date": "46"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "oct 2021",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "june 2021",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI RETIREMENT BENEFIT FUND- AGGRESSIVE HYBRID PLAN ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.57%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.24 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.05 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.25 years"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,481.46 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20210210"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 65+35 Conservative Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "47",
+      "benchmark_index": "47",
+      "count": 55,
+      "fund_manager_managing_fund_since": "47",
+      "fund_manager_name": "47",
+      "fund_manager_total_exp": "47",
+      "load_entry": "47",
+      "load_exit": "47",
+      "main_scheme_name": "47",
+      "metrics_avg_maturity": "47",
+      "metrics_macaulay": "47",
+      "metrics_mod_duration": "47",
+      "metrics_ytm": "47",
+      "min_addl_amt": "47",
+      "min_addl_amt_multiple": "47",
+      "min_amt": "47",
+      "min_amt_multiple": "47",
+      "monthly_aaum_date": "47",
+      "monthly_aaum_value": "47",
+      "mutual_fund_name": "47",
+      "scheme_launch_date": "47"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "oct 2021",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "june - 2021",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI RETIREMENT BENEFIT FUND- CONSERVATIVE HYBRID PLAN ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.18%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "7.37 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "14.11 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "7.67 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "271.26 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20210210"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 85+15 Conservative Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "48",
+      "benchmark_index": "48",
+      "count": 55,
+      "fund_manager_managing_fund_since": "48",
+      "fund_manager_name": "48",
+      "fund_manager_total_exp": "48",
+      "load_entry": "48",
+      "load_exit": "48",
+      "main_scheme_name": "48",
+      "metrics_avg_maturity": "48",
+      "metrics_macaulay": "48",
+      "metrics_mod_duration": "48",
+      "metrics_ytm": "48",
+      "min_addl_amt": "48",
+      "min_addl_amt_multiple": "48",
+      "min_amt": "48",
+      "min_amt_multiple": "48",
+      "monthly_aaum_date": "48",
+      "monthly_aaum_value": "48",
+      "mutual_fund_name": "48",
+      "scheme_launch_date": "48"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "oct 2021",
+      "name": "Mr. Rohit Shimpi",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "june 2021",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI RETIREMENT BENEFIT FUND- CONSERVATIVE PLAN ",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.26%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "7.91 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "14.71 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "8.25 years"
+     }
+    ],
+    "min_addl_amt": "3000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "175.61 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20210210"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty All Duration G-Sec Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "51",
+      "benchmark_index": "51",
+      "count": 55,
+      "fund_manager_name": "51",
+      "fund_manager_total_exp": "51",
+      "load_entry": "51",
+      "load_exit": "51",
+      "main_scheme_name": "51",
+      "metrics_avg_maturity": "51",
+      "metrics_macaulay": "51",
+      "metrics_mod_duration": "51",
+      "metrics_ytm": "51",
+      "min_addl_amt": "51",
+      "min_addl_amt_multiple": "51",
+      "min_amt": "51",
+      "min_amt_multiple": "51",
+      "monthly_aaum_date": "51",
+      "monthly_aaum_value": "51",
+      "mutual_fund_name": "51",
+      "scheme_launch_date": "51"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Tejas Soman",
+      "qualification": "",
+      "total_exp": "8 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM GILT FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.04%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "9.95 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "24.01 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "10.30 years"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "11,260.19 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20001230"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Medium to Long Duration Debt A-III Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "52",
+      "benchmark_index": "52",
+      "count": 55,
+      "fund_manager_managing_fund_since": "52",
+      "fund_manager_name": "52",
+      "fund_manager_total_exp": "52",
+      "load_entry": "52",
+      "load_exit": "52",
+      "main_scheme_name": "52",
+      "metrics_avg_maturity": "52",
+      "metrics_macaulay": "52",
+      "metrics_mod_duration": "52",
+      "metrics_ytm": "52",
+      "min_addl_amt": "52",
+      "min_addl_amt_multiple": "52",
+      "min_amt": "52",
+      "min_amt_multiple": "52",
+      "monthly_aaum_date": "52",
+      "monthly_aaum_value": "52",
+      "mutual_fund_name": "52",
+      "scheme_launch_date": "52"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Lokesh Mallya Mr",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Adesh Sharma",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 year from the date of allotment. For 10% of investment Nil For remaining investment: 1.00% For exit after one year from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM INCOME FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.59%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.58 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,868.46 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19981125"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Dynamic Bond A-III Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "53",
+      "benchmark_index": "53",
+      "count": 55,
+      "fund_manager_managing_fund_since": "53",
+      "fund_manager_name": "53",
+      "fund_manager_total_exp": "53",
+      "load_entry": "53",
+      "load_exit": "53",
+      "main_scheme_name": "53",
+      "metrics_avg_maturity": "53",
+      "metrics_macaulay": "53",
+      "metrics_mod_duration": "53",
+      "metrics_ytm": "53",
+      "min_addl_amt": "53",
+      "min_addl_amt_multiple": "53",
+      "min_amt": "53",
+      "min_amt_multiple": "53",
+      "monthly_aaum_date": "53",
+      "monthly_aaum_value": "53",
+      "mutual_fund_name": "53",
+      "scheme_launch_date": "53"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "nov-2023",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Tejas Soman",
+      "qualification": "",
+      "total_exp": "8 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 1 month from the date of allotment For 10% of investment : Nil For remaining investment: 0.25% For exit after one month from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI DYNAMIC BOND FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.24%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "8.53 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "19.62 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "8.84 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,330.64 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20040209"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY Corporate Bond Index A-II"
+    ],
+    "field_location": [
+     {
+      "amc_name": "54",
+      "benchmark_index": "54",
+      "count": 55,
+      "fund_manager_managing_fund_since": "54",
+      "fund_manager_name": "54",
+      "fund_manager_total_exp": "54",
+      "load_entry": "54",
+      "load_exit": "54",
+      "main_scheme_name": "54",
+      "metrics_avg_maturity": "54",
+      "metrics_macaulay": "54",
+      "metrics_mod_duration": "54",
+      "metrics_ytm": "54",
+      "min_addl_amt": "54",
+      "min_addl_amt_multiple": "54",
+      "min_amt": "54",
+      "min_amt_multiple": "54",
+      "monthly_aaum_date": "54",
+      "monthly_aaum_value": "54",
+      "mutual_fund_name": "54",
+      "scheme_launch_date": "54"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jan-2019",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI CORPORATE BOND FUND Investment Objective",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.55%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.18 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.13 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.35 years"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "20,345.24 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20190116"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY Credit Risk Bond Index B-II"
+    ],
+    "field_location": [
+     {
+      "amc_name": "55",
+      "benchmark_index": "55",
+      "count": 55,
+      "fund_manager_managing_fund_since": "55",
+      "fund_manager_name": "55",
+      "fund_manager_total_exp": "55",
+      "load_entry": "55",
+      "load_exit": "55",
+      "main_scheme_name": "55",
+      "metrics_avg_maturity": "55",
+      "metrics_macaulay": "55",
+      "metrics_mod_duration": "55",
+      "metrics_ytm": "55",
+      "min_addl_amt": "55",
+      "min_addl_amt_multiple": "55",
+      "min_amt": "55",
+      "min_amt_multiple": "55",
+      "monthly_aaum_date": "55",
+      "monthly_aaum_value": "55",
+      "mutual_fund_name": "55",
+      "scheme_launch_date": "55"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " feb-2017",
+      "name": "Mr. Lokesh Mallya Mr",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Adesh Sharma",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 12 months from the date of allotment: For 8% of the investment Nil For the remaining investment 3% For exit after 12 months but within 24 months from the date of allotment: For 8% of the investment Nil For the remaining investment -1.5% For exit after 24 months but within 36 months from the date of allotment: For 8% of the investment Nil For the remaining investment 0.75%; For exit after 36 months from the date of allotment Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI CREDIT RISK FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "8.74%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.05 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.30 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,271.46 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20140717"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY Medium Duration Debt Index A-III"
+    ],
+    "field_location": [
+     {
+      "amc_name": "56",
+      "benchmark_index": "56",
+      "count": 55,
+      "fund_manager_managing_fund_since": "56",
+      "fund_manager_name": "56",
+      "fund_manager_total_exp": "56",
+      "load_entry": "56",
+      "load_exit": "56",
+      "main_scheme_name": "56",
+      "metrics_avg_maturity": "56",
+      "metrics_macaulay": "56",
+      "metrics_mod_duration": "56",
+      "metrics_ytm": "56",
+      "min_addl_amt": "56",
+      "min_addl_amt_multiple": "56",
+      "min_amt": "56",
+      "min_amt_multiple": "56",
+      "monthly_aaum_date": "56",
+      "monthly_aaum_value": "56",
+      "mutual_fund_name": "56",
+      "scheme_launch_date": "56"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Lokesh Mallya",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Mohit Jain",
+      "qualification": "",
+      "total_exp": "10 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 3 months from the date of allotment: 1% For exit after 3 months from the date of allotment: Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM MEDIUM DURATION FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.97%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.90 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3 years"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "6,550.14 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20031112"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Short Duration Debt A-II Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "57",
+      "benchmark_index": "57",
+      "count": 55,
+      "fund_manager_managing_fund_since": "57",
+      "fund_manager_name": "57",
+      "fund_manager_total_exp": "57",
+      "load_entry": "57",
+      "load_exit": "57",
+      "main_scheme_name": "57",
+      "metrics_avg_maturity": "57",
+      "metrics_macaulay": "57",
+      "metrics_mod_duration": "57",
+      "metrics_ytm": "57",
+      "min_addl_amt": "57",
+      "min_addl_amt_multiple": "57",
+      "min_amt": "57",
+      "min_amt_multiple": "57",
+      "monthly_aaum_date": "57",
+      "monthly_aaum_value": "57",
+      "mutual_fund_name": "57",
+      "scheme_launch_date": "57"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jun-2008",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Ms. Mansi Sajeja",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI SHORT TERM DEBT FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.54%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "27"
+     },
+     {
+      "name": "macaulay",
+      "value": "27"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.38 years"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "13,439.28 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20070727"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty 10 yr Benchmark G-Sec"
+    ],
+    "field_location": [
+     {
+      "amc_name": "58",
+      "benchmark_index": "58",
+      "count": 55,
+      "fund_manager_managing_fund_since": "58",
+      "fund_manager_name": "58",
+      "fund_manager_total_exp": "58",
+      "load_entry": "58",
+      "load_exit": "58",
+      "main_scheme_name": "58",
+      "metrics_avg_maturity": "58",
+      "metrics_macaulay": "58",
+      "metrics_mod_duration": "58",
+      "metrics_ytm": "58",
+      "min_addl_amt": "58",
+      "min_addl_amt_multiple": "58",
+      "min_amt": "58",
+      "min_amt_multiple": "58",
+      "monthly_aaum_date": "58",
+      "monthly_aaum_value": "58",
+      "mutual_fund_name": "58",
+      "scheme_launch_date": "58"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec-2023",
+      "name": "Mr. Tejas Soman",
+      "qualification": "",
+      "total_exp": "8 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM CONSTANT MATURITY FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.88%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "6.88 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.87 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "7.11 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,776.17 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20001230"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Low Duration Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "59",
+      "benchmark_index": "59",
+      "count": 55,
+      "fund_manager_managing_fund_since": "59",
+      "fund_manager_name": "59",
+      "fund_manager_total_exp": "59",
+      "load_entry": "59",
+      "load_exit": "59",
+      "main_scheme_name": "59",
+      "metrics_avg_maturity": "59",
+      "metrics_macaulay": "59",
+      "metrics_mod_duration": "59",
+      "metrics_ytm": "59",
+      "min_addl_amt": "59",
+      "min_addl_amt_multiple": "59",
+      "min_amt": "59",
+      "min_amt_multiple": "59",
+      "monthly_aaum_date": "59",
+      "monthly_aaum_value": "59",
+      "mutual_fund_name": "59",
+      "scheme_launch_date": "59"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " jun-2008",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM LOW DURATION FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.69%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1.50 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "12"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "12,146.87 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20070727"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Money Market A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "60",
+      "benchmark_index": "60",
+      "count": 55,
+      "fund_manager_managing_fund_since": "60",
+      "fund_manager_name": "60",
+      "fund_manager_total_exp": "60",
+      "load_entry": "60",
+      "load_exit": "60",
+      "main_scheme_name": "60",
+      "metrics_avg_maturity": "60",
+      "metrics_macaulay": "60",
+      "metrics_mod_duration": "60",
+      "metrics_ytm": "60",
+      "min_addl_amt": "60",
+      "min_addl_amt_multiple": "60",
+      "min_amt": "60",
+      "min_amt_multiple": "60",
+      "monthly_aaum_date": "60",
+      "monthly_aaum_value": "60",
+      "mutual_fund_name": "60",
+      "scheme_launch_date": "60"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI SAVINGS FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.51%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "10"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.40 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.39 years"
+     }
+    ],
+    "min_addl_amt": "₹ 500",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "500",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "27,494.77 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20040719"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Banking & PSU Debt Index A-II"
+    ],
+    "field_location": [
+     {
+      "amc_name": "61",
+      "benchmark_index": "61",
+      "count": 55,
+      "fund_manager_managing_fund_since": "61",
+      "fund_manager_name": "61",
+      "fund_manager_total_exp": "61",
+      "load_entry": "61",
+      "load_exit": "61",
+      "main_scheme_name": "61",
+      "metrics_avg_maturity": "61",
+      "metrics_macaulay": "61",
+      "metrics_mod_duration": "61",
+      "metrics_ytm": "61",
+      "min_addl_amt": "61",
+      "min_addl_amt_multiple": "61",
+      "min_amt": "61",
+      "min_amt_multiple": "61",
+      "monthly_aaum_date": "61",
+      "monthly_aaum_value": "61",
+      "mutual_fund_name": "61",
+      "scheme_launch_date": "61"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " nov 2013",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Ardhendhu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI BANKING & PSU FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.41%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.37 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.48 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.58 years"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "3,722.24 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20091009"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "NIFTY Liquid Index A-I"
+    ],
+    "field_location": [
+     {
+      "amc_name": "62",
+      "benchmark_index": "62",
+      "count": 55,
+      "fund_manager_managing_fund_since": "62",
+      "fund_manager_name": "62",
+      "fund_manager_total_exp": "62",
+      "load_entry": "62",
+      "load_exit": "62",
+      "main_scheme_name": "62",
+      "metrics_avg_maturity": "62",
+      "metrics_macaulay": "62",
+      "metrics_mod_duration": "62",
+      "metrics_ytm": "62",
+      "min_addl_amt": "62",
+      "min_addl_amt_multiple": "62",
+      "min_amt": "62",
+      "min_amt_multiple": "62",
+      "monthly_aaum_date": "62",
+      "monthly_aaum_value": "62",
+      "mutual_fund_name": "62",
+      "scheme_launch_date": "62"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "20 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Investor exit upon Exit Load as a % of subscription switch-In redemption Proceeds Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 onwards 0.0000%",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI LIQUID FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.26%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.12 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.13 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.12 years"
+     }
+    ],
+    "min_addl_amt": "₹5000",
+    "min_addl_amt_multiple": "₹1",
+    "min_amt": "₹500",
+    "min_amt_multiple": "₹1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "68,022.75 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20031124"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Ultra Short Duration Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "63",
+      "benchmark_index": "63",
+      "count": 55,
+      "fund_manager_managing_fund_since": "63",
+      "fund_manager_name": "63",
+      "fund_manager_total_exp": "63",
+      "load_entry": "63",
+      "load_exit": "63",
+      "main_scheme_name": "63",
+      "metrics_avg_maturity": "63",
+      "metrics_macaulay": "63",
+      "metrics_mod_duration": "63",
+      "metrics_ytm": "63",
+      "min_addl_amt": "63",
+      "min_addl_amt_multiple": "63",
+      "min_amt": "63",
+      "min_amt_multiple": "63",
+      "monthly_aaum_date": "63",
+      "monthly_aaum_value": "63",
+      "mutual_fund_name": "63",
+      "scheme_launch_date": "63"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Ardhendhu Bhattacharya",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": " dec-2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI MAGNUM ULTRA SHORT DURATION FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.56%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "0.39 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "0.64 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "0.42 years"
+     }
+    ],
+    "min_addl_amt": "1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "12,285.64 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "19990521"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "Nifty Short Duration Debt Index A-II"
+    ],
+    "field_location": [
+     {
+      "amc_name": "64",
+      "benchmark_index": "64",
+      "count": 55,
+      "fund_manager_managing_fund_since": "64",
+      "fund_manager_name": "64",
+      "fund_manager_total_exp": "64",
+      "load_entry": "64",
+      "load_exit": "64",
+      "main_scheme_name": "64",
+      "metrics_avg_maturity": "64",
+      "metrics_macaulay": "64",
+      "metrics_mod_duration": "64",
+      "metrics_ytm": "64",
+      "min_addl_amt": "64",
+      "min_addl_amt_multiple": "64",
+      "min_amt": "64",
+      "min_amt_multiple": "64",
+      "monthly_aaum_date": "64",
+      "monthly_aaum_value": "64",
+      "mutual_fund_name": "64",
+      "scheme_launch_date": "64"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": " june 2021",
+      "name": "Mr. Ardhendu Bhattacharya",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": " oct 2020",
+      "name": "Mr. Rajeev Radhakrishnan",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": " dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "For exit within 3 days from the date of allotment: 0.10%, For exit on or after 3 days from the date of allotment: Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI FLOATING RATE DEBT FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.57%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1.28 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "5.08 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "1.33 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "1,284.37 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20201027"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Long Duration Debt A-III Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "65",
+      "benchmark_index": "65",
+      "count": 55,
+      "fund_manager_managing_fund_since": "65",
+      "fund_manager_name": "65",
+      "fund_manager_total_exp": "65",
+      "load_entry": "65",
+      "load_exit": "65",
+      "main_scheme_name": "65",
+      "metrics_avg_maturity": "65",
+      "metrics_macaulay": "65",
+      "metrics_mod_duration": "65",
+      "metrics_ytm": "65",
+      "min_addl_amt": "65",
+      "min_addl_amt_multiple": "65",
+      "min_amt": "65",
+      "min_amt_multiple": "65",
+      "monthly_aaum_date": "65",
+      "monthly_aaum_value": "65",
+      "mutual_fund_name": "65",
+      "scheme_launch_date": "65"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Tejas Soman",
+      "qualification": "",
+      "total_exp": "8 years"
+     },
+     {
+      "managing_fund_since": "dec 2023",
+      "name": "Mr. Pradeep Kesavan",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI LONG DURATION FUND Investment Objective",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "7.12%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "11.63 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "28.87 years"
+     },
+     {
+      "name": "macaulay",
+      "value": "12.04 years"
+     }
+    ],
+    "min_addl_amt": "₹ 1000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "2,862.97 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20221221"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "CRISIL Liquid Overnight Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "66",
+      "benchmark_index": "66",
+      "count": 55,
+      "fund_manager_managing_fund_since": "66",
+      "fund_manager_name": "66",
+      "fund_manager_total_exp": "66",
+      "load_entry": "66",
+      "load_exit": "66",
+      "main_scheme_name": "66",
+      "metrics_avg_maturity": "66",
+      "metrics_macaulay": "66",
+      "metrics_ytm": "66",
+      "min_addl_amt": "66",
+      "min_addl_amt_multiple": "66",
+      "min_amt": "66",
+      "min_amt_multiple": "66",
+      "monthly_aaum_date": "66",
+      "monthly_aaum_value": "66",
+      "mutual_fund_name": "66",
+      "scheme_launch_date": "66"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec -2024",
+      "name": "Ms. Ranjhana Gupta",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Tejas Soman",
+      "qualification": "",
+      "total_exp": "8 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "N.A.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SBI OVERNIGHT FUND",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.62%"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "6.62"
+     },
+     {
+      "name": "macaulay",
+      "value": "6.62"
+     }
+    ],
+    "min_addl_amt": "₹ 1,000",
+    "min_addl_amt_multiple": "₹ 1",
+    "min_amt": "₹ 5,000",
+    "min_amt_multiple": "₹ 1",
+    "monthly_aaum_date": "20250131",
+    "monthly_aaum_value": "19,617.07 Crores",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "20021001"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE Sensex (TRI) SBI Nifty Index Fund First Tier Scheme Benchmark: Nifty 50 (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "70",
+      "benchmark_index": "70",
+      "count": 55,
+      "main_scheme_name": "70",
+      "monthly_aaum_date": "70",
+      "mutual_fund_name": "70",
+      "scheme_launch_date": "70"
+     }
+    ],
+    "main_scheme_name": "SBI Gold Fund First Tier Scheme Benchmark: The Morning Fixing of Gold by",
+    "monthly_aaum_date": "20250131",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "SEPTEMBER 2011"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "SBI Funds Management Limited",
+    "benchmark_index": [
+     "BSE Sensex (TRI) SBI Nifty Index Fund First Tier Scheme Benchmark: Nifty 50 (TRI)"
+    ],
+    "field_location": [
+     {
+      "amc_name": "78",
+      "benchmark_index": "78",
+      "count": 55,
+      "main_scheme_name": "78",
+      "monthly_aaum_date": "78",
+      "mutual_fund_name": "78",
+      "scheme_launch_date": "78"
+     }
+    ],
+    "main_scheme_name": "SBI Gold Fund First Tier Scheme Benchmark: The Morning Fixing of Gold by London Bullion Market Association (LBMA)",
+    "monthly_aaum_date": "20250131",
+    "mutual_fund_name": "SBI Mutual Fund",
+    "scheme_launch_date": "SEPTEMBER 2016"
+   }
+  }
+ ]
+}
