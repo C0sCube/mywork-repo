@@ -3764,12 +3764,12 @@
       },
       clip_bbox: [
         [0, 96, 180, 812],
-        [400, 0, 590, 240],
+        [430, 0, 610, 100],
         [170, 740, 560, 812],
       ],
       line_x: 200.0,
       data: {
-        size: [7, 12],
+        size: [7, 15],
         color: [-1],
         update_size: 30.0,
         font: ["Calibri,Bold", "Inter-Bold"],
