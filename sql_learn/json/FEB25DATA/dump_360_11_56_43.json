@@ -5,9 +5,15 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mayur Patel",
+                "name": "Mayur Patel Mr. Mayur Patel",
                 "qualification": "",
                 "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Ashish Ongari Mr. Ashish",
+                "qualification": "",
+                "total_exp": "Six Years"
             }
         ],
         "load": {
@@ -44,7 +50,7 @@
         "min_amt": "\u20b9 1,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 6,627.55",
+        "monthly_aaum_value": "\u20b9 6,627.55 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             5
@@ -57,9 +63,15 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mayur Patel",
+                "name": "Mayur Patel Mr. Mayur Patel",
                 "qualification": "",
-                "total_exp": "18 Years"
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Ashish Ongari Mr. Ashish",
+                "qualification": "",
+                "total_exp": "Six Years"
             }
         ],
         "load": {
@@ -93,10 +105,10 @@
         },
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "\u20b9 1,000",
+        "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 1,365.05",
+        "monthly_aaum_value": "\u20b9 1,365.05 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             6
@@ -109,9 +121,15 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Parijat",
+                "name": "Parijat Garg Mr. Parijat",
                 "qualification": "",
                 "total_exp": "16 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Ashish Ongari Mr. Ashish",
+                "qualification": "",
+                "total_exp": "Six Years"
             }
         ],
         "load": {
@@ -148,7 +166,7 @@
         "min_amt": "\u20b9 1,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 605.54",
+        "monthly_aaum_value": "\u20b9 605.54 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             7
@@ -158,7 +176,20 @@
     "360 ONE ELSS TAX SAVER NIFTY 50 INDEX FUND": {
         "amc_name": "360 ONE Asset Management Limited",
         "benchmark_index": "NIFTY 50 TRI",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Parijat Garg Mr. Parijat",
+                "qualification": "",
+                "total_exp": "16 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Ashish Ongari Mr. Ashish",
+                "qualification": "",
+                "total_exp": "Six Years"
+            }
+        ],
         "load": {
             "entry_load": "NIL",
             "exit_load": "NIL"
@@ -171,20 +202,20 @@
             "average_pb": null,
             "average_pe": null,
             "avg_maturity": null,
-            "beta": "NA",
+            "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.07",
-            "r_squared_ratio": "NA",
+            "r_squared_ratio": null,
             "roe_ratio": null,
-            "sharpe": "NA",
+            "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
             "tracking_error": null,
-            "treynor_ratio": "NA",
+            "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
         },
@@ -193,7 +224,7 @@
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 75.86",
+        "monthly_aaum_value": "\u20b9 75.86 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             8
@@ -203,8 +234,32 @@
     "360 ONE BALANCED HYBRID FUND": {
         "amc_name": "360 ONE Asset Management Limited",
         "benchmark_index": "Nifty 50 Hybrid Composite Debt 5050 Index",
-        "co_fund_manager_bravo": [],
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Mayur Patel Equity Mr. Mayur Patel",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Ashish Equity Ongari Mr. Ashish",
+                "qualification": "",
+                "total_exp": "Six Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Milan Mody Debt Mr. Mody",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Manumaharaj Debt Saravanaraj Mr. Saravanaraj",
+                "qualification": "",
+                "total_exp": "1 Year"
+            }
+        ],
         "load": {
             "entry_load": "NIL",
             "exit_load": "- Redemption  switch-out of 10 of Units alloted on or before completion of 12 months from the date of allotment- NIL exit load. - Redemption switch out in excess of the 10 of Units allotted on or before completion of 12 months from the date of allotment 1.00 exit load. - Nil - if redeemed  switched out after 12 months from the date of allotment"
@@ -236,10 +291,10 @@
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
-        "min_amt": null,
-        "min_amt_multiple": null,
+        "min_amt": "\u20b9 1000",
+        "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 832.72",
+        "monthly_aaum_value": "\u20b9 832.72 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             9,
@@ -250,7 +305,20 @@
     "360 ONE DYNAMIC BOND FUND": {
         "amc_name": "360 ONE Asset Management Limited",
         "benchmark_index": "CRISIL Dynamic Bond A-III Index",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Milan Mody Mr. Mody",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Manumaharaj Co- Fund Manager Saravanaraj Mr. Saravanaraj",
+                "qualification": "",
+                "total_exp": "1 Year"
+            }
+        ],
         "load": {
             "entry_load": "NIL",
             "exit_load": "NIL"
@@ -285,7 +353,7 @@
         "min_amt": "\u20b9 10,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 715.70",
+        "monthly_aaum_value": "\u20b9 715.70 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             11
@@ -295,7 +363,20 @@
     "360 ONE LIQUID FUND": {
         "amc_name": "360 ONE Asset Management Limited",
         "benchmark_index": "CRISIL Liquid Debt A-I Index",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Milan Mody Mr. Mody",
+                "qualification": "",
+                "total_exp": "20 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Manumaharaj Co- Fund Manager Saravanaraj Mr. Saravanaraj",
+                "qualification": "",
+                "total_exp": "1 Year"
+            }
+        ],
         "load": {
             "entry_load": "NIL",
             "exit_load": "Investor exit upon Exit load as a  of Subscription redemption proceeds Day 1  0.0070 Past performance may or may not be sustained in future. Different plans shall have different expense structure. Point to Point (PTP) returns in is based on stan Day 2  0.0065 investment of 10,000 Since Inception date is 13-Nov-2013  CRISIL Liquid Debt A-I Index, CRISIL 1 Year T-Bill Index. Day 3  0.0060 Day 4  0.0055 Day 5  0.0050 Day 6  0.0045 Day 7 Onwards  0.0000"
@@ -330,7 +411,7 @@
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 1,061.96",
+        "monthly_aaum_value": "\u20b9 1,061.96 crore",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             12

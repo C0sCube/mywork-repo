@@ -17,7 +17,7 @@
       line_x: 160.0,
       data: {
         size: [6, 10],
-        color: [-10791002, 5986214],
+        color: [-1], //-10791002, 5986214
         update_size: 30.0,
         font: ["SpaceGrotesk-SemiBold"],
       },
@@ -30,19 +30,21 @@
     },
     REGEX: {
       manager: {
-        pattern: "(?:Mr|Mrs|Ms)\\.?[\\s]*([A-Za-z\\s]+?)\\s*has.*?([0-9\\.]+\\s*years)",
+        pattern:"(?:Mr|Mrs|Ms)\\.?\\s*(.+?)\\s*has.*?((?:[0-9\\.]+|[A-Za-z]+)\\s*years?)",
         fields: ["name", "exp"],
       },
       min_amt: "([\\d,]+).*?([\\d,]+)",
       date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4}+)",
       aum: "(Net\\s*AUM|Monthly Average AUM)\\s*(-?[\\d,.]+)",
       scheme: [
+        "Investment Objective",
+        "Fund Manager",
+        "Fund Details",
         "Date of Allotment",
         "Bloomberg\\s*Code",
         "Benchmark\\s*Index",
         "Plans Offered",
-        "Options Offered",
-        "Minimum Application",
+        "Options Offered",  // "Minimum Application",
         "Additional Purchase",
         "Weekly SIP Option",
         "Monthly SIP Option",
@@ -51,59 +53,54 @@
         "Exit Load",
         "Dematerialization",
         "Portfolio Turnover",
-        "EOL",
+        "NAV as on",
+        "AUM as on",
+        "Monthly Average AUM",
+        "Total Expense Ratio",
+        "EOL"
       ],
       ptr: "([\\d\\.]+).*",
       metrics: "(Std\\.? Dev|Sharpe Ratio|Modified Duration|Portfolio Beta|Residual Maturity|R Squared|Treynor|Macaulay Duration|Annualised Portfolio)\\s*(-?[\\d.]+\\s*(?:years|days|months)?|NA)\\s*(?:(-?[\\d.]+\\s*(?:years|days|months)?|NA))?",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": ["_extract_str_data", null],
-      "^aum.*": ["_extract_generic_data", "aum"],
-      "^scheme.*": ["_extract_scheme_data", "scheme"],
-      "^(fund_mana|co_fund_mana).*": ["_extract_manager_data", "manager"],
-      "^(equity|debt).*": ["_extract_manager_data", "manager"],
-      "^saravanaraj.*": ["_extract_manager_data", "manager"],
+      "(before|dummy.*)":[
+        "_extract_scheme_data",
+        "scheme"
+      ]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*(minimum_application|additional_purchase)$": [
+      ".*(options_offered|additional_purchase)$": [
         "_extract_amt_data",
         "min_amt",
       ],
-      metrics: ["_extract_generic_data", "metrics"],
+      ".*total_expense_ratio": ["_extract_generic_data", "metrics"],
       ".*portfolio_turnover": ["_extract_generic_data", "ptr"],
       ".*date_of_allotment": ["_extract_generic_data", "date"],
+      ".*aum_as_on": ["_extract_generic_data", "aum"],
+      ".*fund_manager":["_extract_manager_data","manager"]
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
       ".*(entry_load|exit_load)",
       ".*(date_of_allotment|benchmark_index)$",
-      "^(fund|co_fund)_manager",
-      ".*(alpha|bravo|charlie)",
       "metrics",
-      "aum.monthly_average_aum",
+      ".*fund_manager",
+      ".*monthly_average_aum",
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
       "amc_name",
-      ".*(additional_purchase|minimum_application)",
-      "^equity",
-      "^debt",
+      ".*(additional_purchase|options_offered)", //4
+      "minimum_application",
       ".*portfolio_turnover",
-      "^saravanaraj.*",
       "load",
     ],
     MERGEKEYS: {
-      load: ["scheme_details.entry_load", "scheme_details.exit_load"],
-      metrics: ["metrics", ".*portfolio_turnover"],
-      fund_manager: [
-        "^equity$",
-        "^debt$",
-        "^fund_manager$",
-        "^co_fund_manager$",
-        "^saravanaraj.*",
-      ],
+      load: [".*entry_load", ".*exit_load"],
+      metrics: [".*total_expense_ratio", ".*portfolio_turnover"],
+      minimum_application:[".*options_offered"]
     },
     COMMENTS: [
       "Tracking Error capture",
@@ -120,7 +117,6 @@
     PRE_DATA_SELECT: [],
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {
-      fund_manager: "_update_manger_data",
     },
     PROMOTE_KEYS: {},
     MAIN_MAP: {
