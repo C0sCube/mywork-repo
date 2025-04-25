@@ -543,11 +543,11 @@
       ter: "(Regular|Direct)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
       min_amt: "([\\d,]+).*?(\\d+|any)\\s*(?:amount|thereafter)?",
       manager: {
-        pattern: "(?:Mr\\.|Ms\\.|Mrs\\.)?\\s*([A-Za-z\\s]+?)\\s*(?:\\(\\w+\\))?\\s*\\(w\\.e\\.f\\.\\s([\\d\\w\\s,]+)\\)",
+        pattern:"(?:Mr\\.|Ms\\.|Mrs\\.)\\s*([A-Za-z\\s]+)(?:\\s*\\((?:w\\.?e\\.?f\\.?|since)\\s*(.+?)\\))?",
         fields: ["name", "since"],
       },
       nav: "(Regular Plan Growth|Regular Plan IDCW|Direct Plan Growth|Direct Plan IDCW)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
-      metric: "(Beta|R Squared|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity)\\s*(-?[\\d.]+\\s*(?:years?|months?|days?)?|NA|Nil)",
+      metric: "(Beta|R Squared|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Y?ield to Maturity|Information Ratio)\\s*(-?[\\d.]+\\s*(?:years?|months?|days?)?|NA|Nil)",
       ptr: "(Equity|Aggregate|Tracking Error)\\s*(-?[\\d.]+)",
       escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-]+|\\(Annualized\\)|\u00b7",
     },

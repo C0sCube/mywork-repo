@@ -468,7 +468,7 @@
         "upside_deviation": [],
         "ytm": [
             "^annualised_portfolio_ytm",
-            "^yield_to_maturity",
+            "^y?ield_to_maturity",
             "^Annualised Yield",
             "^annualised_yield$",
             "^annualized$",
