@@ -16,9 +16,6 @@
         ],
         "market_capital": "^(market)",
         "category": "^(catagory|category_).*",
-        "composition_by_asset": "^composition_by_asset.*",
-        "composition_by_industry": "^composition_by_industry.*",
-        "composition_by_rating": "^composition_by_rating.*",
         "aum": [
             "aum",
             "assets",
@@ -426,7 +423,9 @@
             "^turnover_ratio$",
             "^portfolio_turnover.*equity_arbitrage$",
             ".*equity_turnover$",
-            "^portfolio_turnover$"
+            "^portfolio_turnover$",
+            "^portfolioturnover$",
+            "^portfolioturnover.*arbitrage"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -441,7 +440,8 @@
             "^Sharpe Ratio",
             "^Sharpe.*",
             "^sharpe_ratio",
-            "^sharpe_rao$"
+            "^sharpe_rao$",
+            "^sharperatio"
         ],
         "sortino_ratio": [],
         "std_dev": [
@@ -452,7 +452,8 @@
             "^standard$",
             "^Standard_Deviation_of_Fund",
             "^std.",
-            "^std_d$"
+            "^std_d$",
+            "^standarddeviation"
         ],
         "tracking_error": [
             "^tracking_error$",
@@ -482,7 +483,8 @@
             "^yield_maturity$",
             "^ytm.*$",
             "^portfolio_yield$",
-            "^portfolio_ytm$"
+            "^portfolio_ytm$",
+            "^yieldtomaturity$"
         ]
     },
     "financial_indices": [

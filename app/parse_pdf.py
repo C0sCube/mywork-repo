@@ -38,6 +38,7 @@ class Reader:
                 title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
+                # print(title)
                 if title:
                     print(f"{pgn:02d} -- {title}")
                 title_detected[pgn] = title
@@ -645,12 +646,13 @@ class Reader:
             new_load = {"entry_load": None,"exit_load": None}
             try:
                 for load_key, load_value in temp.get("load", {}).items():
+                    value = load_value if isinstance(load_value, str) else " ".join(load_value)
                     if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
-                        new_load["entry_load"] = load_value
+                        new_load["entry_load"] = value
                     elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
-                        new_load["exit_load"] = load_value
+                        new_load["exit_load"] = value
                     else:
-                        new_load[load_key] = load_value
+                        new_load[load_key] = value
             except Exception as e:
                 # logger.error(e)
                 print(f"\nLoad Error {e}")

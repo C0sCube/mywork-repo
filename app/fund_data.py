@@ -79,6 +79,24 @@ class GrandFundData:
     def _extract_str_data(self, main_key: str, data: list):
         return {main_key: " ".join(data)}
     
+    def _extract_whitespace_data(self, main_key:str,data, pattern:str):
+        final_dict = {}
+        generic_data = " ".join(data) if isinstance(data,list) else data
+        generic_data = re.sub(self.REGEX['escape'], "", generic_data).replace(" ","").strip()
+      
+        matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
+        for match in matches:
+            if isinstance(match, str):
+                return {main_key: match}
+            elif len(match) == 2:
+                key, value = match
+                final_dict[key.strip()] = value.strip()
+            elif len(match) == 3:
+                key,v1,v2 = match
+                final_dict[key.strip()] = v1.strip()
+                    
+        return {main_key:final_dict}
+    
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         final_dict = {}
 
@@ -700,6 +718,7 @@ class JMMF(Reader,GrandFundData):
         
 # 44 Shriram
 class Shriram(Reader,GrandFundData):
+    
     def __init__(self, paths_config: str,fund_name:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS) 

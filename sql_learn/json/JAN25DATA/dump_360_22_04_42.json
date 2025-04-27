@@ -5,13 +5,13 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mayur Patel Mr. Mayur Patel",
+                "name": "Mayur Patel",
                 "qualification": "",
                 "total_exp": "20 Years"
             },
             {
                 "managing_fund_since": "",
-                "name": "Rohit Vaidyanathan Mr. Vaidyanathan",
+                "name": "Vaidyanathan",
                 "qualification": "",
                 "total_exp": "10 Years"
             }
@@ -50,7 +50,7 @@
         "min_amt": "\u20b9 1,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 6,939.30crore",
+        "monthly_aaum_value": "\u20b9 6,939.30",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             5
@@ -63,13 +63,13 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mayur Patel Mr. Mayur Patel",
+                "name": "Mayur Patel",
                 "qualification": "",
                 "total_exp": "20 Years"
             },
             {
                 "managing_fund_since": "",
-                "name": "Rohit Vaidyanathan Mr. Vaidyanathan",
+                "name": "Vaidyanathan",
                 "qualification": "",
                 "total_exp": "10 Years"
             }
@@ -105,10 +105,10 @@
         },
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
-        "min_amt": "\u20b9 1,000",
-        "min_amt_multiple": "\u20b9 1",
+        "min_amt": "",
+        "min_amt_multiple": "",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 1,334.45 crore",
+        "monthly_aaum_value": "\u20b9 1,334.45",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             6
@@ -121,13 +121,13 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Parijat Garg Mr. Parijat",
+                "name": "Parijat",
                 "qualification": "",
                 "total_exp": "16 Years"
             },
             {
                 "managing_fund_since": "",
-                "name": "Rohit Vaidyanathan Mr. Vaidyanathan",
+                "name": "Vaidyanathan",
                 "qualification": "",
                 "total_exp": "10 Years"
             }
@@ -166,7 +166,7 @@
         "min_amt": "\u20b9 1,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 620.54 crore",
+        "monthly_aaum_value": "\u20b9 620.54",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             7
@@ -179,13 +179,13 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Parijat Garg Mr. Parijat",
+                "name": "Parijat",
                 "qualification": "",
                 "total_exp": "16 Years"
             },
             {
                 "managing_fund_since": "",
-                "name": "Rohit Vaidyanathan Mr. Vaidyanathan",
+                "name": "Vaidyanathan",
                 "qualification": "",
                 "total_exp": "10 Years"
             }
@@ -215,7 +215,7 @@
             "sortino_ratio": null,
             "std_dev": "NA",
             "tracking_error": null,
-            "treynor_ratio": null,
+            "treynor_ratio": "NA",
             "upside_deviation": null,
             "ytm": null
         },
@@ -224,7 +224,7 @@
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 75.60 crore",
+        "monthly_aaum_value": "\u20b9 75.60",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             8
@@ -234,30 +234,19 @@
     "360 ONE BALANCED HYBRID FUND": {
         "amc_name": "360 ONE Asset Management Limited",
         "benchmark_index": "Nifty 50 Hybrid Composite Debt 5050 Index",
+        "co_fund_manager_bravo": [],
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Mayur Patel Equity Mr. Mayur Patel",
-                "qualification": "",
-                "total_exp": "20 Years"
-            },
-            {
-                "managing_fund_since": "",
-                "name": "Rohit Equity Vaidyanathan Mr. Vaidyanathan",
+                "name": "Vaidyanathan",
                 "qualification": "",
                 "total_exp": "10 Years"
             },
             {
                 "managing_fund_since": "",
-                "name": "Milan Mody Debt Mr. Mody",
+                "name": "Mody",
                 "qualification": "",
                 "total_exp": "20 Years"
-            },
-            {
-                "managing_fund_since": "",
-                "name": "Manumaharaj Debt Saravanaraj Mr. Saravanaraj",
-                "qualification": "",
-                "total_exp": "1 Year"
             }
         ],
         "load": {
@@ -291,10 +280,10 @@
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
-        "min_amt": "\u20b9 1000",
-        "min_amt_multiple": "\u20b9 1",
+        "min_amt": "",
+        "min_amt_multiple": "",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 852.49 crore",
+        "monthly_aaum_value": "\u20b9 852.49",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             9,
@@ -308,15 +297,9 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Milan Mody Mr. Mody",
+                "name": "Mody",
                 "qualification": "",
                 "total_exp": "20 Years"
-            },
-            {
-                "managing_fund_since": "",
-                "name": "Manumaharaj Co- Fund Manager Saravanaraj Mr. Saravanaraj",
-                "qualification": "",
-                "total_exp": "1 Year"
             }
         ],
         "load": {
@@ -353,7 +336,7 @@
         "min_amt": "\u20b9 10,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 731.04 crore",
+        "monthly_aaum_value": "\u20b9 731.04",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             11
@@ -366,15 +349,9 @@
         "fund_manager": [
             {
                 "managing_fund_since": "",
-                "name": "Milan Mody Mr. Mody",
+                "name": "Mody",
                 "qualification": "",
                 "total_exp": "20 Years"
-            },
-            {
-                "managing_fund_since": "",
-                "name": "Manumaharaj Co- Fund Manager Saravanaraj Mr. Saravanaraj",
-                "qualification": "",
-                "total_exp": "1 Year"
             }
         ],
         "load": {
@@ -411,7 +388,7 @@
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "31-03-2025",
-        "monthly_aaum_value": "\u20b9 951.48 crore",
+        "monthly_aaum_value": "\u20b9 951.48",
         "mutual_fund_name": "360 ONE Mutual Fund",
         "page_number": [
             12
