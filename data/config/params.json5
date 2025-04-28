@@ -350,7 +350,10 @@
         ocr: false,
         pattern: "(AXIS.*?(?:FUND|ETF|INDEX)\\s*(?:OF FUND|FOF|FUND)?)",
         bbox: [
-          0, 0, 500, 36
+          0,
+          0,
+          500,
+          36
         ],
       },
       fund: {
@@ -426,7 +429,7 @@
         "EOL"
       ],
       aum: "([\\d.]+\\s*cr)",
-      ptr:"([\\d.]+ times)",
+      ptr: "([\\d.]+ times)",
       min_amt: "([\\d.,]+)\\s*and\\s*([\\d.,]+)\\s*there",
       manager: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([\\w\\s]+)Work experience\\s*([0-9]+ years).+?fund since\\s*([0-9]+(?:rd|nd|st|th)\\s*[A-Za-z]+\\s*[0-9]+)",
       metrics: "(Standard Deviation|Sharpe Ratio|Beta|Dividend Yield|Residual Maturity|Modified Duration|Maculay Duration|Annualised Portfolio YTM)\\s*(-?[\\d.]+\\s*(?:years|months|days)?)",
@@ -3726,7 +3729,7 @@
     PARAMS: {
       title: {
         ocr: true,
-        pattern: "((?:LI?i?C|BSE|BANK|SMALL|HEALTH|MNEY).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|FUNDs*OFs*FUND))",
+        pattern: "((?:LI?i?C|BSE|BANK|SMALL|HEALTH|MNEY|An\\s*open).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|tax saving scheme|small cap stocks)\\s*(?:FUND\\s*OF\\s*FUND)?)",
         bbox: [
           0,
           0,
@@ -5422,6 +5425,7 @@
     },
     REGEX: {
       aum: ".*Monthly Average AUM.*?([\\d,.]+)$",
+      date:"([\\d]+)",
       scheme: [
         "Investment Objective",
         "Fund Manager",
@@ -5434,6 +5438,9 @@
         "EOL",
       ],
       lumpsum: [
+        "Inception Date",
+        "Direct Plan",
+        "EOL",
         "Application Amount",
         "Additional Purchase",
         "SIP",
@@ -5497,6 +5504,10 @@
         "_extract_generic_data",
         "benchmark"
       ],
+      ".*inception_date":[
+        "_extract_generic_data",
+        "date"
+      ]
     },
     SELECTKEYS: [
       ".*(additional_purchase|application_amount)$",
@@ -5507,6 +5518,7 @@
       "mutual_fund_name",
       "page_number",
       "monthly_aaum_date",
+      ".*inception_date$"
     ],
     MERGEKEYS: {},
     COMMENTS: [],
@@ -5816,6 +5828,15 @@
       date: "([0-9]+\\s*[A-Za-z]+\\s*[0-9]+)",
       metrics: "(Sharpe Ratio|Sortino Ratio|Jensens Alpha|R-?\\s*Squared|Downside Deviation|Upside Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*(-?[\\d,.]+\\s*(?:days|months|years)?)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      aaum: {
+        coord: [
+          484,
+          50,
+          600,
+          100
+        ],
+        regex: "([\\d,.]+\\s*cr)"
+      }
     },
     PATTERN_TO_FUNCTION: {
       scheme_details: [
@@ -5864,6 +5885,7 @@
       ".*load_structure",
       ".*risk.*measures$",
       ".*fund_size",
+      "generate_avg_manage" //clone
     ],
     MERGEKEYS: {},
     COMMENTS: [],
@@ -5878,8 +5900,12 @@
     PRE_DATA_SELECT: [
       "^dummy.*"
     ],
-    CLONEKEYS: {},
-    SPECIAL_FUNCTIONS: {},
+    CLONEKEYS: {
+      "generate_avg_manage": "page_number"
+    },
+    SPECIAL_FUNCTIONS: {
+      generate_avg_manage: "_generate_aum_data"
+    },
     PROMOTE_KEYS: {},
     MAIN_MAP: {
       class_name: "",

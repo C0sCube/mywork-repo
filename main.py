@@ -19,8 +19,8 @@ for amc_name,class_name in class_mapper.items():
     print(f"\nRunning for AMC:{amc_name}\n**********************")
     try:
         # print(class_mapper[amc_name])
-        object = eval(class_mapper[amc_name])(PATHS_CONFIG, amc_name)
         path = mutual_fund[amc_name]
+        object = eval(class_mapper[amc_name])(PATHS_CONFIG, amc_name,path)
         title,path_pdf = object.check_and_highlight(path)
         data = object.get_data(path_pdf, title)
         extracted_text = object.get_generated_content(data)

@@ -25,6 +25,7 @@ class FundRegex():
         self.METRIC_HEADER = data.get("metrics_headers",{})
         self.FINANCIAL_TERMS = data.get("financial_indices",[])
         self.ESCAPE = data.get("escape_regex","")
+        self.MAIN_SCHEME_NAME = data.get("main_scheme_name",{})
        
 
     @staticmethod
@@ -171,10 +172,17 @@ class FundRegex():
 
         return data, changes
     
-    
-    @staticmethod
-    def sanitize_data(): #write function to clean entire data in folder json later
-        pass
+    def _sanitize_fund(self,fund:str,fund_name:str):
+        
+        fund = re.sub(self.ESCAPE, '', fund)
+        fund = re.sub("\\s+", ' ', fund)
+        for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
+            if matches:=re.findall(regex,fund,re.IGNORECASE):
+                print(matches)
+                # print(key)
+                fund = key
+                break
+        return fund
 
 
      

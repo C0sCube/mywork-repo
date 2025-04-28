@@ -9,7 +9,7 @@ from app.fund_data import *
 from logging_config import *
 
 class Reader:
-    def __init__(self, config_path: str,params:dict):
+    def __init__(self, config_path: str,params:dict,path:str):
         
         if not os.path.exists(config_path):
             raise FileNotFoundError(f"Config FNF: {config_path}")
@@ -25,6 +25,7 @@ class Reader:
         self.DRYPATH = os.path.join(self.BASEPATH, paths.get("dry", ""))
         self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
+        self.PDF_PATH = path
         self.TEXT_ONLY = {}
         
     #HIGHLIGHT
@@ -209,7 +210,6 @@ class Reader:
                     fund_seen[fundName] = new_entry 
 
         return finalData
-
 
     def extract_data_relative_line(self, path: str,title: dict)->list:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -515,7 +515,6 @@ class Reader:
 
             doc.save(output_path)
     
-    
     @staticmethod
     def _extract_data_from_pdf(path: str):
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -684,8 +683,10 @@ class Reader:
             temp = self._formalize_values(temp) # add rupee symbol scale further
             
             temp,_ = regex._check_replace_type(temp,fund) #_ has changes logged in a dict 
+            
+            new_fund = regex._sanitize_fund(fund,self.FUND_NAME)
 
-            finalData[fund] = dict(sorted(temp.items()))
+            finalData[new_fund] = dict(sorted(temp.items()))
             
 
         return finalData
