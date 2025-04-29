@@ -218,6 +218,107 @@
     },
     FINANCIAL_TERMS: [],
   },
+  "Angel One Mutual Fund": {
+    PARAMS: {
+      title: {
+        ocr: false,
+        pattern: "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|FOF\\*?|Scheme|EOF|Funds\\*?|Yojna)?)$",
+        bbox: [0, 0, 470, 25],
+      },
+      clip_bbox: [
+        [0, 50, 200, 330],
+        [200, 50, 380, 330],
+        [380, 90, 580, 330],
+      ],
+      line_x: 210.0,
+      data: {
+        size: [4, 10],
+        color: [-1, 0],
+        update_size: 30.0,
+        font: ["AnekLatin-Bold"],
+      },
+      content_size: [30.0, 10.0],
+      method: "clip",
+      line_side: "",
+      max_financial_index_highlight: 9,
+      pdf_ocr: false,
+      stop_words: [],
+    },
+    REGEX: {
+      aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
+      load: "Entry Load(.*?)\\s*Exit Load(.*)$",
+      manager: {
+        name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
+        exp: "\\d+\\.\\d+\\s*Years?",
+        since: "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}",
+      },
+      tracking: "regular\\s*(-?[\\d.]+)",
+      min_amt: "([\\d,]+).*?([\\d,]+)",
+      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
+    },
+    PATTERN_TO_FUNCTION: {
+      "^(date_of_allotment|benchmark_index|fund_manager|managing_fund_since|experience_in_managing)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^aum": ["_extract_generic_data", "aum"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^(application_amount|minimum_investment).*": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      metrics: ["_extract_generic_data", "metric"],
+      tracking_error: ["_extract_generic_data", "tracking"],
+      load: ["_extract_load_data", "load"],
+    },
+    SELECTKEYS: [
+      "main_scheme_name",
+      "amc_name",
+      "monthly_aaum_date",
+      "page_number",
+      "mutual_fund_name",
+      "metrics",
+      "load",
+      "aum.monthly_average_aum",
+      "^(date_of|benchmark).*",
+      "^(application_amount|minimum_investment).*",
+      "^(fund_manager|managing_fund|experience_in).*",
+      "tracking_error",
+    ],
+    MERGEKEYS: {
+      fund_manager: [
+        "fund_manager",
+        "experience_in_managing_the_fund",
+        "managing_fund_since",
+      ],
+      metrics: ["metrics", "tracking_error"],
+    },
+    COMMENTS: [],
+    IMP_DATA: {
+      amc_name: "Aditya Birla Sun Life Asset Management Company Limited",
+      mutual_fund_name: "Aditya Birla Sun Life Mutual Fund",
+      page_number: [],
+      monthly_aaum_date: "",
+    },
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    COMBINEKEYS: {},
+    PRE_DATA_SELECT: [],
+    CLONEKEYS: {},
+    SPECIAL_FUNCTIONS: {
+      fund_manager: "_update_manager_data",
+    },
+    PROMOTE_KEYS: {},
+    MAIN_MAP: {
+      class_name: "",
+      flatten: true,
+      select: true,
+      map: true,
+      special: true,
+    },
+    FINANCIAL_TERMS: [],
+  },
   "Axis Mutual Fund": {
     PARAMS: {
       title: {
@@ -2009,6 +2110,7 @@
         "EOL",
       ],
       min_amt: "([\\d,]+).*?([\\d,]+)",
+      date:"\\(Date of Allotment\\)\\s*(.+)(?:Benchmark)?",
       escape: "[^A-Za-z0-9\\-\\(\\).,\\s]+",
     },
     PATTERN_TO_FUNCTION: {
@@ -2021,6 +2123,7 @@
       ".*minimum_application$": ["_extract_amt_data", "min_amt"],
       ".*(income_portion|metric)": ["_extract_generic_data", "metric"],
       ".*?benchmark.*": ["_extract_bench_data", "bench"],
+      ".*inception_date":["_extract_generic_data","date"]
     },
     SELECTKEYS: [
       ".*(inception_date|benchmark)",
@@ -2411,7 +2514,7 @@
         "Minimum Additional Purchase Amount",
         "Minimum Repurchase Amount",
         "Minimum Redemption / Switch-outs",
-        "Monthly AAUM",
+        "Monthly AAUM as on",
         "Quarterly AAUM",
         "Monthly AUM",
         "Total Expense Ratio",
@@ -2433,7 +2536,7 @@
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load": ["_extract_load_data", "load"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*monthly_aaum$": ["_extract_generic_data", "aum"],
+      ".*monthly_aaum_as_on$": ["_extract_generic_data", "aum"],
       ".*(minimum_application_amount|minimum_additional_purchase_amount)": [
         "_extract_amt_data",
         "min_amt",
@@ -2445,7 +2548,7 @@
       ".*benchmark": ["_extract_generic_data", "benchmark"],
     },
     SELECTKEYS: [
-      ".*(date_of_allotment|benchmark|monthly_aaum|load_structure)",
+      ".*(date_of_allotment|benchmark|load_structure)",
       ".*(application_amount|additional_purchase_amount)$",
       "amc_name",
       ".*fund_manager",
@@ -2454,6 +2557,7 @@
       ".*(portfolio_stats|portfolio_information)$",
       "metrics",
       "monthly_aaum_date",
+      ".*monthly_aaum_as_on$",
       "monthly_aaum_value",
       "page_number",
       "mutual_fund_name",
@@ -3131,10 +3235,11 @@
       metrics: "(Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe Ratio|Average Maturity|YTM|Yield to Maturity|Macaulay Duration|Modified Duration)\\s*([\\d.]+\\s*(?:days|months|years|yrs)?)",
     },
     PATTERN_TO_FUNCTION: {
-      "^(exit|entry|investment|date_of|options|plans|benchmark|additional_bench|monthly_average|closing_aum|type_of)": [
+      "^(exit.*|entry.*|benchmark|additional_bench|monthly_average|closing_aum)": [
         "_extract_str_data",
         null,
       ],
+      ".*date_of_allotment":["_extract_str_data",null]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       metrics: ["_extract_generic_data", "metrics"],
@@ -4667,6 +4772,101 @@
     FINANCIAL_TERMS: [],
   },
   "Union Mutual Fund": {
+    PARAMS: {
+      title: {
+        ocr: false,
+        pattern: "(Union\\s*[A-Za-z\\s]+?(?:FUND|PATH|ETF|FOF))",
+        bbox: [0, 0, 180, 150],
+      },
+      clip_bbox: [
+        [0, 140, 180, 812],
+        [360, 140, 580, 812],
+      ],
+      line_x: 180.0,
+      data: {
+        size: [8, 14],
+        color: [-65794, -1],
+        update_size: 30.0,
+        font: ["Swiss721BT-Bold"],
+      },
+      content_size: [30.0, 10.0],
+      method: "clip",
+      line_side: "",
+      max_financial_index_highlight: 7,
+      pdf_ocr: false,
+      stop_words: [],
+    },
+    REGEX: {
+      aum: ".*average for\\s*[A-Za-z\\s]+\\.?\\s*[0-9]+\\s*([\\d,.]+\\s*crore)",
+      scheme: [
+        "Investment Objective",
+        "Co\\-?Fund Managers",
+        "Indicative Investment Horizon",
+        "Date of allotment",
+        "Assets Under Management",
+        "Benchmark Index",
+        "Expense Ratio as on",
+        "Load Structure",
+        "Active Stock Position in Scheme",
+        "EOL",
+      ],
+      metrics: {
+        key: "(Std\\.?|Sharpe|Beta|Turnover Ratio|Macaulay|Modified|Yield\\s*(?:Maturity)?|Residual)",
+        value: "(-?\\d+\\.?\\d+\\s*(?:days?|months?|years?)?)",
+      },
+      load: "Entry Load(.*)Exit Load(.*)$",
+      manager: {
+        pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?(?:field of|in the|in)\\s*([A-Za-z\\s]+?)\\.?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
+        fields: ["name", "exp", "desig", "since"],
+      },
+      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
+    },
+    PATTERN_TO_FUNCTION: {
+      scheme_details: ["_extract_scheme_data", "scheme"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*load_structure": ["_extract_load_data", "load"],
+      "^metrics.*": ["_extract_metric_data", "metrics"],
+      ".*assets_under.*": ["_extract_generic_data", "aum"],
+      ".*fund_managers": ["_extract_manager_data", "manager"],
+    },
+    SELECTKEYS: [
+      ".*load_structure",
+      "^metrics.*",
+      ".*(benchmark_index|date_of_allotment|fund_managers|assets_under_management)",
+      "amc_name",
+      "main_scheme_name",
+      "page_number",
+      "monthly_aaum_date",
+      "mutual_fund_name",
+    ],
+    MERGEKEYS: {
+      metrics: ["^metrics.*"],
+    },
+    COMMENTS: [],
+    IMP_DATA: {
+      amc_name: "Union Asset Management Company Private Limited",
+      mutual_fund_name: "Union Mutual Fund",
+      page_number: [],
+      monthly_aaum_date: "",
+    },
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    COMBINEKEYS: {},
+    PRE_DATA_SELECT: [],
+    CLONEKEYS: {},
+    SPECIAL_FUNCTIONS: {},
+    PROMOTE_KEYS: {},
+    MAIN_MAP: {
+      class_name: "",
+      flatten: true,
+      select: true,
+      map: true,
+      special: true,
+      ocr: false,
+    },
+    FINANCIAL_TERMS: [],
+  },
+  "Unifi Mutual Fund": {
     PARAMS: {
       title: {
         ocr: false,

@@ -670,7 +670,7 @@ class Reader:
                     new_metrics[new_key] = metric_value
             except Exception as e:
                 # logger.error(e)
-                print(f"\n Metric Error {e}")
+                print(f"\n{fund}: Metric Error {e}")
             
             #populate metrics
             temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)

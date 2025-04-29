@@ -237,7 +237,8 @@
             ".*aaum_for_the_month$",
             "dummy.*?monthly$",
             ".*monthly_aver$",
-            ".*monthly_aaum_as$"
+            ".*monthly_aaum_as$",
+            ".*monthly_aaum_as_on$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
