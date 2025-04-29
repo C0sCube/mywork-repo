@@ -379,7 +379,7 @@ class Bandhan(Reader,GrandFundData):
         Reader.__init__(self,paths_config, self.PARAMS,path) 
 #4
 class BankOfIndia(Reader,GrandFundData):   
-    def __init__(self,paths_config:str,fund_name:str):
+    def __init__(self,paths_config:str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS,path) 
 #5 <>
@@ -498,6 +498,19 @@ class LIC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS,path)
+        
+    def _update_manager_data(self, main_key: str, data):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n = adjust(n,e)
+        for name,exp in zip(n,e):
+            final_list.append(self._return_manager_data(name=name,exp=exp))
+        return {main_key: final_list}
 
 #19 <>
 class MahindraManu(Reader,GrandFundData):
@@ -576,7 +589,7 @@ class QuantMF(Reader,GrandFundData):
         
     def _generate_aum_data(self,main_key:str,data):
         text = ""
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         with fitz.open(self.PDF_PATH) as doc:
             if not data:
                 return {main_key:data}

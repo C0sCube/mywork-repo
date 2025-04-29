@@ -534,18 +534,22 @@ class Reader:
     def get_generated_content(self, data:list):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}\nParsing Completed, Refining Data.....\n")
         extracted_text = {}
+        regex = FundRegex()
         output_path  = self.DRYPATH
         for content in data:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
-            print(f'--<<{fund}>>--')
+            
+            #clean fund before updating
+            clean_fund_name = regex._sanitize_fund(fund,self.FUND_NAME)
+            
+            print(f'--<<{clean_fund_name}>>--')
             Reader._generate_pdf_from_data(blocks, output_path) #1sec
             start_time = time.time()
-            extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
-            self._update_imp_data(extracted_text[fund],fund,pgn)
+            extracted_text[clean_fund_name] = Reader._extract_data_from_pdf(output_path)
+            self._update_imp_data(extracted_text[clean_fund_name],clean_fund_name,pgn)
         return extracted_text
     
     #REFINE
-    
     def _get_unique_key(self,base_key:str, data:dict):
         for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:
             new_key = f"{base_key}_{suffix}"
@@ -553,7 +557,6 @@ class Reader:
                 return new_key
         return "exhaust"
 
-    
     def refine_extracted_data(self, extracted_text: dict,flatten = False):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
@@ -684,9 +687,10 @@ class Reader:
             
             temp,_ = regex._check_replace_type(temp,fund) #_ has changes logged in a dict 
             
-            new_fund = regex._sanitize_fund(fund,self.FUND_NAME)
-
-            finalData[new_fund] = dict(sorted(temp.items()))
+            #clean main_scheme_name
+            # new_fund = regex._sanitize_fund(fund,self.FUND_NAME)
+            # temp["main_scheme_name"] = new_fund
+            finalData[fund] = dict(sorted(temp.items()))
             
 
         return finalData

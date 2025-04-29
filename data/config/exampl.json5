@@ -1,0 +1,40 @@
+{
+  // Header pattern mapping: these help tag the document sections by content
+  header_patterns: {
+    '': [
+      '^1_year',              // Probably a row starting with "1 year" performance or stats
+      '^www.*',               // Web addresses
+      '^An open.*',           // Descriptions starting with "An open..." (classic fund docs)
+    ],
+    market_capital: '^(market)',  // Anything starting with "market" - likely market cap data
+    category: '^(catagory|category_).*', // Matching "category" and common misspellings
+    aum: [
+      'aum',                  // Assets Under Management (AUM) - duh
+      'assets',
+      'monthly_aum',          // Specifically monthly values
+      'fund_size',
+      'aum_detail'            // Oh yes, the highly descriptive "detail" tag
+    ],
+    fund_manager: [
+      '^fund_mana',           // Catch "fund manager" even if someone got lazy with naming
+      '^name_of_the'          // A tragically vague label, but common in PDFs
+    ],
+  },
+
+  // These are characters we'll escape during regex matching to avoid chaos
+  escape_regex: '[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+',
+
+  // This entire section maps field names used across different sources into standard fields
+  json_headers: {
+    fund_manager: [
+      '^fund_manager',         // We love consistency, which is why we need 8 variations of the same field
+      '.*fund_managers$',      // Covers both "manager" and "managers"
+      '.*fund_manager_details' // Because someone *had* to write "details" at the end
+    ],
+    benchmark_index: [
+      '.*benchmark_index$',   // Likely the best case
+      '(?:before)?.*benchmark$', // Because someone used "benchmark before" for funsies
+      '.*underlying_index$'   // Close enough
+    ]
+  }
+}

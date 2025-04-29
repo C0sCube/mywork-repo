@@ -178,8 +178,7 @@ class FundRegex():
         fund = re.sub("\\s+", ' ', fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
             if matches:=re.findall(regex,fund,re.IGNORECASE):
-                print(matches)
-                # print(key)
+                print(f"-------------\nFUND: {fund}\nMATCH: {matches}\nREPLACEMENT: {key}")
                 fund = key
                 break
         return fund
