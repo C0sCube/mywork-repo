@@ -803,8 +803,8 @@
       ],
       manager: {
         name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
-        exp: "\b\\d+\\s*Years?\b",
-        since: "\bSince\\s*([0-9]+\\s*-\\s*[A-Za-z]+\\.?\\s*-\\s*[0-9]+)\b",
+        exp: "([\\d]+ years?)",
+        since: "Since\\s*([0-9]+\\s*-\\s*[A-Za-z]+\\.?\\s*-\\s*[0-9]+)",
       },
       lumpsum: "(.+?)(?:Subsequent|Additional)\\s*purchases?(.+?)(?:SIP|Systematic)",
       min_amt: "([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
@@ -853,7 +853,8 @@
       monthly_aaum_date: "",
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    COMBINEKEYS: {},
+    COMBINEKEYS: {
+    },
     PRE_DATA_SELECT: ["fund_information", "dummy"],
     CLONEKEYS: {
       additional_investment: ".*subsequent",

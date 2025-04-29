@@ -406,6 +406,9 @@ class Canara(Reader,GrandFundData):
         msample += [""] * abs(nlength - len(msample))
         esample += [""] * abs(nlength - len(esample))
         
+        # print(value)
+        # print(nsample,esample,msample)
+        
         final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
         return {main_key:final_list}
 
