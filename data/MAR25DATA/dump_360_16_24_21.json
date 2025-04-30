@@ -214,7 +214,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": null,
+            "tracking_error": "0.12",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -417,5 +417,109 @@
             12
         ],
         "scheme_launch_date": "November 13, 2013"
+    },
+    "360 ONE Gold ETF": {
+        "amc_name": "360 ONE Asset Management Limited",
+        "benchmark_index": "Domestic Prices of Gold",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Rahul Khetawat Mr. Khetawat",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "NIL"
+        },
+        "main_scheme_name": "360 ONE Gold ETF",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "0.43",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 1",
+        "min_addl_amt_multiple": ",",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 10.25 crore",
+        "mutual_fund_name": "360 ONE Mutual Fund",
+        "page_number": [
+            13
+        ],
+        "scheme_launch_date": "March 07, 2025"
+    },
+    "360 ONE Silver ETF": {
+        "amc_name": "360 ONE Asset Management Limited",
+        "benchmark_index": "Domestic Prices of Silver",
+        "fund_manager": [
+            {
+                "managing_fund_since": "",
+                "name": "Rahul Khetawat Mr. Khetawat",
+                "qualification": "",
+                "total_exp": "14 Years"
+            }
+        ],
+        "load": {
+            "entry_load": "NIL",
+            "exit_load": "NIL"
+        },
+        "main_scheme_name": "360 ONE Silver ETF",
+        "metrics": {
+            "alpha": null,
+            "arithmetic_mean_ratio": null,
+            "average_div_yld": null,
+            "average_pb": null,
+            "average_pe": null,
+            "avg_maturity": null,
+            "beta": null,
+            "correlation_ratio": null,
+            "downside_deviation": null,
+            "information_ratio": null,
+            "macaulay": null,
+            "mod_duration": null,
+            "port_turnover_ratio": null,
+            "r_squared_ratio": null,
+            "roe_ratio": null,
+            "sharpe": null,
+            "sortino_ratio": null,
+            "std_dev": null,
+            "tracking_error": "03",
+            "treynor_ratio": null,
+            "upside_deviation": null,
+            "ytm": null
+        },
+        "min_addl_amt": "\u20b9 1",
+        "min_addl_amt_multiple": ",",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "31-03-2025",
+        "monthly_aaum_value": "\u20b9 0.89 crore",
+        "mutual_fund_name": "360 ONE Mutual Fund",
+        "page_number": [
+            14
+        ],
+        "scheme_launch_date": "March 28, 2025"
     }
 }

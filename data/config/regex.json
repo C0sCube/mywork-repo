@@ -238,7 +238,8 @@
             "dummy.*?monthly$",
             ".*monthly_aver$",
             ".*monthly_aaum_as$",
-            ".*monthly_aaum_as_on$"
+            ".*monthly_aaum_as_on$",
+            ".*avg_aum$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"
@@ -373,13 +374,15 @@
             "^residual_maturity$",
             "^residual$",
             "^avg_mat\\.?$",
-            "average_matu?r?i?t?y?$"
+            "average_matu?r?i?t?y?$",
+            "^average$"
         ],
         "beta": [
             "^Portfolio Beta",
             "^beta",
             "^portfolio_beta",
-            ".*beta$"
+            ".*beta$",
+            "^beta$"
         ],
         "correlation_ratio": [],
         "downside_deviation": [],
@@ -394,7 +397,8 @@
             "^Macaulay Duration",
             "^macaulay$",
             ".*macaulay_duration.*",
-            "mac_duration$"
+            "mac_duration$",
+            "macaulay_annualised$"
         ],
         "mod_duration": [
             "^modified_duration",
@@ -426,7 +430,8 @@
             ".*equity_turnover$",
             "^portfolio_turnover$",
             "^portfolioturnover$",
-            "^portfolioturnover.*arbitrage"
+            "^portfolioturnover.*arbitrage\\)?$",
+            "^equity$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -442,7 +447,7 @@
             "^Sharpe.*",
             "^sharpe_ratio",
             "^sharpe_rao$",
-            "^sharperatio"
+            "^sharperatio$"
         ],
         "sortino_ratio": [],
         "std_dev": [
@@ -452,16 +457,18 @@
             "^std dev",
             "^standard$",
             "^Standard_Deviation_of_Fund",
-            "^std.",
+            "^std.?$",
             "^std_d$",
-            "^standarddeviation"
+            "^standarddeviation$"
         ],
         "tracking_error": [
             "^tracking_error$",
             "^tracking_error_regular$",
             "^regular$",
             "^portfolio_turnover_ratio.?tracking_error$",
-            "^tracking_error.*year$"
+            "^tracking_error.*year$",
+            "^tracking_error\\s*.+?yrs?\\)?",
+            ".*tracking_error$"
         ],
         "treynor_ratio": [
             "^Treynor",
@@ -1335,10 +1342,13 @@
             "Union FLEXI CAP FUND": "FLEXI CAP",
             "Union FOCUSED FUND": "FOCUSED",
             "Union GILT FUND": "GILT",
-            "Union GOLD ETF": "GOLD ETF",
+            "Union GOLD ETF": "GOLD ETF\\s*FUND$",
+            "Union GOLD ETF FUND OF FUND": "GOLD ETF\\s*FUND\\s*OF\\s*FUND",
+            "Union INNOVATION & OPPORTUNITIES FUND":"INNOVATION OPPORTUNITIES",
             "Union LARGECAP FUND": "LARGECAP",
+            "Union LARGE & MIDCAP FUND":"LARG.+?MIDCAP",
             "Union LIQUID FUND": "LIQUID",
-            "Union MIDCAP FUND": "MIDCAP",
+            "Union MIDCAP FUND": "Union\\s*MIDCAP\\s*FUND",
             "Union MONEY MARKET FUND": "MONEY MARKET",
             "Union MULTI ASSET ALLOCATION FUND": "MULTI ASSET ALLOCATION",
             "Union MULTICAP FUND": "MULTICAP",
@@ -1346,7 +1356,7 @@
             "Union RETIREMENT FUND": "RETIREMENT",
             "Union SHORT DURATION FUND": "SHORT DURATION",
             "Union SMALL CAP FUND": "SMALL CAP",
-            "Union VALUE FUND": "VALUE"
+            "Union VALUE FUND": "VALUE\\s*FUND$"
         },
         "Whiteoak Mutual Fund": {
             "WhiteOak Capital Arbitrage Fund": "Arbitrage",

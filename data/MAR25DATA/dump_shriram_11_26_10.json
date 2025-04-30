@@ -1,7 +1,7 @@
 {
     "SHRIRAM AGGRESSIVE HYBRID FUND": {
         "amc_name": "Shriram Asset Management Company Limited",
-        "benchmark_index": "CRISIL Hybrid 3565Aggressive Index",
+        "benchmark_index": "CRISIL Hybrid 3565-Aggressive Index",
         "fund_manager": [
             {
                 "managing_fund_since": "August 20, 2022",
@@ -24,7 +24,7 @@
         ],
         "load": {
             "entry_load": "",
-            "exit_load": "If redeemed  switchedout within 90 days from the date of allotment Upto 12 of units Nil More than 12 of units 1 of applicable Net Asset Value (NAV) If redeemedswitchedout after 90 days from the date of allotment Nil MI"
+            "exit_load": "If redeemed  switched-out within 90 days from the date of allotment Upto 12 of units Nil More than 12 of units 1 of applicable Net Asset Value (NAV) If redeemedswitched-out after 90 days from the date of allotment Nil MI"
         },
         "main_scheme_name": "SHRIRAM AGGRESSIVE HYBRID FUND",
         "metrics": {
@@ -37,7 +37,7 @@
             "beta": "1.03",
             "correlation_ratio": null,
             "downside_deviation": null,
-            "information_ratio": "0.48",
+            "information_ratio": "-0.48",
             "macaulay": "3.41 years",
             "mod_duration": "3.26 years",
             "port_turnover_ratio": null,
@@ -89,7 +89,7 @@
         ],
         "load": {
             "entry_load": "",
-            "exit_load": "If redeemed  switchedout within G 90 days from the date of allotment K Upto 12 of units Nil J More than 12 of units 1 of applicable Net C Asset Value (NAV) H If redeemedswitchedout after 90 days from the date of allotment Nil Z"
+            "exit_load": "If redeemed  switched-out within G 90 days from the date of allotment K Upto 12 of units Nil J More than 12 of units 1 of applicable Net C Asset Value (NAV) H If redeemedswitched-out after 90 days from the date of allotment Nil Z"
         },
         "main_scheme_name": "SHRIRAM FLEXI CAP FUND",
         "metrics": {
@@ -102,7 +102,7 @@
             "beta": "0.96",
             "correlation_ratio": null,
             "downside_deviation": null,
-            "information_ratio": "0.55",
+            "information_ratio": "-0.55",
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": null,
@@ -167,7 +167,7 @@
             "beta": "0.94",
             "correlation_ratio": null,
             "downside_deviation": null,
-            "information_ratio": "0.62",
+            "information_ratio": "-0.62",
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": null,
@@ -219,7 +219,7 @@
         ],
         "load": {
             "entry_load": "",
-            "exit_load": "If redeemed  switchedout within 90 days from the date of allotment Upto 12 of units Nil More than 12 of units 1 of applicable Net Asset Value (NAV) NI If redeemedswitchedout after 90 days from the date of allotment Nil"
+            "exit_load": "If redeemed  switched-out within 90 days from the date of allotment Upto 12 of units Nil More than 12 of units 1 of applicable Net Asset Value (NAV) NI If redeemedswitched-out after 90 days from the date of allotment Nil"
         },
         "main_scheme_name": "SHRIRAM BALANCED ADVANTAGE FUND",
         "metrics": {
@@ -232,7 +232,7 @@
             "beta": "1.06",
             "correlation_ratio": null,
             "downside_deviation": null,
-            "information_ratio": "0.26",
+            "information_ratio": "-0.26",
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": null,
@@ -349,7 +349,7 @@
         ],
         "load": {
             "entry_load": "",
-            "exit_load": "If redeemedswitchedout within 90 days from the date of allotment Upto 12 of units Nil More than 12 of units 1 of applicable Net Asset Value (NAV) If redeemedswitchedout after 90 days from the date of allotment Nil"
+            "exit_load": "If redeemedswitched-out within 90 days from the date of allotment- Upto 12 of units Nil More than 12 of units 1 of applicable Net Asset Value (NAV) If redeemedswitched-out after 90 days from the date of allotment Nil"
         },
         "main_scheme_name": "SHRIRAM MULTI ASSET ALLOCATION FUND",
         "metrics": {
@@ -362,7 +362,7 @@
             "beta": "0.92",
             "correlation_ratio": null,
             "downside_deviation": null,
-            "information_ratio": "0.57",
+            "information_ratio": "-0.57",
             "macaulay": "2.33 years",
             "mod_duration": "2.18 years",
             "port_turnover_ratio": null,

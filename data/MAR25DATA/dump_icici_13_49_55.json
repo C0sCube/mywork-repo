@@ -1,7 +1,7 @@
 {
     "ICICI Prudential Nifty 50 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 50 TRI (Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -22,6 +22,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty 50 ETF",
         "metrics": {
+            "3yr": "0.03",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.32",
@@ -34,12 +35,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "13.37",
+            "port_turnover_ratio": "0.10 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.36",
             "sortino_ratio": null,
-            "std_dev": "0.10 times",
+            "std_dev": "13.37",
             "tracking_error": "0.03",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -59,7 +60,7 @@
     },
     "ICICI Prudential Nifty Next 50 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Next 50 TRI ",
+        "benchmark_index": "Nifty Next 50 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -80,6 +81,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Next 50 ETF",
         "metrics": {
+            "3yr": "0.07",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.44",
@@ -92,12 +94,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "20.37",
+            "port_turnover_ratio": "0.77 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.48",
             "sortino_ratio": null,
-            "std_dev": "0.77 times",
+            "std_dev": "20.37",
             "tracking_error": "0.07",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -117,7 +119,7 @@
     },
     "ICICI Prudential Nifty 100 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 100 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -138,6 +140,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty 100 ETF",
         "metrics": {
+            "3yr": "0.04",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.34",
@@ -150,13 +153,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "14.24",
+            "port_turnover_ratio": "0.08 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.33",
             "sortino_ratio": null,
-            "std_dev": "0.08 times",
-            "tracking_error": "0.04",
+            "std_dev": "14.24",
+            "tracking_error": "0.03",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -175,7 +178,7 @@
     },
     "ICICI Prudential Nifty Midcap 150 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Midcap 150 TRI ",
+        "benchmark_index": "Nifty Midcap 150 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -196,6 +199,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Midcap 150 ETF",
         "metrics": {
+            "3yr": "0.05",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "0.85",
@@ -208,13 +212,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "17.27",
+            "port_turnover_ratio": "0.33 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.74",
             "sortino_ratio": null,
-            "std_dev": "0.33 times",
-            "tracking_error": "0.05",
+            "std_dev": "17.27",
+            "tracking_error": "0.04",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -233,7 +237,7 @@
     },
     "ICICI Prudential BSE Midcap Select ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "BSE Midcap Select TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -254,6 +258,7 @@
         },
         "main_scheme_name": "ICICI Prudential BSE Midcap Select ETF",
         "metrics": {
+            "3yr": "0.10",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "0.58",
@@ -266,12 +271,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "18.40",
+            "port_turnover_ratio": "0.71 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.51",
             "sortino_ratio": null,
-            "std_dev": "0.71 times",
+            "std_dev": "18.40",
             "tracking_error": "0.13",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -291,7 +296,7 @@
     },
     "ICICI Prudential BSE Sensex ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "BSE SENSEX TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -312,6 +317,7 @@
         },
         "main_scheme_name": "ICICI Prudential BSE Sensex ETF",
         "metrics": {
+            "3yr": "0.03",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.18",
@@ -324,12 +330,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "12.93",
+            "port_turnover_ratio": "0.07 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.32",
             "sortino_ratio": null,
-            "std_dev": "0.07 times",
+            "std_dev": "12.93",
             "tracking_error": "0.03",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -349,7 +355,7 @@
     },
     "ICICI Prudential BSE 500 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "BSE 500 TRI ",
+        "benchmark_index": "BSE 500 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -370,6 +376,7 @@
         },
         "main_scheme_name": "ICICI Prudential BSE 500 ETF",
         "metrics": {
+            "3yr": "0.03",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.13",
@@ -382,12 +389,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "14.80",
+            "port_turnover_ratio": "0.08 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.44",
             "sortino_ratio": null,
-            "std_dev": "0.08 times",
+            "std_dev": "14.80",
             "tracking_error": "0.03",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -407,7 +414,7 @@
     },
     "ICICI Prudential Nifty Bank ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Bank TRI ",
+        "benchmark_index": "Nifty Bank TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -428,6 +435,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Bank ETF",
         "metrics": {
+            "3yr": "0.04",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.01",
@@ -440,13 +448,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "14.69",
+            "port_turnover_ratio": "0.35 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.42",
             "sortino_ratio": null,
-            "std_dev": "0.35 times",
-            "tracking_error": "0.04",
+            "std_dev": "14.69",
+            "tracking_error": "0.06",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -465,7 +473,7 @@
     },
     "ICICI Prudential Nifty Private Bank ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Private Bank TRI ",
+        "benchmark_index": "Nifty Private Bank TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -486,6 +494,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Private Bank ETF",
         "metrics": {
+            "3yr": "0.05",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "0.58",
@@ -504,7 +513,7 @@
             "sharpe": "0.37",
             "sortino_ratio": null,
             "std_dev": "15.37",
-            "tracking_error": "0.05",
+            "tracking_error": "0.07",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -523,7 +532,7 @@
     },
     "ICICI Prudential Nifty Auto ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Auto TRI ",
+        "benchmark_index": "Nifty Auto TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "January 2022",
@@ -538,6 +547,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Auto ETF",
         "metrics": {
+            "3yr": "0.05",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.03",
@@ -556,7 +566,7 @@
             "sharpe": "1.03",
             "sortino_ratio": null,
             "std_dev": "18.12",
-            "tracking_error": "0.05",
+            "tracking_error": "0.07",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -575,7 +585,7 @@
     },
     "ICICI Prudential Nifty IT ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty IT TRI ",
+        "benchmark_index": "NIFTY IT TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -596,6 +606,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty IT ETF",
         "metrics": {
+            "3yr": "0.05",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "2.81",
@@ -633,7 +644,7 @@
     },
     "ICICI Prudential Nifty Healthcare ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "NIFTY Healthcare TRI ",
+        "benchmark_index": "Nifty Healthcare TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "May, 2021",
@@ -648,6 +659,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Healthcare ETF",
         "metrics": {
+            "3yr": "0.03",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "0.54",
@@ -666,7 +678,7 @@
             "sharpe": "0.62",
             "sortino_ratio": null,
             "std_dev": "17.51",
-            "tracking_error": "0.03",
+            "tracking_error": "0.02",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -685,7 +697,7 @@
     },
     "ICICI Prudential Nifty FMCG ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "NIFTY FMCG TRI ",
+        "benchmark_index": "Nifty FMCG TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "August, 2021",
@@ -706,6 +718,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty FMCG ETF",
         "metrics": {
+            "3yr": "0.06",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "2.04",
@@ -724,7 +737,7 @@
             "sharpe": "0.55",
             "sortino_ratio": null,
             "std_dev": "15.63",
-            "tracking_error": "0.06",
+            "tracking_error": "0.08",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -743,7 +756,7 @@
     },
     "ICICI Prudential Nifty India Consumption ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty India Consumption TRI ",
+        "benchmark_index": "Nifty India Consumption TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "October 2021",
@@ -758,6 +771,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty India Consumption ETF",
         "metrics": {
+            "3yr": "0.04",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.06",
@@ -776,7 +790,7 @@
             "sharpe": "0.62",
             "sortino_ratio": null,
             "std_dev": "15.99",
-            "tracking_error": "0.04",
+            "tracking_error": "0.03",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -795,7 +809,7 @@
     },
     "ICICI Prudential Nifty Infrastructure ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Infrastructure TRI ",
+        "benchmark_index": "Nifty Infrastructure TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "August, 2022",
@@ -834,7 +848,7 @@
             "sharpe": "0.83",
             "sortino_ratio": null,
             "std_dev": "16.63",
-            "tracking_error": ".",
+            "tracking_error": "0.04",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -853,7 +867,7 @@
     },
     "BHARAT 22 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "BSE Bharat 22 TRI ",
+        "benchmark_index": "BSE Bharat 22 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -874,6 +888,7 @@
         },
         "main_scheme_name": "BHARAT 22 ETF",
         "metrics": {
+            "3yr": "0.16",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -886,13 +901,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "18.04",
+            "port_turnover_ratio": "0.10 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "1.12",
             "sortino_ratio": null,
-            "std_dev": "0.10 times",
-            "tracking_error": "0.16",
+            "std_dev": "18.04",
+            "tracking_error": "0.05",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -911,7 +926,7 @@
     },
     "ICICI Prudential Nifty Financial Services Ex-Bank ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Financial Services EX-Bank TRI ",
+        "benchmark_index": "Nifty Financial Services EX-Bank TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "November, 2022",
@@ -938,13 +953,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "14.62",
+            "port_turnover_ratio": "0.40 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.89",
             "sortino_ratio": null,
-            "std_dev": "0.40 times",
-            "tracking_error": ".",
+            "std_dev": "14.62",
+            "tracking_error": "0.04",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -963,7 +978,7 @@
     },
     "ICICI Prudential Nifty Commodities ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Commodities TRI ",
+        "benchmark_index": "Nifty Commodities TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "December, 2022",
@@ -990,13 +1005,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "18.49",
+            "port_turnover_ratio": "0.90 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.58",
             "sortino_ratio": null,
-            "std_dev": "0.90 times",
-            "tracking_error": ".",
+            "std_dev": "18.49",
+            "tracking_error": "0.04",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1015,7 +1030,7 @@
     },
     "ICICI Prudential Nifty PSU Bank ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "NIFTY PSU Bank Index ",
+        "benchmark_index": "Nifty PSU Bank TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "February, 2023",
@@ -1042,13 +1057,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "25.97",
+            "port_turnover_ratio": "0.59 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.87",
             "sortino_ratio": null,
-            "std_dev": "0.59 times",
-            "tracking_error": ".",
+            "std_dev": "25.97",
+            "tracking_error": "0.10",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1067,7 +1082,7 @@
     },
     "ICICI Prudential Nifty Oil & Gas ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Oil & Gas TRI ",
+        "benchmark_index": "-37.5 Nifty Oil  Gas TRI (Benchmark) -37.2 Nifty 50 TRI (Additional Benchmark) -17.0",
         "fund_manager": [
             {
                 "managing_fund_since": "July, 2024",
@@ -1100,7 +1115,7 @@
             "sharpe": "2024",
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": ".",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1119,7 +1134,7 @@
     },
     "ICICI Prudential Nifty Metal ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Metal TRI ",
+        "benchmark_index": "-21.5 Nifty Metal TRI (Benchmark) -21.2 Nifty 50 TRI (Additional Benchmark) -17.0",
         "fund_manager": [
             {
                 "managing_fund_since": "Aug, 2024",
@@ -1152,7 +1167,7 @@
             "sharpe": "2024",
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": ".",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1171,7 +1186,7 @@
     },
     "ICICI Prudential Nifty 100 Low Volatility 30 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty 100 Low Volatility 30 TRI ",
+        "benchmark_index": "Nifty 100 Low Volatility 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -1192,6 +1207,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty 100 Low Volatility 30 ETF",
         "metrics": {
+            "3yr": "0.05",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.32",
@@ -1204,12 +1220,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "13.90",
+            "port_turnover_ratio": "0.42 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.55",
             "sortino_ratio": null,
-            "std_dev": "0.42 times",
+            "std_dev": ".",
             "tracking_error": "0.05",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -1229,7 +1245,7 @@
     },
     "ICICI Prudential Nifty50 Value 20 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty50 Value 20 Index (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -1250,6 +1266,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty50 Value 20 ETF",
         "metrics": {
+            "3yr": "0.06",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "2.39",
@@ -1262,12 +1279,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "14.35",
+            "port_turnover_ratio": "0.27 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.42",
             "sortino_ratio": null,
-            "std_dev": "0.27 times",
+            "std_dev": "14.35",
             "tracking_error": "0.06",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -1287,7 +1304,7 @@
     },
     "ICICI Prudential Nifty Alpha Low - Volatility 30 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Alpha Low-Volatility 30 TRI ",
+        "benchmark_index": "Nifty Alpha Low -Volatility 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -1308,13 +1325,14 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Alpha Low - Volatility 30 ETF",
         "metrics": {
+            "3yr": "0.15",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.14",
             "average_pb": "6.04",
             "average_pe": "33.08",
             "avg_maturity": null,
-            "beta": "0.15",
+            "beta": ".",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
@@ -1326,7 +1344,7 @@
             "sharpe": ".",
             "sortino_ratio": null,
             "std_dev": "16.44",
-            "tracking_error": ".",
+            "tracking_error": "0.22",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1345,7 +1363,7 @@
     },
     "ICICI Prudential Nifty 200 Momentum 30 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty200 Momentum 30 TRI ",
+        "benchmark_index": "Nifty 200 Momentum 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "August, 2022",
@@ -1372,13 +1390,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "18.46",
+            "port_turnover_ratio": "1.49 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.50",
             "sortino_ratio": null,
-            "std_dev": "1.49 times",
-            "tracking_error": ".",
+            "std_dev": "18.46",
+            "tracking_error": "0.31",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1397,7 +1415,7 @@
     },
     "ICICI Prudential Nifty 200 Quality 30 ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "NIFTY200 Quality 30 TRI ",
+        "benchmark_index": "Nifty 200 Quality 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "August, 2023",
@@ -1424,13 +1442,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "0.66 times",
+            "port_turnover_ratio": "0.41",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "1.00",
             "sortino_ratio": null,
-            "std_dev": "0.41",
-            "tracking_error": ".",
+            "std_dev": "0.05",
+            "tracking_error": "0.66 times",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1475,7 +1493,7 @@
             "sharpe": "2024",
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": ".",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1494,7 +1512,7 @@
     },
     "ICICI Prudential BSE Liquid Rate ETF IDCW": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "(Class II) Relatively High BSE Liquid Rate Index (Benc (Class III) 1 Year T Bill (Additional Benc",
         "fund_manager": [
             {
                 "managing_fund_since": "September 2024",
@@ -1515,6 +1533,7 @@
         },
         "main_scheme_name": "ICICI Prudential BSE Liquid Rate ETF IDCW",
         "metrics": {
+            "3yr": "0.35",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1536,7 +1555,7 @@
             "tracking_error": "0.35",
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": "0.35"
+            "ytm": "."
         },
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
@@ -1585,7 +1604,7 @@
         },
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-        "min_amt": "",
+        "min_amt": "\u20b9 2,500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "31-03-2025",
         "monthly_aaum_value": "",
@@ -1597,7 +1616,7 @@
     },
     "ICICI Prudential Nifty 5 yr Benchmark G-SEC ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty 5 yr Benchmark G-Sec Index ",
+        "benchmark_index": "Nifty 5 yr Benchmark G-sec Index (Benchmark) CRISIL 10 Year Gilt Index (Additional Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -1605,6 +1624,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty 5 yr Benchmark G-SEC ETF",
         "metrics": {
+            "3yr": "0.18",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1623,7 +1643,7 @@
             "sharpe": "0.98",
             "sortino_ratio": null,
             "std_dev": "0.31",
-            "tracking_error": "0.18",
+            "tracking_error": "0.13",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1642,7 +1662,7 @@
     },
     "ICICI Prudential Nifty 10 yr Benchmark G-Sec ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "NIFTY 10 yr Benchmark G-Sec Index ",
+        "benchmark_index": "NIFTY 10 yr Benchmark G-Sec Index (Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -1662,13 +1682,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "2.24",
+            "port_turnover_ratio": "0.00 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.58",
             "sortino_ratio": null,
-            "std_dev": "0.00 times",
-            "tracking_error": ".",
+            "std_dev": "2.24",
+            "tracking_error": "0.09",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1687,7 +1707,7 @@
     },
     "ICICI Prudential Gold ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "LBMA AM Fixing Prices (Domestic Prices of Gold) (Benc",
         "fund_manager": [
             {
                 "managing_fund_since": "December, 2024",
@@ -1702,6 +1722,7 @@
         },
         "main_scheme_name": "ICICI Prudential Gold ETF",
         "metrics": {
+            "3yr": "0.23",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1720,7 +1741,7 @@
             "sharpe": "0.98",
             "sortino_ratio": null,
             "std_dev": "0.93",
-            "tracking_error": "0.23",
+            "tracking_error": "0.21",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1739,7 +1760,7 @@
     },
     "ICICI Prudential Silver ETF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "LBMA AM fixing Prices (Domestic Price of Silver) ",
+        "benchmark_index": "LBMA AM fixing Prices (Domestic Price of Silver) (Bench",
         "fund_manager": [
             {
                 "managing_fund_since": "January, 2022",
@@ -1760,6 +1781,7 @@
         },
         "main_scheme_name": "ICICI Prudential Silver ETF",
         "metrics": {
+            "3yr": "0.63",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1778,7 +1800,7 @@
             "sharpe": "0.97",
             "sortino_ratio": null,
             "std_dev": "0.33",
-            "tracking_error": "0.63",
+            "tracking_error": "0.57",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1797,7 +1819,7 @@
     },
     "ICICI Prudential Nifty 50 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 50 TRI (Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -1824,6 +1846,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty 50 Index Fund",
         "metrics": {
+            "3yr": "0.05",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.32",
@@ -1836,13 +1859,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "13.36",
+            "port_turnover_ratio": "0.11 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.33",
             "sortino_ratio": null,
-            "std_dev": "0.11 times",
-            "tracking_error": "0.05",
+            "std_dev": "13.36",
+            "tracking_error": "0.04",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1861,7 +1884,7 @@
     },
     "ICICI Prudential Nifty Next 50 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty Next 50 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -1888,6 +1911,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Next 50 Index Fund",
         "metrics": {
+            "3yr": "0.24",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.44",
@@ -1900,13 +1924,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "20.38",
+            "port_turnover_ratio": "0.68 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.44",
             "sortino_ratio": null,
-            "std_dev": "0.68 times",
-            "tracking_error": "0.15",
+            "std_dev": "20.38",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1925,7 +1949,7 @@
     },
     "ICICI Prudential BSE Sensex Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "BSE SENSEX TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -1952,6 +1976,7 @@
         },
         "main_scheme_name": "ICICI Prudential BSE Sensex Index Fund",
         "metrics": {
+            "3yr": "0.08",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.18",
@@ -1964,13 +1989,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "12.93",
+            "port_turnover_ratio": "0.13 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.30",
             "sortino_ratio": null,
-            "std_dev": "0.13 times",
-            "tracking_error": "0.08",
+            "std_dev": "12.93",
+            "tracking_error": "0.06",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -1989,7 +2014,7 @@
     },
     "ICICI Prudential Nifty Smallcap 250 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Smallcap 250 TRI ",
+        "benchmark_index": "Nifty Smallcap 250 Index (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "November 2021",
@@ -2016,6 +2041,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Smallcap 250 Index Fund",
         "metrics": {
+            "3yr": "0.15",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "0.89",
@@ -2028,13 +2054,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "20.29",
+            "port_turnover_ratio": "0.49 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.50",
             "sortino_ratio": null,
-            "std_dev": "0.49 times",
-            "tracking_error": "0.15",
+            "std_dev": "20.29",
+            "tracking_error": "0.18",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2053,7 +2079,7 @@
     },
     "ICICI Prudential Nifty Midcap 150 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Midcap 150 TRI ",
+        "benchmark_index": "Nifty Midcap 150 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "December 2021",
@@ -2080,6 +2106,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Midcap 150 Index Fund",
         "metrics": {
+            "3yr": "0.11",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "0.85",
@@ -2092,12 +2119,12 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "17.21",
+            "port_turnover_ratio": "0.31 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.69",
             "sortino_ratio": null,
-            "std_dev": "0.31 times",
+            "std_dev": ".",
             "tracking_error": "0.09",
             "treynor_ratio": null,
             "upside_deviation": null,
@@ -2117,7 +2144,7 @@
     },
     "ICICI Prudential Nifty LargeMidcap 250 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty LargeMidcap 250 TRI ",
+        "benchmark_index": "Nifty LargeMidcap 250 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Mar, 2024",
@@ -2150,13 +2177,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "0.19 times",
+            "port_turnover_ratio": "0.09",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": "07",
+            "tracking_error": "0.19 times",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2201,7 +2228,7 @@
             "sharpe": null,
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": "18",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2265,7 +2292,7 @@
     },
     "ICICI Prudential Nifty SDL Sep 2026 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty SDL Sep 2026 Index ",
+        "benchmark_index": "Nifty SDL Sep 2026 Index (Benchmark) NIFTY 10 yr Benchmark G-Sec Index (Additional Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -2285,13 +2312,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "0.88",
+            "port_turnover_ratio": "0.00 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.04",
             "sortino_ratio": null,
-            "std_dev": "0.00 times",
-            "tracking_error": "2023.",
+            "std_dev": "0.88",
+            "tracking_error": "0.57",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2310,7 +2337,7 @@
     },
     "ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 4060 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty PSU Bond Plus SDL Sep 2027 40:60 Index ",
+        "benchmark_index": "Nifty PSU Bond Plus SDL Sep 2027 4060 Index (Benchmark) CRISIL 10 Year Gilt Index (Additional Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -2318,6 +2345,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 4060 Index Fund",
         "metrics": {
+            "3yr": "0.94",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -2336,7 +2364,7 @@
             "sharpe": "0.99",
             "sortino_ratio": null,
             "std_dev": "0.67",
-            "tracking_error": "0.94",
+            "tracking_error": "0.58",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2355,7 +2383,7 @@
     },
     "ICICI Prudential Nifty SDL Sep 2027 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty SDL Sep 2027 Index ",
+        "benchmark_index": "Nifty SDL Sep 2027 Index (Benchmark) CRISIL 10 Year Gilt Index (Additional Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -2363,6 +2391,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty SDL Sep 2027 Index Fund",
         "metrics": {
+            "3yr": "1.28",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -2381,7 +2410,7 @@
             "sharpe": "1.00",
             "sortino_ratio": null,
             "std_dev": "0.55",
-            "tracking_error": "1.28",
+            "tracking_error": "0.81",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2400,7 +2429,7 @@
     },
     "ICICI Prudential Nifty SDL Dec 2028 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty SDL Dec 2028 Index. ",
+        "benchmark_index": "Nifty SDL Dec 2028 Index (Benchmark) CRISIL 10 Year Gilt Index (Additional Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -2426,7 +2455,7 @@
             "sharpe": "0.83",
             "sortino_ratio": null,
             "std_dev": "0.59",
-            "tracking_error": ".",
+            "tracking_error": "1.24",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2445,7 +2474,7 @@
     },
     "ICICI Prudential Nifty G-Sec Dec 2030 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty G-sec Dec 2030 Index ",
+        "benchmark_index": "Nifty G-sec Dec 2030 Index (Benchmark) CRISIL 10 Year Gilt Index (Additional Benchmark)",
         "fund_manager": [],
         "load": {
             "entry_load": null,
@@ -2471,7 +2500,7 @@
             "sharpe": "0.92",
             "sortino_ratio": null,
             "std_dev": "0.69",
-            "tracking_error": ".",
+            "tracking_error": "0.53",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2516,7 +2545,7 @@
             "sharpe": ".",
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": ".",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": "."
@@ -2535,7 +2564,7 @@
     },
     "ICICI Prudential NASDAQ 100 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "NASDAQ-100 TRI \u00ae ",
+        "benchmark_index": "NASDAQ-100 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "April, 2022",
@@ -2556,6 +2585,7 @@
         },
         "main_scheme_name": "ICICI Prudential NASDAQ 100 Index Fund",
         "metrics": {
+            "3yr": "0.26",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -2568,13 +2598,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "20.88",
+            "port_turnover_ratio": "0.14 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": ".",
             "sortino_ratio": null,
-            "std_dev": "0.14 times",
-            "tracking_error": "0.26",
+            "std_dev": "20.88",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2593,7 +2623,7 @@
     },
     "ICICI Prudential Nifty Bank Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Bank Index ",
+        "benchmark_index": "Nifty Bank Index (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "March 2022",
@@ -2620,6 +2650,7 @@
         },
         "main_scheme_name": "ICICI Prudential Nifty Bank Index Fund",
         "metrics": {
+            "3yr": "0.20",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": "1.01",
@@ -2632,13 +2663,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "14.66",
+            "port_turnover_ratio": "0.30 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.36",
             "sortino_ratio": null,
-            "std_dev": "0.30 times",
-            "tracking_error": "0.20",
+            "std_dev": "14.66",
+            "tracking_error": "0.11",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2657,7 +2688,7 @@
     },
     "ICICI Prudential Nifty IT Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty IT TRI ",
+        "benchmark_index": "NIFTY IT TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "August, 2022",
@@ -2696,13 +2727,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "19.76",
+            "port_turnover_ratio": "0.37 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.29",
             "sortino_ratio": null,
-            "std_dev": "0.37 times",
-            "tracking_error": ".",
+            "std_dev": "19.76",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2721,7 +2752,7 @@
     },
     "ICICI Prudential Nifty Auto Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Auto TRI ",
+        "benchmark_index": "Nifty Auto TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "October, 2022",
@@ -2754,13 +2785,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "19.00",
+            "port_turnover_ratio": "0.43 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.70",
             "sortino_ratio": null,
-            "std_dev": "0.43 times",
-            "tracking_error": ".",
+            "std_dev": "19.00",
+            "tracking_error": "0.13",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2779,7 +2810,7 @@
     },
     "ICICI Prudential Nifty Pharma Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty Pharma TRI ",
+        "benchmark_index": "Nifty Pharma TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "December, 2022",
@@ -2812,13 +2843,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "18.17",
+            "port_turnover_ratio": "0.86 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.92",
             "sortino_ratio": null,
-            "std_dev": "0.86 times",
-            "tracking_error": ".",
+            "std_dev": "18.17",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2837,7 +2868,7 @@
     },
     "ICICI Prudential Nifty 200 Momentum 30 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty200 Momentum 30 TRI ",
+        "benchmark_index": "Nifty 200 Momentum 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "August, 2022",
@@ -2870,13 +2901,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "18.36",
+            "port_turnover_ratio": "1.30 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.45",
             "sortino_ratio": null,
-            "std_dev": "1.30 times",
-            "tracking_error": ".",
+            "std_dev": "18.36",
+            "tracking_error": "0.43",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2895,7 +2926,7 @@
     },
     "ICICI Prudential Nifty50 Equal Weight Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Nifty50 Equal Weight TRI ",
+        "benchmark_index": "NIFTY 50 Equal Weight TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "October, 2022",
@@ -2928,13 +2959,13 @@
             "information_ratio": null,
             "macaulay": null,
             "mod_duration": null,
-            "port_turnover_ratio": "13.86",
+            "port_turnover_ratio": "0.52 times",
             "r_squared_ratio": null,
             "roe_ratio": null,
             "sharpe": "0.59",
             "sortino_ratio": null,
-            "std_dev": "0.52 times",
-            "tracking_error": ".",
+            "std_dev": "13.86",
+            "tracking_error": "0.13",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -2953,7 +2984,7 @@
     },
     "ICICI Prudential Nifty50 Value 20 Index Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 50 Value 20 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Feb, 2024",
@@ -2992,7 +3023,7 @@
             "sharpe": "0.21",
             "sortino_ratio": null,
             "std_dev": "16.01",
-            "tracking_error": "07",
+            "tracking_error": "0.07",
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -3037,7 +3068,7 @@
             "sharpe": "2024",
             "sortino_ratio": null,
             "std_dev": null,
-            "tracking_error": ".",
+            "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
             "ytm": null
@@ -3056,7 +3087,7 @@
     },
     "ICICI Prudential Passive Strategy Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 200 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "September 2018",
@@ -3126,7 +3157,7 @@
     },
     "ICICI Prudential Passive Multi-Asset Fund of Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "(CRISIL Hybrid 50+50- Moderate Index (80% weightage) + Global 1200 Index (15% weightage) + Domestic Gold Price (5% weightage) @@ Total Expense Ratio is as on the last business day of the month. Investors may please note that they will be bearing the recurring expenses of the  relevant fund of fund scheme in addition to the expenses of the underlying schemes in which the fund of fund scheme makes investment. **The investments in the underlying schemes is in the Direct Option. The Global Industry Classification Standard (\u00b7GICS\u00b7) was developed by and is the exclusive property and a service mark of MSCI Inc. (\u00b7MSCI\u00b7) and Standard & Poor\u00b7s Financial Services LLC and is licensed for use by ICICI Prudential Asset Management Company Ltd. Neither MSCI, nor an other party involved in making or compiling the GICS or any GICS classifications makes any express or implied warranties or representations with respect to such standard or classification (or the results to be obtained by the use thereof), and all such parties hereby expressly disclaim all warranties of originality, accuracy, completeness, merchantability and fitness for a particular purpose with respect to any of such standard or classification. Without limiting any of the foregoing, in no event shall MSCI, any of their affiliates or any third party involved in making or compiling the GICS or any GICS classifications have any liability for any direct, indirect, special, punitive, consequential or any other damages (including lost profits) even if notified of the possibility of such damages. Ms. Priyanka Khandelwal has ceased to be the fund manager of the Scheme w.e.f. June 1, 2022. For Index Methodology : Refer page no. from 85 to 89, For IDCW History : Refer page no. 106, For SIP Returns : Refer page no. 103-105, For Investment Objective : Refer page no. from 107 to 109. Features : 1.  Allocation is across a wide range of asset classes and agility is possible. 2.  Capitalizes various segments/themes of Index/ETF based funds. 3.  Exposure to select and innovative range of global etfs 4.  Taxation efficient structure. 5.  Portfolio is monitored regularly Riskometer This product labelling is applicable only to the scheme This Product is suitable for investors who are seeking*: \u00b7 Long term wealth creation \u00b7 An open ended fund of funds scheme investing in equity, debt, gold and global index funds/exchange traded funds Scheme Benchmark (CRISIL Hybrid 50+50- Moderate Index (80% weightage) + S&P Global 1200 Index (15% weightage) + Domestic Gold Price (5% weightage) ",
+        "benchmark_index": "CRISIL Hybrid 50  50 - Moderate Index (80)  Global 1200 Index (15)  Domestic Gold Price (5) (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan 2022",
@@ -3202,7 +3233,7 @@
     },
     "ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty 100 Low Volatility 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "Apr, 2021",
@@ -3254,7 +3285,7 @@
     },
     "ICICI Prudential Nifty Alpha Low - Volatility 30 ETF FOF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Nifty Alpha Low -Volatility 30 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "September, 2021",
@@ -3312,7 +3343,7 @@
     },
     "ICICI Prudential BHARAT 22 FOF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Size BSE Bharat 22 TRI (Benc Large Nifty 50 TRI (Additional B Mid",
         "fund_manager": [
             {
                 "managing_fund_since": "Jan, 2021",
@@ -3376,7 +3407,7 @@
     },
     "ICICI Prudential BSE 500 ETF FOF": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "BSE 500 TRI (Benchmark) Nifty 50 TRI (Additional Benchmark)",
         "fund_manager": [
             {
                 "managing_fund_since": "December, 2021",
@@ -3428,7 +3459,7 @@
     },
     "ICICI Prudential Regular Gold Savings Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "",
+        "benchmark_index": "Domestic price of gold as derived from the LBMA AM fixing prices (Be",
         "fund_manager": [
             {
                 "managing_fund_since": "Sep, 2012",
@@ -3486,7 +3517,7 @@
     },
     "ICICI Prudential Silver ETF Fund of Fund": {
         "amc_name": "ICICI Prudential Asset Management Company Limited",
-        "benchmark_index": "Domestic price of silver as derived from the LBMA AM fixing prices @@ Total Expense Ratio is as on the last business day of the month. Investors may please note that they will be bearing the recurring expenses of the  relevant fund of fund scheme in addition to the expenses of the underlying schemes in which the fund of fund scheme makes investment. For Index Methodology : Refer page no. from 85 to 89, For IDCW History : Refer page no. 106, For SIP Returns : Refer page no. 103-105, For Investment Objective : Refer page no. from 107 to 109. Features : 1.  Provides diversification during crisis as it  can reduce overall portfolio risk and acts as potential hedge against inflation 2.  ESG Investment as silver is widely used in renewable energy technologies which are helpful in addressing environmental concerns 3.  Invest in silver without storage costs and higher liquiduity 4.  Invest in units of Silver ETF without a demat account Riskometer This product labelling is applicable only to the scheme This Product is suitable for investors who are seeking*: \u00b7 Long term wealth creation solution \u00b7 To invest in a fund of fund scheme with the primary objective of generating returns by investing in units of ICICI Prudential Silver ETF. Scheme Benchmark (Domestic price of silver as derived from the LBMA AM fixing prices) ",
+        "benchmark_index": "Domestic price of silver as derived from the LBMA AM fixing prices (Be",
         "fund_manager": [
             {
                 "managing_fund_since": "Feb 2022",

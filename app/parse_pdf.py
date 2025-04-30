@@ -280,7 +280,10 @@ class Reader:
 
         return finalData
 
-    #CLEAN 
+    #CLEAN
+    def _random_suffix(self,length=4):
+        return ''.join(random.choices(string.ascii_lowercase, k=length))
+    
     def process_text_data(self, data: list)->list:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}") 
         stop_words,finalData = FundRegex().STOP_WORDS,[]
@@ -371,7 +374,10 @@ class Reader:
             for block in blocks:
                 size,text, *open = block
                 if size == header_size:
-                    curr_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
+                    base_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
+                    curr_head = base_head
+                    while curr_head in nested_dict:
+                        curr_head = f"{base_head}_{self._random_suffix()}"
                     nested_dict[curr_head] = []
                 elif size<= content_size and curr_head:
                     nested_dict[curr_head].append(block)

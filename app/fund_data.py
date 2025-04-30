@@ -459,6 +459,8 @@ class HDFC(Reader,GrandFundData):
         
         return {main_key:final_list}    
 
+    def _update_benchmark_data(self,main_key:str,data):
+        return {"benchmark_index":" ".join(data.values())}
 #11
 class GROWW(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
@@ -474,12 +476,21 @@ class Helios(Reader,GrandFundData):
 class HSBC(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
-        Reader.__init__(self,paths_config, self.PARAMS,path) 
+        Reader.__init__(self,paths_config, self.PARAMS,path)
+        
+    # def _update_date_data(self,main_key:str,data):
+    #     if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
+    #         return {main_key:matches[0]}
 #14
 class ICICI(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
-        Reader.__init__(self,paths_config, self.PARAMS,path) 
+        Reader.__init__(self,paths_config, self.PARAMS,path)
+        
+    def _update_metric_data(self,main_key:str,data):
+        if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
+            data["std_dev"], data["port_turnover_ratio"] = data["port_turnover_ratio"], data["std_dev"]
+        return {main_key:data}
 #15 <>
 class Invesco(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str,path:str):
@@ -565,6 +576,9 @@ class NJMF(Reader,GrandFundData):
         msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
         final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
         return {main_key:final_list}
+    
+    def _update_benchmark_data(self,main_key:str,data):
+        return {"benchmark_index":" ".join(data.values())}
 #25
 class OldBridge(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
