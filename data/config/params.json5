@@ -339,12 +339,12 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(AXIS.*?(?:FUND|ETF|INDEX)\\s*(?:OF FUND|FOF|FUND)?)",
+        pattern: "(AXIS.*?(?:FUND|ETF|INDEX)\\s*(?:OF FUND|FOF|FUND|.+?PLAN)?)",
         bbox: [0, 0, 500, 36],
       },
       clip_bbox: [
-        [0, 90, 200, 820],
-        [180, 90, 360, 820],
+        [0, 90, 200, 500],
+        [180, 90, 360, 500],
         [0, 470, 360, 820],
       ],
       line_x: 260.0,
@@ -362,7 +362,8 @@
       stop_words: [],
     },
     REGEX: {
-      date:".+?\\d{3,4}",
+      date:"(\\d{1,2}\\s*(?:th|rd|st|nd)\\s*(?:Jan|Feb|Mar|Apr|May|June|July|Aug|Sep|Oct|Nov|Dec)\\D*\\d{4})",
+      benchmark:"((?:Nifty|BSE|CRISIL|Domestic|MSCI).+?(?:TRI|\\(INR\\)|Index|Gold|Physical\\s*Silver))\\s*(?:FUND\\s*M?A?N?A?|$)?",
       scheme: [
         "DATE OF ALLOTMENT",
         "BENCHMARK",
@@ -376,29 +377,47 @@
         "EOL",
         "BENCHMARK", //case 2
         "FUND MANAG?E?R?",
-        "EOL"
+        "EOL",
       ],
       aum: "([\\d.,]+\\s*cr)",
       ptr: "([\\d.]+ times)",
-      min_amt: "([\\d.,]+)\\s*and\\s*([\\d.,]+)\\s*there",
-      manager: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)\\s*([\\w\\s]+)Work experience\\s*([0-9]+ years).+?fund since\\s*([0-9]+(?:rd|nd|st|th)\\s*[A-Za-z]+\\s*[0-9]+)",
-      metrics: "(Standard Deviation|Sharpe Ratio|Beta|Dividend Yield|Residual Maturity|Modified Duration|Maculay Duration|Annualised Portfolio YTM)\\s*(-?[\\d.]+\\s*(?:years|months|days)?)",
+      tracking:"([\\d.]+)\\s*(?=\\(As comp)",
+      manager: {
+        name:"(?:Mr|Ms|Mrs)\\.?\\s*(\\w+\\s\\w+)",
+        exp:"p?e?r?i?e?n?c?e?\\s*(\\d+\\s*years?)"
+      },
+      metrics:"(RESIDUAL MATURITY|MODIFIED DURATION|MACAULAY DURATION|TRACKING ERROR|Standard Deviation|Beta|Sharpe Ratio)\\D*(\\d+\\.?\\d*\\s*(?:years?|days?|months?)?)",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dumm.*)": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      // ".*statistical_measures": [
-      //   "_extract_generic_data",
-      //   "metrics"
-      // ],
+      ".*(statistical_measure.*|as_on.*)": ["_extract_generic_data","metrics"],
       ".*monthly_average$": ["_extract_generic_data", "aum"],
       ".*portfolio_turnover": ["_extract_generic_data", "ptr"],
+      ".*tracking_error":["_extract_generic_data", "tracking"],
+      ".*date_of_allotment":["_extract_generic_data", "date"],
+      ".*benchmark":["_extract_generic_data", "benchmark"],
+      // ".*fund_manager":["_update_manager_data","manager"]
     },
-    SELECTKEYS: ["main_scheme_name", "pgn"],
+    SELECTKEYS: [
+    "main_scheme_name",
+    "mutual_fund_name",
+    "amc_name",
+    "page_number",
+    "monthly_aaum_date",
+    ".*monthly_average$",
+    ".*(date_of_allotment|benchmark)", //2
+    ".*fund_manager",
+    "metrics", //after merge
+    "load", //after merge
+    "pgn"
+  ],
     MERGEKEYS: {
       load: [".*entry_load", ".*exit_load"],
+      metrics:[".*(portfolio_turnover|tracking_error|statistical_measure.*|as_on.*)"],
+      fund_manager:[".*fund_manager"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -411,7 +430,9 @@
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
     CLONEKEYS: {},
-    SPECIAL_FUNCTIONS: {},
+    SPECIAL_FUNCTIONS: {
+      fund_manager:"_update_manager_data"
+    },
     PROMOTE_KEYS: {},
     MAIN_MAP: {
       class_name: "",
@@ -894,7 +915,7 @@
         size: [8, 11],
         update_size: 30.0,
         font: ["Taz-SemiLight"],
-        color: [-12371562],
+        color: [-12371562], //-12371562
       },
       content_size: [30.0, 10.0],
       line_x: 180.0,
@@ -926,6 +947,30 @@
         "MANAGING\\s*THIS\\s*FUND",
         "EOL",
       ],
+      scheme2: [
+        "SCHEME OBJECTIVE",
+        "Monthend AUM",
+        "Monthly\\s*AVG\\s*AUM",
+        "NAV",
+        "DAT.+?ALLOTMENT",
+        "ASSET ALLOCATION",
+        "MINIMUM INVESTMENT",
+        "Subsequent|Additional",
+        "SIP",
+        "PLAN.+?PTIONS",
+        "ENTRY LOAD|EOL",
+        "EXIT LOAD|EOL",
+        "EXPENSE RATIO|EOL",
+        "BENCHMARK",
+        "FUND.+?\\d{1}?",
+        "TOTAL.*?ENCE",
+        "MANAGING\\s*THIS\\s*FUND",
+        "EOL",
+        "MANAGING\\s*THIS\\s*FUND", //case 1
+        "PRODUCT POSITIONING",
+        "QUANTITATIVE INFORMATION",
+        "EOL"
+      ],
       manager: {
         name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
         exp: "([\\d]+ years?)",
@@ -936,7 +981,6 @@
       escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": ["_extract_str_data", null],
       "^(scheme|dummy|before).*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
@@ -949,12 +993,11 @@
     SELECTKEYS: [
       ".*benchmark",
       ".*allotment",
-      ".*(entry_load|exit_load)",
       ".*monthly_avg_aum",
       ".*(fund_mana.*|total_exper.*|managing.*)$",
       ".*(minimum_investment|subsequent)",
       "metrics",
-      "load",
+      "load", //after merge
       "fund_manager",
       "amc_name",
       "main_scheme_name",
@@ -2164,6 +2207,14 @@
         "RATIO",
         "NAV as on",
         "EOL",
+        "AAUM",
+        "DEBT.+?INCOME", //case 1
+        "NAV as on",
+        "EOL",
+        "AAUM",
+        "QUANTITATIVE DATA", //case 2
+        "NAV as on",
+        "EOL",
       ],
       min_amt: "([\\d,]+).*?([\\d,]+)",
       date:"\\(Date of Allotment\\)\\s*(.+)(?:Benchmark)?",
@@ -2176,7 +2227,7 @@
       ".*aaum$": ["_extract_generic_data", "aum"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
       ".*minimum_applic.*": ["_extract_amt_data", "min_amt"],
-      ".*(income_portion|ratio$)": ["_extract_generic_data", "metric"],
+      ".*(debt_attribu.*|ratio|quantitative_data)$": ["_extract_generic_data", "metric"],
       ".*benchmark$": ["_extract_bench_data", "bench"],
       ".*inception_date":["_extract_generic_data","date"]
     },
@@ -2198,9 +2249,9 @@
       load: [".*entry_load", ".*exit_load"],
       metrics: [
         ".*ratio",
-        "^quantitative_data",
+        ".*quantitative_data",
         "metrics.*",
-        ".*income_portion",
+        ".*debt_attri",
       ],
     },
     COMMENTS: [],
@@ -2862,7 +2913,7 @@
     },
     REGEX: {
       benchmark: ".*((?:Nifty|Nasdaq|Bse|NSE|BMI|SP|LMBA).*)$",
-      metric: "(Monthly AAUM|Latest AUM|Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe Ratio|Average Maturity|YTM|Macaulay Duration|Modified Duration)\\s*([\\d,.]+)",
+      metric: "(Monthly AAUM|Latest AUM|Information Ratio|Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe\\s*Ratio|Average\\s*Maturity|YTM|Macaulay\\s*Duration|Modified\\s*Duration)\\s*(-?[\\d,.]+\\s*(?:years?|months?|days?|yrs?)",
       load: "(?:Entry Load)?\\s*(Nil|\\S.*?)\\s*(?:Exit Load\\s*(Nil|\\S.*?))?$",
       lumpsum: "Minimum Application Amount(.+?)Minimum Additional Purchase(.+)$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
@@ -2948,7 +2999,7 @@
         pattern: "(Motilal.*?(?:Fund\\s*(?:o?O?f Funds?(?:.+?Aggressive|.+?Conservative)?)?|ETF(?:.+? of Funds?)?|FoF))",
         bbox: [0, 0, 600, 60],
       },
-      clip_bbox: [[0, 65, 170, 812]],
+      clip_bbox: [[0, 65, 170, 812],[370, 265, 700, 812]],
       line_x: 170.0,
       data: {
         size: [7, 14],
@@ -2956,7 +3007,7 @@
         update_size: 30.0,
         font: ["Calibri-Bold"],
       },
-      content_size: [30.0, 10.0],
+      content_size: [30.0, 15.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 7,
@@ -2964,7 +3015,7 @@
       stop_words: ["category"],
     },
     REGEX: {
-      benchmark: ".*((?:Nifty|Nasdaq|Bse|NSE|BMI|SP|LMBA).*)$",
+      benchmark: "^(.*?)(?:\\s*Redemption\\b|$)",
       metric: "(Monthly AAUM|Information Ratio|Latest AUM|Beta|Portfolio Turnover Ratio|Standard Deviation|Sharpe Ratio|Average Maturity|YTM|Macaulay Duration|Modified Duration)\\s*(-?[\\d,.]+\\s*(?:years?|months?|days?)?)",
       load: "(?:Entry Load)?\\s*(Nil|\\S.*?)\\s*(?:Exit Load\\s*(Nil|\\S.*?))?$",
       lumpsum: "Minimum Application Amount(.+?)Minimum Additional Purchase(.+)$",
@@ -2982,6 +3033,20 @@
         "Latest AUM",
         "Fund Manager",
         "Total Expenses Ratio",
+        "EOL",
+        "Total Expenses Ratio", //case 1
+        "Quantitative Indicators",
+        "EOL",
+        "Fund Manager", //case 2
+        "Quantitative Indicators",
+        "Total Expenses Ratio",
+        "EOL",
+        "Monthly AAUM", //case 3
+        "Latest AUM",
+        "Quantitative Indicators",
+        "EOL",
+        "Benchmark", //case 4
+        "Redemption\\s*P?p?roceeds"
       ],
       manager: {
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:Managing this|has managed this) fund since\\s*(\\d{1,2}\\-?[A-Za-z,]+\\-?\\d{3,4}|Inception).*?([0-9]+ years)",
@@ -2991,17 +3056,16 @@
     },
     PATTERN_TO_FUNCTION: {
       // "^(benchmark|allotment_date).*": ["_extract_str_data", null],
-      before:["_extract_scheme_data","scheme"]
+      "^(before|dummy.*)":["_extract_scheme_data","scheme"],
       // min_amt: ["_extract_lump_data", "lumpsum"],
       // "^load": ["_extract_load_data", "load"],
     },
     SELECTKEYS: [
-      "^min_amt.*",
       ".*(minimum_application_amount|minimum_additional.+?amount)",//4
-      "load",
+      "load", //after merge
       ".*allotment_date",
-      ".*benchmark",
-      "metrics",
+      "benchmark_index",
+      "metrics", //after merge
       ".*fund_manager",
       "main_scheme_name",
       "amc_name",
@@ -3012,12 +3076,14 @@
       ".*monthly_aaum$"
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*latest_aum": ["_extract_generic_data", "metric"],
+      ".*(latest_aum|quantitative_indicators)": ["_extract_generic_data", "metric"],
       ".*minimum.+?amount$": ["_extract_amt_data", "min_amt"], //both min/add
       ".*fund_mana.*": ["_extract_manager_data", "manager"],
+      "befo.+?benchmark": ["_extract_generic_data", "benchmark"],
     },
     MERGEKEYS: {
       load: [".*entry_load", ".*exit_load"],
+      metrics:[".*latest_aum",".*quantitative_indicators"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -3029,7 +3095,9 @@
     TERTIARY_PATTERN_TO_FUNCTION: {},
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
-    CLONEKEYS: {metrics:".*latest_aum$"},
+    CLONEKEYS: {
+      benchmark_index:"befo.+?benchmark"
+    },
     SPECIAL_FUNCTIONS: {},
     PROMOTE_KEYS: {
     },

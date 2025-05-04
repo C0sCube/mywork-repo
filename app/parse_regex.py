@@ -1,6 +1,6 @@
 import re
 import os
-import json, random,string
+import json, random,string, inspect
 from dateutil import parser #type:ignore
 
 PATH = os.path.join(os.getcwd(),"data\\config\\regex.json")
@@ -37,6 +37,7 @@ class FundRegex():
             return text
 
     def header_mapper(self, text: str)->str:
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         text = re.sub(r"[^\w\s]+|\u00b7", "", text).strip()
         # print(text)
         for replacement, patterns in self.HEADER_PATTERNS.items():
@@ -49,7 +50,7 @@ class FundRegex():
                     if re.match(patterns, text, re.IGNORECASE):
                         return replacement
             except Exception as e:
-                print(f"\n{e}")
+                print(f"Function Running: {inspect.currentframe().f_code.co_name}\n{e}")
         return text
 
     def __clean_key(self,key: str) -> str:

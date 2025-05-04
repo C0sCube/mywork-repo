@@ -1,55 +1,19 @@
 {
     "main_mapper": {
-        "360 One Mutual Fund": "ThreeSixtyOne",
-        "Angel One Mutual Fund":"AngelOne",
-        "Aditya Birla Sun Life Mutual Fund": "AdityaBirla",
         "Axis Mutual Fund": "AXISMF",
-        "Axis Mutual Fund Passive": "AXISMF",
-        "Bajaj Finserv Mutual Fund": "BajajFinServ",
-        "Bandhan Mutual Fund": "Bandhan",
-        "Bank Of India Mutual Fund": "BankOfIndia",
+        "Angel One Mutual Fund": "AngelOne",
         "Baroda Bnp Paribas Mutual Fund": "BarodaBNP",
-        "Canara Robeco Mutual Fund": "Canara",
-        "Dsp Mutual Fund": "DSP",
-        "Edelweiss Mutual Fund": "Edelweiss",
-        "Franklin Templeton Mutual Fund": "FranklinTempleton",
-        "Groww Mutual Fund": "GROWW",
-        "Hdfc Mutual Fund": "HDFC",
-        "Hdfc Mutual Fund Passive": "HDFC",
-        "Helios Mutual Fund": "Helios",
-        "Hsbc Mutual Fund": "HSBC",
-        "Icici Prudential Mutual Fund": "ICICI",
-        "Icici Prudential Mutual Fund Passive": "ICICI",
+        "Motilal Oswal Mutual Fund": "MotilalOswal",
+        "Motilal Oswal Mutual Fund Passive": "MotilalOswalPassive",
+        "Mahindra Manulife Mutual Fund": "MahindraManu",
+        "Navi Mutual Fund": "NAVI",
+        "Pgim India Mutual Fund": "PGIM",
         "Iti Mutual Fund": "ITI",
         "Invesco Mutual Fund": "Invesco",
-        "Jm Financial Mutual Fund": "JMMF",
-        "Kotak Mahindra Mutual Fund": "Kotak",
-        "Lic Mutual Fund": "LIC",
-        "Mahindra Manulife Mutual Fund": "MahindraManu",
-        "Mirae Asset Mutual Fund": "MIRAE",
-        "Mirae Asset Mutual Fund Passive": "MIRAE",
-        "Motilal Oswal Mutual Fund": "MotilalOswal",
-        "Motilal Oswal Mutual Fund Passive": "MotilalOswal",
-        "Nj Mutual Fund": "NJMF",
-        "Navi Mutual Fund": "NAVI",
-        "Nippon India Mutual Fund": "Nippon",
-        "Old Bridge Mutual Fund": "OldBridge",
-        "Pgim India Mutual Fund": "PGIM",
-        "Ppfas Mutual Fund": "PPFAS",
-        "Quant Mutual Fund": "QuantMF",
-        "Quantum Mutual Fund": "Quantum",
-        "Sbi Mutual Fund": "SBI",
-        "Sbi Mutual Fund Passive": "SBIPassive",
-        "Samco Mutual Fund": "Samco",
-        "Shriram Mutual Fund": "Shriram",
-        "Sundaram Mutual Fund": "Sundaram",
-        "Tata Mutual Fund": "Tata",
         "Taurus Mutual Fund": "Taurus",
-        "Trust Mutual Fund": "Trust",
-        "Uti Mutual Fund": "UTI",
-        "Union Mutual Fund": "Union",
-        "Whiteoak Mutual Fund": "WhiteOak",
-        "Zerodha Mutual Fund": "Zerodha"
+        "Groww Mutual Fund": "GROWW",
+        "Sundaram Mutual Fund": "Sundaram",
+        "Quantum Mutual Fund": "Quantum"
     },
     "header_patterns": {
         "": [
@@ -704,11 +668,13 @@
             "360 ONE FOCUSED EQUITY FUND": "FOCUSED.*?TY FUND",
             "360 ONE LIQUID FUND": "LIQUID",
             "360 ONE QUANT FUND": "QUANT\\s*FUND",
-            "360 ONE Gold ETF":"Gold\\s*ETF",
-            "360 ONE Silver ETF":"Silver\\s*ETF"
+            "360 ONE Gold ETF": "Gold\\s*ETF",
+            "360 ONE Silver ETF": "Silver\\s*ETF"
         },
-        "Angel One Mutual Fund":{
-            
+        "Angel One Mutual Fund": {
+            "Angel One Nifty 1D Rate Liquid ETF - Growth":"Nifty 1D Rate Liquid ETF",
+            "Angel One Nifty Total Market ETF":"Total Market ETF",
+            "Angel One Nifty Total Market Index Fund":"Total Market Index"
         },
         "Aditya Birla Sun Life Mutual Fund": {
             "Aditya Birla Sun Life Frontline Equity Fund": "Frontline Equity Fund",
@@ -932,7 +898,7 @@
             "Baroda BNP Paribas Aqua Fund of Fund": "Aqua Fund",
             "Baroda BNP Paribas Arbitrage Fund": "Arbitrage",
             "Baroda BNP Paribas Balanced Advantage Fund": "Balanced Advantage",
-            "Baroda BNP Paribas Banking & Financial Services Fund": "Banking & Financial Services",
+            "Baroda BNP Paribas Banking & Financial Services Fund": "Bankin.+?Financial Services",
             "Baroda BNP Paribas Banking and PSU Bond Fund": "Banking and PSU Bond",
             "Baroda BNP Paribas Business Cycle Fund": "Business Cycle",
             "Baroda BNP Paribas Childrens Fund": "Childrens",
@@ -946,13 +912,13 @@
             "Baroda BNP Paribas Equity Savings Fund": "Equity Savings",
             "Baroda BNP Paribas Flexi Cap Fund": "Flexi Cap",
             "Baroda BNP Paribas Focused Fund": "Focused",
-            "Baroda BNP Paribas Gilt Fund": "Gilt",
+            "Baroda BNP Paribas Gilt Fund": "Paribas\\s*Gilt\\s*Fund",
             "Baroda BNP Paribas Gold ETF": "Gold ETF",
             "Baroda BNP Paribas India Consumption Fund": "India Consumption",
             "Baroda BNP Paribas Innovation Fund": "Innovation",
             "Baroda BNP Paribas Large & Mid Cap Fund": "Large & Mid Cap",
             "Baroda BNP Paribas Large Cap Fund": "Large Cap",
-            "Baroda BNP Paribas Liquid Fund": "Liquid",
+            "Baroda BNP Paribas Liquid Fund": "Paribas\\s*Liquid\\s*Fund$",
             "Baroda BNP Paribas Low Duration Fund": "Low Duration",
             "Baroda BNP Paribas Manufacturing Fund": "Manufacturing",
             "Baroda BNP Paribas Mid Cap Fund": "Mid Cap",
@@ -967,10 +933,10 @@
             "Baroda BNP Paribas Nifty200 Momentum 30 Index Fund": "Nifty200 Momentum 30 Index",
             "Baroda BNP Paribas Overnight Fund": "Overnight",
             "Baroda BNP Paribas Retirement Fund": "Retirement",
-            "Baroda BNP Paribas Short Duration Fund": "Short Duration",
+            "Baroda BNP Paribas Short Duration Fund": "Paribas\\s*Short Duration",
             "Baroda BNP Paribas Small Cap Fund": "Small Cap",
-            "Baroda BNP Paribas Ultra Short Duration Fund": "Ultra Short Duration",
-            "Baroda BNP Paribas Value Fund": "Value"
+            "Baroda BNP Paribas Ultra Short Duration Fund": "Paribas\\s*Ultra Short Duration",
+            "Baroda BNP Paribas Value Fund": "Value\\s*Fund$"
         },
         "Canara Robeco Mutual Fund": {
             "CANARA ROBECO BALANCED ADVANTAGE FUND (CRBAF)": "BALANCED ADVANTAGE",
@@ -990,14 +956,14 @@
             "CANARA ROBECO INFRASTRUCTURE (CRI)": "INFRASTRUCTURE",
             "CANARA ROBECO LIQUID FUND (CRL)": "LIQUID FUND",
             "CANARA ROBECO MANUFACTURING FUND (CRMTF)": "MANUFACTURING",
-            "CANARA ROBECO MID CAP FUND (CRMCF)": "MID CAP",
+            "CANARA ROBECO MID CAP FUND (CRMCF)": "ROBECO\\s*MID CAP",
             "CANARA ROBECO MULTI CAP FUND (CRMUCF)": "MULTI CAP",
             "CANARA ROBECO OVERNIGHT FUND (CROF)": "OVERNIGHT",
             "CANARA ROBECO SAVINGS FUND (CRSF)": "SAVINGS FUND",
             "CANARA ROBECO SHORT DURATION FUND (CRSDF)": "SHORT DURATION",
             "CANARA ROBECO SMALL CAP FUND (CRSCF)": "SMALL CAP",
             "CANARA ROBECO ULTRA SHORT TERM FUND (CRUSTF)": "ULTRA SHORT TERM",
-            "CANARA ROBECO VALUE FUND (CRVF)": "VALUE FUND"
+            "CANARA ROBECO VALUE FUND (CRVF)": "ROBECO\\s*VALUE FUND"
         },
         "Dsp Mutual Fund": {
             "DSP Flexi Cap Fund": "Flexi Cap Fund",
@@ -1464,8 +1430,7 @@
             "Navi Nifty Midcap 150 Index Fund": "Nifty Midcap 150 Index",
             "Navi Nifty Next 50 Index Fund": "Nifty Next 50 Index",
             "Navi US Total Stock Market Fund of Fund": "US Total Stock Market",
-            "Navi Nifty Smallcap250 Momentum Quality 100 Index Fund":"Smallcap250 Momentum Quality 100 Index"
-
+            "Navi Nifty Smallcap250 Momentum Quality 100 Index Fund": "Smallcap250 Momentum Quality 100 Index"
         },
         "Nippon India Mutual Fund": {},
         "Nj Mutual Fund": {
@@ -1737,8 +1702,8 @@
             "Union SMALL CAP FUND": "SMALL CAP",
             "Union VALUE FUND": "VALUE\\s*FUND$"
         },
-        "Unifi Mutual Fund":{
-            "Unifi Dynamic Asset Allocation Fund":"Dynamic\\s*Asset*Allocation"
+        "Unifi Mutual Fund": {
+            "Unifi Dynamic Asset Allocation Fund": "Dynamic\\s*Asset*Allocation"
         },
         "Whiteoak Mutual Fund": {
             "WhiteOak Capital Arbitrage Fund": "Arbitrage",

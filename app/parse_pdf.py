@@ -606,7 +606,8 @@ class Reader:
                 
                 # if clean_head in self.FLATTENABLE_KEYS: wip
                 #     content = regex.flatten_dict(content)
-                content_dict.update(content)
+                if content is not None:
+                    content_dict.update(content)
 
             secondary_refine[fund] = content_dict
             
@@ -616,7 +617,9 @@ class Reader:
             for head, content in item.items():
                 clean_head = header_map[fund].get(head, head)
                 content = self._match_with_patterns(clean_head, content,level = "tertiary")
-                content_dict.update(content)
+                if content is not None:
+                    content_dict.update(content)
+                # content_dict.update(content)
 
             tertiary_refine[fund] = content_dict
         return tertiary_refine

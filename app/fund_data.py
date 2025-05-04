@@ -536,9 +536,19 @@ class MahindraManu(Reader,GrandFundData):
 class MIRAE(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS,path)
+
+class MIRAEPassive(Reader,GrandFundData):
+    def __init__(self, paths_config: str,fund_name:str,path:str):
+        GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS,path) 
 #21 <>
 class MotilalOswal(Reader,GrandFundData): 
+    def __init__(self, paths_config: str,fund_name:str,path:str):
+        GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS,path)
+
+class MotilalOswalPassive(Reader,GrandFundData): 
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS,path) 
@@ -757,7 +767,26 @@ class AXISMF(Reader,GrandFundData):
     
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
-        Reader.__init__(self,paths_config, self.PARAMS,path) 
+        Reader.__init__(self,paths_config, self.PARAMS,path)
+        
+    def _update_manager_data(self, main_key: str, data):
+        final_list = []
+        manager_data = " ".join(data.values()) if isinstance(data,dict) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n = adjust(n,e)
+        for name,exp in zip(n,e):
+            final_list.append(self._return_manager_data(name=name,exp=exp))
+        return {main_key: final_list}
+    
+class AXISMFPassive(Reader,GrandFundData):
+    
+    def __init__(self, paths_config: str,fund_name:str,path:str):
+        GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS,path)
 #43 JMMF
 class JMMF(Reader,GrandFundData):
     
