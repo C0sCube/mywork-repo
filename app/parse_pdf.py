@@ -376,6 +376,11 @@ class Reader:
                 size,text, *open = block
                 if size == header_size:
                     base_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
+                    
+                    # Protect reserved key "before"
+                    # if base_head in ["before"]:
+                    #     base_head = f"{base_head}_{self._random_suffix()}"
+                    
                     curr_head = base_head
                     while curr_head in nested_dict:
                         curr_head = f"{base_head}_{self._random_suffix()}"

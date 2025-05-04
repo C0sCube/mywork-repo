@@ -771,3 +771,16 @@ class Shriram(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
         GrandFundData.__init__(self,fund_name) 
         Reader.__init__(self,paths_config, self.PARAMS,path) 
+
+
+# 45
+class AngelOne(Reader,GrandFundData):   
+    def __init__(self, paths_config: str,fund_name:str,path:str):
+        GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS,path) 
+        
+#46
+class Unifi(Reader,GrandFundData):   
+    def __init__(self, paths_config: str,fund_name:str,path:str):
+        GrandFundData.__init__(self,fund_name) 
+        Reader.__init__(self,paths_config, self.PARAMS,path) 

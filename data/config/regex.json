@@ -1,6 +1,7 @@
 {
     "main_mapper": {
         "360 One Mutual Fund": "ThreeSixtyOne",
+        "Angel One Mutual Fund":"AngelOne",
         "Aditya Birla Sun Life Mutual Fund": "AdityaBirla",
         "Axis Mutual Fund": "AXISMF",
         "Axis Mutual Fund Passive": "AXISMF",
@@ -417,7 +418,8 @@
             "^residual$",
             "^avg_mat\\.?$",
             "average_matu?r?i?t?y?$",
-            "^average$"
+            "^average$",
+            "^avgmaturityofthefund.*"
         ],
         "beta": [
             "^Portfolio Beta",
@@ -440,7 +442,8 @@
             "^macaulay$",
             ".*macaulay_duration.*",
             "mac_duration$",
-            "macaulay_annualised$"
+            "macaulay_annualised$",
+            "^macaulayduration.+$"
         ],
         "mod_duration": [
             "^modified_duration",
@@ -451,7 +454,8 @@
             "^modied_duraon$",
             "^modified$",
             "^modified_duration.*",
-            "^modified_dura?t?i?o?n?$"
+            "^modified_dura?t?i?o?n?$",
+            "^modifiedduration.+$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -702,6 +706,9 @@
             "360 ONE QUANT FUND": "QUANT\\s*FUND",
             "360 ONE Gold ETF":"Gold\\s*ETF",
             "360 ONE Silver ETF":"Silver\\s*ETF"
+        },
+        "Angel One Mutual Fund":{
+            
         },
         "Aditya Birla Sun Life Mutual Fund": {
             "Aditya Birla Sun Life Frontline Equity Fund": "Frontline Equity Fund",
@@ -1549,9 +1556,9 @@
             "Quantum Dynamic Bond Fund": "Dynamic Bond",
             "Quantum Gold Savings Fund": "Gold Savings",
             "Quantum Multi Asset Fund of Funds": "Multi Asset Fund of",
-            "Quantum Nifty 50 ETF Fund of Fund": "Nifty 50 ETF",
-            "Quantum Gold Fund": "Gold",
-            "Quantum Nifty 50 ETF": "Nifty 50 ETF"
+            "Quantum Nifty 50 ETF": "Quantum\\s*Nifty 50 ETF$",
+            "Quantum Nifty 50 ETF Fund of Fund": "Nifty 50 ETF.+?Fund$",
+            "Quantum Gold Fund": "Gold\\s*Fund$"
         },
         "Samco Mutual Fund": {
             "Samco Active Momentum Fund": "Active.*?tum Fund",
@@ -1729,6 +1736,9 @@
             "Union SHORT DURATION FUND": "SHORT DURATION",
             "Union SMALL CAP FUND": "SMALL CAP",
             "Union VALUE FUND": "VALUE\\s*FUND$"
+        },
+        "Unifi Mutual Fund":{
+            "Unifi Dynamic Asset Allocation Fund":"Dynamic\\s*Asset*Allocation"
         },
         "Whiteoak Mutual Fund": {
             "WhiteOak Capital Arbitrage Fund": "Arbitrage",

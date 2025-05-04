@@ -228,56 +228,66 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|FOF\\*?|Scheme|EOF|Funds\\*?|Yojna)?)$",
-        bbox: [0, 0, 470, 25],
+        pattern:"(Angel\\s*One.+?(?:Fund|ETF)\\s*(?:.+?Growth|Fund of Fund|of Fund|.*?Fund)?)",
+        bbox: [0, 130, 700, 230],
       },
       clip_bbox: [
-        [0, 50, 200, 330],
-        [200, 50, 380, 330],
-        [380, 90, 580, 330],
+        [0, 220, 300, 812],
+        [300, 220, 600, 812],
       ],
-      line_x: 210.0,
+      line_x: 300.0,
       data: {
-        size: [4, 10],
-        color: [-1, 0],
+        size: [14, 20],
+        color: [-1], //-16777216
         update_size: 30.0,
-        font: ["AnekLatin-Bold"],
+        font: ["Barlow-Medium"],
       },
-      content_size: [30.0, 10.0],
+      content_size: [30.0, 18.0],
       method: "clip",
       line_side: "",
-      max_financial_index_highlight: 9,
+      max_financial_index_highlight: 7,
       pdf_ocr: false,
       stop_words: [],
     },
     REGEX: {
-      aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
+      aum: "Rs\\.?\\s*([\\d,.]+\\s*crs?)",
       load: "Entry Load(.*?)\\s*Exit Load(.*)$",
+      scheme:[
+        "Inception Date",
+        "Benchmark Index",
+        "ISIN",
+        "NAV",
+        "Fund Manager",
+        "EOL",
+        "Monthly Average AUM", //case 1
+        "Month End AUM",
+        "Tracking Error",
+        "Total Expense Ratio",
+        "Load Structure",
+        "Investment Options",
+        "Minimum Investment Amount", //case 2
+        "Additional Investment Amount",
+        "EOL"
+      ],
       manager: {
-        name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
-        exp: "\\d+\\.\\d+\\s*Years?",
-        since: "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}",
+        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:Overall|Total)\\s*experience\\s*(\\d+ years?).+?managing.+?since\\s*([A-Za-z]+\\s+\\d{4})",
+        fields:["name","exp","since"]
       },
-      tracking: "regular\\s*(-?[\\d.]+)",
+      tracking: "(\\d+\\.\\d*)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(date_of_allotment|benchmark_index|fund_manager|managing_fund_since|experience_in_managing)": [
-        "_extract_str_data",
-        null,
-      ],
-      "^aum": ["_extract_generic_data", "aum"],
+    
+      "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^(application_amount|minimum_investment).*": [
-        "_extract_amt_data",
-        "min_amt",
-      ],
-      metrics: ["_extract_generic_data", "metric"],
-      tracking_error: ["_extract_generic_data", "tracking"],
-      load: ["_extract_load_data", "load"],
+      ".*(additional_investment_amount|minimum_investment_amount)": ["_extract_amt_data","min_amt"],
+      ".*monthly_average_aum": ["_extract_generic_data", "aum"],
+      ".*tracking_error": ["_extract_generic_data", "tracking"],
+      ".*load_structure": ["_extract_load_data", "load"],
+      ".*fund_manager":["_extract_manager_data","manager"]
     },
     SELECTKEYS: [
       "main_scheme_name",
@@ -285,13 +295,12 @@
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics",
-      "load",
-      "aum.monthly_average_aum",
-      "^(date_of|benchmark).*",
-      "^(application_amount|minimum_investment).*",
-      "^(fund_manager|managing_fund|experience_in).*",
-      "tracking_error",
+      "metrics", //after merge
+      "load", //after merge
+      ".*monthly_average_aum",
+      ".*(inception_date|benchmark_index)", //2
+      ".*(minimum_investment_amount|additional_investment_amount)", //4
+      ".*fund_manager",
     ],
     MERGEKEYS: {
       fund_manager: [
@@ -299,12 +308,13 @@
         "experience_in_managing_the_fund",
         "managing_fund_since",
       ],
-      metrics: ["metrics", "tracking_error"],
+      metrics: ["metrics", ".*tracking_error"],
+      load:[".*load_structure"]
     },
     COMMENTS: [],
     IMP_DATA: {
-      amc_name: "Aditya Birla Sun Life Asset Management Company Limited",
-      mutual_fund_name: "Aditya Birla Sun Life Mutual Fund",
+      amc_name: "Angel One Asset Management Company Limited",
+      mutual_fund_name: "Angel One Mutual Fund",
       page_number: [],
       monthly_aaum_date: "",
     },
@@ -313,7 +323,7 @@
     PRE_DATA_SELECT: [],
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {
-      fund_manager: "_update_manager_data",
+      // fund_manager: "_update_manager_data",
     },
     PROMOTE_KEYS: {},
     MAIN_MAP: {
@@ -777,7 +787,7 @@
       line_x: 210.0,
       data: {
         size: [9, 10],
-        color: [-12566464],
+        color: [-1], //-12566464
         update_size: 30.0,
         font: ["Unnamed-T3"],
       },
@@ -789,8 +799,8 @@
       stop_words: [],
     },
     REGEX: {
-      aum: "([\\d,.]+)\\sCrores",
-      metric: "(RoE \\(\\)|Average Maturity \\(years\\)|Macaulay Duration \\(years\\)|Tracking Error Regular|Modified Duration\\s*\\(years\\)|YTM\\s*\\(\\)|TER - Regular Plan|TER - Direct Plan|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Direct)\\s*([\\d.]+\\s*(?:years?|months?|days?)?)",
+      aum: "([\\d,.]+\\s*crores?)",
+      metric: "(RoE\\D+|Average Maturity\\D+|Macaulay Duration\\D+|Tracking Error\\s*(?:Regular)?|Modified Duration\\D*|YTM\\D*|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Direct)\\s*(-?\\d+\\.?\\d*\\s*(?:years?|months?|days?)?)",
       manager: {
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s+(\\d{2}-[A-Za-z]{3}-\\d{2})\\s+(\\d+ years)",
         fields: ["name", "since", "exp"],
@@ -804,8 +814,13 @@
         "AUM",
         "Fund Manager",
         "Load Structure",
-        "Expense Ratio",
+        "Quantitative Data",
         "Key Statistics",
+        "Minimum\\s*Amount",
+        "Minimum Additional Purchase Amount",
+        "EOL",
+        "Minimum\\s*Application\\s*Amount",
+        "Minimum\\s*Additional\\s*Application\\s*Amount",
         "EOL",
       ],
       min_amt: "([\\d,]+) and in multiples of\\s*([\\d,]+)",
@@ -813,35 +828,34 @@
       lumpsum: ".+Lumpsum investment(.+?)Minimum Additional Purchase Amount(.+?)$",
     },
     PATTERN_TO_FUNCTION: {
-      "^invest.*": ["_extract_str_data", null],
-      minimum_investment: ["_extract_lump_data", "lumpsum"],
-      scheme_details: ["_extract_scheme_data", "scheme"],
+      // "^invest.*": ["_extract_str_data", null],
+      // minimum_investment: ["_extract_lump_data", "lumpsum"],
+      "before": ["_extract_scheme_data", "scheme"],
     },
     SELECTKEYS: [
       ".*benchmark_index",
       ".*date_of_allotment",
       ".*monthly_aaum",
       ".*fund_manager",
-      ".*load_structure",
-      "metrics",
-      ".*(add_amt|min_amt)",
+      "load", //after merge
+      "metrics", //after merge
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
       "mutual_fund_name",
       "page_number",
-      ".*(key_statistics|expense_ratio)",
-      "minimum_investment.*",
+      ".*(minimum_amount|minimum_additional_purchase_amount|minimum_application_amount|minimum_additional_application_amount)", //4
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load_structure": ["_extract_load_data", "load"],
-      "minimum_investment.*": ["_extract_amt_data", "min_amt"],
+      ".*(minimum_amount|minimum_additional_purchase_amount|minimum_application_amount|minimum_additional_application_amount)": ["_extract_amt_data", "min_amt"],
       ".*monthly_aaum$": ["_extract_generic_data", "aum"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*(expense_ratio|key_statistics)$": ["_extract_generic_data", "metric"],
+      ".*(quantitative.*|key_statistics)$": ["_extract_generic_data", "metric"],
     },
     MERGEKEYS: {
-      metrics: [".*key_statistics$", ".*expense_ratio$"],
+      metrics: [".*key_statistics$", ".*quantitative.*$"],
+      load:[".*load_structure"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -3843,7 +3857,7 @@
       content_size: [30.0, 8.0],
       method: "clip",
       line_side: "",
-      max_financial_index_highlight: 7,
+      max_financial_index_highlight: 4,
       pdf_ocr: false,
       stop_words: [],
     },
@@ -3868,6 +3882,13 @@
         "Portfolio Turnover Ratio",
         "Redemption Proceeds",
         "EOL",
+        "Minimum Application Amount", //case 1
+        "Additional Purchase",
+        "Redemption Proceeds",
+        "EOL",
+        "Total Expense Ratio", //case 2
+        "Portfolio Turnover Ratio",
+        "EOL"
       ],
       ptr: "([\\d\\.]+|NA)",
       manager: {
@@ -3879,11 +3900,7 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)|Measures the updown movement over time also known as volatility|Measures how QEFOF moved relative to|Measures the return relative to the",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment|type_of|current_investment|date|benchmark|portfolio_turn).*": [
-        "_extract_str_data",
-        null,
-      ],
-      before: ["_extract_scheme_data", "scheme"],
+      "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(minimum_application_amount|additional_purchase)": [
@@ -3891,11 +3908,11 @@
         "min_amt",
       ],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*(key_statistics|portfolio_information)$": [
+      ".*(key_statistics|portfolio_information|metric)$": [
         "_extract_generic_data",
         "metric",
       ],
-      metric: ["_extract_generic_data", "metric"],
+      // metric: ["_extract_generic_data", "metric"],
       ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
     },
     SELECTKEYS: [
@@ -4957,8 +4974,8 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Union\\s*[A-Za-z\\s]+?(?:FUND|PATH|ETF|FOF))",
-        bbox: [0, 0, 180, 150],
+        pattern: "(Unifi.+?(?:Fund|ETF|Fo?O?F|Index)\\s*(?:.+?Growth|Fund of Fund|of Fund|.*?Fund)?)",
+        bbox: [0, 0, 600, 70],
       },
       clip_bbox: [
         [0, 140, 180, 812],
@@ -4967,7 +4984,7 @@
       line_x: 180.0,
       data: {
         size: [8, 14],
-        color: [-65794, -1],
+        color: [-1], //-65794, -1
         update_size: 30.0,
         font: ["Swiss721BT-Bold"],
       },
