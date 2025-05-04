@@ -37,6 +37,7 @@ class Reader:
             for pgn, page in enumerate(doc):
                 title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
                 title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
+                # print(title_text)
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                 # print(title)
@@ -381,7 +382,8 @@ class Reader:
                     nested_dict[curr_head] = []
                 elif size<= content_size and curr_head:
                     nested_dict[curr_head].append(block)
-                    
+            
+            # print("Before block contents:", nested_dict['before'])
             if nested_dict['before'] == []:
                 del nested_dict['before']    
             
@@ -546,13 +548,13 @@ class Reader:
             pgn,fund,blocks = content['page'],content['fundname'], content['block']
             
             #clean fund before updating
-            clean_fund_name = regex._sanitize_fund(fund,self.FUND_NAME)
+            fund = regex._sanitize_fund(fund,self.FUND_NAME)
             
-            print(f'--<<{clean_fund_name}>>--')
+            print(f'--<<{fund}>>--')
             Reader._generate_pdf_from_data(blocks, output_path) #1sec
-            start_time = time.time()
-            extracted_text[clean_fund_name] = Reader._extract_data_from_pdf(output_path)
-            self._update_imp_data(extracted_text[clean_fund_name],clean_fund_name,pgn)
+            # start_time = time.time()
+            extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
+            self._update_imp_data(extracted_text[fund],fund,pgn)
         return extracted_text
     
     #REFINE
@@ -649,6 +651,8 @@ class Reader:
             #populate and lowercase
             temp = regex._populate_all_indices_in_json(temp)
             temp = regex.transform_keys(temp) #lowercase
+            
+            # print(temp['monthly_aaum_value'])
             
             #regex load data
             new_load = {"entry_load": None,"exit_load": None}
