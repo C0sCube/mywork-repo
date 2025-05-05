@@ -777,7 +777,7 @@
     },
     COMMENTS: ["FUNd manager not coming for ELSS FUND etc"],
     IMP_DATA: {
-      amc_name: "Bank of India Investment Managers Private Limited",
+      amc_name: "BOI STAR Investment Managers Private Limited",
       mutual_fund_name: "Bank of India Mutual Fund",
       page_number: [],
       monthly_aaum_date: "",
@@ -1430,7 +1430,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(HDFC.*?(?:FUND|Fund\\s*(?:of Funds?|.+?Plan)?|ETF\\s*(?:Fund of Funds?)?))",
+        pattern: "(HDFC.*?(?:FUND|Fund|ETF|FO?o?F|Index|Active)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
         bbox: [0, 0, 400, 60],
       },
       clip_bbox: [
@@ -1716,7 +1716,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(HSBC.*?(?:FUND|Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of Funds?)?))",
+        pattern: "(HSBC.*?(?:FUND|Fund|ETF|Active|FO?o?F|Index)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
         bbox: [0, 0, 600, 45],
       },
       clip_bbox: [
@@ -5200,7 +5200,7 @@
     COMMENTS: ["No issues as of now."],
     IMP_DATA: {
       amc_name: "WhiteOak Capital Asset Management Limited",
-      mutual_fund_name: "WhiteOak Mutual Fund",
+      mutual_fund_name: "WhiteOak Capital Mutual Fund",
       page_number: [],
       monthly_aaum_date: "",
     },
