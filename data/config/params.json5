@@ -10,7 +10,7 @@
       line_x: 160.0,
       data: {
         size: [6, 10],
-        color: [-1], //-10791002, 5986214
+        color: [-1], //-10791002, 5986214 redacted
         update_size: 30.0,
         font: ["SpaceGrotesk-SemiBold"],
       },
@@ -59,7 +59,7 @@
       ],
       ptr: "([\\d\\.]+).*",
       metrics: "(Std\\.? Dev|Sharpe Ratio|Modified Duration|Portfolio Beta|Residual Maturity|R Squared|Treynor|Macaulay Duration|Annualised Portfolio)\\s*(-?[\\d.]+\\s*(?:years|days|months)?|NA)\\s*(?:(-?[\\d.]+\\s*(?:years|days|months)?|NA))?",
-      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "(before|dummy.*)": ["_extract_scheme_data", "scheme"],
@@ -138,7 +138,7 @@
       line_x: 210.0,
       data: {
         size: [4, 10],
-        color: [-1, 0],
+        color: [-1, 0], 
         update_size: 30.0,
         font: ["AnekLatin-Bold"],
       },
@@ -160,7 +160,7 @@
       tracking: "regular\\s*(-?[\\d.]+)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
-      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(date_of_allotment|benchmark_index|fund_manager|managing_fund_since|experience_in_managing)": [
@@ -238,8 +238,8 @@
       line_x: 300.0,
       data: {
         size: [14, 20],
-        color: [-1], //-16777216
-        update_size: 30.0,
+        color: [-1], //-16777216 redacted
+        update_size: 30.0, 
         font: ["Barlow-Medium"],
       },
       content_size: [30.0, 18.0],
@@ -276,7 +276,7 @@
       tracking: "(\\d+\\.\\d*)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
-      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
     
@@ -350,7 +350,7 @@
       line_x: 260.0,
       data: {
         size: [6, 12],
-        color: [-1], //-6876083
+        color: [-1], //-6876083 redacted
         update_size: 30.0,
         font: ["Lato-Bold"],
       },
@@ -387,7 +387,7 @@
         exp:"p?e?r?i?e?n?c?e?\\s*(\\d+\\s*years?)"
       },
       metrics:"(RESIDUAL MATURITY|MODIFIED DURATION|MACAULAY DURATION|TRACKING ERROR|Standard Deviation|Beta|Sharpe Ratio)\\D*(\\d+\\.?\\d*\\s*(?:years?|days?|months?)?)",
-      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dumm.*)": ["_extract_scheme_data", "scheme"],
@@ -482,7 +482,7 @@
         fields: ["name", "exp", "since"],
       },
       metrics: "(Annualised Portfolio YTM|Residual Maturity|Modified Duration|Macau?lay Duration|PE Multiple|PB Multiple|Dividend Yield|Tracking Error\\s*[0-9]+\\s*year)\\s*(-?[\\d.]+\\s*(?:days?|months?|years?)?)",
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s]+|\u00b7",
+      escape: "[^a-zA-Z0-9.,\\(\\)\\s\\+]+|\u00b7",
     },
     PATTERN_TO_FUNCTION: {
       scheme_details: ["_extract_scheme_data", "scheme"],
@@ -570,7 +570,7 @@
         pattern: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)?\\s*([\\w\\s]+)\\s*(?:\\(([\\w\\s]+)\\))?\\s*\\(Managing fund\\s*since\\s*([\\w\\s\\d]+|inception)\\s*Overall experience.+?(\\d+ years)\\)",
         fields: ["name", "desig", "since", "exp"],
       },
-      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]",
+      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(investment|entry|exit|load|plans|date_of_allot|benchmark).*": [
@@ -654,7 +654,7 @@
       nav: "(Regular Plan Growth|Regular Plan IDCW|Direct Plan Growth|Direct Plan IDCW)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
       metric: "(Beta|R Squared|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Y?ield to Maturity|Information Ratio)\\s*(-?[\\d.]+\\s*(?:years?|months?|days?)?|NA|Nil)",
       ptr: "(Equity|Aggregate|Tracking Error)\\s*(-?[\\d.]+)",
-      escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-]+|\\(Annualized\\)|\u00b7",
+      escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+]+|\\(Annualized\\)|\u00b7",
     },
     PATTERN_TO_FUNCTION: {
       "^(category|scheme_launch|benchmark|month|about|investment|sip|option|exit_load\\*?|inception_date).*": [
@@ -741,7 +741,7 @@
       },
       min_amt: "([\\d,]+).*?([\\d,]+)",
       metrics: "(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*\\_?Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+\\s*(?:days|months?|years?)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualized\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(Annualized\\)",
     },
     PATTERN_TO_FUNCTION: {
       "^(investment|benchmark|date|average|latest|minimum|additional|portfolio_turn).*": [
@@ -808,7 +808,7 @@
       line_x: 210.0,
       data: {
         size: [9, 10],
-        color: [-1], //-12566464
+        color: [-1], //-12566464 redacted
         update_size: 30.0,
         font: ["Unnamed-T3"],
       },
@@ -826,7 +826,7 @@
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s+(\\d{2}-[A-Za-z]{3}-\\d{2})\\s+(\\d+ years)",
         fields: ["name", "since", "exp"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
       scheme: [
         "NAV Details",
         "Benchmark Index",
@@ -915,7 +915,7 @@
         size: [8, 11],
         update_size: 30.0,
         font: ["Taz-SemiLight"],
-        color: [-12371562], //-12371562
+        color: [-1], //-12371562
       },
       content_size: [30.0, 10.0],
       line_x: 180.0,
@@ -926,28 +926,8 @@
       stop_words: [],
     },
     REGEX: {
-      metric: "(Modified Duration|Annualised Portfolio YTM||Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
+      benchmark:"((?:BSE|NIFTY|CRISIL|Physical).+?(?:TRI|Index|Silver|Gold))",
       scheme: [
-        "SCHEME OBJECTIVE",
-        "Monthend AUM",
-        "Monthly\\s*AVG\\s*AUM",
-        "NAV",
-        "DAT\\s*E OF ALLOTMENT",
-        "ASSET ALLOCATION",
-        "MINIMUM INVESTMENT",
-        "Subsequent|Additional",
-        "SIP",
-        "PLANS\\s*OPTIONS",
-        "ENTRY LOAD|EOL",
-        "EXIT LOAD|EOL",
-        "EXPENSE RATIO",
-        "BENCHMARK",
-        "FUND.+?\\d{1}?",
-        "TOTAL.*?ENCE",
-        "MANAGING\\s*THIS\\s*FUND",
-        "EOL",
-      ],
-      scheme2: [
         "SCHEME OBJECTIVE",
         "Monthend AUM",
         "Monthly\\s*AVG\\s*AUM",
@@ -962,7 +942,7 @@
         "EXIT LOAD|EOL",
         "EXPENSE RATIO|EOL",
         "BENCHMARK",
-        "FUND.+?\\d{1}?",
+        "FUND\\s*MANAGER\\s*1\\s*\\)",
         "TOTAL.*?ENCE",
         "MANAGING\\s*THIS\\s*FUND",
         "EOL",
@@ -971,6 +951,7 @@
         "QUANTITATIVE INFORMATION",
         "EOL"
       ],
+      metric: "(Modified Duration|Annualised Portfolio YTM|Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
       manager: {
         name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
         exp: "([\\d]+ years?)",
@@ -978,24 +959,22 @@
       },
       lumpsum: "(.+?)(?:Subsequent|Additional)\\s*purchases?(.+?)(?:SIP|Systematic)",
       min_amt: "([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
-      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
+      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(scheme|dummy|before).*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metrics.*": ["_extract_generic_data", "metric"],
-      ".*(minimum_investment|subsequent|additional)": [
-        "_extract_amt_data",
-        "min_amt",
-      ],
+      ".*(quantitative_information)": ["_extract_generic_data", "metric"],
+      ".*(minimum_investment|subsequent|additional)": ["_extract_amt_data","min_amt"],
     },
     SELECTKEYS: [
-      ".*benchmark",
+      // ".*benchmark",
       ".*allotment",
       ".*monthly_avg_aum",
-      ".*(fund_mana.*|total_exper.*|managing.*)$",
-      ".*(minimum_investment|subsequent)",
+      "fund_manager", //after merge
+      "benchmark_index", //after clone
+      ".*(minimum_investment|subsequent|additional_investment)", //4
       "metrics",
       "load", //after merge
       "fund_manager",
@@ -1008,10 +987,11 @@
     MERGEKEYS: {
       load: [".*entry_load", ".*exit_load"],
       fund_manager: [
-        ".*fund_manager.*",
+        ".*benchmark$",
         ".*total_exper.*",
         ".*managing_this.*",
       ],
+      metrics:[".*quantitative"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -1026,9 +1006,11 @@
     PRE_DATA_SELECT: ["fund_information", "dummy"],
     CLONEKEYS: {
       additional_investment: ".*subsequent",
+      benchmark_index:".*benchmark$"
     },
     SPECIAL_FUNCTIONS: {
       fund_manager: "_update_manager_data",
+      benchmark_index:"_update_benchmark_data"
     },
     PROMOTE_KEYS: {},
     MAIN_MAP: {
@@ -1055,7 +1037,7 @@
         size: [7, 11],
         update_size: 30.0,
         font: ["TrebuchetMS-Bold"],
-        color: [-1],
+        color: [-1], //redacted
       },
       content_size: [30.0, 10.0],
       line_x: 180.0,
@@ -1231,15 +1213,15 @@
         pattern: "((?:Franklin|Templeton).*?(?:Fund\\s*(?:of Funds)?|Plan))",
         bbox: [0, 0, 470, 80],
       },
-      clip_bbox: [[0, 100, 180, 812]],
+      clip_bbox: [[0, 100, 170, 812]],
       line_x: 180.0,
       data: {
         size: [6, 9],
-        color: [-16751720],
+        color: [-1], //-16751720 redacted
         update_size: 30.0,
         font: ["ZurichBT-BoldCondensed"],
       },
-      content_size: [30.0, 10.0],
+      content_size: [30.0, 12.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 6,
@@ -1247,65 +1229,77 @@
       stop_words: [],
     },
     REGEX: {
-      nav: "(Growth Plan|IDCW Plan|Direct Growth Plan|Direct IDCW Plan)\\s*([\\d\\-,]+\\.\\d+)",
-      metric: "(Sharpe Ratio|Standard Deviation|Beta|Annualised)[\\s]+([\\d\\-,]+\\.\\d+)",
-      expense: "(Regular|Direct)\\s*([\\d,.-]+)",
+      // trim: 40,
+      scheme:[
+        "TYPE\\s*OF\\s*SCHEME",
+        "SCHEME\\s*CATEGORY",
+        "INVESTMENT\\s*OBJECTIVE",
+        "DATE OF ALLOTMENT",
+        "FUND MANAGER",
+        "BENCHMARK",
+        "NAV AS OF",
+        "FUND\\s*SIZE",
+        "EXPENSE RATIO",
+        "MINIMUM\\s*INVESTMENT.+?INVESTORS",
+        "INVESTMENT\\s*FOR\\s*SIP",
+        "ADDITIONAL\\s*INVESTMENT",
+        "LOAD STRUCTURE",
+        // "Entry Load",
+        // "Exit Load",
+        "EOL",
+        "BENCHMARK", //case 1
+        "FUND\\s*SIZE",
+        "NAV AS OF",
+        "EOL"
+      ],
+      metric: "(MACAULAY DURATION|RESIDUAL\\s*MATURITY\\D*|ANNUALISED\\s*PORTFOLIO\\s*YTM|MODIFIED DURATION|Tracking Error.+?Period\\D*|Month End|Monthly Average|Sharpe Ratio|Standard Deviation|Beta|Portfolio Turnover)\\s*(-?[\\d\\,\\.]+\\s*(?:days?|months?|years?|crores?)?)",
       load: "ENTRY LOAD(.*?)\\s*EXIT LOAD\\s*(.*?)$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       manager: {
         pattern: "\\b(?:[A-Z]\\.|[A-Z][a-z]+)(?:\\s(?:[A-Z]\\.|[A-Z][a-z]+)){1,2}\\b(?![^()]*\\))",
         fields: ["name"],
       },
-      trim: 40,
       aum: "(Month End|Monthly Average)\\s*([\\d,.\\-]+)",
       ptr: "(Portfolio\\s*Turnover(?:\\s*\\(Equity\\d*\\))?)\\s*(\\d{1,3}(?:,\\d{3})*\\.\\d+)%?",
       escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(date|benchmark|investment|type_of|scheme|multiples|minimum).*": [
-        "_extract_str_data",
-        null,
-      ],
-      "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)": [
-        "_extract_and_trim_data",
-        "trim",
-      ],
-      "^nav.*": ["_extract_generic_data", "nav"],
-      "^aum.*": ["_extract_generic_data", "aum"],
-      "^portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
+      // "^(date|benchmark|investment|type_of|scheme|multiples|minimum).*": [
+      //   "_extract_str_data",
+      //   null,
+      // ],
+      // "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)": [
+      //   "_extract_and_trim_data",
+      //   "trim",
+      // ],
+      // "^nav.*": ["_extract_generic_data", "nav"],
+      // "^aum.*": ["_extract_generic_data", "aum"],
+      // "^portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
+      "^(dummy.*|before)":["_extract_scheme_data","scheme"]
     },
     SELECTKEYS: [
-      "^date_of_allotment",
-      "fund_manager",
-      "benchmark_index",
-      "aum.monthly_average",
-      ".*for_new_investors",
-      ".*for_existing_investors",
+      ".*date_of_allotment",
+      ".*fund_manager",
+      ".*benchmark",
+      ".*(minimum_investment_amount|additional_investment)",
       "load",
       "metrics",
-      "portfolio_turnover_ratio",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)",
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^(multiples_for|multiples_for_existing|for_new.*|for_existing.*)": [
-        "_extract_amt_data",
-        "min_amt",
-      ],
-      "^fund_manager": ["_extract_manager_data", "manager"],
-      "^metrics": ["_extract_generic_data", "metric"],
-      "^load": ["_extract_load_data", "load"],
+      ".*(additional_investment|minimum_investment.*)": ["_extract_amt_data","min_amt"],
+      ".*fund_manager": ["_extract_manager_data", "manager"],
+      ".*(fund_size|expense_ratio)": ["_extract_generic_data", "metric"],
+      ".*load_structure": ["_extract_load_data", "load"],
     },
     MERGEKEYS: {
-      metrics: [
-        "metrics",
-        "^portfolio_turnover_ratio",
-        "^(average_maturity|annualised_portfolio_ytm|modified_duration|macaulay_duration)",
-      ],
+      metrics: [".*fund_size",".*expense_ratio"],
+      load:[".*load_structure"],
+      minimum_investment_amount:[".*multiples_for_new_investors"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -1316,10 +1310,14 @@
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     COMBINEKEYS: {},
-    PRE_DATA_SELECT: ["^fund_manager", "load.*"],
+    PRE_DATA_SELECT: [],
     CLONEKEYS: {},
     SPECIAL_FUNCTIONS: {},
-    PROMOTE_KEYS: {},
+    PROMOTE_KEYS: {
+      "metrics":{
+        "monthly_aaum_value":"^monthly.+?verage"
+      }
+    },
     MAIN_MAP: {
       class_name: "",
       flatten: true,
@@ -2064,7 +2062,7 @@
       line_x: 180.0,
       data: {
         size: [7, 9],
-        color: [-1], //-16777216
+        color: [-1], //-16777216 redacted
         update_size: 30.0,
         font: ["Graphik-Semibold"],
       },
@@ -2172,7 +2170,7 @@
       line_x: 180.0,
       data: {
         size: [5, 8],
-        color: [-1],//-1688818, -1165277, -1689074, -1097437, -1099741
+        color: [-1],//-1688818, -1165277, -1689074, -1097437, -1099741 redacted
         update_size: 30.0,
         font: ["Calibri-Bold"],
       },
@@ -2288,7 +2286,7 @@
       line_x: 390.0,
       data: {
         size: [6, 9],
-        color: [0],
+        color: [0], //redacted
         update_size: 30.0,
         font: ["MyriadPro-BoldCond"],
       },
@@ -2589,7 +2587,7 @@
       line_x: 200.0,
       data: {
         size: [7, 10],
-        color: [-1],
+        color: [-1], //redacted
         update_size: 30.0,
         font: ["QuantumRise-Bold", "QuantumRise", "QuantumRise-Semibold"],
       },
@@ -3122,7 +3120,7 @@
       line_x: 320.0,
       data: {
         size: [14, 20],
-        color: [-1], //-12844976
+        color: [-1], //-12844976 redacted
         update_size: 30.0,
         font: ["NaviHeadline-Bold","NaviHeadline,Bold"],
       },
@@ -3253,7 +3251,7 @@
       line_x: 180.0,
       data: {
         size: [6, 12],
-        color: [-1],
+        color: [-1], //white
         update_size: 30.0,
         font: [
           "HelveticaNeueCondensed-C",
@@ -3577,7 +3575,7 @@
       line_x: 210.0,
       data: {
         size: [6, 12],
-        color: [-1],
+        color: [-1], //white
         update_size: 30.0,
         font: ["PrudentialModern-Bold"],
       },
@@ -3689,7 +3687,7 @@
       line_x: 210.0,
       data: {
         size: [6, 12],
-        color: [-1],
+        color: [-1], //redacted
         update_size: 30.0,
         font: ["Arial-BoldMT"],
       },
@@ -3805,7 +3803,7 @@
       line_x: 200.0,
       data: {
         size: [7, 20],
-        color: [-1],
+        color: [-1], //redacted
         update_size: 30.0,
         font: ["Calibri,Bold", "Inter-Bold"],
       },
@@ -3918,7 +3916,7 @@
       line_x: 180.0,
       data: {
         size: [6, 11],
-        color: [-23],
+        color: [-23], //redacted
         update_size: 30.0,
         font: ["Prompt-SemiBold"],
       },
@@ -4048,7 +4046,7 @@
       line_x: 200.0,
       data: {
         size: [7, 12],
-        color: [-1],
+        color: [-1], 
         update_size: 30.0,
         font: ["Inter-SemiBold", "Inter-Bold"],
       },
@@ -4361,7 +4359,7 @@
       line_x: 290.0,
       data: {
         size: [6, 12],
-        color: [0], //-1
+        color: [0], //-1 redacted
         update_size: 30.0,
         font: ["Poppins-SemiBold"],
       },
@@ -4398,7 +4396,7 @@
         pattern: "(?:Mr\\.?|Ms\\.?)\\s*([\\w\\s]+)\\(Since\\s*([A-Za-z\\s,0-9]+?)\\)\\D*?Experience\\D*?(\\d{1,2} years)",
         fields: ["name", "since", "exp"],
       },
-      metrics: "(Standard Deviation|Portfolio Beta|Sharpe Ratio|Information Ratio|Average Maturity|Residual Maturity\\D*|Modified Duration\\D*|Macaulay Duration\\D*|Annualised Portfolio YTM\\D*|Yield to Maturity)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
+      metrics: "(Portfolio Turnover Ratio\\D*|Standard Deviation|Portfolio Beta|Sharpe Ratio|Information Ratio|Average Maturity|Residual Maturity\\D*|Modified Duration\\D*|Macaulay Duration\\D*|Annualised Portfolio YTM\\D*|Yield to Maturity)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
       load: "()Exit Load(.+)$",
       escape: "[^a-zA-Z0-9.,\\(\\)\\s\\-]+|\\(Annualised\\)",
     },
@@ -4407,9 +4405,9 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*load": ["_extract_load_data", "load"],
-      ".*quantitative": ["_extract_generic_data", "metrics"],
+      ".*(quantitative|expense_ratio)": ["_extract_generic_data", "metrics"],
       ".*average_aum": ["_extract_generic_data", "aum"],
-      ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
+      // ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
       "^before.benchmark": ["_extract_generic_data", "benchmark"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
       ".*minimum_investment": ["_extract_amt_data", "min_amt"],
@@ -4423,17 +4421,16 @@
       "benchmark_index", //after clone
       ".*average_aum",
       ".*minimum_investment",
-      "additional_investment",
+      "additional_investment", //after clone
       "monthly_aaum_date",
       "mutual_fund_name",
       ".*fund_manager",
-      "metrics",
-      ".*(portfolio_turnover_ratio|quantitative_data)",
+      "metrics", //after merge
       ".*date_of_inception",
 
     ],
     MERGEKEYS: {
-      metrics: [".*portfolio_turnover_ratio", ".*quantitative_data"],
+      metrics: [".*expense_ratio", ".*quantitative_data"],
       load: [".*loads"],
     },
     COMMENTS: [],
@@ -4473,7 +4470,7 @@
       line_x: 220.0,
       data: {
         size: [6, 13],
-        color: [-1],
+        color: [-1], //redacted
         update_size: 30.0,
         font: ["UniversNextforMORNW02-Cn"],
       },
@@ -4668,7 +4665,7 @@
       line_x: 210.0,
       data: {
         size: [6, 12],
-        color: [-1], //-9754846
+        color: [-1], //-9754846 redacted
         update_size: 30.0,
         font: ["Calibri-Bold"],
       },

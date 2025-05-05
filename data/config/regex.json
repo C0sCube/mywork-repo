@@ -477,7 +477,8 @@
             "^portfolio_turnover$",
             "^portfolioturnover$",
             "^portfolioturnover.*arbitrage\\)?$",
-            "^equity$"
+            "^equity$",
+            "^portfolio_turnover_ratio.+equity.*$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -514,7 +515,8 @@
             "^portfolio_turnover_ratio.?tracking_error$",
             "^tracking_error.*year$",
             "^tracking_error\\s*.+?yrs?\\)?",
-            ".*tracking_error$"
+            ".*tracking_error$",
+            "^tracking_error.+?period.+?$"
         ],
         "treynor_ratio": [
             "^Treynor",
@@ -1156,10 +1158,12 @@
             "Franklin India Government Securities Fund": "Government Securities",
             "Franklin India Liquid Fund": "India Liquid",
             "Franklin India Long Duration Fund": "India Long Duration",
+            "Franklin India Low Duration Fund":"India Low Duration",
             "Franklin India Medium To Long Duration Fund": "India Medium To Long",
             "Franklin India Money Market Fund": "India Money Market",
             "Franklin India Multi Cap Fund": "India Multi Cap",
             "Franklin India Multi-Asset Solution Fund of Funds": "India Multi.+?Solution.+?Funds?$",
+            "Franklin India Dynamic Asset Allocation Fund of Funds ":"Dynamic Asset Allocation Fund of",
             "Franklin India NSE Nifty 50 Index Fund": "India NSE Nifty 50 Index",
             "Franklin India Opportunities Fund": "India Opportunities",
             "Franklin India Overnight Fund": "India Overnight",

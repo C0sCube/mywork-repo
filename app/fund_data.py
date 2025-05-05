@@ -42,11 +42,6 @@ class GrandFundData:
     def _extract_dummy_data(self,main_key:str,data):
         return {main_key:data}
     
-    def _extract_and_trim_data(self,main_key:str,data,pattern:str):
-        trim_data = " ".join(data) if isinstance(data,list) else data
-        trim_data = re.sub(self.REGEX["escape"],"",trim_data).strip()
-        return {main_key:trim_data[:self.REGEX[pattern]] if len(trim_data)>self.REGEX[pattern] else trim_data}
-    
     def _extract_bench_data(self,main_key:str,data,pattern:str):
         data = " ".join(data) if isinstance(data,list) else data
         benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
@@ -129,7 +124,7 @@ class GrandFundData:
 
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
         load_data = " ".join(data) if isinstance(data,list) else data
-        load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
+        # load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
         final_dict = {'entry_load':"","exit_load":""}
         if matches:= re.findall(self.REGEX[pattern],load_data.strip(), re.IGNORECASE):
             for match in matches:
@@ -397,7 +392,7 @@ class Canara(Reader,GrandFundData):
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         nlength = 0
-        value = " ".join(manager_data.values())
+        value = " ".join(manager_data.values()) if isinstance(manager_data,dict) else manager_data
         nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
         esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
         msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
@@ -412,6 +407,11 @@ class Canara(Reader,GrandFundData):
         final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
         return {main_key:final_list}
 
+    def _update_benchmark_data(self,main_key:str,bench_data):
+        bench_data = " ".join(bench_data) if isinstance(bench_data,list) else bench_data
+        if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
+            return {main_key:match[0]}
+        return {main_key:bench_data}
 #7
 class DSP(Reader,GrandFundData):
     def __init__(self, paths_config: str,fund_name:str,path:str):
