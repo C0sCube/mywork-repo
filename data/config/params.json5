@@ -915,7 +915,7 @@
         size: [8, 11],
         update_size: 30.0,
         font: ["Taz-SemiLight"],
-        color: [-1], //-12371562
+        color: [-1], //-12371562 redacted
       },
       content_size: [30.0, 10.0],
       line_x: 180.0,
@@ -4766,7 +4766,7 @@
       line_x: 180.0,
       data: {
         size: [8, 11],
-        color: [-1],
+        color: [0], //-1 
         update_size: 30.0,
         font: ["Roboto-Bold"],
       },
@@ -4778,8 +4778,8 @@
       stop_words: [],
     },
     REGEX: {
-      aum: ".*Monthly Average AUM\\s*([\\d,.]+)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      aum: "([\\d,.]+\\s*C?r?s?)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
       load: "Entry Load(.*?)Exit Load(.+)$",
       manager: {
         pattern: "\\s*([\\w\\s]+)\\s*\\((since Inception|[0-9]+\\s[A-Za-z]+\\s[0-9]+)\\)\\s*Total Experience - ([0-9]+ years)",
@@ -4794,20 +4794,37 @@
         "Minimum Additional Purchase|Minimum Investment",
         "EOL",
       ],
-      min_amt: "([\\d,.]+).*?([\\d.,]+)",
+      scheme2:[
+        "Date\\s*of\\s*Allotment",
+        "Fund\\s*Manager",
+        "Fund\\s*Size",
+        "Month\\s*end\\s*AUM",
+        "Monthly\\s*Average",
+        "Load Structure",
+        "Benchmark",
+        "Minimum\\s*Additional|Minimum\\s*Investment",
+        "Minimum\\s*Redemption",
+        "NAV\\s*as\\s*on",
+        "Total Expense Ratio",
+        "EOL",
+       //case2
+        "Minimum\\s*Investment",
+        "NAV as on",
+      ],
+      min_amt: "([\\d,.]+).*?([\\d.,]+|any)",
       amt: "([\\d,]+)()",
       metrics: "(Yield|Average Maturity|Port?f?olio Turnover|Standard Devia[ti]?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ra[ti]?o|Beta|R Squared|Treynor)\\s*(-?[\\d.]+\\s*(?:days|years|months)?)",
     },
     PATTERN_TO_FUNCTION: {
-      scheme_details: ["_extract_scheme_data", "scheme"],
+      "^(before|dummy.*)": ["_extract_scheme_data", "scheme2"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^metrics": ["_extract_generic_data", "metrics"],
+      ".*total_expense_ratio": ["_extract_generic_data", "metrics"],
       ".*load_structure": ["_extract_load_data", "load"],
-      ".*fund_size$": ["_extract_generic_data", "aum"],
-      nav: ["_extract_generic_data", "metrics"],
+      ".*monthly_average$": ["_extract_generic_data", "aum"],
+      // nav: ["_extract_generic_data", "metrics"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
-      ".*(minimum_additional_purchase)": ["_extract_amt_data", "min_amt"],
+      ".*minimum_additional": ["_extract_amt_data", "min_amt"],
       ".*minimum_investment": ["_extract_amt_data", "amt"],
     },
     SELECTKEYS: [
@@ -4817,15 +4834,18 @@
       "mutual_fund_name",
       "monthly_aaum_date",
       ".*date_of_allotment",
+      "metrics", //after merge
       ".*benchmark",
-      ".*load_structure",
-      "nav",
-      ".*fund_size$",
+      "load", //after merge
+      ".*monthly_average$",
       ".*fund_manager",
-      ".*(minimum_investment|minimum_additional_purchase)",
-      "monthly_aaum_value",
+      ".*(minimum_investment|minimum_additional)", //4
+      "monthly_aaum_value", 
     ],
-    MERGEKEYS: {},
+    MERGEKEYS: {
+      metrics:[".*total_expense_ratio"],
+      load:[".*load_structure"]
+    },
     COMMENTS: [],
     IMP_DATA: {
       amc_name: "Trust Asset Management Private Limited",
@@ -5141,7 +5161,7 @@
       line_x: 240.0,
       data: {
         size: [7, 11],
-        color: [-65794, -1],
+        color: [0], //-65794, -1 redacted
         update_size: 30.0,
         font: ["MyriadPro-Bold"],
       },
@@ -5153,46 +5173,63 @@
       stop_words: [],
     },
     REGEX: {
+      scheme:[
+        "Fund Snapshot",
+        "Inception Date",
+        "Benchmark",
+        "Fund Manager",
+        "Category\\s*of\\s*the\\s*Scheme",
+        "Monthly Average AUM",
+        "Month End AUM",
+        "Minimum Investment",
+        "Expense Ratio",
+        "NAV of Plans",
+        "Load Structure",
+        "Quantitative",
+        "EOL",
+        "Load Structure", //case 1
+        "EOL"
+      ],
       manager: {
-        pattern: "(?:Mr\\.|Mrs\\.|Ms\\.)?\\s*([\\w\\s]+)(?:\\s*\\(([\\w\\s\\-]+)\\))?\\s*Managing (?:this Scheme|this scheme|this fund|this plan).*?from\\s*(its inception|[\\d\\w\\s,]+?)\\s*Total.*?Over\\s*(\\d+\\s+Years)",
+        pattern:"(?:Mr\\.|Mrs\\.|Ms\\.)?\\s*([\\w\\s]+)\\s*(?:\\((.+?)\\))?\\s*Managing\\s*(?:this Scheme|this scheme|this fund|this plan).*?(?:from|since)\\s*(its inception|[\\d\\w\\s,]+?)\\s*Total.*?Over\\s*(\\d+\\s+Years)",
         fields: ["name", "desig", "since", "exp"],
       },
-      nav: "(Growth)\\s*([\\d,.]+)\\s*(Growth)\\s*([\\d,.]+)",
       aum: "(Monthly Average AUM|Month End AUM)\\s*(-?[\\d,.]+)",
       ptr: "(Portfolio Turn over Ratio)\\s*([\\d,.]+)",
       min_amt: "([\\d,]+).*? (?:Re.)?\\s*([\\d,]+)",
-      metrics: "(Tracking Error|Portfolio Turn over Ratio|Average Maturity|Macaulay Duration|Residual Maturity|Annualised Portfolio YTM|Modified Duration)\\s*(-?[\\d.]+\\s*(?:years?|months?|days?)?)",
+      metrics: "(Tracking Error|Sharpe|Treynor|Beta|Alpha|Sortino|Portfolio\\s*Turn\\s*over Ratio|Average Maturity|Macaulay Duration|Residual Maturity|Annualised Portfolio YTM|Modified Duration)\\s*(-?[\\d.]+\\s*(?:years?|months?|days?)?)",
       load: "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$",
-      escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.]+",
+      escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.\\+]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^aum.*": ["_extract_generic_data", "aum"],
-      "^(benchmark|scheme_launch|inception).*": ["_extract_str_data", null],
-      "^fund_mana.*": ["_extract_manager_data", "manager"],
+      // "^aum.*": ["_extract_generic_data", "aum"],
+      // "^(benchmark|scheme_launch|inception).*": ["_extract_str_data", null],
+      // "^fund_mana.*": ["_extract_manager_data", "manager"],
+      "^(before|dummy.*)":["_extract_scheme_data","scheme"]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^load.*": ["_extract_load_data", "load"],
-      additional_purchase_amount: ["_extract_amt_data", "min_amt"],
-      "^metrics.*": ["_extract_generic_data", "metrics"],
+      ".*load_structure": ["_extract_load_data", "load"],
+      ".*minimum_investment": ["_extract_amt_data", "min_amt"],
+      ".*nav_of_plans": ["_extract_generic_data", "metrics"], //quantitative not required
+       ".*fund_mana.*": ["_extract_manager_data", "manager"],
     },
     SELECTKEYS: [
       "amc_name",
       "main_scheme_name",
-      "benchmark_index",
-      "inception_date",
+      ".*benchmark",
+      ".*inception_date",
       ".*monthly_average_aum$",
-      "fund_manager",
-      "load",
+      ".*fund_manager",
+      "load", //after merge
       "page_number",
       "monthly_aaum_date",
       "mutual_fund_name",
-      "additional_purchase_amount",
-      "^portfolio_turnover",
-      "mini_inv",
-      "^metrics",
+      ".*(minimum_investment|additional_investment)", //4
+      "metrics", //after merge
     ],
     MERGEKEYS: {
-      metrics: ["^metrics$", "^metrics_.*"],
+      metrics: [".*nav_of.*"],
+      load:[".*load_structure"]
     },
     COMMENTS: ["No issues as of now."],
     IMP_DATA: {
@@ -5205,7 +5242,7 @@
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
     CLONEKEYS: {
-      mini_inv: "additional_purchase_amount",
+      additional_investment:".*minimum_investment",
     },
     SPECIAL_FUNCTIONS: {},
     PROMOTE_KEYS: {},

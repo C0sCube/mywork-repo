@@ -35,9 +35,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.3",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.97",
             "roe_ratio": null,
-            "rsquared": "0.97",
             "sharpe": "0.39",
             "sortino_ratio": null,
             "std_dev": "14.17",
@@ -73,6 +72,18 @@
                 "name": "Vishal Mishra",
                 "qualification": "",
                 "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "5-July-16",
+                "name": "To Benefit",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "01-June-21",
+                "name": "To Benefit",
+                "qualification": "",
+                "total_exp": "21 Years"
             }
         ],
         "load": {
@@ -94,9 +105,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.24",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.98",
             "roe_ratio": null,
-            "rsquared": "0.98",
             "sharpe": "0.50",
             "sortino_ratio": null,
             "std_dev": "13.11",
@@ -132,6 +142,18 @@
                 "name": "Shridatta Bhandwaldar",
                 "qualification": "",
                 "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "28-Aug-23",
+                "name": "India Ltd",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "01-Oct-19",
+                "name": "India Ltd",
+                "qualification": "",
+                "total_exp": "19 Years"
             }
         ],
         "load": {
@@ -153,9 +175,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.6",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.93",
             "roe_ratio": null,
-            "rsquared": "0.93",
             "sharpe": "0.50",
             "sortino_ratio": null,
             "std_dev": "15.39",
@@ -178,7 +199,7 @@
     },
     "CANARA ROBECO SMALL CAP FUND (CRSCF)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "Nifty Smallcap 250 Index TRI",
+        "benchmark_index": "Nifty Smallcap 250 Index",
         "fund_manager": [
             {
                 "managing_fund_since": "06-Nov-23",
@@ -191,6 +212,30 @@
                 "name": "Shridatta Bhandwaldar",
                 "qualification": "",
                 "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "06-Nov-23",
+                "name": "Of Full",
+                "qualification": "",
+                "total_exp": "23 Years"
+            },
+            {
+                "managing_fund_since": "01-Oct-19",
+                "name": "To Invest",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "Of Full",
+                "qualification": "",
+                "total_exp": ""
+            },
+            {
+                "managing_fund_since": "",
+                "name": "To Invest",
+                "qualification": "",
+                "total_exp": ""
             }
         ],
         "load": {
@@ -212,9 +257,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.27",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.93",
             "roe_ratio": null,
-            "rsquared": "0.93",
             "sharpe": "0.40",
             "sortino_ratio": null,
             "std_dev": "17.20",
@@ -237,19 +281,13 @@
     },
     "CANARA ROBECO INFRASTRUCTURE (CRI)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "BSE India Infrastructure TRI  Source ICRA MFI Explorer   Monthend AUM as on 28.03. management fees.  Please refer page no. 59 for Definition",
+        "benchmark_index": "BSE India Infrastructure TRI",
         "fund_manager": [
             {
                 "managing_fund_since": "26-June-21",
-                "name": "Vishal Mishra",
+                "name": "To Have",
                 "qualification": "",
                 "total_exp": "21 Years"
-            },
-            {
-                "managing_fund_since": "29-Sept-18",
-                "name": "Shridatta Bhandwaldar",
-                "qualification": "",
-                "total_exp": "19 Years"
             }
         ],
         "load": {
@@ -271,9 +309,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.37",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.70",
             "roe_ratio": null,
-            "rsquared": "0.70",
             "sharpe": "0.92",
             "sortino_ratio": null,
             "std_dev": "19.47",
@@ -330,9 +367,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.21",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.83",
             "roe_ratio": null,
-            "rsquared": "0.83",
             "sharpe": "0.65",
             "sortino_ratio": null,
             "std_dev": "14.53",
@@ -389,9 +425,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.29",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.97",
             "roe_ratio": null,
-            "rsquared": "0.97",
             "sharpe": "0.43",
             "sortino_ratio": null,
             "std_dev": "14.27",
@@ -448,9 +483,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.48",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.94",
             "roe_ratio": null,
-            "rsquared": "0.94",
             "sharpe": "0.63",
             "sortino_ratio": null,
             "std_dev": "14.10",
@@ -486,6 +520,30 @@
                 "name": "Silky Jain",
                 "qualification": "",
                 "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "03-September -21",
+                "name": "To Generate",
+                "qualification": "",
+                "total_exp": "21 Years"
+            },
+            {
+                "managing_fund_since": "01-October -21",
+                "name": "To Benefit",
+                "qualification": "",
+                "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "To Generate",
+                "qualification": "",
+                "total_exp": ""
+            },
+            {
+                "managing_fund_since": "",
+                "name": "To Benefit",
+                "qualification": "",
+                "total_exp": ""
             }
         ],
         "load": {
@@ -507,9 +565,8 @@
             "macaulay": null,
             "mod_duration": null,
             "port_turnover_ratio": "0.39",
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.96",
             "roe_ratio": null,
-            "rsquared": "0.96",
             "sharpe": "0.75",
             "sortino_ratio": null,
             "std_dev": "14.38",
@@ -590,7 +647,7 @@
     },
     "CANARA ROBECO MULTI CAP FUND (CRMUCF)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "NIFTY 500 Multicap 502525 Index TRI",
+        "benchmark_index": "NIFTY 500 Multicap 502525 Index",
         "fund_manager": [
             {
                 "managing_fund_since": "28- July-2023",
@@ -707,26 +764,32 @@
     "CANARA ROBECO OVERNIGHT FUND (CROF)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
         "benchmark_index": "CRISIL Liquid Overnight Index",
-        "fund_manager": [],
+        "fund_manager": [
+            {
+                "managing_fund_since": "24-July-19",
+                "name": "Suman Prasad",
+                "qualification": "",
+                "total_exp": "27 Years"
+            }
+        ],
         "load": {
             "entry_load": "Nil",
             "exit_load": "Nil"
         },
         "main_scheme_name": "CANARA ROBECO OVERNIGHT FUND (CROF)",
         "metrics": {
-            "": "99.94",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "0.02 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "0.02 Years",
+            "mod_duration": "0.02 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -736,7 +799,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.58"
         },
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
@@ -765,6 +828,18 @@
                 "name": "Avnish Jain",
                 "qualification": "",
                 "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "18-July-22",
+                "name": "To Provide",
+                "qualification": "",
+                "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "01-April-22",
+                "name": "To Provide",
+                "qualification": "",
+                "total_exp": "20 Years"
             }
         ],
         "load": {
@@ -822,7 +897,7 @@
                 "managing_fund_since": "01-April-22",
                 "name": "Avnish Jain",
                 "qualification": "",
-                "total_exp": ""
+                "total_exp": "50 Years"
             }
         ],
         "load": {
@@ -947,19 +1022,18 @@
         },
         "main_scheme_name": "CANARA ROBECO SHORT DURATION FUND (CRSDF)",
         "metrics": {
-            "": "50.99",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.17 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.58 Years",
+            "mod_duration": "2.47 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -969,7 +1043,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.12"
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -985,40 +1059,26 @@
     },
     "CANARA ROBECO INCOME FUND (CRINC)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "CRISIL Medium to Long Duration Debt A-III Index 26",
-        "fund_manager": [
-            {
-                "managing_fund_since": "25-June-14",
-                "name": "Avnish Jain",
-                "qualification": "",
-                "total_exp": "30 Years"
-            },
-            {
-                "managing_fund_since": "18-July-22",
-                "name": "Kunal Jain",
-                "qualification": "",
-                "total_exp": "17 Years"
-            }
-        ],
+        "benchmark_index": "CRISIL Medium to Long Duration Debt A-III Index",
+        "fund_manager": [],
         "load": {
             "entry_load": "Nil",
             "exit_load": "Nil"
         },
         "main_scheme_name": "CANARA ROBECO INCOME FUND (CRINC)",
         "metrics": {
-            "": "54.58",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "11.69 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "5.74 Years",
+            "mod_duration": "5.51 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -1028,7 +1088,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.96"
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -1057,6 +1117,12 @@
                 "name": "Avnish Jain",
                 "qualification": "",
                 "total_exp": "30 Years"
+            },
+            {
+                "managing_fund_since": "",
+                "name": "At Generating",
+                "qualification": "",
+                "total_exp": "30 Years"
             }
         ],
         "load": {
@@ -1065,19 +1131,18 @@
         },
         "main_scheme_name": "CANARA ROBECO DYNAMIC BOND FUND (CRDBF)",
         "metrics": {
-            "": "95.31",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "24.00 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "10.74 Years",
+            "mod_duration": "10.30 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -1087,7 +1152,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.92"
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -1124,19 +1189,18 @@
         },
         "main_scheme_name": "CANARA ROBECO CORPORATE BOND FUND (CRCBF)",
         "metrics": {
-            "": "47.67",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "6.90 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "3.93 Years",
+            "mod_duration": "3.68 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -1146,7 +1210,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.18"
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -1174,7 +1238,7 @@
                 "managing_fund_since": "",
                 "name": "Avnish Jain",
                 "qualification": "",
-                "total_exp": ""
+                "total_exp": "17 Years"
             }
         ],
         "load": {
@@ -1183,19 +1247,18 @@
         },
         "main_scheme_name": "CANARA ROBECO GILT FUND (CRGILT)",
         "metrics": {
-            "": "96.79",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "26.32 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "11.26 Years",
+            "mod_duration": "10.80 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -1205,7 +1268,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "6.94"
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -1227,13 +1290,25 @@
                 "managing_fund_since": "16-Sept.-24",
                 "name": "Suman Prasad",
                 "qualification": "",
-                "total_exp": ""
+                "total_exp": "49 Years"
             },
             {
                 "managing_fund_since": "22-August-22",
                 "name": "Avnish Jain",
                 "qualification": "",
-                "total_exp": ""
+                "total_exp": "46 Years"
+            },
+            {
+                "managing_fund_since": "16-Sept.-24",
+                "name": "To Capture",
+                "qualification": "",
+                "total_exp": "64 Years"
+            },
+            {
+                "managing_fund_since": "22-August-22",
+                "name": "To Capture",
+                "qualification": "",
+                "total_exp": "2 Years"
             }
         ],
         "load": {
@@ -1242,19 +1317,18 @@
         },
         "main_scheme_name": "CANARA ROBECO BANKING AND PSU DEBT FUND (CRBPDF)",
         "metrics": {
-            "": "37.31",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
+            "avg_maturity": "3.46 Years",
             "beta": null,
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
+            "macaulay": "2.64 Years",
+            "mod_duration": "2.49 Years",
             "port_turnover_ratio": null,
             "r_squared_ratio": null,
             "roe_ratio": null,
@@ -1264,7 +1338,7 @@
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.21"
         },
         "min_addl_amt": "\u20b9 1000.00",
         "min_addl_amt_multiple": "\u20b9 1.00",
@@ -1280,7 +1354,7 @@
     },
     "CANARA ROBECO CONSERVATIVE HYBRID FUND (CRCHF)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "CRISIL Hybrid 8515-Conservative Index",
+        "benchmark_index": "CRISIL Hybrid 85+15-Conservative Index",
         "fund_manager": [
             {
                 "managing_fund_since": "7-Oct-13",
@@ -1293,37 +1367,48 @@
                 "name": "Amit Kadam",
                 "qualification": "",
                 "total_exp": "14 Years"
+            },
+            {
+                "managing_fund_since": "7-Oct-13",
+                "name": "Bectors Food",
+                "qualification": "",
+                "total_exp": "08 Years"
+            },
+            {
+                "managing_fund_since": "10-April-24",
+                "name": "Bectors Food",
+                "qualification": "",
+                "total_exp": "09 Years"
             }
         ],
         "load": {
             "entry_load": "Nil",
-            "exit_load": "For any redemption  switch out upto 10 of units within 1 Year from the date of allotment - Nil For any redemption  switch out more than 10 of units within 1 Year from the date of allotment - 1 For any redemption  switch out after 1 Year from the date of allotment - Nil  Source ICRA MFI Explorer  Monthend AUM as on 28 03"
+            "exit_load": "For any redemption  switch out upto 10 of units within 1 Year from the date of allotment - Nil For any redemption  switch out more than 10 of units within 1 Year from the date of allotment - 1 For any redemption  switch out after 1 Year from the date of allotment - Nil"
         },
         "main_scheme_name": "CANARA ROBECO CONSERVATIVE HYBRID FUND (CRCHF)",
         "metrics": {
-            "": "50.50",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
             "average_pb": null,
             "average_pe": null,
-            "avg_maturity": null,
-            "beta": null,
+            "avg_maturity": "11.09 Years",
+            "beta": "1.06",
             "correlation_ratio": null,
             "downside_deviation": null,
             "information_ratio": null,
-            "macaulay": null,
-            "mod_duration": null,
-            "port_turnover_ratio": null,
-            "r_squared_ratio": null,
+            "macaulay": "5.33 Years",
+            "mod_duration": "5.08 Years",
+            "port_turnover_ratio": "1.46",
+            "r_squared_ratio": "0.88",
             "roe_ratio": null,
-            "sharpe": null,
+            "sharpe": "0.06",
             "sortino_ratio": null,
-            "std_dev": null,
+            "std_dev": "4.16",
             "tracking_error": null,
             "treynor_ratio": null,
             "upside_deviation": null,
-            "ytm": null
+            "ytm": "7.15"
         },
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -1339,7 +1424,7 @@
     },
     "CANARA ROBECO EQUITY HYBRID FUND (CREHF)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "CRISIL Hybrid 3565 - Aggressive Index",
+        "benchmark_index": "CRISIL Hybrid 35+65 - Aggressive Index",
         "fund_manager": [
             {
                 "managing_fund_since": "01-Oct-21",
@@ -1366,7 +1451,6 @@
         },
         "main_scheme_name": "CANARA ROBECO EQUITY HYBRID FUND (CREHF)",
         "metrics": {
-            "": "0.61",
             "alpha": null,
             "arithmetic_mean_ratio": null,
             "average_div_yld": null,
@@ -1380,9 +1464,8 @@
             "macaulay": "3.85 Years",
             "mod_duration": "3.67 Years",
             "port_turnover_ratio": null,
-            "r_squared_ratio": null,
+            "r_squared_ratio": "0.96",
             "roe_ratio": null,
-            "rsquared": "0.96",
             "sharpe": "0.41",
             "sortino_ratio": null,
             "std_dev": "10.95",
@@ -1405,13 +1488,25 @@
     },
     "CANARA ROBECO BALANCED ADVANTAGE FUND (CRBAF)": {
         "amc_name": "Canara Robeco Asset Management Company Limited",
-        "benchmark_index": "CRISIL Hybrid 5050  Moderate Index",
+        "benchmark_index": "CRISIL Hybrid 50+50  Moderate Index",
         "fund_manager": [
             {
                 "managing_fund_since": "02-Aug.-24",
                 "name": "Shridatta Bhandwaldar",
                 "qualification": "",
                 "total_exp": "19 Years"
+            },
+            {
+                "managing_fund_since": "02-Aug.-24",
+                "name": "To Generating",
+                "qualification": "",
+                "total_exp": "15 Years"
+            },
+            {
+                "managing_fund_since": "02-Aug.-24",
+                "name": "For Steady",
+                "qualification": "",
+                "total_exp": "27 Years"
             }
         ],
         "load": {
