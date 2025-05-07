@@ -1292,7 +1292,7 @@
     ],
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(additional_investment|minimum_investment.*)": ["_extract_amt_data","min_amt"],
-      ".*fund_manager": ["_extract_manager_data", "manager"],
+      // ".*fund_manager": ["_extract_manager_data", "manager"],
       ".*(fund_size|expense_ratio)": ["_extract_generic_data", "metric"],
       ".*load_structure": ["_extract_load_data", "load"],
     },
@@ -3958,8 +3958,8 @@
       ],
       ptr: "([\\d\\.]+|NA)",
       manager: {
-        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)\\s*\\(Work Experience\\s*([\\d]+ years)\\)(?:.*?(?:effective from|fund since)?\\s*([A-Z][a-z]+\\s*\\d{1,2},?\\s*\\d{4}))?",
-        fields: ["name", "exp", "since"],
+        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)(?:\\s*\\-\\s*([\\w\\s]+)\\s*)?\\(Work Experience\\s*([\\d]+ years)\\)(?:.*?(?:effective from|fund since)?\\s*([A-Z][a-z]+\\s*\\d{1,2},?\\s*\\d{4}))?",
+        fields: ["name","desig", "exp", "since"],
       },
       min_amt: "([\\d,]+)-?\\D+?([\\d]+)-?",
       metric: "(Average Maturity.+?of the Month|Annualised Portfolio YTM|Modified Duration|Macaulays? Duration|Standard Deviation|Beta|Sharpe Ratio|Tracking Error|Alpha)\\s*([\\d.]+\\s*(?:days|months|years)?)",

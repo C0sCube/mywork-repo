@@ -707,18 +707,17 @@ class Reader:
             
             if select:
                 temp = self._select_by_regex(temp)
-            
             if map_keys:
                 mappend_data = {}
                 for key, value in temp.items():
                     new_key = regex._map_json_keys_to_dict(key) or key
                     mappend_data[new_key] = value
                 temp = mappend_data
-                
+            
+            #maintain same order
+            temp = self._min_add_ops(fund,temp)
             temp = regex._populate_all_indices_in_json(temp) #populate
             temp = regex.transform_keys(temp) #lowercase
-            
-            temp = self._min_add_ops(fund,temp)
             temp = self._load_ops(fund,temp)
             temp = self._metric_ops(fund,temp)
             

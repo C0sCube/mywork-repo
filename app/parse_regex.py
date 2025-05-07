@@ -3,7 +3,8 @@ import os
 import json, random,string, inspect
 from dateutil import parser #type:ignore
 
-PATH = os.path.join(os.getcwd(),"data\\config\\regex.json")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PATH = os.path.join(BASE_DIR,"..","data","config","regex.json")
 
 class FundRegex():
     
