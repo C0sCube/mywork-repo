@@ -1,0 +1,5359 @@
+{
+  "metadata": {
+    "document_name": "dump_axis_10_16_10.json",
+    "file_type": "",
+    "process_date": "2025-05-07 23:01:01"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 100 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "8",
+            "benchmark_index": "8",
+            "count": 77,
+            "fund_manager_managing_fund_since": "8",
+            "fund_manager_name": "8",
+            "fund_manager_total_exp": "8",
+            "load_entry": "8",
+            "load_exit": "8",
+            "main_scheme_name": "8",
+            "metrics_beta": "8",
+            "metrics_port_turnover_ratio": "8",
+            "metrics_sharpe": "8",
+            "metrics_std_dev": "8",
+            "min_addl_amt": "8",
+            "min_addl_amt_multiple": "8",
+            "min_amt": "8",
+            "min_amt_multiple": "8",
+            "monthly_aaum_date": "8",
+            "monthly_aaum_value": "8",
+            "mutual_fund_name": "8",
+            "scheme_launch_date": "8"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Jayesh Sundar",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment,For 10 of investments Nil.For remaining investments 1.If redeemed  switched - out after 12 months from the date of allotment NIL. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS BLUECHIP FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.95"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.71 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.10"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.85"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 31,493.58Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "5th January 2010"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "9",
+            "benchmark_index": "9",
+            "count": 77,
+            "fund_manager_managing_fund_since": "9",
+            "fund_manager_name": "9",
+            "fund_manager_total_exp": "9",
+            "load_entry": "9",
+            "load_exit": "9",
+            "main_scheme_name": "9",
+            "metrics_beta": "9",
+            "metrics_port_turnover_ratio": "9",
+            "metrics_sharpe": "9",
+            "metrics_std_dev": "9",
+            "min_addl_amt": "9",
+            "min_addl_amt_multiple": "9",
+            "min_amt": "9",
+            "min_amt_multiple": "9",
+            "monthly_aaum_date": "9",
+            "monthly_aaum_value": "9",
+            "mutual_fund_name": "9",
+            "scheme_launch_date": "9"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Sachin Relekar",
+            "qualification": "",
+            "total_exp": "2024 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment,For 10 of investments Nil.For remaining investments 1.If redeemed  switched - out after 12 months from the date of allotment NIL. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS FOCUSED FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.01"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.40 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.09"
+          },
+          {
+            "name": "std_dev",
+            "value": "16.25"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 11,973.80Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "29th June 2012"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "10",
+            "benchmark_index": "10",
+            "count": 77,
+            "fund_manager_managing_fund_since": "10",
+            "fund_manager_name": "10",
+            "fund_manager_total_exp": "10",
+            "load_entry": "10",
+            "load_exit": "10",
+            "main_scheme_name": "10",
+            "metrics_beta": "10",
+            "metrics_port_turnover_ratio": "10",
+            "metrics_sharpe": "10",
+            "metrics_std_dev": "10",
+            "min_addl_amt": "10",
+            "min_addl_amt_multiple": "10",
+            "min_amt": "10",
+            "min_amt_multiple": "10",
+            "monthly_aaum_date": "10",
+            "monthly_aaum_value": "10",
+            "mutual_fund_name": "10",
+            "scheme_launch_date": "10"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Shreyash Mr",
+            "qualification": "",
+            "total_exp": "20 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Shreyash Mr",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS ELSS TAX SAVER FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.01"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.46 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.14"
+          },
+          {
+            "name": "std_dev",
+            "value": "16.24"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 33,311.52Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "29th December 2009"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Large Midcap 250 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "11",
+            "benchmark_index": "11",
+            "count": 77,
+            "fund_manager_managing_fund_since": "11",
+            "fund_manager_name": "11",
+            "fund_manager_total_exp": "11",
+            "load_entry": "11",
+            "load_exit": "11",
+            "main_scheme_name": "11",
+            "metrics_beta": "11",
+            "metrics_port_turnover_ratio": "11",
+            "metrics_sharpe": "11",
+            "metrics_std_dev": "11",
+            "min_addl_amt": "11",
+            "min_addl_amt_multiple": "11",
+            "min_amt": "11",
+            "min_amt_multiple": "11",
+            "monthly_aaum_date": "11",
+            "monthly_aaum_value": "11",
+            "mutual_fund_name": "11",
+            "scheme_launch_date": "11"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Hitesh Das",
+            "qualification": "",
+            "total_exp": "13 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out on or before 12 months from the date of allotment, For 10 of investments Nil.Forremaining investments 1.If redeemed  switched - out after 12 months from the date of allotment NIL. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org Note Industry classification is done as per Global Industry Classification Standard (GICS) by MSCI and Standard  Poors for Foreign Equity D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GROWTH OPPORTUNITIES FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.90"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.59 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.38"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.01"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 12,991.15Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "22nd October 2018"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "12",
+            "benchmark_index": "12",
+            "count": 77,
+            "fund_manager_managing_fund_since": "12",
+            "fund_manager_name": "12",
+            "fund_manager_total_exp": "12",
+            "load_entry": "12",
+            "load_exit": "12",
+            "main_scheme_name": "12",
+            "metrics_beta": "12",
+            "metrics_port_turnover_ratio": "12",
+            "metrics_sharpe": "12",
+            "metrics_std_dev": "12",
+            "min_addl_amt": "12",
+            "min_addl_amt_multiple": "12",
+            "min_amt": "12",
+            "min_amt_multiple": "12",
+            "monthly_aaum_date": "12",
+            "monthly_aaum_value": "12",
+            "mutual_fund_name": "12",
+            "scheme_launch_date": "12"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Sachin Relekar",
+            "qualification": "",
+            "total_exp": "2024 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotmentA.For 10 of investments Nil,B.For remaining investments 1.If redeemed  switched - out after 12 months from the date of allotment Nil. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS FLEXI CAP FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.97"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.22 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.16"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.19"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 11,638.32Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "20th November 2017"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 500 Multicap 502525 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "13",
+            "benchmark_index": "13",
+            "count": 77,
+            "fund_manager_managing_fund_since": "13",
+            "fund_manager_name": "13",
+            "fund_manager_total_exp": "13",
+            "load_entry": "13",
+            "load_exit": "13",
+            "main_scheme_name": "13",
+            "metrics_beta": "13",
+            "metrics_port_turnover_ratio": "13",
+            "metrics_sharpe": "13",
+            "metrics_std_dev": "13",
+            "min_addl_amt": "13",
+            "min_addl_amt_multiple": "13",
+            "min_amt": "13",
+            "min_amt_multiple": "13",
+            "monthly_aaum_date": "13",
+            "monthly_aaum_value": "13",
+            "mutual_fund_name": "13",
+            "scheme_launch_date": "13"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Shreyash Devalkar",
+            "qualification": "",
+            "total_exp": "20 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hitesh Das",
+            "qualification": "",
+            "total_exp": "13 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months,For10 of investment Nil For remaining investment 1, If redeemedswitched out after 12 months from the date of allotment Nil Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS MULTICAP FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.93"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.52 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.72"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.46"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 6,700.45Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "17th December 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE Midcap 150 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "14",
+            "benchmark_index": "14",
+            "count": 77,
+            "fund_manager_managing_fund_since": "14",
+            "fund_manager_name": "14",
+            "fund_manager_total_exp": "14",
+            "load_entry": "14",
+            "load_exit": "14",
+            "main_scheme_name": "14",
+            "metrics_beta": "14",
+            "metrics_port_turnover_ratio": "14",
+            "metrics_sharpe": "14",
+            "metrics_std_dev": "14",
+            "min_addl_amt": "14",
+            "min_addl_amt_multiple": "14",
+            "min_amt": "14",
+            "min_amt_multiple": "14",
+            "monthly_aaum_date": "14",
+            "monthly_aaum_value": "14",
+            "mutual_fund_name": "14",
+            "scheme_launch_date": "14"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Nitin Arora",
+            "qualification": "",
+            "total_exp": "13 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment,For10 of investments Nil.For remaining investments 1.If redeemed  switched - out after 12 months from the date of allotment NIL. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS MIDCAP FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.85"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.41 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.47"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.84"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 27,211.79Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "18th February 2011"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "15",
+            "benchmark_index": "15",
+            "count": 77,
+            "fund_manager_managing_fund_since": "15",
+            "fund_manager_name": "15",
+            "fund_manager_total_exp": "15",
+            "load_entry": "15",
+            "load_exit": "15",
+            "main_scheme_name": "15",
+            "metrics_beta": "15",
+            "metrics_port_turnover_ratio": "15",
+            "metrics_sharpe": "15",
+            "metrics_std_dev": "15",
+            "min_addl_amt": "15",
+            "min_addl_amt_multiple": "15",
+            "min_amt": "15",
+            "min_amt_multiple": "15",
+            "monthly_aaum_date": "15",
+            "monthly_aaum_value": "15",
+            "mutual_fund_name": "15",
+            "scheme_launch_date": "15"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Ashish Naik",
+            "qualification": "",
+            "total_exp": "2020 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months, For 10 of investment Nil, For remaining investment 1 Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org Based on equity, equity derivatives and Fixed Income Securities transactions only. TREPS Repo FD Margin FDMFU SLB are not considered. Note Industry classification is done as per Global Industry Classification Standard (GICS) by MSCI and Standard  Poors for Foreign Equity Effective June13,2024, fundamental attribute of Axis special solutions Fund has been revised.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS INNOVATION FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.87"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.35 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.16"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.39"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,084.84Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th December 2020"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Smallcap 250 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "16",
+            "benchmark_index": "16",
+            "count": 77,
+            "fund_manager_managing_fund_since": "16",
+            "fund_manager_name": "16",
+            "fund_manager_total_exp": "16",
+            "load_entry": "16",
+            "load_exit": "16",
+            "main_scheme_name": "16",
+            "metrics_beta": "16",
+            "metrics_port_turnover_ratio": "16",
+            "metrics_sharpe": "16",
+            "metrics_std_dev": "16",
+            "min_addl_amt": "16",
+            "min_addl_amt_multiple": "16",
+            "min_amt": "16",
+            "min_amt_multiple": "16",
+            "monthly_aaum_date": "16",
+            "monthly_aaum_value": "16",
+            "mutual_fund_name": "16",
+            "scheme_launch_date": "16"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Mayank Hyanki",
+            "qualification": "",
+            "total_exp": "14 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotmentFor10 of investments NIL.For remaining investments 1.If redeemed  switched-out after 12 months from the date of allotment NIL. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org Fresh additional subscriptionsswitch-ins will be allowed accepted only for an amount less than or equal to Rs. 1 crore per investor per day (across all folios), till further notice Fresh new registrations through Systematic Investment Plan (SIP) or Systematic Transfer Plan (STP) or such other special product will be allowed accepted wherein the value of per installment would be less than or equal to Rs. 1 Crore per investor (across all folios) till further notice, from the effective date (May 15, 2023) D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS SMALL CAP FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.69"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.36 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.59"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.66"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 22,028.20Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "29th November 2013"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 100 ESG TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "17",
+            "benchmark_index": "17",
+            "count": 77,
+            "fund_manager_managing_fund_since": "17",
+            "fund_manager_name": "17",
+            "fund_manager_total_exp": "17",
+            "load_entry": "17",
+            "load_exit": "17",
+            "main_scheme_name": "17",
+            "metrics_beta": "17",
+            "metrics_port_turnover_ratio": "17",
+            "metrics_sharpe": "17",
+            "metrics_std_dev": "17",
+            "min_addl_amt": "17",
+            "min_addl_amt_multiple": "17",
+            "min_amt": "17",
+            "min_amt_multiple": "17",
+            "monthly_aaum_date": "17",
+            "monthly_aaum_value": "17",
+            "mutual_fund_name": "17",
+            "scheme_launch_date": "17"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Hitesh Das",
+            "qualification": "",
+            "total_exp": "13 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months - For 10 of investment Nil.Forremaining investment 1.If redeemedswitched out after 12 months from the date of allotment Nil. Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org Note Industry classification is done as per Global Industry Classification Standard (GICS) by MSCI and Standard  Poors for Foreign Equity",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS ESG INTEGRATION STRATEGY FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.90"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.37 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.14"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.72"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,190.16Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "12th February 2020"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 200 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "18",
+            "benchmark_index": "18",
+            "count": 77,
+            "fund_manager_managing_fund_since": "18",
+            "fund_manager_name": "18",
+            "fund_manager_total_exp": "18",
+            "load_entry": "18",
+            "load_exit": "18",
+            "main_scheme_name": "18",
+            "metrics_beta": "18",
+            "metrics_port_turnover_ratio": "18",
+            "metrics_sharpe": "18",
+            "metrics_std_dev": "18",
+            "min_addl_amt": "18",
+            "min_addl_amt_multiple": "18",
+            "min_amt": "18",
+            "min_amt_multiple": "18",
+            "monthly_aaum_date": "18",
+            "monthly_aaum_value": "18",
+            "mutual_fund_name": "18",
+            "scheme_launch_date": "18"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 3 months from the date of allotment - For 10 of investment Nil For remaining investment 1, If redeemed  switched out after 3 months from the date of allotment Nil Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS QUANT FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.99"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.40 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.22"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.24"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 914.04Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "1st July 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "19",
+            "benchmark_index": "19",
+            "count": 77,
+            "fund_manager_managing_fund_since": "19",
+            "fund_manager_name": "19",
+            "fund_manager_total_exp": "19",
+            "load_entry": "19",
+            "load_exit": "19",
+            "main_scheme_name": "19",
+            "metrics_beta": "19",
+            "metrics_port_turnover_ratio": "19",
+            "metrics_sharpe": "19",
+            "metrics_std_dev": "19",
+            "min_addl_amt": "19",
+            "min_addl_amt_multiple": "19",
+            "min_amt": "19",
+            "min_amt_multiple": "19",
+            "monthly_aaum_date": "19",
+            "monthly_aaum_value": "19",
+            "mutual_fund_name": "19",
+            "scheme_launch_date": "19"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Nitin Arora",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months, For 10 of investment Nil, For remaining investment 1, If redeemedswitched out after 12 months from the date of allotment Nil Risk-free rate assumed to be 7.2 (MIBOR as on 31-03-2025) - Source www.fimmda.org",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS VALUE FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.01"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.54 times"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.82"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.49"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 781.60Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "22nd September 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "20",
+            "benchmark_index": "20",
+            "count": 77,
+            "fund_manager_managing_fund_since": "20",
+            "fund_manager_name": "20",
+            "fund_manager_total_exp": "20",
+            "load_entry": "20",
+            "load_exit": "20",
+            "main_scheme_name": "20",
+            "metrics_port_turnover_ratio": "20",
+            "min_addl_amt": "20",
+            "min_addl_amt_multiple": "20",
+            "min_amt": "20",
+            "min_amt_multiple": "20",
+            "monthly_aaum_date": "20",
+            "monthly_aaum_value": "20",
+            "mutual_fund_name": "20",
+            "scheme_launch_date": "20"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Ashish Naik",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched -out within 12 months from the date of allotment - For 10 of investment Nil.Forremaining investment 1.If redeemedswitched out after 12 months from the date of allotment Nil.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS BUSINESS CYCLES FUND",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.89 times"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 2,233.88Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "22nd February 2023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty India Manufacturing TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "21",
+            "benchmark_index": "21",
+            "count": 77,
+            "fund_manager_managing_fund_since": "21",
+            "fund_manager_name": "21",
+            "fund_manager_total_exp": "21",
+            "load_entry": "21",
+            "load_exit": "21",
+            "main_scheme_name": "21",
+            "metrics_port_turnover_ratio": "21",
+            "min_addl_amt": "21",
+            "min_addl_amt_multiple": "21",
+            "min_amt": "21",
+            "min_amt_multiple": "21",
+            "monthly_aaum_date": "21",
+            "monthly_aaum_value": "21",
+            "mutual_fund_name": "21",
+            "scheme_launch_date": "21"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment - For 10 of investment Nil For remaining investment 1 If redeemedswitched out after 12 months from the date of allotment Nil.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS INDIA MANUFACTURING FUND",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.52 times"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 5,186.32Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "21st December 2023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty India Consumption TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "22",
+            "benchmark_index": "22",
+            "count": 77,
+            "fund_manager_managing_fund_since": "22",
+            "fund_manager_name": "22",
+            "fund_manager_total_exp": "22",
+            "load_entry": "22",
+            "load_exit": "22",
+            "main_scheme_name": "22",
+            "min_addl_amt": "22",
+            "min_addl_amt_multiple": "22",
+            "min_amt": "22",
+            "min_amt_multiple": "22",
+            "monthly_aaum_date": "22",
+            "monthly_aaum_value": "22",
+            "mutual_fund_name": "22",
+            "scheme_launch_date": "22"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Shreyash Devalkar",
+            "qualification": "",
+            "total_exp": "20 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment, For 10 of investments NIL and For remaining investments 1.If redeemed  switched-out after 12 months from the date of allotment, NIL.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CONSUMPTION FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 3,910.97Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "12th September 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "23",
+            "benchmark_index": "23",
+            "count": 77,
+            "fund_manager_managing_fund_since": "23",
+            "fund_manager_name": "23",
+            "fund_manager_total_exp": "23",
+            "load_entry": "23",
+            "load_exit": "23",
+            "main_scheme_name": "23",
+            "min_addl_amt": "23",
+            "min_addl_amt_multiple": "23",
+            "min_amt": "23",
+            "min_amt_multiple": "23",
+            "monthly_aaum_date": "23",
+            "monthly_aaum_value": "23",
+            "mutual_fund_name": "23",
+            "scheme_launch_date": "23"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment, For 10 of investments NIL and For remaining investments 1. If redeemed  switched-out after 12 months from the date of allotment NIL. Since the Scheme has not completed Six Months, performance details for the Scheme are not provided.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS MOMENTUM FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,192.95Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "12th December 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "24",
+            "benchmark_index": "24",
+            "count": 77,
+            "fund_manager_managing_fund_since": "24",
+            "fund_manager_name": "24",
+            "fund_manager_total_exp": "24",
+            "load_entry": "24",
+            "load_exit": "24",
+            "main_scheme_name": "24",
+            "metrics_tracking_error": "24",
+            "min_addl_amt": "24",
+            "min_addl_amt_multiple": "24",
+            "min_amt": "24",
+            "min_amt_multiple": "24",
+            "monthly_aaum_date": "24",
+            "monthly_aaum_value": "24",
+            "mutual_fund_name": "24",
+            "scheme_launch_date": "24"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA D",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months. w.e.f from July 24th 2020",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY 50 ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.05"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 668.42Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "3rd July 2017"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Bank TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "25",
+            "benchmark_index": "25",
+            "count": 77,
+            "fund_manager_managing_fund_since": "25",
+            "fund_manager_name": "25",
+            "fund_manager_total_exp": "25",
+            "load_entry": "25",
+            "load_exit": "25",
+            "main_scheme_name": "25",
+            "metrics_tracking_error": "25",
+            "min_addl_amt": "25",
+            "min_addl_amt_multiple": "25",
+            "min_amt": "25",
+            "min_amt_multiple": "25",
+            "monthly_aaum_date": "25",
+            "monthly_aaum_value": "25",
+            "mutual_fund_name": "25",
+            "scheme_launch_date": "25"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY BANK ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.07"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 304.30Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "3rd November 2020"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty IT TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "26",
+            "benchmark_index": "26",
+            "count": 77,
+            "fund_manager_managing_fund_since": "26",
+            "fund_manager_name": "26",
+            "fund_manager_total_exp": "26",
+            "load_entry": "26",
+            "load_exit": "26",
+            "main_scheme_name": "26",
+            "metrics_tracking_error": "26",
+            "min_addl_amt": "26",
+            "min_addl_amt_multiple": "26",
+            "min_amt": "26",
+            "min_amt_multiple": "26",
+            "monthly_aaum_date": "26",
+            "monthly_aaum_value": "26",
+            "mutual_fund_name": "26",
+            "scheme_launch_date": "26"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY IT ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.07"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 174.49Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "25th March 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Healthcare TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "27",
+            "benchmark_index": "27",
+            "count": 77,
+            "fund_manager_managing_fund_since": "27",
+            "fund_manager_name": "27",
+            "fund_manager_total_exp": "27",
+            "load_entry": "27",
+            "load_exit": "27",
+            "main_scheme_name": "27",
+            "metrics_tracking_error": "27",
+            "min_addl_amt": "27",
+            "min_addl_amt_multiple": "27",
+            "min_amt": "27",
+            "min_amt_multiple": "27",
+            "monthly_aaum_date": "27",
+            "monthly_aaum_value": "27",
+            "mutual_fund_name": "27",
+            "scheme_launch_date": "27"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY HEALTHCARE ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.03"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 18.35Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "17th May 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty India Consumption TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "28",
+            "benchmark_index": "28",
+            "count": 77,
+            "fund_manager_managing_fund_since": "28",
+            "fund_manager_name": "28",
+            "fund_manager_total_exp": "28",
+            "load_entry": "28",
+            "load_exit": "28",
+            "main_scheme_name": "28",
+            "metrics_tracking_error": "28",
+            "min_addl_amt": "28",
+            "min_addl_amt_multiple": "28",
+            "min_amt": "28",
+            "min_amt_multiple": "28",
+            "monthly_aaum_date": "28",
+            "monthly_aaum_value": "28",
+            "mutual_fund_name": "28",
+            "scheme_launch_date": "28"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY INDIA CONSUMPTION ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.04"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 12.91Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "17th September 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE Sensex TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "29",
+            "benchmark_index": "29",
+            "count": 77,
+            "fund_manager_managing_fund_since": "29",
+            "fund_manager_name": "29",
+            "fund_manager_total_exp": "29",
+            "load_entry": "29",
+            "load_exit": "29",
+            "main_scheme_name": "29",
+            "metrics_tracking_error": "29",
+            "min_addl_amt": "29",
+            "min_addl_amt_multiple": "29",
+            "min_amt": "29",
+            "min_amt_multiple": "29",
+            "monthly_aaum_date": "29",
+            "monthly_aaum_value": "29",
+            "mutual_fund_name": "29",
+            "scheme_launch_date": "29"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months. The scheme name and benchmark name has been changed w.e.f 1st June 2024",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS BSE SENSEX ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.05"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 121.73Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th March 2023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty500 Value 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "30",
+            "benchmark_index": "30",
+            "count": 77,
+            "fund_manager_managing_fund_since": "30",
+            "fund_manager_name": "30",
+            "fund_manager_total_exp": "30",
+            "load_entry": "30",
+            "load_exit": "30",
+            "main_scheme_name": "30",
+            "metrics_tracking_error": "30",
+            "min_addl_amt": "30",
+            "min_addl_amt_multiple": "30",
+            "min_amt": "30",
+            "min_amt_multiple": "30",
+            "monthly_aaum_date": "30",
+            "monthly_aaum_value": "30",
+            "mutual_fund_name": "30",
+            "scheme_launch_date": "30"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months. Since the Scheme has not completed Six Months, performance details for the Scheme are not provided. Since the fund has not completed 1-year, tracking error is taken from the launch date of the scheme. The tracking error may look optically elevated on account of deployment during the first few days of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch. D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY500 VALUE 50 ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "3.38"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 3.84Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "13th March 2025"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 100 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "31",
+            "benchmark_index": "31",
+            "count": 77,
+            "fund_manager_managing_fund_since": "31",
+            "fund_manager_name": "31",
+            "fund_manager_total_exp": "31",
+            "load_entry": "31",
+            "load_exit": "31",
+            "main_scheme_name": "31",
+            "metrics_tracking_error": "31",
+            "min_addl_amt": "31",
+            "min_addl_amt_multiple": "31",
+            "min_amt": "31",
+            "min_amt_multiple": "31",
+            "monthly_aaum_date": "31",
+            "monthly_aaum_value": "31",
+            "mutual_fund_name": "31",
+            "scheme_launch_date": "31"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY 100 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.08"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,656.97Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "18th October 2019"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "32",
+            "benchmark_index": "32",
+            "count": 77,
+            "fund_manager_managing_fund_since": "32",
+            "fund_manager_name": "32",
+            "fund_manager_total_exp": "32",
+            "load_entry": "32",
+            "load_exit": "32",
+            "main_scheme_name": "32",
+            "metrics_tracking_error": "32",
+            "min_addl_amt": "32",
+            "min_addl_amt_multiple": "32",
+            "min_amt": "32",
+            "min_amt_multiple": "32",
+            "monthly_aaum_date": "32",
+            "monthly_aaum_value": "32",
+            "mutual_fund_name": "32",
+            "scheme_launch_date": "32"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil D Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY 50 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.09"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 620.88Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "3rd December 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE Sensex TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "33",
+            "benchmark_index": "33",
+            "count": 77,
+            "fund_manager_managing_fund_since": "33",
+            "fund_manager_name": "33",
+            "fund_manager_total_exp": "33",
+            "load_entry": "33",
+            "load_exit": "33",
+            "main_scheme_name": "33",
+            "metrics_tracking_error": "33",
+            "min_addl_amt": "33",
+            "min_addl_amt_multiple": "33",
+            "min_amt": "33",
+            "min_amt_multiple": "33",
+            "monthly_aaum_date": "33",
+            "monthly_aaum_value": "33",
+            "mutual_fund_name": "33",
+            "scheme_launch_date": "33"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemedswitched out within 7 days from the date of investmentallotment 0.25, If redeemedswitched out after 7 days from the date of investmentallotment Nil",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS BSE SENSEX INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.07"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 45.16Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "27th February 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Next 50 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "34",
+            "benchmark_index": "34",
+            "count": 77,
+            "fund_manager_managing_fund_since": "34",
+            "fund_manager_name": "34",
+            "fund_manager_total_exp": "34",
+            "load_entry": "34",
+            "load_exit": "34",
+            "main_scheme_name": "34",
+            "metrics_tracking_error": "34",
+            "min_addl_amt": "34",
+            "min_addl_amt_multiple": "34",
+            "min_amt": "34",
+            "min_amt_multiple": "34",
+            "monthly_aaum_date": "34",
+            "monthly_aaum_value": "34",
+            "mutual_fund_name": "34",
+            "scheme_launch_date": "34"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months. D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY NEXT 50 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.25"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 293.05Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "28th January 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Smallcap 50 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "35",
+            "benchmark_index": "35",
+            "count": 77,
+            "fund_manager_managing_fund_since": "35",
+            "fund_manager_name": "35",
+            "fund_manager_total_exp": "35",
+            "load_entry": "35",
+            "load_exit": "35",
+            "main_scheme_name": "35",
+            "metrics_tracking_error": "35",
+            "min_addl_amt": "35",
+            "min_addl_amt_multiple": "35",
+            "min_amt": "35",
+            "min_amt_multiple": "35",
+            "monthly_aaum_date": "35",
+            "monthly_aaum_value": "35",
+            "mutual_fund_name": "35",
+            "scheme_launch_date": "35"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months. D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY SMALLCAP 50 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.59"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 422.24Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "10th March 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Midcap 50 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "36",
+            "benchmark_index": "36",
+            "count": 77,
+            "fund_manager_managing_fund_since": "36",
+            "fund_manager_name": "36",
+            "fund_manager_total_exp": "36",
+            "load_entry": "36",
+            "load_exit": "36",
+            "main_scheme_name": "36",
+            "metrics_tracking_error": "36",
+            "min_addl_amt": "36",
+            "min_addl_amt_multiple": "36",
+            "min_amt": "36",
+            "min_amt_multiple": "36",
+            "monthly_aaum_date": "36",
+            "monthly_aaum_value": "36",
+            "mutual_fund_name": "36",
+            "scheme_launch_date": "36"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed or switched out within 7 days from the date of allotment 0.25, If redeemed  switched out after 7 days from the date of allotment Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months. D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY MIDCAP 50 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.15"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 387.30Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "28th March 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY IT TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "37",
+            "benchmark_index": "37",
+            "count": 77,
+            "fund_manager_managing_fund_since": "37",
+            "fund_manager_name": "37",
+            "fund_manager_total_exp": "37",
+            "load_entry": "37",
+            "load_exit": "37",
+            "main_scheme_name": "37",
+            "metrics_tracking_error": "37",
+            "min_addl_amt": "37",
+            "min_addl_amt_multiple": "37",
+            "min_amt": "37",
+            "min_amt_multiple": "37",
+            "monthly_aaum_date": "37",
+            "monthly_aaum_value": "37",
+            "mutual_fund_name": "37",
+            "scheme_launch_date": "37"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed or switched out within 7 days from the date of allotment 0.25, If redeemed  switched out after 7 days from the date of allotment Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY IT INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.10"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 125.69Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "14th July 2023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Bank TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "38",
+            "benchmark_index": "38",
+            "count": 77,
+            "fund_manager_managing_fund_since": "38",
+            "fund_manager_name": "38",
+            "fund_manager_total_exp": "38",
+            "load_entry": "38",
+            "load_exit": "38",
+            "main_scheme_name": "38",
+            "metrics_tracking_error": "38",
+            "min_addl_amt": "38",
+            "min_addl_amt_multiple": "38",
+            "min_amt": "38",
+            "min_amt_multiple": "38",
+            "monthly_aaum_date": "38",
+            "monthly_aaum_value": "38",
+            "mutual_fund_name": "38",
+            "scheme_launch_date": "38"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "0.25 if redeemed switched out within 7 days from the date of allotment Investment Since the fund has not completed 1-year, tracking error is taken from the launch date of the scheme. The tracking error may look optically elevated on account of deployment during the first few days of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY BANK INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.12"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 125.90Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th May 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "39",
+            "benchmark_index": "39",
+            "count": 77,
+            "fund_manager_managing_fund_since": "39",
+            "fund_manager_name": "39",
+            "fund_manager_total_exp": "39",
+            "load_entry": "39",
+            "load_exit": "39",
+            "main_scheme_name": "39",
+            "metrics_tracking_error": "39",
+            "min_addl_amt": "39",
+            "min_addl_amt_multiple": "39",
+            "min_amt": "39",
+            "min_amt_multiple": "39",
+            "monthly_aaum_date": "39",
+            "monthly_aaum_value": "39",
+            "mutual_fund_name": "39",
+            "scheme_launch_date": "39"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed switched out within 15 days from the date of allotment 0.25, if redeemed switched out after 15 days from the date of allotment Nil D Since the fund has not completed 1-year, tracking error is taken from the launch date of the scheme. The tracking error may look optically elevated on account of deployment during the first few days of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY 500 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.23"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 227.27Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "12th July 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 500 Value 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "40",
+            "benchmark_index": "40",
+            "count": 77,
+            "fund_manager_managing_fund_since": "40",
+            "fund_manager_name": "40",
+            "fund_manager_total_exp": "40",
+            "load_entry": "40",
+            "load_exit": "40",
+            "main_scheme_name": "40",
+            "metrics_tracking_error": "40",
+            "min_addl_amt": "40",
+            "min_addl_amt_multiple": "40",
+            "min_amt": "40",
+            "min_amt_multiple": "40",
+            "monthly_aaum_date": "40",
+            "monthly_aaum_value": "40",
+            "mutual_fund_name": "40",
+            "scheme_launch_date": "40"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed switched out within 15 days from the date of allotment 0.25, If redeemed switched out after 15 days from the date of allotment Nil Since the fund has not completed 1-year, tracking error is taken from the launch date of the scheme. The tracking error may look optically elevated on account of deployment during the first few days of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch. D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY500 VALUE 50 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.16"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 78.38Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th October 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty500 Momentum 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "41",
+            "benchmark_index": "41",
+            "count": 77,
+            "fund_manager_managing_fund_since": "41",
+            "fund_manager_name": "41",
+            "fund_manager_total_exp": "41",
+            "load_entry": "41",
+            "load_exit": "41",
+            "main_scheme_name": "41",
+            "metrics_tracking_error": "41",
+            "min_addl_amt": "41",
+            "min_addl_amt_multiple": "41",
+            "min_amt": "41",
+            "min_amt_multiple": "41",
+            "monthly_aaum_date": "41",
+            "monthly_aaum_value": "41",
+            "mutual_fund_name": "41",
+            "scheme_launch_date": "41"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed switched out within 15 days from the date of allotment 0.25, If redeemed switched out after 15 days from the date of allotment Nil Since the fund has not completed 1-year, tracking error is taken from the launch date of the scheme. The tracking error may look optically elevated on account of deployment during the first few days of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch. D",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY500 MOMENTUM 50 INDEX FUND",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.40"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 48.57Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "13th February 2025"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "42",
+            "benchmark_index": "42",
+            "count": 77,
+            "fund_manager_managing_fund_since": "42",
+            "fund_manager_name": "42",
+            "fund_manager_total_exp": "42",
+            "load_entry": "42",
+            "load_exit": "42",
+            "main_scheme_name": "42",
+            "min_addl_amt": "42",
+            "min_addl_amt_multiple": "42",
+            "min_amt": "42",
+            "min_amt_multiple": "42",
+            "monthly_aaum_date": "42",
+            "monthly_aaum_value": "42",
+            "mutual_fund_name": "42",
+            "scheme_launch_date": "42"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "15 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Kumar",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 15 days from the date of allotment - 1 If redeemedswitched out after 15 days from the date of allotment - Nil. Note Investors will be bearing the recurring expenses of the scheme, in addition to the expenses of the schemes, in which Fund of Funds schemes make investments.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS EQUITY ETF",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 26.93Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th February 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "MSCI World (Net TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "43",
+            "benchmark_index": "43",
+            "count": 77,
+            "fund_manager_managing_fund_since": "43",
+            "fund_manager_name": "43",
+            "fund_manager_total_exp": "43",
+            "load_entry": "43",
+            "load_exit": "43",
+            "main_scheme_name": "43",
+            "min_addl_amt": "43",
+            "min_addl_amt_multiple": "43",
+            "min_amt": "43",
+            "min_amt_multiple": "43",
+            "monthly_aaum_date": "43",
+            "monthly_aaum_value": "43",
+            "mutual_fund_name": "43",
+            "scheme_launch_date": "43"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemedswitched - out within 12 months from the date of allotmentFor 10 of investment Nil.For remaining investment 1.If redeemedswitched out after 12 months from the date of allotment Nil.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GLOBAL EQUITY ALPHA FUND OF FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 843.24Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th September 2020"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "MSCI GOLD"
+        ],
+        "field_location": [
+          {
+            "amc_name": "44",
+            "benchmark_index": "44",
+            "count": 77,
+            "fund_manager_managing_fund_since": "44",
+            "fund_manager_name": "44",
+            "fund_manager_total_exp": "44",
+            "load_entry": "44",
+            "load_exit": "44",
+            "main_scheme_name": "44",
+            "min_addl_amt": "44",
+            "min_addl_amt_multiple": "44",
+            "min_amt": "44",
+            "min_amt_multiple": "44",
+            "monthly_aaum_date": "44",
+            "monthly_aaum_value": "44",
+            "mutual_fund_name": "44",
+            "scheme_launch_date": "44"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment, For 10 of investment - Nil For remaining investment - 1, If redeemedswitched out after 12 months from the date of allotment Nil. Note Investors will be bearing the recurring expenses of the scheme, in addition to the expenses of the schemes, in which Fund of Funds schemes make investments.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GREATER CHINA EQUITY FUND OF FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 444.16Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "10th February 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "MSCI ACWI INDEX"
+        ],
+        "field_location": [
+          {
+            "amc_name": "45",
+            "benchmark_index": "45",
+            "count": 77,
+            "fund_manager_managing_fund_since": "45",
+            "fund_manager_name": "45",
+            "fund_manager_total_exp": "45",
+            "load_entry": "45",
+            "load_exit": "45",
+            "main_scheme_name": "45",
+            "min_addl_amt": "45",
+            "min_addl_amt_multiple": "45",
+            "min_amt": "45",
+            "min_amt_multiple": "45",
+            "monthly_aaum_date": "45",
+            "monthly_aaum_value": "45",
+            "mutual_fund_name": "45",
+            "scheme_launch_date": "45"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 12 months from the date of allotment -For 10 of investment Nil.For remaining investment 1.If redeemedswitched out after 12 months from the date of allotment Nil. Note Investors will be bearing the recurring expenses of the scheme, in addition to the expenses of the schemes, in which Fund of Funds schemes make investments.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GLOBAL INNOVATION FUND OF FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 490.38Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "28th May 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "46",
+            "benchmark_index": "46",
+            "count": 77,
+            "fund_manager_managing_fund_since": "46",
+            "fund_manager_name": "46",
+            "fund_manager_total_exp": "46",
+            "load_entry": "46",
+            "load_exit": "46",
+            "main_scheme_name": "46",
+            "min_addl_amt": "46",
+            "min_addl_amt_multiple": "46",
+            "min_amt": "46",
+            "min_amt_multiple": "46",
+            "monthly_aaum_date": "46",
+            "monthly_aaum_value": "46",
+            "mutual_fund_name": "46",
+            "scheme_launch_date": "46"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed before 7 Day Exit Load is 1",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NASDAQ 100 FUND OF FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 165.75Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "1st November 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 1D Rate Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "48",
+            "benchmark_index": "48",
+            "count": 77,
+            "fund_manager_managing_fund_since": "48",
+            "fund_manager_name": "48",
+            "fund_manager_total_exp": "48",
+            "load_entry": "48",
+            "load_exit": "48",
+            "main_scheme_name": "48",
+            "metrics_avg_maturity": "48",
+            "metrics_mod_duration": "48",
+            "min_addl_amt": "48",
+            "min_addl_amt_multiple": "48",
+            "min_amt": "48",
+            "min_amt_multiple": "48",
+            "monthly_aaum_date": "48",
+            "monthly_aaum_value": "48",
+            "mutual_fund_name": "48",
+            "scheme_launch_date": "48"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Sachin Jain",
+            "qualification": "",
+            "total_exp": "11 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS OVERNIGHT FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3 days"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 9,837.24Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "15th March 2019"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Liquid Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "50",
+            "benchmark_index": "50",
+            "count": 77,
+            "fund_manager_managing_fund_since": "50",
+            "fund_manager_name": "50",
+            "fund_manager_total_exp": "50",
+            "load_entry": "50",
+            "load_exit": "50",
+            "main_scheme_name": "50",
+            "metrics_avg_maturity": "50",
+            "metrics_mod_duration": "50",
+            "min_addl_amt": "50",
+            "min_addl_amt_multiple": "50",
+            "min_amt": "50",
+            "min_amt_multiple": "50",
+            "monthly_aaum_date": "50",
+            "monthly_aaum_value": "50",
+            "mutual_fund_name": "50",
+            "scheme_launch_date": "50"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS LIQUID FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "65 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "65 days"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 42,388.73Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "9th October 2009"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Ultra Short Duration Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "52",
+            "benchmark_index": "52",
+            "count": 77,
+            "fund_manager_managing_fund_since": "52",
+            "fund_manager_name": "52",
+            "fund_manager_total_exp": "52",
+            "load_entry": "52",
+            "load_exit": "52",
+            "main_scheme_name": "52",
+            "metrics_avg_maturity": "52",
+            "metrics_mod_duration": "52",
+            "min_addl_amt": "52",
+            "min_addl_amt_multiple": "52",
+            "min_amt": "52",
+            "min_amt_multiple": "52",
+            "monthly_aaum_date": "52",
+            "monthly_aaum_value": "52",
+            "mutual_fund_name": "52",
+            "scheme_launch_date": "52"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Sachin Jain",
+            "qualification": "",
+            "total_exp": "11 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS ULTRA SHORT DURATION FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "189 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "179 days"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 5,245.20Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "10th September 2018"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Long Duration Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "54",
+            "benchmark_index": "54",
+            "count": 77,
+            "fund_manager_managing_fund_since": "54",
+            "fund_manager_name": "54",
+            "fund_manager_total_exp": "54",
+            "load_entry": "54",
+            "load_exit": "54",
+            "main_scheme_name": "54",
+            "metrics_avg_maturity": "54",
+            "metrics_mod_duration": "54",
+            "min_addl_amt": "54",
+            "min_addl_amt_multiple": "54",
+            "min_amt": "54",
+            "min_amt_multiple": "54",
+            "monthly_aaum_date": "54",
+            "monthly_aaum_value": "54",
+            "mutual_fund_name": "54",
+            "scheme_launch_date": "54"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS FLOATER FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "17.27 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "7.55 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 163.66Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "29th July 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Low Duration Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "56",
+            "benchmark_index": "56",
+            "count": 77,
+            "fund_manager_managing_fund_since": "56",
+            "fund_manager_name": "56",
+            "fund_manager_total_exp": "56",
+            "load_entry": "56",
+            "load_exit": "56",
+            "main_scheme_name": "56",
+            "metrics_avg_maturity": "56",
+            "metrics_mod_duration": "56",
+            "min_addl_amt": "56",
+            "min_addl_amt_multiple": "56",
+            "min_amt": "56",
+            "min_amt_multiple": "56",
+            "monthly_aaum_date": "56",
+            "monthly_aaum_value": "56",
+            "mutual_fund_name": "56",
+            "scheme_launch_date": "56"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS TREASURY ADVANTAGE FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "479 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "340 days"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 5,864.86Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "9th October 2009"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Money Market Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "58",
+            "benchmark_index": "58",
+            "count": 77,
+            "fund_manager_managing_fund_since": "58",
+            "fund_manager_name": "58",
+            "fund_manager_total_exp": "58",
+            "load_entry": "58",
+            "load_exit": "58",
+            "main_scheme_name": "58",
+            "metrics_avg_maturity": "58",
+            "metrics_mod_duration": "58",
+            "min_addl_amt": "58",
+            "min_addl_amt_multiple": "58",
+            "min_amt": "58",
+            "min_amt_multiple": "58",
+            "monthly_aaum_date": "58",
+            "monthly_aaum_value": "58",
+            "mutual_fund_name": "58",
+            "scheme_launch_date": "58"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS MONEY MARKET FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "307 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "306 days"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 16,282.51Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "6th August 2019"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Corporate Bond Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "60",
+            "benchmark_index": "60",
+            "count": 77,
+            "fund_manager_managing_fund_since": "60",
+            "fund_manager_name": "60",
+            "fund_manager_total_exp": "60",
+            "load_entry": "60",
+            "load_exit": "60",
+            "main_scheme_name": "60",
+            "metrics_avg_maturity": "60",
+            "metrics_mod_duration": "60",
+            "min_addl_amt": "60",
+            "min_addl_amt_multiple": "60",
+            "min_amt": "60",
+            "min_amt_multiple": "60",
+            "monthly_aaum_date": "60",
+            "monthly_aaum_value": "60",
+            "mutual_fund_name": "60",
+            "scheme_launch_date": "60"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CORPORATE BOND FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "4.95 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3.67 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 6,052.48Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "13th July 2017"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Banking  PSU Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "62",
+            "benchmark_index": "62",
+            "count": 77,
+            "fund_manager_managing_fund_since": "62",
+            "fund_manager_name": "62",
+            "fund_manager_total_exp": "62",
+            "load_entry": "62",
+            "load_exit": "62",
+            "main_scheme_name": "62",
+            "metrics_avg_maturity": "62",
+            "metrics_mod_duration": "62",
+            "min_addl_amt": "62",
+            "min_addl_amt_multiple": "62",
+            "min_amt": "62",
+            "min_amt_multiple": "62",
+            "monthly_aaum_date": "62",
+            "monthly_aaum_value": "62",
+            "mutual_fund_name": "62",
+            "scheme_launch_date": "62"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS BANKING & PSU DEBT FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.7 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.81 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 12,935.38Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "8th June 2012"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Short Duration Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "64",
+            "benchmark_index": "64",
+            "count": 77,
+            "fund_manager_managing_fund_since": "64",
+            "fund_manager_name": "64",
+            "fund_manager_total_exp": "64",
+            "load_entry": "64",
+            "load_exit": "64",
+            "main_scheme_name": "64",
+            "metrics_avg_maturity": "64",
+            "metrics_mod_duration": "64",
+            "min_addl_amt": "64",
+            "min_addl_amt_multiple": "64",
+            "min_amt": "64",
+            "min_amt_multiple": "64",
+            "monthly_aaum_date": "64",
+            "monthly_aaum_value": "64",
+            "mutual_fund_name": "64",
+            "scheme_launch_date": "64"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS SHORT DURATION FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.64 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.76 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 8,882.59Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "22nd January 2010"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Credit Risk Debt B-II Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "66",
+            "benchmark_index": "66",
+            "count": 77,
+            "fund_manager_managing_fund_since": "66",
+            "fund_manager_name": "66",
+            "fund_manager_total_exp": "66",
+            "load_entry": "66",
+            "load_exit": "66",
+            "main_scheme_name": "66",
+            "metrics_avg_maturity": "66",
+            "metrics_mod_duration": "66",
+            "min_addl_amt": "66",
+            "min_addl_amt_multiple": "66",
+            "min_amt": "66",
+            "min_amt_multiple": "66",
+            "monthly_aaum_date": "66",
+            "monthly_aaum_value": "66",
+            "mutual_fund_name": "66",
+            "scheme_launch_date": "66"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CREDIT RISK FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.09 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.16 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 376.37Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "15th July 2014"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Composite Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "68",
+            "benchmark_index": "68",
+            "count": 77,
+            "fund_manager_managing_fund_since": "68",
+            "fund_manager_name": "68",
+            "fund_manager_total_exp": "68",
+            "load_entry": "68",
+            "load_exit": "68",
+            "main_scheme_name": "68",
+            "metrics_avg_maturity": "68",
+            "metrics_mod_duration": "68",
+            "min_addl_amt": "68",
+            "min_addl_amt_multiple": "68",
+            "min_amt": "68",
+            "min_amt_multiple": "68",
+            "monthly_aaum_date": "68",
+            "monthly_aaum_value": "68",
+            "mutual_fund_name": "68",
+            "scheme_launch_date": "68"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS DYNAMIC BOND FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "18.36 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "8.17 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,339.49Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "27th April 2011"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Medium Duration Debt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "70",
+            "benchmark_index": "70",
+            "count": 77,
+            "fund_manager_managing_fund_since": "70",
+            "fund_manager_name": "70",
+            "fund_manager_total_exp": "70",
+            "load_entry": "70",
+            "load_exit": "70",
+            "main_scheme_name": "70",
+            "metrics_avg_maturity": "70",
+            "metrics_mod_duration": "70",
+            "min_addl_amt": "70",
+            "min_addl_amt_multiple": "70",
+            "min_amt": "70",
+            "min_amt_multiple": "70",
+            "monthly_aaum_date": "70",
+            "monthly_aaum_value": "70",
+            "mutual_fund_name": "70",
+            "scheme_launch_date": "70"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Akhil Thakker",
+            "qualification": "",
+            "total_exp": "13 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS STRATEGIC BOND FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "5.14 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3.43 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,939.11Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "28th March 2012"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Dynamic Gilt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "73",
+            "benchmark_index": "73",
+            "count": 77,
+            "fund_manager_managing_fund_since": "73",
+            "fund_manager_name": "73",
+            "fund_manager_total_exp": "73",
+            "load_entry": "73",
+            "load_exit": "73",
+            "main_scheme_name": "73",
+            "metrics_avg_maturity": "73",
+            "metrics_mod_duration": "73",
+            "min_addl_amt": "73",
+            "min_addl_amt_multiple": "73",
+            "min_amt": "73",
+            "min_amt_multiple": "73",
+            "monthly_aaum_date": "73",
+            "monthly_aaum_value": "73",
+            "mutual_fund_name": "73",
+            "scheme_launch_date": "73"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GILT FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "25.13 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "10.21 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 901.68Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "23rd January 2012"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          ""
+        ],
+        "field_location": [
+          {
+            "amc_name": "76",
+            "benchmark_index": "76",
+            "count": 77,
+            "fund_manager_managing_fund_since": "76",
+            "fund_manager_name": "76",
+            "fund_manager_total_exp": "76",
+            "load_entry": "76",
+            "load_exit": "76",
+            "main_scheme_name": "76",
+            "metrics_avg_maturity": "76",
+            "metrics_macaulay": "76",
+            "metrics_mod_duration": "76",
+            "min_addl_amt": "76",
+            "min_addl_amt_multiple": "76",
+            "min_amt": "76",
+            "min_amt_multiple": "76",
+            "monthly_aaum_date": "76",
+            "monthly_aaum_value": "76",
+            "mutual_fund_name": "76",
+            "scheme_launch_date": "76"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY AAA BOND PLUS SDL APR 2026 5050 ETF",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.63 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.62 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.59 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,118.69Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "11th May 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          ""
+        ],
+        "field_location": [
+          {
+            "amc_name": "78",
+            "benchmark_index": "78",
+            "count": 77,
+            "fund_manager_managing_fund_since": "78",
+            "fund_manager_name": "78",
+            "fund_manager_total_exp": "78",
+            "load_entry": "78",
+            "load_exit": "78",
+            "main_scheme_name": "78",
+            "min_addl_amt": "78",
+            "min_addl_amt_multiple": "78",
+            "min_amt": "78",
+            "min_amt_multiple": "78",
+            "monthly_aaum_date": "78",
+            "monthly_aaum_value": "78",
+            "mutual_fund_name": "78",
+            "scheme_launch_date": "78"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Note Investors will be bearing the recurring expenses of the scheme, in addition to the expenses of the schemes, in which Fund of Funds schemes make investments.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY AAA BOND PLUS SDL APR 2026 5050 ETF FOF",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 277.16Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "20th October 2021"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          ""
+        ],
+        "field_location": [
+          {
+            "amc_name": "79",
+            "benchmark_index": "79",
+            "count": 77,
+            "fund_manager_managing_fund_since": "79",
+            "fund_manager_name": "79",
+            "fund_manager_total_exp": "79",
+            "load_entry": "79",
+            "load_exit": "79",
+            "main_scheme_name": "79",
+            "metrics_avg_maturity": "79",
+            "metrics_mod_duration": "79",
+            "min_addl_amt": "79",
+            "min_addl_amt_multiple": "79",
+            "min_amt": "79",
+            "min_amt_multiple": "79",
+            "monthly_aaum_date": "79",
+            "monthly_aaum_value": "79",
+            "mutual_fund_name": "79",
+            "scheme_launch_date": "79"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Krishnaa N",
+            "qualification": "",
+            "total_exp": "4 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed  switched-out within 1 month from the date of allotment 0.25 If redeemedswitched-out after 1 month from the date of allotment Nil Note Investors will be bearing the recurring expenses of the scheme, in addition to the expenses of the schemes, in which Fund of Funds schemes make investments. 79",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS US TREASURY DYNAMIC BOND ETF FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "8.46 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "7.04 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 58.48Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": ""
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          ""
+        ],
+        "field_location": [
+          {
+            "amc_name": "80",
+            "benchmark_index": "80",
+            "count": 77,
+            "fund_manager_managing_fund_since": "80",
+            "fund_manager_name": "80",
+            "fund_manager_total_exp": "80",
+            "load_entry": "80",
+            "load_exit": "80",
+            "main_scheme_name": "80",
+            "metrics_avg_maturity": "80",
+            "metrics_macaulay": "80",
+            "metrics_mod_duration": "80",
+            "min_addl_amt": "80",
+            "min_addl_amt_multiple": "80",
+            "min_amt": "80",
+            "min_amt_multiple": "80",
+            "monthly_aaum_date": "80",
+            "monthly_aaum_value": "80",
+            "mutual_fund_name": "80",
+            "scheme_launch_date": "80"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Devang Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Fund Name Date 1 y Axis CRISIL IBX 7030 CPSE Plus SDL April 2025 Index Fund 28-Mar-2025 -0",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL IBX 7030 CPSE PLUS SDL APRIL 2025 INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "15 days"
+          },
+          {
+            "name": "macaulay",
+            "value": "15 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "14 days"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 457.37Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "28th January 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL IBX SDL Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "81",
+            "benchmark_index": "81",
+            "count": 77,
+            "fund_manager_managing_fund_since": "81",
+            "fund_manager_name": "81",
+            "fund_manager_total_exp": "81",
+            "load_entry": "81",
+            "load_exit": "81",
+            "main_scheme_name": "81",
+            "metrics_avg_maturity": "81",
+            "metrics_macaulay": "81",
+            "metrics_mod_duration": "81",
+            "min_addl_amt": "81",
+            "min_addl_amt_multiple": "81",
+            "min_amt": "81",
+            "min_amt_multiple": "81",
+            "monthly_aaum_date": "81",
+            "monthly_aaum_value": "81",
+            "mutual_fund_name": "81",
+            "scheme_launch_date": "81"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL IBX SDL MAY 2027 INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.01 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "1.87 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.81 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 2,235.95Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "23rd February 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty SDL Sep 2026 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "83",
+            "benchmark_index": "83",
+            "count": 77,
+            "fund_manager_managing_fund_since": "83",
+            "fund_manager_name": "83",
+            "fund_manager_total_exp": "83",
+            "load_entry": "83",
+            "load_exit": "83",
+            "main_scheme_name": "83",
+            "metrics_avg_maturity": "83",
+            "metrics_macaulay": "83",
+            "metrics_mod_duration": "83",
+            "min_addl_amt": "83",
+            "min_addl_amt_multiple": "83",
+            "min_amt": "83",
+            "min_amt_multiple": "83",
+            "monthly_aaum_date": "83",
+            "monthly_aaum_value": "83",
+            "mutual_fund_name": "83",
+            "scheme_launch_date": "83"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Fund Name Date 1 year Axis Nifty SDL September 2026 Debt Index Fund 28-Mar-2025 -0.25",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS NIFTY SDL SEPTEMBER 2026 DEBT INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "1.38 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "1.33 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.28 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 75.66Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "22nd November 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL IBX 5050 Gilt Plus SDL Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "84",
+            "benchmark_index": "84",
+            "count": 77,
+            "fund_manager_managing_fund_since": "84",
+            "fund_manager_name": "84",
+            "fund_manager_total_exp": "84",
+            "load_entry": "84",
+            "load_exit": "84",
+            "main_scheme_name": "84",
+            "metrics_avg_maturity": "84",
+            "metrics_macaulay": "84",
+            "metrics_mod_duration": "84",
+            "min_addl_amt": "84",
+            "min_addl_amt_multiple": "84",
+            "min_amt": "84",
+            "min_amt_multiple": "84",
+            "monthly_aaum_date": "84",
+            "monthly_aaum_value": "84",
+            "mutual_fund_name": "84",
+            "scheme_launch_date": "84"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Fund Name Date 1 ye Axis CRISIL IBX 5050 Gilt Plus SDL June 2028 Index Fund 28-Mar-2025 -0.4",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL IBX 5050 GILT PLUS SDL JUNE 2028 INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.92 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.58 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.5 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 75.70Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th January 2023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL IBX 5050 Gilt Plus SDL Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "85",
+            "benchmark_index": "85",
+            "count": 77,
+            "fund_manager_managing_fund_since": "85",
+            "fund_manager_name": "85",
+            "fund_manager_total_exp": "85",
+            "load_entry": "85",
+            "load_exit": "85",
+            "main_scheme_name": "85",
+            "metrics_avg_maturity": "85",
+            "metrics_macaulay": "85",
+            "metrics_mod_duration": "85",
+            "min_addl_amt": "85",
+            "min_addl_amt_multiple": "85",
+            "min_amt": "85",
+            "min_amt_multiple": "85",
+            "monthly_aaum_date": "85",
+            "monthly_aaum_value": "85",
+            "mutual_fund_name": "85",
+            "scheme_launch_date": "85"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Fund Name Date 1 Axis CRISIL IBX 5050 Gilt Plus SDL September 2027 Index Fund 28-Mar-2025",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL IBX 5050 GILT PLUS SDL SEPTEMBER 2027 INDEX",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.18 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.02 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.96 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 32.71Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "27th February 2023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL IBX SDL Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "86",
+            "benchmark_index": "86",
+            "count": 77,
+            "fund_manager_managing_fund_since": "86",
+            "fund_manager_name": "86",
+            "fund_manager_total_exp": "86",
+            "load_entry": "86",
+            "load_exit": "86",
+            "main_scheme_name": "86",
+            "metrics_avg_maturity": "86",
+            "metrics_macaulay": "86",
+            "metrics_mod_duration": "86",
+            "min_addl_amt": "86",
+            "min_addl_amt_multiple": "86",
+            "min_amt": "86",
+            "min_amt_multiple": "86",
+            "monthly_aaum_date": "86",
+            "monthly_aaum_value": "86",
+            "mutual_fund_name": "86",
+            "scheme_launch_date": "86"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "15 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Fund Name Date 1 year Axis CRISIL IBX SDL June 2034 Debt Index Fund 28-Mar-2025 -0.72",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL IBX SDL JUNE 2034 DEBT INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "8.63 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.27 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "6.06 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 15.42Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "21st March 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL-IBX AAA NBFC Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "87",
+            "benchmark_index": "87",
+            "count": 77,
+            "fund_manager_managing_fund_since": "87",
+            "fund_manager_name": "87",
+            "fund_manager_total_exp": "87",
+            "load_entry": "87",
+            "load_exit": "87",
+            "main_scheme_name": "87",
+            "metrics_avg_maturity": "87",
+            "metrics_macaulay": "87",
+            "metrics_mod_duration": "87",
+            "min_addl_amt": "87",
+            "min_addl_amt_multiple": "87",
+            "min_amt": "87",
+            "min_amt_multiple": "87",
+            "monthly_aaum_date": "87",
+            "monthly_aaum_value": "87",
+            "mutual_fund_name": "87",
+            "scheme_launch_date": "87"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Fund Name Date 1 yea Axis CRISIL-IBX AAA Bond NBFC - Jun 2027 Index Fund 28-Mar-2025 Since the fund has not completed 1-year annualized tracking difference is taken from the launch date of the scheme. The tracking diffe of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL-IBX AAA BOND NBFC - JUN 2027 INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "1.84 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.71 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 763.82Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "24th September 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL-IBX AAA NBFC-HFC Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "89",
+            "benchmark_index": "89",
+            "count": 77,
+            "fund_manager_managing_fund_since": "89",
+            "fund_manager_name": "89",
+            "fund_manager_total_exp": "89",
+            "load_entry": "89",
+            "load_exit": "89",
+            "main_scheme_name": "89",
+            "metrics_avg_maturity": "89",
+            "metrics_macaulay": "89",
+            "metrics_mod_duration": "89",
+            "min_addl_amt": "89",
+            "min_addl_amt_multiple": "89",
+            "min_amt": "89",
+            "min_amt_multiple": "89",
+            "monthly_aaum_date": "89",
+            "monthly_aaum_value": "89",
+            "mutual_fund_name": "89",
+            "scheme_launch_date": "89"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Since the Scheme has not completed Six Months, performance details for the Scheme are not provided. Since the fund has not completed 1-year annualized tracking difference is taken from the launch date of the scheme. The tracking difference may look optically elevated on account of deployment during the first few days of the scheme. This effect is transitionary in nature and normalizes as the fund completes 1 year since fund launch. Fund Name Date 1 y Axis CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund 28-Mar-2025",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CRISIL-IBX AAA BOND NBFC-HFC - JUN 2027 INDEX FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "1.91 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "1.74 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.62 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 40.78Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "11th December 2024"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 50 Hybrid Composite Debt 1585 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "92",
+            "benchmark_index": "92",
+            "count": 77,
+            "fund_manager_managing_fund_since": "92",
+            "fund_manager_name": "92",
+            "fund_manager_total_exp": "92",
+            "load_entry": "92",
+            "load_exit": "92",
+            "main_scheme_name": "92",
+            "metrics_avg_maturity": "92",
+            "metrics_beta": "92",
+            "metrics_macaulay": "92",
+            "metrics_mod_duration": "92",
+            "metrics_sharpe": "92",
+            "metrics_std_dev": "92",
+            "min_addl_amt": "92",
+            "min_addl_amt_multiple": "92",
+            "min_amt": "92",
+            "min_amt_multiple": "92",
+            "monthly_aaum_date": "92",
+            "monthly_aaum_value": "92",
+            "mutual_fund_name": "92",
+            "scheme_launch_date": "92"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CONSERVATIVE HYBRID FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "13.4 years"
+          },
+          {
+            "name": "beta",
+            "value": "1.23"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.8 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "6.53 years"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.23"
+          },
+          {
+            "name": "std_dev",
+            "value": "4.35"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 269.09Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "16th July 2010"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Equity Savings Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "94",
+            "benchmark_index": "94",
+            "count": 77,
+            "fund_manager_managing_fund_since": "94",
+            "fund_manager_name": "94",
+            "fund_manager_total_exp": "94",
+            "load_entry": "94",
+            "load_exit": "94",
+            "main_scheme_name": "94",
+            "metrics_avg_maturity": "94",
+            "metrics_beta": "94",
+            "metrics_macaulay": "94",
+            "metrics_mod_duration": "94",
+            "metrics_sharpe": "94",
+            "metrics_std_dev": "94",
+            "min_addl_amt": "94",
+            "min_addl_amt_multiple": "94",
+            "min_amt": "94",
+            "min_amt_multiple": "94",
+            "monthly_aaum_date": "94",
+            "monthly_aaum_value": "94",
+            "mutual_fund_name": "94",
+            "scheme_launch_date": "94"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Mayank Mr",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "15 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "14 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS EQUITY SAVINGS FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "16.62 years"
+          },
+          {
+            "name": "beta",
+            "value": "1.21"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.65 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "6.4 years"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.23"
+          },
+          {
+            "name": "std_dev",
+            "value": "6.1"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 931.57Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "14th August 2015"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "96",
+            "benchmark_index": "96",
+            "count": 77,
+            "fund_manager_managing_fund_since": "96",
+            "fund_manager_name": "96",
+            "fund_manager_total_exp": "96",
+            "load_entry": "96",
+            "load_exit": "96",
+            "main_scheme_name": "96",
+            "metrics_avg_maturity": "96",
+            "metrics_macaulay": "96",
+            "metrics_mod_duration": "96",
+            "min_addl_amt": "96",
+            "min_addl_amt_multiple": "96",
+            "min_amt": "96",
+            "min_amt_multiple": "96",
+            "monthly_aaum_date": "96",
+            "monthly_aaum_value": "96",
+            "mutual_fund_name": "96",
+            "scheme_launch_date": "96"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Ashish Mr",
+            "qualification": "",
+            "total_exp": "16 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Mr",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "P Naik",
+            "qualification": "",
+            "total_exp": "15 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "P Naik",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS MULTI ASSET ALLOCATION FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "14.76 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.16 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.92 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,312.32Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "23rd August 2010"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 3565 - Aggressive Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "98",
+            "benchmark_index": "98",
+            "count": 77,
+            "fund_manager_managing_fund_since": "98",
+            "fund_manager_name": "98",
+            "fund_manager_total_exp": "98",
+            "load_entry": "98",
+            "load_exit": "98",
+            "main_scheme_name": "98",
+            "metrics_avg_maturity": "98",
+            "metrics_beta": "98",
+            "metrics_macaulay": "98",
+            "metrics_mod_duration": "98",
+            "metrics_sharpe": "98",
+            "metrics_std_dev": "98",
+            "min_addl_amt": "98",
+            "min_addl_amt_multiple": "98",
+            "min_amt": "98",
+            "min_amt_multiple": "98",
+            "monthly_aaum_date": "98",
+            "monthly_aaum_value": "98",
+            "mutual_fund_name": "98",
+            "scheme_launch_date": "98"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Jayesh Sundarmr",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS AGGRESSIVE HYBRID FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "13.16 years"
+          },
+          {
+            "name": "beta",
+            "value": "1.15"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.05 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.8 years"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.07"
+          },
+          {
+            "name": "std_dev",
+            "value": "11.73"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,484.77Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "9th August 2018"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 50 Hybrid Composite Debt 6535 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "100",
+            "benchmark_index": "100",
+            "count": 77,
+            "fund_manager_managing_fund_since": "100",
+            "fund_manager_name": "100",
+            "fund_manager_total_exp": "100",
+            "load_entry": "100",
+            "load_exit": "100",
+            "main_scheme_name": "100",
+            "metrics_avg_maturity": "100",
+            "metrics_macaulay": "100",
+            "metrics_mod_duration": "100",
+            "min_addl_amt": "100",
+            "min_addl_amt_multiple": "100",
+            "min_amt": "100",
+            "min_amt_multiple": "100",
+            "monthly_aaum_date": "100",
+            "monthly_aaum_value": "100",
+            "mutual_fund_name": "100",
+            "scheme_launch_date": "100"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Jayesh Sundarmr",
+            "qualification": "",
+            "total_exp": "1 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS CHILDRENS FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "17.25 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "7.89 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "7.02"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 845.12Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "8th December 2015"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 50 Hybrid Composite Debt 5050 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "102",
+            "benchmark_index": "102",
+            "count": 77,
+            "fund_manager_managing_fund_since": "102",
+            "fund_manager_name": "102",
+            "fund_manager_total_exp": "102",
+            "load_entry": "102",
+            "load_exit": "102",
+            "main_scheme_name": "102",
+            "metrics_avg_maturity": "102",
+            "metrics_beta": "102",
+            "metrics_macaulay": "102",
+            "metrics_mod_duration": "102",
+            "metrics_sharpe": "102",
+            "metrics_std_dev": "102",
+            "min_addl_amt": "102",
+            "min_addl_amt_multiple": "102",
+            "min_amt": "102",
+            "min_amt_multiple": "102",
+            "monthly_aaum_date": "102",
+            "monthly_aaum_value": "102",
+            "mutual_fund_name": "102",
+            "scheme_launch_date": "102"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS BALANCED ADVANTAGE FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "13.67 years"
+          },
+          {
+            "name": "beta",
+            "value": "1.09"
+          },
+          {
+            "name": "macaulay",
+            "value": "5.97 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.73 years"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.65"
+          },
+          {
+            "name": "std_dev",
+            "value": "8.31"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 2,724.74Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "1st August 2017"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 50 Arbitrage Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "104",
+            "benchmark_index": "104",
+            "count": 77,
+            "fund_manager_managing_fund_since": "104",
+            "fund_manager_name": "104",
+            "fund_manager_total_exp": "104",
+            "load_entry": "104",
+            "load_exit": "104",
+            "main_scheme_name": "104",
+            "metrics_avg_maturity": "104",
+            "metrics_beta": "104",
+            "metrics_macaulay": "104",
+            "metrics_mod_duration": "104",
+            "metrics_sharpe": "104",
+            "metrics_std_dev": "104",
+            "min_addl_amt": "104",
+            "min_addl_amt_multiple": "104",
+            "min_amt": "104",
+            "min_amt_multiple": "104",
+            "monthly_aaum_date": "104",
+            "monthly_aaum_value": "104",
+            "mutual_fund_name": "104",
+            "scheme_launch_date": "104"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS ARBITRAGE FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "274 days"
+          },
+          {
+            "name": "beta",
+            "value": "0.69"
+          },
+          {
+            "name": "macaulay",
+            "value": "272 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "265 days"
+          },
+          {
+            "name": "sharpe",
+            "value": "1.28"
+          },
+          {
+            "name": "std_dev",
+            "value": "0.56"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 5,732.19Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "14th August 2014"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 2575 - Aggressive Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "106",
+            "benchmark_index": "106",
+            "count": 77,
+            "fund_manager_managing_fund_since": "106",
+            "fund_manager_name": "106",
+            "fund_manager_total_exp": "106",
+            "load_entry": "106",
+            "load_exit": "106",
+            "main_scheme_name": "106",
+            "metrics_avg_maturity": "106",
+            "metrics_macaulay": "106",
+            "metrics_mod_duration": "106",
+            "min_addl_amt": "106",
+            "min_addl_amt_multiple": "106",
+            "min_amt": "106",
+            "min_amt_multiple": "106",
+            "monthly_aaum_date": "106",
+            "monthly_aaum_value": "106",
+            "mutual_fund_name": "106",
+            "scheme_launch_date": "106"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Jayesh Sundarmr",
+            "qualification": "",
+            "total_exp": "1 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS RETIREMENT FUND - AGGRESSIVE PLAN",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "24.4 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "9.84 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "9.51 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 784.17Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "20th December 2019"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 3565 - Aggressive Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "108",
+            "benchmark_index": "108",
+            "count": 77,
+            "fund_manager_managing_fund_since": "108",
+            "fund_manager_name": "108",
+            "fund_manager_total_exp": "108",
+            "load_entry": "108",
+            "load_exit": "108",
+            "main_scheme_name": "108",
+            "metrics_avg_maturity": "108",
+            "metrics_macaulay": "108",
+            "metrics_mod_duration": "108",
+            "min_addl_amt": "108",
+            "min_addl_amt_multiple": "108",
+            "min_amt": "108",
+            "min_amt_multiple": "108",
+            "monthly_aaum_date": "108",
+            "monthly_aaum_value": "108",
+            "mutual_fund_name": "108",
+            "scheme_launch_date": "108"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Jayesh Mr",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "15 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Hardik Shah",
+            "qualification": "",
+            "total_exp": "21 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS RETIREMENT FUND - DYNAMIC PLAN",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "22.01 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "8.93 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "8.63 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 318.38Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "20th December 2019"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 7525 - Conservative Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "110",
+            "benchmark_index": "110",
+            "count": 77,
+            "fund_manager_managing_fund_since": "110",
+            "fund_manager_name": "110",
+            "fund_manager_total_exp": "110",
+            "load_entry": "110",
+            "load_exit": "110",
+            "main_scheme_name": "110",
+            "metrics_avg_maturity": "110",
+            "metrics_macaulay": "110",
+            "metrics_mod_duration": "110",
+            "min_addl_amt": "110",
+            "min_addl_amt_multiple": "110",
+            "min_amt": "110",
+            "min_amt_multiple": "110",
+            "monthly_aaum_date": "110",
+            "monthly_aaum_value": "110",
+            "mutual_fund_name": "110",
+            "scheme_launch_date": "110"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Jayesh Sundarmr",
+            "qualification": "",
+            "total_exp": "1 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": null,
+            "type": "entry"
+          },
+          {
+            "comment": null,
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS RETIREMENT FUND - CONSERVATIVE PLAN",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "23.18 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "10.45 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "10.1 years"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 61.29Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "20th December 2019"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Domestic price of Gold"
+        ],
+        "field_location": [
+          {
+            "amc_name": "112",
+            "benchmark_index": "112",
+            "count": 77,
+            "fund_manager_managing_fund_since": "112",
+            "fund_manager_name": "112",
+            "fund_manager_total_exp": "112",
+            "load_entry": "112",
+            "load_exit": "112",
+            "main_scheme_name": "112",
+            "min_addl_amt": "112",
+            "min_addl_amt_multiple": "112",
+            "min_amt": "112",
+            "min_amt_multiple": "112",
+            "monthly_aaum_date": "112",
+            "monthly_aaum_value": "112",
+            "mutual_fund_name": "112",
+            "scheme_launch_date": "112"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Exit Load of 1 is payable if Units are redeemed  switched-out within 15 days from the date of allotment. Note Investors will be bearing the recurring expenses of the scheme, in addition to the expenses of the schemes, in which Fund of Funds schemes make investments.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GOLD FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 913.86Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "20th October 2011"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Domestic Price of Physical Silver"
+        ],
+        "field_location": [
+          {
+            "amc_name": "113",
+            "benchmark_index": "113",
+            "count": 77,
+            "fund_manager_managing_fund_since": "113",
+            "fund_manager_name": "113",
+            "fund_manager_total_exp": "113",
+            "load_entry": "113",
+            "load_exit": "113",
+            "main_scheme_name": "113",
+            "metrics_tracking_error": "113",
+            "min_addl_amt": "113",
+            "min_addl_amt_multiple": "113",
+            "min_amt": "113",
+            "min_amt_multiple": "113",
+            "monthly_aaum_date": "113",
+            "monthly_aaum_value": "113",
+            "mutual_fund_name": "113",
+            "scheme_launch_date": "113"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS SILVER ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.62"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 176.22Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "21st September 2022"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Domestic price of Gold"
+        ],
+        "field_location": [
+          {
+            "amc_name": "114",
+            "benchmark_index": "114",
+            "count": 77,
+            "fund_manager_managing_fund_since": "114",
+            "fund_manager_name": "114",
+            "fund_manager_total_exp": "114",
+            "load_entry": "114",
+            "load_exit": "114",
+            "main_scheme_name": "114",
+            "metrics_tracking_error": "114",
+            "min_addl_amt": "114",
+            "min_addl_amt_multiple": "114",
+            "min_amt": "114",
+            "min_amt_multiple": "114",
+            "monthly_aaum_date": "114",
+            "monthly_aaum_value": "114",
+            "mutual_fund_name": "114",
+            "scheme_launch_date": "114"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "Nil w.e.f from July 24th 2020 Annualised tracking error is calculated based on daily rolling returns for the last 12 months.",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS GOLD ETF",
+        "metrics": [
+          {
+            "name": "tracking_error",
+            "value": "0.23"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 1,482.70Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "10th November 2010"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Axis Asset Management Company Limited",
+        "benchmark_index": [
+          "Domestic Price of Physical Silver"
+        ],
+        "field_location": [
+          {
+            "amc_name": "115",
+            "benchmark_index": "115",
+            "count": 77,
+            "fund_manager_managing_fund_since": "115",
+            "fund_manager_name": "115",
+            "fund_manager_total_exp": "115",
+            "load_entry": "115",
+            "load_exit": "115",
+            "main_scheme_name": "115",
+            "min_addl_amt": "115",
+            "min_addl_amt_multiple": "115",
+            "min_amt": "115",
+            "min_amt_multiple": "115",
+            "monthly_aaum_date": "115",
+            "monthly_aaum_value": "115",
+            "mutual_fund_name": "115",
+            "scheme_launch_date": "115"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Aditya Pagaria",
+            "qualification": "",
+            "total_exp": "16 Years"
+          }
+        ],
+        "load": [
+          {
+            "comment": "NA",
+            "type": "entry"
+          },
+          {
+            "comment": "If redeemed before 7 Day Exit Load is 0.25",
+            "type": "exit"
+          }
+        ],
+        "main_scheme_name": "AXIS SILVER FUND OF FUND",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "₹ 76.68Cr",
+        "mutual_fund_name": "Axis Mutual Fund",
+        "scheme_launch_date": "21st September 2022"
+      }
+    }
+  ]
+}
