@@ -25,7 +25,7 @@ for amc_name,class_name in class_mapper.items():
         data = object.get_data(path_pdf, title)
         extracted_text = object.get_generated_content(data)
         final_text = object.refine_extracted_data(extracted_text, flatten=object.MAIN_MAP['flatten'])
-        dfs = object.merge_and_select_data(final_text, select=object.MAIN_MAP['select'], map=object.MAIN_MAP['map'], special=object.MAIN_MAP['special'])
+        dfs = object.merge_and_select_data(final_text, select=object.MAIN_MAP['select'], map_keys=object.MAIN_MAP['map'], special_handling=object.MAIN_MAP['special'])
         Helper.quick_json_dump(dfs, object.JSONPATH)
 
         if not os.path.exists(object.JSONPATH): # if exists

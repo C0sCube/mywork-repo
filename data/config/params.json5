@@ -1069,7 +1069,7 @@
         "EOL",
       ],
       metrics: "(MONTHLY AVER?A?G?E?|MONTHLY AVERAGE AUM|PORTFOLIO YTM|MAC DURATION|AVERAGE MATU|MODIFIED DURA|\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*([\\d,.]+\\s*(?:years|days|months|Cr)?)",
-      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]+",
+      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^dummy.*": ["_extract_scheme_data", "scheme"],
@@ -1150,7 +1150,7 @@
         pattern: "(?:Mr\\.|Ms\\.)\\s*([A-Za-z\\s]+)\\s*(\\d{1,2}\\s*years)\\s*(.*)",
         fields: ["name", "exp", "since"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\).,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(minimum|additional|benchmark|exit).*": ["_extract_str_data", null],
@@ -1261,7 +1261,7 @@
       },
       aum: "(Month End|Monthly Average)\\s*([\\d,.\\-]+)",
       ptr: "(Portfolio\\s*Turnover(?:\\s*\\(Equity\\d*\\))?)\\s*(\\d{1,3}(?:,\\d{3})*\\.\\d+)%?",
-      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       // "^(date|benchmark|investment|type_of|scheme|multiples|minimum).*": [
@@ -1372,7 +1372,7 @@
         fields: ["name", "desig", "since", "exp"],
       },
       load: "Entry Load\\s*(.+?)\\s*Exit Load\\s*(.+)$",
-      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^aum": ["_extract_generic_data", "aum"],
@@ -1452,7 +1452,7 @@
     REGEX: {
       aum: "(As on|Average for Month).*?([\\d,.]+)\\s*Cr",
       track: ".+?months\\s*(?:regular)?\\s*([\\d.]+)",
-      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+|\u00a5|\u00b7",
+      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+]+|\u00a5|\u00b7",
       load: "",
       manager: "",
       metric: "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*(-?[\\d.]+\\s*(?:years|days|months)?)",
@@ -1546,7 +1546,7 @@
     REGEX: {
       aum: "(As on|Average for Month).*?([\\d,.]+)\\s*Cr",
       track: ".+?months\\s*(?:regular)?\\s*([\\d.]+)",
-      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+]+",
       load: "",
       manager: "",
       metric: "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
@@ -1655,7 +1655,7 @@
         pattern: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)?\\s*([\\w\\s]+)(?:\\([^)]+\\))?\\s*\\(Since ([^)]+)\\s*Overall\\s*(\\d+ years)",
         fields: ["name", "since", "exp"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(Annualised\\)",
     },
     PATTERN_TO_FUNCTION: {
       "^investment.*": ["_extract_str_data", null],
@@ -1760,7 +1760,7 @@
         fields: ["name", "desig", "exp", "since"],
       },
       metrics: "(Beta\\D+|YTM|Average Maturity|Modified Duration|Macaulay Duration|Standard Deviation|Sharpe Ratio[0-9]+|R[0-9]+)\\s*(-?[\\d.]+\\s*(?:year?s?|mont?h?s?|days?)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "before.*": ["_extract_scheme_data", "scheme"],
@@ -1875,7 +1875,7 @@
         key: "\\b(PE|PB|Dividend Yield|Std Dev|Annual Portfolio Turnover Ratio|Sharpe Ratio|Portfolio Beta|Tracking Error|Average Maturity|Macaulay Duration|Modified Duration|YTM)\\b",
         value: "\\b(-?[\\d.]+\\s*(?:days?|years?|months?|times?)?)\\b",
       },
-      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\s\\-\\(\\)]",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dummy|scheme_details).*": ["_extract_scheme_data", "scheme"],
@@ -1988,7 +1988,7 @@
       },
       min_amt: "([\\d,]+).+?thereafter()",
       min_amt2: "([\\d,]+).*?units()",
-      escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)]",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\s\\-\\(\\)]",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dummy|scheme_Details).*": ["_extract_scheme_data", "scheme"],
@@ -2102,7 +2102,7 @@
         fields: ["name", "exp", "since"],
       },
       metrics: "(YTM\\d+|Modified Duration|Macaulay Duration|Average Maturity|Standard Deviation|Beta|Sharpe Ratio|Fund\\s*PE.+?E\\s*\\d+?|Fund PB|Modified Duration)\\s*([\\d,]+\\.?\\d*\\s*(?:days|months|years)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       before:["_extract_scheme_data","scheme"]
@@ -2216,7 +2216,7 @@
       ],
       min_amt: "([\\d,]+).*?([\\d,]+)",
       date:"\\(Date of Allotment\\)\\s*(.+)(?:Benchmark)?",
-      escape: "[^A-Za-z0-9\\-\\(\\).,\\s]+",
+      escape: "[^A-Za-z0-9\\-\\(\\)\\.\\,\\+\\s]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(scheme.*|before)": ["_extract_scheme_data", "scheme"]
@@ -2331,7 +2331,7 @@
       ],
       ptr: ".*\\d+$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^before": ["_extract_scheme_data", "scheme"],
@@ -2433,7 +2433,7 @@
         fields: ["name"],
       },
       min_amt: "([\\d,]+).*?([\\d,]+|any)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+|\u00b7",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\u00b7",
     },
     PATTERN_TO_FUNCTION: {
       "^(sip|aaum|aum|allotment|folio_count|entry|exit|systemic|ideal|benchmark_index).*": [
@@ -2524,7 +2524,7 @@
         name: "(?:Mr.|M .)\\s*([A-Za-z]+\\s*[A-Za-z]+)",
         exp: "([\\d.]+\\s*years?)",
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(inception|first_tier_benchmark)": ["_extract_str_data", null],
@@ -2631,7 +2631,7 @@
       load: "Entry Load\\s*(.+?)\\s*Exit Load\\s*(.+)$",
       min_amt: "Rs\\.?\\s*([\\d,]+)(?:-)?\\D+R[es]?\\.?\\s*([\\d,]+)",
       metrics: "(Modif?i?ed Duration|Residual Maturity|Macaulay Duration|Annualised\\s*Portfolio YTM\\s*2?|Portfolio Turnover Ratio\\s*\\(.*?\\)|Standard Deviation|Treynor|Beta|Sharpe Ratio|Alpha)\\s*(-?[\\d,\\.]+\\s*(?:years|days|months)?)",
-      escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.\\/]+",
+      escape: "[^A-Za-z0-9\\s\\(\\)\\,\\-\\.\\/\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^before.*": ["_extract_scheme_data", "scheme"],
@@ -2742,7 +2742,7 @@
         "Minimum Additional Application Amount",
         "EOL",
       ],
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(scheme).*": ["_extract_scheme_data", "scheme"],
@@ -2835,7 +2835,7 @@
         "Minimum Additional Application Amount",
         "EOL",
       ],
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(scheme).*": ["_extract_scheme_data", "scheme"],
@@ -2931,7 +2931,7 @@
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:Managing this|has managed this) fund since\\s*(\\d{1,2}\\-?[A-Za-z,]+\\-?\\d{3,4}|Inception).*?([0-9]+ years)",
         fields: ["name", "since", "exp"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(benchmark|allotment_date).*": ["_extract_str_data", null],
@@ -3050,7 +3050,7 @@
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:Managing this|has managed this) fund since\\s*(\\d{1,2}\\-?[A-Za-z,]+\\-?\\d{3,4}|Inception).*?([0-9]+ years)",
         fields: ["name", "since", "exp"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       // "^(benchmark|allotment_date).*": ["_extract_str_data", null],
@@ -3180,7 +3180,7 @@
       ],
       date: "([0-9]+(?:th|rd|st|nd)?\\s*[A-Za-z]+\\,?\\s*[0-9]+)",
       benchmark: ".+?index(.+)$",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\u00b7|\\(Y?y?rs\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\u00b7|\\(Y?y?rs\\)",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
@@ -3289,7 +3289,7 @@
         fields: ["name", "desig", "since", "exp"],
       },
       load: "Entry Load(.*?)\\s*Exit Load(.*)$",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(s\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(s\\)",
     },
     PATTERN_TO_FUNCTION: {
       "scheme.*": ["_extract_scheme_data", "scheme"],
@@ -3371,7 +3371,7 @@
       stop_words: [],
     },
     REGEX: {
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
       min_amt: "([\\d,]+).*?([\\d,]+)",
       lump_amt: "For Lumpsum .+?\\s*([\\d,]+).*?([\\d,]+)",
       manager: {
@@ -3503,7 +3503,7 @@
         pattern: "([A-Za-z.]+(?:\\s+[A-Za-z.]+)+)\\s*\\(Managing since\\s*(Inception).*?experience\\s+(\\d+\\s+years)\\)",
         fields: ["name", "since", "exp"],
       },
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s]+",
+      escape: "[^a-zA-Z0-9\\.\\,\\(\\)\\s\\-\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(fund_features|scheme_details|dummy.*)": [
@@ -3617,7 +3617,7 @@
       },
       metrics: "(Portfolio Turnover|Volatility Measures|Standard Deviation of Fund|Beta|Sharpe Ratio| Average Maturity|Modified Duration|Macaulay Duration|Portfolio Yield).*?\\s*([\\d.,]+\\s*(?:days?|months?|ye?a?rs)?)",
       load: "Entry Load(.+)Exit Load(.+)$",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^scheme_det": ["_extract_scheme_data", "scheme"],
@@ -3725,7 +3725,7 @@
       min_amt: "(?:Additional.*?|.*Purchase.*?)([\\d.,]+).*?([\\d.,]+|any|$)\\s*(?:Q u a n t i t a t i v e.+)?",
       metrics: "(Beta|Standard\\s*Deviation|Sharpe\\s*Ratio|Macaulay\\s*Duration\\D*?|Portfolio\\s*Turnover\\D*?|Avg\\s*maturity\\D*?|Modified\\s*Duration\\D*?|Yield\\s*to\\s*Maturity\\D*?)\\s*(-?[\\d.\\s]+)",
       load: "Entry Load(.+?)Exit Load(.+)$",
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s]+",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s]+",
     },
     PATTERN_TO_FUNCTION: {
       before: ["_extract_scheme_data", "scheme"],
@@ -3843,7 +3843,7 @@
       min_amt: "([\\d,]+).*?([\\d,]+)",
       date: "([0-9]+\\s*[A-Za-z]+\\s*[0-9]+)",
       metrics: "(Sharpe Ratio|Sortino Ratio|Jensens Alpha|R-?\\s*Squared|Downside Deviation|Upside Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*(-?[\\d,.]+\\s*(?:days|months|years)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
       aaum: {
         coord: [484, 50, 600, 100],
         regex: "([\\d,.]+\\s*cr)",
@@ -3963,7 +3963,7 @@
       },
       min_amt: "([\\d,]+)-?\\D+?([\\d]+)-?",
       metric: "(Average Maturity.+?of the Month|Annualised Portfolio YTM|Modified Duration|Macaulays? Duration|Standard Deviation|Beta|Sharpe Ratio|Tracking Error|Alpha)\\s*([\\d.]+\\s*(?:days|months|years)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)|Measures the updown movement over time also known as volatility|Measures how QEFOF moved relative to|Measures the return relative to the",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(Annualised\\)|Measures the updown movement over time also known as volatility|Measures how QEFOF moved relative to|Measures the return relative to the",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
@@ -3983,8 +3983,8 @@
     },
     SELECTKEYS: [
       ".*(inception_date|benchmark_index)",
-      ".*(entry_load|exit_load)$",
-      "load",
+      // ".*(entry_load|exit_load)$",
+      "load", //after merge
       "amc_name",
       ".*average_aum",
       ".*fund_manager",
@@ -3992,10 +3992,10 @@
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      ".*key_statistics$",
-      "metrics",
-      ".*portfolio_information",
-      ".*portfolio_turnover_ratio",
+      // ".*key_statistics$",
+      "metrics", //after merge
+      // ".*portfolio_information",
+      // ".*portfolio_turnover_ratio",
       ".*(minimum_application_amount|additional_purchase)",
     ],
     MERGEKEYS: {
@@ -4077,7 +4077,7 @@
         pattern: "(?:mr|ms|mrs)\\.?\\s*(.+?)(?:,\\s*([\\w\\s,]+?))?\\(Managing.+?scheme since(.*?)\\)\\s*Total Experience\\s*(?:Over|Around)\\s*(\\d+ years?)",
         fields: ["name", "desig", "since", "exp"],
       },
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s]+",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(investment).*": ["_extract_str_data", null],
@@ -4182,7 +4182,7 @@
       },
       metrics: "(Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Total Turnover)\\s*([\\d,.]+\\s*(?:years|months|days|day|year|month)?)",
       min_amt: "\\b([\\d,]+(?:\\.\\d+)?)\\b.*?\\b([\\d,]+(?:\\.\\d+)?)\\b",
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s]+",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(investment_objective|metrics)": ["_extract_str_data", null],
@@ -4282,7 +4282,7 @@
       min_amt: "([\\d.,]+)\\D*(?:multiple)\\D*(\\d+)",
       load: "(?:Entry)?(.+)Exit(.+)$",
       metrics: "(Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Total Turnover|Tracking Error\\s*[0-9]*-?year)\\s*([\\d,.]+\\s*(?:years?|months?|days?)?)",
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s]+",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s]+",
     },
     PATTERN_TO_FUNCTION: {
       scheme_details: ["_extract_scheme_data", "scheme"],
@@ -4398,7 +4398,7 @@
       },
       metrics: "(Portfolio Turnover Ratio\\D*|Standard Deviation|Portfolio Beta|Sharpe Ratio|Information Ratio|Average Maturity|Residual Maturity\\D*|Modified Duration\\D*|Macaulay Duration\\D*|Annualised Portfolio YTM\\D*|Yield to Maturity)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
       load: "()Exit Load(.+)$",
-      escape: "[^a-zA-Z0-9.,\\(\\)\\s\\-]+|\\(Annualised\\)",
+      escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\-]+|\\(Annualised\\)",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dummy).*": ["_extract_scheme_data", "scheme"],
@@ -4507,7 +4507,7 @@
         fields: ["name"],
       },
       load: "^()(.*$)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       // "^investment.*": ["_extract_str_data", null],
@@ -4592,7 +4592,7 @@
       },
       load: "Entry Load\\s*(.*?)Exit Load\\s*(.*?)$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(Annualised\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(Annualised\\)",
     },
     PATTERN_TO_FUNCTION: {
       "^(date|investment_objective|multiples|benchmark|scheme_launch).*": [
@@ -4701,7 +4701,7 @@
       },
       load: "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*)$",
       metric: "(Port?f?olio Turnover|Standard Deviat?i?on|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Rat?i?o|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\u00b7",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\u00b7",
     },
     PATTERN_TO_FUNCTION: {
       before:["_extract_scheme_data","scheme"]
@@ -4905,7 +4905,7 @@
         fields: ["name", "since"],
       },
       metrics: "(Yield to Maturity|Weighted Average Maturity|Modied Duraon|Macaulay Durat?i?on|Standard Deviat?i?on|Beta|Sharpe Rat?i?o|Port?f?olio Turnover|Tracking Error|PE|ROE|PB)\\s*([\\d,.]+\\s*(ye?a?rs?|days?|months?)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(date|benchmark|scheme_launch|additional)": ["_extract_str_data", null],
@@ -5007,7 +5007,7 @@
         pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?(?:field of|in the|in)\\s*([A-Za-z\\s]+?)\\.?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
         fields: ["name", "exp", "desig", "since"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
     },
     PATTERN_TO_FUNCTION: {
       scheme_details: ["_extract_scheme_data", "scheme"],
@@ -5103,7 +5103,7 @@
         pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?(?:field of|in the|in)\\s*([A-Za-z\\s]+?)\\.?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
         fields: ["name", "exp", "desig", "since"],
       },
-      escape: "[^A-Za-z0-9\\s\\-\\(\\).,]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
     },
     PATTERN_TO_FUNCTION: {
       scheme_details: ["_extract_scheme_data", "scheme"],
@@ -5302,7 +5302,7 @@
       benchmark: "(.+?)\\s*NAV",
       min_amt: "([\\d,]+).*?(\\d*)",
       metrics: "(Portfolio Turnover Ratio|Average Maturity|Macaulay Duration|Tracking Error)\\s*([\\d,.]+)",
-      escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.]+|\u2028",
+      escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.\\+]+|\u2028",
       manager: {
         pattern: "(.+?)\\s*Total experience (\\d+ years) (?:Co-)?Managing.+?since ([A-Za-z]+\\s*[0-9]+)",
         fields: ["name", "exp", "since"],

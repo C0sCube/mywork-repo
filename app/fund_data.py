@@ -42,13 +42,17 @@ class GrandFundData:
     def _extract_dummy_data(self,main_key:str,data):
         return {main_key:data}
     
-    def _extract_bench_data(self,main_key:str,data,pattern:str):
-        data = " ".join(data) if isinstance(data,list) else data
-        benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
-        matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
-        return {main_key:matches[0] if matches else ""}
-    
     def _extract_scheme_data(self,main_key:str,data:list, pattern:str):
+        """
+            Extracts key-value pairs from text using regex spans between keyword pairs.
+            Args:
+                main_key (str): Top-level key for the returned dictionary.
+                data (list | str): Input text data.
+                pattern (str): Key to fetch start-end regex keywords from self.REGEX.
+            Returns:
+                dict: {main_key: {keyword: extracted_text}}
+        """
+
         regex_ = self.REGEX[pattern] #list
         mention_start = regex_[:-1]
         mention_end = regex_[1:]
@@ -76,6 +80,15 @@ class GrandFundData:
         return {main_key: " ".join(data)}
     
     def _extract_whitespace_data(self, main_key:str,data, pattern:str):
+        """
+            Extracts values or key-value pairs from text using regex.
+            Args:
+                main_key (str): Top-level key for the returned dict.
+                data (list | str): Input text to search.
+                pattern (str): Regex key for matching patterns.
+            Returns:
+                dict: {main_key: value or {key: value}} based on match structure.
+        """
         final_dict = {}
         generic_data = " ".join(data) if isinstance(data,list) else data
         generic_data = re.sub(self.REGEX['escape'], "", generic_data).replace(" ","").strip()
@@ -94,8 +107,16 @@ class GrandFundData:
         return {main_key:final_dict}
     
     def _extract_generic_data(self, main_key: str, data, pattern: str):
+        """
+            Extracts values or key-value pairs from text using regex.
+            Args:
+                main_key (str): Top-level key for the returned dict.
+                data (list | str): Input text to search.
+                pattern (str): Regex key for matching patterns.
+            Returns:
+                dict: {main_key: value or {key: value}} based on match structure.
+        """
         final_dict = {}
-
         generic_data = " ".join(data) if isinstance(data,list) else data
         generic_data = re.sub(self.REGEX['escape'], "", generic_data).strip()
       
@@ -113,9 +134,20 @@ class GrandFundData:
         return {main_key:final_dict}
     
     def _extract_metric_data(self,main_key:str, data,pattern:str):
+        """
+            Extracts key-value pairs from text using regex patterns for keys and values.
+            Args:
+                main_key (str): The top-level key for the returned dictionary.
+                data (list | str): Text or list of strings to search.
+                pattern (str): The regex key containing 'key' and 'value' sub-patterns.
+            Returns:
+                dict: A dictionary with the format {main_key: {key: value}} extracted from the input text.
+        """
+
+        final_dict = {}
         metric_data = " ".join(data) if isinstance(data,list) else data
         metric_data = re.sub(self.REGEX["escape"],"",metric_data).strip()
-        final_dict = {}
+        
         values = re.findall(self.REGEX[pattern]["value"],metric_data,re.IGNORECASE)
         keys = re.findall(self.REGEX[pattern]["key"],metric_data,re.IGNORECASE)
         for k,v in zip(keys,values):
@@ -123,6 +155,16 @@ class GrandFundData:
         return{main_key:final_dict}  
 
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
+        """
+            Extracts entry and exit load values from the given text using a regex pattern.
+            Args:
+                main_key (str): Top-level key for the returned dictionary.
+                data (list | str): Input text or list of strings to search.
+                pattern (str): Regex key used to match entry and exit load values.
+            Returns:
+                dict: A dictionary in the format {main_key: {'entry_load': str, 'exit_load': str}}.
+        """
+    
         load_data = " ".join(data) if isinstance(data,list) else data
         # load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
         final_dict = {'entry_load':"","exit_load":""}
@@ -133,6 +175,15 @@ class GrandFundData:
         return {main_key:final_dict}
      
     def _extract_amt_data(self,main_key:str, data, pattern:str):
+        """
+            Extracts amount-related data from the given text using a regex pattern.
+            Args:
+                main_key (str): Top-level key for the returned dictionary.
+                data (list | str): Input text or list of strings to process.
+                pattern (str): Regex key used to extract 'amt' and 'thereafter' values.
+            Returns:
+                dict: A dictionary in the format {main_key: {'amt': str, 'thraftr': str}}.
+        """
         amt_data = " ".join(data) if isinstance(data,list) else data
         amt_data = re.sub(self.REGEX['escape'],"",amt_data).strip()
         final_dict = {'amt':"",'thraftr':""}
@@ -142,6 +193,18 @@ class GrandFundData:
         return {main_key:final_dict}
     
     def _extract_manager_data(self, main_key: str, data, pattern: str):
+        """
+            Extracts fund manager details such as name, designation, experience, and since-date from the given text.
+            Args:
+                main_key (str): Top-level key for the returned dictionary.
+                data (list | str): Input text or list of strings to process.
+                pattern (str): Regex key containing the 'pattern' and corresponding 'fields' 
+                            (e.g., name, desig, exp, since in variable order).
+            Returns:
+                dict: A dictionary in the format {main_key: [manager_info, ...]}, 
+                    where each manager_info is built using _return_manager_data(**fields).
+        """
+
         final_list = []
         manager_data = " ".join(data) if isinstance(data, list) else data
         manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
@@ -160,6 +223,17 @@ class GrandFundData:
         return {main_key: final_list}
     
     def _extract_lump_data(self, main_key: str, data, pattern:list):
+        """
+            Extracts minimum and additional lump sum investment amounts from the given text using a regex pattern.
+            Args:
+                main_key (str): Top-level key for the returned dictionary.
+                data (list | str): Input text or list of strings to process.
+                pattern (str): Regex key used to extract minimum and additional amount pairs.
+            Returns:
+                dict: A dictionary in the format {main_key: {'min_amt': str, 'add_amt': str}}.
+                    If no valid matches are found, both values will be empty strings.
+        """
+
         load_data = " ".join(data) if isinstance(data, list) else data
         load_data = re.sub(self.REGEX['escape'], "", load_data).strip()
         final_dict = {"min_amt": {}, "add_amt": {}}
@@ -175,12 +249,24 @@ class GrandFundData:
             final_dict['min_amt'],final_dict['add_amt'] = min_amt, add_amt
         return {main_key: final_dict}
 
-    # #match
+    def _extract_bench_data(self,main_key:str,data,pattern:str):
+        data = " ".join(data) if isinstance(data,list) else data
+        benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
+        matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
+        return {main_key:matches[0] if matches else ""}
+    
+    def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
+        date_data = "".join(main_key)
+        matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
+        return {"inception_date": " ".join(matches)}
+    
+    
+    # dynamic function match
     def _match_with_patterns(self, string: str, data: list, level:str):
         try: 
             for pattern, (func_name, regex_key) in self.PATTERN[level].items():
                 if re.match(pattern, string, re.IGNORECASE):
-                    func = getattr(self, func_name)  # dynamic function lookup
+                    func = getattr(self, func_name)  # dynamic function|attribute lookup
                     if regex_key:
                         return func(string, data, regex_key)
                     return func(string, data)
@@ -194,56 +280,22 @@ class GrandFundData:
         try:
             for pattern,func_name, in self.SPECIAL_FUNCTIONS.items():
                 if re.match(pattern,string,re.IGNORECASE):
-                    func = getattr(self, func_name) #dynamic function lookup
+                    func = getattr(self, func_name) #dynamic function|attribute lookup
                     return func(string, data)    
         except Exception as e:
             logger.error(e)
             return
-        return self._extract_dummy_data(string, data)
-    
-    #merge and select
-    # def _merge_fund_data(self, data: dict):
-    #     if not isinstance(data, dict):
-    #         return data  # Only process dicts
-
-    #     for new_key, keys_to_merge in self.MERGEKEYS.items():
-    #         values = [data[key] for key in keys_to_merge if key in data]
-
-    #         if all(isinstance(v, list) for v in values):
-    #             # Merge as a list
-    #             merged_value = []
-    #             for v in values:
-    #                 merged_value.extend(v)
-    #         elif all(isinstance(v, dict) for v in values):
-    #             # Merge as a dictionary
-    #             merged_value = {}
-    #             for v in values:
-    #                 merged_value.update(v)
-    #         else:
-    #             # Mixed types: Handle string + dict
-    #             merged_value = {}
-    #             for key in keys_to_merge:
-    #                 if key in data:
-    #                     if isinstance(data[key], dict):
-    #                         merged_value.update(data[key])  # Merge dict normally
-    #                     else:
-    #                         merged_value[key] = data[key]  # Store string under its key
-            
-    #         for key in keys_to_merge:
-    #             data.pop(key, None)
-    #         if merged_value:
-    #             data[new_key] = merged_value  
-
-    #     return data
-    
+        return self._extract_dummy_data(string, data) #fallback
+   
+   
+   # CRUD dict operations
     def _merge_fund_data(self, data: dict):
         if not isinstance(data, dict):
-            return data  # Only process dicts
+            return data  # cuz ALL data stored as dict
 
         for new_key, patterns in self.MERGEKEYS.items():
-            # Find matching keys using regex patterns
-            keys_to_merge = [key for key in data if any(re.search(pattern, key, re.IGNORECASE) for pattern in patterns)]
-            values = [data[key] for key in keys_to_merge if key in data]
+            keys_to_merge = [key for key in data if any(re.search(pattern, key, re.IGNORECASE) for pattern in patterns)] #match regex to key
+            values = [data[key] for key in keys_to_merge if key in data] #heterogenous
 
             if all(isinstance(v, list) for v in values): #list + list
                 merged_value = []
@@ -253,23 +305,19 @@ class GrandFundData:
                 merged_value = {}
                 for v in values:
                     merged_value.update(v)
-            else:
-                # Mixed types: Handle string + dict
+            else: #string + dict
                 merged_value = {}
                 for key in keys_to_merge:
                     if key in data:
                         if isinstance(data[key], dict):
-                            merged_value.update(data[key])  # Merge dict normally
+                            merged_value.update(data[key])
                         else:
-                            merged_value[key] = data[key]  # Store string under its key
+                            merged_value[key] = data[key]
             
-            for key in keys_to_merge: #remove original keys
+            for key in keys_to_merge:
                 data.pop(key, None)
-
-            # Add the merged value if it's not empty
             if merged_value:
                 data[new_key] = merged_value  
-
         return data
 
     def _clone_fund_data(self, data: dict):
@@ -321,6 +369,8 @@ class GrandFundData:
                 return True
         return False
 
+
+    # clean + other
     def _select_by_regex(self, data:dict):
         finalData = {}
         for key, value in data.items():
@@ -343,19 +393,14 @@ class GrandFundData:
             "total_exp": exp.title().strip()
         }
     
-    def _update_imp_data(self,data:dict,fund:str, pgn:list):
+    def _update_imp_data(self,data:dict,main_scheme:str, pgn:list):
         return data.update({
             "amc_name":self.IMP_DATA['amc_name'],
-            "main_scheme_name":fund,
+            "main_scheme_name":main_scheme,
             "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%d-%m-%Y"),
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
         })
-   
-    def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
-        date_data = "".join(main_key)
-        matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
-        return {"inception_date": " ".join(matches)}
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):   
     def __init__(self, paths_config: str,fund_name:str,path:str):

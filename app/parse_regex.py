@@ -20,6 +20,7 @@ class FundRegex():
         
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
+        self.MANAGER_STOP_WORDS = data.get("manager_stop_words","").split(",")
         self.JSON_HEADER = data.get("json_headers",{})
         self.POPULATE_ALL_INDICE = data.get("add_json_headers",[])
         self.METRIC_HEADER = data.get("metrics_headers",{})
@@ -171,7 +172,7 @@ class FundRegex():
                 data[key] = default_value
                 changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
 
-        return data, changes
+        return data
     
     def _sanitize_fund(self,fund:str,fund_name:str):
         
