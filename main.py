@@ -6,6 +6,7 @@ with open(PATHS_CONFIG,'r') as file:
 from app.fund_data import *
 from app.params_handler import *
 from app.utils import Helper
+from app.vendor_to_user import *
 
 mutual_fund = Helper.get_fund_paths(PATH['dirs']['fund_path'])
 
@@ -16,6 +17,8 @@ print("Running file main.py")
 not_done = []
 
 for amc_name,class_name in class_mapper.items():
+    
+    vmapper = VendorMapper()
     print(f"\nRunning for AMC:{amc_name}\n**********************")
     try:
         # print(class_mapper[amc_name])
@@ -25,7 +28,11 @@ for amc_name,class_name in class_mapper.items():
         data = object.get_data(path_pdf, title)
         extracted_text = object.get_generated_content(data)
         final_text = object.refine_extracted_data(extracted_text, flatten=object.MAIN_MAP['flatten'])
-        dfs = object.merge_and_select_data(final_text, select=object.MAIN_MAP['select'], map_keys=object.MAIN_MAP['map'], special_handling=object.MAIN_MAP['special'])
+        dfs = object.merge_and_select_data(final_text, 
+                                           select=object.MAIN_MAP['select'], 
+                                           map_keys=object.MAIN_MAP['map'], 
+                                           special_handling=object.MAIN_MAP['special'])
+        
         Helper.quick_json_dump(dfs, object.JSONPATH)
 
         if not os.path.exists(object.JSONPATH): # if exists

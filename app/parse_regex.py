@@ -1,6 +1,6 @@
 import re
 import os
-import json, random,string, inspect
+import json, random,string, inspect, json5
 from dateutil import parser #type:ignore
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
