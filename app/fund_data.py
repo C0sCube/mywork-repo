@@ -399,7 +399,8 @@ class GrandFundData:
             "main_scheme_name":main_scheme,
             "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%d-%m-%Y"),
             "page_number":pgn,
-            "mutual_fund_name":self.IMP_DATA['mutual_fund_name'], 
+            "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
+            "file_name":""
         })
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):   
