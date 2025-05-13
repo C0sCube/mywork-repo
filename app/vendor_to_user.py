@@ -36,7 +36,7 @@ class VendorMapper:
         record_value["fund_manager"] = data.get("fund_manager",[])
     
         #field_location
-        page_number = "|".join([str(x+1) for x in data["page_number"]])
+        page_number = str(data["page_number"][0]+1)
         field_location = {
             "amc_name": page_number,
             "benchmark_index": page_number,
@@ -62,7 +62,7 @@ class VendorMapper:
             field_location[metric] = page_number
         
         for content in record_value["load"]:
-            type_ = content['type']
+            type_ = content['type'].replace("_load", "")
             key = f"load_{type_}"
             if content['comment']:
                 field_location[key] = page_number

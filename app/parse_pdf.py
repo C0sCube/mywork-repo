@@ -7,6 +7,7 @@ from app.utils import Helper
 from app.parse_regex import *
 from app.fund_data import *
 from logging_config import *
+from app.vendor_to_user import *
 
 class Reader:
     def __init__(self, config_path: str,params:dict,path:str):
@@ -15,6 +16,8 @@ class Reader:
             raise FileNotFoundError(f"Config FNF: {config_path}")
         with open(config_path,'r') as file:
             paths_data = json.load(file)
+            
+        self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
             
         self.PARAMS = params
                 
@@ -696,9 +699,11 @@ class Reader:
         return df
     
     def merge_and_select_data(self, data: dict, select = False, map_keys = False,special_handling = False):
+        
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
+        finkStinct = VendorMapper()
         for fund, content in data.items():
             temp = content
             temp = self._clone_fund_data(temp)
@@ -732,4 +737,11 @@ class Reader:
             temp = regex._check_replace_type(temp,fund) #type conversion
             
             finalData[fund] = dict(sorted(temp.items()))
-        return finalData
+            
+            final_data = finkStinct.map_to_fink(finalData,self.FILE_NAME)
+            
+        save_path = os.path.join(self.JSONPATH,self.FILE_NAME).replace(".pdf", ".json")
+        with open(save_path,'w') as file:
+            json.dump(final_data,file, indent=2)
+        print(f"File Saved At: {save_path}")
+        return final_data
