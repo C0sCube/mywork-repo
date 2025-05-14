@@ -742,7 +742,7 @@
         fields: ["name", "since", "exp"],
       },
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metrics: "(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*\\_?Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R Squared|Treynor)\\s*(-?[\\d,.]+\\s*(?:days|months?|years?)?)",
+      metrics: "(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*\\_?Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R\\s*Squared|Treynor)\\s*(-?[\\d,.]+\\s*(?:days?|months?|years?)?)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualized\\)",
     },
     PATTERN_TO_FUNCTION: {
@@ -2529,7 +2529,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Mahindra.*?(?:Fund|ETF|EOF|FOF|FTF|Path|FO))",
+        pattern: "(Mahindra.*?(?:Fund|ETF|EOF|FOF|FTF|Path)\\s*(?:FOF|of Fund)?",
         bbox: [170, 0, 450, 80],
       },
       clip_bbox: [[0, 65, 200, 812]],
@@ -2776,12 +2776,14 @@
         "Allotment Date",
         "Benchmark",
         "Net AUM",
+        "Tracking Error",
         "Exit Load",
         "Plan Available",
         "Minimum Investment Amount",
         "Minimum Additional Application Amount",
         "EOL",
       ],
+      track:"Value\\s*([\\d.]+)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
     },
     PATTERN_TO_FUNCTION: {
@@ -2795,6 +2797,7 @@
         "min_amt",
       ],
       ".*fund_managers": ["_extract_manager_data", "manager"],
+      ".*tracking_error":["_extract_generic_data","track"]
     },
     SELECTKEYS: [
       ".*(fund_managers|net_aum|allotment_date|benchmark|exit_load)",
@@ -2809,7 +2812,7 @@
     ],
     MERGEKEYS: {
       load: [".*exit_load"],
-      metrics: ["^metrics", "^metrics_bravo"],
+      metrics: ["^metrics", "^metrics_bravo",".*tracking_error"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -2870,8 +2873,8 @@
       scheme: [
         "Investment Objective",
         "Benchmark",
-        "Minimum.+?pplication Amount",
-        "Additional Application Amount",
+        "Minimum\\s*A?a?pplication Amount",
+        "Additional\\s*(?:Application|Purchase)\\s*Amount",
         "Entry\\s*Load",
         "Exit\\s*Load",
         "Inception Date|Allotment Date",
@@ -2908,7 +2911,7 @@
       "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
     },
     SELECTKEYS: [
-      ".*(minimum_application_amount|minimum_additional.+?amount)",
+      ".*(minimum_applicationt|additional_purchase)", //4 after merge
       "load",
       ".*allotment_date",
       "benchmark_index", //after clone
@@ -2929,14 +2932,16 @@
       ],
       // ".*exit_load": ["_extract_generic_data", "exit"],
       // // ".*allotment_date":["_extract_generic_data","date"],
-      ".*application_amount$": ["_extract_amt_data", "min_amt"],
-      // ".*fun.*ana.*": ["_extract_manager_data", "manager"],
+      ".*(purchase_amount|application_amount)$": ["_extract_amt_data", "min_amt"],
+      ".*fun.*ana.*": ["_extract_manager_data", "manager"],
       "befo.+?benchmark": ["_extract_generic_data", "benchmark"],
     },
     MERGEKEYS: {
       load: ["before.entry_load", "before.exit_load"],
       fund_manager: [".*fun.*mana.*"],
       metrics: [".*latest_aum", ".*quantitative_indicators"],
+      "minimum_application":[".*application_amount"],
+      "additional_purchase":[".*purchase_amount"]
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -4262,6 +4267,7 @@
     },
     REGEX: {
       aum: "([\\d,.]+)\\s*crores",
+      benchmark:"((?:Nifty|Domestic|Price|CRISIL|BSE).+?(?:TRI|Index|Silver|Gold))",
       scheme: [
         "Type of Scheme",
         "Date of Allotment",
@@ -4298,6 +4304,7 @@
         "_extract_amt_data",
         "min_amt",
       ],
+      // ".*benchmark.+?index":["_extract_generic_data","benchmark"]
     },
     SELECTKEYS: [
       ".*date_of_allotment",
@@ -4364,6 +4371,7 @@
     },
     REGEX: {
       aum: "([\\d,.]+\\s*crores?)",
+       benchmark:"((?:Nifty|Domestic|Price|CRISIL|BSE).+?(?:TRI|Index|Silver|Gold))",
       scheme: [
         "Inception Date",
         "AAUM for the Month",
@@ -4396,11 +4404,12 @@
         "_extract_generic_data",
         "metrics",
       ],
+      ".*benchmark.+?index":["_extract_generic_data","benchmark"]
     },
     SELECTKEYS: [
       ".*inception_date",
       ".*aaum_for",
-      ".*benchmark",
+      ".*benchmark.+$",
       "fund_manager",
       ".*load_structure",
       ".*minimum_investment",
@@ -4468,9 +4477,9 @@
       stop_words: [],
     },
     REGEX: {
-      aum: "Net AUM\\D*([\\d.]+ cr)",
+      aum: "(?:Net|Latest)\\s*AUM\\D*([\\d.]+\\s*cr)",
       benchmark: "^.+?(?:Index|TRI)",
-      date: "\\(Allotment Date\\)\\s*(.+\\d{3,4})",
+      date: "(\\d{1,2}\\s*(?:th|st|rd|nd)?\\s*[A-Za-z]+\\s*\\d{3,4})",
       scheme: [
         "About the Fund",
         "Date of Inception",
@@ -4486,6 +4495,8 @@
         "EOL",
         "Quantitative Data",
         "EOL",
+        "Date\\s*of\\s*Inception", //case 1
+        "Fund Managers"
       ],
       ptr: "([\\d.]+)",
       min_amt: "Rs\\.?\\s*([\\d,]+)\\D*(\\d+)",
@@ -4535,7 +4546,9 @@
       page_number: [],
       monthly_aaum_date: "",
     },
-    TERTIARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {
+      ".*date_of_inception":["_extract_generic_data","date"]
+    },
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
     CLONEKEYS: {
