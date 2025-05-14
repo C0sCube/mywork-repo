@@ -205,7 +205,7 @@ class GrandFundData:
                 dict: A dictionary in the format {main_key: [manager_info, ...]}, 
                     where each manager_info is built using _return_manager_data(**fields).
         """
-
+        # print("running manager data")
         final_list = []
         manager_data = " ".join(data) if isinstance(data, list) else data
         manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
@@ -215,12 +215,13 @@ class GrandFundData:
         field_names = pattern_info['fields']
 
         if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
+            # print(matches)
             for match in matches:
                 if isinstance(match, str):
                     match = (match,)
                 record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
                 final_list.append(self._return_manager_data(**record))
-
+        # print(final_list)
         return {main_key: final_list}
     
     def _extract_lump_data(self, main_key: str, data, pattern:list):
