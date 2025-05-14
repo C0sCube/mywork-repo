@@ -10,28 +10,27 @@ from logging_config import *
 from app.vendor_to_user import *
 
 class Reader:
-    def __init__(self, config_path: str,params:dict,path:str):
+    def __init__(self, config_path: str,params:dict,amc_id:str,path:str):
         
         if not os.path.exists(config_path):
             raise FileNotFoundError(f"Config FNF: {config_path}")
         with open(config_path,'r') as file:
             paths_data = json.load(file)
-            
+        
         self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
-            
-        self.PARAMS = params
+        self.PARAMS = params #amc specific paramaters
                 
         dirs = paths_data.get("dirs", {})
         paths = paths_data.get("paths", {})
 
         self.BASEPATH = dirs.get("base_path", "")
         self.DRYPATH = os.path.join(self.BASEPATH, paths.get("dry", ""))
-        self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
+        # self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
         self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
         self.PDF_PATH = path
         self.TEXT_ONLY = {}
         
-        for output_path in [self.DRYPATH, self.REPORTPATH, self.JSONPATH]:
+        for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
     #HIGHLIGHT
@@ -102,9 +101,9 @@ class Reader:
                                     page.add_highlight_annot(fitz.Rect(span["bbox"]))
                                     break
                 data.append({"page": pgn,"title": detected_titles[pgn],"highlight_count": highlight_count,"indices": found_indices})
-            doc.save(output_path)
-            print(f"\tHighlighted PDF at: {output_path}")
-        Helper._save_pdf_data(data, self.REPORTPATH)
+            # doc.save(output_path)
+            # print(f"\tHighlighted PDF at: {output_path}")
+        # Helper._save_pdf_data(data, self.REPORTPATH)
 
         return {
             d["page"]: d["title"]

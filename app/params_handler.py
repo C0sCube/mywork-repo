@@ -1,7 +1,7 @@
 import os
 import json5 #type:ignore
 
-PARAMS_PATH =  os.path.join(os.getcwd(),"data\\config\\params.json5")
+PARAMS_PATH =  os.path.join(os.getcwd(),"data\\config\\parameters.json5")
 
 class FundHouseManager:
     
