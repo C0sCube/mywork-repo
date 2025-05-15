@@ -11,9 +11,16 @@ mutual_fund = Helper.get_amc_paths(CONFIG["amc_path"])
 cls_map_path = os.path.join(CONFIG["base_path"],CONFIG["configs"]["regex"])
 
 
+# print(cls_map_path)
+# for k,v in mutual_fund.items():
+#     print(k,v)
+
+
 print("Running main.py")
 with open(cls_map_path,'r') as file: #class for each amc
     class_mapper = json.load(file)['class_mapper']
+    
+# print(class_mapper)
 
 not_done = []
 for amc_id,class_name in class_mapper.items():

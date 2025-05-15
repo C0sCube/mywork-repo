@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "document_name": "97_31-Mar-25_FS.pdf",
+    "file_type": "",
+    "process_date": "20250515_17:42"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "Union Asset Management Company Private Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 50+50 Moderate Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "2",
+            "benchmark_index": "2",
+            "count": 1,
+            "fund_manager_name": "2",
+            "fund_manager_qualification": "2",
+            "load_entry": "2",
+            "load_exit": "2",
+            "main_scheme_name": "2",
+            "metrics_avg_maturity": "2",
+            "metrics_direct_plan": "2",
+            "metrics_macaulay": "2",
+            "metrics_mod_duration": "2",
+            "metrics_regular_plan": "2",
+            "metrics_ytm": "2",
+            "min_addl_amt": "2",
+            "min_addl_amt_multiple": "2",
+            "min_amt": "2",
+            "min_amt_multiple": "2",
+            "monthly_aaum_date": "2",
+            "monthly_aaum_value": "2",
+            "mutual_fund_name": "2",
+            "scheme_launch_date": "2"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "N Saravanan",
+            "qualification": "Cio  Fund Manager",
+            "total_exp": ""
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Aejas Lakhani",
+            "qualification": "Equity Fund Manager",
+            "total_exp": ""
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Karthik Srinivas",
+            "qualification": "Debt Fund Manager",
+            "total_exp": ""
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "None"
+          },
+          {
+            "type": "exit_load",
+            "comment": "None"
+          }
+        ],
+        "main_scheme_name": "Unifi Dynamic Asset Allocation Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.50"
+          },
+          {
+            "name": "direct_plan",
+            "value": "10.0572"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.08"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.97"
+          },
+          {
+            "name": "regular_plan",
+            "value": "10.0541"
+          },
+          {
+            "name": "ytm",
+            "value": "8.17"
+          }
+        ],
+        "min_addl_amt": "1,000",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "30-04-2025",
+        "monthly_aaum_value": "",
+        "mutual_fund_name": "Union Mutual Fund",
+        "scheme_launch_date": "March 13, 2025 V N Saravanan  CIO  Fund Manager Fund Manager Aejas Lakhani  Equity Fund Manager Karthik Srinivas  Debt Fund Manager"
+      }
+    }
+  ]
+}
