@@ -1,33 +1,25 @@
-import os, re, math, json,logging, subprocess, time, inspect, tempfile
+import os, re, math, json, inspect,sys, ocrmypdf
 import fitz # type: ignore
 from collections import defaultdict
-import pdfplumber # type: ignore
 
-from app.utils import Helper
 from app.parse_regex import *
 from app.fund_data import *
 from logging_config import *
 from app.vendor_to_user import *
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from app.config_loader import *
 
+conf = load_config() #path to paths.json
 class Reader:
-    def __init__(self, config_path: str,params:dict,amc_id:str,path:str):
-        
-        if not os.path.exists(config_path):
-            raise FileNotFoundError(f"Config FNF: {config_path}")
-        with open(config_path,'r') as file:
-            paths_data = json.load(file)
-        
-        self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
+    def __init__(self,params:dict,amc_id:str,path:str):
+    
         self.PARAMS = params #amc specific paramaters
-                
-        dirs = paths_data.get("dirs", {})
-        paths = paths_data.get("paths", {})
-
-        self.BASEPATH = dirs.get("base_path", "")
-        self.DRYPATH = os.path.join(self.BASEPATH, paths.get("dry", ""))
+        self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
+        self.BASEPATH = conf["base_path"]
+        self.PDF_PATH = path #amc factsheet pdf path
+        self.DRYPATH = os.path.join(self.BASEPATH, conf["output"]["dry"])
         # self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
-        self.JSONPATH = os.path.join(self.BASEPATH, paths.get("json", ""))
-        self.PDF_PATH = path
+        self.JSONPATH = os.path.join(self.BASEPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
         
         for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
@@ -506,15 +498,18 @@ class Reader:
         extracted_text = {}
         regex = FundRegex()
         output_path  = self.DRYPATH
-        for content in data:
-            pgn,fund,blocks = content['page'],content['fundname'], content['block']
-            
-            fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean
-            
-            print(f'--<<{fund}>>--')
-            Reader._generate_pdf_from_data(blocks, output_path)
-            extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
-            self._update_imp_data(extracted_text[fund],fund,pgn)
+        try:
+            for content in data:
+                pgn,fund,blocks = content['page'],content['fundname'], content['block']
+                
+                fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean
+                
+                print(f'--<<{fund}>>--')
+                Reader._generate_pdf_from_data(blocks, output_path)
+                extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
+                self._update_imp_data(extracted_text[fund],fund,pgn)
+        except Exception as e:
+            print(f"[Error] get_generated_content failed: {e}")
         return extracted_text
     
     #REFINE
@@ -677,6 +672,7 @@ class Reader:
             new_metrics = {}
             for metric_key,metric_value in df.get("metrics",{}).items():
                 new_key = FundRegex()._map_metric_keys_to_dict(metric_key) or metric_key
+                # print(f"new_key {new_key}, metric_key {metric_key}")
                 new_metrics[new_key] = metric_value
         except Exception as e:
             # logger.error(e)
@@ -737,8 +733,9 @@ class Reader:
             
             finalData[fund] = dict(sorted(temp.items()))
             
-            final_data = finkStinct.map_to_fink(finalData,self.FILE_NAME)
-            
+            final_data = finkStinct.map_to_fink(finalData,self.FILE_NAME) #mapper to FinStinct
+        
+        #save json  
         save_path = os.path.join(self.JSONPATH,self.FILE_NAME).replace(".pdf", ".json")
         with open(save_path,'w') as file:
             json.dump(final_data,file, indent=2)

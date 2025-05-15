@@ -1,0 +1,20 @@
+{
+    "dirs": {
+      "base_path": "C:\\Users\\Kaustubh.keny\\Projects\\office-work\\mywork-repo",
+      "fund_path": "C:\\Users\\Kaustubh.keny\\Projects\\Mar 25",
+      "comments": [
+        "C:\\Users\\rando\\OneDrive\\Documents\\mywork-repo",
+        "C:\\Users\\rando\\OneDrive\\Documents\\Dec 24",
+        "C:\\Users\\Kaustubh.keny\\OneDrive - Cogencis Information Services Ltd\\Documents\\mywork-repo"
+      ]
+    },
+    "paths": {
+      "dry": "output\\DryRun.pdf",
+      "rep": "output\\pdf_report.xlsx",
+      "json": "data\\output\\"
+    },
+    "configs": {
+      "params": "config\\parameters.json5",
+      "regex": "config\\regex.json"
+    }
+  }

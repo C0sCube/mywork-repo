@@ -1,14 +1,17 @@
 import re
-import os
+import os, sys
 import json, random,string, inspect, json5
 from dateutil import parser #type:ignore
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PATH = os.path.join(BASE_DIR,"..","data","config","regex.json")
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from app.config_loader import *
+
+conf = load_config()
+REGEX_PATH = os.path.join(conf["base_path"],conf["configs"]["regex"])
 
 class FundRegex():
     
-    def __init__(self, path = PATH):
+    def __init__(self, path = REGEX_PATH):
         self.config_path = path
         
         try:

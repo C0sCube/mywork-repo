@@ -1,21 +1,23 @@
-import re, os,json, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
-from PIL import Image
+import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
 from app.parse_pdf import Reader
 from logging_config import logger
 import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 
-AMC_PATH = os.path.join(os.getcwd(),"data","config","parameters.json5")
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from app.config_loader import *
+
+conf = load_config()
+
+PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['params'])
 class GrandFundData:
     
     def __init__(self,fund_name:str,amc_id:str):
-        with open(AMC_PATH, "r") as file:
+        with open(PARAMS_PATH, "r") as file:
             config = json5.load(file)
-        
-        #all amc data
-        fund_config = config.get(amc_id, {}) #params.json5
-        # print(fund_config.keys()) 
+
+        fund_config = config.get(amc_id, {}) #paramters.json5
 
         #amc indicators
         self.FUND_NAME = fund_name
@@ -411,36 +413,36 @@ class GrandFundData:
         })
 #1 <>
 class ThreeSixtyOne(Reader,GrandFundData):   
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 
 #2 
 class BajajFinServ(Reader,GrandFundData):  
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #3 <>
 class Bandhan(Reader,GrandFundData):  
-   def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+   def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #4
 class BankOfIndia(Reader,GrandFundData):   
-   def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+   def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #5 <>
 class BarodaBNP(Reader,GrandFundData):
-   def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+   def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #6 
 class Canara(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
     
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
@@ -467,26 +469,26 @@ class Canara(Reader,GrandFundData):
         return {main_key:bench_data}
 #7
 class DSP(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 
 #8 <> 
 class Edelweiss(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #9 <>
 class FranklinTempleton(Reader,GrandFundData):
-   def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+   def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 
 #10 
 class HDFC(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
     
     def _update_manager_data(self, main_key: str, data):
         DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
@@ -516,29 +518,29 @@ class HDFC(Reader,GrandFundData):
         return {"benchmark_index":" ".join(data.values())}
 #11
 class GROWW(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #12 <>
 class Helios(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 
 #13 
 class HSBC(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     # def _update_date_data(self,main_key:str,data):
     #     if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
     #         return {main_key:matches[0]}
 #14
 class ICICI(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_metric_data(self,main_key:str,data):
         if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
@@ -546,25 +548,25 @@ class ICICI(Reader,GrandFundData):
         return {main_key:data}
 #15 <>
 class Invesco(Reader,GrandFundData): 
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #16 <>
 class ITI(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #17 <>
 class Kotak(Reader,GrandFundData): 
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #18
 class LIC(Reader,GrandFundData): 
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_manager_data(self, main_key: str, data):
         final_list = []
@@ -582,35 +584,48 @@ class LIC(Reader,GrandFundData):
 #19 <>
 class MahindraManu(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #20 <>
 class MIRAE(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 
 class MIRAEPassive(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #21 <>
 class MotilalOswal(Reader,GrandFundData): 
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 
 class MotilalOswalPassive(Reader,GrandFundData): 
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #22 <>
 class NAVI(Reader,GrandFundData): 
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
+    
+    def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
+        bench_data = f"{main_key} {data}"
+        bench_data = re.sub(self.REGEX["escape"],"",bench_data).strip()
+        if matches:=re.findall(self.REGEX[pattern],bench_data, re.IGNORECASE):
+            return {"benchmark_index":matches[0]}
+        return{"benchmark_index":f"{main_key} {data}"}
+    
+class NAVIPassive(Reader,GrandFundData): 
+    
+    def __init__(self, fund_name:str,amc_id:str,path:str):
+        GrandFundData.__init__(self,fund_name,amc_id) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
     
     def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
         bench_data = f"{main_key} {data}"
@@ -621,15 +636,15 @@ class NAVI(Reader,GrandFundData):
 #23 <>
 class Nippon(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #24
 class NJMF(Reader,GrandFundData):
    
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
@@ -644,28 +659,28 @@ class NJMF(Reader,GrandFundData):
         return {"benchmark_index":" ".join(data.values())}
 #25
 class OldBridge(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 
 #26
 class PGIM(Reader, GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
 #27
 class PPFAS(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #28
 class QuantMF(Reader,GrandFundData): 
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _generate_aum_data(self,main_key:str,data):
         text = ""
@@ -686,21 +701,21 @@ class QuantMF(Reader,GrandFundData):
         return  {main_key:data}
 #29 
 class Quantum(Reader,GrandFundData): 
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #30 <>
 class Samco(Reader, GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #31
 class SBI(Reader, GrandFundData): #OCR
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
     
     def _update_manager_data(self, main_key: str, data):
         final_list = []
@@ -719,9 +734,9 @@ class SBI(Reader, GrandFundData): #OCR
 #32
 class SBIPassive(Reader, GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
         
     def _update_manager_data(self,main_key:str,data):
         final_list = []
@@ -742,58 +757,58 @@ class SBIPassive(Reader, GrandFundData):
 
 #33 <>
 class Sundaram(Reader,GrandFundData):  
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 
 #34 <>
 class Tata(Reader,GrandFundData):  
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #35 <>
 class Taurus(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #36
 class Trust(Reader,GrandFundData):
     
-   def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+   def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)    
+        Reader.__init__(self, self.PARAMS,amc_id,path)    
 #37
 class Union(Reader,GrandFundData):   
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)   
+        Reader.__init__(self, self.PARAMS,amc_id,path)   
 #38
 class UTI(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 class UTIPassive(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #39 <>
 class WhiteOak(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
 #40
 class Zerodha(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #41 Aditya Birla
 class AdityaBirla(Reader,GrandFundData):
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
         
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
@@ -822,9 +837,9 @@ class AdityaBirla(Reader,GrandFundData):
 #42 Axis Mutual
 class AXISMF(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_manager_data(self, main_key: str, data):
         final_list = []
@@ -841,32 +856,54 @@ class AXISMF(Reader,GrandFundData):
     
 class AXISMFPassive(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 #43 JMMF
 class JMMF(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
         
 # 44 Shriram
 class Shriram(Reader,GrandFundData):
     
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
 
 
 # 45
 class AngelOne(Reader,GrandFundData):   
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)  
         
 #46
 class Unifi(Reader,GrandFundData):   
-    def __init__(self, paths_config: str,fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self,paths_config, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)
+    
+    def _update_date_data(self, main_key:str,data):  # GROWW & Edelweiss
+        date_data = " ".join(data) if isinstance(data,list) else data
+        matches = re.findall(self.REGEX["date"],date_data, re.IGNORECASE)
+        return {"inception_date": " ".join(matches)}
+    
+    def _update_manager_data(self,main_key:str,data):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data, list) else data
+        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+        pattern_info = self.REGEX["manager"]
+        regex_pattern = pattern_info['pattern']
+        field_names = pattern_info['fields']
+        if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
+            for match in matches:
+                if isinstance(match, str):
+                    match = (match,)
+                record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
+                final_list.append(self._return_manager_data(**record))
+
+        return {main_key: final_list}
+    
