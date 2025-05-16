@@ -3,7 +3,7 @@ import json5 #type:ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
-conf = load_config()
+conf = get_config()
 PARAMS_PATH =  os.path.join(conf['base_path'],conf["configs"]["params"])
 
 class FundHouseManager:

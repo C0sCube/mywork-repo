@@ -7,8 +7,7 @@ from dateutil.relativedelta import relativedelta #type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
-
-conf = load_config()
+conf = get_config()
 
 PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['params'])
 class GrandFundData:
@@ -406,7 +405,7 @@ class GrandFundData:
         return data.update({
             "amc_name":self.IMP_DATA['amc_name'],
             "main_scheme_name":main_scheme,
-            "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%d-%m-%Y"),
+            "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%Y%m%d"),
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
             "file_name":""

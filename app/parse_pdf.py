@@ -9,17 +9,17 @@ from app.vendor_to_user import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
-conf = load_config() #path to paths.json
+conf = get_config() #path to paths.json
 class Reader:
     def __init__(self,params:dict,amc_id:str,path:str):
     
         self.PARAMS = params #amc specific paramaters
         self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
-        self.BASEPATH = conf["base_path"]
+        self.OUTPUTPATH = conf["output_path"]
         self.PDF_PATH = path #amc factsheet pdf path
-        self.DRYPATH = os.path.join(self.BASEPATH, conf["output"]["dry"])
-        # self.REPORTPATH = os.path.join(self.BASEPATH, paths.get("rep", ""))
-        self.JSONPATH = os.path.join(self.BASEPATH, conf["output"]["json"])
+        self.DRYPATH = os.path.join(self.OUTPUTPATH, conf["output"]["dry"])
+        # self.REPORTPATH = os.path.join(self.OUTPUTPATH, paths.get("rep", ""))
+        self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
         
         for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
@@ -736,8 +736,8 @@ class Reader:
             final_data = finkStinct.map_to_fink(finalData,self.FILE_NAME) #mapper to FinStinct
         
         #save json  
-        save_path = os.path.join(self.JSONPATH,self.FILE_NAME).replace(".pdf", ".json")
-        with open(save_path,'w') as file:
-            json.dump(final_data,file, indent=2)
-        print(f"File Saved At: {save_path}")
+        # save_path = os.path.join(self.JSONPATH,self.FILE_NAME).replace(".pdf", ".json")
+        # with open(save_path,'w') as file:
+        #     json.dump(final_data,file, indent=2)
+        # print(f"File Saved At: {save_path}")
         return final_data

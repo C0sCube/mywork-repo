@@ -1,83 +1,68 @@
-import json, os
-from app.config_loader import load_config
-from app.fund_data import *
-from app.params_handler import *
-from app.utils import Helper
+from app.config_loader import load_config_once, get_config,restore_config
+from datetime import datetime
+output_folder = f"MAR25 {datetime.now().strftime("%Y %m %d %H %M")}"
+CONFIG = load_config_once(output_folder=output_folder)
+
+import json, os, traceback
+from app.utils import Helper #utils
 from app.vendor_to_user import *
+from app.class_registry import CLASS_REGISTRY
 
-CONFIG = load_config()
-
+CONFIG = get_config()
 mutual_fund = Helper.get_amc_paths(CONFIG["amc_path"])
-cls_map_path = os.path.join(CONFIG["base_path"],CONFIG["configs"]["regex"])
-
-
-# print(cls_map_path)
-# for k,v in mutual_fund.items():
-#     print(k,v)
-
 
 print("Running main.py")
-with open(cls_map_path,'r') as file: #class for each amc
-    class_mapper = json.load(file)['class_mapper']
-    
-# print(class_mapper)
 
-not_done = []
-for amc_id,class_name in class_mapper.items():
-    
+amc_not_done = []
+for amc_id, class_name in CLASS_REGISTRY.items():
     vmapper = VendorMapper()
-    print(f"\nRunning for:{class_name}\n******************")
-    try:
-        # print(class_mapper[amc_name])
-        fund_name,path = mutual_fund[amc_id]
-        object = eval(class_mapper[amc_id])(fund_name,amc_id,path)
-        try:
-            title, path_pdf = object.check_and_highlight(path)
-        except Exception as e:
-            print(f"[Error] check_and_highlight failed: {e}")
+    print(f"\nRunning for: {str(class_name)}\n{'*' * 20}")
+    fund_name, path = mutual_fund[amc_id]
+    obj = class_name(fund_name, amc_id, path) #class_name is actual Class
 
-        try:
-            if path_pdf and title:
-                data = object.get_data(path_pdf, title)
-            else:
-                print("[Warning] Skipping get_data due to previous failure.")
-        except Exception as e:
-            print(f"[Error] get_data failed: {e}")
+    try:# Pipeline starts
+        title, path_pdf = obj.check_and_highlight(path)
+        if not (path_pdf and title):
+            raise ValueError("check_and_highlight returned invalid results.")
 
-        try:
-            if data:
-                extracted_text = object.get_generated_content(data)
-            else:
-                print("[Warning] Skipping get_generated_content due to missing data.")
-        except Exception as e:
-            print(f"[Error] get_generated_content failed: {e}")
+        data = obj.get_data(path_pdf, title)
+        if not data:
+            raise ValueError("get_data returned None.")
 
-        try:
-            if extracted_text:
-                final_text = object.refine_extracted_data(extracted_text, flatten=object.MAIN_MAP['flatten'])
-            else:
-                print("[Warning] Skipping refine_extracted_data due to missing extracted_text.")
-        except Exception as e:
-            print(f"[Error] refine_extracted_data failed: {e}")
+        extracted_text = obj.get_generated_content(data)
+        if not extracted_text:
+            raise ValueError("get_generated_content returned None.")
 
-        try:
-            if final_text:
-                dfs = object.merge_and_select_data(
-                    final_text,
-                    select=object.MAIN_MAP['select'],
-                    map_keys=object.MAIN_MAP['map'],
-                    special_handling=object.MAIN_MAP['special']
-                )
-            else:
-                print("[Warning] Skipping merge_and_select_data due to missing final_text.")
-        except Exception as e:
-            print(f"[Error] merge_and_select_data failed: {e}")
-            
-    except Exception as e:
-        print(f"\n[Error] Main.py:{e}")
-        not_done.append(fund_name)
-        continue
+        final_text = obj.refine_extracted_data(
+            extracted_text, flatten=obj.MAIN_MAP['flatten']
+        )
+        if not final_text:
+            raise ValueError("refine_extracted_data returned None.")
 
-    
-with open("data\\output\\amc_not_completed.txt",'w') as file:
-    file.writelines(f"{item}\n" for item in not_done)
+        dfs = obj.merge_and_select_data(
+            final_text,
+            select=obj.MAIN_MAP['select'],
+            map_keys=obj.MAIN_MAP['map'],
+            special_handling=obj.MAIN_MAP['special']
+        )
+        save_path = os.path.join(obj.JSONPATH, obj.FILE_NAME).replace(".pdf", ".json")
+        with open(save_path, 'w') as f:
+            json.dump(dfs, f, indent=2)
+        print(f"File Saved At: {save_path}")
+
+    except Exception as inner_e:
+        print(f"[Error] Pipeline failed for {class_name}: {inner_e}")
+        amc_not_done.append(fund_name)
+
+        with open(CONFIG["output"]["error_log"], "a") as error_file:
+            error_file.write(f"\n[Pipeline Error] {fund_name} ({class_name}):\n")
+            traceback.print_exc(file=error_file)
+        continue  # Skip to next AMC
+
+
+# Save all failed AMCs
+with open(CONFIG["output"]["error_log"], 'w') as error_file:
+    error_file.writelines(f"{item}\n" for item in amc_not_done)
+
+restore_config()
+print("\nCompleted main.py execution.")

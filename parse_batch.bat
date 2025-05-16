@@ -1,10 +1,9 @@
 @echo off
 echo Activating virtual environment...
-call C:\Users\rando\OneDrive\Documents\mywork-repo\envPDF\Scripts\activate.bat
+call C:\Users\Kaustubh.keny\Projects\office-work\mywork-repo\.venv\Scripts\activate.bat
 
 echo Running the script...
-python C:\Users\rando\OneDrive\Documents\mywork-repo\main.py
-
+python C:\Users\Kaustubh.keny\Projects\office-work\mywork-repo\main.py
 echo Deactivating virtual environment...
 call deactivate
 

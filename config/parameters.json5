@@ -271,6 +271,7 @@
         "Investment Options",
         "Minimum Investment Amount",
         "Additional Investment Amount",
+        "Quantitative Indicators",
         "EOL",
       ],
       manager: {
@@ -279,7 +280,7 @@
       },
       tracking: "(\\d+\\.\\d*)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
+      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Portfolio YTM|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+",
     },
     PATTERN_TO_FUNCTION: {
@@ -294,6 +295,7 @@
       ".*tracking_error": ["_extract_generic_data", "tracking"],
       ".*load_structure": ["_extract_load_data", "load"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
+      ".*quantitative_indicators":["_extract_generic_data","metric"]
     },
     SELECTKEYS: [
       "main_scheme_name",
@@ -314,7 +316,7 @@
         "experience_in_managing_the_fund",
         "managing_fund_since",
       ],
-      metrics: ["metrics", ".*tracking_error"],
+      metrics: ["metrics", ".*tracking_error",".*quantitative_indicato"],
       load: [".*load_structure"],
     },
     COMMENTS: [],
@@ -2454,11 +2456,11 @@
       line_x: 210.0,
       data: {
         size: [6, 12],
-        color: [-14328671],
+        color: [-1], //-14328671 redacted
         update_size: 30.0,
         font: ["Arial-BoldMT"],
       },
-      content_size: [30.0, 10.0],
+      content_size: [30.0, 16.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 7,
@@ -2466,33 +2468,47 @@
       stop_words: [],
     },
     REGEX: {
-      aum: "(.*?AUM).*?\\s*([\\d,.]+) Cr",
+      aum: "([\\d,.]+\\s*crs?)",
       load: "(?:Entry Load)?\\s*(Nil|.*?)\\s*Exit Load\\s*(.*)$",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metric: "(Standard Deviation|Portfolio Beta|Sharpe Ratio|Average Maturity|Macaulay Duration|Tracking Error|Modified Duration|Yield to Maturity\\s*\\(YTM\\))\\s*([\\d,.]+\\s*(?:years?|months?|days?)?)",
+      scheme:[
+         "Scheme Type",
+         "Inception\\s*Allotment Date",
+         "Fund Size",
+         "Average AUM",
+         "Load Structure",
+         "Exit Load",
+         "First Tier Benchmark",
+         "Minimum Investment",
+         "Fund Managers?",
+         "NAV as on",
+         "EOL",
+      ],
+      metric: "(Portfolio Turnover Ratio|Standard Deviation|Portfolio Beta|Sharpe Ratio|Average Maturity|Macaulay Duration|Tracking Error|Modified Duration|Yield to Maturity\\s*\\(YTM\\))\\s*([\\d,.]+\\s*(?:years?|months?|days?)?)",
       manager: {
-        pattern: "Name\\s*M?r?\\.?\\s*([\\w\\s]+?)\\s*Total\\s*Experience\\s*(\\d+(?:\\.\\d+)?\\s*years?)",
-        fields: ["name", "exp"],
+        pattern: "(?:Mr.|M\\s*.|Mrs.|Ms.)\\s*([\\w\\s]+)\\s*(?:\\((.+?)\\))?\\s*Total Experience\\s*([\\d.]+\\+?\\s*years?)",
+        fields: ["name","desig" ,"exp"],
         name: "(?:Mr.|M .)\\s*([A-Za-z]+\\s*[A-Za-z]+)",
         exp: "([\\d.]+\\s*years?)",
       },
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(inception|first_tier_benchmark)": ["_extract_str_data", null],
-      "^aum": ["_extract_generic_data", "aum"],
+      // "^(inception|first_tier_benchmark)": ["_extract_str_data", null],
+      "^before":["_extract_scheme_data","scheme"]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      metrics: ["_extract_generic_data", "metric"],
-      minimum_investment: ["_extract_amt_data", "min_amt"],
-      load: ["_extract_load_data", "load"],
+      ".*nav_as_on": ["_extract_generic_data", "metric"],
+      ".*minimum_investment": ["_extract_amt_data", "min_amt"],
+      ".*average_aum": ["_extract_generic_data", "aum"],
+      ".*fund_manager": ["_extract_manager_data", "manager"],
     },
     SELECTKEYS: [
-      "(inceptionallotment_date|first_tier_benchmark)",
-      "load",
+      ".*(inceptionallotment_date|first_tier_benchmark)", //2
+      "load", //after merge
       ".*average_aum",
-      "minimum_investment",
-      "fund_manager",
+      ".*minimum_investment", //2
+      "fund_manager", //after merge
       "metrics",
       "amc_name",
       "main_scheme_name",
@@ -2500,7 +2516,7 @@
       "page_number",
       "mutual_fund_name",
     ],
-    MERGEKEYS: {},
+    MERGEKEYS: {fund_manager:[".*fund_managers?"],load:[".*exit_load"],metrics:[".*nav_as_on"]},
     COMMENTS: ["OCR Issue, min. addl. amt missing"],
     IMP_DATA: {
       amc_name: "LIC Mutual Fund Asset Management Limited",
@@ -2512,7 +2528,7 @@
     COMBINEKEYS: {},
     PRE_DATA_SELECT: [],
     CLONEKEYS: {},
-    SPECIAL_FUNCTIONS: { fund_manager: "_update_manager_data" },
+    SPECIAL_FUNCTIONS: { }, // fund_manager: "_update_manager_data"
     PROMOTE_KEYS: {},
     MAIN_MAP: {
       class_name: "",
@@ -2658,7 +2674,7 @@
       line_x: 270.0,
       data: {
         size: [8, 12],
-        color: [-14991759],
+        color: [-1], //-14991759
         update_size: 30.0,
         font: ["SpoqaHanSans-Bold"],
       },
@@ -2686,16 +2702,18 @@
         "Plan Available",
         "Minimum Investment Amount",
         "Minimum Additional Application Amount",
+        "Net Asset Value",
+        "Expense Ratio",
         "EOL",
       ],
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(scheme).*": ["_extract_scheme_data", "scheme"],
-      "^investment.*": ["_extract_str_data", null],
+      "^before": ["_extract_scheme_data", "scheme"],
+      // "^investment.*": ["_extract_str_data", null],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      metrics: ["_extract_generic_data", "metric"],
+      ".*net_asset_value$": ["_extract_generic_data", "metric"],
       ".*(minimum_investment_amount|minimum_additional_application_amount)": [
         "_extract_amt_data",
         "min_amt",
@@ -2703,19 +2721,19 @@
       ".*fund_managers": ["_extract_manager_data", "manager"],
     },
     SELECTKEYS: [
-      ".*(fund_managers|net_aum|allotment_date|benchmark|exit_load)",
+      ".*(fund_managers|net_aum|allotment_date|benchmark)",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics",
+      "metrics", //after merge
       ".*(minimum_investment_amount|minimum_additional_application_amount)",
-      "load",
+      "load", //after merge
     ],
     MERGEKEYS: {
       load: [".*exit_load"],
-      metrics: ["^metrics", "^metrics_bravo"],
+      metrics: ["^metrics", "^metrics_bravo",".*net_asset_value$"],
     },
     COMMENTS: [],
     IMP_DATA: {
@@ -2752,7 +2770,7 @@
       line_x: 270.0,
       data: {
         size: [8, 12],
-        color: [-14991759],
+        color: [-1], //-14991759 redacted
         update_size: 30.0,
         font: ["SpoqaHanSans-Bold"],
       },
@@ -2781,17 +2799,19 @@
         "Plan Available",
         "Minimum Investment Amount",
         "Minimum Additional Application Amount",
+        "Net Asset Value",
+        "Expense Ratio",
         "EOL",
       ],
       track:"Value\\s*([\\d.]+)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(scheme).*": ["_extract_scheme_data", "scheme"],
-      "^investment.*": ["_extract_str_data", null],
+      "^before": ["_extract_scheme_data", "scheme"],
+      // "^investment.*": ["_extract_str_data", null],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      metrics: ["_extract_generic_data", "metric"],
+      ".*net_asset_value": ["_extract_generic_data", "metric"],
       ".*(minimum_investment_amount|minimum_additional_application_amount)": [
         "_extract_amt_data",
         "min_amt",
@@ -2800,19 +2820,19 @@
       ".*tracking_error":["_extract_generic_data","track"]
     },
     SELECTKEYS: [
-      ".*(fund_managers|net_aum|allotment_date|benchmark|exit_load)",
+      ".*(fund_managers|net_aum|allotment_date|benchmark)", //4
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics",
-      ".*(minimum_investment_amount|minimum_additional_application_amount)",
-      "load",
+      "metrics", //after merge
+      ".*(minimum_investment_amount|minimum_additional_application_amount)",//4
+      "load", //after merge
     ],
     MERGEKEYS: {
       load: [".*exit_load"],
-      metrics: ["^metrics", "^metrics_bravo",".*tracking_error"],
+      metrics: ["^metrics", "^metrics_bravo",".*tracking_error",".*net_asset_value"],
     },
     COMMENTS: [],
     IMP_DATA: {

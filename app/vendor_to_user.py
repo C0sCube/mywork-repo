@@ -84,8 +84,8 @@ class VendorMapper:
         final_container = {
             "metadata":{
                 "document_name":filename,
-                "file_type":"",
-                "process_date": f"{datetime.datetime.now().strftime('%Y%m%d_%H:%M')}"
+                "file_type":"fs",
+                "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
             },
             "records":[]
         }
