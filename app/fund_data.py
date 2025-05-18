@@ -154,7 +154,30 @@ class GrandFundData:
         keys = re.findall(self.REGEX[pattern]["key"],metric_data,re.IGNORECASE)
         for k,v in zip(keys,values):
             final_dict[k.strip()] = v.strip()
-        return{main_key:final_dict}  
+        return{main_key:final_dict}
+    
+    def _extract_iter_data(self, main_key: str, data, pattern: str):
+        """
+        Extracts key-value pairs by aligning regex 'key' and 'value' matches by order and position.
+        """
+        final_dict = {}
+        metric_data = " ".join(data) if isinstance(data, list) else data
+        metric_data = re.sub(self.REGEX["escape"], "", metric_data).strip()
+
+        key_matches = [(m.group(), m.start()) for m in re.finditer(self.REGEX[pattern]["key"], metric_data, re.IGNORECASE)]
+        value_matches = [(m.group(), m.start()) for m in re.finditer(self.REGEX[pattern]["value"], metric_data)]
+
+        val_idx = 0
+        for key, key_pos in key_matches:
+            # find the next value that comes AFTER this key
+            while val_idx < len(value_matches) and value_matches[val_idx][1] < key_pos:
+                val_idx += 1
+            if val_idx < len(value_matches):
+                final_dict[key.strip()] = value_matches[val_idx][0].strip()
+                val_idx += 1
+
+        return {main_key: final_dict}
+
 
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
         """
@@ -532,9 +555,14 @@ class HSBC(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name,amc_id) 
         Reader.__init__(self, self.PARAMS,amc_id,path) 
         
-    # def _update_date_data(self,main_key:str,data):
-    #     if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
-    #         return {main_key:matches[0]}
+    def _update_date_data(self,main_key:str,data):
+        if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
+            return {main_key:matches[0]}
+    def _update_benchmark_data(self,main_key:str,data):
+        data=re.sub(self.REGEX["benchmark"],"", data, re.IGNORECASE).strip()
+        if matches:= re.findall(self.REGEX["benchmark2"],data,re.IGNORECASE):
+            return {main_key:matches[0]}
+        return {main_key:data}
 #14
 class ICICI(Reader,GrandFundData):
     def __init__(self, fund_name:str,amc_id:str,path:str):
@@ -888,7 +916,7 @@ class Unifi(Reader,GrandFundData):
     def _update_date_data(self, main_key:str,data):  # GROWW & Edelweiss
         date_data = " ".join(data) if isinstance(data,list) else data
         matches = re.findall(self.REGEX["date"],date_data, re.IGNORECASE)
-        return {"inception_date": " ".join(matches)}
+        return {"scheme_launch_date": " ".join(matches)}
     
     def _update_manager_data(self,main_key:str,data):
         final_list = []

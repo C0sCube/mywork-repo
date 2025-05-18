@@ -184,12 +184,32 @@ class FundRegex():
         fund = re.sub("\\s+", ' ', fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
             if matches:=re.findall(regex,fund,re.IGNORECASE):
-                print(f"-------------\nFUND: {fund}\nMATCH: {matches}\nREPLACEMENT: {key}")
+                print(f"{fund} --> {key}")
                 fund = key
                 break
         return fund
 
+    def convert_date_format_safe(date_str, output_format="%Y%m%d"):
+        try:
+            dt = parser.parse(date_str)
+            return dt.strftime(output_format)
+        except (ValueError, TypeError):
+            return date_str
 
+    def convert_to_year_safe(time_str):
+        year_value = time_str
+        if any(x in time_str.lower() for x in ["days", "day","da"]):
+            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
+            year_value = str(numeric_value / 365)
+        elif any(x in time_str.lower() for x in ["months", "month","mon","mont"]):
+            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
+            year_value = str(numeric_value / 12.0)
+        elif any(x in time_str.lower() for x in ["years", "year","yea","ye"]):
+            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
+            year_value = str(numeric_value)
+        return year_value
+
+            
      
             
     

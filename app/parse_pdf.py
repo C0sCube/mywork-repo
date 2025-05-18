@@ -1,4 +1,4 @@
-import os, re, math, json, inspect,sys, ocrmypdf
+import os, re, math, json, inspect,sys, ocrmypdf # type: ignore
 import fitz # type: ignore
 from collections import defaultdict
 
@@ -38,8 +38,8 @@ class Reader:
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                 # print(title)
-                if title:
-                    print(f"{pgn:02d} -- {title}")
+                # if title:
+                #     print(f"{pgn:02d} -- {title}")
                 title_detected[pgn] = title
         return title_detected
                 
@@ -364,6 +364,8 @@ class Reader:
         method = self.PARAMS['method'] #clip/line/both
         extracted_data = []
         
+        regex = FundRegex()
+        
         if method in ["line", "both"]:
             data = self.extract_data_relative_line(path, titles)
             extracted_data.extend(self.extract_span_data(data, []))
@@ -378,9 +380,12 @@ class Reader:
         for page in nested_data:
             page_text = {}
             page_blocks,fundname = page['block'],page['fundname']
+            fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
+            page['fundname'] = fundname
             for key, content in page_blocks.items():
                 page_text[key] = [txt[1] for txt in content]
             self.TEXT_ONLY[fundname] = page_text
+        # print(self.TEXT_ONLY)
         return nested_data
     
     #PROCESS
@@ -477,19 +482,39 @@ class Reader:
 
             doc.save(output_path)
     
-    @staticmethod
-    def _extract_data_from_pdf(path: str):
+    
+    def _extract_data_from_pdf(self,path: str, fund:str):
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         final_data = {}
+        # with fitz.open(path) as doc:
+        #     for page in doc:
+        #         content = page.get_text("text").split("\n")
+        #         if content:
+        #             key, val = content[0], content[1:]
+        #             if key not in final_data:
+        #                 final_data[key] = val
+        #             else:
+        #                 final_data[key].extend(val)
+
+        # return final_data
+        
         with fitz.open(path) as doc:
             for page in doc:
-                content = page.get_text("text").split("\n")
-                if content:
-                    key, val = content[0], content[1:]
-                    if key not in final_data:
-                        final_data[key] = val
+                lines = page.get_text("text").split("\n")
+                if not lines:
+                    continue
+
+                header = lines[0]
+                content_lines = lines[1:]
+
+                if header not in final_data:
+                    # Use TEXT_ONLY if _get_prev_text() returns True and key exists
+                    if self._get_prev_text(header) and fund in self.TEXT_ONLY and header in self.TEXT_ONLY[fund]:
+                        final_data[header] = self.TEXT_ONLY[fund][header]
                     else:
-                        final_data[key].extend(val)
+                        final_data[header] = content_lines
+                else:
+                    final_data[header].extend(content_lines)
 
         return final_data
 
@@ -502,11 +527,11 @@ class Reader:
             for content in data:
                 pgn,fund,blocks = content['page'],content['fundname'], content['block']
                 
-                fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean
+                # fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean moved to get_data
                 
                 print(f'--<<{fund}>>--')
                 Reader._generate_pdf_from_data(blocks, output_path)
-                extracted_text[fund] = Reader._extract_data_from_pdf(output_path)
+                extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
                 self._update_imp_data(extracted_text[fund],fund,pgn)
         except Exception as e:
             print(f"[Error] get_generated_content failed: {e}")

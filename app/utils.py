@@ -15,10 +15,12 @@ class Helper:
     def get_amc_paths(base_path: str) -> dict:
         """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
         fund_paths = {}
-
+        print(base_path)
         for root, _, files in os.walk(base_path):
+            # print(files)
             for file_name in files:
                 if file_name.endswith("FS.pdf"):
+                    # print(file_name)
                     full_path = os.path.join(root, file_name)
                     folder_name = os.path.basename(root).title()
 
@@ -30,6 +32,7 @@ class Helper:
                     fund_key = f"{fund_id}_{suffix}"
                     fund_name = f"{folder_name} Passive" if is_passive else folder_name
 
+                    # print(fund_name)
                     fund_paths[fund_key] = (fund_name, full_path)
 
         return fund_paths
