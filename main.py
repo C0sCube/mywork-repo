@@ -1,6 +1,6 @@
 from app.config_loader import load_config_once, get_config,restore_config
 from datetime import datetime
-output_folder = f"MAR25 {datetime.now().strftime("%Y %m %d %H %M")}"
+output_folder = f"APR25 {datetime.now().strftime("%Y%m%d_%H_%M")}"
 CONFIG = load_config_once(output_folder=output_folder)
 
 import json, os, traceback
@@ -10,6 +10,7 @@ from app.class_registry import CLASS_REGISTRY
 
 CONFIG = get_config()
 mutual_fund = Helper.get_amc_paths(CONFIG["amc_path"])
+error_log_path = os.path.join(CONFIG["output_path"],CONFIG["output"]["error_log"])
 
 print("Running main.py")
 
@@ -17,8 +18,17 @@ amc_not_done = []
 for amc_id, class_name in CLASS_REGISTRY.items():
     vmapper = VendorMapper()
     print(f"\nRunning for: {str(class_name)}\n{'*' * 20}")
-    fund_name, path = mutual_fund[amc_id]
-    obj = class_name(fund_name, amc_id, path) #class_name is actual Class
+    try:
+        fund_name, path = mutual_fund[amc_id]
+        obj = class_name(fund_name, amc_id, path) #class_name is actual Class
+    except Exception as e:
+        print(f"[Key Error] No Mutual Fund {class_name}: {e}")
+        # amc_not_done.append(fund_name)
+
+        with open(error_log_path, "a") as error_file:
+            error_file.write(f"\n[Key Error] {amc_id}:\n")
+            traceback.print_exc(file=error_file)
+        continue  # Skip to next AMC
 
     try:# Pipeline starts
         title, path_pdf = obj.check_and_highlight(path)
@@ -54,14 +64,14 @@ for amc_id, class_name in CLASS_REGISTRY.items():
         print(f"[Error] Pipeline failed for {class_name}: {inner_e}")
         amc_not_done.append(fund_name)
 
-        with open(CONFIG["output"]["error_log"], "a") as error_file:
+        with open(error_log_path, "w") as error_file:
             error_file.write(f"\n[Pipeline Error] {fund_name} ({class_name}):\n")
             traceback.print_exc(file=error_file)
         continue  # Skip to next AMC
 
 
 # Save all failed AMCs
-with open(CONFIG["output"]["error_log"], 'w') as error_file:
+with open(error_log_path, 'w') as error_file:
     error_file.writelines(f"{item}\n" for item in amc_not_done)
 
 restore_config()

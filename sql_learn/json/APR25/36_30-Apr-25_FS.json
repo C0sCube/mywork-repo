@@ -1,0 +1,834 @@
+{
+  "metadata": {
+    "document_name": "36_30-Apr-25_FS.pdf",
+    "file_type": "fs",
+    "process_date": "20250519"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "8",
+            "benchmark_index": "8",
+            "count": 9,
+            "fund_manager_managing_fund_since": "8",
+            "fund_manager_name": "8",
+            "fund_manager_total_exp": "8",
+            "load_exit": "8",
+            "main_scheme_name": "8",
+            "metrics_port_turnover_ratio": "8",
+            "min_addl_amt": "8",
+            "min_addl_amt_multiple": "8",
+            "min_amt": "8",
+            "min_amt_multiple": "8",
+            "monthly_aaum_date": "8",
+            "monthly_aaum_value": "8",
+            "mutual_fund_name": "8",
+            "scheme_launch_date": "8"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "December 09, 2024",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "December 09, 2024",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% of the applicable NAV, if redeemed within 3 months from the date of allotment. To Nil if redeemed after 3 months from the date of allotment. T"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM MULTI SECTOR ROTATION FUND",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "214.4"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "191.82 Cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": "20241209"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "10",
+            "benchmark_index": "10",
+            "count": 9,
+            "fund_manager_managing_fund_since": "10",
+            "fund_manager_name": "10",
+            "fund_manager_total_exp": "10",
+            "load_exit": "10",
+            "main_scheme_name": "10",
+            "metrics_beta": "10",
+            "metrics_information_ratio": "10",
+            "metrics_port_turnover_ratio": "10",
+            "metrics_sharpe": "10",
+            "metrics_std_dev": "10",
+            "min_addl_amt": "10",
+            "min_addl_amt_multiple": "10",
+            "min_amt": "10",
+            "min_amt_multiple": "10",
+            "monthly_aaum_date": "10",
+            "monthly_aaum_value": "10",
+            "mutual_fund_name": "10",
+            "scheme_launch_date": "10"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "August 20, 2022",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "September 28, 2018",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "If redeemed  switched-out within S 90 days from the date of allotment C Upto 12% of units Nil More than 12% of units 1% of applicable Net G Asset Value (NAV) H If redeemedswitched-out after 90 days from the date of allotment Nil S"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM FLEXI CAP FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.96"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.61"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "581.7"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.29"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.96"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "132.65 cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": "20180928"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "12",
+            "benchmark_index": "12",
+            "count": 9,
+            "fund_manager_managing_fund_since": "12",
+            "fund_manager_name": "12",
+            "fund_manager_total_exp": "12",
+            "load_exit": "12",
+            "main_scheme_name": "12",
+            "metrics_beta": "12",
+            "metrics_information_ratio": "12",
+            "metrics_port_turnover_ratio": "12",
+            "metrics_sharpe": "12",
+            "metrics_std_dev": "12",
+            "min_addl_amt": "12",
+            "min_addl_amt_multiple": "12",
+            "min_amt": "12",
+            "min_amt_multiple": "12",
+            "monthly_aaum_date": "12",
+            "monthly_aaum_value": "12",
+            "mutual_fund_name": "12",
+            "scheme_launch_date": "12"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "August 20, 2022",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "January 25, 2019",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "NIL Pr G"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM ELSS TAX SAVER FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.94"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.73"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "475.3"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.24"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.64"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "500",
+        "min_amt": "500",
+        "min_amt_multiple": "500",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "47.92 Cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": "20190125"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty 50 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "14",
+            "benchmark_index": "14",
+            "count": 9,
+            "fund_manager_managing_fund_since": "14",
+            "fund_manager_name": "14",
+            "fund_manager_total_exp": "14",
+            "load_exit": "14",
+            "main_scheme_name": "14",
+            "metrics_avg_maturity": "14",
+            "metrics_beta": "14",
+            "metrics_information_ratio": "14",
+            "metrics_macaulay": "14",
+            "metrics_mod_duration": "14",
+            "metrics_port_turnover_ratio": "14",
+            "metrics_std_dev": "14",
+            "metrics_ytm": "14",
+            "min_addl_amt": "14",
+            "min_addl_amt_multiple": "14",
+            "min_amt": "14",
+            "min_amt_multiple": "14",
+            "monthly_aaum_date": "14",
+            "monthly_aaum_value": "14",
+            "mutual_fund_name": "14",
+            "scheme_launch_date": "14"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "September 08, 2023",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "September 08, 2023",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "If redeemedswitched-out within 90 days from the date of allotment- Upto 12% of units Nil More than 12% of units 1% of applicable Net Asset Value (NAV) If redeemedswitched-out after 90 days from the date of allotment Nil"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM MULTI ASSET ALLOCATION FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.48 years"
+          },
+          {
+            "name": "beta",
+            "value": "0.92"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.65"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.25 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.11 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "407.4"
+          },
+          {
+            "name": "std_dev",
+            "value": "11.05"
+          },
+          {
+            "name": "ytm",
+            "value": "6.93"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "145.23 cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": "20230908"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 35+65-Aggressive Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "16",
+            "benchmark_index": "16",
+            "count": 9,
+            "fund_manager_managing_fund_since": "16",
+            "fund_manager_name": "16",
+            "fund_manager_total_exp": "16",
+            "load_exit": "16",
+            "main_scheme_name": "16",
+            "metrics_avg_maturity": "16",
+            "metrics_beta": "16",
+            "metrics_information_ratio": "16",
+            "metrics_macaulay": "16",
+            "metrics_mod_duration": "16",
+            "metrics_port_turnover_ratio": "16",
+            "metrics_sharpe": "16",
+            "metrics_std_dev": "16",
+            "metrics_ytm": "16",
+            "min_addl_amt": "16",
+            "min_addl_amt_multiple": "16",
+            "min_amt": "16",
+            "min_amt_multiple": "16",
+            "monthly_aaum_date": "16",
+            "monthly_aaum_value": "16",
+            "mutual_fund_name": "16",
+            "scheme_launch_date": "16"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "August 20, 2022",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "November 15, 2016",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "If redeemed  switched-out within 90 days from the date of allotment Upto 12% of units Nil More than 12% of units 1% of applicable Net Asset Value (NAV) If redeemedswitched-out after 90 days from the date of allotment Nil Hin"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM AGGRESSIVE HYBRID FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.95 years"
+          },
+          {
+            "name": "beta",
+            "value": "1.03"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.48"
+          },
+          {
+            "name": "macaulay",
+            "value": "3.34 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3.2 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "381.9"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.36"
+          },
+          {
+            "name": "std_dev",
+            "value": "11.13"
+          },
+          {
+            "name": "ytm",
+            "value": "6.77"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "46.41 Cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": "20131129"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 50 Hybrid Composite Debt 5050 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "18",
+            "benchmark_index": "18",
+            "count": 9,
+            "fund_manager_managing_fund_since": "18",
+            "fund_manager_name": "18",
+            "fund_manager_total_exp": "18",
+            "load_exit": "18",
+            "main_scheme_name": "18",
+            "metrics_beta": "18",
+            "metrics_information_ratio": "18",
+            "metrics_port_turnover_ratio": "18",
+            "metrics_sharpe": "18",
+            "metrics_std_dev": "18",
+            "min_addl_amt": "18",
+            "min_addl_amt_multiple": "18",
+            "min_amt": "18",
+            "min_amt_multiple": "18",
+            "monthly_aaum_date": "18",
+            "monthly_aaum_value": "18",
+            "mutual_fund_name": "18",
+            "scheme_launch_date": "18"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "August 20, 2022",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "July 05, 2019",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "If redeemed  switched-out within 90 days from the date of allotment Upto 12% of units Nil More than 12% of units 1% of applicable Net Asset Value (NAV) NI If redeemedswitched-out after 90 days from the date of allotment Nil"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM BALANCED ADVANTAGE FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.07"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.36"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "367.2"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.23"
+          },
+          {
+            "name": "std_dev",
+            "value": "9.86"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "60.03 cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": "20190705"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Liquid Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "20",
+            "benchmark_index": "20",
+            "count": 9,
+            "fund_manager_managing_fund_since": "20",
+            "fund_manager_name": "20",
+            "fund_manager_total_exp": "20",
+            "load_exit": "20",
+            "main_scheme_name": "20",
+            "metrics_average_pe": "20",
+            "min_addl_amt": "20",
+            "min_addl_amt_multiple": "20",
+            "min_amt": "20",
+            "min_amt_multiple": "20",
+            "monthly_aaum_date": "20",
+            "monthly_aaum_value": "20",
+            "mutual_fund_name": "20",
+            "scheme_launch_date": "20"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "14 November, 2024",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "14 November, 2024",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "14 November, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "Investor exit upon Subscription Exit load as a % of rede proceeds Investor exit upon Subscription Exit load as a % of redemption proce Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 onwards 0.0000%"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM LIQUID FUND",
+        "metrics": [
+          {
+            "name": "average_pe",
+            "value": "23"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "1000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "181.07 Cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": ""
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "Crisil Liquid Overnight Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "22",
+            "benchmark_index": "22",
+            "count": 9,
+            "fund_manager_managing_fund_since": "22",
+            "fund_manager_name": "22",
+            "fund_manager_total_exp": "22",
+            "load_exit": "22",
+            "main_scheme_name": "22",
+            "metrics_avg_maturity": "22",
+            "metrics_macaulay": "22",
+            "metrics_mod_duration": "22",
+            "metrics_ytm": "22",
+            "min_addl_amt": "22",
+            "min_addl_amt_multiple": "22",
+            "min_amt": "22",
+            "min_amt_multiple": "22",
+            "monthly_aaum_date": "22",
+            "monthly_aaum_value": "22",
+            "mutual_fund_name": "22",
+            "scheme_launch_date": "22"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "August 26, 2022",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "August 26, 2022",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "NIL"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM OVERNIGHT FUND",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.7 days"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.7 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.5 days"
+          },
+          {
+            "name": "ytm",
+            "value": "5.93"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "273.33 Cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": ""
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Shriram Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 1D Rate Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "24",
+            "benchmark_index": "24",
+            "count": 9,
+            "fund_manager_managing_fund_since": "24",
+            "fund_manager_name": "24",
+            "fund_manager_total_exp": "24",
+            "load_exit": "24",
+            "main_scheme_name": "24",
+            "metrics_avg_maturity": "24",
+            "metrics_macaulay": "24",
+            "metrics_mod_duration": "24",
+            "metrics_ytm": "24",
+            "min_addl_amt": "24",
+            "min_addl_amt_multiple": "24",
+            "min_amt": "24",
+            "min_amt_multiple": "24",
+            "monthly_aaum_date": "24",
+            "monthly_aaum_value": "24",
+            "mutual_fund_name": "24",
+            "scheme_launch_date": "24"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "July 5, 2024",
+            "name": "Deepak Ramaraju",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "July 5, 2024",
+            "name": "Gargi Bhattacharyya Banerjee",
+            "qualification": "",
+            "total_exp": "22 Years"
+          },
+          {
+            "managing_fund_since": "October 03, 2024",
+            "name": "Sudip Suresh",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": ""
+          },
+          {
+            "type": "exit_load",
+            "comment": "NIL"
+          }
+        ],
+        "main_scheme_name": "SHRIRAM Nifty 1D Rate Liquid ETF",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2 days"
+          },
+          {
+            "name": "macaulay",
+            "value": "2 days"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.9 days"
+          },
+          {
+            "name": "ytm",
+            "value": "5.91"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "",
+        "min_amt_multiple": "",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "31.49 Cr",
+        "mutual_fund_name": "Shriram Mutual fund",
+        "scheme_launch_date": ""
+      }
+    }
+  ]
+}

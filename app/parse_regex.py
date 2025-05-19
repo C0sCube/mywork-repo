@@ -24,7 +24,7 @@ class FundRegex():
         
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
-        self.MANAGER_STOP_WORDS = data.get("manager_stop_words","").split(",")
+        self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, data.get("manager_stop_words","").split(","))) + r')\b', flags=re.IGNORECASE)
         self.JSON_HEADER = data.get("json_headers",{})
         self.POPULATE_ALL_INDICE = data.get("add_json_headers",[])
         self.METRIC_HEADER = data.get("metrics_headers",{})
@@ -189,14 +189,18 @@ class FundRegex():
                 break
         return fund
 
-    def convert_date_format_safe(date_str, output_format="%Y%m%d"):
+    def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
+            date_str = data.get("scheme_launch_date","")
             dt = parser.parse(date_str)
-            return dt.strftime(output_format)
-        except (ValueError, TypeError):
-            return date_str
+            data["scheme_launch_date"] = dt.strftime(output_format)
+            return data
+        except (ValueError, TypeError): #empty string, str other than date
+            return data
 
-    def convert_to_year_safe(time_str):
+    def _convert_to_year_format(self,data):
+        metrics = data.get("metrics",{})
+        time_str = metrics["macaulay"]
         year_value = time_str
         if any(x in time_str.lower() for x in ["days", "day","da"]):
             numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
@@ -208,6 +212,55 @@ class FundRegex():
             numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
             year_value = str(numeric_value)
         return year_value
+    
+    def _remove_duplicates(self,text):
+        if not text:
+            return text
+        seen = []
+        text = text.split(" ")
+        for word in text:
+            if word not in seen:
+                seen.append(word)
+        return " ".join(seen)
+
+    
+    def _format_fund_manager(self, data):
+        fund_managers = data.get("fund_manager", [])
+        if not fund_managers:
+            return data
+
+        clean_fund_managers = []
+        for manager in fund_managers:
+            name = manager.get("name", "")
+            if not name:
+                continue
+
+            # Clean and normalize name
+            cleaned_name = self.MANAGER_STOP_WORDS.sub('', name)
+            cleaned_name = re.sub("[^A-Za-z\\s]","", cleaned_name,re.IGNORECASE)
+            cleaned_name = self._remove_duplicates(cleaned_name)
+            cleaned_name = re.sub(r'\s+', ' ', cleaned_name).strip()
+
+            if cleaned_name and len(cleaned_name)>=3:
+                manager["name"] = cleaned_name
+                clean_fund_managers.append(manager)
+
+        data["fund_manager"] = clean_fund_managers
+        return data
+
+    def _format_amt_data(self,data):
+        clean_terms = {}
+        for term in ["min_amt","min_addl_amt","min_amt_multiple","min_addl_amt_multiple"]:
+            content = data.get(term,"")
+            content = re.sub(r"[,\s.]+|any","",content,re.IGNORECASE)
+            if content:
+                clean_terms[term] = content
+        data.update(clean_terms)
+        
+        return data
+
+
+                
 
             
      

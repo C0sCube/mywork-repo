@@ -753,8 +753,12 @@ class Reader:
                         temp.update(updated_content)
                         
             temp = self._promote_key_from_dict(temp)
+            #formatting and type conversion
             temp = self._formalize_values(temp) #rupee symbol
             temp = regex._check_replace_type(temp,fund) #type conversion
+            temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
+            temp = regex._format_fund_manager(temp) #clean fund manager name
+            # temp = regex._format_amt_data(temp) #min/add formatter
             
             finalData[fund] = dict(sorted(temp.items()))
             
