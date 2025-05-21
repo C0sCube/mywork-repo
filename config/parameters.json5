@@ -2601,7 +2601,7 @@
         "First Tier Benchmark",
         "Minimum Investment",
         "Fund Managers?",
-        "NAV as on",
+        "NAV",
         "EOL",
       ],
       metric: "(Portfolio Turnover Ratio|Standard Deviation|Portfolio Beta|Sharpe Ratio|Average Maturity|Macaulay Duration|Tracking Error|Modified Duration|Yield to Maturity\\s*\\(YTM\\))\\s*([\\d,.]+\\s*(?:years?|months?|days?)?)",
@@ -2618,7 +2618,7 @@
       "^before": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*nav_as_on": ["_extract_generic_data", "metric"],
+      ".*nav$": ["_extract_generic_data", "metric"],
       ".*minimum_investment": ["_extract_amt_data", "min_amt"],
       ".*average_aum": ["_extract_generic_data", "aum"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
@@ -2639,7 +2639,7 @@
     MERGEKEYS: {
       fund_manager: [".*fund_managers?"],
       load: [".*exit_load"],
-      metrics: [".*nav_as_on"],
+      metrics: [".*nav"],
     },
     COMMENTS: ["OCR Issue, min. addl. amt missing"],
     IMP_DATA: {

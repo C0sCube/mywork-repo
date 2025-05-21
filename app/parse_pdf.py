@@ -380,7 +380,7 @@ class Reader:
         for page in nested_data:
             page_text = {}
             page_blocks,fundname = page['block'],page['fundname']
-            fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
+            # fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
             page['fundname'] = fundname
             for key, content in page_blocks.items():
                 page_text[key] = [txt[1] for txt in content]

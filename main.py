@@ -1,6 +1,6 @@
 from app.config_loader import load_config_once, get_config,restore_config
 from datetime import datetime
-output_folder = f"APR25 {datetime.now().strftime("%Y%m%d_%H_%M")}"
+output_folder = f"MAR25 {datetime.now().strftime("%Y%m%d")}"
 CONFIG = load_config_once(output_folder=output_folder)
 
 import json, os, traceback
