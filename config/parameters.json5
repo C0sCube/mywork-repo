@@ -3255,9 +3255,9 @@
   "56_0": {
     PARAMS: {
       title: {
-        ocr: false,
+        ocr: true,
         pattern: "(Navi.*?(?:Fund|ETF)\\s*(?:of Fund)?)",
-        bbox: [0, 0, 600, 150],
+        bbox: [0, 0, 600, 350],
       },
       clip_bbox: [
         [0, 195, 320, 812],
@@ -3390,7 +3390,7 @@
   "56_1": {
     PARAMS: {
       title: {
-        ocr: false,
+        ocr: true,
         pattern: "(Navi.*?(?:Fund|ETF|Index)\\s*(?:of Fund|FOF|Fund)?)",
         bbox: [0, 0, 600, 150],
       },

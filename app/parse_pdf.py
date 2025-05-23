@@ -37,9 +37,9 @@ class Reader:
                 # print(title_text)
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
-                # print(title)
-                # if title:
-                #     print(f"{pgn:02d} -- {title}")
+                print(title)
+                if title:
+                    print(f"{pgn:02d} -- {title}")
                 title_detected[pgn] = title
         return title_detected
                 
