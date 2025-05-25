@@ -1,0 +1,59 @@
+{
+ "metadata": {
+  "document_name": "96_16972_Mar-2025_1742355500_KIM.pdf",
+  "file_type": "kim",
+  "process_date": "20250319"
+ },
+ "records": [
+  {
+   "value": {
+    "asset_allocation_pattern": [
+     {
+      "allocation": [
+       {
+        "type": "min",
+        "value": "95"
+       },
+       {
+        "type": "max",
+        "value": "100"
+       },
+       {
+        "type": "total",
+        "value": ""
+       }
+      ],
+      "instrument_type": "Tri-Party Repo on Government Securities or T-bills/Repo & Reverse Repo",
+      "risk_profile": ""
+     },
+     {
+      "allocation": [
+       {
+        "type": "min",
+        "value": "0"
+       },
+       {
+        "type": "max",
+        "value": "5"
+       },
+       {
+        "type": "total",
+        "value": ""
+       }
+      ],
+      "instrument_type": "Cash & Cash Equivalents and Money Market instruments (having residual maturity not exceeding 91 days)",
+      "risk_profile": ""
+     }
+    ],
+    "description": "Under normal circumstances, the asset allocation under the Scheme will be as follows:",
+    "field_location": [
+     {
+      "asset_allocation_pattern": 4,
+      "main_scheme_name": 1
+     }
+    ],
+    "main_scheme_name": "Angel One Nifty 1D Rate Liquid ETF - Growth"
+   }
+  }
+ ]
+}
