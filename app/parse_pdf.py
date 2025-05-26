@@ -24,7 +24,7 @@ class Reader:
         
         for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    # ===============================FACTSHEET================================= 
+    
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")

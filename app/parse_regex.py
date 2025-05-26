@@ -32,9 +32,6 @@ class FundRegex():
         self.FINANCIAL_TERMS = data.get("financial_indices",[])
         self.ESCAPE = data.get("escape_regex","")
         self.MAIN_SCHEME_NAME = data.get("main_scheme_name",{})
-        
-        #===========SID/KIM====================
-       
 
     @staticmethod
     def extract_date(text: str):

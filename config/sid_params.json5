@@ -2,7 +2,9 @@
   "18": {
     AMC: "360 One Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       table_data: {
         threshold: 3,
         keywords: [
@@ -10,13 +12,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -25,13 +31,24 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "3": {
     AMC: "Aditya Birla Sun Life Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       table_data: {
         threshold: 3,
         keywords: [
@@ -39,13 +56,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -54,13 +75,29 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "96": {
     AMC: "Angel One Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [5, 125, 190, 455] },
+      page_zero: {
+        bbox: [
+          5,
+          125,
+          190,
+          455
+        ]
+      },
       table_data: {
         threshold: 3,
         keywords: [
@@ -68,13 +105,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -83,13 +124,24 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "1": {
     AMC: "Axis Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       table_data: {
         threshold: 3,
         keywords: [
@@ -97,13 +149,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -112,13 +168,29 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "59": {
     AMC: "Bajaj Finserv Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [55, 255, 557, 660] },
+      page_zero: {
+        bbox: [
+          55,
+          255,
+          557,
+          660
+        ]
+      },
       table_data: {
         threshold: 2,
         keywords: [
@@ -126,13 +198,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 3,
-        order: { name: 0, experience: 0, qualification: 0 },
-      },
+        order: {
+          name: 0,
+          experience: 0,
+          qualification: 0
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -141,13 +217,24 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "16": {
     AMC: "Bandhan Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       table_data: {
         threshold: 3,
         keywords: [
@@ -155,13 +242,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -170,17 +261,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "5": {
     AMC: "Bank Of India Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -189,17 +295,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "2": {
     AMC: "Baroda Bnp Paribas Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -208,17 +329,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "6": {
     AMC: "Canara Robeco Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -227,17 +363,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "8": {
     AMC: "Dsp Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -246,17 +397,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "9": {
     AMC: "Edelweiss Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -265,17 +431,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "11": {
     AMC: "Franklin Templeton Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -284,17 +465,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "20": {
     AMC: "Groww Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -303,17 +499,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "12": {
     AMC: "Hdfc Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -322,17 +533,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "60": {
     AMC: "Helios Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -341,17 +567,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "13": {
     AMC: "Hsbc Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -360,17 +601,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "14": {
     AMC: "Icici Prudential Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -379,17 +635,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "21": {
     AMC: "Invesco Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -398,17 +669,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "51": {
     AMC: "Iti Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -417,17 +703,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "22": {
     AMC: "Jm Financial Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -436,17 +737,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "23": {
     AMC: "Kotak Mahindra Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -455,17 +771,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "25": {
     AMC: "Lic Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -474,17 +805,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "26": {
     AMC: "Mahindra Manulife Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -493,17 +839,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "27": {
     AMC: "Mirae Asset Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -512,17 +873,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "28": {
     AMC: "Motilal Oswal Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -531,17 +907,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "56": {
     AMC: "Navi Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -550,17 +941,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "33": {
     AMC: "Nippon India Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -569,17 +975,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "57": {
     AMC: "Nj Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -588,17 +1009,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "95": {
     AMC: "Old Bridge Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -607,17 +1043,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "7": {
     AMC: "Pgim India Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -626,17 +1077,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "30": {
     AMC: "Ppfas Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -645,17 +1111,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "10": {
     AMC: "Quant Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -664,17 +1145,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "32": {
     AMC: "Quantum Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -683,17 +1179,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "58": {
     AMC: "Samco Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -702,17 +1213,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "35": {
     AMC: "Sbi Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -721,17 +1247,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "36": {
     AMC: "Shriram Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -740,17 +1281,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "37": {
     AMC: "Sundaram Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -759,17 +1315,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "38": {
     AMC: "Tata Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -778,17 +1349,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "39": {
     AMC: "Taurus Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -797,17 +1383,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "55": {
     AMC: "Trust Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -816,17 +1417,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "41": {
     AMC: "Uti Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -835,17 +1451,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "40": {
     AMC: "Union Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -854,13 +1485,29 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "97": {
     AMC: "Unifi Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [5, 125, 190, 455] },
+      page_zero: {
+        bbox: [
+          5,
+          125,
+          190,
+          455
+        ]
+      },
       table_data: {
         threshold: 3,
         keywords: [
@@ -868,13 +1515,17 @@
           "Category of the Scheme",
           "Scheme type",
           "Scheme code",
-          "Investment objective",
-        ],
+          "Investment objective"
+        ]
       },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -883,17 +1534,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "42": {
     AMC: "Whiteoak Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -902,17 +1568,32 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
   },
   "71": {
     AMC: "Zerodha Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [] },
+      page_zero: {
+        bbox: []
+      },
       manager_data: {
         row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
-      },
+        order: {
+          name: 1,
+          experience: 2,
+          qualification: 1
+        }
+      }
     },
     REGEX: {},
     IMP_DATA: {
@@ -921,7 +1602,16 @@
       page_number: [],
       face_value: "10",
       open_date: "",
-      close_date: "",
+      close_date: ""
     },
-  },
+    PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {},
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [],
+    MERGEKEYS: {},
+    CLONEKEYS: [],
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {}
+  }
 }
