@@ -1,0 +1,25 @@
+{
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    "add_sid_headers": {
+    "amc_name": null,
+    "benchmark_index": null,
+    "fund_manager": [],
+    "load": [],
+    "main_scheme_name": null,
+    "mutual_fund_name": null,
+    "suitable_for_investors": null,
+    "scheme_objective": null,
+    "scheme_code":null,
+    "type_of_scheme":null,
+    "open_date":null,
+    "close_date":null,
+    "face_value":null,
+    "riskometer_scheme":null,
+    "riskometer_benchmark":null,
+    "min_amt": null,
+    "min_amt_multiple": null,
+    "min_addl_amt": null,
+    "min_addl_amt_multiple": null,
+    "page_number": []
+    },
+}

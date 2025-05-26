@@ -24,7 +24,7 @@ class Reader:
         
         for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        
+    # ===============================FACTSHEET================================= 
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -37,7 +37,7 @@ class Reader:
                 # print(title_text)
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
-                print(title)
+                # print(title)
                 if title:
                     print(f"{pgn:02d} -- {title}")
                 title_detected[pgn] = title
@@ -103,8 +103,7 @@ class Reader:
             if d["title"] and d["highlight_count"] >= self.PARAMS["max_financial_index_highlight"]
         },path_pdf
     
-    #EXTRACT
-    
+    #EXTRACT 
     def _create_data_entry(self,*args)->dict:
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
@@ -362,6 +361,7 @@ class Reader:
     def get_data(self, path: str, titles:dict):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
+        sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
         
         regex = FundRegex()
@@ -380,8 +380,11 @@ class Reader:
         for page in nested_data:
             page_text = {}
             page_blocks,fundname = page['block'],page['fundname']
-            # fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
+            
+            if sanitize_fund: #map to clear fund names
+                fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
             page['fundname'] = fundname
+            
             for key, content in page_blocks.items():
                 page_text[key] = [txt[1] for txt in content]
             self.TEXT_ONLY[fundname] = page_text
@@ -481,7 +484,6 @@ class Reader:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
             doc.save(output_path)
-    
     
     def _extract_data_from_pdf(self,path: str, fund:str):
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")

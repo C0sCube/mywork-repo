@@ -178,7 +178,6 @@ class GrandFundData:
 
         return {main_key: final_dict}
 
-
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
         """
             Extracts entry and exit load values from the given text using a regex pattern.
@@ -596,12 +595,27 @@ class LIC(Reader,GrandFundData):
         Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_manager_data(self, main_key: str, data):
+        # print("hi")
         final_list = []
         manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
         n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
         e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
-        
+        # print(n,e)
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n = adjust(n,e)
+        for name,exp in zip(n,e):
+            final_list.append(self._return_manager_data(name=name,exp=exp))
+        return {main_key: final_list}
+    
+    def _extract_manager_data(self, main_key: str, data,pattern:str):
+        # print("hi")
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        # print(n,e)
         adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
         n = adjust(n,e)
         for name,exp in zip(n,e):

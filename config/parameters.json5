@@ -19,6 +19,7 @@
       line_side: "left",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -151,6 +152,7 @@
       line_side: "",
       max_financial_index_highlight: 9,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -252,6 +254,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -367,6 +370,7 @@
       line_side: "both",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -473,6 +477,7 @@
       line_side: "both",
       max_financial_index_highlight: 9,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -571,6 +576,7 @@
       line_side: "left",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -654,6 +660,7 @@
       line_side: "",
       max_financial_index_highlight: 11,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -729,6 +736,7 @@
       line_side: "both",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
       title: {
         ocr: false,
@@ -831,6 +839,7 @@
       line_side: "left",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -939,6 +948,7 @@
       line_side: "",
       max_financial_index_highlight: 0,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -1059,6 +1069,7 @@
       line_side: "",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: ["last_12_months"],
     },
     REGEX: {
@@ -1148,6 +1159,7 @@
       line_side: "right",
       max_financial_index_highlight: 6,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -1275,6 +1287,7 @@
       line_side: "",
       max_financial_index_highlight: 6,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -1389,6 +1402,7 @@
       line_side: "left",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -1489,6 +1503,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -1583,6 +1598,7 @@
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 7,
+      sanitize_fund:false,
       pdf_ocr: false,
       stop_words: [],
     },
@@ -1674,6 +1690,7 @@
       method: "line",
       line_side: "left",
       max_financial_index_highlight: 6,
+      sanitize_fund:false,
       pdf_ocr: false,
       stop_words: [],
     },
@@ -1778,6 +1795,7 @@
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 7,
+      sanitize_fund:false,
       pdf_ocr: false,
       stop_words: [],
     },
@@ -1894,6 +1912,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: ["v", "s"],
     },
     REGEX: {
@@ -2011,6 +2030,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -2126,6 +2146,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -2242,6 +2263,7 @@
       line_side: "",
       max_financial_index_highlight: 8,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -2361,6 +2383,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -2495,6 +2518,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -2585,6 +2609,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -2607,9 +2632,9 @@
       metric: "(Portfolio Turnover Ratio|Standard Deviation|Portfolio Beta|Sharpe Ratio|Average Maturity|Macaulay Duration|Tracking Error|Modified Duration|Yield to Maturity\\s*\\(YTM\\))\\s*([\\d,.]+\\s*(?:years?|months?|days?)?)",
       manager: {
         pattern: "(?:Mr.|M\\s*.|Mrs.|Ms.)\\s*([\\w\\s]+)\\s*(?:\\((.+?)\\))?\\s*Total Experience\\s*([\\d.]+\\+?\\s*years?)",
-        fields: ["name", "desig", "exp"],
-        name: "(?:Mr.|M .)\\s*([A-Za-z]+\\s*[A-Za-z]+)",
-        exp: "([\\d.]+\\s*years?)",
+        fields: ["name","exp"], //"desig"
+        name: "(?:Mr.|Mrs.|Ms.|M .)\\s+([A-Za-z]+\\s*[A-Za-z]+)",
+        exp: "(\\d+.?\\d*\\+?\\s*years?)",
       },
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
     },
@@ -2685,6 +2710,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: ["experience"],
     },
     REGEX: {
@@ -2811,6 +2837,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -2907,6 +2934,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -3014,6 +3042,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: ["category"],
     },
     REGEX: {
@@ -3148,6 +3177,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: ["category"],
     },
     REGEX: {
@@ -3275,6 +3305,7 @@
       line_side: "",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -3410,6 +3441,7 @@
       line_side: "",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -3550,6 +3582,7 @@
       line_side: "",
       max_financial_index_highlight: 6,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -3655,6 +3688,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -3758,6 +3792,7 @@
       line_side: "",
       max_financial_index_highlight: 10,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -3872,6 +3907,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -3897,7 +3933,7 @@
         "SIP",
         "EOL",
       ],
-      benchmark: "(.+?(?:Index|TRI|Composite|Benchmark))\\s*(?=Option)",
+      // benchmark: "(.+?(?:Index|TRI|Composite|Benchmark))\\s*(?=Option)",
       min_amt: "([\\d,.]+)\\s*\\/?\\s*\\-?\\s*and in multiples of\\s*([\\d,.]+)\\s*\\/?\\s*\\-?\\s*thereafter\\.?",
       manager: {
         pattern: "(?:\\(w\\.e\\.f\\.?\\s*(.*?)\\)?)?\\s*(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:\\((.+?)\\))?\\s*\\(.*?([0-9]+ years) of experience.*?\\)",
@@ -3922,7 +3958,7 @@
         "min_amt",
       ],
       "^for_subscription.*": ["_extract_amt_data", "min_amt"],
-      ".*benchmark": ["_extract_generic_data", "benchmark"],
+      // ".*benchmark": ["_extract_generic_data", "benchmark"],
       ".*inception_date": ["_extract_generic_data", "date"],
     },
     SELECTKEYS: [
@@ -3985,6 +4021,7 @@
       line_side: "",
       max_financial_index_highlight: 9,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -4102,6 +4139,7 @@
       line_side: "",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -4216,6 +4254,7 @@
       line_side: "",
       max_financial_index_highlight: 4,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -4326,7 +4365,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Samco.*?Fund)",
+        pattern: "(Samco.*?(?:Fund|ETF|FOF|Index)\\s*(?:of Funds?|FOF)?)",
         bbox: [0, 30, 600, 100],
       },
       clip_bbox: [[35, 120, 250, 765]],
@@ -4342,6 +4381,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: ["(Fixed Income Portion of Portfolio)"],
     },
     REGEX: {
@@ -4443,6 +4483,7 @@
       line_side: "",
       max_financial_index_highlight: 10,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -4551,6 +4592,7 @@
       line_side: "both",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:true,
       stop_words: [],
     },
     REGEX: {
@@ -4662,6 +4704,7 @@
       line_side: "",
       max_financial_index_highlight: 6,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -4776,6 +4819,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -4874,6 +4918,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -4970,6 +5015,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5072,6 +5118,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5189,6 +5236,7 @@
       line_side: "left",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5279,6 +5327,7 @@
       line_side: "left",
       max_financial_index_highlight: 5,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5368,6 +5417,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5466,6 +5516,7 @@
       line_side: "",
       max_financial_index_highlight: 7,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5577,7 +5628,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(WhiteOak.*?(?:Fund))",
+        pattern: "(WhiteOak.*?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|FO?o?F)?)",
         bbox: [0, 0, 410, 60],
       },
       clip_bbox: [[0, 85, 240, 812]],
@@ -5593,6 +5644,7 @@
       line_side: "",
       max_financial_index_highlight: 9,
       pdf_ocr: false,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {
@@ -5681,7 +5733,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Zerodha.*?(?:Fund|ETF(?:\\s*FoF)?|FoF))",
+        pattern: "(Zerodha.+?(?:Funds?|ETF|Index|Path)\\s*(?:Fo?O?F|of Funds?)?)",
         bbox: [0, 60, 500, 180],
       },
       clip_bbox: [
@@ -5700,6 +5752,7 @@
       line_side: "both",
       max_financial_index_highlight: 4,
       pdf_ocr: true,
+      sanitize_fund:false,
       stop_words: [],
     },
     REGEX: {

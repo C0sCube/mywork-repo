@@ -1,0 +1,927 @@
+{
+  "18": {
+    AMC: "360 One Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "360 One Asset Management Limited",
+      mutual_fund_name: "360 One Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "3": {
+    AMC: "Aditya Birla Sun Life Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Aditya Birla Sun Life Asset Management Limited",
+      mutual_fund_name: "Aditya Birla Sun Life Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "96": {
+    AMC: "Angel One Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [5, 125, 190, 455] },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Angel One Asset Management Limited",
+      mutual_fund_name: "Angel One Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "1": {
+    AMC: "Axis Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Axis Asset Management Limited",
+      mutual_fund_name: "Axis Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "59": {
+    AMC: "Bajaj Finserv Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [55, 255, 557, 660] },
+      table_data: {
+        threshold: 2,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 3,
+        order: { name: 0, experience: 0, qualification: 0 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Bajaj Finserv Asset Management Limited",
+      mutual_fund_name: "Bajaj Finserv Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "16": {
+    AMC: "Bandhan Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Bandhan Asset Management Limited",
+      mutual_fund_name: "Bandhan Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "5": {
+    AMC: "Bank Of India Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Bank Of India Asset Management Limited",
+      mutual_fund_name: "Bank Of India Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "2": {
+    AMC: "Baroda Bnp Paribas Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Baroda Bnp Paribas Asset Management Limited",
+      mutual_fund_name: "Baroda Bnp Paribas Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "6": {
+    AMC: "Canara Robeco Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Canara Robeco Asset Management Limited",
+      mutual_fund_name: "Canara Robeco Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "8": {
+    AMC: "Dsp Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Dsp Asset Management Limited",
+      mutual_fund_name: "Dsp Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "9": {
+    AMC: "Edelweiss Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Edelweiss Asset Management Limited",
+      mutual_fund_name: "Edelweiss Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "11": {
+    AMC: "Franklin Templeton Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Franklin Templeton Asset Management Limited",
+      mutual_fund_name: "Franklin Templeton Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "20": {
+    AMC: "Groww Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Groww Asset Management Limited",
+      mutual_fund_name: "Groww Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "12": {
+    AMC: "Hdfc Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Hdfc Asset Management Limited",
+      mutual_fund_name: "Hdfc Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "60": {
+    AMC: "Helios Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Helios Asset Management Limited",
+      mutual_fund_name: "Helios Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "13": {
+    AMC: "Hsbc Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Hsbc Asset Management Limited",
+      mutual_fund_name: "Hsbc Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "14": {
+    AMC: "Icici Prudential Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Icici Prudential Asset Management Limited",
+      mutual_fund_name: "Icici Prudential Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "21": {
+    AMC: "Invesco Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Invesco Asset Management Limited",
+      mutual_fund_name: "Invesco Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "51": {
+    AMC: "Iti Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Iti Asset Management Limited",
+      mutual_fund_name: "Iti Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "22": {
+    AMC: "Jm Financial Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Jm Financial Asset Management Limited",
+      mutual_fund_name: "Jm Financial Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "23": {
+    AMC: "Kotak Mahindra Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Kotak Mahindra Asset Management Limited",
+      mutual_fund_name: "Kotak Mahindra Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "25": {
+    AMC: "Lic Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Lic Asset Management Limited",
+      mutual_fund_name: "Lic Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "26": {
+    AMC: "Mahindra Manulife Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Mahindra Manulife Asset Management Limited",
+      mutual_fund_name: "Mahindra Manulife Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "27": {
+    AMC: "Mirae Asset Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Mirae Asset Asset Management Limited",
+      mutual_fund_name: "Mirae Asset Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "28": {
+    AMC: "Motilal Oswal Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Motilal Oswal Asset Management Limited",
+      mutual_fund_name: "Motilal Oswal Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "56": {
+    AMC: "Navi Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Navi Asset Management Limited",
+      mutual_fund_name: "Navi Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "33": {
+    AMC: "Nippon India Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Nippon India Asset Management Limited",
+      mutual_fund_name: "Nippon India Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "57": {
+    AMC: "Nj Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Nj Asset Management Limited",
+      mutual_fund_name: "Nj Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "95": {
+    AMC: "Old Bridge Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Old Bridge Asset Management Limited",
+      mutual_fund_name: "Old Bridge Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "7": {
+    AMC: "Pgim India Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Pgim India Asset Management Limited",
+      mutual_fund_name: "Pgim India Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "30": {
+    AMC: "Ppfas Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Ppfas Asset Management Limited",
+      mutual_fund_name: "Ppfas Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "10": {
+    AMC: "Quant Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Quant Asset Management Limited",
+      mutual_fund_name: "Quant Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "32": {
+    AMC: "Quantum Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Quantum Asset Management Limited",
+      mutual_fund_name: "Quantum Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "58": {
+    AMC: "Samco Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Samco Asset Management Limited",
+      mutual_fund_name: "Samco Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "35": {
+    AMC: "Sbi Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Sbi Asset Management Limited",
+      mutual_fund_name: "Sbi Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "36": {
+    AMC: "Shriram Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Shriram Asset Management Limited",
+      mutual_fund_name: "Shriram Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "37": {
+    AMC: "Sundaram Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Sundaram Asset Management Limited",
+      mutual_fund_name: "Sundaram Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "38": {
+    AMC: "Tata Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Tata Asset Management Limited",
+      mutual_fund_name: "Tata Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "39": {
+    AMC: "Taurus Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Taurus Asset Management Limited",
+      mutual_fund_name: "Taurus Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "55": {
+    AMC: "Trust Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Trust Asset Management Limited",
+      mutual_fund_name: "Trust Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "41": {
+    AMC: "Uti Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Uti Asset Management Limited",
+      mutual_fund_name: "Uti Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "40": {
+    AMC: "Union Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Union Asset Management Limited",
+      mutual_fund_name: "Union Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "97": {
+    AMC: "Unifi Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [5, 125, 190, 455] },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Unifi Asset Management Limited",
+      mutual_fund_name: "Unifi Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "42": {
+    AMC: "Whiteoak Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Whiteoak Asset Management Limited",
+      mutual_fund_name: "Whiteoak Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+  "71": {
+    AMC: "Zerodha Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [] },
+      manager_data: {
+        row_count: 2,
+        order: { name: 1, experience: 2, qualification: 1 },
+      },
+    },
+    REGEX: {},
+    IMP_DATA: {
+      amc_name: "Zerodha Asset Management Limited",
+      mutual_fund_name: "Zerodha Mutual Fund",
+      page_number: [],
+      face_value: "10",
+      open_date: "",
+      close_date: "",
+    },
+  },
+}

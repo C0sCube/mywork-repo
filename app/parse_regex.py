@@ -22,6 +22,7 @@ class FundRegex():
         except Exception as e:
             print(f'Error: {e}')
         
+        #============FACTSHEET===================
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
         self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, data.get("manager_stop_words","").split(","))) + r')\b', flags=re.IGNORECASE)
@@ -31,6 +32,8 @@ class FundRegex():
         self.FINANCIAL_TERMS = data.get("financial_indices",[])
         self.ESCAPE = data.get("escape_regex","")
         self.MAIN_SCHEME_NAME = data.get("main_scheme_name",{})
+        
+        #===========SID/KIM====================
        
 
     @staticmethod
