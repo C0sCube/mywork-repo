@@ -417,28 +417,65 @@
     AMC: "Dsp Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [],
+        bbox: [0,120,220,620],
+      },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
       },
       manager_data: {
-        row_count: 2,
+        row_count: 6,
         order: {
-          name: 1,
-          experience: 2,
-          qualification: 1,
+          name: 0,
+          experience: 4,
+          qualification: 3,
         },
       },
     },
-    REGEX: {},
+    REGEX: {
+      benchmark:"Benchmark of the Scheme\\s*\\-?\\s*(.+TRI).*",
+      load:"()E?xit\\s*Load(.+?)$",
+      scheme:[
+        "Offer for Units",
+        "New Fund Offer opens on",
+        "New Fund Offer closes on",
+        "Scheme re-opens on",
+        "EOL",
+      ],
+      scheme2:[
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL"
+      ],
+      min_amt:"(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo:"Rs\\.?\\s*\\d+",
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+"
+    },
     IMP_DATA: {
       amc_name: "Dsp Asset Management Limited",
       mutual_fund_name: "Dsp Mutual Fund",
-
+      offer_price:"Rs. 10",
       face_value: "Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)":["_extract_str_data",null],
+      "^benchmark":["_extract_generic_data","benchmark"],
+      "^new_fund_offer_price.*":["_extract_generic_data","nfo"],
+      "^other_text":["_extract_scheme_data","scheme"],
+      "^risk_bbox":["_extract_scheme_data","scheme2"]
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure":["_extract_load_data","load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)":["_extract_amt_data","min_amt"]
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [],
     MERGEKEYS: {},

@@ -83,33 +83,6 @@ class GrandSidData: #always call this first in subclass
     def _extract_str_data(self, main_key: str, data: list):
         return {main_key: " ".join(data)}
     
-    def _extract_whitespace_data(self, main_key:str,data, pattern:str):
-        """
-            Extracts values or key-value pairs from text using regex.
-            Args:
-                main_key (str): Top-level key for the returned dict.
-                data (list | str): Input text to search.
-                pattern (str): Regex key for matching patterns.
-            Returns:
-                dict: {main_key: value or {key: value}} based on match structure.
-        """
-        final_dict = {}
-        generic_data = " ".join(data) if isinstance(data,list) else data
-        generic_data = re.sub(self.REGEX['escape'], "", generic_data).replace(" ","").strip()
-      
-        matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
-        for match in matches:
-            if isinstance(match, str):
-                return {main_key: match}
-            elif len(match) == 2:
-                key, value = match
-                final_dict[key.strip()] = value.strip()
-            elif len(match) == 3:
-                key,v1,v2 = match
-                final_dict[key.strip()] = v1.strip()
-                    
-        return {main_key:final_dict}
-    
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         """
             Extracts values or key-value pairs from text using regex.
@@ -218,52 +191,24 @@ class GrandSidData: #always call this first in subclass
             final_dict['amt'], final_dict['thraftr'] = amt,thraftr
         return {main_key:final_dict}
     
-    # def _extract_manager_data(self, main_key: str, data, pattern: str):
-    #     """
-    #         Extracts fund manager details such as name, designation, experience, and since-date from the given text.
-    #         Args:
-    #             main_key (str): Top-level key for the returned dictionary.
-    #             data (list | str): Input text or list of strings to process.
-    #             pattern (str): Regex key containing the 'pattern' and corresponding 'fields' 
-    #                         (e.g., name, desig, exp, since in variable order).
-    #         Returns:
-    #             dict: A dictionary in the format {main_key: [manager_info, ...]}, 
-    #                 where each manager_info is built using _return_manager_data(**fields).
-    #     """
-    #     # print("running manager data")
-    #     final_list = []
-    #     manager_data = " ".join(data) if isinstance(data, list) else data
-    #     manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-
-    #     pattern_info = self.REGEX[pattern]
-    #     regex_pattern = pattern_info['pattern']
-    #     field_names = pattern_info['fields']
-
-    #     if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
-    #         # print(matches)
-    #         for match in matches:
-    #             if isinstance(match, str):
-    #                 match = (match,)
-    #             record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
-    #             final_list.append(self._return_manager_data(**record))
-    #     # print(final_list)
-    #     return {main_key: final_list}
     def _extract_manager_data(self, main_key: str, data, pattern: str):
         # print("running manager data")
         final_list = []
-        manager_regex = self.REGEX[pattern]
+        manager_regex = self.REGEX.get(pattern,{})
         if not isinstance(data,list):
-            print("_extract_manager_data-> data not list")
-            return list(data)
+            print("_extract_manager_data -> data not list")
+            return {"fund_manager":[]}
         
         for manager in data:
             temp = {}
             for key, val in manager.items():
+                if not val or key not in manager_regex:
+                    continue
                 clean_val = re.findall(manager_regex[key],val,re.IGNORECASE)
-                update_val = " ".join(clean_val)
-                temp[key] = update_val
-            if temp["name"]:
+                temp[key] = " ".join(clean_val)
+            if temp.get("name"):
                 final_list.append(temp)
+                
         return {"fund_manager": final_list}
     
     def _extract_lump_data(self, main_key: str, data, pattern:list):
@@ -293,18 +238,6 @@ class GrandSidData: #always call this first in subclass
             final_dict['min_amt'],final_dict['add_amt'] = min_amt, add_amt
         return {main_key: final_dict}
 
-    # def _extract_bench_data(self,main_key:str,data,pattern:str):
-    #     data = " ".join(data) if isinstance(data,list) else data
-    #     benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
-    #     matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
-    #     return {main_key:matches[0] if matches else ""}
-    
-    # def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
-    #     date_data = "".join(main_key)
-    #     matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
-    #     return {"inception_date": " ".join(matches)}
-    
-    
     # dynamic function match
     def _match_with_patterns(self, string: str, data: list, level:str):
         try: 
@@ -332,7 +265,7 @@ class GrandSidData: #always call this first in subclass
         return self._extract_dummy_data(string, data) #fallback
    
    
-   # CRUD dict operations
+   # CRUD Dict Ops
     def _merge_fund_data(self, data: dict):
         if not isinstance(data, dict):
             return data  # cuz ALL data stored as dict
@@ -422,16 +355,8 @@ class GrandSidData: #always call this first in subclass
                 finalData[key] = value
         return finalData
     
-    # def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
-    #     return {
-    #         "managing_fund_since":since.title().strip(),
-    #         "name": name.title().strip(),
-    #         "qualification": desig.title().strip(),
-    #         "total_exp": exp.title().strip()
-    #     }
-    
     def _update_imp_data(self, data: dict):
-        updated_data = data.copy()  # optional, if you want to avoid mutating the original
+        updated_data = data.copy()  #optional but keep this
         updated_data.update({
             "amc_name": self.IMP_DATA.get('amc_name', ''),
             "mutual_fund_name": self.IMP_DATA.get('mutual_fund_name', ''),
