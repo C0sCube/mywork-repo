@@ -1,0 +1,2108 @@
+{
+  "metadata": {
+    "document_name": "6_28-Feb-25_FS.pdf",
+    "file_type": "fs",
+    "process_date": "20250521"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "9",
+            "benchmark_index": "9",
+            "count": 25,
+            "fund_manager_managing_fund_since": "9",
+            "fund_manager_name": "9",
+            "fund_manager_total_exp": "9",
+            "load_entry": "9",
+            "load_exit": "9",
+            "main_scheme_name": "9",
+            "metrics_beta": "9",
+            "metrics_port_turnover_ratio": "9",
+            "metrics_r_squared_ratio": "9",
+            "metrics_sharpe": "9",
+            "metrics_std_dev": "9",
+            "min_addl_amt": "9",
+            "min_addl_amt_multiple": "9",
+            "min_amt": "9",
+            "min_amt_multiple": "9",
+            "monthly_aaum_date": "9",
+            "monthly_aaum_value": "9",
+            "mutual_fund_name": "9",
+            "scheme_launch_date": "9"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "5-July-16",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "6-Nov-23",
+            "name": "Pranav Gokhale",
+            "qualification": "",
+            "total_exp": "23 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - if redeemedswitched out within 1 year from the date of allotment. Nil  if redeemed  switched out after 1 year from the date of allotment."
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO FLEXICAP FUND (CRFCF)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.90"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.3"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.96"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.29"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.75"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "11,995.21 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20030916"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 100 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "10",
+            "benchmark_index": "10",
+            "count": 25,
+            "fund_manager_managing_fund_since": "10",
+            "fund_manager_name": "10",
+            "fund_manager_total_exp": "10",
+            "load_entry": "10",
+            "load_exit": "10",
+            "main_scheme_name": "10",
+            "metrics_beta": "10",
+            "metrics_port_turnover_ratio": "10",
+            "metrics_r_squared_ratio": "10",
+            "metrics_sharpe": "10",
+            "metrics_std_dev": "10",
+            "min_addl_amt": "10",
+            "min_addl_amt_multiple": "10",
+            "min_amt": "10",
+            "min_amt_multiple": "10",
+            "monthly_aaum_date": "10",
+            "monthly_aaum_value": "10",
+            "mutual_fund_name": "10",
+            "scheme_launch_date": "10"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "5-July-16",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "01-June-21",
+            "name": "Vishal Mishra",
+            "qualification": "",
+            "total_exp": "21 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - if redeemedswitched out within 1 year from the date of allotment. Nil  if redeemed  switched out after 1 year from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO BLUE CHIP EQUITY FUND (CRBCEF)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.88"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.25"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.97"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.42"
+          },
+          {
+            "name": "std_dev",
+            "value": "12.71"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "14,419.08 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20100820"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY Large Midcap 250 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "11",
+            "benchmark_index": "11",
+            "count": 25,
+            "fund_manager_managing_fund_since": "11",
+            "fund_manager_name": "11",
+            "fund_manager_total_exp": "11",
+            "load_entry": "11",
+            "load_exit": "11",
+            "main_scheme_name": "11",
+            "metrics_beta": "11",
+            "metrics_port_turnover_ratio": "11",
+            "metrics_r_squared_ratio": "11",
+            "metrics_sharpe": "11",
+            "metrics_std_dev": "11",
+            "min_addl_amt": "11",
+            "min_addl_amt_multiple": "11",
+            "min_amt": "11",
+            "min_amt_multiple": "11",
+            "monthly_aaum_date": "11",
+            "monthly_aaum_value": "11",
+            "mutual_fund_name": "11",
+            "scheme_launch_date": "11"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "28-Aug-23",
+            "name": "Amit Nadekar",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "01-Oct-19",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - If redeemedswitched out within 1 year from the date of allotment  Source ICRA MFI Explorer   Monthend AUM as on 28.02. management fees.  Please refer page no. 59 for Definition"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO EMERGING EQUITIES (CREE)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.92"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.64"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.92"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.41"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.90"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "22,726.44 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20050311"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty Smallcap 250 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "12",
+            "benchmark_index": "12",
+            "count": 25,
+            "fund_manager_managing_fund_since": "12",
+            "fund_manager_name": "12",
+            "fund_manager_total_exp": "12",
+            "load_entry": "12",
+            "load_exit": "12",
+            "main_scheme_name": "12",
+            "metrics_beta": "12",
+            "metrics_port_turnover_ratio": "12",
+            "metrics_r_squared_ratio": "12",
+            "metrics_sharpe": "12",
+            "metrics_std_dev": "12",
+            "min_addl_amt": "12",
+            "min_addl_amt_multiple": "12",
+            "min_amt": "12",
+            "min_amt_multiple": "12",
+            "monthly_aaum_date": "12",
+            "monthly_aaum_value": "12",
+            "mutual_fund_name": "12",
+            "scheme_launch_date": "12"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "06-Nov-23",
+            "name": "Pranav Gokhale",
+            "qualification": "",
+            "total_exp": "23 Years"
+          },
+          {
+            "managing_fund_since": "01-Oct-19",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "In respect of each purchase  switch-in of units,1% - if Units are redeemed  switched-out within 1  12 Source ICRA MFI Ex"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO SMALL CAP FUND (CRSCF)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.78"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.26"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.93"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.42"
+          },
+          {
+            "name": "std_dev",
+            "value": "17.07"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "11,047.45 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20190215"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE India Infrastructure TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "13",
+            "benchmark_index": "13",
+            "count": 25,
+            "load_entry": "13",
+            "load_exit": "13",
+            "main_scheme_name": "13",
+            "metrics_beta": "13",
+            "metrics_port_turnover_ratio": "13",
+            "metrics_r_squared_ratio": "13",
+            "metrics_sharpe": "13",
+            "metrics_std_dev": "13",
+            "min_addl_amt": "13",
+            "min_addl_amt_multiple": "13",
+            "min_amt": "13",
+            "min_amt_multiple": "13",
+            "monthly_aaum_date": "13",
+            "monthly_aaum_value": "13",
+            "mutual_fund_name": "13",
+            "scheme_launch_date": "13"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - if redeemedswitched out within 1 year from the date of allotment. Nil  if redeemed  switched out after 1 year from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO INFRASTRUCTURE (CRI)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.63"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.37"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.67"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.68"
+          },
+          {
+            "name": "std_dev",
+            "value": "18.73"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "767.66 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20051202"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 100 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "14",
+            "benchmark_index": "14",
+            "count": 25,
+            "fund_manager_managing_fund_since": "14",
+            "fund_manager_name": "14",
+            "load_entry": "14",
+            "load_exit": "14",
+            "main_scheme_name": "14",
+            "metrics_beta": "14",
+            "metrics_port_turnover_ratio": "14",
+            "metrics_r_squared_ratio": "14",
+            "metrics_sharpe": "14",
+            "metrics_std_dev": "14",
+            "min_addl_amt": "14",
+            "min_addl_amt_multiple": "14",
+            "min_amt": "14",
+            "min_amt_multiple": "14",
+            "monthly_aaum_date": "14",
+            "monthly_aaum_value": "14",
+            "mutual_fund_name": "14",
+            "scheme_launch_date": "14"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "01-Oct-21",
+            "name": "Ennette Fernandes",
+            "qualification": "",
+            "total_exp": ""
+          },
+          {
+            "managing_fund_since": "01-Oct-19",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": ""
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - If redeemedswitched out within 1 year from the date of allotment. Nil - if redeemedswitched out after 1 year from the date of allotment 14"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO CONSUMER TRENDS FUND (CRCTF)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.91"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.22"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.81"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.57"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.33"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,653.65 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20090914"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "15",
+            "benchmark_index": "15",
+            "count": 25,
+            "fund_manager_managing_fund_since": "15",
+            "fund_manager_name": "15",
+            "fund_manager_total_exp": "15",
+            "load_entry": "15",
+            "load_exit": "15",
+            "main_scheme_name": "15",
+            "metrics_beta": "15",
+            "metrics_port_turnover_ratio": "15",
+            "metrics_r_squared_ratio": "15",
+            "metrics_sharpe": "15",
+            "metrics_std_dev": "15",
+            "min_addl_amt": "15",
+            "min_addl_amt_multiple": "15",
+            "min_amt": "15",
+            "min_amt_multiple": "15",
+            "monthly_aaum_date": "15",
+            "monthly_aaum_value": "15",
+            "mutual_fund_name": "15",
+            "scheme_launch_date": "15"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "26-June-21",
+            "name": "Vishal Mishra",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "01-Oct-19",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO ELSS TAX SAVER (CRETS)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.90"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.29"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.96"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.33"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.84"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "8,161.37 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "19930331"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "16",
+            "benchmark_index": "16",
+            "count": 25,
+            "fund_manager_managing_fund_since": "16",
+            "fund_manager_name": "16",
+            "fund_manager_total_exp": "16",
+            "load_entry": "16",
+            "load_exit": "16",
+            "main_scheme_name": "16",
+            "metrics_beta": "16",
+            "metrics_port_turnover_ratio": "16",
+            "metrics_r_squared_ratio": "16",
+            "metrics_sharpe": "16",
+            "metrics_std_dev": "16",
+            "min_addl_amt": "16",
+            "min_addl_amt_multiple": "16",
+            "min_amt": "16",
+            "min_amt_multiple": "16",
+            "monthly_aaum_date": "16",
+            "monthly_aaum_value": "16",
+            "mutual_fund_name": "16",
+            "scheme_launch_date": "16"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "17-May-21",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "10-April-24",
+            "name": "Amit Kadam",
+            "qualification": "",
+            "total_exp": "14 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - If redeemedswitched out within 365 days from the date of allotment. Nil - if redeemedswitched out after 365 days from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO FOCUSED EQUITY FUND (CRFEF)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.87"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.5"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.92"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.51"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.63"
+          }
+        ],
+        "min_addl_amt": "1000.00",
+        "min_addl_amt_multiple": "1.00",
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,396.64 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20210517"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 500 TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "17",
+            "benchmark_index": "17",
+            "count": 25,
+            "fund_manager_managing_fund_since": "17",
+            "fund_manager_name": "17",
+            "fund_manager_total_exp": "17",
+            "load_entry": "17",
+            "load_exit": "17",
+            "main_scheme_name": "17",
+            "metrics_beta": "17",
+            "metrics_port_turnover_ratio": "17",
+            "metrics_r_squared_ratio": "17",
+            "metrics_sharpe": "17",
+            "metrics_std_dev": "17",
+            "min_addl_amt": "17",
+            "min_addl_amt_multiple": "17",
+            "min_amt": "17",
+            "min_amt_multiple": "17",
+            "monthly_aaum_date": "17",
+            "monthly_aaum_value": "17",
+            "mutual_fund_name": "17",
+            "scheme_launch_date": "17"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "03-September -21",
+            "name": "Vishal Mishra",
+            "qualification": "",
+            "total_exp": "21 Years"
+          },
+          {
+            "managing_fund_since": "01-October -21",
+            "name": "Silky Jain",
+            "qualification": "",
+            "total_exp": "14 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil  Source ICRA MFI Explorer   Monthend AUM as on 28.02. GST on investment management fees.  Please refer page n"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - If redeemedswitched out within 365 days from the date of allotment. Nil - if redeemedswitched out after 365 days from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO VALUE FUND (CRVF)",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.90"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.4"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.95"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.70"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.93"
+          }
+        ],
+        "min_addl_amt": "1000.00",
+        "min_addl_amt_multiple": "1.00",
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,171.23 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20210903"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "BSE 150 Mid Cap TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "18",
+            "benchmark_index": "18",
+            "count": 25,
+            "fund_manager_managing_fund_since": "18",
+            "fund_manager_name": "18",
+            "fund_manager_total_exp": "18",
+            "load_entry": "18",
+            "load_exit": "18",
+            "main_scheme_name": "18",
+            "min_addl_amt": "18",
+            "min_addl_amt_multiple": "18",
+            "min_amt": "18",
+            "min_amt_multiple": "18",
+            "monthly_aaum_date": "18",
+            "monthly_aaum_value": "18",
+            "mutual_fund_name": "18",
+            "scheme_launch_date": "18"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "06-November-23",
+            "name": "Pranav Gokhale",
+            "qualification": "",
+            "total_exp": "23 Years"
+          },
+          {
+            "managing_fund_since": "02 - December - 22",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "N.A"
+          },
+          {
+            "type": "exit_load",
+            "comment": "In respect of each purchase  switch-in of units 1% - If redeemedswitched out within 365 days from the date of allotment. Nil - if redeemedswitched out after 365 days from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO MID CAP FUND (CRMCF)",
+        "metrics": [],
+        "min_addl_amt": "1000.00",
+        "min_addl_amt_multiple": "1.00",
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,535.20 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20221202"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "NIFTY 500 Multicap 502525 Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "19",
+            "benchmark_index": "19",
+            "count": 25,
+            "fund_manager_managing_fund_since": "19",
+            "fund_manager_name": "19",
+            "fund_manager_total_exp": "19",
+            "load_entry": "19",
+            "load_exit": "19",
+            "main_scheme_name": "19",
+            "min_addl_amt": "19",
+            "min_addl_amt_multiple": "19",
+            "min_amt": "19",
+            "min_amt_multiple": "19",
+            "monthly_aaum_date": "19",
+            "monthly_aaum_value": "19",
+            "mutual_fund_name": "19",
+            "scheme_launch_date": "19"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "28- July-2023",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "28- July-2023",
+            "name": "Vishal Mishra",
+            "qualification": "",
+            "total_exp": "21 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - If redeemedswitched out within 365 days from the date of allotment. Nil - if redeemedswitched out after 365 days from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO MULTI CAP FUND (CRMUCF)",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "3,724.70 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20230728"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "Nifty India Manufacturing TRI"
+        ],
+        "field_location": [
+          {
+            "amc_name": "20",
+            "benchmark_index": "20",
+            "count": 25,
+            "fund_manager_managing_fund_since": "20",
+            "fund_manager_name": "20",
+            "fund_manager_total_exp": "20",
+            "load_entry": "20",
+            "load_exit": "20",
+            "main_scheme_name": "20",
+            "min_addl_amt": "20",
+            "min_addl_amt_multiple": "20",
+            "min_amt": "20",
+            "min_amt_multiple": "20",
+            "monthly_aaum_date": "20",
+            "monthly_aaum_value": "20",
+            "mutual_fund_name": "20",
+            "scheme_launch_date": "20"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "11- March-2024",
+            "name": "Pranav Gokhale",
+            "qualification": "",
+            "total_exp": "23 Years"
+          },
+          {
+            "managing_fund_since": "11- March-2024",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - If redeemedswitched out within 365 days from the date of allotment. 20"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO MANUFACTURING FUND (CRMTF)",
+        "metrics": [],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,505.72 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20240311"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Liquid Overnight Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "21",
+            "benchmark_index": "21",
+            "count": 25,
+            "fund_manager_managing_fund_since": "21",
+            "fund_manager_name": "21",
+            "fund_manager_total_exp": "21",
+            "load_entry": "21",
+            "load_exit": "21",
+            "main_scheme_name": "21",
+            "metrics_avg_maturity": "21",
+            "metrics_macaulay": "21",
+            "metrics_mod_duration": "21",
+            "metrics_ytm": "21",
+            "min_addl_amt": "21",
+            "min_addl_amt_multiple": "21",
+            "min_amt": "21",
+            "min_amt_multiple": "21",
+            "monthly_aaum_date": "21",
+            "monthly_aaum_value": "21",
+            "mutual_fund_name": "21",
+            "scheme_launch_date": "21"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "24-July-19",
+            "name": "Suman Prasad",
+            "qualification": "",
+            "total_exp": "27 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO OVERNIGHT FUND (CROF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.01 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.01 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.01 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.25"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "424.49 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20190724"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Liquid Debt A-I Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "22",
+            "benchmark_index": "22",
+            "count": 25,
+            "fund_manager_managing_fund_since": "22",
+            "fund_manager_name": "22",
+            "fund_manager_total_exp": "22",
+            "load_entry": "22",
+            "load_exit": "22",
+            "main_scheme_name": "22",
+            "metrics_avg_maturity": "22",
+            "metrics_macaulay": "22",
+            "metrics_mod_duration": "22",
+            "metrics_ytm": "22",
+            "min_addl_amt": "22",
+            "min_addl_amt_multiple": "22",
+            "min_amt": "22",
+            "min_amt_multiple": "22",
+            "monthly_aaum_date": "22",
+            "monthly_aaum_value": "22",
+            "mutual_fund_name": "22",
+            "scheme_launch_date": "22"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "18-July-22",
+            "name": "Kunal Jain",
+            "qualification": "",
+            "total_exp": "17 Years"
+          },
+          {
+            "managing_fund_since": "01-April-22",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "If redeemed on Day 1 - Exit Load is 0.0070% If redeemed on Day 2 -Exit Load is 0.0065% If redeemed on Day 3 -Exit Load is 0.0060% If redeemed on Day 4 -Exit Load is 0.0055% If redeemed on Day 5 -Exit Load is 0.0050% If redeemed on Day 6 -Exit Load is 0.0045% If redeemed on or after Day 7 -  Exit Load is Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO LIQUID FUND (CRL)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.09 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.09 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.08 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.03"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "4,942.74 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20020115"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Ultra Short Duration Debt A-I Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "23",
+            "benchmark_index": "23",
+            "count": 25,
+            "fund_manager_managing_fund_since": "23",
+            "fund_manager_name": "23",
+            "fund_manager_total_exp": "23",
+            "load_entry": "23",
+            "load_exit": "23",
+            "main_scheme_name": "23",
+            "metrics_avg_maturity": "23",
+            "metrics_macaulay": "23",
+            "metrics_mod_duration": "23",
+            "metrics_ytm": "23",
+            "min_addl_amt": "23",
+            "min_addl_amt_multiple": "23",
+            "min_amt": "23",
+            "min_amt_multiple": "23",
+            "monthly_aaum_date": "23",
+            "monthly_aaum_value": "23",
+            "mutual_fund_name": "23",
+            "scheme_launch_date": "23"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "16-Sept.-24",
+            "name": "Kunal Jain",
+            "qualification": "",
+            "total_exp": "17 Years"
+          },
+          {
+            "managing_fund_since": "01-April-22",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "39 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO ULTRA SHORT TERM FUND (CRUSTF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.67 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.42 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.39 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.39"
+          }
+        ],
+        "min_addl_amt": "500",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "512.43 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20030916"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Low Duration Debt A-I Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "24",
+            "benchmark_index": "24",
+            "count": 25,
+            "fund_manager_managing_fund_since": "24",
+            "fund_manager_name": "24",
+            "fund_manager_total_exp": "24",
+            "load_entry": "24",
+            "load_exit": "24",
+            "main_scheme_name": "24",
+            "metrics_avg_maturity": "24",
+            "metrics_macaulay": "24",
+            "metrics_mod_duration": "24",
+            "metrics_ytm": "24",
+            "min_addl_amt": "24",
+            "min_addl_amt_multiple": "24",
+            "min_amt": "24",
+            "min_amt_multiple": "24",
+            "monthly_aaum_date": "24",
+            "monthly_aaum_value": "24",
+            "mutual_fund_name": "24",
+            "scheme_launch_date": "24"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "18-July-22",
+            "name": "Kunal Jain",
+            "qualification": "",
+            "total_exp": "17 Years"
+          },
+          {
+            "managing_fund_since": "01-April-22",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO SAVINGS FUND (CRSF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.84 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.79 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.74 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.58"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "800.96 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20050304"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Short Duration Debt A-II Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "25",
+            "benchmark_index": "25",
+            "count": 25,
+            "fund_manager_managing_fund_since": "25",
+            "fund_manager_name": "25",
+            "fund_manager_total_exp": "25",
+            "load_entry": "25",
+            "load_exit": "25",
+            "main_scheme_name": "25",
+            "metrics_avg_maturity": "25",
+            "metrics_macaulay": "25",
+            "metrics_mod_duration": "25",
+            "metrics_ytm": "25",
+            "min_addl_amt": "25",
+            "min_addl_amt_multiple": "25",
+            "min_amt": "25",
+            "min_amt_multiple": "25",
+            "monthly_aaum_date": "25",
+            "monthly_aaum_value": "25",
+            "mutual_fund_name": "25",
+            "scheme_launch_date": "25"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "16-Sep-12",
+            "name": "Suman Prasad",
+            "qualification": "",
+            "total_exp": "27 Years"
+          },
+          {
+            "managing_fund_since": "18-July-22",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil  Source ICRA MFI Explorer  Monthend AUM as on 28.02 GST on investment management fees. Please refer page January 07, 2025 for change in the risk-o-meter of the benc"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO SHORT DURATION FUND (CRSDF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.05 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.46 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.36 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.36"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "338.32 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20110425"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Medium to Long Duration Debt A-III Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "26",
+            "benchmark_index": "26",
+            "count": 25,
+            "load_entry": "26",
+            "load_exit": "26",
+            "main_scheme_name": "26",
+            "metrics_avg_maturity": "26",
+            "metrics_macaulay": "26",
+            "metrics_mod_duration": "26",
+            "metrics_ytm": "26",
+            "min_addl_amt": "26",
+            "min_addl_amt_multiple": "26",
+            "min_amt": "26",
+            "min_amt_multiple": "26",
+            "monthly_aaum_date": "26",
+            "monthly_aaum_value": "26",
+            "mutual_fund_name": "26",
+            "scheme_launch_date": "26"
+          }
+        ],
+        "fund_manager": [],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO INCOME FUND (CRINC)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "13.05 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.76 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "6.49 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.90"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "119.32 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20020919"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Dynamic Bond A-III Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "27",
+            "benchmark_index": "27",
+            "count": 25,
+            "fund_manager_managing_fund_since": "27",
+            "fund_manager_name": "27",
+            "fund_manager_total_exp": "27",
+            "load_entry": "27",
+            "load_exit": "27",
+            "main_scheme_name": "27",
+            "metrics_avg_maturity": "27",
+            "metrics_macaulay": "27",
+            "metrics_mod_duration": "27",
+            "metrics_ytm": "27",
+            "min_addl_amt": "27",
+            "min_addl_amt_multiple": "27",
+            "min_amt": "27",
+            "min_amt_multiple": "27",
+            "monthly_aaum_date": "27",
+            "monthly_aaum_value": "27",
+            "mutual_fund_name": "27",
+            "scheme_launch_date": "27"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "18-July-22",
+            "name": "Kunal Jain",
+            "qualification": "",
+            "total_exp": "17 Years"
+          },
+          {
+            "managing_fund_since": "01-April-22",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO DYNAMIC BOND FUND (CRDBF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "23.81 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "10.51  Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "10.07 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.10"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "124.20  Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20090529"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Corporate Debt A-II Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "28",
+            "benchmark_index": "28",
+            "count": 25,
+            "fund_manager_managing_fund_since": "28",
+            "fund_manager_name": "28",
+            "fund_manager_total_exp": "28",
+            "load_entry": "28",
+            "load_exit": "28",
+            "main_scheme_name": "28",
+            "metrics_avg_maturity": "28",
+            "metrics_macaulay": "28",
+            "metrics_mod_duration": "28",
+            "metrics_ytm": "28",
+            "min_addl_amt": "28",
+            "min_addl_amt_multiple": "28",
+            "min_amt": "28",
+            "min_amt_multiple": "28",
+            "monthly_aaum_date": "28",
+            "monthly_aaum_value": "28",
+            "mutual_fund_name": "28",
+            "scheme_launch_date": "28"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "7-Feb-14",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          },
+          {
+            "managing_fund_since": "18-July-22",
+            "name": "Suman Prasad",
+            "qualification": "",
+            "total_exp": "27 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO CORPORATE BOND FUND (CRCBF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "7.40 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "4.25 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "4.03 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.40"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "121.90 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20140207"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Dynamic Gilt Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "29",
+            "benchmark_index": "29",
+            "count": 25,
+            "fund_manager_name": "29",
+            "fund_manager_total_exp": "29",
+            "load_entry": "29",
+            "load_exit": "29",
+            "main_scheme_name": "29",
+            "metrics_avg_maturity": "29",
+            "metrics_macaulay": "29",
+            "metrics_mod_duration": "29",
+            "metrics_ytm": "29",
+            "min_addl_amt": "29",
+            "min_addl_amt_multiple": "29",
+            "min_amt": "29",
+            "min_amt_multiple": "29",
+            "monthly_aaum_date": "29",
+            "monthly_aaum_value": "29",
+            "mutual_fund_name": "29",
+            "scheme_launch_date": "29"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "",
+            "name": "Kunal Jain",
+            "qualification": "",
+            "total_exp": "17 Years"
+          },
+          {
+            "managing_fund_since": "",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "17 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO GILT FUND (CRGILT)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "25.78 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "11.00 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "10.53 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.13"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "137.51 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "19991229"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Banking and PSU Debt A-II Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "30",
+            "benchmark_index": "30",
+            "count": 25,
+            "fund_manager_managing_fund_since": "30",
+            "fund_manager_name": "30",
+            "fund_manager_total_exp": "30",
+            "load_entry": "30",
+            "load_exit": "30",
+            "main_scheme_name": "30",
+            "metrics_avg_maturity": "30",
+            "metrics_macaulay": "30",
+            "metrics_mod_duration": "30",
+            "metrics_ytm": "30",
+            "min_addl_amt": "30",
+            "min_addl_amt_multiple": "30",
+            "min_amt": "30",
+            "min_amt_multiple": "30",
+            "monthly_aaum_date": "30",
+            "monthly_aaum_value": "30",
+            "mutual_fund_name": "30",
+            "scheme_launch_date": "30"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "16-Sept.-24",
+            "name": "Suman Prasad",
+            "qualification": "",
+            "total_exp": "54 Years"
+          },
+          {
+            "managing_fund_since": "22-August-22",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "69 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "NA"
+          },
+          {
+            "type": "exit_load",
+            "comment": "Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO BANKING AND PSU DEBT FUND (CRBPDF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.69 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.68 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.54 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.45"
+          }
+        ],
+        "min_addl_amt": "1000.00",
+        "min_addl_amt_multiple": "1.00",
+        "min_amt": "5,000.00",
+        "min_amt_multiple": "1.00",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "234.23 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20220822"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 85+15-Conservative Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "31",
+            "benchmark_index": "31",
+            "count": 25,
+            "fund_manager_managing_fund_since": "31",
+            "fund_manager_name": "31",
+            "fund_manager_total_exp": "31",
+            "load_entry": "31",
+            "load_exit": "31",
+            "main_scheme_name": "31",
+            "metrics_avg_maturity": "31",
+            "metrics_beta": "31",
+            "metrics_macaulay": "31",
+            "metrics_mod_duration": "31",
+            "metrics_port_turnover_ratio": "31",
+            "metrics_r_squared_ratio": "31",
+            "metrics_sharpe": "31",
+            "metrics_std_dev": "31",
+            "metrics_ytm": "31",
+            "min_addl_amt": "31",
+            "min_addl_amt_multiple": "31",
+            "min_amt": "31",
+            "min_amt_multiple": "31",
+            "monthly_aaum_date": "31",
+            "monthly_aaum_value": "31",
+            "mutual_fund_name": "31",
+            "scheme_launch_date": "31"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "7-Oct-13",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          },
+          {
+            "managing_fund_since": "10-April-24",
+            "name": "Amit Kadam",
+            "qualification": "",
+            "total_exp": "14 Years"
+          },
+          {
+            "managing_fund_since": "7-Oct-13",
+            "name": "Bectors",
+            "qualification": "",
+            "total_exp": "95 Years"
+          },
+          {
+            "managing_fund_since": "10-April-24",
+            "name": "Bectors",
+            "qualification": "",
+            "total_exp": "90 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "For any redemption  switch out upto 10% of units within 1 Year from the date of allotment - Nil For any redemption  switch out more than 10% of units within 1 Year from the date of allotment - 1% For any redemption  switch out after 1 Year from the date of allotment - Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO CONSERVATIVE HYBRID FUND (CRCHF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "10.90 Years"
+          },
+          {
+            "name": "beta",
+            "value": "1.04"
+          },
+          {
+            "name": "macaulay",
+            "value": "5.21 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "4.95 Years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.35"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.85"
+          },
+          {
+            "name": "sharpe",
+            "value": "-0.02"
+          },
+          {
+            "name": "std_dev",
+            "value": "3.88"
+          },
+          {
+            "name": "ytm",
+            "value": "7.32"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "928.25 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "19880424"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 35+65 - Aggressive Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "32",
+            "benchmark_index": "32",
+            "count": 25,
+            "fund_manager_managing_fund_since": "32",
+            "fund_manager_name": "32",
+            "fund_manager_total_exp": "32",
+            "load_entry": "32",
+            "load_exit": "32",
+            "main_scheme_name": "32",
+            "metrics_avg_maturity": "32",
+            "metrics_beta": "32",
+            "metrics_macaulay": "32",
+            "metrics_mod_duration": "32",
+            "metrics_r_squared_ratio": "32",
+            "metrics_sharpe": "32",
+            "metrics_std_dev": "32",
+            "metrics_ytm": "32",
+            "min_addl_amt": "32",
+            "min_addl_amt_multiple": "32",
+            "min_amt": "32",
+            "min_amt_multiple": "32",
+            "monthly_aaum_date": "32",
+            "monthly_aaum_value": "32",
+            "mutual_fund_name": "32",
+            "scheme_launch_date": "32"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "01-Oct-21",
+            "name": "Ennette Fernandes",
+            "qualification": "",
+            "total_exp": "15 Years"
+          },
+          {
+            "managing_fund_since": "5-July-16",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          },
+          {
+            "managing_fund_since": "7-Oct-13",
+            "name": "Avnish Jain",
+            "qualification": "",
+            "total_exp": "30 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "For any redemption  switch out upto 10% of units within 1 Year from the date of allotment  Nil. For any redemption  switch out more than 10% of units within 1 Year from the date of  allotment - 1%. For any redemption  switch out after 1 Year from the date of allotment - Nil"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO EQUITY HYBRID FUND (CREHF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "7.50 Years"
+          },
+          {
+            "name": "beta",
+            "value": "1.04"
+          },
+          {
+            "name": "macaulay",
+            "value": "3.88 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3.69 Years"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "0.95"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.26"
+          },
+          {
+            "name": "std_dev",
+            "value": "10.52"
+          },
+          {
+            "name": "ytm",
+            "value": "7.30"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "10,242.26 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "19930201"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Canara Robeco Asset Management Company Limited",
+        "benchmark_index": [
+          "CRISIL Hybrid 50+50  Moderate Index"
+        ],
+        "field_location": [
+          {
+            "amc_name": "33",
+            "benchmark_index": "33",
+            "count": 25,
+            "fund_manager_managing_fund_since": "33",
+            "fund_manager_name": "33",
+            "fund_manager_total_exp": "33",
+            "load_entry": "33",
+            "load_exit": "33",
+            "main_scheme_name": "33",
+            "metrics_avg_maturity": "33",
+            "metrics_macaulay": "33",
+            "metrics_mod_duration": "33",
+            "metrics_ytm": "33",
+            "min_addl_amt": "33",
+            "min_addl_amt_multiple": "33",
+            "min_amt": "33",
+            "min_amt_multiple": "33",
+            "monthly_aaum_date": "33",
+            "monthly_aaum_value": "33",
+            "mutual_fund_name": "33",
+            "scheme_launch_date": "33"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "02-Aug.-24",
+            "name": "Shridatta Bhandwaldar",
+            "qualification": "",
+            "total_exp": "19 Years"
+          }
+        ],
+        "load": [
+          {
+            "type": "entry_load",
+            "comment": "Nil"
+          },
+          {
+            "type": "exit_load",
+            "comment": "1% - if redeemedswitched out above 12% of allotted units within 365 days from the date of allotment. Nil - if redeemedswitched out upto 12% of allotted units within 365 days from the date of allotment, Nil - if redeemedswitched out after 365 days from the date of allotment"
+          }
+        ],
+        "main_scheme_name": "CANARA ROBECO BALANCED ADVANTAGE FUND (CRBAF)",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "4.41 Years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.92 Years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.78 Years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.18"
+          }
+        ],
+        "min_addl_amt": "",
+        "min_addl_amt_multiple": "",
+        "min_amt": "5,000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,414.91 Crores",
+        "mutual_fund_name": "Canara Robeco Mutual Fund",
+        "scheme_launch_date": "20240802"
+      }
+    }
+  ]
+}

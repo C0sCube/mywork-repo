@@ -13,22 +13,21 @@ PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['sid_params'])
 
 # +===========COMPLETE THE DOC STRINGS ===============+
 
-class GrandSidData:
+class GrandSidData: #always call this first in subclass
     
-    def __init__(self,fund_name:str,amc_id:str):
+    def __init__(self,amc_id:str):
         with open(PARAMS_PATH, "r") as file:
             config = json5.load(file)
 
         fund_config = config.get(amc_id, {}) #paramters.json5
 
         #amc indicators
-        self.FUND_NAME = fund_name
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
         
         self.SELECTKEYS = fund_config.get("SELECTKEYS",[])
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
-        self.CLONEKEYS = fund_config.get("CLONEKEYS",[])
+        self.CLONEKEYS = fund_config.get("CLONEKEYS",{})
         self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
         self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS",{})
         
@@ -219,36 +218,53 @@ class GrandSidData:
             final_dict['amt'], final_dict['thraftr'] = amt,thraftr
         return {main_key:final_dict}
     
+    # def _extract_manager_data(self, main_key: str, data, pattern: str):
+    #     """
+    #         Extracts fund manager details such as name, designation, experience, and since-date from the given text.
+    #         Args:
+    #             main_key (str): Top-level key for the returned dictionary.
+    #             data (list | str): Input text or list of strings to process.
+    #             pattern (str): Regex key containing the 'pattern' and corresponding 'fields' 
+    #                         (e.g., name, desig, exp, since in variable order).
+    #         Returns:
+    #             dict: A dictionary in the format {main_key: [manager_info, ...]}, 
+    #                 where each manager_info is built using _return_manager_data(**fields).
+    #     """
+    #     # print("running manager data")
+    #     final_list = []
+    #     manager_data = " ".join(data) if isinstance(data, list) else data
+    #     manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+
+    #     pattern_info = self.REGEX[pattern]
+    #     regex_pattern = pattern_info['pattern']
+    #     field_names = pattern_info['fields']
+
+    #     if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
+    #         # print(matches)
+    #         for match in matches:
+    #             if isinstance(match, str):
+    #                 match = (match,)
+    #             record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
+    #             final_list.append(self._return_manager_data(**record))
+    #     # print(final_list)
+    #     return {main_key: final_list}
     def _extract_manager_data(self, main_key: str, data, pattern: str):
-        """
-            Extracts fund manager details such as name, designation, experience, and since-date from the given text.
-            Args:
-                main_key (str): Top-level key for the returned dictionary.
-                data (list | str): Input text or list of strings to process.
-                pattern (str): Regex key containing the 'pattern' and corresponding 'fields' 
-                            (e.g., name, desig, exp, since in variable order).
-            Returns:
-                dict: A dictionary in the format {main_key: [manager_info, ...]}, 
-                    where each manager_info is built using _return_manager_data(**fields).
-        """
         # print("running manager data")
         final_list = []
-        manager_data = " ".join(data) if isinstance(data, list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-
-        pattern_info = self.REGEX[pattern]
-        regex_pattern = pattern_info['pattern']
-        field_names = pattern_info['fields']
-
-        if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
-            # print(matches)
-            for match in matches:
-                if isinstance(match, str):
-                    match = (match,)
-                record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
-                final_list.append(self._return_manager_data(**record))
-        # print(final_list)
-        return {main_key: final_list}
+        manager_regex = self.REGEX[pattern]
+        if not isinstance(data,list):
+            print("_extract_manager_data-> data not list")
+            return list(data)
+        
+        for manager in data:
+            temp = {}
+            for key, val in manager.items():
+                clean_val = re.findall(manager_regex[key],val,re.IGNORECASE)
+                update_val = " ".join(clean_val)
+                temp[key] = update_val
+            if temp["name"]:
+                final_list.append(temp)
+        return {"fund_manager": final_list}
     
     def _extract_lump_data(self, main_key: str, data, pattern:list):
         """
@@ -277,16 +293,16 @@ class GrandSidData:
             final_dict['min_amt'],final_dict['add_amt'] = min_amt, add_amt
         return {main_key: final_dict}
 
-    def _extract_bench_data(self,main_key:str,data,pattern:str):
-        data = " ".join(data) if isinstance(data,list) else data
-        benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
-        matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
-        return {main_key:matches[0] if matches else ""}
+    # def _extract_bench_data(self,main_key:str,data,pattern:str):
+    #     data = " ".join(data) if isinstance(data,list) else data
+    #     benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
+    #     matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
+    #     return {main_key:matches[0] if matches else ""}
     
-    def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
-        date_data = "".join(main_key)
-        matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
-        return {"inception_date": " ".join(matches)}
+    # def _extract_date_data(self, main_key:str,data:list, pattern:str):  # GROWW & Edelweiss
+    #     date_data = "".join(main_key)
+    #     matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
+    #     return {"inception_date": " ".join(matches)}
     
     
     # dynamic function match
@@ -406,259 +422,247 @@ class GrandSidData:
                 finalData[key] = value
         return finalData
     
-    def _formalize_values(self,data:dict):
-        # rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
-        # for k,v in data.items():
-        #     if k in rupee_keys and isinstance(v,str) and re.match("^\\d",v):
-        #         data[k] =f"\u20B9 {v}"         
-        # return data   
-        clean_keys = ["monthly_aaum_value"]
-        for k,v in data.items():
-            if k in clean_keys and isinstance(v,str):
-                data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
-        return data
+    # def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
+    #     return {
+    #         "managing_fund_since":since.title().strip(),
+    #         "name": name.title().strip(),
+    #         "qualification": desig.title().strip(),
+    #         "total_exp": exp.title().strip()
+    #     }
     
-    def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
-        return {
-            "managing_fund_since":since.title().strip(),
-            "name": name.title().strip(),
-            "qualification": desig.title().strip(),
-            "total_exp": exp.title().strip()
-        }
-    
-    def _update_imp_data(self,data:dict,main_scheme:str, pgn:list):
-        return data.update({
-            "amc_name":self.IMP_DATA['amc_name'],
-            "main_scheme_name":main_scheme,
-            "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%Y%m%d"),
-            "page_number":pgn,
-            "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
-            "file_name":""
+    def _update_imp_data(self, data: dict):
+        updated_data = data.copy()  # optional, if you want to avoid mutating the original
+        updated_data.update({
+            "amc_name": self.IMP_DATA.get('amc_name', ''),
+            "mutual_fund_name": self.IMP_DATA.get('mutual_fund_name', ''),
+            "face_value": self.IMP_DATA.get("face_value", ''),
+            "offer_price": self.IMP_DATA.get("offer_price", ''),
         })
-        
+        return updated_data
+
 class ThreeSixtyOne(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class AdityaBirla(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class AngelOne(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class AXISMF(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class BajajFinServ(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class Bandhan(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class BankOfIndia(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class BarodaBNP(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class Canara(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class DSP(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class HDFC(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class Edelweiss(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class FranklinTempleton(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class GROWW(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class Helios(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class HSBC(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS, path)
 
 class ICICI(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Invesco(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class ITI(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class JMMF(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Kotak(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class LIC(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class MahindraManu(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class MIRAE(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class MotilalOswal(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class NAVI(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Nippon(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class NJMF(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class OldBridge(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Samco(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class PGIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class PPFAS(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class QuantMF(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Quantum(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class SBI(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Shriram(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Sundaram(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Tata(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Taurus(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Trust(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Union(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class UTI(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class WhiteOak(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Zerodha(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 class Unifi(ReaderSIDKIM, GrandSidData):
-    def __init__(self, fund_name: str, amc_id: str, path: str):
-        GrandSidData.__init__(self, fund_name, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, amc_id, path)
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
 
 
