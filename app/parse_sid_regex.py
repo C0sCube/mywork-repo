@@ -62,6 +62,10 @@ class SidKimRegex():
     
     def _normalize_whitespace(self,key:str)->str:
         return re.sub(r"\s+", " ", key).strip()
+    
+    def _normalize_alphanumeric(self, text: str) -> str:
+        text = re.sub(r"[^a-zA-Z0-9]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
 
     def _transform_keys(self, data:dict)->dict: #lowercase
         if isinstance(data, dict):

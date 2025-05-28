@@ -51,7 +51,7 @@ class ReaderSIDKIM:
                 if text:
                     text_blocks.append((block["bbox"], text))
 
-        return [text for _, text in sorted(text_blocks, key=lambda b: (b[0][1], b[0][0]))]
+        return [text for _, text in sorted(text_blocks, key=lambda b: (b[0][1], b[0][0]))] #top botton, left right
     
     def _parse_page_zero(self,pages: list) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -114,10 +114,41 @@ class ReaderSIDKIM:
         self.FIELD_LOCATION["page_table"] = int(pages.split(",")[0])
         return final_dict
 
-    def __detect_manager_column_start_by_keywords(self,df, threshold:int, keywords:list)->int:
-        normalized_keywords = [re.sub(r"\s+", " ", kw.strip().lower()) for kw in keywords]
-        first_kw = normalized_keywords[0]
+    # def __detect_manager_column_start_by_keywords(self,df, threshold:int, keywords:list)->int:
+    #     normalized_keywords = [re.sub(r"\s+", " ", kw.strip().lower()) for kw in keywords]
+    #     first_kw = normalized_keywords[0]
 
+    #     match_counts = {}
+
+    #     for col_idx in range(df.shape[1]):
+    #         count = 0
+    #         for row_idx in range(df.shape[0]):
+    #             cell = df.iat[row_idx, col_idx]
+    #             if pd.isna(cell):
+    #                 continue
+
+    #             cell_clean = re.sub(r"\s+", " ", str(cell).strip().lower())
+    #             if first_kw in cell_clean:
+    #                 # Look at the full row from current column index
+    #                 row_segment = df.iloc[row_idx, col_idx:].dropna().astype(str)
+    #                 row_segment_cleaned = row_segment.apply(lambda x: re.sub(r"\s+", " ", x.strip().lower())).tolist()
+    #                 # print(row_segment_cleaned)
+    #                 # print(normalized_keywords)
+    #                 for kw in normalized_keywords:
+    #                     if any(kw in cell for cell in row_segment_cleaned):
+    #                         count += 1
+    #         match_counts[col_idx] = count
+    #     # print(match_counts)
+    #     # Return column index with highest valid match count over threshold
+    #     for col_idx, count in match_counts.items():
+    #         if count >= threshold:
+    #             return col_idx
+
+    #     return 1  # default fallback
+
+    def __detect_manager_column_start_by_keywords(self, df, threshold: int, keywords: list) -> int:
+        regex = SidKimRegex()
+        normalized_keywords = [regex._normalize_alphanumeric(kw) for kw in keywords]
         match_counts = {}
 
         for col_idx in range(df.shape[1]):
@@ -127,24 +158,24 @@ class ReaderSIDKIM:
                 if pd.isna(cell):
                     continue
 
-                cell_clean = re.sub(r"\s+", " ", str(cell).strip().lower())
-                if first_kw in cell_clean:
-                    # Look at the full row from current column index
+                cell_clean = regex._normalize_alphanumeric(cell)
+
+                if any(kw in cell_clean for kw in normalized_keywords):
                     row_segment = df.iloc[row_idx, col_idx:].dropna().astype(str)
-                    row_segment_cleaned = row_segment.apply(lambda x: re.sub(r"\s+", " ", x.strip().lower())).tolist()
-                    # print(row_segment_cleaned)
-                    # print(normalized_keywords)
+                    row_segment_cleaned = [regex._normalize_alphanumeric(x) for x in row_segment]
+
                     for kw in normalized_keywords:
-                        if any(kw in cell for cell in row_segment_cleaned):
-                            count += 1
+                        for seg_cell in row_segment_cleaned:
+                            if kw in seg_cell:
+                                count += 1
+
             match_counts[col_idx] = count
-        # print(match_counts)
-        # Return column index with highest valid match count over threshold
+
         for col_idx, count in match_counts.items():
             if count >= threshold:
                 return col_idx
 
-        return 1  # default fallback
+        return 1  # fallback
 
     def _parse_fund_manager_info(self, pages: str) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -175,7 +206,7 @@ class ReaderSIDKIM:
 
         self.FIELD_LOCATION["page_manager"] = int(pages.split(",")[0])
         return {"fund_manager": manager_list}
-
+    
     # def _parse_fund_manager_info(self,pages:str)->dict:
     #     print(f"Function Running: {inspect.currentframe().f_code.co_name}")
     #     row_count =self.PARAMS["manager_data"]["row_count"]
@@ -261,7 +292,7 @@ class ReaderSIDKIM:
         
         return tertiary_refine
     
-    def _min_add_ops(self,df:dict):
+    def __min_add_ops(self,df:dict):
         try:
             new_values = {}
             for key in ["min_amt", "min_addl_amt"]:
@@ -274,7 +305,7 @@ class ReaderSIDKIM:
             print(f"Error in _min_add_ops ->Min/Add Error: {e}")
         return df
     
-    def _load_ops(self,df:dict):
+    def __load_ops(self,df:dict):
         load_data = df.get("load", {})
         if not isinstance(load_data, dict):
             return df
@@ -321,10 +352,10 @@ class ReaderSIDKIM:
             mappend_data[new_key] = value
         temp = mappend_data
         
-        temp = self._min_add_ops(temp)
+        temp = self.__min_add_ops(temp)
         temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
         # temp = regex._transform_keys(temp) #lowercase
-        temp = self._load_ops(temp)
+        temp = self.__load_ops(temp)
         
         if special_func:
             for main_key,value in temp.items():
