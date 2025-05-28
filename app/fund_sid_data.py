@@ -111,6 +111,33 @@ class GrandSidData: #always call this first in subclass
                     
         return {main_key:final_dict}
     
+    def _extract_generic_non_escape_data(self, main_key: str, data, pattern: str):
+        """
+            Extracts values or key-value pairs from text using regex. Escape chars not removed
+            Args:
+                main_key (str): Top-level key for the returned dict.
+                data (list | str): Input text to search.
+                pattern (str): Regex key for matching patterns.
+            Returns:
+                dict: {main_key: value or {key: value}} based on match structure.
+        """
+        final_dict = {}
+        generic_data = " ".join(data) if isinstance(data,list) else data
+        # generic_data = re.sub(self.REGEX['escape'], "", generic_data).strip()
+      
+        matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
+        for match in matches:
+            if isinstance(match, str):
+                return {main_key: match}
+            elif len(match) == 2:
+                key, value = match
+                final_dict[key.strip()] = value.strip()
+            elif len(match) == 3:
+                key,v1,v2 = match
+                final_dict[key.strip()] = v1.strip()
+                    
+        return {main_key:final_dict}
+    
     def _extract_metric_data(self,main_key:str, data,pattern:str):
         """
             Extracts key-value pairs from text using regex patterns for keys and values.
@@ -355,12 +382,12 @@ class GrandSidData: #always call this first in subclass
         return False
 
     def _delete_fund_data_by_key(self, data: dict) -> dict:
-        patterns = [re.compile(pat, re.IGNORECASE) for pat in self.DELETEKEYS]
-        print(patterns)
-        return {
-            k: v for k, v in data.items()
-            if not any(p.search(k) for p in patterns)
-        }
+        new_data = {}
+        for key, value in data.items():
+            if not any(re.search(pat, key, re.IGNORECASE) for pat in self.DELETEKEYS):
+                new_data[key] = value
+        return new_data
+
                 
     # clean + other
     def _select_by_regex(self, data:dict):
