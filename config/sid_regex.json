@@ -1,12 +1,54 @@
 {
-    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
-    "add_kim_headers": {
-        "amc_name": null,
-        "main_scheme_name": null,
-        "mutual_fund_name": null,
-        "asset_allocation_pattern": []
+    "sid_json_headers": {
+        "amc_name": [],
+        "benchmark_index": [
+            "^benchmark_total_return"
+        ],
+        "fund_manager": [],
+        "load": [
+            "^load_structure$",
+            "^load$"
+        ],
+        "main_scheme_name": [
+            "^name_of_the_scheme$"
+        ],
+        "mutual_fund_name": [],
+        "suitable_for_investors": [
+            ".*suitable_for_investors.*$"
+        ],
+        "scheme_objective": [
+            "^investment_objective$"
+        ],
+        "scheme_code": [
+            "^scheme_code$"
+        ],
+        "type_of_scheme": [
+            "^scheme_type$"
+        ],
+        "open_date": [
+            ".*offer_opens_on$"
+        ],
+        "close_date": [
+            ".*offer_closes_on$"
+        ],
+        "face_value": [],
+        "riskometer_scheme": [],
+        "riskometer_benchmark": [],
+        "min_amt": [
+            "^minimum_application_amount",
+            "^minimum_application_amount.*"
+        ],
+        "min_amt_multiple": [],
+        "min_addl_amt": [
+            "^minimum_additional"
+        ],
+        "min_addl_amt_multiple": [],
+        "page_number": [],
+        "offer_price": [
+            ".*offer_for_units$"
+        ]
     },
-    "add_sid_headers": {
+     "add_sid_headers": {
         "amc_name": null,
         "benchmark_index": null,
         "fund_manager": [],
@@ -26,38 +68,44 @@
         "min_amt_multiple": null,
         "min_addl_amt": null,
         "min_addl_amt_multiple": null,
-        "offer_price":null
+        "offer_price": null
     },
-    "sid_json_headers": {
-        "amc_name": [],
-        "benchmark_index": ["^benchmark_total_return"],
-        "fund_manager": [],
-        "load": ["^load_structure$"],
-        "main_scheme_name": ["^name_of_the_scheme$"],
-        "mutual_fund_name": [],
-        "suitable_for_investors": [],
-        "scheme_objective": ["^investment_objective$"],
-        "scheme_code": ["^scheme_code$"],
-        "type_of_scheme": ["^scheme_type$"],
-        "open_date": [".*offer_opens_on$"],
-        "close_date": [".*offer_closes_on$"],
-        "face_value": [],
-        "riskometer_scheme": [],
-        "riskometer_benchmark": [],
-        "min_amt": ["^minimum_application_amount"],
-        "min_amt_multiple": [],
-        "min_addl_amt": ["^minimum_additional"],
-        "min_addl_amt_multiple": [],
-        "page_number": [],
-        "offer_price":[".*offer_for_units$"]
+    "sid_field_location": {
+        "page_zero": [
+            "suitable_for_investors",
+            "open_date",
+            "close_date",
+            "riskometer_scheme",
+            "riskometer_benchmark"
+        ],
+        "page_table": [
+            "benchmark_index",
+            "load",
+            "main_scheme_name",
+            "scheme_code",
+            "scheme_objective",
+            "type_of_scheme",
+            "min_addl_amt",
+            "min_addl_amt_multiple",
+            "min_amt",
+            "min_amt_multiple",
+            "offer_price"
+        ],
+        "page_manager": ["fund_manager"]
     },
     "kim_json_headers": {
         "amc_name": [],
         "main_scheme_name": [],
         "mutual_fund_name": [],
-        "asset_allocation_pattern":[]
+        "asset_allocation_pattern": []
     },
-    "header_patterns":{
-
-    }
+     "add_kim_headers": {
+        "amc_name": null,
+        "main_scheme_name": null,
+        "mutual_fund_name": null,
+        "asset_allocation_pattern": []
+    },
+    "kim_field_location":{},
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    "header_patterns": {}
 }

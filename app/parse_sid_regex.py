@@ -1,6 +1,6 @@
 import re
 import os, sys
-import json, inspect, json5
+import json, inspect, json5, datetime
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -31,19 +31,13 @@ class SidKimRegex():
         #===================SID===================
         self.SID_HEADER = data.get("sid_json_headers",{})
         self.POPULATE_ALL_SID_INDICE = data.get("add_sid_headers",[])
-        
+        self.SID_FIELD_LOC = data.get("sid_field_location",{})
         #===================KIM===================
         self.KIM_HEADER = data.get("kim_json_headers",{})
         self.POPULATE_ALL_KIM_INDICE = data.get("add_kim_headers",[])
-
+        self.KIM_FIELD_LOC = data.get("kim_field_location",{})
+        
     @staticmethod
-    def extract_date(text: str):
-        try:
-            return parser.parse(text).strftime(r"%y%m%d")
-        except Exception as e:
-            print(f"\n{e}")
-            return text
-
     def header_mapper(self, text: str)->str:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         text = re.sub(r"[^\w\s]+|\u00b7", "", text).strip()
@@ -114,12 +108,46 @@ class SidKimRegex():
                 data[key] = value
         return {k:data[k] for k in sorted(data)} #sorted
                 
+    def _field_locations(self, data: dict, field_location: dict, typez: str) -> dict:
+        FIELD_LOC = self.SID_FIELD_LOC if typez == "sid" else self.KIM_FIELD_LOC
+        final_dict = {}
+
+        for key, value in FIELD_LOC.items():
+            page_number = field_location.get(key)
+            if page_number is None:
+                continue
+
+            for index in value:
+                if data.get(index):
+                    final_dict[index] = page_number
+
+        data["field_location"] = {k:v for k,v in sorted(final_dict.items())}
+        # print(field_location)
+        # print(FIELD_LOC)
+        return dict(sorted(data.items()))
+
+    def _final_json_construct(self,data:dict,doc_name:str)->dict:
+        final_dict = {
+            "metadata":{
+                "document_name": doc_name,
+                "file_type": "sid",
+                "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
+            },
+            "value":{}
+        }
+        
+        final_dict["value"] = data
+        return final_dict
+    
+    
+    
+    #FORMAT
     def _check_replace_type(self,data:dict,fund:str):
         expected_types = {
             "amc_name": str,
             "benchmark_index": str,
             "fund_manager": list,
-            "load": dict,
+            "load": list,
             "main_scheme_name": str,
             "mutual_fund_name": str,
             "suitable_for_investors": str,
@@ -129,6 +157,7 @@ class SidKimRegex():
             "open_date": str,
             "close_date": str,
             "face_value": str,
+            "offer_price":str,
             "riskometer_scheme": str,
             "riskometer_benchmark": str,
             "min_addl_amt": str,
@@ -149,17 +178,6 @@ class SidKimRegex():
 
         return data
     
-    # def _sanitize_fund(self,fund:str,fund_name:str):
-        
-    #     fund = re.sub(self.ESCAPE, '', fund)
-    #     fund = re.sub("\\s+", ' ', fund)
-    #     for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
-    #         if re.search(regex, fund, re.IGNORECASE):
-    #             print(f"{fund} --> {key}")
-    #             fund = key
-    #             break
-    #     return fund
-
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
             date_str = data.get("scheme_launch_date","")
@@ -168,56 +186,6 @@ class SidKimRegex():
             return data
         except (ValueError, TypeError): #empty string, str other than date
             return data
-
-    def _convert_year_format(self,data):
-        metrics = data.get("metrics",{})
-        time_str = metrics["macaulay"]
-        year_value = time_str
-        if any(x in time_str.lower() for x in ["days", "day","da"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value / 365)
-        elif any(x in time_str.lower() for x in ["months", "month","mon","mont"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value / 12.0)
-        elif any(x in time_str.lower() for x in ["years", "year","yea","ye"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value)
-        return year_value
-    
-    def _remove_duplicates(self,text):
-        if not text:
-            return text
-        seen = []
-        text = text.split(" ")
-        for word in text:
-            if word not in seen:
-                seen.append(word)
-        return " ".join(seen)
-
-    
-    def _format_fund_manager(self, data):
-        fund_managers = data.get("fund_manager", [])
-        if not fund_managers:
-            return data
-
-        clean_fund_managers = []
-        for manager in fund_managers:
-            name = manager.get("name", "")
-            if not name:
-                continue
-
-            # Clean and normalize name
-            cleaned_name = self.MANAGER_STOP_WORDS.sub('', name)
-            cleaned_name = re.sub("[^A-Za-z\\s]","", cleaned_name,re.IGNORECASE)
-            cleaned_name = self._remove_duplicates(cleaned_name)
-            cleaned_name = re.sub(r'\s+', ' ', cleaned_name).strip()
-
-            if cleaned_name and len(cleaned_name)>=3:
-                manager["name"] = cleaned_name
-                clean_fund_managers.append(manager)
-
-        data["fund_manager"] = clean_fund_managers
-        return data
 
     def _format_amt_data(self,data):
         clean_terms = {}

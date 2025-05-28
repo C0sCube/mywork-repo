@@ -24,44 +24,65 @@ class ReaderSIDKIM:
         self.PDF_PATH = path #amc factsheet pdf path
         self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
+        self.FIELD_LOCATION = {
+            "page_zero":0,
+            "page_table":0,
+            "page_manager":0    
+        } #to update field location as code progresses
     
         os.makedirs(os.path.dirname(self.JSONPATH), exist_ok=True)
     
-    def _ocr_pdf(self,path:str):
+    def _ocr_pdf(self,path:str)->str:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
         return ocr_path
     
-    def _parse_page_zero(self,pages:list):
-        
-        final_dict,bbox_text,other_text = {},[],[]
+    def __extract_sorted_text_blocks(self,page,clip_area=None)->list:
+        blocks = page.get_text("dict", clip=clip_area)["blocks"]
+        text_blocks = []
+        for block in blocks:
+            if block.get("type") == 0:
+                text = ""
+                for line in block.get("lines", []):
+                    for span in line.get("spans", []):
+                        text += span.get("text", "")
+                text = re.sub(r"\s+", " ", text).strip()
+                if text:
+                    text_blocks.append((block["bbox"], text))
+
+        return [text for _, text in sorted(text_blocks, key=lambda b: (b[0][1], b[0][0]))]
+    
+    def _parse_page_zero(self,pages: list) -> dict:
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        final_dict = {"risk_bbox": [], "other_text": []}
         risk_bbox = self.PARAMS["page_zero"]["bbox"]
+
         with fitz.open(self.PDF_PATH) as doc:
-            for pgn, page in enumerate(doc):
-                if pgn in pages:
-                    bbox_text.append(page.get_text("text", clip=risk_bbox).replace("\n", ""))
-                    other_text.append(page.get_text("text").replace("\n", ""))
-            final_dict["risk_bbox"] = bbox_text
-            final_dict["other_text"] = other_text
+            for pgn in pages:
+                page = doc[pgn]
+                final_dict["risk_bbox"].extend(self.__extract_sorted_text_blocks(page,clip_area=risk_bbox)) # Extract bbox text
+                final_dict["other_text"].extend(self.__extract_sorted_text_blocks(page)) # Extract full text
+        self.FIELD_LOCATION["page_zero"] = int(pages[0])
         return final_dict
 
-    def __detect_column_start_by_keywords(self,df,threshold,keywords):
-        
-        for i in range(df.shape[1]):
-            col = df.iloc[:, i]
-            col_cleaned = col.dropna().astype(str)
-            col_cleaned = col_cleaned.apply(lambda x: re.sub(r"\s+", " ", x).strip())
-            col_cleaned = col_cleaned[col_cleaned.str.strip() != ""]
+    def __detect_column_start_by_keywords(self,df, threshold:int, keywords:list)->int:
+        #important to noramalize both keywords and col_cleaned for == ops
+        normalized_keywords = [re.sub(r"\s+", " ", kw.strip().lower()) for kw in keywords]
 
-            count = sum(any(kw in cell for kw in keywords) for cell in col_cleaned)
+        for i in range(df.shape[1]):
+            col = df.iloc[:, i].dropna().astype(str)
+            col_cleaned = col.apply(lambda x: re.sub(r"\s+", " ", x).strip().lower())
+            col_cleaned = col_cleaned[col_cleaned != ""]
+
+            count = sum(any(kw in cell for kw in normalized_keywords) for cell in col_cleaned)
 
             if count >= threshold:
                 return i
         return 1
 
-    def _parse_scheme_table_data(self,pages:str):
-        
+    def _parse_scheme_table_data(self,pages:str)->dict:
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         final_dict = {}
         threshold =self.PARAMS["table_data"]["threshold"]
         keywords = self.PARAMS["table_data"]["keywords"]
@@ -89,41 +110,106 @@ class ReaderSIDKIM:
                     if isinstance(cell_value, str) and cell_value.strip() != '':
                         current_title_values.append(cell_value)
             final_dict[title] = current_title_values
-            
+        
+        self.FIELD_LOCATION["page_table"] = int(pages.split(",")[0])
         return final_dict
 
-    def _parse_fund_manager_info(self,pages:str):
+    def __detect_manager_column_start_by_keywords(self,df, threshold:int, keywords:list)->int:
+        normalized_keywords = [re.sub(r"\s+", " ", kw.strip().lower()) for kw in keywords]
+        first_kw = normalized_keywords[0]
+
+        match_counts = {}
+
+        for col_idx in range(df.shape[1]):
+            count = 0
+            for row_idx in range(df.shape[0]):
+                cell = df.iat[row_idx, col_idx]
+                if pd.isna(cell):
+                    continue
+
+                cell_clean = re.sub(r"\s+", " ", str(cell).strip().lower())
+                if first_kw in cell_clean:
+                    # Look at the full row from current column index
+                    row_segment = df.iloc[row_idx, col_idx:].dropna().astype(str)
+                    row_segment_cleaned = row_segment.apply(lambda x: re.sub(r"\s+", " ", x.strip().lower())).tolist()
+                    # print(row_segment_cleaned)
+                    # print(normalized_keywords)
+                    for kw in normalized_keywords:
+                        if any(kw in cell for cell in row_segment_cleaned):
+                            count += 1
+            match_counts[col_idx] = count
+        # print(match_counts)
+        # Return column index with highest valid match count over threshold
+        for col_idx, count in match_counts.items():
+            if count >= threshold:
+                return col_idx
+
+        return 1  # default fallback
+
+    def _parse_fund_manager_info(self, pages: str) -> dict:
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         
-        row_count =self.PARAMS["manager_data"]["row_count"]
+        row_count = self.PARAMS["manager_data"]["row_count"]
         match_order = self.PARAMS["manager_data"]["order"]
-        regex = SidKimRegex()
+        threshold = self.PARAMS["manager_data"]["threshold"]
+        keywords = self.PARAMS["manager_data"]["keywords"]
         
+        regex = SidKimRegex()
+
         manager_tables = camelot.read_pdf(self.PDF_PATH, pages=pages, flavor='lattice')
         dfs = pd.concat([table.df for table in manager_tables], ignore_index=True)
         dfs = dfs.applymap(lambda x: x.replace('\n', ' ') if isinstance(x, str) else x)
         
-        data_rows = [list(row) for _, row in dfs.iterrows() if row.count()==row_count]
+        col_start = self.__detect_manager_column_start_by_keywords(dfs, threshold, keywords)
+        dfs = dfs.iloc[:, col_start:]
+
+        data_rows = [list(row) for _, row in dfs.iterrows() if row.count() >= row_count] #row_count gets NA sometimes
+
         manager_list = []
         for data_r in data_rows:
             manager_list.append({
-                "name":regex._normalize_whitespace(data_r[match_order["name"]]),
-                "experience":regex._normalize_whitespace(data_r[match_order["experience"]]),
-                "qualification":regex._normalize_whitespace(data_r[match_order["qualification"]]),
+                "name": regex._normalize_whitespace(data_r[match_order["name"]]),
+                "experience": regex._normalize_whitespace(data_r[match_order["experience"]]),
+                "qualification": regex._normalize_whitespace(data_r[match_order["qualification"]]),
             })
-        return  {"fund_manager": manager_list}
+
+        self.FIELD_LOCATION["page_manager"] = int(pages.split(",")[0])
+        return {"fund_manager": manager_list}
+
+    # def _parse_fund_manager_info(self,pages:str)->dict:
+    #     print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+    #     row_count =self.PARAMS["manager_data"]["row_count"]
+    #     match_order = self.PARAMS["manager_data"]["order"]
+    #     regex = SidKimRegex()
+        
+    #     manager_tables = camelot.read_pdf(self.PDF_PATH, pages=pages, flavor='lattice')
+    #     dfs = pd.concat([table.df for table in manager_tables], ignore_index=True)
+    #     dfs = dfs.applymap(lambda x: x.replace('\n', ' ') if isinstance(x, str) else x)
+        
+    #     data_rows = [list(row) for _, row in dfs.iterrows() if row.count()==row_count]
+    #     manager_list = []
+    #     for data_r in data_rows:
+    #         manager_list.append({
+    #             "name":regex._normalize_whitespace(data_r[match_order["name"]]),
+    #             "experience":regex._normalize_whitespace(data_r[match_order["experience"]]),
+    #             "qualification":regex._normalize_whitespace(data_r[match_order["qualification"]]),
+    #         })
+        
+    #     self.FIELD_LOCATION["page_manager"] = int(pages.split(",")[0])
+    #     return  {"fund_manager": manager_list}
     
-    def get_data(self,pages):
-        # | Tool      | Page Indexing | Example                  |
-        # | --------- | ------------- | ------------------------ |
-        # | `fitz`    | **0-based**   | `doc[0]` → first page    |
-        # | `camelot` | **1-based**   | `pages="1"` → first page |
-        final_dict = {}
+    # def get_data(self,pages):
+    #     # | Tool      | Page Indexing | Example                  |
+    #     # | --------- | ------------- | ------------------------ |
+    #     # | `fitz`    | **0-based**   | `doc[0]` → first page    |
+    #     # | `camelot` | **1-based**   | `pages="1"` → first page |
+    #     final_dict = {}
 
-        final_dict.update(self._parse_page_zero(pages))
-        final_dict.update(self._parse_scheme_table_data(pages))
-        final_dict.update(self._parse_fund_manager_info(pages))
+    #     final_dict.update(self._parse_page_zero(pages))
+    #     final_dict.update(self._parse_scheme_table_data(pages))
+    #     final_dict.update(self._parse_fund_manager_info(pages))
 
-        return final_dict
+    #     return final_dict
 
     
     def _get_unique_key(self,base_key:str, data:dict):
@@ -189,18 +275,27 @@ class ReaderSIDKIM:
         return df
     
     def _load_ops(self,df:dict):
+        load_data = df.get("load", {})
+        if not isinstance(load_data, dict):
+            return df
         try:
-            new_load = {"entry_load": None,"exit_load": None}
-            for load_key, load_value in df.get("load", {}).items():
+            new_load = []
+            for load_key, load_value in load_data.items():
+                load_section = {
+                    "comment":None,
+                    "type":None,
+                    "value":""
+                }
                 value = load_value if isinstance(load_value, str) else " ".join(load_value)
-                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
-                    new_load["entry_load"] = value
-                elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
-                    new_load["exit_load"] = value
-                else:
-                    new_load[load_key] = value
+                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
+                    load_section["comment"] = value
+                    load_section["type"] = "entry_load"
+                    new_load.append(load_section)
+                elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
+                    load_section["comment"] = value
+                    load_section["type"] = "exit_load"
+                    new_load.append(load_section)
         except Exception as e:
-            # logger.error(e)
             print(f"Error in _load_ops ->Load Error: {e}")
         
         df["load"] = new_load
@@ -240,5 +335,7 @@ class ReaderSIDKIM:
         temp = self._promote_key_from_dict(temp)
         temp = self._update_imp_data(temp) #update default values like amc_name
         # temp = regex._check_replace_type(temp,fund) #type conversion
-        
+        temp = regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
+        temp = regex._final_json_construct(temp, self.DOCUMENT_NAME)
+        temp = self._delete_fund_data_by_key(temp) #final delete unwanted keys
         return dict(sorted(temp.items()))

@@ -29,7 +29,8 @@ class GrandSidData: #always call this first in subclass
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
         self.CLONEKEYS = fund_config.get("CLONEKEYS",{})
         self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
-        self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS",{})
+        self.PROMOTEKEYS = fund_config.get("PROMOTEKEYS",{})
+        self.DELETEKEYS = fund_config.get("DELETEKEYS",[])
         
         self.IMP_DATA = fund_config.get("IMP_DATA",{})
         self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
@@ -69,10 +70,10 @@ class GrandSidData: #always call this first in subclass
 
         final_dict = {}
         scheme_data = " ".join(data) if isinstance(data,list) else data
-        scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
+        # scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
         unique_set = set()
         for pattern in patterns:
-            if matches:= re.findall(pattern, scheme_data, re.MULTILINE):
+            if matches:= re.findall(pattern, scheme_data, re.MULTILINE|re.IGNORECASE):
                 for match in matches:
                     key, value, dummy = match[0].strip().lower(),match[1].strip(),match[2]
                     if key not in unique_set:
@@ -306,20 +307,27 @@ class GrandSidData: #always call this first in subclass
                     break
         return data
     
-    def _promote_key_from_dict(self,data:dict):
-        for section_key, promote_map in self.PROMOTEKEYS.items():
-            if section_key not in data:
+    def _promote_key_from_dict(self, data: dict):
+        for section_key_pattern, promote_map in self.PROMOTEKEYS.items():
+            section_regex = re.compile(section_key_pattern, re.IGNORECASE)
+            matched_section_key = None
+            for key in data:
+                if section_regex.search(key):
+                    matched_section_key = key
+                    break
+            # print(matched_section_key)
+            if not matched_section_key:
                 continue
-
             for new_key, pattern_str in promote_map.items():
                 pattern = re.compile(pattern_str, re.IGNORECASE)
-                for key, val in data[section_key].items():
-                    if pattern.match(key):
+                for key, val in data[matched_section_key].items():
+                    if pattern.search(key):
+                        # print(key,new_key)
                         data[new_key] = val
-                        del data[section_key][key]
+                        del data[matched_section_key][key]
                         break
         return data
-    
+
     def _combine_fund_data(self, data: dict):
         if not isinstance(data, dict):
             return data
@@ -346,7 +354,14 @@ class GrandSidData: #always call this first in subclass
                 return True
         return False
 
-
+    def _delete_fund_data_by_key(self, data: dict) -> dict:
+        patterns = [re.compile(pat, re.IGNORECASE) for pat in self.DELETEKEYS]
+        print(patterns)
+        return {
+            k: v for k, v in data.items()
+            if not any(p.search(k) for p in patterns)
+        }
+                
     # clean + other
     def _select_by_regex(self, data:dict):
         finalData = {}

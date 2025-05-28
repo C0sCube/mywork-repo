@@ -55,3 +55,6 @@ CLASS_REGISTRY = {
     # "71_0": Zerodha,
     # "97_0": Unifi
 }
+
+SID_CLASS_REGISTRY = {}
+KIM_CLASS_REGISTRY = {}

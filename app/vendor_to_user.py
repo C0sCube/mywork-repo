@@ -94,6 +94,11 @@ class VendorMapper:
         
         return final_container
     
+class SidMapper:
+    
+    def __init__(self):
+        pass
+    
     
 if __name__ == "__main__":
     map_vendor = VendorMapper()
@@ -116,5 +121,4 @@ if __name__ == "__main__":
                 json.dump(mapped_data, f, indent=2, ensure_ascii=False)
 
     print(f"Mapping complete. Output saved in: {output_folder}")
-    
     
