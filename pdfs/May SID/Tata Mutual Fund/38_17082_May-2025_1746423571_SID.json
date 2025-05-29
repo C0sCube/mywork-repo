@@ -1,0 +1,68 @@
+{
+    "metadata": {
+        "document_name": "38_17082_May-2025_1746423571_SID.pdf",
+        "file_type": "sid",
+        "process_date": "20250529"
+    },
+    "value": {
+        "amc_name": "Tata Asset Management Limited",
+        "benchmark_index": "Crisil Composite Bond Fund Index (60) + Nifty 50 Arbitrage Index (40) (TRI)",
+        "close_date": "19.05.2025",
+        "face_value": "Rs.10",
+        "field_location": {
+            "benchmark_index": 3,
+            "close_date": 0,
+            "fund_manager": 12,
+            "load": 3,
+            "main_scheme_name": 3,
+            "min_addl_amt": 3,
+            "min_addl_amt_multiple": 3,
+            "min_amt": 3,
+            "min_amt_multiple": 3,
+            "offer_price": 3,
+            "open_date": 0,
+            "scheme_code": 3,
+            "scheme_objective": 3,
+            "suitable_for_investors": 0,
+            "type_of_scheme": 3
+        },
+        "fund_manager": [
+            {
+                "name": "Sailesh Jain",
+                "experience": "22",
+                "qualification": "MBA (Finance)"
+            },
+            {
+                "name": "Abhishek Sonthalia",
+                "experience": "16",
+                "qualification": "CFA Charter holder, management programme from NITIE (Mumbai), Bachelor in Commerce"
+            }
+        ],
+        "load": [
+            {
+                "comment": "Not Applicable (Pursuant to provision no. 10.4.1.a of SEBI Master Circular on Mutual Fund dated June 27, 2024,  no entry load will be charged by the Scheme to the investor)",
+                "type": "entry_load",
+                "value": ""
+            },
+            {
+                "comment": ".25 % of the applicable NAV, if redeemed / switched out / withdrawn on or before expiry of 30 Days from the date  of allotment.",
+                "type": "exit_load",
+                "value": ""
+            }
+        ],
+        "main_scheme_name": "Tata Income Plus Arbitrage Active FOF",
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "mutual_fund_name": "Tata Mutual Fund",
+        "offer_price": "Rs. 10",
+        "open_date": "05.05.2025",
+        "riskometer_benchmark": null,
+        "riskometer_scheme": null,
+        "scheme_code": "TATA/O/O /FOD/25/04/0076",
+        "scheme_objective": "To provide long-term capital appreciation by investing in domestic mutual funds including debt oriented mutual fund  schemes & arbitrage-based equity mutual fund schemes. However, there is no assurance or guarantee that the  investment objective of the Scheme will be achieved.",
+        "suitable_for_investors": "*: \u2022 Long Term Capital Appreciation \u2022 Investment in domestic mutual funds including debt oriented mutual fund schemes & arbitrage-based equity mutual fund schemes. *",
+        "type_of_scheme": "An open-ended fund of fund investing in domestic mutual funds including debt oriented mutual fund schemes &  arbitrage-based equity mutual fund schemes"
+    }
+}

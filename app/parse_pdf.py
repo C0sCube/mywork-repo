@@ -393,16 +393,9 @@ class Reader:
     
     #PROCESS
     @staticmethod
-    def _to_rgb_tuple(color_int):
-        c = color_int & 0xFFFFFF
-        r = (c >> 16) & 0xFF
-        g = (c >> 8) & 0xFF
-        b = c & 0xFF
-        return (r/255.0, g/255.0, b/255.0)
-    
-    @staticmethod
     def _generate_pdf_from_data(data: dict, output_path: str) -> None:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        regex = FundRegex()
         with fitz.open() as doc:
             TITLE_FONT_SIZE = 24
             TITLE_POSITION = 72
@@ -469,7 +462,7 @@ class Reader:
                                 text,
                                 fontsize=size,
                                 fontname=fontname,
-                                color=Reader._to_rgb_tuple(color),
+                                color=regex._to_rgb_tuple(color), # _to_rgb_tuple shifted to class FundRegex()
                             )
 
                             except Exception:
@@ -478,7 +471,7 @@ class Reader:
                                     text,
                                     fontsize=size,
                                     fontname=DEFAULT_FONT_NAME,
-                                    color=Reader._to_rgb_tuple(color),
+                                    color=regex._to_rgb_tuple(color), #_to_rgb_tuple shifted to class FundRegex()
                                 )
                         except Exception as e:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
@@ -488,18 +481,6 @@ class Reader:
     def _extract_data_from_pdf(self,path: str, fund:str):
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         final_data = {}
-        # with fitz.open(path) as doc:
-        #     for page in doc:
-        #         content = page.get_text("text").split("\n")
-        #         if content:
-        #             key, val = content[0], content[1:]
-        #             if key not in final_data:
-        #                 final_data[key] = val
-        #             else:
-        #                 final_data[key].extend(val)
-
-        # return final_data
-        
         with fitz.open(path) as doc:
             for page in doc:
                 lines = page.get_text("text").split("\n")

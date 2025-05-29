@@ -241,7 +241,51 @@ class ReaderSIDKIM:
     #     final_dict.update(self._parse_fund_manager_info(pages))
 
     #     return final_dict
+    
+    # =================== KIM ===================
+    
+    def __is_percentage(self,val):
+        return isinstance(val, str) and bool(re.fullmatch(r"(\d+\%?\s*\d*\%?)+", val.strip()))
 
+    def __detect_kim_row_start_end(self,dfs):
+        regex = SidKimRegex()
+        pattern = re.compile(r"^(minimum|maximum|minimummaximum|maximumminimum|instruments)$", re.IGNORECASE)
+        row_start,row_end = 0,0
+        for index, row in dfs.iterrows():
+            values = [regex._normalize_alphanum_percentage(val) for val in row if isinstance(val, str)]
+            matches = [val for val in values if re.match(pattern, val)]
+            
+            if len(matches) >= 1:  # both minimum and maximum-type matches present
+                row_start = index
+                # print(row_start)
+                break
+        
+        row_end = row_start
+        for idx in range(row_start + 1, len(dfs)):
+            row = list(dfs.iloc[idx])
+            if any(self.__is_percentage(val) for val in row):
+                row_end = idx
+                # print(row_end)
+            else:
+                break
+        print(f"row start: {row_start} row end: {row_end}")
+        return row_start,row_end
+    
+    def _get_kim_data(self,pages:str):
+        
+        table_data = camelot.read_pdf(self.PDF_PATH,pages=pages, flavor="lattice")
+        dfs = pd.concat([table.df for table in table_data], ignore_index=True)
+        dfs = dfs.replace(r"\n","",regex=True).replace(r'^\s*$', pd.NA, regex=True).dropna(axis=1, how='all')
+        row_start,row_end = self.__detect_kim_row_start_end(dfs)
+        df = dfs.iloc[row_start:row_end+1,:].dropna(axis=1,how="all")
+        df.fillna("",inplace=True)
+        
+        #fill header
+        if pd.isna(df.iloc[0, 0]) or df.iloc[0, 0] == '':
+            df.iat[0, 0] = "Instrument"
+        # if pd.isna(df.iloc[0, -1]) or df.iloc[0, -1] == '':
+        #     df.iat[0, -1] = "Risk"
+        return df.fillna("").values.tolist()
     
     def _get_unique_key(self,base_key:str, data:dict):
         for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:

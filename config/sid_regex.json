@@ -2,7 +2,8 @@
     "sid_json_headers": {
         "amc_name": [],
         "benchmark_index": [
-            "^benchmark_total_return"
+            "^benchmark_total_return.*$",
+            "^benchmark$"
         ],
         "fund_manager": [],
         "load": [
@@ -26,10 +27,12 @@
             "^scheme_type$"
         ],
         "open_date": [
-            ".*offer_opens_on$"
+            ".*offer_opens_on$",
+            ".*new_fund_offer_nfo_opens"
         ],
         "close_date": [
-            ".*offer_closes_on$"
+            ".*offer_closes_on$",
+            ".*new_fund_offer_nfo_closes"
         ],
         "face_value": [],
         "riskometer_scheme": [],

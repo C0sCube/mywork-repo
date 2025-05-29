@@ -1,7 +1,7 @@
 from app.fund_data import *
 
 CLASS_REGISTRY = {
-    # "18_0": ThreeSixtyOne,
+    "18_0": ThreeSixtyOne,
     # "3_0": AdityaBirla,
     # "96_0": AngelOne,
     # "1_0": AXISMF,

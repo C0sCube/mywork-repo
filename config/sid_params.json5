@@ -3,7 +3,7 @@
     AMC: "360 One Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       table_data: {
         threshold: 3,
@@ -20,7 +20,7 @@
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -47,7 +47,7 @@
     AMC: "Aditya Birla Sun Life Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       table_data: {
         threshold: 3,
@@ -64,7 +64,7 @@
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -89,14 +89,9 @@
   },
   "96": {
     AMC: "Angel One Mutual Fund",
-    PARAMS: {
+     PARAMS: {
       page_zero: {
-        bbox: [
-          5,
-          125,
-          190,
-          455
-        ]
+        bbox: [0, 120, 190, 450],
       },
       table_data: {
         threshold: 3,
@@ -110,10 +105,17 @@
       },
       manager_data: {
         row_count: 4,
+        threshold: 2,
+        keywords: [
+          "Name Designation",
+          "Name",
+          "Age Qualification",
+          "Brief Experience",
+        ],
         order: {
           name: 0,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -150,32 +152,17 @@
         "_extract_str_data",
         null,
       ],
-      "^benchmark": [
-        "_extract_generic_data",
-        "benchmark"
-      ],
-      "^fund_manager": [
-        "_extract_manager_data",
-        "manager"
-      ],
-      "^other_text": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^(minimum_additional|minimum_application_amount)": [
         "_extract_amt_data",
         "min_amt",
       ],
-      "^load_structure": [
-        "_extract_load_data",
-        "load"
-      ],
-      ".*(opens_on|closes_on)$": [
-        "_extract_generic_data",
-        "date"
-      ],
+      "^load_structure": ["_extract_load_data", "load"],
+      ".*(opens_on|closes_on)$": ["_extract_generic_data", "date"],
       "^(.*offer_for_units|new_fund_offer_price.+)$": [
         "_extract_generic_data",
         "nfo",
@@ -206,7 +193,7 @@
     AMC: "Axis Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       table_data: {
         threshold: 3,
@@ -223,7 +210,7 @@
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -250,12 +237,7 @@
     AMC: "Bajaj Finserv Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          55,
-          255,
-          557,
-          660
-        ]
+        bbox: [55, 255, 557, 660],
       },
       table_data: {
         threshold: 2,
@@ -272,7 +254,7 @@
         order: {
           name: 0,
           experience: 0,
-          qualification: 0
+          qualification: 0,
         },
       },
     },
@@ -299,7 +281,7 @@
     AMC: "Bandhan Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       table_data: {
         threshold: 3,
@@ -316,7 +298,7 @@
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -343,14 +325,14 @@
     AMC: "Bank Of India Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -377,12 +359,7 @@
     AMC: "Baroda Bnp Paribas Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          120,
-          200,
-          450
-        ]
+        bbox: [0, 120, 200, 450],
       },
       table_data: {
         threshold: 3,
@@ -401,22 +378,24 @@
           "Name of Fund Manager",
           "Age & Qualifications",
           "Previous Experience",
-          "Managing Scheme Since"
+          "Managing Scheme Since",
         ],
         order: {
           name: 0,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
     REGEX: {
-      benchmark: "(.+?)\\s*(?:The\\s+Scheme\\s+is|The\\s+Benchmark\\s+of).+$",
-      load: "()E?xit\\s*Load\\:?(.+?)$",
+      benchmark: "Name\\s*of\\s*Benchmark\\s*\\:?(.+?)\\s*J?ustification.+$",
+      load: "()E?xit\\s*Load\\s*\\:?(.+?)$",
       scheme: [
         "Offer of Units",
-        "NAME OF MUTUAL FUND",
-        "EOL"
+        "New Fund Offer \\(NFO\\) Opens on\\s*\\:?",
+        "New Fund Offer \\(NFO\\) Closes on\\s*\\:?",
+        "Scheme Re-opens on",
+        "EOL",
       ],
       scheme2: [
         "suitable for investors who are seeking",
@@ -432,7 +411,7 @@
         experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
         qualification: "(.+)$",
       },
-      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      min_amt: "(?:Lumpsum Investment)?\\:?\\s*(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
       nfo: "Rs\\.?\\s*\\d+",
       escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
     },
@@ -440,13 +419,40 @@
       amc_name: "Baroda Bnp Paribas Asset Management Limited",
       mutual_fund_name: "Baroda Bnp Paribas Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*(_nfo_opens_on|_nfo_closes_on)",
+      "^(benchmark_total.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -458,14 +464,14 @@
     AMC: "Canara Robeco Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -492,12 +498,7 @@
     AMC: "Dsp Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          120,
-          220,
-          620
-        ]
+        bbox: [0, 120, 220, 620],
       },
       table_data: {
         threshold: 3,
@@ -521,7 +522,7 @@
         order: {
           name: 0,
           experience: 4,
-          qualification: 3
+          qualification: 3,
         },
       },
     },
@@ -562,32 +563,14 @@
         "_extract_str_data",
         null,
       ],
-      "^benchmark": [
-        "_extract_generic_data",
-        "benchmark"
-      ],
-      "^new_fund_offer_price.*": [
-        "_extract_generic_data",
-        "nfo"
-      ],
-      "^other_text": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^risk_bbox": [
-        "_extract_scheme_data",
-        "scheme2"
-      ],
-      fund_manager: [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^load_structure": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^load_structure": ["_extract_load_data", "load"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
@@ -616,14 +599,14 @@
     AMC: "Edelweiss Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -650,14 +633,14 @@
     AMC: "Franklin Templeton Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -684,14 +667,14 @@
     AMC: "Groww Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -718,14 +701,14 @@
     AMC: "Hdfc Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -752,14 +735,14 @@
     AMC: "Helios Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -786,14 +769,14 @@
     AMC: "Hsbc Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -820,14 +803,14 @@
     AMC: "Icici Prudential Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -854,14 +837,14 @@
     AMC: "Invesco Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -888,14 +871,14 @@
     AMC: "Iti Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -922,14 +905,14 @@
     AMC: "Jm Financial Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -956,14 +939,14 @@
     AMC: "Kotak Mahindra Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -990,14 +973,14 @@
     AMC: "Lic Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1024,14 +1007,14 @@
     AMC: "Mahindra Manulife Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1058,14 +1041,14 @@
     AMC: "Mirae Asset Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1092,29 +1075,101 @@
     AMC: "Motilal Oswal Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [0, 120, 230, 520],
+      },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
       },
       manager_data: {
-        row_count: 2,
+        row_count: 4,
+        threshold: 2,
+        keywords: [
+          "Name and Designation of the Fund Manager",
+          "Experience",
+          "Age and Qualification",
+        ],
         order: {
-          name: 1,
-          experience: 2,
-          qualification: 1
+          name: 0,
+          experience: 3,
+          qualification: 1,
         },
       },
     },
-    REGEX: {},
+    REGEX: {
+      benchmark: "((?:Nifty|BSE|Domestic|CRISIL).+?(?:Total Return Index|TRI))",
+      load: "()E?xit\\s*Load\\:?(.+?)$",
+      scheme: [
+        "Offer of Units",
+        "New Fund Offer Opens on\\s*\\:?",
+        "New Fund Offer Closes on\\s*\\:?",
+        "Scheme\\s*re-opens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      metric: {
+        key: "(New Fund Offer Opens|New Fund Offer Closes|Scheme re-opens)",
+        value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{3,4})",
+      },
+      manager: {
+        name: "(.+)$",
+        experience: "(?:Over|Around|of|more than)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "Q?ualification\\s*\\:?(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    },
     IMP_DATA: {
       amc_name: "Motilal Oswal Asset Management Limited",
       mutual_fund_name: "Motilal Oswal Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      // ".*offer_of_units$": ["_extract_iter_data", "metric"],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+      ".*offer_of_units$", // to promote open/close date
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1126,14 +1181,14 @@
     AMC: "Navi Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1160,12 +1215,7 @@
     AMC: "Nippon India Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          120,
-          260,
-          520
-        ]
+        bbox: [0, 120, 260, 520],
       },
       table_data: {
         threshold: 3,
@@ -1184,23 +1234,19 @@
           "Name of the Fund Manager",
           "Name",
           "Age",
-          "Educational Qualifications"
+          "Educational Qualifications",
         ],
         order: {
           name: 0,
           experience: 3,
-          qualification: 2
+          qualification: 2,
         },
       },
     },
     REGEX: {
       benchmark: "(.+?)\\s*(?:The\\s+Scheme\\s+is|The\\s+Benchmark\\s+of).+$",
       load: "()E?xit\\s*Load\\:?(.+?)$",
-      scheme: [
-        "Offer of Units",
-        "NAME OF MUTUAL FUND",
-        "EOL"
-      ],
+      scheme: ["Offer of Units", "NAME OF MUTUAL FUND", "EOL"],
       scheme2: [
         "suitable for investors who are seeking",
         "Investors should consult",
@@ -1232,40 +1278,19 @@
         "_extract_str_data",
         null,
       ],
-      "^benchmark_total.*": [
-        "_extract_generic_non_escape_data",
-        "benchmark"
-      ],
-      "^new_fund_offer_price.*": [
-        "_extract_generic_data",
-        "nfo"
-      ],
-      "^other_text": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^risk_bbox": [
-        "_extract_scheme_data",
-        "scheme2"
-      ],
-      fund_manager: [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^load_structure": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^load_structure": ["_extract_load_data", "load"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
       ],
-      ".*offer_of_units$": [
-        "_extract_iter_data",
-        "metric"
-      ],
+      ".*offer_of_units$": ["_extract_iter_data", "metric"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -1290,22 +1315,20 @@
       },
     },
     SPECIAL_FUNCTIONS: {},
-    DELETEKEYS: [
-      "^other_text.offer_of_units$"
-    ],
+    DELETEKEYS: ["^other_text.offer_of_units$"],
   },
   "57": {
     AMC: "Nj Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1332,14 +1355,14 @@
     AMC: "Old Bridge Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1366,14 +1389,14 @@
     AMC: "Pgim India Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1400,14 +1423,14 @@
     AMC: "Ppfas Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1434,14 +1457,14 @@
     AMC: "Quant Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1468,14 +1491,14 @@
     AMC: "Quantum Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1502,12 +1525,7 @@
     AMC: "Samco Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          120,
-          260,
-          520
-        ]
+        bbox: [0, 120, 260, 520],
       },
       table_data: {
         threshold: 3,
@@ -1530,12 +1548,12 @@
         order: {
           name: 0,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
     REGEX: {
-      benchmark: ".+?((?:Domestic Price of|Price of|NIFTY|Nifty|CRISIL|BSE).+?(?:Index|TRI|Gold|Silver))",
+      benchmark: "((?:Domestic Price of|Price of|NIFTY|Nifty|CRISIL|BSE).+?(?:Index|TRI|Gold|Silver))",
       load: "Entry\\s*Load(.+?)E?xit\\s*Load\\:?(.+?)$",
       scheme: [
         "Offer of Units",
@@ -1551,8 +1569,8 @@
         "EOL",
       ],
       metric: {
-        key: "(New\\s+Fund\\s+Offer\\s+Opens|New\\s+Fund\\s+Offer\\s+Closes|Scheme\\s+re-opens)",
-        value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{3,4})",
+        key: "(Offer\\s+Opens|Offer\\s+Closes|Scheme\\s+re-opens)",
+        value: "([A-Za-z]+\\s+\\d{2}\\,?\\s+\\d{4})",
       },
       manager: {
         name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
@@ -1567,6 +1585,7 @@
       amc_name: "Samco Asset Management Limited",
       mutual_fund_name: "Samco Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
@@ -1575,34 +1594,19 @@
         "_extract_str_data",
         null,
       ],
-      // "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
-      "^new_fund_offer_price.*": [
-        "_extract_generic_data",
-        "nfo"
-      ],
-      "^other_text": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^risk_bbox": [
-        "_extract_scheme_data",
-        "scheme2"
-      ],
-      // fund_manager: ["_extract_manager_data", "manager"],
+      "^benchmark.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^load_structure": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^load_structure": ["_extract_load_data", "load"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
       ],
-      ".*offer_of_units$": [
-        "_extract_metric_data",
-        "metric"
-      ]
+      ".*offer_of_units$": ["_extract_metric_data", "metric"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -1615,24 +1619,25 @@
       "amc_name",
       "offer_price",
       "face_value",
+      ".*offer_of_units$",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
-    PROMOTEKEYS: {},
+    PROMOTEKEYS: {
+      ".*offer_of_units$": {
+        open_date: "offer\\s+opens",
+        close_date: "offer\\s+closes",
+      },
+    },
     SPECIAL_FUNCTIONS: {},
-    DELETEKEYS: [],
+    DELETEKEYS: ["other_text.offer_of_units"], //".*offer_of_units$"
   },
   "35": {
     AMC: "Sbi Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          120,
-          210,
-          520
-        ]
+        bbox: [0, 120, 210, 520],
       },
       table_data: {
         threshold: 3,
@@ -1655,7 +1660,7 @@
         order: {
           name: 0,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1700,32 +1705,14 @@
         "_extract_str_data",
         null,
       ],
-      "^benchmark_total.*": [
-        "_extract_generic_non_escape_data",
-        "benchmark"
-      ],
-      "^new_fund_offer_price.*": [
-        "_extract_generic_data",
-        "nfo"
-      ],
-      "^other_text": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^risk_bbox": [
-        "_extract_scheme_data",
-        "scheme2"
-      ],
-      fund_manager: [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^load_structure": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^load_structure": ["_extract_load_data", "load"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
@@ -1754,14 +1741,14 @@
     AMC: "Shriram Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1788,14 +1775,14 @@
     AMC: "Sundaram Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1822,12 +1809,7 @@
     AMC: "Tata Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          250,
-          270,
-          470
-        ]
+        bbox: [0, 250, 270, 470],
       },
       table_data: {
         threshold: 3,
@@ -1842,15 +1824,11 @@
       manager_data: {
         row_count: 6,
         threshold: 2,
-        keywords: [
-          "Name",
-          "Age",
-          "Qualification"
-        ],
+        keywords: ["Name", "Age", "Qualification"],
         order: {
           name: 0,
           experience: 3,
-          qualification: 2
+          qualification: 2,
         },
       },
     },
@@ -1891,32 +1869,14 @@
         "_extract_str_data",
         null,
       ],
-      "^benchmark": [
-        "_extract_generic_data",
-        "benchmark"
-      ],
-      "^new_fund_offer_price.*": [
-        "_extract_generic_data",
-        "nfo"
-      ],
-      "^other_text": [
-        "_extract_scheme_data",
-        "scheme"
-      ],
-      "^risk_bbox": [
-        "_extract_scheme_data",
-        "scheme2"
-      ],
-      fund_manager: [
-        "_extract_manager_data",
-        "manager"
-      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^load$": [
-        "_extract_load_data",
-        "load"
-      ],
+      "^load$": ["_extract_load_data", "load"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
@@ -1945,14 +1905,14 @@
     AMC: "Taurus Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -1979,14 +1939,14 @@
     AMC: "Trust Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -2013,14 +1973,14 @@
     AMC: "Uti Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -2047,14 +2007,14 @@
     AMC: "Union Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -2081,12 +2041,7 @@
     AMC: "Unifi Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: [
-          0,
-          100,
-          190,
-          500
-        ]
+        bbox: [0, 120, 190, 450],
       },
       table_data: {
         threshold: 3,
@@ -2099,15 +2054,46 @@
         ],
       },
       manager_data: {
-        row_count: 4,
+        row_count: 5,
+        threshold: 2,
+        keywords: [
+          "Name of the Fund Manager",
+          "AgeQualification",
+          "Age Qualification",
+          "Brief Experience",
+          "Other schemes managed by fund managers",
+        ],
         order: {
           name: 0,
           experience: 3,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
-    REGEX: {},
+    REGEX: {
+      benchmark: "(.+?)\\s*J?ustification.+$",
+      load: "E?ntry\\s*Load\\s*\\:?(.+?)E?xit\\s*Load\\s*\\:?(.+?)$",
+      scheme: [
+        "Offer of Units",
+        "New Fund Offer Opens on\\s*\\:?",
+        "New Fund Offer Closes on\\s*\\:?",
+        "Scheme Re-opens on",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "^([A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(\\d+\\s*years?)",
+        qualification: "(.*(?!\\d+\\s*years?).+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    },
     IMP_DATA: {
       amc_name: "Unifi Asset Management Limited",
       mutual_fund_name: "Unifi Mutual Fund",
@@ -2116,10 +2102,36 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*new_fund_offer(_opens_on|_closes_on)",
+      "^(benchmark_total.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -2131,14 +2143,14 @@
     AMC: "Whiteoak Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },
@@ -2165,14 +2177,14 @@
     AMC: "Zerodha Mutual Fund",
     PARAMS: {
       page_zero: {
-        bbox: []
+        bbox: [],
       },
       manager_data: {
         row_count: 2,
         order: {
           name: 1,
           experience: 2,
-          qualification: 1
+          qualification: 1,
         },
       },
     },

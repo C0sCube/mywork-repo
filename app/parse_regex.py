@@ -177,7 +177,13 @@ class FundRegex():
                 changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
 
         return data
-    
+
+    def _to_rgb_tuple(self,color_int):
+        c = color_int & 0xFFFFFF
+        r = (c >> 16) & 0xFF
+        g = (c >> 8) & 0xFF
+        b = c & 0xFF
+        return (r/255.0, g/255.0, b/255.0)
     def _sanitize_fund(self,fund:str,fund_name:str):
         
         fund = re.sub(self.ESCAPE, '', fund)
@@ -223,7 +229,6 @@ class FundRegex():
                 seen.append(word)
         return " ".join(seen)
 
-    
     def _format_fund_manager(self, data):
         fund_managers = data.get("fund_manager", [])
         if not fund_managers:
