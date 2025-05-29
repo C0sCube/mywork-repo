@@ -403,18 +403,6 @@ class GrandFundData:
                 finalData[key] = value
         return finalData
     
-    def _formalize_values(self,data:dict):
-        # rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
-        # for k,v in data.items():
-        #     if k in rupee_keys and isinstance(v,str) and re.match("^\\d",v):
-        #         data[k] =f"\u20B9 {v}"         
-        # return data   
-        clean_keys = ["monthly_aaum_value"]
-        for k,v in data.items():
-            if k in clean_keys and isinstance(v,str):
-                data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
-        return data
-    
     def _return_manager_data(self, since = "",name = "",desig= "",exp = ""):
         return {
             "managing_fund_since":since.title().strip(),

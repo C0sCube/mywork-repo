@@ -43,15 +43,12 @@ for amc_id, class_name in CLASS_REGISTRY.items():
         if not extracted_text:
             raise ValueError("get_generated_content returned None.")
 
-        final_text = obj.refine_extracted_data(
-            extracted_text, flatten=obj.MAIN_MAP['flatten']
-        )
+        final_text = obj.refine_extracted_data(extracted_text) #flatten=obj.MAIN_MAP['flatten']
         if not final_text:
             raise ValueError("refine_extracted_data returned None.")
 
-        dfs = obj.merge_and_select_data(
+        dfs = obj.merge_and_select_data( #select=obj.MAIN_MAP['select'],
             final_text,
-            select=obj.MAIN_MAP['select'],
             map_keys=obj.MAIN_MAP['map'],
             special_handling=obj.MAIN_MAP['special']
         )

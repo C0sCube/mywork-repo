@@ -4,8 +4,38 @@ class VendorMapper:
     
     @staticmethod
     def _generate_map_value(scheme_count:int,data:dict):
-        record_value = {}
+        record_value, field_location_keys = {}, []
+
+        # page_list = data.get("page_number", [])
+        # page_number = str(page_list[0] + 1) if page_list else "0"
+
+        # for key, data_value in data.items():
+        #     if isinstance(data_value, str) and data_value:
+        #         record_value[key] = data_value
+        #         field_location_keys.append(key)
+
+        #     elif isinstance(data_value, dict) and data_value:
+        #         if key == "metrics":
+        #             metrics = [{"name": k, "value": str(v)} for k, v in data_value.items() if v]
+        #             record_value[key] = metrics
+        #             field_location_keys.extend([f"metrics_{m['name']}" for m in metrics])
+
+        #         elif key == "load":
+        #             load = [{"type": k, "comment": str(v)} for k, v in data_value.items() if v]
+        #             record_value[key] = load
+        #             field_location_keys.extend([f"load_{l['type'].replace('_load','')}" for l in load])
+
+        #     elif isinstance(data_value, list) and key == "fund_manager" and data_value:
+        #         record_value[key] = data_value
+        #         field_location_keys.extend([f"fund_manager_{k}" for k in data_value[0].keys()])
+
+        # # Final step: assign page_number to each collected key
+        # field_location = {k: page_number for k in field_location_keys}
+        # record_value["field_location"] = [dict(sorted(field_location.items()))]
+        # return dict(sorted(record_value.items()))
+
         
+                    
         #singular
         record_value["min_addl_amt"] = data.get("min_addl_amt", "")
         record_value["min_addl_amt_multiple"] = data.get("min_addl_amt_multiple", "")
@@ -41,10 +71,6 @@ class VendorMapper:
             "amc_name": page_number,
             "benchmark_index": page_number,
             "count": scheme_count, 
-            # "fund_manager_managing_fund_since": page_number,
-            # "fund_manager_name": page_number,
-            # "fund_manager_qualification":page_number,
-            # "fund_manager_total_exp": page_number,
             "main_scheme_name": page_number,
             "min_addl_amt": page_number,
             "min_addl_amt_multiple": page_number,

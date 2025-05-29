@@ -68,14 +68,15 @@ class Reader:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
-        regex,bbox,ocr = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox'],self.PARAMS["title"]["ocr"]
+        regex = FundRegex()
+        title_regex,bbox,ocr = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox'],self.PARAMS["title"]["ocr"]
         
         #detect title
-        detected_titles = self._get_ocr_title(path,regex,bbox) if ocr else self._get_normal_title(path,regex,bbox)
+        detected_titles = self._get_ocr_title(path,title_regex,bbox) if ocr else self._get_normal_title(path,title_regex,bbox)
         
         path_pdf = self._ocr_pdf(path) if self.PARAMS['pdf_ocr'] else path
         with fitz.open(path_pdf) as doc:
-            indices = FundRegex().FINANCIAL_TERMS
+            indices = regex.FINANCIAL_TERMS
             for pgn, page in enumerate(doc):
                 highlight_count,found_indices = 0,[]
                 blocks = page.get_text("dict")["blocks"]
@@ -84,7 +85,8 @@ class Reader:
                         continue
                     for line in block["lines"]:
                         for span in line["spans"]:
-                            text =  re.sub("[^\\w\\s]", "", span["text"].strip().lower())
+                            text =  re.sub("[^\\w\\s]", "", span["text"].strip().lower()) #fix params first
+                            # text = regex.__normalize_alphanumeric(span["text"])
                             for indice in indices:
                                 if re.search(rf"\b{re.escape(indice)}\b", text,re.IGNORECASE):
                                     if indice not in found_indices:
@@ -509,9 +511,7 @@ class Reader:
         try:
             for content in data:
                 pgn,fund,blocks = content['page'],content['fundname'], content['block']
-                
                 # fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean moved to get_data
-                
                 print(f'--<<{fund}>>--')
                 Reader._generate_pdf_from_data(blocks, output_path)
                 extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
@@ -521,14 +521,14 @@ class Reader:
         return extracted_text
     
     #REFINE
-    def _get_unique_key(self,base_key:str, data:dict):
+    def __get_unique_key(self,base_key:str, data:dict):
         for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:
             new_key = f"{base_key}_{suffix}"
             if new_key not in data:
                 return new_key
         return "exhausted"
 
-    def refine_extracted_data(self, extracted_text: dict,flatten = False):
+    def refine_extracted_data(self, extracted_text: dict):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
         regex = FundRegex()
@@ -546,14 +546,14 @@ class Reader:
                     key, value = next(iter(content.items()))
         
                     if clean_head in content_dict:
-                        unique_key = self._get_unique_key(clean_head, content_dict)
+                        unique_key = self.__get_unique_key(clean_head, content_dict)
                         content_dict[unique_key] = value
                     else:
                         content_dict[clean_head] = value
                         
             primary_refine[fund] = content_dict
-        if flatten: #Flatten the dict if true
-            primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}
+        # if flatten: #Flatten the dict if true
+        primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}
         
         secondary_refine = {}
         for fund, item in primary_refine.items():
@@ -561,9 +561,6 @@ class Reader:
             for head, content in item.items():
                 clean_head = header_map[fund].get(head, head)
                 content = self._match_with_patterns(clean_head, content,level = "secondary")
-                
-                # if clean_head in self.FLATTENABLE_KEYS: wip
-                #     content = regex.flatten_dict(content)
                 if content is not None:
                     content_dict.update(content)
 
@@ -657,25 +654,55 @@ class Reader:
     #         finalData[fund] = dict(sorted(temp.items()))
     #     return finalData
     
-    def _load_ops(self,fund:str,df):
+    # def __load_ops(self,df:dict): #got to correct vendor side before adding this
+    #     load_data = df.get("load", {})
+    #     if not isinstance(load_data, dict):
+    #         print(f"Returning _load_ops -> Type Error")
+    #         return df
+    #     try:
+    #         new_load = []
+    #         for load_key, load_value in load_data.items():
+    #             value = load_value if isinstance(load_value, str) else " ".join(load_value)
+    #             if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
+    #                 new_load.append({
+    #                     "comment": value,
+    #                     "type": "entry_load"
+    #                 })
+
+    #             if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
+    #                 new_load.append({
+    #                     "comment": value,
+    #                     "type": "exit_load"
+    #                 })
+    #     except Exception as e:
+    #         print(f"Error in _load_ops ->Load Error: {e}")
+        
+    #     df["load"] = new_load
+    #     return df
+    
+    def __load_ops(self,fund:str,df:dict):
+        load_data = df.get("load", {})
+        if not isinstance(load_data, dict):
+            print(f"Returning _load_ops -> Type Error")
+            return df
         try:
-            new_load = {"entry_load": None,"exit_load": None}
-            for load_key, load_value in df.get("load", {}).items():
-                value = load_value if isinstance(load_value, str) else " ".join(load_value)
-                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
+            new_load = {"entry_load": None, "exit_load": None}
+            for load_key, load_value in load_data.items():
+                value = load_value if isinstance(load_value, str) else " ".join(str(v) for v in load_value)
+                if re.search(r"\bentry(_load)?\b", load_key, re.IGNORECASE):
                     new_load["entry_load"] = value
-                elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
+                elif re.search(r"\bexit(_load)?\b", load_key, re.IGNORECASE):
                     new_load["exit_load"] = value
                 else:
                     new_load[load_key] = value
         except Exception as e:
             # logger.error(e)
-            print(f"Error in {fund} ->Load Error: {e}")
+            print(f"Error in _load_ops:{fund} ->Load Error: {e}")
         
         df["load"] = new_load
         return df
 
-    def _metric_ops(self,fund:str,df):
+    def __metric_ops(self,fund:str,df:dict):
         try:
             new_metrics = {}
             for metric_key,metric_value in df.get("metrics",{}).items():
@@ -684,11 +711,11 @@ class Reader:
                 new_metrics[new_key] = metric_value
         except Exception as e:
             # logger.error(e)
-            print(f"Error in {fund} ->Metric Error: {e}")
+            print(f"Error in _metric_ops:{fund} ->Metric Error: {e}")
         df["metrics"] = FundRegex()._populate_all_metrics_in_json(new_metrics)
         return df
 
-    def _min_add_ops(self,fund:str,df):
+    def __min_add_ops(self,fund:str,df):
         try:
                 new_values = {}
                 for key in ["min_amt", "min_addl_amt"]:
@@ -712,22 +739,22 @@ class Reader:
             temp = self._clone_fund_data(temp)
             temp = self._merge_fund_data(temp)
             temp = self._clone_fund_data(temp)
-            
-            if select:
-                temp = self._select_by_regex(temp)
+            # if select:
+            temp = self._select_by_regex(temp)
             if map_keys:
-                mappend_data = {}
-                for key, value in temp.items():
-                    new_key = regex._map_json_keys_to_dict(key) or key
-                    mappend_data[new_key] = value
-                temp = mappend_data
+                temp = {regex._map_json_keys_to_dict(k) or k: v for k, v in temp.items()}
+            # mappend_data = {}
+            # for key, value in temp.items():
+            #     new_key = regex._map_json_keys_to_dict(key) or key
+            #     mappend_data[new_key] = value
+            # temp = mappend_data
             
             #maintain same order
-            temp = self._min_add_ops(fund,temp)
+            temp = self.__min_add_ops(fund,temp)
             temp = regex._populate_all_indices_in_json(temp) #populate
             temp = regex.transform_keys(temp) #lowercase
-            temp = self._load_ops(fund,temp)
-            temp = self._metric_ops(fund,temp)
+            temp = self.__load_ops(fund,temp)
+            temp = self.__metric_ops(fund,temp)
             
             if special_handling:
                 for head, content in temp.items():
@@ -736,15 +763,14 @@ class Reader:
                         temp.update(updated_content)
                         
             temp = self._promote_key_from_dict(temp)
+            
             #formatting and type conversion
-            temp = self._formalize_values(temp) #rupee symbol
-            temp = regex._check_replace_type(temp,fund) #type conversion
+            temp = regex._remove_rupee_symbol(temp)
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager name
             # temp = regex._format_amt_data(temp) #min/add formatter
             
             finalData[fund] = dict(sorted(temp.items()))
-            
             final_data = finkStinct.map_to_fink(finalData,self.FILE_NAME) #mapper to FinStinct
         
         #save json  

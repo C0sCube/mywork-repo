@@ -13,7 +13,6 @@ class FundRegex():
     
     def __init__(self, path = REGEX_PATH):
         self.config_path = path
-        
         try:
             if not os.path.exists(self.config_path):
                 raise FileNotFoundError(f"Config file not found: {self.config_path}")
@@ -32,14 +31,6 @@ class FundRegex():
         self.FINANCIAL_TERMS = data.get("financial_indices",[])
         self.ESCAPE = data.get("escape_regex","")
         self.MAIN_SCHEME_NAME = data.get("main_scheme_name",{})
-
-    @staticmethod
-    def extract_date(text: str):
-        try:
-            return parser.parse(text).strftime(r"%y%m%d")
-        except Exception as e:
-            print(f"\n{e}")
-            return text
 
     def header_mapper(self, text: str)->str:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -73,7 +64,6 @@ class FundRegex():
             
     def flatten_dict(self,data:dict, parent_key='', sep='.'):
         flattened = {}
-
         for key, value in data.items():
             new_key = f"{parent_key}{sep}{key}" if parent_key else key
 
@@ -119,73 +109,54 @@ class FundRegex():
                 data[key] = None
                 
         return {k:data[k] for k in sorted(data)} #sorted
-  
-    def _dummy_block(self,fontz:str,colorz:str):
-        return {
-                "number": 0,
-                "type": 0,
-                "bbox": (0,0,0,0), #406.72119140625, 439.4930419921875, 565.697265625, 484.5830383300781
-                "lines": [
-                    {
-                        "spans": [
-                            {
-                                "size": 30.0,
-                                "flags": 20,
-                                "font": fontz, #set this
-                                "color": colorz, #set this
-                                "ascender": 1.0429999828338623,
-                                "descender": -0.2619999945163727,
-                                "text": f"DUMMY{"".join(random.choices(string.ascii_letters,k=15))}", #garbage val
-                                "origin": (round(random.uniform(0, 100), 11), round(random.uniform(0, 100), 11)),
-                                "bbox": (0,0,0,0), #406.72119140625,439.4930419921875,565.697265625,462.9830322265625,
-                            }
-                        ],
-                        "wmode": 0,
-                        "dir": (1.0, 0.0),
-                        "bbox": (0,0,0,0), #406.72119140625,439.4930419921875,565.697265625,462.9830322265625,
-                    },
-                    
-                ],
-            }
                 
-    def _check_replace_type(self,data:dict,fund:str):
-        expected_types = {
-            "amc_name": str,
-            "benchmark_index": str,
-            "fund_manager": list,
-            "load": dict,
-            "main_scheme_name": str,
-            "metrics": dict,
-            "min_addl_amt": str,
-            "min_addl_amt_multiple": str,
-            "min_amt": str,
-            "min_amt_multiple": str,
-            "monthly_aaum_date": str,
-            "monthly_aaum_value": str,
-            "mutual_fund_name": str,
-            "page_number": list,
-            "scheme_launch_date": str
-        }
+    # def _check_replace_type(self,data:dict,fund:str):
+    #     expected_types = {
+    #         "amc_name": str,
+    #         "benchmark_index": str,
+    #         "fund_manager": list,
+    #         "load": dict,
+    #         "main_scheme_name": str,
+    #         "metrics": dict,
+    #         "min_addl_amt": str,
+    #         "min_addl_amt_multiple": str,
+    #         "min_amt": str,
+    #         "min_amt_multiple": str,
+    #         "monthly_aaum_date": str,
+    #         "monthly_aaum_value": str,
+    #         "mutual_fund_name": str,
+    #         "page_number": list,
+    #         "scheme_launch_date": str
+    #     }
 
-        changes = {}
+    #     changes = {}
 
-        for key, expected_type in expected_types.items():
-            if key in data and not isinstance(data[key], expected_type):
-                original_type = type(data[key]).__name__
-                default_value = expected_type()
-                data[key] = default_value
-                changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
+    #     for key, expected_type in expected_types.items():
+    #         if key in data and not isinstance(data[key], expected_type):
+    #             original_type = type(data[key]).__name__
+    #             default_value = expected_type()
+    #             data[key] = default_value
+    #             changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
 
-        return data
+    #     return data
+    
+    def _normalize_key(self,key: str) -> str:
+        key = re.sub(r"[^\w\s\.]", "", key)
+        key = re.sub(r"\s+", "_", key)
+        return key.strip().lower()
+    
+    def _normalize_whitespace(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        return re.sub(r"\s+", " ", text).strip()
+    
+    def _normalize_alphanumeric(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^a-zA-Z0-9]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
 
-    def _to_rgb_tuple(self,color_int):
-        c = color_int & 0xFFFFFF
-        r = (c >> 16) & 0xFF
-        g = (c >> 8) & 0xFF
-        b = c & 0xFF
-        return (r/255.0, g/255.0, b/255.0)
     def _sanitize_fund(self,fund:str,fund_name:str):
-        
         fund = re.sub(self.ESCAPE, '', fund)
         fund = re.sub("\\s+", ' ', fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
@@ -194,6 +165,25 @@ class FundRegex():
                 fund = key
                 break
         return fund
+    
+    def _remove_rupee_symbol(self,data:dict):
+        # rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
+        # for k,v in data.items():
+        #     if k in rupee_keys and isinstance(v,str) and re.match("^\\d",v):
+        #         data[k] =f"\u20B9 {v}"         
+        # return data   
+        clean_keys = ["monthly_aaum_value"]
+        for k,v in data.items():
+            if k in clean_keys and isinstance(v,str):
+                data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
+        return data
+    
+    def _to_rgb_tuple(self,color_int):
+        c = color_int & 0xFFFFFF
+        r = (c >> 16) & 0xFF
+        g = (c >> 8) & 0xFF
+        b = c & 0xFF
+        return (r/255.0, g/255.0, b/255.0)
 
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
@@ -204,7 +194,7 @@ class FundRegex():
         except (ValueError, TypeError): #empty string, str other than date
             return data
 
-    def _convert_to_year_format(self,data):
+    def _convert_to_year_format(self,data): #imcomplete here
         metrics = data.get("metrics",{})
         time_str = metrics["macaulay"]
         year_value = time_str
@@ -263,6 +253,34 @@ class FundRegex():
         data.update(clean_terms)
         
         return data
+    
+    def _dummy_block(self,fontz:str,colorz:str):
+        return {
+                "number": 0,
+                "type": 0,
+                "bbox": (0,0,0,0), #406.72119140625, 439.4930419921875, 565.697265625, 484.5830383300781
+                "lines": [
+                    {
+                        "spans": [
+                            {
+                                "size": 30.0,
+                                "flags": 20,
+                                "font": fontz, #set this
+                                "color": colorz, #set this
+                                "ascender": 1.0429999828338623,
+                                "descender": -0.2619999945163727,
+                                "text": f"DUMMY{"".join(random.choices(string.ascii_letters,k=15))}", #garbage val
+                                "origin": (round(random.uniform(0, 100), 11), round(random.uniform(0, 100), 11)),
+                                "bbox": (0,0,0,0), #406.72119140625,439.4930419921875,565.697265625,462.9830322265625,
+                            }
+                        ],
+                        "wmode": 0,
+                        "dir": (1.0, 0.0),
+                        "bbox": (0,0,0,0), #406.72119140625,439.4930419921875,565.697265625,462.9830322265625,
+                    },
+                    
+                ],
+            }
 
 
                 

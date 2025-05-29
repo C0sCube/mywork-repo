@@ -352,6 +352,7 @@ class ReaderSIDKIM:
     def __load_ops(self,df:dict):
         load_data = df.get("load", {})
         if not isinstance(load_data, dict):
+            print(f"Returning _load_ops -> Type Error")
             return df
         try:
             new_load = []
