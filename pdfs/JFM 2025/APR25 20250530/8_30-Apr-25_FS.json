@@ -1,0 +1,2838 @@
+{
+  "metadata": {
+    "document_name": "8_30-Apr-25_FS.pdf",
+    "file_type": "fs",
+    "process_date": "20250530"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 500 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "4",
+            "benchmark_index": "4",
+            "count": 65,
+            "main_scheme_name": "4",
+            "metrics_beta": "4",
+            "metrics_port_turnover_ratio": "4",
+            "metrics_r_squared_ratio": "4",
+            "metrics_sharpe": "4",
+            "metrics_std_dev": "4",
+            "monthly_aaum_date": "4",
+            "monthly_aaum_value": "4",
+            "mutual_fund_name": "4",
+            "scheme_launch_date": "4"
+          }
+        ],
+        "main_scheme_name": "DSP Flexi Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.98"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.22"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "90.36"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.70"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.20"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "11,132 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "19970429"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE 100 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "5",
+            "benchmark_index": "5",
+            "count": 65,
+            "main_scheme_name": "5",
+            "metrics_beta": "5",
+            "metrics_port_turnover_ratio": "5",
+            "metrics_r_squared_ratio": "5",
+            "metrics_sharpe": "5",
+            "metrics_std_dev": "5",
+            "monthly_aaum_date": "5",
+            "monthly_aaum_value": "5",
+            "mutual_fund_name": "5",
+            "scheme_launch_date": "5"
+          }
+        ],
+        "main_scheme_name": "DSP Large Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.89"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.27"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "92.95"
+          },
+          {
+            "name": "sharpe",
+            "value": "1.03"
+          },
+          {
+            "name": "std_dev",
+            "value": "12.93"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "5,278 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20030310"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Large Midcap 250 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "6",
+            "benchmark_index": "6",
+            "count": 65,
+            "main_scheme_name": "6",
+            "metrics_beta": "6",
+            "metrics_port_turnover_ratio": "6",
+            "metrics_r_squared_ratio": "6",
+            "metrics_sharpe": "6",
+            "metrics_std_dev": "6",
+            "monthly_aaum_date": "6",
+            "monthly_aaum_value": "6",
+            "mutual_fund_name": "6",
+            "scheme_launch_date": "6"
+          }
+        ],
+        "main_scheme_name": "DSP Large & Mid Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.94"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.41"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "94.60"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.98"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.83"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "13,870 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20000516"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE India Infrastructure TRI",
+        "field_location": [
+          {
+            "amc_name": "7",
+            "benchmark_index": "7",
+            "count": 65,
+            "main_scheme_name": "7",
+            "metrics_beta": "7",
+            "metrics_port_turnover_ratio": "7",
+            "metrics_r_squared_ratio": "7",
+            "metrics_sharpe": "7",
+            "metrics_std_dev": "7",
+            "monthly_aaum_date": "7",
+            "monthly_aaum_value": "7",
+            "mutual_fund_name": "7",
+            "scheme_launch_date": "7"
+          }
+        ],
+        "main_scheme_name": "DSP India TIGER Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.60"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.50"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "69.11"
+          },
+          {
+            "name": "sharpe",
+            "value": "1.05"
+          },
+          {
+            "name": "std_dev",
+            "value": "18.63"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "4,868 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20040611"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Midcap 150 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "8",
+            "benchmark_index": "8",
+            "count": 65,
+            "main_scheme_name": "8",
+            "metrics_beta": "8",
+            "metrics_port_turnover_ratio": "8",
+            "metrics_r_squared_ratio": "8",
+            "metrics_sharpe": "8",
+            "metrics_std_dev": "8",
+            "monthly_aaum_date": "8",
+            "monthly_aaum_value": "8",
+            "mutual_fund_name": "8",
+            "scheme_launch_date": "8"
+          }
+        ],
+        "main_scheme_name": "DSP Mid Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.97"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.37"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "92.61"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.56"
+          },
+          {
+            "name": "std_dev",
+            "value": "17.53"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "17,015 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20061114"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 500 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "9",
+            "benchmark_index": "9",
+            "count": 65,
+            "main_scheme_name": "9",
+            "metrics_beta": "9",
+            "metrics_port_turnover_ratio": "9",
+            "metrics_r_squared_ratio": "9",
+            "metrics_sharpe": "9",
+            "metrics_std_dev": "9",
+            "monthly_aaum_date": "9",
+            "monthly_aaum_value": "9",
+            "mutual_fund_name": "9",
+            "scheme_launch_date": "9"
+          }
+        ],
+        "main_scheme_name": "DSP ELSS Tax Saver Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.95"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.34"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "94.78"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.92"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.46"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "16,216 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20070118"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE HEALTHCARE (TRI)",
+        "field_location": [
+          {
+            "amc_name": "10",
+            "benchmark_index": "10",
+            "count": 65,
+            "main_scheme_name": "10",
+            "metrics_beta": "10",
+            "metrics_port_turnover_ratio": "10",
+            "metrics_r_squared_ratio": "10",
+            "metrics_sharpe": "10",
+            "metrics_std_dev": "10",
+            "monthly_aaum_date": "10",
+            "monthly_aaum_value": "10",
+            "mutual_fund_name": "10",
+            "scheme_launch_date": "10"
+          }
+        ],
+        "main_scheme_name": "DSP Healthcare Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.86"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.22"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "87.23"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.86"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.92"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,907 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20181130"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE 200 TRI",
+        "field_location": [
+          {
+            "amc_name": "11",
+            "benchmark_index": "11",
+            "count": 65,
+            "main_scheme_name": "11",
+            "metrics_beta": "11",
+            "metrics_port_turnover_ratio": "11",
+            "metrics_r_squared_ratio": "11",
+            "metrics_sharpe": "11",
+            "metrics_std_dev": "11",
+            "monthly_aaum_date": "11",
+            "monthly_aaum_value": "11",
+            "mutual_fund_name": "11",
+            "scheme_launch_date": "11"
+          }
+        ],
+        "main_scheme_name": "DSP Quant Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.94"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.97"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "90.46"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.22"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.34"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "954 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20190610"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "12",
+            "benchmark_index": "12",
+            "count": 65,
+            "main_scheme_name": "12",
+            "metrics_beta": "12",
+            "metrics_port_turnover_ratio": "12",
+            "metrics_r_squared_ratio": "12",
+            "metrics_sharpe": "12",
+            "metrics_std_dev": "12",
+            "monthly_aaum_date": "12",
+            "monthly_aaum_value": "12",
+            "mutual_fund_name": "12",
+            "scheme_launch_date": "12"
+          }
+        ],
+        "main_scheme_name": "DSP VALUE FUND",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.71"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.16"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "83.72"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.93"
+          },
+          {
+            "name": "std_dev",
+            "value": "11.50"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "919 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20201210"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE 250 Small Cap (TRI)",
+        "field_location": [
+          {
+            "amc_name": "13",
+            "benchmark_index": "13",
+            "count": 65,
+            "main_scheme_name": "13",
+            "metrics_beta": "13",
+            "metrics_port_turnover_ratio": "13",
+            "metrics_r_squared_ratio": "13",
+            "metrics_sharpe": "13",
+            "metrics_std_dev": "13",
+            "monthly_aaum_date": "13",
+            "monthly_aaum_value": "13",
+            "mutual_fund_name": "13",
+            "scheme_launch_date": "13"
+          }
+        ],
+        "main_scheme_name": "DSP Small Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.89"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.24"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "93.00"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.47"
+          },
+          {
+            "name": "std_dev",
+            "value": "18.49"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "14,243 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20070614"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 500 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "14",
+            "benchmark_index": "14",
+            "count": 65,
+            "main_scheme_name": "14",
+            "metrics_beta": "14",
+            "metrics_port_turnover_ratio": "14",
+            "metrics_r_squared_ratio": "14",
+            "metrics_sharpe": "14",
+            "metrics_std_dev": "14",
+            "monthly_aaum_date": "14",
+            "monthly_aaum_value": "14",
+            "mutual_fund_name": "14",
+            "scheme_launch_date": "14"
+          }
+        ],
+        "main_scheme_name": "DSP Focused Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.96"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.23"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "85.11"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.76"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.35"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,434 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20100610"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 500 Multicap 502525 TRI",
+        "field_location": [
+          {
+            "amc_name": "15",
+            "benchmark_index": "15",
+            "count": 65,
+            "main_scheme_name": "15",
+            "metrics_port_turnover_ratio": "15",
+            "monthly_aaum_date": "15",
+            "monthly_aaum_value": "15",
+            "mutual_fund_name": "15",
+            "scheme_launch_date": "15"
+          }
+        ],
+        "main_scheme_name": "DSP Multicap Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.17"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,001 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20240130"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "16",
+            "benchmark_index": "16",
+            "count": 65,
+            "main_scheme_name": "16",
+            "metrics_port_turnover_ratio": "16",
+            "monthly_aaum_date": "16",
+            "monthly_aaum_value": "16",
+            "mutual_fund_name": "16",
+            "scheme_launch_date": "16"
+          }
+        ],
+        "main_scheme_name": "DSP Business Cycle Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.10"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "999 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20241217"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "35% BSE Oil Gas Index + 30% BSE Metal Index + 35% MSCI World Energy 30% Buffer 1040 Net Total Return",
+        "field_location": [
+          {
+            "amc_name": "17",
+            "benchmark_index": "17",
+            "count": 65,
+            "main_scheme_name": "17",
+            "metrics_beta": "17",
+            "metrics_port_turnover_ratio": "17",
+            "metrics_r_squared_ratio": "17",
+            "metrics_sharpe": "17",
+            "metrics_std_dev": "17",
+            "monthly_aaum_date": "17",
+            "monthly_aaum_value": "17",
+            "mutual_fund_name": "17",
+            "scheme_launch_date": "17"
+          }
+        ],
+        "main_scheme_name": "DSP Natural Resources and New Energy Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.94"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.28"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "82.37"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.42"
+          },
+          {
+            "name": "std_dev",
+            "value": "18.83"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,199 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20080425"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "FTSE Gold Mine TRI (in INR terms)",
+        "field_location": [
+          {
+            "amc_name": "18",
+            "benchmark_index": "18",
+            "count": 65,
+            "main_scheme_name": "18",
+            "monthly_aaum_date": "18",
+            "monthly_aaum_value": "18",
+            "mutual_fund_name": "18",
+            "scheme_launch_date": "18"
+          }
+        ],
+        "main_scheme_name": "DSP World Gold Fund of Fund",
+        "metrics": [],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,179 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20070914"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "MSCI ACWI Metals and Mining 30% Buffer 1040 (1994) Net Total Return Index",
+        "field_location": [
+          {
+            "amc_name": "19",
+            "benchmark_index": "19",
+            "count": 65,
+            "main_scheme_name": "19",
+            "monthly_aaum_date": "19",
+            "monthly_aaum_value": "19",
+            "mutual_fund_name": "19",
+            "scheme_launch_date": "19"
+          }
+        ],
+        "main_scheme_name": "DSP World Mining Fund of Fund",
+        "metrics": [],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "123 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20091229"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "MSCI ACWI IMI Clean Energy Infrastructure Index",
+        "field_location": [
+          {
+            "amc_name": "20",
+            "benchmark_index": "20",
+            "count": 65,
+            "main_scheme_name": "20",
+            "monthly_aaum_date": "20",
+            "monthly_aaum_value": "20",
+            "mutual_fund_name": "20",
+            "scheme_launch_date": "20"
+          }
+        ],
+        "main_scheme_name": "DSP Global Clean Energy Fund of Fund",
+        "metrics": [],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "78 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20090814"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Russell 1000 TR",
+        "field_location": [
+          {
+            "amc_name": "21",
+            "benchmark_index": "21",
+            "count": 65,
+            "main_scheme_name": "21",
+            "monthly_aaum_date": "21",
+            "monthly_aaum_value": "21",
+            "mutual_fund_name": "21",
+            "scheme_launch_date": "21"
+          }
+        ],
+        "main_scheme_name": "DSP US Flexible Equity Fund of Fund",
+        "metrics": [],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "757 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20120803"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "40% NIFTY 50 Arbitrage Index + 60% CRISIL Dynamic Bond A-III Index",
+        "field_location": [
+          {
+            "amc_name": "22",
+            "benchmark_index": "22",
+            "count": 65,
+            "main_scheme_name": "22",
+            "metrics_avg_maturity": "22",
+            "metrics_macaulay": "22",
+            "metrics_mod_duration": "22",
+            "metrics_ytm": "22",
+            "monthly_aaum_date": "22",
+            "monthly_aaum_value": "22",
+            "mutual_fund_name": "22",
+            "scheme_launch_date": "22"
+          }
+        ],
+        "main_scheme_name": "DSP Income Plus Arbitrage Fund of Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "3.54 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3.36 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.84"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "360 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20140821"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "MSCI All Country World Index (ACWI) - Net Total Return",
+        "field_location": [
+          {
+            "amc_name": "23",
+            "benchmark_index": "23",
+            "count": 65,
+            "main_scheme_name": "23",
+            "monthly_aaum_date": "23",
+            "monthly_aaum_value": "23",
+            "mutual_fund_name": "23",
+            "scheme_launch_date": "23"
+          }
+        ],
+        "main_scheme_name": "DSP Global Innovation Fund of Fund",
+        "metrics": [],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "847 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20220214"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Domestic Price of Physical Gold (based on London Bullion Market Association (LBMA) gold daily spot fixing price)",
+        "field_location": [
+          {
+            "amc_name": "24",
+            "benchmark_index": "24",
+            "count": 65,
+            "main_scheme_name": "24",
+            "monthly_aaum_date": "24",
+            "monthly_aaum_value": "24",
+            "mutual_fund_name": "24",
+            "scheme_launch_date": "24"
+          }
+        ],
+        "main_scheme_name": "DSP Gold ETF",
+        "metrics": [],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "81 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20231117"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Hybrid 50+50 - Moderate Index",
+        "field_location": [
+          {
+            "amc_name": "26",
+            "benchmark_index": "26",
+            "count": 65,
+            "main_scheme_name": "26",
+            "metrics_avg_maturity": "26",
+            "metrics_beta": "26",
+            "metrics_macaulay": "26",
+            "metrics_mod_duration": "26",
+            "metrics_port_turnover_ratio": "26",
+            "metrics_r_squared_ratio": "26",
+            "metrics_sharpe": "26",
+            "metrics_std_dev": "26",
+            "metrics_ytm": "26",
+            "monthly_aaum_date": "26",
+            "monthly_aaum_value": "26",
+            "mutual_fund_name": "26",
+            "scheme_launch_date": "26"
+          }
+        ],
+        "main_scheme_name": "DSP Dynamic Asset Allocation Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.28 years"
+          },
+          {
+            "name": "beta",
+            "value": "0.79"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.62 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.49 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "5.03"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "81.53"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.80"
+          },
+          {
+            "name": "std_dev",
+            "value": "6.87"
+          },
+          {
+            "name": "ytm",
+            "value": "6.74"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "3,255 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20140206"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Hybrid 35+65-Aggressive Index",
+        "field_location": [
+          {
+            "amc_name": "27",
+            "benchmark_index": "27",
+            "count": 65,
+            "main_scheme_name": "27",
+            "metrics_avg_maturity": "27",
+            "metrics_macaulay": "27",
+            "metrics_mod_duration": "27",
+            "metrics_port_turnover_ratio": "27",
+            "metrics_r_squared_ratio": "27",
+            "metrics_sharpe": "27",
+            "metrics_std_dev": "27",
+            "metrics_ytm": "27",
+            "monthly_aaum_date": "27",
+            "monthly_aaum_value": "27",
+            "mutual_fund_name": "27",
+            "scheme_launch_date": "27"
+          }
+        ],
+        "main_scheme_name": "DSP Aggressive Hybrid Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "14.9 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.1 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.84 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.16"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "87.53"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.92"
+          },
+          {
+            "name": "std_dev",
+            "value": "11.14"
+          },
+          {
+            "name": "ytm",
+            "value": "6.88"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "10,528 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "19990527"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Equity Savings Index TRI",
+        "field_location": [
+          {
+            "amc_name": "28",
+            "benchmark_index": "28",
+            "count": 65,
+            "main_scheme_name": "28",
+            "metrics_avg_maturity": "28",
+            "metrics_beta": "28",
+            "metrics_macaulay": "28",
+            "metrics_mod_duration": "28",
+            "metrics_port_turnover_ratio": "28",
+            "metrics_r_squared_ratio": "28",
+            "metrics_sharpe": "28",
+            "metrics_std_dev": "28",
+            "metrics_ytm": "28",
+            "monthly_aaum_date": "28",
+            "monthly_aaum_value": "28",
+            "mutual_fund_name": "28",
+            "scheme_launch_date": "28"
+          }
+        ],
+        "main_scheme_name": "DSP Equity Savings Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "7 years"
+          },
+          {
+            "name": "beta",
+            "value": "0.81"
+          },
+          {
+            "name": "macaulay",
+            "value": "3.09 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.98 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "5.48"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "88.10"
+          },
+          {
+            "name": "sharpe",
+            "value": "1.06"
+          },
+          {
+            "name": "std_dev",
+            "value": "4.16"
+          },
+          {
+            "name": "ytm",
+            "value": "6.58"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,594 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20160328"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "NIFTY 50 Equal Weight TRI",
+        "field_location": [
+          {
+            "amc_name": "29",
+            "benchmark_index": "29",
+            "count": 65,
+            "main_scheme_name": "29",
+            "metrics_beta": "29",
+            "metrics_port_turnover_ratio": "29",
+            "metrics_r_squared_ratio": "29",
+            "metrics_sharpe": "29",
+            "metrics_std_dev": "29",
+            "metrics_tracking_error_regular_plan": "29",
+            "monthly_aaum_date": "29",
+            "monthly_aaum_value": "29",
+            "mutual_fund_name": "29",
+            "scheme_launch_date": "29"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty 50 Equal Weight Index Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.00"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.31"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "100.00"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.66"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.03"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.06"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,010 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20171023"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "NIFTY 50 Equal Weight TRI BSE NSE SCRIP CODE 543388 EQUAL50ADD",
+        "field_location": [
+          {
+            "amc_name": "30",
+            "benchmark_index": "30",
+            "count": 65,
+            "main_scheme_name": "30",
+            "metrics_beta": "30",
+            "metrics_port_turnover_ratio": "30",
+            "metrics_r_squared_ratio": "30",
+            "metrics_sharpe": "30",
+            "metrics_std_dev": "30",
+            "metrics_tracking_error_regular_plan": "30",
+            "monthly_aaum_date": "30",
+            "monthly_aaum_value": "30",
+            "mutual_fund_name": "30",
+            "scheme_launch_date": "30"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty 50 Equal Weight ETF",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.00"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.74"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "100.00"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.71"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.04"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.04"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "506 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20211108"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty 50 TRI BSE NSE SCRIP CODE 543440 NIFTY50ADD",
+        "field_location": [
+          {
+            "amc_name": "31",
+            "benchmark_index": "31",
+            "count": 65,
+            "main_scheme_name": "31",
+            "metrics_beta": "31",
+            "metrics_port_turnover_ratio": "31",
+            "metrics_r_squared_ratio": "31",
+            "metrics_sharpe": "31",
+            "metrics_std_dev": "31",
+            "metrics_tracking_error_regular_plan": "31",
+            "monthly_aaum_date": "31",
+            "monthly_aaum_value": "31",
+            "mutual_fund_name": "31",
+            "scheme_launch_date": "31"
+          }
+        ],
+        "main_scheme_name": "DSP NIFTY 50 ETF",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.00"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.44"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "100.00"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.58"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.30"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.03"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "343 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20211223"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Midcap 150 Quality 50 TRI BSE NSE SCRIP CODE 543438 MIDQ50ADD",
+        "field_location": [
+          {
+            "amc_name": "32",
+            "benchmark_index": "32",
+            "count": 65,
+            "main_scheme_name": "32",
+            "metrics_beta": "32",
+            "metrics_port_turnover_ratio": "32",
+            "metrics_r_squared_ratio": "32",
+            "metrics_sharpe": "32",
+            "metrics_std_dev": "32",
+            "metrics_tracking_error_regular_plan": "32",
+            "monthly_aaum_date": "32",
+            "monthly_aaum_value": "32",
+            "mutual_fund_name": "32",
+            "scheme_launch_date": "32"
+          }
+        ],
+        "main_scheme_name": "DSP NIFTY MIDCAP 150 QUALITY 50 ETF",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.00"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.45"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "100.00"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.39"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.68"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.09"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "92 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20211223"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Domestic Price of Physical Silver (based on London Bullion Market association (LBMA) Silver daily spot fixing price.) BSE NSE SCRIP CODE 543572 SILVERADD",
+        "field_location": [
+          {
+            "amc_name": "33",
+            "benchmark_index": "33",
+            "count": 65,
+            "main_scheme_name": "33",
+            "metrics_tracking_error_regular_plan": "33",
+            "monthly_aaum_date": "33",
+            "monthly_aaum_value": "33",
+            "mutual_fund_name": "33",
+            "scheme_launch_date": "33"
+          }
+        ],
+        "main_scheme_name": "DSP Silver ETF",
+        "metrics": [
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.33"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "769 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20220819"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Bank TRI BSE NSE SCRIP CODE 543738 BANKETFADD",
+        "field_location": [
+          {
+            "amc_name": "34",
+            "benchmark_index": "34",
+            "count": 65,
+            "main_scheme_name": "34",
+            "metrics_port_turnover_ratio": "34",
+            "metrics_tracking_error_regular_plan": "34",
+            "monthly_aaum_date": "34",
+            "monthly_aaum_value": "34",
+            "mutual_fund_name": "34",
+            "scheme_launch_date": "34"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Bank ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.43"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.06"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "616 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230103"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty IT TRI BSE NSE SCRIP CODE 543935 ITETFADD",
+        "field_location": [
+          {
+            "amc_name": "35",
+            "benchmark_index": "35",
+            "count": 65,
+            "main_scheme_name": "35",
+            "metrics_port_turnover_ratio": "35",
+            "metrics_tracking_error_regular_plan": "35",
+            "monthly_aaum_date": "35",
+            "monthly_aaum_value": "35",
+            "mutual_fund_name": "35",
+            "scheme_launch_date": "35"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty IT ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.22"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.06"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "34 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230707"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty PSU Bank TRI BSE NSE SCRIP CODE 543948 PSUBANKADD",
+        "field_location": [
+          {
+            "amc_name": "36",
+            "benchmark_index": "36",
+            "count": 65,
+            "main_scheme_name": "36",
+            "metrics_port_turnover_ratio": "36",
+            "metrics_tracking_error_regular_plan": "36",
+            "monthly_aaum_date": "36",
+            "monthly_aaum_value": "36",
+            "mutual_fund_name": "36",
+            "scheme_launch_date": "36"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty PSU Bank ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.68"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.11"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "64 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230727"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Private Bank TRI BSE NSE SCRIP CODE 543949 PVTBANKADD",
+        "field_location": [
+          {
+            "amc_name": "37",
+            "benchmark_index": "37",
+            "count": 65,
+            "main_scheme_name": "37",
+            "metrics_port_turnover_ratio": "37",
+            "metrics_tracking_error_regular_plan": "37",
+            "monthly_aaum_date": "37",
+            "monthly_aaum_value": "37",
+            "mutual_fund_name": "37",
+            "scheme_launch_date": "37"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Private Bank ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.66"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.07"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "373 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230727"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE Sensex TRI BSE NSE SCRIP CODE 543947 SENSEXADD",
+        "field_location": [
+          {
+            "amc_name": "38",
+            "benchmark_index": "38",
+            "count": 65,
+            "main_scheme_name": "38",
+            "metrics_port_turnover_ratio": "38",
+            "metrics_tracking_error_regular_plan": "38",
+            "monthly_aaum_date": "38",
+            "monthly_aaum_value": "38",
+            "mutual_fund_name": "38",
+            "scheme_launch_date": "38"
+          }
+        ],
+        "main_scheme_name": "DSP BSE Sensex ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.15"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.03"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "8 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230727"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Healthcare TRI BSE NSE SCRIP CODE 544109 HEALTHADD",
+        "field_location": [
+          {
+            "amc_name": "39",
+            "benchmark_index": "39",
+            "count": 65,
+            "main_scheme_name": "39",
+            "metrics_port_turnover_ratio": "39",
+            "metrics_tracking_error_regular_plan": "39",
+            "monthly_aaum_date": "39",
+            "monthly_aaum_value": "39",
+            "mutual_fund_name": "39",
+            "scheme_launch_date": "39"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Healthcare ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.32"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.03"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "10 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20240201"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "NIFTY 1D Rate Index BSE NSE SCRIP CODE 541097 LIQUIDETF",
+        "field_location": [
+          {
+            "amc_name": "40",
+            "benchmark_index": "40",
+            "count": 65,
+            "main_scheme_name": "40",
+            "metrics_tracking_error_regular_plan": "40",
+            "monthly_aaum_date": "40",
+            "monthly_aaum_value": "40",
+            "mutual_fund_name": "40",
+            "scheme_launch_date": "40"
+          }
+        ],
+        "main_scheme_name": "DSP NIFTY 1D Rate Liquid ETF",
+        "metrics": [
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.03"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "576 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20180314"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE Liquid Rate Index BSE NSE SCRIP CODE 544159 LIQUIDADD",
+        "field_location": [
+          {
+            "amc_name": "41",
+            "benchmark_index": "41",
+            "count": 65,
+            "main_scheme_name": "41",
+            "metrics_tracking_error_regular_plan": "41",
+            "monthly_aaum_date": "41",
+            "monthly_aaum_value": "41",
+            "mutual_fund_name": "41",
+            "scheme_launch_date": "41"
+          }
+        ],
+        "main_scheme_name": "DSP BSE Liquid Rate ETF",
+        "metrics": [
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.04"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,589 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20240327"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Top 10 Equal Weight TRI BSE NSE SCRIP CODE 544247 TOP10ADD",
+        "field_location": [
+          {
+            "amc_name": "42",
+            "benchmark_index": "42",
+            "count": 65,
+            "main_scheme_name": "42",
+            "metrics_port_turnover_ratio": "42",
+            "metrics_tracking_error_regular_plan": "42",
+            "monthly_aaum_date": "42",
+            "monthly_aaum_value": "42",
+            "mutual_fund_name": "42",
+            "scheme_launch_date": "42"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Top 10 Equal Weight ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.25"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.06"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "625 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20240905"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE SENSEX Next 30 TRI BSE NSE SCRIP CODE 544352 NEXT30ADD",
+        "field_location": [
+          {
+            "amc_name": "43",
+            "benchmark_index": "43",
+            "count": 65,
+            "main_scheme_name": "43",
+            "metrics_port_turnover_ratio": "43",
+            "metrics_tracking_error_regular_plan": "43",
+            "monthly_aaum_date": "43",
+            "monthly_aaum_value": "43",
+            "mutual_fund_name": "43",
+            "scheme_launch_date": "43"
+          }
+        ],
+        "main_scheme_name": "DSP BSE Sensex Next 30 ETF",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.04"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.12"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "19 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20250130"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Top 10 Equal Weight TRI",
+        "field_location": [
+          {
+            "amc_name": "44",
+            "benchmark_index": "44",
+            "count": 65,
+            "main_scheme_name": "44",
+            "metrics_port_turnover_ratio": "44",
+            "metrics_tracking_error_regular_plan": "44",
+            "monthly_aaum_date": "44",
+            "monthly_aaum_value": "44",
+            "mutual_fund_name": "44",
+            "scheme_launch_date": "44"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Top 10 Equal Weight Index Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.26"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.13"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,544 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20240905"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Next 50 TRI",
+        "field_location": [
+          {
+            "amc_name": "46",
+            "benchmark_index": "46",
+            "count": 65,
+            "main_scheme_name": "46",
+            "metrics_beta": "46",
+            "metrics_port_turnover_ratio": "46",
+            "metrics_r_squared_ratio": "46",
+            "metrics_sharpe": "46",
+            "metrics_std_dev": "46",
+            "metrics_tracking_error_regular_plan": "46",
+            "monthly_aaum_date": "46",
+            "monthly_aaum_value": "46",
+            "mutual_fund_name": "46",
+            "scheme_launch_date": "46"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Next 50 Index Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.00"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.78"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "99.99"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.44"
+          },
+          {
+            "name": "std_dev",
+            "value": "20.33"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.21"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "919 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20190221"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "NIFTY 50 (TRI)",
+        "field_location": [
+          {
+            "amc_name": "47",
+            "benchmark_index": "47",
+            "count": 65,
+            "main_scheme_name": "47",
+            "metrics_beta": "47",
+            "metrics_port_turnover_ratio": "47",
+            "metrics_r_squared_ratio": "47",
+            "metrics_sharpe": "47",
+            "metrics_std_dev": "47",
+            "metrics_tracking_error_regular_plan": "47",
+            "monthly_aaum_date": "47",
+            "monthly_aaum_value": "47",
+            "mutual_fund_name": "47",
+            "scheme_launch_date": "47"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty 50 Index Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.00"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.09"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "100.00"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.55"
+          },
+          {
+            "name": "std_dev",
+            "value": "13.31"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.05"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "689 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20190221"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Bank TRI",
+        "field_location": [
+          {
+            "amc_name": "48",
+            "benchmark_index": "48",
+            "count": 65,
+            "main_scheme_name": "48",
+            "metrics_port_turnover_ratio": "48",
+            "metrics_tracking_error_regular_plan": "48",
+            "monthly_aaum_date": "48",
+            "monthly_aaum_value": "48",
+            "mutual_fund_name": "48",
+            "scheme_launch_date": "48"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Bank Index Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.46"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.12"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "49 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20240531"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "BSE SENSEX Next 30 TRI",
+        "field_location": [
+          {
+            "amc_name": "49",
+            "benchmark_index": "49",
+            "count": 65,
+            "main_scheme_name": "49",
+            "metrics_port_turnover_ratio": "49",
+            "metrics_tracking_error_regular_plan": "49",
+            "monthly_aaum_date": "49",
+            "monthly_aaum_value": "49",
+            "mutual_fund_name": "49",
+            "scheme_launch_date": "49"
+          }
+        ],
+        "main_scheme_name": "DSP BSE SENSEX Next 30 Index Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.11"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.15"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "9 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20250130"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Private Bank TRI",
+        "field_location": [
+          {
+            "amc_name": "50",
+            "benchmark_index": "50",
+            "count": 65,
+            "main_scheme_name": "50",
+            "metrics_port_turnover_ratio": "50",
+            "metrics_tracking_error_regular_plan": "50",
+            "monthly_aaum_date": "50",
+            "monthly_aaum_value": "50",
+            "mutual_fund_name": "50",
+            "scheme_launch_date": "50"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Private Bank Index Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.09"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.24"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "13 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20250306"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "NIFTY 50 Arbitrage Index",
+        "field_location": [
+          {
+            "amc_name": "51",
+            "benchmark_index": "51",
+            "count": 65,
+            "main_scheme_name": "51",
+            "metrics_avg_maturity": "51",
+            "metrics_beta": "51",
+            "metrics_macaulay": "51",
+            "metrics_mod_duration": "51",
+            "metrics_port_turnover_ratio": "51",
+            "metrics_r_squared_ratio": "51",
+            "metrics_sharpe": "51",
+            "metrics_std_dev": "51",
+            "metrics_ytm": "51",
+            "monthly_aaum_date": "51",
+            "monthly_aaum_value": "51",
+            "mutual_fund_name": "51",
+            "scheme_launch_date": "51"
+          }
+        ],
+        "main_scheme_name": "DSP Arbitrage Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.18 years"
+          },
+          {
+            "name": "beta",
+            "value": "0.64"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.39 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.36 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "12.32"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "62.03"
+          },
+          {
+            "name": "sharpe",
+            "value": "1.24"
+          },
+          {
+            "name": "std_dev",
+            "value": "0.53"
+          },
+          {
+            "name": "ytm",
+            "value": "6.64"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "6,170 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20180125"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Hybrid 85+15-Conservative Index",
+        "field_location": [
+          {
+            "amc_name": "52",
+            "benchmark_index": "52",
+            "count": 65,
+            "main_scheme_name": "52",
+            "metrics_avg_maturity": "52",
+            "metrics_beta": "52",
+            "metrics_macaulay": "52",
+            "metrics_mod_duration": "52",
+            "metrics_r_squared_ratio": "52",
+            "metrics_sharpe": "52",
+            "metrics_std_dev": "52",
+            "metrics_ytm": "52",
+            "monthly_aaum_date": "52",
+            "monthly_aaum_value": "52",
+            "mutual_fund_name": "52",
+            "scheme_launch_date": "52"
+          }
+        ],
+        "main_scheme_name": "DSP Regular Savings Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "3.54 years"
+          },
+          {
+            "name": "beta",
+            "value": "0.99"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.7 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.61 years"
+          },
+          {
+            "name": "r_squared_ratio",
+            "value": "80.66"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.99"
+          },
+          {
+            "name": "std_dev",
+            "value": "3.81"
+          },
+          {
+            "name": "ytm",
+            "value": "6.35"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "165 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20040611"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Liquid Debt A-I Index",
+        "field_location": [
+          {
+            "amc_name": "53",
+            "benchmark_index": "53",
+            "count": 65,
+            "main_scheme_name": "53",
+            "metrics_avg_maturity": "53",
+            "metrics_macaulay": "53",
+            "metrics_mod_duration": "53",
+            "metrics_ytm": "53",
+            "monthly_aaum_date": "53",
+            "monthly_aaum_value": "53",
+            "mutual_fund_name": "53",
+            "scheme_launch_date": "53"
+          }
+        ],
+        "main_scheme_name": "DSP Liquidity Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.11 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.11 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.1 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.51"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "20,405 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "19980311"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Ultra Short Duration Debt A-I Index",
+        "field_location": [
+          {
+            "amc_name": "54",
+            "benchmark_index": "54",
+            "count": 65,
+            "main_scheme_name": "54",
+            "metrics_avg_maturity": "54",
+            "metrics_macaulay": "54",
+            "metrics_mod_duration": "54",
+            "metrics_ytm": "54",
+            "monthly_aaum_date": "54",
+            "monthly_aaum_value": "54",
+            "mutual_fund_name": "54",
+            "scheme_launch_date": "54"
+          }
+        ],
+        "main_scheme_name": "DSP Ultra Short Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.5 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.47 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.44 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.79"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "3,910 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20060731"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Short Duration Debt A-II Index",
+        "field_location": [
+          {
+            "amc_name": "55",
+            "benchmark_index": "55",
+            "count": 65,
+            "main_scheme_name": "55",
+            "metrics_avg_maturity": "55",
+            "metrics_macaulay": "55",
+            "metrics_mod_duration": "55",
+            "metrics_ytm": "55",
+            "monthly_aaum_date": "55",
+            "monthly_aaum_value": "55",
+            "mutual_fund_name": "55",
+            "scheme_launch_date": "55"
+          }
+        ],
+        "main_scheme_name": "DSP Floater Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "8.94 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.82 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.69 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.87"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "551 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20210319"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty SDL Plus G-Sec Jun 2028 3070 Index",
+        "field_location": [
+          {
+            "amc_name": "56",
+            "benchmark_index": "56",
+            "count": 65,
+            "main_scheme_name": "56",
+            "metrics_avg_maturity": "56",
+            "metrics_macaulay": "56",
+            "metrics_mod_duration": "56",
+            "metrics_tracking_error_regular_plan": "56",
+            "metrics_ytm": "56",
+            "monthly_aaum_date": "56",
+            "monthly_aaum_value": "56",
+            "mutual_fund_name": "56",
+            "scheme_launch_date": "56"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty SDL Plus G-Sec Jun 2028 3070 Index Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.69 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.43 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.36 years"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.39"
+          },
+          {
+            "name": "ytm",
+            "value": "6.13"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,177 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20220321"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL SDL Plus G-Sec Apr 2033 5050 Index",
+        "field_location": [
+          {
+            "amc_name": "57",
+            "benchmark_index": "57",
+            "count": 65,
+            "main_scheme_name": "57",
+            "metrics_avg_maturity": "57",
+            "metrics_macaulay": "57",
+            "metrics_mod_duration": "57",
+            "metrics_tracking_error_regular_plan": "57",
+            "metrics_ytm": "57",
+            "monthly_aaum_date": "57",
+            "monthly_aaum_value": "57",
+            "mutual_fund_name": "57",
+            "scheme_launch_date": "57"
+          }
+        ],
+        "main_scheme_name": "DSP CRISIL SDL Plus G-Sec Apr 2033 5050 Index Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "7.37 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "5.73 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.55 years"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.54"
+          },
+          {
+            "name": "ytm",
+            "value": "6.47"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "396 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230125"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Smallcap250 Quality 50 TRI",
+        "field_location": [
+          {
+            "amc_name": "59",
+            "benchmark_index": "59",
+            "count": 65,
+            "main_scheme_name": "59",
+            "metrics_port_turnover_ratio": "59",
+            "metrics_tracking_error_regular_plan": "59",
+            "monthly_aaum_date": "59",
+            "monthly_aaum_value": "59",
+            "mutual_fund_name": "59",
+            "scheme_launch_date": "59"
+          }
+        ],
+        "main_scheme_name": "DSP Nifty Smallcap250 Quality 50 Index Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.02"
+          },
+          {
+            "name": "tracking_error_regular_plan",
+            "value": "0.27"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "214 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20231226"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Money Market A-I Index",
+        "field_location": [
+          {
+            "amc_name": "60",
+            "benchmark_index": "60",
+            "count": 65,
+            "main_scheme_name": "60",
+            "metrics_avg_maturity": "60",
+            "metrics_macaulay": "60",
+            "metrics_mod_duration": "60",
+            "metrics_ytm": "60",
+            "monthly_aaum_date": "60",
+            "monthly_aaum_value": "60",
+            "mutual_fund_name": "60",
+            "scheme_launch_date": "60"
+          }
+        ],
+        "main_scheme_name": "DSP Savings Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.53 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.53 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.5 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.73"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "4,506 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "19990930"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Crisil Dynamic Gilt Index",
+        "field_location": [
+          {
+            "amc_name": "61",
+            "benchmark_index": "61",
+            "count": 65,
+            "main_scheme_name": "61",
+            "metrics_avg_maturity": "61",
+            "metrics_macaulay": "61",
+            "metrics_mod_duration": "61",
+            "metrics_ytm": "61",
+            "monthly_aaum_date": "61",
+            "monthly_aaum_value": "61",
+            "mutual_fund_name": "61",
+            "scheme_launch_date": "61"
+          }
+        ],
+        "main_scheme_name": "DSP Gilt Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "27.82 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "10.84 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "10.48 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.70"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,652 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "19990930"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Short Duration Debt A-II Index",
+        "field_location": [
+          {
+            "amc_name": "62",
+            "benchmark_index": "62",
+            "count": 65,
+            "main_scheme_name": "62",
+            "metrics_avg_maturity": "62",
+            "metrics_macaulay": "62",
+            "metrics_mod_duration": "62",
+            "metrics_ytm": "62",
+            "monthly_aaum_date": "62",
+            "monthly_aaum_value": "62",
+            "mutual_fund_name": "62",
+            "scheme_launch_date": "62"
+          }
+        ],
+        "main_scheme_name": "DSP Short Term Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "4.06 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.86 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "2.72 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.89"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "3,218 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20020909"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Banking PSU Debt Index A-II",
+        "field_location": [
+          {
+            "amc_name": "63",
+            "benchmark_index": "63",
+            "count": 65,
+            "main_scheme_name": "63",
+            "metrics_avg_maturity": "63",
+            "metrics_macaulay": "63",
+            "metrics_mod_duration": "63",
+            "metrics_ytm": "63",
+            "monthly_aaum_date": "63",
+            "monthly_aaum_value": "63",
+            "mutual_fund_name": "63",
+            "scheme_launch_date": "63"
+          }
+        ],
+        "main_scheme_name": "DSP Banking & PSU Debt Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "9.84 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "5.4 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.13 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.83"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "3,551 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20130914"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Credit Risk Debt B-II Index",
+        "field_location": [
+          {
+            "amc_name": "64",
+            "benchmark_index": "64",
+            "count": 65,
+            "main_scheme_name": "64",
+            "metrics_avg_maturity": "64",
+            "metrics_macaulay": "64",
+            "metrics_mod_duration": "64",
+            "metrics_ytm": "64",
+            "monthly_aaum_date": "64",
+            "monthly_aaum_value": "64",
+            "mutual_fund_name": "64",
+            "scheme_launch_date": "64"
+          }
+        ],
+        "main_scheme_name": "DSP Credit Risk Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "2.63 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "2.03 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "1.93 years"
+          },
+          {
+            "name": "ytm",
+            "value": "7.32"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "207 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20030513"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Dynamic Bond A-III Index",
+        "field_location": [
+          {
+            "amc_name": "65",
+            "benchmark_index": "65",
+            "count": 65,
+            "main_scheme_name": "65",
+            "metrics_avg_maturity": "65",
+            "metrics_macaulay": "65",
+            "metrics_mod_duration": "65",
+            "metrics_ytm": "65",
+            "monthly_aaum_date": "65",
+            "monthly_aaum_value": "65",
+            "mutual_fund_name": "65",
+            "scheme_launch_date": "65"
+          }
+        ],
+        "main_scheme_name": "DSP Strategic Bond Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "26.25 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "10.82 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "10.41 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.76"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,578 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20070509"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Medium Duration Debt A-III Index",
+        "field_location": [
+          {
+            "amc_name": "66",
+            "benchmark_index": "66",
+            "count": 65,
+            "main_scheme_name": "66",
+            "metrics_avg_maturity": "66",
+            "metrics_macaulay": "66",
+            "metrics_mod_duration": "66",
+            "metrics_ytm": "66",
+            "monthly_aaum_date": "66",
+            "monthly_aaum_value": "66",
+            "mutual_fund_name": "66",
+            "scheme_launch_date": "66"
+          }
+        ],
+        "main_scheme_name": "DSP Bond Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "4.08 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "3.52 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "3.32 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.73"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "308 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "19970429"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "NIFTY Low Duration Debt Index A-I",
+        "field_location": [
+          {
+            "amc_name": "67",
+            "benchmark_index": "67",
+            "count": 65,
+            "main_scheme_name": "67",
+            "metrics_avg_maturity": "67",
+            "metrics_macaulay": "67",
+            "metrics_mod_duration": "67",
+            "metrics_ytm": "67",
+            "monthly_aaum_date": "67",
+            "monthly_aaum_value": "67",
+            "mutual_fund_name": "67",
+            "scheme_launch_date": "67"
+          }
+        ],
+        "main_scheme_name": "DSP Low Duration Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "1.25 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.93 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.89 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.81"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "4,563 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20150310"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL 10 Year Gilt Index",
+        "field_location": [
+          {
+            "amc_name": "68",
+            "benchmark_index": "68",
+            "count": 65,
+            "main_scheme_name": "68",
+            "metrics_avg_maturity": "68",
+            "metrics_macaulay": "68",
+            "metrics_mod_duration": "68",
+            "metrics_ytm": "68",
+            "monthly_aaum_date": "68",
+            "monthly_aaum_value": "68",
+            "mutual_fund_name": "68",
+            "scheme_launch_date": "68"
+          }
+        ],
+        "main_scheme_name": "DSP 10Y G-Sec Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "8.63 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "6.52 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "6.31 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.33"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "60 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20140926"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "CRISIL Corporate Debt A-II Index",
+        "field_location": [
+          {
+            "amc_name": "69",
+            "benchmark_index": "69",
+            "count": 65,
+            "main_scheme_name": "69",
+            "metrics_avg_maturity": "69",
+            "metrics_macaulay": "69",
+            "metrics_mod_duration": "69",
+            "metrics_ytm": "69",
+            "monthly_aaum_date": "69",
+            "monthly_aaum_value": "69",
+            "mutual_fund_name": "69",
+            "scheme_launch_date": "69"
+          }
+        ],
+        "main_scheme_name": "DSP Corporate Bond Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.01 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.00"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0 years"
+          },
+          {
+            "name": "ytm",
+            "value": "6.08"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,102 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20180910"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "40% NIFTY500 TRI + 20% NIFTY Composite Debt Index + 15% Domestic Price of Physical Gold (based on London Bullion Market Association (LBMA) gold daily spot fixing price) + 5% iCOMDEX Composite Index + 20% MSCI World Index",
+        "field_location": [
+          {
+            "amc_name": "70",
+            "benchmark_index": "70",
+            "count": 65,
+            "main_scheme_name": "70",
+            "metrics_avg_maturity": "70",
+            "metrics_macaulay": "70",
+            "metrics_mod_duration": "70",
+            "metrics_port_turnover_ratio": "70",
+            "metrics_ytm": "70",
+            "monthly_aaum_date": "70",
+            "monthly_aaum_value": "70",
+            "mutual_fund_name": "70",
+            "scheme_launch_date": "70"
+          }
+        ],
+        "main_scheme_name": "DSP Multi Asset Allocation Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "13.83 years"
+          },
+          {
+            "name": "macaulay",
+            "value": "5.93 years"
+          },
+          {
+            "name": "mod_duration",
+            "value": "5.7 years"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.66"
+          },
+          {
+            "name": "ytm",
+            "value": "6.78"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "2,851 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20230927"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "DSP Investment Managers Private Limited",
+        "benchmark_index": "Nifty Financial Services TRI",
+        "field_location": [
+          {
+            "amc_name": "71",
+            "benchmark_index": "71",
+            "count": 65,
+            "main_scheme_name": "71",
+            "metrics_port_turnover_ratio": "71",
+            "monthly_aaum_date": "71",
+            "monthly_aaum_value": "71",
+            "mutual_fund_name": "71",
+            "scheme_launch_date": "71"
+          }
+        ],
+        "main_scheme_name": "DSP Banking & Financial Services Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.79"
+          }
+        ],
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,166 Cr",
+        "mutual_fund_name": "DSP Mutual Fund",
+        "scheme_launch_date": "20231208"
+      }
+    }
+  ]
+}

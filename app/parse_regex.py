@@ -1,6 +1,6 @@
 import re
 import os, sys
-import json, random,string, inspect, json5
+import json, random,string, inspect, json5,datetime
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -32,9 +32,9 @@ class FundRegex():
         self.ESCAPE = data.get("escape_regex","")
         self.MAIN_SCHEME_NAME = data.get("main_scheme_name",{})
 
-    def header_mapper(self, text: str)->str:
+    def _header_mapper(self, text: str)->str:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        text = re.sub(r"[^\w\s]+|\u00b7", "", text).strip()
+        text = self._remove_non_word_space_chars(text)
         # print(text)
         for replacement, patterns in self.HEADER_PATTERNS.items():
             try:
@@ -49,26 +49,21 @@ class FundRegex():
                 print(f"Function Running: {inspect.currentframe().f_code.co_name}\n{e}")
         return text
 
-    def __clean_key(self,key: str) -> str:
-        key = re.sub(r"[^\w\s]", "", key)
-        key = re.sub(r"\s+", "_", key)
-        return key.strip().lower()
-
-    def transform_keys(self, data:dict)->dict: #lowercase
+    def _transform_keys(self, data:dict)->dict: #lowercase
         if isinstance(data, dict):
-            return {self.__clean_key(key): self.transform_keys(value) for key, value in data.items()}
+            return {self._normalize_key(key): self._transform_keys(value) for key, value in data.items()}
         elif isinstance(data, list):
-            return [self.transform_keys(item) if isinstance(item, dict) else item for item in data]
+            return [self._transform_keys(item) if isinstance(item, dict) else item for item in data]
         else:
             return data
             
-    def flatten_dict(self,data:dict, parent_key='', sep='.'):
+    def _flatten_dict(self,data:dict, parent_key='', sep='.'):
         flattened = {}
         for key, value in data.items():
             new_key = f"{parent_key}{sep}{key}" if parent_key else key
 
             if isinstance(value, dict):  #recurse
-                flattened.update(self.flatten_dict(value, new_key, sep))
+                flattened.update(self._flatten_dict(value, new_key, sep))
             elif isinstance(value, list):
                 # Keep lists untouched
                 flattened[new_key] = value
@@ -109,41 +104,15 @@ class FundRegex():
                 data[key] = None
                 
         return {k:data[k] for k in sorted(data)} #sorted
-                
-    # def _check_replace_type(self,data:dict,fund:str):
-    #     expected_types = {
-    #         "amc_name": str,
-    #         "benchmark_index": str,
-    #         "fund_manager": list,
-    #         "load": dict,
-    #         "main_scheme_name": str,
-    #         "metrics": dict,
-    #         "min_addl_amt": str,
-    #         "min_addl_amt_multiple": str,
-    #         "min_amt": str,
-    #         "min_amt_multiple": str,
-    #         "monthly_aaum_date": str,
-    #         "monthly_aaum_value": str,
-    #         "mutual_fund_name": str,
-    #         "page_number": list,
-    #         "scheme_launch_date": str
-    #     }
-
-    #     changes = {}
-
-    #     for key, expected_type in expected_types.items():
-    #         if key in data and not isinstance(data[key], expected_type):
-    #             original_type = type(data[key]).__name__
-    #             default_value = expected_type()
-    #             data[key] = default_value
-    #             changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
-
-    #     return data
     
     def _normalize_key(self,key: str) -> str:
         key = re.sub(r"[^\w\s\.]", "", key)
         key = re.sub(r"\s+", "_", key)
         return key.strip().lower()
+    
+    def _remove_non_word_space_chars(self,key:str)->str:
+        key = re.sub("[^\\w\\s]", "", key).strip()
+        return key
     
     def _normalize_whitespace(self,text:str)->str:
         if not isinstance(text,str):
@@ -160,11 +129,18 @@ class FundRegex():
         fund = re.sub(self.ESCAPE, '', fund)
         fund = re.sub("\\s+", ' ', fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
-            if matches:=re.findall(regex,fund,re.IGNORECASE):
+            if re.findall(regex,fund,re.IGNORECASE):
                 print(f"{fund} --> {key}")
                 fund = key
                 break
         return fund
+    
+    def _to_rgb_tuple(self,color_int):
+        c = color_int & 0xFFFFFF
+        r = (c >> 16) & 0xFF
+        g = (c >> 8) & 0xFF
+        b = c & 0xFF
+        return (r/255.0, g/255.0, b/255.0)
     
     def _remove_rupee_symbol(self,data:dict):
         # rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
@@ -177,13 +153,6 @@ class FundRegex():
             if k in clean_keys and isinstance(v,str):
                 data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
         return data
-    
-    def _to_rgb_tuple(self,color_int):
-        c = color_int & 0xFFFFFF
-        r = (c >> 16) & 0xFF
-        g = (c >> 8) & 0xFF
-        b = c & 0xFF
-        return (r/255.0, g/255.0, b/255.0)
 
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
@@ -232,10 +201,8 @@ class FundRegex():
 
             # Clean and normalize name
             cleaned_name = self.MANAGER_STOP_WORDS.sub('', name)
-            cleaned_name = re.sub("[^A-Za-z\\s]","", cleaned_name,re.IGNORECASE)
+            cleaned_name = self._normalize_alphanumeric(cleaned_name)
             cleaned_name = self._remove_duplicates(cleaned_name)
-            cleaned_name = re.sub(r'\s+', ' ', cleaned_name).strip()
-
             if cleaned_name and len(cleaned_name)>=3:
                 manager["name"] = cleaned_name
                 clean_fund_managers.append(manager)
@@ -253,6 +220,57 @@ class FundRegex():
         data.update(clean_terms)
         
         return data
+    
+    
+    #MAPPER FINSTINCT
+    def _format_to_finstinct(self,data,filename):
+        scheme_count = len(data)
+        final_container = {
+            "metadata":{
+                "document_name":filename,
+                "file_type":"fs",
+                "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
+            },
+            "records":[]
+        }
+        for key,content in data.items():
+            final_container["records"].append({"value":FundRegex.__generate_map_value(scheme_count,content)})
+        
+        return final_container
+    
+    @staticmethod
+    def __generate_map_value(scheme_count:int,data:dict):
+        #dynamically get str , dict and list to map to correct format
+        record_value, field_location_keys = {}, []
+
+        page_list = data.get("page_number", [])
+        page_number = str(page_list[0] + 1) if page_list else "0"
+
+        for key, data_value in data.items():
+            if isinstance(data_value, str): #and data_value
+                record_value[key] = FundRegex()._normalize_whitespace(data_value)
+                field_location_keys.append(key)
+
+            elif isinstance(data_value, dict) and data_value:
+                if key == "metrics":
+                    metrics = [{"name": k, "value": str(v)} for k, v in data_value.items() if v]
+                    record_value[key] = metrics
+                    field_location_keys.extend([f"metrics_{m['name']}" for m in metrics])
+
+                elif key == "load":
+                    load = [{"type": k, "comment": FundRegex()._normalize_whitespace(str(v))} for k, v in data_value.items() if v]
+                    record_value[key] = load
+                    field_location_keys.extend([f"load_{l['type'].replace('_load','')}" for l in load])
+
+            elif isinstance(data_value, list) and key == "fund_manager" and data_value:
+                record_value[key] = data_value
+                field_location_keys.extend([f"fund_manager_{k}" for k in data_value[0].keys()])
+
+        # assign page to each key as they are on same page usually
+        field_location = {k: page_number for k in field_location_keys}
+        field_location["count"] = scheme_count
+        record_value["field_location"] = [dict(sorted(field_location.items()))]
+        return dict(sorted(record_value.items()))
     
     def _dummy_block(self,fontz:str,colorz:str):
         return {

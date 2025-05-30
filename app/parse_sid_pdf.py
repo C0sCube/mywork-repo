@@ -8,7 +8,6 @@ from collections import defaultdict
 from app.parse_sid_regex import *
 from app.fund_sid_data import *
 from logging_config import *
-from app.vendor_to_user import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
@@ -32,10 +31,10 @@ class ReaderSIDKIM:
     
         os.makedirs(os.path.dirname(self.JSONPATH), exist_ok=True)
     
-    def _ocr_pdf(self,path:str)->str:
+    def _ocr_pdf(self,path:str,pages)->str:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
-        ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
+        ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True, pages=pages)
         return ocr_path
     
     def __extract_sorted_text_blocks(self,page,clip_area=None)->list:
@@ -57,11 +56,14 @@ class ReaderSIDKIM:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         final_dict = {"risk_bbox": [], "other_text": []}
         risk_bbox = self.PARAMS["page_zero"]["bbox"]
+        
+        path = self._ocr_pdf(self.PDF_PATH) if self.PARAMS["page_zero"]["ocr"] else self.PDF_PATH
 
-        with fitz.open(self.PDF_PATH) as doc:
+        with fitz.open(path) as doc:
             for pgn in pages:
                 page = doc[pgn]
-                final_dict["risk_bbox"].extend(self.__extract_sorted_text_blocks(page,clip_area=risk_bbox)) # Extract bbox text
+                for bbox in risk_bbox:
+                    final_dict["risk_bbox"].extend(self.__extract_sorted_text_blocks(page,clip_area=bbox))# Extract bbox text
                 final_dict["other_text"].extend(self.__extract_sorted_text_blocks(page)) # Extract full text
         self.FIELD_LOCATION["page_zero"] = int(pages[0])
         return final_dict

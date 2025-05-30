@@ -1,0 +1,758 @@
+{
+  "metadata": {
+    "document_name": "28_31-Jan-25_FS.pdf",
+    "file_type": "fs",
+    "process_date": "20250530"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "NIFTY 100 TRI",
+        "field_location": [
+          {
+            "amc_name": "4",
+            "benchmark_index": "4",
+            "count": 17,
+            "main_scheme_name": "4",
+            "metrics_beta": "4",
+            "metrics_port_turnover_ratio": "4",
+            "metrics_std_dev": "4",
+            "min_amt": "4",
+            "min_amt_multiple": "4",
+            "monthly_aaum_date": "4",
+            "monthly_aaum_value": "4",
+            "mutual_fund_name": "4"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Large Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.0"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.65"
+          },
+          {
+            "name": "std_dev",
+            "value": "11.8"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,642.01 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "NIFTY Large Midcap 250 TRI",
+        "field_location": [
+          {
+            "amc_name": "5",
+            "benchmark_index": "5",
+            "count": 17,
+            "main_scheme_name": "5",
+            "metrics_beta": "5",
+            "metrics_information_ratio": "5",
+            "metrics_port_turnover_ratio": "5",
+            "metrics_sharpe": "5",
+            "metrics_std_dev": "5",
+            "min_amt": "5",
+            "min_amt_multiple": "5",
+            "monthly_aaum_date": "5",
+            "monthly_aaum_value": "5",
+            "mutual_fund_name": "5"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Large and Midcap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.0"
+          },
+          {
+            "name": "information_ratio",
+            "value": "0.65"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.40"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.9"
+          },
+          {
+            "name": "std_dev",
+            "value": "16.3"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "8,701.20 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Flexi Cap FundNifty 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "6",
+            "benchmark_index": "6",
+            "count": 17,
+            "main_scheme_name": "6",
+            "metrics_beta": "6",
+            "metrics_information_ratio": "6",
+            "metrics_port_turnover_ratio": "6",
+            "metrics_sharpe": "6",
+            "metrics_std_dev": "6",
+            "min_amt": "6",
+            "min_amt_multiple": "6",
+            "monthly_aaum_date": "6",
+            "monthly_aaum_value": "6",
+            "mutual_fund_name": "6"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Flexi Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.9"
+          },
+          {
+            "name": "information_ratio",
+            "value": "0.62"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.38"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.8"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.4"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "12,361.61 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty 500 Multicap 502525 Index TR",
+        "field_location": [
+          {
+            "amc_name": "7",
+            "benchmark_index": "7",
+            "count": 17,
+            "main_scheme_name": "7",
+            "metrics_port_turnover_ratio": "7",
+            "min_amt": "7",
+            "min_amt_multiple": "7",
+            "monthly_aaum_date": "7",
+            "monthly_aaum_value": "7",
+            "mutual_fund_name": "7"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Multi Cap Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.43"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "3,207.01 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Midcap Fund NIFTY Midcap 150 TRI",
+        "field_location": [
+          {
+            "amc_name": "8",
+            "benchmark_index": "8",
+            "count": 17,
+            "main_scheme_name": "8",
+            "metrics_beta": "8",
+            "metrics_information_ratio": "8",
+            "metrics_port_turnover_ratio": "8",
+            "metrics_sharpe": "8",
+            "metrics_std_dev": "8",
+            "min_amt": "8",
+            "min_amt_multiple": "8",
+            "monthly_aaum_date": "8",
+            "monthly_aaum_value": "8",
+            "mutual_fund_name": "8"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Midcap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.9"
+          },
+          {
+            "name": "information_ratio",
+            "value": "0.79"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.64"
+          },
+          {
+            "name": "sharpe",
+            "value": "1.2"
+          },
+          {
+            "name": "std_dev",
+            "value": "18.0"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "25,307.49 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty Smallcap 250 TRI",
+        "field_location": [
+          {
+            "amc_name": "9",
+            "benchmark_index": "9",
+            "count": 17,
+            "main_scheme_name": "9",
+            "metrics_beta": "9",
+            "metrics_port_turnover_ratio": "9",
+            "metrics_std_dev": "9",
+            "min_amt": "9",
+            "min_amt_multiple": "9",
+            "monthly_aaum_date": "9",
+            "monthly_aaum_value": "9",
+            "mutual_fund_name": "9"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Small Cap Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "0.7"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.55"
+          },
+          {
+            "name": "std_dev",
+            "value": "15.5"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "4,097.93 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Focused Fund NIFTY 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "10",
+            "benchmark_index": "10",
+            "count": 17,
+            "main_scheme_name": "10",
+            "metrics_beta": "10",
+            "metrics_information_ratio": "10",
+            "metrics_port_turnover_ratio": "10",
+            "metrics_sharpe": "10",
+            "metrics_std_dev": "10",
+            "min_amt": "10",
+            "min_amt_multiple": "10",
+            "monthly_aaum_date": "10",
+            "monthly_aaum_value": "10",
+            "mutual_fund_name": "10"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Focused Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.0"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.91"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.92"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.1"
+          },
+          {
+            "name": "std_dev",
+            "value": "14.9"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,601.84 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "11",
+            "benchmark_index": "11",
+            "count": 17,
+            "main_scheme_name": "11",
+            "metrics_beta": "11",
+            "metrics_information_ratio": "11",
+            "metrics_port_turnover_ratio": "11",
+            "metrics_sharpe": "11",
+            "metrics_std_dev": "11",
+            "min_amt": "11",
+            "min_amt_multiple": "11",
+            "monthly_aaum_date": "11",
+            "monthly_aaum_value": "11",
+            "mutual_fund_name": "11"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal ELSS Tax Saver Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.0"
+          },
+          {
+            "name": "information_ratio",
+            "value": "0.84"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.61"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.8"
+          },
+          {
+            "name": "std_dev",
+            "value": "16.8"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "500",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "4,106.13 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "12",
+            "benchmark_index": "12",
+            "count": 17,
+            "main_scheme_name": "12",
+            "metrics_port_turnover_ratio": "12",
+            "min_amt": "12",
+            "min_amt_multiple": "12",
+            "monthly_aaum_date": "12",
+            "monthly_aaum_value": "12",
+            "mutual_fund_name": "12"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Business Cycle Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.89"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,737.72 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty India Manufacturing Total Return Index",
+        "field_location": [
+          {
+            "amc_name": "13",
+            "benchmark_index": "13",
+            "count": 17,
+            "main_scheme_name": "13",
+            "metrics_port_turnover_ratio": "13",
+            "min_amt": "13",
+            "min_amt_multiple": "13",
+            "monthly_aaum_date": "13",
+            "monthly_aaum_value": "13",
+            "mutual_fund_name": "13"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Manufacturing Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.11"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "763.93 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "BSE Teck TRI",
+        "field_location": [
+          {
+            "amc_name": "14",
+            "benchmark_index": "14",
+            "count": 17,
+            "main_scheme_name": "14",
+            "metrics_port_turnover_ratio": "14",
+            "min_amt": "14",
+            "min_amt_multiple": "14",
+            "monthly_aaum_date": "14",
+            "monthly_aaum_value": "14",
+            "mutual_fund_name": "14"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Digital India Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.07"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "755.47 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty 200 Index TRI",
+        "field_location": [
+          {
+            "amc_name": "15",
+            "benchmark_index": "15",
+            "count": 17,
+            "main_scheme_name": "15",
+            "metrics_port_turnover_ratio": "15",
+            "min_amt": "15",
+            "min_amt_multiple": "15",
+            "monthly_aaum_date": "15",
+            "monthly_aaum_value": "15",
+            "mutual_fund_name": "15"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Quant Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.99"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "147.09 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Dynamic Asset Allocation CRISIL Hybrid 50+50 - Moderate TRI",
+        "field_location": [
+          {
+            "amc_name": "16",
+            "benchmark_index": "16",
+            "count": 17,
+            "main_scheme_name": "16",
+            "metrics_beta": "16",
+            "metrics_information_ratio": "16",
+            "metrics_port_turnover_ratio": "16",
+            "metrics_sharpe": "16",
+            "metrics_std_dev": "16",
+            "min_amt": "16",
+            "min_amt_multiple": "16",
+            "monthly_aaum_date": "16",
+            "monthly_aaum_value": "16",
+            "mutual_fund_name": "16"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Balanced Advantage Fund",
+        "metrics": [
+          {
+            "name": "beta",
+            "value": "1.1"
+          },
+          {
+            "name": "information_ratio",
+            "value": "-0.44"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "2.91"
+          },
+          {
+            "name": "sharpe",
+            "value": "0.03"
+          },
+          {
+            "name": "std_dev",
+            "value": "12.5"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1,064.46 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "50% Nifty 500 TRI + 35% CRISIL Short Term Bond Fund Index + 13% Domestic Price of Gold + 2% Domestic Price of Silver.",
+        "field_location": [
+          {
+            "amc_name": "17",
+            "benchmark_index": "17",
+            "count": 17,
+            "main_scheme_name": "17",
+            "metrics_avg_maturity": "17",
+            "metrics_beta": "17",
+            "metrics_macaulay": "17",
+            "metrics_mod_duration": "17",
+            "metrics_port_turnover_ratio": "17",
+            "metrics_sharpe": "17",
+            "metrics_std_dev": "17",
+            "metrics_ytm": "17",
+            "min_amt": "17",
+            "min_amt_multiple": "17",
+            "monthly_aaum_date": "17",
+            "monthly_aaum_value": "17",
+            "mutual_fund_name": "17"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Multi Asset Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.67"
+          },
+          {
+            "name": "beta",
+            "value": "1.1"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.67"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.62"
+          },
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.47"
+          },
+          {
+            "name": "sharpe",
+            "value": "-0.4"
+          },
+          {
+            "name": "std_dev",
+            "value": "8.4"
+          },
+          {
+            "name": "ytm",
+            "value": "8.05"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "99.37 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Nifty 50 Arbitrage TRI",
+        "field_location": [
+          {
+            "amc_name": "18",
+            "benchmark_index": "18",
+            "count": 17,
+            "main_scheme_name": "18",
+            "metrics_port_turnover_ratio": "18",
+            "min_amt": "18",
+            "min_amt_multiple": "18",
+            "monthly_aaum_date": "18",
+            "monthly_aaum_value": "18",
+            "mutual_fund_name": "18"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Arbitrage Fund",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "1.49"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "433.97 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "CRISIL Ultra Short Duration Debt A-I Index",
+        "field_location": [
+          {
+            "amc_name": "19",
+            "benchmark_index": "19",
+            "count": 17,
+            "main_scheme_name": "19",
+            "metrics_avg_maturity": "19",
+            "metrics_macaulay": "19",
+            "metrics_mod_duration": "19",
+            "metrics_ytm": "19",
+            "min_amt": "19",
+            "min_amt_multiple": "19",
+            "monthly_aaum_date": "19",
+            "monthly_aaum_value": "19",
+            "mutual_fund_name": "19"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Ultra Short Term Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.3"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.2"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.2"
+          },
+          {
+            "name": "ytm",
+            "value": "6"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "508.02 cr",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    },
+    {
+      "value": {
+        "amc_name": "Motilal Oswal Asset Management Company Limited",
+        "benchmark_index": "Crisil Liquid Fund A-I Index",
+        "field_location": [
+          {
+            "amc_name": "20",
+            "benchmark_index": "20",
+            "count": 17,
+            "main_scheme_name": "20",
+            "metrics_avg_maturity": "20",
+            "metrics_macaulay": "20",
+            "metrics_mod_duration": "20",
+            "metrics_ytm": "20",
+            "min_amt": "20",
+            "min_amt_multiple": "20",
+            "monthly_aaum_date": "20",
+            "monthly_aaum_value": "20",
+            "mutual_fund_name": "20"
+          }
+        ],
+        "main_scheme_name": "Motilal Oswal Liquid Fund",
+        "metrics": [
+          {
+            "name": "avg_maturity",
+            "value": "0.08"
+          },
+          {
+            "name": "macaulay",
+            "value": "0.07"
+          },
+          {
+            "name": "mod_duration",
+            "value": "0.07"
+          },
+          {
+            "name": "ytm",
+            "value": "7.0"
+          }
+        ],
+        "min_amt": "500",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "936.52 10.0055 10.0130",
+        "mutual_fund_name": "Motilal Oswal Mutual Fund"
+      }
+    }
+  ]
+}

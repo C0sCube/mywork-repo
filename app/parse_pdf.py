@@ -5,7 +5,6 @@ from collections import defaultdict
 from app.parse_regex import *
 from app.fund_data import *
 from logging_config import *
-from app.vendor_to_user import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
@@ -85,8 +84,7 @@ class Reader:
                         continue
                     for line in block["lines"]:
                         for span in line["spans"]:
-                            text =  re.sub("[^\\w\\s]", "", span["text"].strip().lower()) #fix params first
-                            # text = regex.__normalize_alphanumeric(span["text"])
+                            text = regex._remove_non_word_space_chars(span["text"])
                             for indice in indices:
                                 if re.search(rf"\b{re.escape(indice)}\b", text,re.IGNORECASE):
                                     if indice not in found_indices:
@@ -506,7 +504,6 @@ class Reader:
     def get_generated_content(self, data:list):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}\nParsing Completed, Refining Data.....\n")
         extracted_text = {}
-        regex = FundRegex()
         output_path  = self.DRYPATH
         try:
             for content in data:
@@ -538,11 +535,11 @@ class Reader:
             content_dict = {}
             header_map[fund] = {}
             for head, content in item.items():
-                if clean_head:=  regex.header_mapper(head):
+                if clean_head:=  regex._header_mapper(head):
                     header_map[fund][head] = clean_head
                     
                     content = self._match_with_patterns(clean_head, content,level = "primary") # applies regex to clean data
-                    content = regex.transform_keys(content) #lowercase
+                    content = regex._transform_keys(content) #dynamic dict + other -> lowercase
                     key, value = next(iter(content.items()))
         
                     if clean_head in content_dict:
@@ -553,7 +550,7 @@ class Reader:
                         
             primary_refine[fund] = content_dict
         # if flatten: #Flatten the dict if true
-        primary_refine = {fund: regex.flatten_dict(data) for fund, data in primary_refine.items()}
+        primary_refine = {fund: regex._flatten_dict(data) for fund, data in primary_refine.items()}
         
         secondary_refine = {}
         for fund, item in primary_refine.items():
@@ -577,130 +574,48 @@ class Reader:
             tertiary_refine[fund] = content_dict
         return tertiary_refine
     
-    #SELECT/MERGE
     
-    # def merge_and_select_data(self, data: dict, select = False, map_keys = False,special_handling = False):
-    #     print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-    #     finalData = {}
-    #     regex = FundRegex()
-    #     for fund, content in data.items():
-    #         temp = content
-    #         temp = self._clone_fund_data(temp)
-    #         temp = self._merge_fund_data(temp)
-    #         temp = self._clone_fund_data(temp)
-            
-    #         if select:
-    #             temp = self._select_by_regex(temp)
-            
-    #         if map_keys:
-    #             mappend_data = {}
-    #             for key, value in temp.items():
-    #                 new_key = regex._map_json_keys_to_dict(key) or key
-    #                 mappend_data[new_key] = value
-    #             temp = mappend_data
-            
-    #         #regex min/add data
-    #         try:
-    #             new_values = {}
-    #             for key in ["min_amt", "min_addl_amt"]:
-    #                 if key in temp:
-    #                     new_values[key] = temp[key].get("amt", "")
-    #                     new_values[f"{key}_multiple"] = temp[key].get("thraftr", "")
-    #             temp.update(new_values)
-    #         except Exception as e:
-    #             print(f"Error in {fund}: {e}")
-            
-    #         #populate and lowercase
-    #         temp = regex._populate_all_indices_in_json(temp)
-    #         temp = regex.transform_keys(temp) #lowercase
-            
-    #         #regex load data
-    #         new_load = {"entry_load": None,"exit_load": None}
-    #         try:
-    #             for load_key, load_value in temp.get("load", {}).items():
-    #                 value = load_value if isinstance(load_value, str) else " ".join(load_value)
-    #                 if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
-    #                     new_load["entry_load"] = value
-    #                 elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
-    #                     new_load["exit_load"] = value
-    #                 else:
-    #                     new_load[load_key] = value
-    #         except Exception as e:
-    #             # logger.error(e)
-    #             print(f"\nLoad Error {e}")
-    #         temp["load"] = new_load
-
-                
-    #         #regex metric data
-    #         try:
-    #             new_metrics = {}
-    #             for metric_key,metric_value in temp.get("metrics",{}).items():
-    #                 new_key = regex._map_metric_keys_to_dict(metric_key) or metric_key
-    #                 new_metrics[new_key] = metric_value
-    #         except Exception as e:
-    #             # logger.error(e)
-    #             print(f"\n{fund}: Metric Error {e}")
-    #         temp["metrics"] = regex._populate_all_metrics_in_json(new_metrics)
-            
-    #         if special_handling:
-    #             for head, content in temp.items():
-    #                 updated_content = self._special_match_regex_to_content(head, content)
-    #                 if updated_content:
-    #                     temp.update(updated_content)
-                        
-    #         temp = self._promote_key_from_dict(temp)
-    #         temp = self._formalize_values(temp) #rupee symbol
-    #         temp,_ = regex._check_replace_type(temp,fund) #type conversion
-    #         finalData[fund] = dict(sorted(temp.items()))
-    #     return finalData
+    #MAP/SELECT
+    def __load_ops(self,fund:str,df:dict): #got to correct vendor side before adding this
+        load_data = df.get("load", {})
+        if not isinstance(load_data, dict):
+            print(f"Returning _load_ops: {fund} -> Type Error")
+            return df
+        try:
+            new_load = []
+            for load_key, load_value in load_data.items():
+                value = load_value if isinstance(load_value, str) else " ".join(load_value)
+                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
+                    new_load.append({"comment": value,"type": "entry_load"})
+                if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
+                    new_load.append({"comment": value,"type": "exit_load"})
+        except Exception as e:
+            print(f"Error in _load_ops ->Load Error: {e}")
+        
+        df["load"] = new_load
+        return df
     
-    # def __load_ops(self,df:dict): #got to correct vendor side before adding this
+    # def __load_ops(self,fund:str,df:dict):
     #     load_data = df.get("load", {})
     #     if not isinstance(load_data, dict):
     #         print(f"Returning _load_ops -> Type Error")
     #         return df
     #     try:
-    #         new_load = []
+    #         new_load = {"entry_load": None, "exit_load": None}
     #         for load_key, load_value in load_data.items():
-    #             value = load_value if isinstance(load_value, str) else " ".join(load_value)
-    #             if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
-    #                 new_load.append({
-    #                     "comment": value,
-    #                     "type": "entry_load"
-    #                 })
-
-    #             if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
-    #                 new_load.append({
-    #                     "comment": value,
-    #                     "type": "exit_load"
-    #                 })
+    #             value = load_value if isinstance(load_value, str) else " ".join(str(v) for v in load_value)
+    #             if re.search(r"\bentry(_load)?\b", load_key, re.IGNORECASE):
+    #                 new_load["entry_load"] = value
+    #             elif re.search(r"\bexit(_load)?\b", load_key, re.IGNORECASE):
+    #                 new_load["exit_load"] = value
+    #             else:
+    #                 new_load[load_key] = value
     #     except Exception as e:
-    #         print(f"Error in _load_ops ->Load Error: {e}")
+    #         # logger.error(e)
+    #         print(f"Error in _load_ops:{fund} ->Load Error: {e}")
         
     #     df["load"] = new_load
     #     return df
-    
-    def __load_ops(self,fund:str,df:dict):
-        load_data = df.get("load", {})
-        if not isinstance(load_data, dict):
-            print(f"Returning _load_ops -> Type Error")
-            return df
-        try:
-            new_load = {"entry_load": None, "exit_load": None}
-            for load_key, load_value in load_data.items():
-                value = load_value if isinstance(load_value, str) else " ".join(str(v) for v in load_value)
-                if re.search(r"\bentry(_load)?\b", load_key, re.IGNORECASE):
-                    new_load["entry_load"] = value
-                elif re.search(r"\bexit(_load)?\b", load_key, re.IGNORECASE):
-                    new_load["exit_load"] = value
-                else:
-                    new_load[load_key] = value
-        except Exception as e:
-            # logger.error(e)
-            print(f"Error in _load_ops:{fund} ->Load Error: {e}")
-        
-        df["load"] = new_load
-        return df
 
     def __metric_ops(self,fund:str,df:dict):
         try:
@@ -715,7 +630,7 @@ class Reader:
         df["metrics"] = FundRegex()._populate_all_metrics_in_json(new_metrics)
         return df
 
-    def __min_add_ops(self,fund:str,df):
+    def __min_add_ops(self,fund:str,df:dict):
         try:
                 new_values = {}
                 for key in ["min_amt", "min_addl_amt"]:
@@ -728,54 +643,42 @@ class Reader:
             print(f"Error in {fund} ->Min/Add Error: {e}")
         return df
     
+    def __map_json_ops(self,df):
+        return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
+    
     def merge_and_select_data(self, data: dict, select = False, map_keys = False,special_handling = False):
-        
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
-        finkStinct = VendorMapper()
         for fund, content in data.items():
             temp = content
+            #imp: maintain order
             temp = self._clone_fund_data(temp)
             temp = self._merge_fund_data(temp)
             temp = self._clone_fund_data(temp)
             # if select:
             temp = self._select_by_regex(temp)
-            if map_keys:
-                temp = {regex._map_json_keys_to_dict(k) or k: v for k, v in temp.items()}
-            # mappend_data = {}
-            # for key, value in temp.items():
-            #     new_key = regex._map_json_keys_to_dict(key) or key
-            #     mappend_data[new_key] = value
-            # temp = mappend_data
             
-            #maintain same order
+            if map_keys:
+                temp = self.__map_json_ops(temp) #map proper keys
+                
             temp = self.__min_add_ops(fund,temp)
-            temp = regex._populate_all_indices_in_json(temp) #populate
-            temp = regex.transform_keys(temp) #lowercase
+            temp = regex._populate_all_indices_in_json(temp) #populate all keys
+            temp = regex._transform_keys(temp) #lowercase
             temp = self.__load_ops(fund,temp)
             temp = self.__metric_ops(fund,temp)
             
             if special_handling:
-                for head, content in temp.items():
-                    updated_content = self._special_match_regex_to_content(head, content)
-                    if updated_content:
-                        temp.update(updated_content)
-                        
+                temp = self._apply_special_handling(temp)
+                
             temp = self._promote_key_from_dict(temp)
             
-            #formatting and type conversion
+            #format/type convert
             temp = regex._remove_rupee_symbol(temp)
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
-            temp = regex._format_fund_manager(temp) #clean fund manager name
+            temp = regex._format_fund_manager(temp) #clean fund manager
             # temp = regex._format_amt_data(temp) #min/add formatter
+            finalData[fund] = temp
             
-            finalData[fund] = dict(sorted(temp.items()))
-            final_data = finkStinct.map_to_fink(finalData,self.FILE_NAME) #mapper to FinStinct
-        
-        #save json  
-        # save_path = os.path.join(self.JSONPATH,self.FILE_NAME).replace(".pdf", ".json")
-        # with open(save_path,'w') as file:
-        #     json.dump(final_data,file, indent=2)
-        # print(f"File Saved At: {save_path}")
+        final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
         return final_data

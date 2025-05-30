@@ -311,8 +311,15 @@ class GrandFundData:
             logger.error(e)
             return
         return self._extract_dummy_data(string, data) #fallback
-   
-   
+    
+    def _apply_special_handling(self, temp: dict) -> dict:
+        updated = temp.copy()
+        for head, content in temp.items():
+            result = self._special_match_regex_to_content(head, content)
+            if result:
+                updated.update(result)
+        return updated
+
    # CRUD dict operations
     def _merge_fund_data(self, data: dict):
         if not isinstance(data, dict):

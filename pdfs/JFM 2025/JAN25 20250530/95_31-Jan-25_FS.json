@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "document_name": "95_31-Jan-25_FS.pdf",
+    "file_type": "fs",
+    "process_date": "20250530"
+  },
+  "records": [
+    {
+      "value": {
+        "amc_name": "Old Bridge Asset Management Private Limited",
+        "benchmark_index": "BSE 500 TRI",
+        "field_location": [
+          {
+            "amc_name": "6",
+            "benchmark_index": "6",
+            "count": 1,
+            "fund_manager_managing_fund_since": "6",
+            "fund_manager_name": "6",
+            "fund_manager_qualification": "6",
+            "fund_manager_total_exp": "6",
+            "main_scheme_name": "6",
+            "metrics_port_turnover_ratio": "6",
+            "min_addl_amt": "6",
+            "min_addl_amt_multiple": "6",
+            "min_amt": "6",
+            "min_amt_multiple": "6",
+            "monthly_aaum_date": "6",
+            "monthly_aaum_value": "6",
+            "mutual_fund_name": "6",
+            "scheme_launch_date": "6"
+          }
+        ],
+        "fund_manager": [
+          {
+            "managing_fund_since": "Inception",
+            "name": "kenneth andrade",
+            "qualification": "",
+            "total_exp": "30 Years"
+          },
+          {
+            "managing_fund_since": "Inception",
+            "name": "tarang agrawal",
+            "qualification": "",
+            "total_exp": "5 Years"
+          }
+        ],
+        "main_scheme_name": "OLD BRIDGE FOCUSED EQUITY FUND",
+        "metrics": [
+          {
+            "name": "port_turnover_ratio",
+            "value": "0.17"
+          }
+        ],
+        "min_addl_amt": "1000",
+        "min_addl_amt_multiple": "1",
+        "min_amt": "5000",
+        "min_amt_multiple": "1",
+        "monthly_aaum_date": "20250430",
+        "monthly_aaum_value": "1095.87",
+        "mutual_fund_name": "Old Bridge Mutual Fund",
+        "scheme_launch_date": "20240113"
+      }
+    }
+  ]
+}

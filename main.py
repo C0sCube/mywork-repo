@@ -1,12 +1,11 @@
 from app.config_loader import load_config_once, get_config,restore_config
 from datetime import datetime
-output_folder = f"MAR25 {datetime.now().strftime("%Y%m%d")}"
+output_folder = f"FEB25 {datetime.now().strftime("%Y%m%d")}"
 CONFIG = load_config_once(output_folder=output_folder)
 
 import json, os, traceback
 from app.utils import Helper #utils
-from app.vendor_to_user import *
-from app.class_registry import CLASS_REGISTRY
+from app.util_class_registry import CLASS_REGISTRY
 
 CONFIG = get_config()
 mutual_fund = Helper.get_amc_paths(CONFIG["amc_path"])
@@ -16,7 +15,6 @@ print("Running main.py")
 
 amc_not_done = []
 for amc_id, class_name in CLASS_REGISTRY.items():
-    vmapper = VendorMapper()
     print(f"\nRunning for: {str(class_name)}\n{'*' * 20}")
     try:
         fund_name, path = mutual_fund[amc_id]
