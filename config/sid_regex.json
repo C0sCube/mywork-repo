@@ -3,7 +3,8 @@
         "amc_name": [],
         "benchmark_index": [
             "^benchmark_total_return.*$",
-            "^benchmark$"
+            "^benchmark$",
+            "^benchmark_index_total_return_index$"
         ],
         "fund_manager": [],
         "load": [
@@ -39,11 +40,13 @@
         "riskometer_benchmark": [],
         "min_amt": [
             "^minimum_application_amount",
-            "^minimum_application_amount.*"
+            "^minimum_application_amount.*",
+            "^.*?minimum_application_amount.*"
         ],
         "min_amt_multiple": [],
         "min_addl_amt": [
-            "^minimum_additional"
+            "^minimum_additional",
+            "^.*minimum_additional"
         ],
         "min_addl_amt_multiple": [],
         "page_number": [],

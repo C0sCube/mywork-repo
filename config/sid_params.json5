@@ -455,7 +455,7 @@
         ],
       },
       manager_data: {
-        row_count: 6,
+        row_count: 4,
         threshold: 2,
         keywords: [
           "Name of the Fund Manager",
@@ -467,13 +467,13 @@
       },
     },
     REGEX: {
-      benchmark: "Benchmark of the Scheme\\s*\\-?\\s*(.+TRI).*",
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
       load: "()E?xit\\s*Load(.+?)$",
       scheme: [
         "Offer for Units",
         "New Fund Offer opens on",
         "New Fund Offer closes on",
-        "Scheme re-opens on",
+        "Scheme re-opens",
         "EOL",
       ],
       scheme2: [
@@ -499,11 +499,10 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+      "^(name_of_the_scheme|benchmark|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
         "_extract_str_data",
         null,
       ],
-      "^benchmark": ["_extract_generic_data", "benchmark"],
       "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
@@ -511,6 +510,7 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
+       "^benchmark": ["_extract_generic_data", "benchmark"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
@@ -538,17 +538,57 @@
   "9": {
     AMC: "Edelweiss Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 100, 255, 500]], ocr: false},
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 5,
+        threshold: 2,
+        keywords: [
+          "Name of the Fund Manager",
+          "Managing Scheme Since",
+          "Previous Experience",
+        ],
+        order: { name: 0, experience: 2, qualification: 1},
       },
     },
-    REGEX: {},
+    REGEX: {
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
+      load: "()E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Sale",
+        "New Fund Offer opens on",
+        "New Fund Offer closes on",
+        "Scheme re-opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    },
     IMP_DATA: {
       amc_name: "Edelweiss Asset Management Limited",
       mutual_fund_name: "Edelweiss Mutual Fund",
       face_value: "Rs.10",
+      offer_price:"Rs.10",
       open_date: "",
       close_date: "",
     },
@@ -594,24 +634,91 @@
   "20": {
     AMC: "Groww Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 100, 220, 520]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 5,
+        threshold: 2,
+        keywords: [
+          "Name of the Fund Manager",
+          "Age",
+          "Experience",
+          "Educational Qualification",
+        ],
+        order: { name: 0, experience: 3, qualification: 2 },
       },
     },
-    REGEX: {},
+    REGEX: {
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
+      load: "()E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Sale",
+        "New Fund Offer opens on",
+        "New Fund Offer closes on",
+        "Scheme re-opens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    },
     IMP_DATA: {
       amc_name: "Groww Asset Management Limited",
       mutual_fund_name: "Groww Mutual Fund",
       face_value: "Rs.10",
+      offer_price:"Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+     PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|benchmark|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+       "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^.*?(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^.*?(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},

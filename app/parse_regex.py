@@ -80,6 +80,7 @@ class FundRegex():
                     return json_key
                 
     def _map_metric_keys_to_dict(self, text:str):
+        text = self._normalize_key_to_alnum_underscore(text)
         for json_key, patterns in self.METRIC_HEADER.items():
             for pattern in patterns:
                 regex = re.compile(pattern) 
@@ -105,14 +106,32 @@ class FundRegex():
                 
         return {k:data[k] for k in sorted(data)} #sorted
     
-    def _normalize_key(self,key: str) -> str:
-        key = re.sub(r"[^\w\s\.]", "", key)
-        key = re.sub(r"\s+", "_", key)
-        return key.strip().lower()
+    def _clean_leading_noise(self,text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        return re.sub(r'^[\s\n\r\t\\:;\-–—•|]+', '', text).strip()
     
-    def _remove_non_word_space_chars(self,key:str)->str:
-        key = re.sub("[^\\w\\s]", "", key).strip()
-        return key
+    def _normalize_key(self,text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^\w\s\.]", "", text)
+        text = re.sub(r"\s+", "_", text)
+        return text.strip().lower()
+    
+    def _normalize_key_to_alnum_underscore(self, text: str) -> str:
+        if not isinstance(text, str):
+            return text
+        text = text.strip().lower()
+        text = re.sub(r"[^\w]", "_", text)
+        text = re.sub(r"__+", "_", text)
+        return text.strip("_")
+
+    
+    def _remove_non_word_space_chars(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub("[^\\w\\s]", "", text).strip()
+        return text
     
     def _normalize_whitespace(self,text:str)->str:
         if not isinstance(text,str):
@@ -130,7 +149,7 @@ class FundRegex():
         fund = re.sub("\\s+", ' ', fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
             if re.findall(regex,fund,re.IGNORECASE):
-                print(f"{fund} --> {key}")
+                # print(f"{fund} --> {key}")
                 fund = key
                 break
         return fund
@@ -204,7 +223,7 @@ class FundRegex():
             cleaned_name = self._normalize_alphanumeric(cleaned_name)
             cleaned_name = self._remove_duplicates(cleaned_name)
             if cleaned_name and len(cleaned_name)>=3:
-                manager["name"] = cleaned_name
+                manager["name"] = cleaned_name.title()
                 clean_fund_managers.append(manager)
 
         data["fund_manager"] = clean_fund_managers
@@ -247,22 +266,34 @@ class FundRegex():
         page_number = str(page_list[0] + 1) if page_list else "0"
 
         for key, data_value in data.items():
-            if isinstance(data_value, str): #and data_value
+            if isinstance(data_value, str):
+                if key == "benchmark_index":
+                    data_value = FundRegex()._clean_leading_noise(data_value)
+                
                 record_value[key] = FundRegex()._normalize_whitespace(data_value)
                 field_location_keys.append(key)
+                
 
-            elif isinstance(data_value, dict) and data_value:
-                if key == "metrics":
-                    metrics = [{"name": k, "value": str(v)} for k, v in data_value.items() if v]
-                    record_value[key] = metrics
-                    field_location_keys.extend([f"metrics_{m['name']}" for m in metrics])
+            if key == "metrics" and isinstance(data_value, dict):
+                metrics = [{"name": k, "value": str(v)} for k, v in data_value.items() if v]
+                record_value[key] = metrics
+                field_location_keys.extend([f"metrics_{m['name']}" for m in metrics])
 
-                elif key == "load":
-                    load = [{"type": k, "comment": FundRegex()._normalize_whitespace(str(v))} for k, v in data_value.items() if v]
-                    record_value[key] = load
-                    field_location_keys.extend([f"load_{l['type'].replace('_load','')}" for l in load])
+            if key == "load" and isinstance(data_value, list):
+                load = []
+                for item in data_value:
+                    value = item.get("comment", "")
+                    value = FundRegex()._clean_leading_noise(value)
+                    value = FundRegex()._normalize_whitespace(value)
+                    load.append(
+                        {
+                            "type": item.get("type", ""),
+                            "comment": value
+                        })
+                record_value[key] = load
+                field_location_keys.extend([f"load_{l['type'].replace('_load','')}" for l in load])
 
-            elif isinstance(data_value, list) and key == "fund_manager" and data_value:
+            if key == "fund_manager" and isinstance(data_value, list) and data_value:
                 record_value[key] = data_value
                 field_location_keys.extend([f"fund_manager_{k}" for k in data_value[0].keys()])
 

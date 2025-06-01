@@ -43,6 +43,40 @@ class GrandFundData:
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
         return {main_key:data}
+
+    def _extract_scheme_non_esc_data(self,main_key:str,data:list, pattern:str):
+        """
+            Extracts key-value pairs from text using regex spans between keyword pairs.
+            Args:
+                main_key (str): Top-level key for the returned dictionary.
+                data (list | str): Input text data.
+                pattern (str): Key to fetch start-end regex keywords from self.REGEX.
+            Returns:
+                dict: {main_key: {keyword: extracted_text}}
+        """
+
+        regex_ = self.REGEX[pattern] #list
+        mention_start = regex_[:-1]
+        mention_end = regex_[1:]
+
+        # patterns = [r"(\b{start}\b)\s*(.+?)\s*(\b{end}\b|$)".format(start=start, end=end)
+        #     for start, end in zip(mention_start, mention_end)]
+        patterns = [r"(\b{start}\b)\s*((?:(?!\b{end}\b).)*)\s*(\b{end}\b|$)".format(start=start, end=end)
+            for start, end in zip(mention_start, mention_end)]
+
+
+        final_dict = {}
+        scheme_data = " ".join(data) if isinstance(data,list) else data
+        # scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
+        unique_set = set()
+        for pattern in patterns:
+            if matches:= re.findall(pattern, scheme_data, re.MULTILINE):
+                for match in matches:
+                    key, value, dummy = match[0].strip().lower(),match[1].strip(),match[2]
+                    if key not in unique_set:
+                        final_dict[key] = value
+                        unique_set.add(key)
+        return {main_key:final_dict}
     
     def _extract_scheme_data(self,main_key:str,data:list, pattern:str):
         """
@@ -277,6 +311,12 @@ class GrandFundData:
     def _extract_bench_data(self,main_key:str,data,pattern:str):
         data = " ".join(data) if isinstance(data,list) else data
         benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
+        matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
+        return {main_key:matches[0] if matches else ""}
+    
+    def _extract_non_esc_data(self,main_key:str,data,pattern:str):
+        benchmark_data = " ".join(data) if isinstance(data,list) else data
+        # benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
         matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
         return {main_key:matches[0] if matches else ""}
     
@@ -894,7 +934,14 @@ class AXISMFPassive(Reader,GrandFundData):
     
     def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path)
+        
+    def _extract_bench_data(self,main_key:str,data,pattern:str):
+        data = " ".join(data) if isinstance(data,list) else data
+        data = re.sub(r"Ni\s*y","Nifty",data, re.IGNORECASE)
+        return {main_key:data}
+        
+    
 #43 JMMF
 class JMMF(Reader,GrandFundData):
     

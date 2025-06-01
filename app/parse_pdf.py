@@ -1,9 +1,10 @@
-import os, re, math, json, inspect,sys, ocrmypdf # type: ignore
+import os, re, math, json, inspect,sys, ocrmypdf,time, tempfile # type: ignore
 import fitz # type: ignore
 from collections import defaultdict
 
 from app.parse_regex import *
 from app.fund_data import *
+from app.utils import *
 from logging_config import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
@@ -17,7 +18,7 @@ class Reader:
         self.OUTPUTPATH = conf["output_path"]
         self.PDF_PATH = path #amc factsheet pdf path
         self.DRYPATH = os.path.join(self.OUTPUTPATH, conf["output"]["dry"])
-        # self.REPORTPATH = os.path.join(self.OUTPUTPATH, paths.get("rep", ""))
+        self.REPORTPATH = os.path.join(self.OUTPUTPATH, conf["output"]["rep"])
         self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
         
@@ -46,20 +47,61 @@ class Reader:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
-        with fitz.open(path) as doc:
-            with fitz.open() as new_doc:
-                for page_num in range(len(doc)):
-                    new_page = new_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
-                    new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
-                new_doc.save(clipped_pdf)
         
-        ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
+        # with tempfile.NamedTemporaryFile(suffix="_clipped.pdf", delete=False) as clipped_temp, \
+        #     tempfile.NamedTemporaryFile(suffix="_ocr.pdf", delete=False) as ocr_temp:
+        #     clipped_pdf = clipped_temp.name
+        #     ocr_pdf = ocr_temp.name
         
-        return self._get_normal_title(ocr_pdf,regex,bbox)
+        try:
+            with fitz.open(path) as doc:
+                with fitz.open() as new_doc:
+                    for page_num in range(len(doc)):
+                        new_page = new_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
+                        new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
+                    new_doc.save(clipped_pdf)
+            
+            # temp_clips = []
+            # with fitz.open(path) as doc:
+            #     for page_num in range(len(doc)):
+            #         page = doc.load_page(page_num)
+            #         clip_doc = fitz.open()
+            #         new_page = clip_doc.new_page(width=bbox[2] - bbox[0], height=bbox[3] - bbox[1])
+            #         new_page.show_pdf_page(new_page.rect, doc, page_num, clip=bbox)
+            #         tmp_page_path = clipped_pdf.replace(".pdf", f"_{page_num}.pdf")
+            #         clip_doc.save(tmp_page_path)
+            #         clip_doc.close()
+            #         temp_clips.append(tmp_page_path)
+        
+            # merged = fitz.open()
+            # for p in temp_clips:
+            #     with fitz.open(p) as clip_pdf:
+            #         merged.insert_pdf(clip_pdf)
+            # merged.save(clipped_pdf)
+            # merged.close()
+
+            # for p in temp_clips:
+            #     os.remove(p)
+
+            time.sleep(2)
+            ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
+            return self._get_normal_title(ocr_pdf,regex,bbox)
+        
+        except PermissionError as e:
+            print(f"[ERROR] Permission denied: {e}")
+            return {}
+        finally: 
+            # for temp_file in [clipped_pdf, ocr_pdf]:
+            #     try:
+            #         os.remove(temp_file)
+            #     except Exception as e:
+            #         print(f"[WARN] Could not delete temp file {temp_file}: {e}")
+            pass
     
     def _ocr_pdf(self,path:str):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
+        time.sleep(2)
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
         return ocr_path
     
@@ -93,8 +135,8 @@ class Reader:
                                     page.add_highlight_annot(fitz.Rect(span["bbox"]))
                                     break
                 data.append({"page": pgn,"title": detected_titles[pgn],"highlight_count": highlight_count,"indices": found_indices})
-            # doc.save(output_path)
-            # print(f"\tHighlighted PDF at: {output_path}")
+        #     doc.save(output_path)
+        #     print(f"\tHighlighted PDF at: {output_path}")
         # Helper._save_pdf_data(data, self.REPORTPATH)
 
         return {
@@ -509,7 +551,7 @@ class Reader:
             for content in data:
                 pgn,fund,blocks = content['page'],content['fundname'], content['block']
                 # fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean moved to get_data
-                print(f'--<<{fund}>>--')
+                # print(f'--<<{fund}>>--')
                 Reader._generate_pdf_from_data(blocks, output_path)
                 extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
                 self._update_imp_data(extracted_text[fund],fund,pgn)
@@ -591,9 +633,42 @@ class Reader:
                     new_load.append({"comment": value,"type": "exit_load"})
         except Exception as e:
             print(f"Error in _load_ops ->Load Error: {e}")
-        
+        # print(new_load)
         df["load"] = new_load
+        # print(df['load'])
         return df
+    
+    
+    # def __load_ops(self, fund: str, df: dict):
+    #     load_data = df.get("load", {})
+    #     if not isinstance(load_data, dict):
+    #         print(f"[SKIP] _load_ops: {fund} -> load missing or invalid type")
+    #         return df
+
+    #     try:
+    #         new_load = []
+    #         for load_key, load_value in load_data.items():
+    #             if isinstance(load_value, str):
+    #                 value = load_value
+    #             elif isinstance(load_value, list):
+    #                 value = " ".join(str(v) for v in load_value)
+    #             else:
+    #                 value = str(load_value)
+
+    #             if re.search(r"entry(_load)?", load_key, re.IGNORECASE) and value:
+    #                 new_load.append({"comment": value, "type": "entry_load"})
+    #             elif re.search(r"exit(_load)?", load_key, re.IGNORECASE) and value:
+    #                 new_load.append({"comment": value, "type": "exit_load"})
+
+    #         if new_load:
+    #             df["load"] = new_load
+    #         else:
+    #             print(f"[INFO] No valid load data for: {fund}")
+    #     except Exception as e:
+    #         print(f"[ERROR] in _load_ops:{fund} -> Load Error: {e}")
+        
+    #     return df
+
     
     # def __load_ops(self,fund:str,df:dict):
     #     load_data = df.get("load", {})
@@ -679,6 +754,8 @@ class Reader:
             temp = regex._format_fund_manager(temp) #clean fund manager
             # temp = regex._format_amt_data(temp) #min/add formatter
             finalData[fund] = temp
-            
+        # for fund, temp in finalData.items():
+        #     print(f"[PRE-FORMAT] Fund: {fund}, Load: {temp.get('load')}")
+  
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
         return final_data

@@ -142,56 +142,53 @@ class SidKimRegex():
         return dict(sorted(data.items()))
 
     def _final_json_construct(self,data:dict,doc_name:str)->dict:
-        final_dict = {
+        return {
             "metadata":{
                 "document_name": doc_name,
                 "file_type": "sid",
                 "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
             },
-            "value":{}
+            "value":dict(sorted(data.items()))
         }
-        
-        final_dict["value"] = data
-        return final_dict
     
     
     
     #FORMAT
-    def _check_replace_type(self,data:dict,fund:str):
-        expected_types = {
-            "amc_name": str,
-            "benchmark_index": str,
-            "fund_manager": list,
-            "load": list,
-            "main_scheme_name": str,
-            "mutual_fund_name": str,
-            "suitable_for_investors": str,
-            "scheme_objective": str,
-            "scheme_code": str,
-            "type_of_scheme": str,
-            "open_date": str,
-            "close_date": str,
-            "face_value": str,
-            "offer_price":str,
-            "riskometer_scheme": str,
-            "riskometer_benchmark": str,
-            "min_addl_amt": str,
-            "min_addl_amt_multiple": str,
-            "min_amt": str,
-            "min_amt_multiple": str,
-            "page_number": list,
-        }
+    # def _check_replace_type(self,data:dict,fund:str):
+    #     expected_types = {
+    #         "amc_name": str,
+    #         "benchmark_index": str,
+    #         "fund_manager": list,
+    #         "load": list,
+    #         "main_scheme_name": str,
+    #         "mutual_fund_name": str,
+    #         "suitable_for_investors": str,
+    #         "scheme_objective": str,
+    #         "scheme_code": str,
+    #         "type_of_scheme": str,
+    #         "open_date": str,
+    #         "close_date": str,
+    #         "face_value": str,
+    #         "offer_price":str,
+    #         "riskometer_scheme": str,
+    #         "riskometer_benchmark": str,
+    #         "min_addl_amt": str,
+    #         "min_addl_amt_multiple": str,
+    #         "min_amt": str,
+    #         "min_amt_multiple": str,
+    #         "page_number": list,
+    #     }
 
-        changes = {}
+    #     changes = {}
 
-        for key, expected_type in expected_types.items():
-            if key in data and not isinstance(data[key], expected_type):
-                original_type = type(data[key]).__name__
-                default_value = expected_type()
-                data[key] = default_value
-                changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
+    #     for key, expected_type in expected_types.items():
+    #         if key in data and not isinstance(data[key], expected_type):
+    #             original_type = type(data[key]).__name__
+    #             default_value = expected_type()
+    #             data[key] = default_value
+    #             changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
 
-        return data
+    #     return data
     
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:

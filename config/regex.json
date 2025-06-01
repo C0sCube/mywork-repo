@@ -372,7 +372,8 @@
             ".*(allotment_date|launched)$",
             ".*inception_dat$",
             ".*indicative_investment_horizon$",
-            ".*date_of_inception$"
+            ".*date_of_inception$",
+            ".*incep.+?date$"
         ],
         "page_number": [
             "^page_number",
@@ -460,11 +461,17 @@
         "average_pb": [
             ".*_pb",
             "^pbv$",
-            "^pb$"
+            "^pb$",
+            "^pb_mul_ple",
+            "^pb_multiple$",
+            "^pb.+?ple$"
         ],
         "average_pe": [
             ".*_pe",
-            "^pe$"
+            "^pe$",
+            "^pe_mul_ple",
+            "^pe_multiple$",
+            "^pe.+?ple$"
         ],
         "avg_maturity": [
             "^avg_maturity",
@@ -505,7 +512,8 @@
             ".*macaulay_duration.*",
             "mac_duration$",
             "macaulay_annualised$",
-            "^macaulayduration.+$"
+            "^macaulayduration.+$",
+            "^maculay.+?on$"
         ],
         "mod_duration": [
             "^modified_duration",
@@ -517,7 +525,8 @@
             "^modified$",
             "^modified_duration.*",
             "^modified_dura?t?i?o?n?$",
-            "^modifiedduration.+$"
+            "^modifiedduration.+$",
+            "modied.+?on$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -546,7 +555,8 @@
             "R Squared",
             "^r_squared",
             "^r_square$",
-            "^rsquared$"
+            "^rsquared$",
+            "^r2$"
         ],
         "roe_ratio": [
             "^roe"
@@ -569,7 +579,8 @@
             "^Standard_Deviation_of_Fund",
             "^std.?$",
             "^std_d$",
-            "^standarddeviation$"
+            "^standarddeviation$",
+            "^std\\.?_dev\\.?$"
         ],
         "tracking_error": [
             "^tracking_error$",
@@ -608,7 +619,8 @@
             "^portfolio_ytm$",
             "^yieldtomaturity$",
             "^yield_to$",
-            "^yield_to_maturity.*$"
+            "^yield_to_maturity.*$",
+            "^annual.+?ytm$"
         ]
     },
     "financial_indices": [
