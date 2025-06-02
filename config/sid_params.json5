@@ -17,6 +17,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "(360 ONE.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["Minimum Maximum","Instruments Indicative Allocation"],
+        row_order: "instr|min|max",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -54,6 +62,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -99,6 +115,14 @@
           "Brief Experience",
         ],
         order: { name: 0, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {
@@ -189,6 +213,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "(AXIS.+?(?:Funds?|Saver|Path|Index|ETF)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["Instruments Indicative Allocation","minimum\\s*maximum","^\\s*minimum\\s*$","^\\s*maximum\\s*$"],
+        row_order: "instr|min|max",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -227,8 +259,20 @@
         row_count: 3,
         order: { name: 0, experience: 0, qualification: 0 },
       },
+      kim: {
+        fund_regex: "(Bajaj.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,400,612]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum","minimum\\s*maximum","maximum\\s*minimum"],
+        row_order: "instr|min|max",
+      },
     },
-    REGEX: {},
+    REGEX: {
+      asset:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
+      main_scheme:"(Bajaj.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+"
+    },
     IMP_DATA: {
       amc_name: "Bajaj Finserv Asset Management Limited",
       mutual_fund_name: "Bajaj Finserv Mutual Fund",
@@ -236,10 +280,20 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      ".*main_scheme_name":["_extract_generic_data","main_scheme"],
+      // "asset_allocation_data":["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "asset_allocation_data",
+      "main_scheme_name"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -264,6 +318,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "(Bandhan.+?(?:Funds?|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["maximum","minimum"],
+        row_order: "instr|min|max",
       },
     },
     REGEX: {},
@@ -292,6 +354,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -337,6 +407,14 @@
           "Managing Scheme Since",
         ],
         order: { name: 0, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {
@@ -420,8 +498,20 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "(CANARA.+(?:FUND|INDEX|PATH|SAVER|ETF)\\s*(?:OF\\*FUNDS?s?|FUND\\s*OF\\s*FUNDS?s?|Fo?O?F)?)",
+        bbox: [[0,0,400,612]],
+        initial_page: "1,2",
+        row_match_threshold: 1,
+        row_keywords: ["min.+?mum","minimum","maximum"],
+        row_order: "instr|min|max",
+      },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(CANARA.+(?:FUND|INDEX|PATH|SAVER|ETF)\\s*(?:OF\\*FUNDS?s?|FUND\\s*OF\\s*FUNDS?s?|Fo?O?F)?)",
+      escape:"",
+      asset:""
+    },
     IMP_DATA: {
       amc_name: "Canara Robeco Asset Management Limited",
       mutual_fund_name: "Canara Robeco Mutual Fund",
@@ -465,9 +555,19 @@
         ],
         order: { name: 0, experience: 4, qualification: 3 },
       },
+      kim: {
+        fund_regex: "(DSP.+?(?:ETF|Funds?|Index|Saver|Path)\\s*(?:of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,400,612]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum","minimummaximum","maximumminimum"],
+        row_order: "min|max",
+      },
     },
     REGEX: {
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
+      main_scheme:"(DSP.+?(?:ETF|Funds?|Index|Saver|Path)\\s*(?:of Funds?|Fo?O?F|Fund\\s*of\\s*Funds?)?)",
+      asset:"(.+?)\\s*(\\d{1,2}\\%?)\\s*(\\d{1,2}\\%?)",
       load: "()E?xit\\s*Load(.+?)$",
       scheme: [
         "Offer for Units",
@@ -507,10 +607,13 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      // KIM
+      ".*main_scheme_name":["_extract_generic_data", "main_scheme"]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
-       "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
       "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
@@ -527,6 +630,10 @@
       "amc_name",
       "offer_price",
       "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_data"
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -538,7 +645,7 @@
   "9": {
     AMC: "Edelweiss Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [[0, 100, 255, 500]], ocr: false},
+      page_zero: { bbox: [[0, 100, 255, 500]], ocr: false },
       table_data: {
         threshold: 3,
         keywords: [
@@ -557,7 +664,15 @@
           "Managing Scheme Since",
           "Previous Experience",
         ],
-        order: { name: 0, experience: 2, qualification: 1},
+        order: { name: 0, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "(Edelweiss.+?(?:Funds?|ETF|Index|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1,2",
+        row_match_threshold: 1,
+        row_keywords: ["maximum","minimum","max.+?um","min.+?um"],
+        row_order: "instr|min|max",
       },
     },
     REGEX: {
@@ -588,7 +703,7 @@
       amc_name: "Edelweiss Asset Management Limited",
       mutual_fund_name: "Edelweiss Mutual Fund",
       face_value: "Rs.10",
-      offer_price:"Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
@@ -610,6 +725,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -656,6 +779,14 @@
         ],
         order: { name: 0, experience: 3, qualification: 2 },
       },
+      kim: {
+        fund_regex: "(GROWW.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F))",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 2,
+        row_keywords: ['minimum','maximum'],
+        row_order: "instr|min|max",
+      },
     },
     REGEX: {
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
@@ -685,11 +816,11 @@
       amc_name: "Groww Asset Management Limited",
       mutual_fund_name: "Groww Mutual Fund",
       face_value: "Rs.10",
-      offer_price:"Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
-     PATTERN_TO_FUNCTION: {
+    PATTERN_TO_FUNCTION: {
       "^(name_of_the_scheme|benchmark|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
         "_extract_str_data",
         null,
@@ -701,7 +832,7 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
-       "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
       "^.*?(minimum_additional_purchase_amount|minimum_application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
@@ -734,6 +865,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "(HDFC.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["Minimum maximum","mini.+?mum","minimum","maximum"],
+        row_order: "instr|min|max",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -761,6 +900,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -790,6 +937,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -817,6 +972,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -846,6 +1009,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -873,6 +1044,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -902,6 +1081,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -929,6 +1116,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "(Kotak.+?(?:Fund|ETF|INdex|Path|saver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -958,6 +1153,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -986,6 +1189,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1013,6 +1224,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "(MIRAE.+?(?:Funds?|ETF|Path|SAver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: [""],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1057,6 +1276,14 @@
           "Age and Qualification",
         ],
         order: { name: 0, experience: 3, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "(Motilal.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["maximum","minimum","min.+?um","max.+?um"],
+        row_order: "instr|min|max",
       },
     },
     REGEX: {
@@ -1141,6 +1368,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1185,6 +1420,14 @@
           "Educational Qualifications",
         ],
         order: { name: 0, experience: 3, qualification: 2 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {
@@ -1269,6 +1512,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1296,6 +1547,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1325,6 +1584,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1352,6 +1619,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1381,6 +1656,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "(Quant.+?(?:Funds?|Index|Path|Saver|ETF)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum"],
+        row_order: "instr|min|max",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1408,6 +1691,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1452,6 +1743,14 @@
           "Names of other schemes under their management",
         ],
         order: { name: 0, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {
@@ -1552,6 +1851,14 @@
         ],
         order: { name: 0, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "()",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {
       benchmark: ".+?((?:Domestic Price of|Price of|NIFTY|Nifty|CRISIL|BSE).+?(?:Index|TRI|Gold|Silver))",
@@ -1634,6 +1941,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1661,6 +1976,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1701,6 +2024,14 @@
         threshold: 2,
         keywords: ["Name", "Age", "Qualification"],
         order: { name: 0, experience: 3, qualification: 2 },
+      },
+      kim: {
+        fund_regex: "(Tata.+?(?:Funds?|ETF|Saver|Index|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum\\s*maximum","min.+?um","max.+?um"],
+        row_order: "instr|min|max",
       },
     },
     REGEX: {
@@ -1780,6 +2111,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1807,6 +2146,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1836,6 +2183,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "(UTI.+?(?:Fund|Index|ETF|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1",
+        row_match_threshold: 1,
+        row_keywords: ["maximum","minimum"],
+        row_order: "instr|min|max",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -1863,6 +2218,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {},
@@ -1909,6 +2272,14 @@
           "Other schemes managed by fund managers",
         ],
         order: { name: 0, experience: 3, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
       },
     },
     REGEX: {
@@ -1988,6 +2359,14 @@
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
       },
+      kim: {
+        fund_regex: "",
+        bbox: [],
+        initial_page: "",
+        row_match_threshold: 0,
+        row_keywords: [],
+        row_order: "",
+      },
     },
     REGEX: {},
     IMP_DATA: {
@@ -2015,6 +2394,14 @@
       manager_data: {
         row_count: 2,
         order: { name: 1, experience: 2, qualification: 1 },
+      },
+      kim: {
+        fund_regex: "(Zerodha.+?(?:Funds?|Path|saver|Index|ETF)\\s*(?:of Funds?|Fund of funds?|Fo?O?F)?)",
+        bbox: [[0,0,524,400]],
+        initial_page: "1,2",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum"],
+        row_order: "instr|min|max",
       },
     },
     REGEX: {},

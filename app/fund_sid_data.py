@@ -239,6 +239,20 @@ class GrandSidData: #always call this first in subclass
                 
         return {"fund_manager": final_list}
     
+    # def _extract_asset_data(self, main_key: str, data, pattern: str):
+    #     if not isinstance(data,list):
+    #         print("_extract_manager_data -> data not list")
+    #         return {"asset_allocation_data":[]}
+    #     final_list = []
+    #     for content in data:
+    #         matches = re.findall(self.REGEX[pattern],content, re.IGNORECASE)
+    #         if matches and len(matches) ==1:
+    #             # print(matches)
+    #             final_list.append([i for i in matches[0]])
+    #     print(final_list)
+    #     return {"asset_allocation_data",final_list}
+                
+    
     def _extract_lump_data(self, main_key: str, data, pattern:list):
         """
             Extracts minimum and additional lump sum investment amounts from the given text using a regex pattern.
@@ -291,6 +305,14 @@ class GrandSidData: #always call this first in subclass
             logger.error(e)
             return
         return self._extract_dummy_data(string, data) #fallback
+    
+    def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 
+        updated = temp.copy()
+        for head, content in temp.items():
+            result = self._special_match_regex_to_content(head, content)
+            if result:
+                updated.update(result)
+        return updated
    
    
    # CRUD Dict Ops
@@ -397,14 +419,27 @@ class GrandSidData: #always call this first in subclass
                 finalData[key] = value
         return finalData
     
-    def _update_imp_data(self, data: dict):
+    def _update_imp_data(self, data: dict, typez = "sid"):
         updated_data = data.copy()  #optional but keep this
-        updated_data.update({
-            "amc_name": self.IMP_DATA.get('amc_name', ''),
-            "mutual_fund_name": self.IMP_DATA.get('mutual_fund_name', ''),
-            "face_value": self.IMP_DATA.get("face_value", ''),
-            "offer_price": self.IMP_DATA.get("offer_price", ''),
-        })
+        if typez == "sid":
+            updated_data.update({
+                "amc_name": self.IMP_DATA.get('amc_name', ''),
+                "mutual_fund_name": self.IMP_DATA.get('mutual_fund_name', ''),
+                "face_value": self.IMP_DATA.get("face_value", ''),
+                "offer_price": self.IMP_DATA.get("offer_price", ''),
+            })
+        elif typez == "kim":
+            updated_data.update({
+                "amc_name": self.IMP_DATA.get('amc_name', ''),
+                "mutual_fund_name": self.IMP_DATA.get('mutual_fund_name', ''),
+                "description":""
+                # "face_value": self.IMP_DATA.get("face_value", ''),
+                # "offer_price": self.IMP_DATA.get("offer_price", ''),
+            })
+        else:
+            print(f"[ERROR] _update_imp_data wrong or typo for sid/kim")
+            return updated_data
+        
         return updated_data
 
 class ThreeSixtyOne(ReaderSIDKIM, GrandSidData):

@@ -544,6 +544,7 @@ class Reader:
         return final_data
 
     def get_generated_content(self, data:list):
+        table_content = False
         print(f"Function Running: {inspect.currentframe().f_code.co_name}\nParsing Completed, Refining Data.....\n")
         extracted_text = {}
         output_path  = self.DRYPATH
@@ -555,6 +556,17 @@ class Reader:
                 Reader._generate_pdf_from_data(blocks, output_path)
                 extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
                 self._update_imp_data(extracted_text[fund],fund,pgn)
+            
+            # if table_content:
+            #     merged = {}
+            #     table_data = self._generate_table_data(self.PDF_PATH)
+            #     for fund,content in extracted_text.items():
+            #         for f2, value in table_data.items():
+            #             if FundRegex()._match_f1_f2_regex(fund,f2):
+            #                 merged[fund] = content
+            #                 merged[fund].update(value)
+            #     extracted_text = merged
+                             
         except Exception as e:
             print(f"[Error] get_generated_content failed: {e}")
         return extracted_text
@@ -754,8 +766,6 @@ class Reader:
             temp = regex._format_fund_manager(temp) #clean fund manager
             # temp = regex._format_amt_data(temp) #min/add formatter
             finalData[fund] = temp
-        # for fund, temp in finalData.items():
-        #     print(f"[PRE-FORMAT] Fund: {fund}, Load: {temp.get('load')}")
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
         return final_data

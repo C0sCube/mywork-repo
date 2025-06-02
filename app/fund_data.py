@@ -352,7 +352,7 @@ class GrandFundData:
             return
         return self._extract_dummy_data(string, data) #fallback
     
-    def _apply_special_handling(self, temp: dict) -> dict:
+    def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 
         updated = temp.copy()
         for head, content in temp.items():
             result = self._special_match_regex_to_content(head, content)

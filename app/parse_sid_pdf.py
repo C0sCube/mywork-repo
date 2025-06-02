@@ -25,7 +25,8 @@ class ReaderSIDKIM:
         self.FIELD_LOCATION = {
             "page_zero":0,
             "page_table":0,
-            "page_manager":0    
+            "page_manager":0,
+            "kim":0    
         } #to update field location as code progresses
     
         os.makedirs(os.path.dirname(self.JSONPATH), exist_ok=True)
@@ -36,7 +37,7 @@ class ReaderSIDKIM:
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True, pages=pages)
         return ocr_path
     
-    def _extract_sorted_text_blocks(self,page,clip_area=None)->list:
+    def __extract_sorted_text_blocks(self,page,clip_area=None)->list:
         blocks = page.get_text("dict", clip=clip_area)["blocks"]
         text_blocks = []
         for block in blocks:
@@ -51,20 +52,41 @@ class ReaderSIDKIM:
 
         return [text for _, text in sorted(text_blocks, key=lambda b: (b[0][1], b[0][0]))] #top botton, left right
     
-    def _parse_page_zero(self,pages: list) -> dict:
+    def _get_text_from_pages_and_bboxes(self, pages_csv: str, bboxes: list) -> str:
+        pages_list = [int(p.strip()) - 1 for p in pages_csv.split(",") if p.strip()]
+        extracted_text = []
+
+        with fitz.open(self.PDF_PATH) as doc:
+            for pg in pages_list:
+                if 0 <= pg < len(doc):
+                    page = doc[pg]
+                    for bbox in bboxes:
+                        extracted_text.extend(self.__extract_sorted_text_blocks(page, clip_area=bbox))
+
+        return " ".join(extracted_text).strip()
+
+    def _get_full_text_from_pages(self, pages_csv: str) -> list:
+        pages = [int(p.strip()) for p in pages_csv.split(",") if p.strip()]
+        extracted = []
+        with fitz.open(self.PDF_PATH) as doc:
+            for p in pages:
+                if 0 <= p < len(doc):
+                    extracted.extend(self.__extract_sorted_text_blocks(doc[p]))
+        return extracted
+
+    # =================== SID ===================
+    
+    def _parse_page_zero(self, pages: str) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         self.FIELD_LOCATION["page_zero"] = int(pages[0])
-        final_dict = {"risk_bbox": [], "other_text": []}
         zero_params = self.PARAMS["page_zero"]
         
         path = self._ocr_pdf(self.PDF_PATH) if zero_params["ocr"] else self.PDF_PATH
-
-        with fitz.open(path) as doc:
-            for pgn in pages:
-                page = doc[pgn]
-                for bbox in zero_params["bbox"]:
-                    final_dict["risk_bbox"].extend(self._extract_sorted_text_blocks(page,clip_area=bbox))# Extract bbox text
-                final_dict["other_text"].extend(self._extract_sorted_text_blocks(page)) # Extract full text
+        
+        final_dict = {
+            "risk_bbox": self._get_text_from_pages_and_bboxes(pages_csv=pages, bboxes=zero_params["bbox"]),
+            "other_text": self._get_full_text_from_pages(pages_csv=pages)
+        }
         return final_dict
 
     def _parse_scheme_table_data(self,pages:str)->dict:
@@ -114,55 +136,36 @@ class ReaderSIDKIM:
       
     # =================== KIM ===================
     
-    # def __is_percentage(self,val):
-    #     return isinstance(val, str) and bool(re.fullmatch(r"(\d+\%?\s*\d*\%?)+", val.strip()))
-
-    # def __detect_kim_row_start_end(self,dfs):
-    #     regex = SidKimRegex()
-    #     pattern = re.compile(r"^(minimum|maximum|minimummaximum|maximumminimum|instruments)$", re.IGNORECASE)
-    #     row_start,row_end = 0,0
-    #     for index, row in dfs.iterrows():
-    #         values = [regex._normalize_alphanum_percentage(val) for val in row if isinstance(val, str)]
-    #         matches = [val for val in values if re.match(pattern, val)]
-            
-    #         if len(matches) >= 1:  # both minimum and maximum-type matches present
-    #             row_start = index
-    #             break
-        
-    #     row_end = row_start
-    #     for idx in range(row_start + 1, len(dfs)):
-    #         row = list(dfs.iloc[idx])
-    #         if any(self.__is_percentage(val) for val in row):
-    #             row_end = idx
-    #         else:
-    #             break
-    #     print(f"row start: {row_start} row end: {row_end}")
-    #     return row_start,row_end
-    
-    def _get_kim_data(self,pages:str):
-        
+    def _get_kim_data(self,pages:str, instrument_count = 2)->dict:
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        self.FIELD_LOCATION["kim"] = int(pages.split(",")[0])
+        kim_params = self.PARAMS["kim"]
         tableparse = TableParser()
         
-        dfs = tableparse._extract_tables_from_pdf(self.PDF_PATH,pages=pages)
+        dfs = tableparse._extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
         dfs = tableparse._clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
         
-        start_keywords = ["^minimum","^maximum","^minimummaximum","^maximumminimum","instruments","indicative asset allocation"]
-        end_keywords = ["^\\d+\\%?\\d*\\%?"]
+        row_start = tableparse._get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
+        print(f"Start of Content at row: {row_start}" )
         
-        # row_start,row_end = self.__detect_kim_row_start_end(dfs)
-        row_start = tableparse._get_matching_row_indices(dfs,keywords=start_keywords,thresh=2)
-        row_end = tableparse._get_matching_row_indices(dfs,keywords=end_keywords,thresh=2)
-        print(row_start,row_end)
-        
-        dfs = tableparse._get_sub_dataframe(dfs,rs=row_start[0])
-        dfs = dfs.dropna(axis=1,how="all")
+        dfs = tableparse._get_sub_dataframe(dfs,rs=row_start[0]+1, re=row_start[0]+instrument_count+2)
+        dfs = tableparse._clean_dataframe(dfs,['str_to_pd_NA'])
+        dfs = dfs.dropna(axis=1,how="all").dropna(axis=0,how="all")
         dfs.fillna("",inplace=True)
-        
-        #fill header
-        # if pd.isna(df.iloc[0, 0]) or df.iloc[0, 0] == '':
-        #     df.iat[0, 0] = "Instrument"
-        # return df.fillna("").values.tolist()
-        return dfs
+        # print(dfs)
+        final_data = {}
+        final_data["main_scheme_name"] = self._get_text_from_pages_and_bboxes(
+        kim_params["initial_page"], kim_params["bbox"])
+
+        asset_list = []
+        for _, row in dfs.iterrows():
+            row = list(row)
+            values = " ".join(str(item) for item in row)
+            asset_list.append(values)
+        final_data["asset_allocation_data"] = asset_list
+            
+        return final_data
+        # return dfs
     
     # def _get_unique_key(self,base_key:str, data:dict):
     #     for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:
@@ -249,6 +252,34 @@ class ReaderSIDKIM:
         df["load"] = new_load
         return df
     
+    def __map_json_ops(self,df, typez:str)->dict:
+        return {SidKimRegex()._map_json_keys_to_dict(k,typez=typez) or k: v for k, v in df.items()}
+    
+    def __map_asset_kim_ops(self,df:dict, order:list)->dict:
+        pass
+        asset_data = df.get("asset_allocation_data",[])
+        if not isinstance(asset_data,list):
+            print(f"Returning _load_ops -> Type Error")
+            return df
+        try:
+            asset_allocation_pattern = []
+            for data in df:
+                asset = {"allocation":[],"instrument_type":"","risk_profile":""}
+                for idx, loc in enumerate(order.split("|")):
+                    if loc == "instr":
+                        asset['instrument_type'] = data[idx]
+                    if loc == "min":
+                        asset["allocation"].append({"type":"min","value":data[idx]})
+                    if loc == "max":
+                        asset["allocation"].append({"type":"max","value":data[idx]})
+                    if loc == "total":
+                        asset["allocation"].append({"type":"total","value":data[idx]})
+                asset_allocation_pattern.append(asset)
+        except Exception as e:
+            print(f"Error in _map_asset_kim_ops -> {e}")
+        df["asset_allocation_pattern"] = asset_allocation_pattern
+        return df
+                        
     def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func:bool):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         regex = SidKimRegex()
@@ -259,25 +290,23 @@ class ReaderSIDKIM:
         temp = self._select_by_regex(temp) #select
         
         #mapping typez:sid/kim
-        mappend_data = {}
-        for key, value in temp.items():
-            new_key = regex._map_json_keys_to_dict(text=key,typez=sid_or_kim) or key
-            mappend_data[new_key] = value
-        temp = mappend_data
-        
-        temp = self.__min_add_ops(temp)
-        temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
-        temp = self.__load_ops(temp)
+        if sid_or_kim == "sid":
+            temp = self.__map_json_ops(temp,typez=sid_or_kim)
+            temp = self.__min_add_ops(temp)
+            temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
+            temp = self.__load_ops(temp)
+        if sid_or_kim == "kim":
+            temp = self.__map_asset_kim_ops(temp,order=self.PARAMS["kim"]["row_order"])
+            temp = self.__map_json_ops(temp,typez=sid_or_kim)
+            temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
         
         if special_func:
-            for main_key,value in temp.items():
-                updated_temp = self._special_match_regex_to_content(main_key,value)
-            if updated_temp:
-                temp.update(updated_temp)
+            temp = self._apply_special_handling(temp)
         
         temp = self._promote_key_from_dict(temp)
-        temp = self._update_imp_data(temp) #update default values like amc_name
+        temp = self._update_imp_data(temp, typez = sid_or_kim) #update default keys
         temp = regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
-        temp = self._delete_fund_data_by_key(temp) #final delete unwanted keys
-        temp = regex._final_json_construct(temp, self.DOCUMENT_NAME)
+        temp = self._delete_fund_data_by_key(temp) #delete keys
+        temp = regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
+        
         return dict(sorted(temp.items()))

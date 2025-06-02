@@ -34,18 +34,22 @@ class TableParser:
             series = series.apply(self.pipeline[step])
         return series
     
-    def _extract_tables_from_pdf(self,path, pages, flavor='lattice'):
+    def _extract_tables_from_pdf(self,path, pages, flavor='lattice',stack= True, padding = 1):
         tables = camelot.read_pdf(path, pages=pages, flavor=flavor)
-        return pd.concat([table.df for table in tables], ignore_index=True)
+        dfs = [t.df for t in tables]
+        # return pd.concat([table.df for table in tables], ignore_index=True)
+        return self._concat_padding_vertical(*dfs,padding_rows=padding) if stack else self._concat_padding_vertical(*dfs,padding_rows=padding)
     
     def _get_matching_row_indices(self, df, keywords, thresh):
         regex = SidKimRegex()
         pattern = re.compile("|".join(keywords), re.IGNORECASE)
+        # print(pattern)
         matched_rows = []
         for idx, row in df.iterrows():
             match_count = 0
             for cell in row:
                 cell_text = regex._normalize_alphanumeric(str(cell))
+                # print(cell_text)
                 if pattern.match(cell_text):  # use .match to anchor to start
                     match_count += 1
                     if match_count >= thresh:
@@ -68,7 +72,24 @@ class TableParser:
 
         return matched_cols if matched_cols else [0]
 
+    def _concat_padding_vertical(self,*dfs, padding_rows=1)->pd.DataFrame:
+        result = pd.DataFrame()
+        padding = pd.DataFrame([[""] * dfs[0].shape[1]] * padding_rows, columns=dfs[0].columns)
+        for i, df in enumerate(dfs):
+            result = pd.concat([result, df], ignore_index=True)
+            if i < len(dfs) - 1:
+                result = pd.concat([result, padding], ignore_index=True)
+        return result
 
+    def _concat_padding_horizontal(self,*dfs, padding_cols=1)->pd.DataFrame:
+        result = pd.DataFrame()
+        num_rows = dfs[0].shape[0]
+        padding = pd.DataFrame([[""] * padding_cols] * num_rows)
+        for i, df in enumerate(dfs):
+            result = pd.concat([result, df], axis=1)
+            if i < len(dfs) - 1:
+                result = pd.concat([result, padding], axis=1)
+        return result
     
     # def _get_matching_row_indices(self,df, keywords, thresh):
     #     regex = SidKimRegex()

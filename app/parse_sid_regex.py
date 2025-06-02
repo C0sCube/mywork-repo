@@ -141,11 +141,16 @@ class SidKimRegex():
         # print(FIELD_LOC)
         return dict(sorted(data.items()))
 
-    def _final_json_construct(self,data:dict,doc_name:str)->dict:
+    def _final_json_construct(self,data:dict,doc_name:str, typez="")->dict:
+        if typez == "sid": file_type = typez
+        elif typez == "kim": file_type = typez
+        else:
+            print(f"[ERROR] _final_json_construct Incorrect sid/kim")
+            return data
         return {
             "metadata":{
                 "document_name": doc_name,
-                "file_type": "sid",
+                "file_type": file_type,
                 "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
             },
             "value":dict(sorted(data.items()))

@@ -1,4 +1,4 @@
-import os, re, json, pprint, pickle, csv
+import os, re, json, pprint, pickle, csv, string
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -11,6 +11,28 @@ class Helper:
         pass
     
     #PARSING UTILS
+    @staticmethod
+    def get_pdf_paths(base_path: str) -> dict:
+        pdf_paths = {}
+        suffix_map = {}
+        for root, _, files in os.walk(base_path):
+            folder_name = os.path.basename(root).title()
+
+            for file_name in files:
+                if file_name.lower().endswith(".pdf"):
+                    full_path = os.path.join(root, file_name)
+                    key = folder_name
+
+                    if key in pdf_paths:
+                        suffix = string.ascii_uppercase[suffix_map[key]]
+                        key = f"{folder_name}_{suffix}"
+                        suffix_map[folder_name] += 1
+                    else:
+                        suffix_map[folder_name] = 1
+
+                    pdf_paths[key] = full_path
+        return pdf_paths
+
     @staticmethod
     def get_amc_paths(base_path: str) -> dict:
         """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
