@@ -72,6 +72,19 @@ class FundRegex():
 
         return flattened
     
+    def _map_main_and_tabular_data(self, original_df: dict, table_df: dict, mutual_fund: str) -> dict:
+        for f1 in original_df:
+            for f2, c2 in table_df.items():
+                f1 = self._normalize_alphanumeric(f1)
+                f2 = self._normalize_alphanumeric(f2)
+                for _, pattern in self.MAIN_SCHEME_NAME[mutual_fund].items():
+                    if re.fullmatch(pattern, f1, re.IGNORECASE) and re.fullmatch(pattern, f2, re.IGNORECASE):
+                        print(f"_map_main_and_tabular_data match: {f1}")
+                        original_df[f1].update(c2)
+                        break
+        return original_df
+
+    
     def _map_json_keys_to_dict(self, text:str):
         for json_key, patterns in self.JSON_HEADER.items():
             for pattern in patterns:
@@ -146,7 +159,7 @@ class FundRegex():
 
     def _sanitize_fund(self,fund:str,fund_name:str):
         fund = re.sub(self.ESCAPE, '', fund)
-        fund = re.sub("\\s+", ' ', fund)
+        fund = self._normalize_whitespace(fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
             if re.findall(regex,fund,re.IGNORECASE):
                 # print(f"{fund} --> {key}")

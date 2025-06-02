@@ -19,7 +19,10 @@ class TableParser:
             'strip_edges': lambda x: x.strip() if isinstance(x, str) else x,
             'lowercase': lambda x: x.lower() if isinstance(x, str) else x,
             'newline_to_space': lambda x: x.replace('\n', ' ') if isinstance(x, str) else x,
-            'str_to_pd_NA': lambda x: pd.NA if isinstance(x, str) and re.match(r'^\s*$', x) else x
+            'str_to_pd_NA': lambda x: pd.NA if isinstance(x, str) and re.match(r'^\s*$', x) else x,
+            'normalize_alphanumeric': lambda x: re.sub(r'\s+', ' ', re.sub(r'[^a-zA-Z0-9]+', ' ', x)).strip().lower() if isinstance(x, str) else x,
+            'NA_to_str': lambda x: "" if x is pd.NA or pd.isna(x) else x
+
         }
     
     def _clean_dataframe(self, df, steps, columns=None):

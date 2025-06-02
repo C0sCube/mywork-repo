@@ -56,7 +56,7 @@ for amc_id, class_name in CLASS_REGISTRY.items():
         if not data:
             raise ValueError("get_data returned None.")
 
-        extracted_text = obj.get_generated_content(data)
+        extracted_text = obj.get_generated_content(data,is_table = obj.MAIN_MAP["table"])
         if not extracted_text:
             raise ValueError("get_generated_content returned None.")
 

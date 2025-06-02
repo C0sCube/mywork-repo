@@ -1,5 +1,6 @@
 import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
 from app.parse_pdf import Reader
+from app.parse_table import *
 from logging_config import logger
 import fitz #type:ignore
 from datetime import datetime
@@ -527,7 +528,37 @@ class Canara(Reader,GrandFundData):
 class DSP(Reader,GrandFundData):
     def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self, self.PARAMS,amc_id,path)  
+        Reader.__init__(self, self.PARAMS,amc_id,path)
+        
+    def _generate_table_data(self,path,pages):
+        table_parser = TableParser()
+        tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
+        dfs = pd.concat([table.df for table in tables], ignore_index=True)
+        sc1 = table_parser._get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=20)
+        sc2 = table_parser._get_matching_col_indices(dfs,["REGULAR\\s+PLAN","DIRECT\\s+PLAN"], thresh=20)
+        sc3 = table_parser._get_matching_col_indices(dfs,["Managing this scheme","total work experience"],thresh=20)
+        print("Matched columns:", sc1,sc2,sc3)
+        all_cols = list(set(sc1 + sc2 + sc3))
+        fdf = dfs.iloc[:, all_cols]
+        fdf["LOAD_STRUCTURE"] = fdf.iloc[:, -1]
+        fdf.columns = ["MUTUAL_FUND","FUND_MANAGER","MIN_ADD","LOAD_STRUCTURE"]
+        fdf.replace(r"\n","",regex=True,inplace=True)
+        dsp_pattern = re.compile(
+            r"(DSP.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUND OF FUNDS|FOF)?)",
+            re.IGNORECASE
+        )
+
+        fdf.MUTUAL_FUND = fdf.MUTUAL_FUND.apply(lambda x: dsp_pattern.findall(x)[0] if isinstance(x, str) and dsp_pattern.findall(x) else pd.NA)
+        fdf = fdf.replace(r"^\s*$",pd.NA, regex=True)
+        fdf = fdf.dropna(axis=0, how="all").dropna(axis=1, how="all")
+
+        data = {}
+        for idx, rows in fdf.iterrows():
+            values = list(rows)
+            main_scheme_name = values[0]
+            data[main_scheme_name] = {"fund_manager":values[1],"load_structure":values[3],"min_add":values[2]}
+
+        return data
 
 #8 <> 
 class Edelweiss(Reader,GrandFundData):
