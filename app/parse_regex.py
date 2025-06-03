@@ -73,17 +73,20 @@ class FundRegex():
         return flattened
     
     def _map_main_and_tabular_data(self, original_df: dict, table_df: dict, mutual_fund: str) -> dict:
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        f1_list = []
         for f1 in original_df:
             for f2, c2 in table_df.items():
-                f1 = self._normalize_alphanumeric(f1)
-                f2 = self._normalize_alphanumeric(f2)
+                f1r = self._normalize_alphanumeric(f1)
+                f2r = self._normalize_alphanumeric(f2)
                 for _, pattern in self.MAIN_SCHEME_NAME[mutual_fund].items():
-                    if re.fullmatch(pattern, f1, re.IGNORECASE) and re.fullmatch(pattern, f2, re.IGNORECASE):
-                        print(f"_map_main_and_tabular_data match: {f1}")
+                    if re.findall(pattern, f1r, re.IGNORECASE) and re.findall(pattern, f2r, re.IGNORECASE):
+                        print(f"Match: original_df ->{f1} table_df -> {f2}")
+                        f1_list.append(f1)
                         original_df[f1].update(c2)
                         break
+        print(f"UnMatched original_df: {[i for i in original_df if i not in f1_list]}")
         return original_df
-
     
     def _map_json_keys_to_dict(self, text:str):
         for json_key, patterns in self.JSON_HEADER.items():
@@ -139,7 +142,16 @@ class FundRegex():
         text = re.sub(r"__+", "_", text)
         return text.strip("_")
 
-    
+    #match type
+    def is_numeric(text):
+        return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))
+
+    def is_alphanumeric(text):
+        return bool(re.fullmatch(r'[A-Za-z0-9]+', text))
+
+    def is_alpha(text):
+        return bool(re.fullmatch(r'[A-Za-z]+', text))
+        
     def _remove_non_word_space_chars(self,text:str)->str:
         if not isinstance(text,str):
             return text
@@ -252,7 +264,31 @@ class FundRegex():
         data.update(clean_terms)
         
         return data
-    
+
+    def _format_metric_data(self, data):
+        #generic
+        
+        #specific
+        for metric in data:
+            value = data.get(metric, "").strip()
+            if metric == "port_turnover_ratio":
+                if re.search(r"times?$", value, re.IGNORECASE):
+                    value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
+
+                if value.endswith("%"):
+                    value = value.rstrip("%").strip()
+                    if self.is_numeric(value):
+                        value = str(int(float(value)))  # %
+                elif self.is_numeric(value):
+                    num = float(value)
+                    if num < 1:
+                        value = str(int(num * 100))  # / -> %
+                    else:
+                        value = str(int(num))
+                data[metric] = value
+        return data
+
+                        
     
     #MAPPER FINSTINCT
     def _format_to_finstinct(self,data,filename):

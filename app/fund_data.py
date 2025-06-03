@@ -478,7 +478,43 @@ class ThreeSixtyOne(Reader,GrandFundData):
 class BajajFinServ(Reader,GrandFundData):  
     def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path)
+        
+    def _generate_table_data(self,path:str,pages:str):
+        table_parser = TableParser()
+        tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
+        dfs = pd.concat([table.df for table in tables], ignore_index=True)
+        sc1 = table_parser._get_matching_col_indices(dfs,["Bajaj.+?Fund","SCHEME\\s*NAME"],thresh=20)
+        sc2 = table_parser._get_matching_col_indices(dfs,["Jensen","Standard\\s*Deviation","Information\\s*ratio","Portfolio\\s*Quants","Tracking Error","YTM","Average\\s*Maturity","Sharpe"],thresh=10)
+        all_cols = sorted(set(sc1)) + list(range(sc2[0], dfs.shape[1]))
+        fdf = dfs.iloc[:, all_cols]
+        fdf.columns = ["MUTUAL_FUND"] + [f"METRICS_{i}" for i in range(1, fdf.shape[1])]
+        hdfc_pattern = re.compile(
+            r"(Baj.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN|.+?GROWTH)?)",
+            re.IGNORECASE
+        )
+        fdf.MUTUAL_FUND = table_parser._clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
+        fdf.MUTUAL_FUND = fdf.MUTUAL_FUND.apply(lambda x: hdfc_pattern.findall(x)[0] if isinstance(x, str) and hdfc_pattern.findall(x) else "")
+        fdf = table_parser._clean_dataframe(fdf,["newline_to_space","str_to_pd_NA"])
+        fdf = fdf.dropna(axis=0, how="all").dropna(axis=1, how="all")
+        fdf =table_parser._clean_dataframe(fdf,['NA_to_str'])
+
+        data = {}
+        temp = None
+
+        for idx, rows in fdf.iterrows():
+            values = list(rows)
+            main_scheme_name = str(values[0]).strip() if not pd.isna(values[0]) else ""
+            if main_scheme_name:
+                temp = main_scheme_name
+                if temp not in data:
+                    data[temp] = {"metrics": []}
+                data[temp]["metrics"].append(" ".join(map(str, values[1:])))
+            
+            if temp:
+                data[temp]["metrics"].append(" ".join(map(str, values)))
+
+        return data
 #3 <>
 class Bandhan(Reader,GrandFundData):  
    def __init__(self, fund_name:str,amc_id:str,path:str):
@@ -532,7 +568,7 @@ class DSP(Reader,GrandFundData):
         
     def _generate_table_data(self,path,pages):
         table_parser = TableParser()
-        tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
+        tables = camelot.read_pdf(path,flavor="lattice",pages=pages) 
         dfs = pd.concat([table.df for table in tables], ignore_index=True)
         sc1 = table_parser._get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=20)
         sc2 = table_parser._get_matching_col_indices(dfs,["REGULAR\\s+PLAN","DIRECT\\s+PLAN"], thresh=20)
@@ -542,23 +578,40 @@ class DSP(Reader,GrandFundData):
         fdf = dfs.iloc[:, all_cols]
         fdf["LOAD_STRUCTURE"] = fdf.iloc[:, -1]
         fdf.columns = ["MUTUAL_FUND","FUND_MANAGER","MIN_ADD","LOAD_STRUCTURE"]
-        fdf.replace(r"\n","",regex=True,inplace=True)
+
         dsp_pattern = re.compile(
-            r"(DSP.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUND OF FUNDS|FOF)?)",
+            r"(DSP.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN)?)",
             re.IGNORECASE
         )
 
-        fdf.MUTUAL_FUND = fdf.MUTUAL_FUND.apply(lambda x: dsp_pattern.findall(x)[0] if isinstance(x, str) and dsp_pattern.findall(x) else pd.NA)
-        fdf = fdf.replace(r"^\s*$",pd.NA, regex=True)
+        fdf.MUTUAL_FUND = table_parser._clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
+        fdf.MUTUAL_FUND = fdf.MUTUAL_FUND.apply(lambda x: dsp_pattern.findall(x)[0] if isinstance(x, str) and dsp_pattern.findall(x) else x)
+        fdf = table_parser._clean_dataframe(fdf,["newline_to_space","str_to_pd_NA"])
         fdf = fdf.dropna(axis=0, how="all").dropna(axis=1, how="all")
-
+        fdf =table_parser._clean_dataframe(fdf,['NA_to_str'])
+        
         data = {}
         for idx, rows in fdf.iterrows():
             values = list(rows)
             main_scheme_name = values[0]
-            data[main_scheme_name] = {"fund_manager":values[1],"load_structure":values[3],"min_add":values[2]}
+            
+            fund_manager = str(values[1]).strip()
+            min_add = str(values[2]).strip()
+            load_structure = str(values[3]).strip()
+
+            if main_scheme_name not in data:
+                data[main_scheme_name] = {
+                    "fund_manager": fund_manager,
+                    "min_add": min_add,
+                    "load_structure": load_structure
+                }
+            else:
+                data[main_scheme_name]["fund_manager"] += f"; {fund_manager}"
+                data[main_scheme_name]["min_add"] += f"; {min_add}"
+                data[main_scheme_name]["load_structure"] += f"; {load_structure}"
 
         return data
+
 
 #8 <> 
 class Edelweiss(Reader,GrandFundData):

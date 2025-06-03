@@ -451,7 +451,8 @@
         "alpha": [
             "^jensens_alpha",
             "^jensons_alpha$",
-            "^jenson$"
+            "^jenson$",
+            "^jensens_alpha$"
         ],
         "arithmetic_mean_ratio": [],
         "average_div_yield": [
@@ -486,7 +487,8 @@
             "^avg_mat\\.?$",
             "average_matu?r?i?t?y?$",
             "^average$",
-            "^avgmaturityofthefund.*"
+            "^avgmaturityofthefund.*",
+            "^average_maturity$"
         ],
         "beta": [
             "^Portfolio Beta",
@@ -526,7 +528,8 @@
             "^modified_duration.*",
             "^modified_dura?t?i?o?n?$",
             "^modifiedduration.+$",
-            "modied.+?on$"
+            "modied.+?on$",
+            "^modied_duration$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -567,20 +570,22 @@
             "^Sharpe.*",
             "^sharpe_ratio",
             "^sharpe_rao$",
-            "^sharperatio$"
+            "^sharperatio$",
+             "^sharpe_ratio$"
         ],
         "sortino_ratio": [],
         "std_dev": [
             "^standard_deviaon$",
             "^Standard Deviation",
-            "^st.*deviation",
+            "^st.*?deviation",
             "^std dev",
             "^standard$",
             "^Standard_Deviation_of_Fund",
             "^std.?$",
             "^std_d$",
             "^standarddeviation$",
-            "^std\\.?_dev\\.?$"
+            "^std\\.?_dev\\.?$",
+            "^standard_deviation$"
         ],
         "tracking_error": [
             "^tracking_error$",
@@ -904,21 +909,22 @@
         "Bajaj Finserv Mutual Fund": {
             "Bajaj Finserv Arbitrage Fund": "Arbitrage",
             "Bajaj Finserv Balanced Advantage Fund": "Balanced Advantage",
-            "Bajaj Finserv Banking and PSU Fund": "Banking and PSU",
+            "Bajaj Finserv Banking and PSU Fund": "Banking(?:\\s+and|\\s+&)?\\s+PSU",
             "Bajaj Finserv Consumption Fund": "Consumption",
             "Bajaj Finserv ELSS Tax Saver Fund": "ELSS Tax Saver",
             "Bajaj Finserv Flexi Cap Fund": "Flexi Cap",
             "Bajaj Finserv Gilt Fund": "Gilt",
             "Bajaj Finserv Healthcare Fund": "Healthcare",
-            "Bajaj Finserv Large and Mid Cap Fund": "Large and Mid Cap",
+            "Bajaj Finserv Large and Mid Cap Fund": "Large.+?Mid Cap",
             "Bajaj Finserv Large Cap Fund": "Large Cap",
-            "Bajaj Finserv Liquid Fund": "Liquid",
+            "Bajaj Finserv Liquid Fund": "Liquid\\s*Fund",
+            "Bajaj Finserv Multi Cap Fund":"Multi\\s*Cap\\s*Fund",
             "Bajaj Finserv Money Market Fund": "Money Market",
             "Bajaj Finserv Multi Asset Allocation Fund": "Multi Asset Allocation",
             "Bajaj Finserv Nifty 1D Rate Liquid ETF - Growth": "Nifty 1D Rate Liquid ETF",
             "Bajaj Finserv Nifty 50 ETF": "Nifty 50 ETF",
             "Bajaj Finserv Nifty Bank ETF": "Nifty Bank ETF",
-            "Bajaj Finserv Overnight Fund": "Overnight"
+            "Bajaj Finserv Overnight Fund": "Overnight\\s*Fund"
         },
         "Bandhan Mutual Fund": {
             "Bandhan Large Cap Fund": "Large Cap Fund",
@@ -1087,25 +1093,28 @@
             "DSP Flexi Cap Fund": "Flexi Cap Fund",
             "DSP Top 100 Equity Fund": "Top 100 Equity Fund",
             "DSP Equity Opportunities Fund": "Equity Opportunities Fund",
-            "DSP India T.I.G.E.R Fund": "India TIGER Fund",
-            "DSP Mid Cap Fund": "Mid\\s+Cap Fund",
+            "DSP India T.I.G.E.R Fund": "India T\\s*I\\s*G\\s*E\\s*R\\s*Fund",
+            "DSP Mid Cap Fund": "Mid\\s*Cap\\s*Fund",
             "DSP ELSS Tax Saver Fund": "ELSS Tax Saver Fund",
+            "DSP large and Mid cap fund":"Large\\s*(?:and|&)?\\s*mid\\s*cap",
+            "DSP Large Cap Fund":"Large\\s*Cap\\s*Fund",
             "DSP Healthcare Fund": "Healthcare Fund",
             "DSP Quant Fund": "Quant Fund",
             "DSP VALUE FUND": "VALUE FUND",
-            "DSP Small Cap Fund": "Small Cap Fund",
+            "DSP Small Cap Fund": "Small\\s*Cap Fund",
             "DSP Focus Fund": "Focus Fund",
+            "DSP Overnight Fund":"Overnight\\s*Fund$",
             "DSP Multicap Fund": "Multicap Fund",
             "DSP Business Cycle Fund": "Business Cycle Fund",
             "DSP Natural Resources and New Energy Fund": "Natural Resources.+?Energy Fund",
-            "DSP World Gold Fund of Fund": "World Gold Fund",
-            "DSP World Mining Fund of Fund": "World Mining Fund",
-            "DSP Global Clean Energy Fund of Fund": "Global Clean Energy Fund",
-            "DSP US Flexible Equity Fund of Fund": "US Flexible Equity Fund",
+            "DSP World Gold Fund of Fund": "World Gold\\s*Fund",
+            "DSP World Mining Fund of Fund": "World Mining\\s*Fund",
+            "DSP Global Clean Energy Fund of Fund": "Global Clean Energy\\s*Fund.+?$",
+            "DSP US Flexible Equity Fund of Fund": "US Flexible Equity\\s*Fund.+?$",
             "DSP Income Plus Arbitrage Fund of Fund": "Income Plus Arbitrage Fund",
             "DSP Global Innovation Fund of Fund": "Global Innovation Fund",
-            "DSP Gold ETF Fund of Fund": "Gold ETF",
-            "DSP US Treasury Fund of Fund": "US Treasury Fund of Fund",
+            "DSP Gold ETF Fund of Fund": "Gold ETF\\s*Fund.+?",
+            "DSP US Treasury Fund of Fund": "US\\s*Treasury\\s*Fund of Fund",
             "DSP Dynamic Asset Allocation Fund": "Dynamic Asset Allocation Fund",
             "DSP Aggressive Hybrid Fund": "Aggressive Hybrid Fund",
             "DSP Equity Savings Fund": "Equity Savings Fund",
@@ -1121,10 +1130,10 @@
             "DSP Nifty Private Bank ETF": "Nifty Private Bank ETF",
             "DSP BSE Sensex ETF": "BSE Sensex ETF$",
             "DSP Nifty Healthcare ETF": "Nifty Healthcare ETF$",
-            "DSP NIFTY 1D Rate Liquid ETF": "NIFTY 1D Rate Liquid ETF",
+            "DSP NIFTY 1D Rate Liquid ETF": "NIFTY\\s*1D\\s*Rate\\s*Liquid\\s*ETF",
             "DSP BSE Liquid Rate ETF": "BSE Liquid Rate ETF$",
             "DSP Nifty Top 10 Equal Weight ETF": "Nifty Top.+?Weight ETF",
-            "DSP BSE Sensex Next 30 ETF": "BSE Sensex Next 30 ETF",
+            "DSP BSE Sensex Next 30 ETF": "BSE Sensex Next 30 ETF$",
             "DSP Nifty Top 10 Equal Weight Index Fund": "Nifty Top.+?Weight Index Fund",
             "DSP Nifty Next 50 Index Fund": "Nifty Next 50 Index Fund",
             "DSP Nifty 50 Index Fund": "Nifty 50 Index Fund",
@@ -1147,9 +1156,9 @@
             "DSP Strategic Bond Fund": "DSP\\s*Strategic Bond Fund",
             "DSP Bond Fund": "DSP\\s*Bond Fund",
             "DSP Low Duration Fund": "Low Duration Fund",
-            "DSP 10Y G-Sec Fund": "10Y.+?Sec Fund$",
+            "DSP 10Y G-Sec Fund": "10Y.+?Sec\\s*Fund$",
             "DSP Corporate Bond Fund": "DSP\\s*Corporate Bond Fund",
-            "DSP Multi Asset Allocation Fund": "Multi Asset Allocation Fund",
+            "DSP Multi Asset Allocation Fund": "Multi\\s*Asset\\s*Allocation\\s*Fund",
             "DSP Banking & Financial Services Fund": "Banking.+?Financial Services Fund"
         },
         "Edelweiss Mutual Fund": {

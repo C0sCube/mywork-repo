@@ -2,6 +2,15 @@ import sys, os,json,traceback
 from datetime import datetime
 from app.config_loader import load_config_once, get_config, restore_config
 
+import warnings
+from pandas.errors import SettingWithCopyWarning
+
+warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+
+
 # Load configuration
 output_folder = f"APR25_{datetime.now().strftime('%Y%m%d')}"
 CONFIG = load_config_once(output_folder=output_folder)

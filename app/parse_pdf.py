@@ -544,7 +544,7 @@ class Reader:
         return final_data
 
     def get_generated_content(self, data:list, is_table:list):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}\nParsing Completed, Refining Data.....\n")
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}\nParsing Completed, Refining Data.....")
         extracted_text = {}
         output_path  = self.DRYPATH
         try:
@@ -558,6 +558,7 @@ class Reader:
             
             #section for tabular data DSP, BAJAJ, HDFC
             if is_table[0]:
+                print(f"Table Data Present-> running: _generate_table_data")
                 table_data = self._generate_table_data(self.PDF_PATH,is_table[1])
                 extracted_text = FundRegex()._map_main_and_tabular_data(extracted_text,table_data,self.FUND_NAME)                 
         except Exception as e:
@@ -627,6 +628,7 @@ class Reader:
         load_data = df.get("load", {})
         if not isinstance(load_data, dict):
             print(f"Returning _load_ops: {fund} -> Type Error")
+            df["load"] = {"entry_load":"","exit_load":""}
             return df
         try:
             new_load = []
