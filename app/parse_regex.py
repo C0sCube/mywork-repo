@@ -143,15 +143,25 @@ class FundRegex():
         return text.strip("_")
 
     #match type
-    def is_numeric(text):
-        return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))
+    # def is_numeric(self,text):
+    #     return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))
+    def is_numeric(self, text):
+        try:
+            float(text)
+            return True
+        except (ValueError, TypeError):
+            return False
 
-    def is_alphanumeric(text):
+    def is_alphanumeric(self,text):
         return bool(re.fullmatch(r'[A-Za-z0-9]+', text))
 
-    def is_alpha(text):
+    def is_alpha(self,text):
         return bool(re.fullmatch(r'[A-Za-z]+', text))
-        
+    
+    #generic clean
+    def _random_suffix(self,length=4):
+        return ''.join(random.choices(string.ascii_lowercase, k=length))
+     
     def _remove_non_word_space_chars(self,text:str)->str:
         if not isinstance(text,str):
             return text
@@ -207,20 +217,20 @@ class FundRegex():
         except (ValueError, TypeError): #empty string, str other than date
             return data
 
-    def _convert_to_year_format(self,data): #imcomplete here
-        metrics = data.get("metrics",{})
-        time_str = metrics["macaulay"]
-        year_value = time_str
-        if any(x in time_str.lower() for x in ["days", "day","da"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value / 365)
-        elif any(x in time_str.lower() for x in ["months", "month","mon","mont"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value / 12.0)
-        elif any(x in time_str.lower() for x in ["years", "year","yea","ye"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value)
-        return year_value
+    # def _convert_to_year_format(self,data): #imcomplete here
+    #     metrics = data.get("metrics",{})
+    #     time_str = metrics["macaulay"]
+    #     year_value = time_str
+    #     if any(x in time_str.lower() for x in ["days", "day","da"]):
+    #         numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
+    #         year_value = str(numeric_value / 365)
+    #     elif any(x in time_str.lower() for x in ["months", "month","mon","mont"]):
+    #         numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
+    #         year_value = str(numeric_value / 12.0)
+    #     elif any(x in time_str.lower() for x in ["years", "year","yea","ye"]):
+    #         numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
+    #         year_value = str(numeric_value)
+    #     return year_value
     
     def _remove_duplicates(self,text):
         if not text:
@@ -266,26 +276,34 @@ class FundRegex():
         return data
 
     def _format_metric_data(self, data):
+        metric_data = data.get("metrics", {})
+        if not metric_data:
+            return data
         #generic
         
         #specific
-        for metric in data:
-            value = data.get(metric, "").strip()
+        for metric in metric_data:
+            value = metric_data.get(metric,"")
+            if not isinstance(value, str):
+                value = str(value) if value is not None else ""
             if metric == "port_turnover_ratio":
+                # print(value)
                 if re.search(r"times?$", value, re.IGNORECASE):
                     value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
 
                 if value.endswith("%"):
                     value = value.rstrip("%").strip()
                     if self.is_numeric(value):
-                        value = str(int(float(value)))  # %
+                        # value = str(int(float(value)))  # %
+                        value = str(round(float(value), 2))
                 elif self.is_numeric(value):
                     num = float(value)
-                    if num < 1:
-                        value = str(int(num * 100))  # / -> %
-                    else:
-                        value = str(int(num))
-                data[metric] = value
+                    # if num < 1:
+                    value = str(int(num * 100))  # / -> %
+                    # else:
+                    #     value = str(int(num))
+                metric_data[metric] = value
+        data["metrics"] = metric_data
         return data
 
                         

@@ -3,7 +3,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(360 ONE.*(?:FUND|ETF|FOF|INDEX)\\s*(?:OF FUND|FUND OF FUND|FO?o?F)?)",
+        pattern: "(360 ONE.*(?:FUNDS?|ETF|FOF|INDEX|PATH|SAVER)\\s*(?:OF FUNDS?|FUND OF FUNDS?|F[Oo]F|FUND|.+?PATH)?)",
         bbox: [
           0,
           0,

@@ -105,6 +105,7 @@ class Reader:
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
         return ocr_path
     
+    #page half data
     def check_and_highlight(self, path: str):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         data = []
@@ -251,42 +252,33 @@ class Reader:
                     finalData.append(new_entry)
                     fund_seen[fundName] = new_entry
         return finalData
-
-    def extract_span_data(self, data: list,*args)->list:  # all
+    
+    def extract_span_data(self, data: list, *args) -> list: #all
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        finalData = []
+        final_data = []
         for page in data:
             seen_entries = set()
-            pgn, fundName = page['page'], page['fundname']
-            all_blocks = [
-                [round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font']]
-                for block in page['block']
-                for line in block['lines']
-                for span in line.get('spans', [])
-                if (entry := (round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font'])) not in seen_entries and not seen_entries.add(entry)
-            ]
-            finalData.append(self._create_data_entry(pgn,fundName,all_blocks))
-
-        return finalData
+            page_number,fund_name,blocks = page['page'], page['fundname'], page['block']
+            spans = []
+            for block in blocks:
+                for line in block['lines']:
+                    for span in line.get('spans', []):
+                        entry = (round(span['size']), span['text'].strip(), span['color'], span['origin'], tuple(span['bbox']), span['font'])
+                        if entry not in seen_entries:
+                            seen_entries.add(entry)
+                            spans.append(entry)
+            final_data.append(self._create_data_entry(page_number, fund_name, spans))
+        return final_data
 
     #CLEAN
-    def _random_suffix(self,length=4):
-        return ''.join(random.choices(string.ascii_lowercase, k=length))
-    
     def process_text_data(self, data: list)->list:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}") 
-        stop_words,finalData = FundRegex().STOP_WORDS,[]
-        #checkers
-        data_cond = self.PARAMS['data']
-        size_checker = data_cond['size']
-        font_checker = data_cond['font']
-        color_checker = data_cond['color']
-        font_change = data_cond['update_size']
+        regex = FundRegex()
+        data_cond = self.PARAMS['data']   #checkers
+        size_checker, font_checker, color_checker, font_change = data_cond['size'], data_cond['font'], data_cond['color'], data_cond['update_size']
+        combined_stop_words = set(regex.STOP_WORDS) | set(self.PARAMS['stop_words']) #set union
         
-        amc_stop_words = self.PARAMS['stop_words']
-        
-        combined_stop_words = set(stop_words) | set(amc_stop_words) #set union
-        
+        finalData = []
         for content in data:
             pgn,fundName,blocks = content['page'],content['fundname'],content['block']
     
@@ -345,12 +337,14 @@ class Reader:
             
             flatten_blocks = [block for group in grand_combined_blocks for block in group]
             finalData.append(self._create_data_entry(pgn,fundName,flatten_blocks))
-
         return finalData
 
     def create_nested_dict(self,data: list,*args)->list:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         header_size, content_size = self.PARAMS['content_size']
+        regex = FundRegex()
+        
+
         finalData = []
         for content in data:
             pgn,fundName,blocks = content['page'],content['fundname'], content['block']
@@ -371,17 +365,14 @@ class Reader:
                     
                     curr_head = base_head
                     while curr_head in nested_dict:
-                        curr_head = f"{base_head}_{self._random_suffix()}"
+                        curr_head = f"{base_head}_{regex._random_suffix()}"
                     nested_dict[curr_head] = []
                 elif size<= content_size and curr_head:
                     nested_dict[curr_head].append(block)
             
-            # print("Before block contents:", nested_dict['before'])
             if nested_dict['before'] == []:
                 del nested_dict['before']    
-            
             finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
-
         return finalData
     
     # def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
@@ -628,7 +619,8 @@ class Reader:
         load_data = df.get("load", {})
         if not isinstance(load_data, dict):
             print(f"Returning _load_ops: {fund} -> Type Error")
-            df["load"] = {"entry_load":"","exit_load":""}
+            value = " ".join(load_data) if isinstance(load_data,list) else load_data
+            df["load"] = {"entry_load":f"[ERROR] {value}","exit_load":f"[ERROR] {value}"}
             return df
         try:
             new_load = []
@@ -645,38 +637,7 @@ class Reader:
         # print(df['load'])
         return df
     
-    
-    # def __load_ops(self, fund: str, df: dict):
-    #     load_data = df.get("load", {})
-    #     if not isinstance(load_data, dict):
-    #         print(f"[SKIP] _load_ops: {fund} -> load missing or invalid type")
-    #         return df
 
-    #     try:
-    #         new_load = []
-    #         for load_key, load_value in load_data.items():
-    #             if isinstance(load_value, str):
-    #                 value = load_value
-    #             elif isinstance(load_value, list):
-    #                 value = " ".join(str(v) for v in load_value)
-    #             else:
-    #                 value = str(load_value)
-
-    #             if re.search(r"entry(_load)?", load_key, re.IGNORECASE) and value:
-    #                 new_load.append({"comment": value, "type": "entry_load"})
-    #             elif re.search(r"exit(_load)?", load_key, re.IGNORECASE) and value:
-    #                 new_load.append({"comment": value, "type": "exit_load"})
-
-    #         if new_load:
-    #             df["load"] = new_load
-    #         else:
-    #             print(f"[INFO] No valid load data for: {fund}")
-    #     except Exception as e:
-    #         print(f"[ERROR] in _load_ops:{fund} -> Load Error: {e}")
-        
-    #     return df
-
-    
     # def __load_ops(self,fund:str,df:dict):
     #     load_data = df.get("load", {})
     #     if not isinstance(load_data, dict):
@@ -760,6 +721,7 @@ class Reader:
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
             # temp = regex._format_amt_data(temp) #min/add formatter
+            temp = regex._format_metric_data(temp) #metric formatter
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
