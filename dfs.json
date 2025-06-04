@@ -1,58 +1,52 @@
 {
-    "metadata": {
-        "document_name": "20_17033_Apr-2025_1744864352_SID.pdf",
-        "file_type": "sid",
-        "process_date": "20250604"
-    },
-    "value": {
-        "amc_name": "Groww Asset Management Limited",
-        "benchmark_index": "CRISIL Dynamic Gilt Index",
-        "close_date": ": May 07,2025",
-        "face_value": "Rs.10",
-        "field_location": {
-            "benchmark_index": 0,
-            "close_date": 0,
-            "fund_manager": 0,
-            "load": 0,
-            "main_scheme_name": 0,
-            "min_addl_amt": 0,
-            "min_addl_amt_multiple": 0,
-            "min_amt": 0,
-            "min_amt_multiple": 0,
-            "offer_price": 0,
-            "open_date": 0,
-            "scheme_code": 0,
-            "scheme_objective": 0,
-            "suitable_for_investors": 0,
-            "type_of_scheme": 0
-        },
-        "fund_manager": [
-            {
-                "name": "Mr. Kaustubh Sule",
-                "experience": "",
-                "qualification": "B.E.(Computer) MBA(Finance)"
-            }
+  "metadata": {
+    "document_name": "8_17038_Apr-2025_1744864577_KIM.pdf",
+    "file_type": "kim",
+    "process_date": "20250604"
+  },
+  "value": {
+    "amc_name": "Dsp Asset Management Limited",
+    "asset_allocation_pattern": [
+      {
+        "allocation": [
+          {
+            "type": "min",
+            "value": "95%"
+          },
+          {
+            "type": "max",
+            "value": "100%"
+          },
+          {
+            "type": "total",
+            "value": ""
+          }
         ],
-        "load": [
-            {
-                "comment": ": Nil  he AMC reserves the right to modify/alter the load structure and may decide to  charge  on  the  Units  with  prospective  effect,  subject  to  the  maximum  limits  as  prescribed under the SEBI Regulations.",
-                "type": "exit_load",
-                "value": ""
-            }
+        "instrument_type": "Units Of Dsp Silver Etf",
+        "risk_profile": ""
+      },
+      {
+        "allocation": [
+          {
+            "type": "min",
+            "value": "0%"
+          },
+          {
+            "type": "max",
+            "value": "5%"
+          },
+          {
+            "type": "total",
+            "value": ""
+          }
         ],
-        "main_scheme_name": "Groww Gilt Fund",
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "mutual_fund_name": "Groww Mutual Fund",
-        "offer_price": "Rs.10",
-        "open_date": ": April 23, 2025",
-        "riskometer_benchmark": null,
-        "riskometer_scheme": null,
-        "scheme_code": "GROW/O/D /GIL/25/03/0029",
-        "scheme_objective": "H The objective of the Scheme is to generate credit risk-free returns by predominantly  investing in  sovereign  securities  issued  by  the  Central Government   and/or   State    Government(s)   and/or   any security  guaranteed  by  the  Government  of  India,   and/or reverse  repos  in  such  securities as  per  applicable  RBI  Regulations and  Guidelines. The Scheme may also be investing in Reverse repo, Triparty repo on  Government  securities  or  treasury  bills  and/or other similar instruments as may  be notified from time to time.   owever, there is no assurance that the investment objective of the Scheme will be  achieved.",
-        "suitable_for_investors": "*: Sch \u2022 Credit risk free returns over medium to long term \u2022 Investments mainly in government securities of various maturities Investorprincipa*",
-        "type_of_scheme": "An  open  ended  debt  scheme  investing  in  government  securities across maturity.  A relatively high interest rate risk and relatively low credit risk."
-    }
+        "instrument_type": "Cash And Cash Equivalents",
+        "risk_profile": ""
+      }
+    ],
+    "description": "",
+    "field_location": {},
+    "main_scheme_name": "DSP Silver ETF Fund of Fund",
+    "mutual_fund_name": "Dsp Mutual Fund"
+  }
 }

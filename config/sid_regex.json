@@ -103,9 +103,9 @@
     },
     "kim_json_headers": {
         "amc_name": [],
-        "main_scheme_name": [],
+        "main_scheme_name": ["main_scheme_name"],
         "mutual_fund_name": [],
-        "asset_allocation_pattern": []
+        "asset_allocation_pattern": ["asset_allocation_pattern"]
     },
      "add_kim_headers": {
         "amc_name": null,

@@ -280,30 +280,25 @@ class ReaderSIDKIM:
     def __map_json_ops(self,df, typez:str)->dict:
         return {SidKimRegex()._map_json_keys_to_dict(k,typez=typez) or k: v for k, v in df.items()}
     
-    # def __map_asset_kim_ops(self,df:dict, order:list)->dict:
-    #     pass
-    #     asset_data = df.get("asset_allocation_data",[])
-    #     if not isinstance(asset_data,list):
-    #         print(f"Returning _load_ops -> Type Error")
-    #         return df
-    #     try:
-    #         asset_allocation_pattern = []
-    #         for data in df:
-    #             asset = {"allocation":[],"instrument_type":"","risk_profile":""}
-    #             for idx, loc in enumerate(order.split("|")):
-    #                 if loc == "instr":
-    #                     asset['instrument_type'] = data[idx]
-    #                 if loc == "min":
-    #                     asset["allocation"].append({"type":"min","value":data[idx]})
-    #                 if loc == "max":
-    #                     asset["allocation"].append({"type":"max","value":data[idx]})
-    #                 if loc == "total":
-    #                     asset["allocation"].append({"type":"total","value":data[idx]})
-    #             asset_allocation_pattern.append(asset)
-    #     except Exception as e:
-    #         print(f"Error in _map_asset_kim_ops -> {e}")
-    #     df["asset_allocation_pattern"] = asset_allocation_pattern
-    #     return df
+    def __asset_ops(self,df: dict) -> dict:
+        asset_data = df.get("asset_allocation_pattern", [])
+        if not isinstance(asset_data, list) or not asset_data:
+            print(f"[TYPE-ERROR] __asset_ops: NOT A LIST")
+            return df
+        try:
+            asset_alloc_data = []
+            for data in asset_data:
+                asset = {
+                    "allocation": [{"type": key, "value": data.get(key, "")}for key in ["min", "max", "total"]],
+                    "instrument_type": data.get("instrument", ""),
+                    "risk_profile": data.get("risk_profile", "")
+                }
+                asset_alloc_data.append(asset)
+            df["asset_allocation_pattern"] = asset_alloc_data
+        except Exception as e:
+            print(f"[ERROR] __asset_ops: {e}")
+        return df
+
                         
     def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func:bool):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -321,8 +316,8 @@ class ReaderSIDKIM:
             temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
             temp = self.__load_ops(temp)
         if sid_or_kim == "kim":
-            # temp = self.__map_asset_kim_ops(temp,order=self.PARAMS["kim"]["row_order"])
             temp = self.__map_json_ops(temp,typez=sid_or_kim)
+            temp = self.__asset_ops(temp)
             temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
         
         if special_func:

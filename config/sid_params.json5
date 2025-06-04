@@ -581,8 +581,8 @@
       },
       kim: {
         fund_regex: "(DSP.+?(?:ETF|Funds?|Index|Saver|Path)\\s*(?:of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,400,612]],
-        initial_page: "1",
+        bbox: [[0,0,524,400]],
+        initial_page: "0",
         row_match_threshold: 1,
         row_keywords: ["minimum","maximum","minimummaximum","maximumminimum"],
         row_order: "min|max",
@@ -590,8 +590,11 @@
     },
     REGEX: {
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
-      main_scheme:"(DSP.+?(?:ETF|Funds?|Index|Saver|Path)\\s*(?:of Funds?|Fo?O?F|Fund\\s*of\\s*Funds?)?)",
-      asset:"(.+?)\\s*(\\d{1,2}\\%?)\\s*(\\d{1,2}\\%?)",
+      main_scheme:"(DSP.+?(?:ETF|Funds?|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fo?O?F|Fund\\s*of\\s*Funds?)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
+        order:"instr|min|max"
+      },
       load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
       scheme: [
         "Offer for Units",
@@ -633,7 +636,8 @@
       fund_manager: ["_extract_manager_data", "manager"],
 
       // KIM
-      ".*main_scheme_name":["_extract_generic_data", "main_scheme"]
+      ".*main_scheme_name":["_extract_generic_data", "main_scheme"],
+      "asset_allocation_pattern":["_extract_asset_data","asset"]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -657,7 +661,7 @@
 
       //kim
       "main_scheme_name",
-      "asset_allocation_data"
+      "asset_allocation_pattern"
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
