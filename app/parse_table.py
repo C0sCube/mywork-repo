@@ -5,7 +5,7 @@ import numpy as np
 
 from app.parse_sid_regex import *
 from app.fund_sid_data import *
-from logging_config import *
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
@@ -21,8 +21,8 @@ class TableParser:
             'newline_to_space': lambda x: x.replace('\n', ' ') if isinstance(x, str) else x,
             'str_to_pd_NA': lambda x: pd.NA if isinstance(x, str) and re.match(r'^\s*$', x) else x,
             'normalize_alphanumeric': lambda x: re.sub(r'\s+', ' ', re.sub(r'[^a-zA-Z0-9]+', ' ', x)).strip().lower() if isinstance(x, str) else x,
-            'NA_to_str': lambda x: "" if x is pd.NA or pd.isna(x) else x
-
+            'NA_to_str': lambda x: "" if x is pd.NA or pd.isna(x) else x,
+            'drop_all_na': lambda df: df.dropna(axis=0, how='all').dropna(axis=1, how='all') if isinstance(df, pd.DataFrame) else df
         }
     
     def _clean_dataframe(self, df, steps, columns=None):
@@ -53,7 +53,7 @@ class TableParser:
             for cell in row:
                 cell_text = regex._normalize_alphanumeric(str(cell))
                 # print(cell_text)
-                if pattern.match(cell_text):  # use .match to anchor to start
+                if pattern.search(cell_text):  # use .match to anchor to start
                     match_count += 1
                     if match_count >= thresh:
                         matched_rows.append(idx)
@@ -94,48 +94,33 @@ class TableParser:
                 result = pd.concat([result, padding], axis=1)
         return result
     
-    # def _get_matching_row_indices(self,df, keywords, thresh):
-    #     regex = SidKimRegex()
-    #     pattern = re.compile("|".join(keywords), re.IGNORECASE)
-    #     matched_rows = []
-    #     for idx, row in df.iterrows():
-    #         row_text = regex._normalize_alphanumeric(" ".join(map(str, row)))
-    #         match_count = 0
-    #         for _ in pattern.finditer(row_text):
-    #             match_count += 1
-    #             if match_count >= thresh:
-    #                 matched_rows.append(idx)
-    #                 break  # Stop scanning this row further
-    #     # for idx, row in df.iterrows():
-    #     #     row_text = regex._normalize_alphanumeric(" ".join(map(str, row)))
-    #     #     if matches:=re.findall(pattern, row_text):
-    #     #         if len(matches)>=thresh:
-    #     #             matched_rows.append(idx)
-    #     return matched_rows if matched_rows else [0]
+    # def _get_sub_dataframe(self,df,rs=0,re=None,cs=0,ce=None):
+    #     sub_df = df.iloc[rs:re,cs:ce]
+    #     sub_df.columns = range(sub_df.shape[1])  # reset column names to integers
+    #     sub_df = sub_df.reset_index(drop=True)   # reset row index
+    #     return sub_df
     
-    # def _get_matching_col_indices(self,df, keywords, thresh):
-    #     regex = SidKimRegex()
-    #     pattern = re.compile("|".join(keywords), re.IGNORECASE)
-    #     matched_cols = []
-    #     for col in df.columns:
-    #         col_text = regex._normalize_alphanumeric(" ".join(map(str, df[col].fillna("").astype(str))))
-    #         match_count = 0
-    #         for _ in re.finditer(pattern, col_text):
-    #             match_count += 1
-    #             if match_count >= thresh:
-    #                 matched_cols.append(col)
-    #                 break
-    #         # if matches:=re.findall(pattern, col_text):
-    #         #     if len(matches)>=thresh:
-    #         #         matched_cols.append(col)  # or df.columns.get_loc(col) if you want integer index
-    #     return matched_cols if matched_cols else [0]
-    
-    
-    def _get_sub_dataframe(self,df,rs=0,re=-1,cs=0,ce=-1):
-        sub_df = df.iloc[rs:re,cs:ce]
-        sub_df.columns = range(sub_df.shape[1])  # reset column names to integers
-        sub_df = sub_df.reset_index(drop=True)   # reset row index
+    def _get_sub_dataframe(self, df, rs=0, re=None, cs=0, ce=None):
+        max_row, max_col = df.shape
+
+        # Clip indices to valid bounds
+        rs = min(rs, max_row - 1) if max_row > 0 else 0
+        cs = min(cs, max_col - 1) if max_col > 0 else 0
+        re = min(re, max_row) if re is not None else None
+        ce = min(ce, max_col) if ce is not None else None
+
+        sub_df = df.iloc[rs:re, cs:ce]
+        sub_df.columns = range(sub_df.shape[1])
+        sub_df = sub_df.reset_index(drop=True)
         return sub_df
+
+    
+    def _drop_na_all(self,dfs,row = True, col = True):
+        if row:
+            dfs = dfs.dropna(axis=0,how="all")
+        if col:
+            dfs = dfs.dropna(axis=1,how="all")
+        return dfs
     
     def _group_and_collect(self,df, group_col=""):
         final_dict = {}

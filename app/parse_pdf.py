@@ -5,7 +5,7 @@ from collections import defaultdict
 from app.parse_regex import *
 from app.fund_data import *
 from app.utils import *
-from logging_config import *
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 

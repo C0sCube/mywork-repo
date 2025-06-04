@@ -1,12 +1,13 @@
 import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
 from app.parse_sid_pdf import ReaderSIDKIM
-from logging_config import logger
+
 import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
+from app.parse_sid_regex import *
 conf = get_config()
 
 PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['sid_params'])
@@ -108,8 +109,11 @@ class GrandSidData: #always call this first in subclass
             elif len(match) == 3:
                 key,v1,v2 = match
                 final_dict[key.strip()] = v1.strip()
-                    
-        return {main_key:final_dict}
+        
+        if final_dict:           
+            return {main_key:final_dict}
+        else:
+            return{main_key:generic_data}
     
     def _extract_generic_non_escape_data(self, main_key: str, data, pattern: str):
         """
@@ -136,8 +140,12 @@ class GrandSidData: #always call this first in subclass
                 key,v1,v2 = match
                 final_dict[key.strip()] = v1.strip()
                     
-        return {main_key:final_dict}
-    
+        # return {main_key:final_dict}
+        if final_dict:           
+            return {main_key:final_dict}
+        else:
+            return{main_key:generic_data}
+            
     def _extract_metric_data(self,main_key:str, data,pattern:str):
         """
             Extracts key-value pairs from text using regex patterns for keys and values.
@@ -239,18 +247,29 @@ class GrandSidData: #always call this first in subclass
                 
         return {"fund_manager": final_list}
     
-    # def _extract_asset_data(self, main_key: str, data, pattern: str):
-    #     if not isinstance(data,list):
-    #         print("_extract_manager_data -> data not list")
-    #         return {"asset_allocation_data":[]}
-    #     final_list = []
-    #     for content in data:
-    #         matches = re.findall(self.REGEX[pattern],content, re.IGNORECASE)
-    #         if matches and len(matches) ==1:
-    #             # print(matches)
-    #             final_list.append([i for i in matches[0]])
-    #     print(final_list)
-    #     return {"asset_allocation_data",final_list}
+    def _return_alloc_data(self, instr = "",min = "",max= "",total = ""):
+        return {
+            "instrument":instr.title().strip(),
+            "min": min.title().strip(),
+            "max": max.title().strip(),
+            "total": total.title().strip()
+        }
+    
+    def _extract_asset_data(self, main_key: str, data, pattern: str):
+        if not isinstance(data,list):
+            print("_extract_manager_data -> data not list")
+            return {main_key:data}
+        final_list = []
+        asset_params = self.REGEX[pattern]
+        asset_order = list(asset_params["order"].split("|"))
+        regex = SidKimRegex()
+        for content in data:
+            content = regex._normalize_alphanumeric_and_symbol(content,"&%")
+            if matches := re.findall(asset_params["pattern"],content, re.IGNORECASE):
+                for match in matches:
+                    record = {asset_order[i]: match[i] if i < len(match) else "" for i in range(len(asset_order))}
+                    final_list.append(self._return_alloc_data(**record))
+        return {main_key: final_list}        
                 
     
     def _extract_lump_data(self, main_key: str, data, pattern:list):
@@ -290,8 +309,8 @@ class GrandSidData: #always call this first in subclass
                         return func(string, data, regex_key)
                     return func(string, data)
         except Exception as e:
-            logger.error(e)
-            return
+            print(f"[ERROR] in _match_with_patterns {e}")
+            return self._extract_dummy_data(string, data)
 
         return self._extract_dummy_data(string, data)  # fallback
 
@@ -302,8 +321,8 @@ class GrandSidData: #always call this first in subclass
                     func = getattr(self, func_name) #dynamic function|attribute lookup
                     return func(string, data)    
         except Exception as e:
-            logger.error(e)
-            return
+            print(f"[ERROR] in _special_match_regex_to_content {e}")
+            return self._extract_dummy_data(string, data)
         return self._extract_dummy_data(string, data) #fallback
     
     def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 

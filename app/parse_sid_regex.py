@@ -65,6 +65,15 @@ class SidKimRegex():
             return text
         return re.sub(r"\s+", " ", text).strip()
     
+    def _normalize_alphanumeric_and_symbol(self,text: str, keep: str = "") -> str:
+        if not isinstance(text, str):
+            return text
+        allowed = re.escape(keep) + "a-zA-Z0-9"
+        pattern = rf"[^{allowed}]+"
+        text = re.sub(pattern, " ", text)
+        return re.sub(r"\s+", " ", text).strip().lower()
+
+    
     def _normalize_alphanumeric(self, text: str) -> str:
         if not isinstance(text,str):
             return text
@@ -159,42 +168,7 @@ class SidKimRegex():
     
     
     #FORMAT
-    # def _check_replace_type(self,data:dict,fund:str):
-    #     expected_types = {
-    #         "amc_name": str,
-    #         "benchmark_index": str,
-    #         "fund_manager": list,
-    #         "load": list,
-    #         "main_scheme_name": str,
-    #         "mutual_fund_name": str,
-    #         "suitable_for_investors": str,
-    #         "scheme_objective": str,
-    #         "scheme_code": str,
-    #         "type_of_scheme": str,
-    #         "open_date": str,
-    #         "close_date": str,
-    #         "face_value": str,
-    #         "offer_price":str,
-    #         "riskometer_scheme": str,
-    #         "riskometer_benchmark": str,
-    #         "min_addl_amt": str,
-    #         "min_addl_amt_multiple": str,
-    #         "min_amt": str,
-    #         "min_amt_multiple": str,
-    #         "page_number": list,
-    #     }
 
-    #     changes = {}
-
-    #     for key, expected_type in expected_types.items():
-    #         if key in data and not isinstance(data[key], expected_type):
-    #             original_type = type(data[key]).__name__
-    #             default_value = expected_type()
-    #             data[key] = default_value
-    #             changes[key] = f"For AMC {fund} -> Replaced {original_type} with {expected_type.__name__}"
-
-    #     return data
-    
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
             date_str = data.get("scheme_launch_date","")

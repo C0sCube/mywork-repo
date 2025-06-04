@@ -4,7 +4,8 @@
         "benchmark_index": [
             "^benchmark_total_return.*$",
             "^benchmark$",
-            "^benchmark_index_total_return_index$"
+            "^benchmark_index_total_return_index$",
+            "^_benchmark$"
         ],
         "fund_manager": [],
         "load": [
@@ -16,7 +17,8 @@
         ],
         "mutual_fund_name": [],
         "suitable_for_investors": [
-            ".*suitable_for_investors.*$"
+            ".*suitable_for_investors.*$",
+            ".*suitable.+?investors.*$"
         ],
         "scheme_objective": [
             "^investment_objective$"
@@ -109,9 +111,10 @@
         "amc_name": null,
         "main_scheme_name": null,
         "mutual_fund_name": null,
-        "asset_allocation_pattern": []
+        "asset_allocation_pattern": [],
+        "description":null
     },
     "kim_field_location":{},
-    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     "header_patterns": {}
 }

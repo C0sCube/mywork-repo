@@ -1,7 +1,6 @@
 import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
 from app.parse_pdf import Reader
 from app.parse_table import *
-from logging_config import logger
 import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
@@ -337,9 +336,7 @@ class GrandFundData:
                         return func(string, data, regex_key)
                     return func(string, data)
         except Exception as e:
-            logger.error(e)
-            return
-
+            print(f"[ERROR] _match_with_patterns: {e}")
         return self._extract_dummy_data(string, data)  # fallback
 
     def _special_match_regex_to_content(self, string: str, data):
@@ -349,8 +346,7 @@ class GrandFundData:
                     func = getattr(self, func_name) #dynamic function|attribute lookup
                     return func(string, data)    
         except Exception as e:
-            logger.error(e)
-            return
+            print(f"[ERROR] _match_with_patterns: {e}")
         return self._extract_dummy_data(string, data) #fallback
     
     def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 
