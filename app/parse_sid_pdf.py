@@ -168,10 +168,13 @@ class ReaderSIDKIM:
         dfs = tableparse._extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
         dfs = tableparse._clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
         
-        row_start = tableparse._get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
-        print(f"[ROW START]: {row_start}" )
+        row_match = tableparse._get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
+        print(f"[ROW START]: {row_match}" )
         
-        dfs = tableparse._get_sub_dataframe(dfs,rs=row_start[0]+1, re=row_start[0]+ 2 + instrument_count)
+        #range/offset
+        row_s,row_e = row_match[0]+1, row_match[0]+ 3 + instrument_count
+        
+        dfs = tableparse._get_sub_dataframe(dfs,rs=row_s, re=row_e)
         dfs = tableparse._clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
         # print(dfs)
         final_data = {}

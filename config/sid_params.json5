@@ -19,10 +19,16 @@
       },
       kim: {
         fund_regex: "(360 ONE.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fu?n?d?|Fund of Funds?)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "0", //fitz
         row_match_threshold: 1,
-        row_keywords: ["minimum\\s*maximum","minimum","maximum","instruments","indicative\\s*allocations"], //"instruments","indicative\\s*allocations"
+        row_keywords: [
+          "minimum\\s*maximum",
+          "minimum",
+          "maximum",
+          "instruments",
+          "indicative\\s*allocations",
+        ], //"instruments","indicative\\s*allocations"
         row_order: "instr|min|max",
       },
     },
@@ -65,20 +71,25 @@
       },
       kim: {
         fund_regex: "(Aditya\\s*Birla.+?(?:Funds?|Etf|Path|Saver|Index|Plan)\\s*(?:of\\s*Funds?|Funds?|Fund\\s*of\\s*Funds?|F[Oo]F|.+?Plan)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["instruments","indicative\\s*allocations","maximum","minimum"],
+        row_keywords: [
+          "instruments",
+          "indicative\\s*allocations",
+          "maximum",
+          "minimum",
+        ],
         row_order: "instr|min|max",
       },
     },
     REGEX: {
-      main_scheme:"(Aditya\\s*Birla.+?(?:Funds?|Etf|Path|Saver|Index|Plan)\\s*(?:of\\s*Funds?|Funds?|Fund\\s*of\\s*Funds?|F[Oo]F|.+?Plan)?)",
-      asset:{
-        pattern:"((?:minimum\\s*maximum)?\\s*.+?)(\\d+\\%)\\s*(\\d+\\%)",
-        order:"instr|min|max"
+      main_scheme: "(Aditya\\s*Birla.+?(?:Funds?|Etf|Path|Saver|Index|Plan)\\s*(?:of\\s*Funds?|Funds?|Fund\\s*of\\s*Funds?|F[Oo]F|.+?Plan)?)",
+      asset: {
+        pattern: "((?:minimum\\s*maximum)?\\s*.+?)(\\d+\\%)\\s*(\\d+\\%)",
+        order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     },
     IMP_DATA: {
       amc_name: "Aditya Birla Sun Life Asset Management Limited",
@@ -88,14 +99,13 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-
       //kim
-      main_scheme_name:["_extract_generic_data","main_scheme"],
-      asset_allocation_pattern:["_extract_asset_data","asset"]
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name","asset_allocation_pattern"],
+    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -129,15 +139,18 @@
         order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 2,
+        row_keywords: ["instruments", "indicative\\s*asset"],
       },
     },
     REGEX: {
+      main_scheme: "(Angel\\s*One.+?(?:Funds?|Path|Index|Saver|ETF)\\s*(?:of Funds?|Fund\\s*of\\s*Funds?|F[Oo]F|.+?Path|F[und]+s?|Duration)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+)\\s*(\\d+)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "((?:Nifty|CRISIL|BSE|Domestic).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
       date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
       min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
@@ -173,6 +186,9 @@
       "^benchmark": ["_extract_generic_data", "benchmark"],
       "^fund_manager": ["_extract_manager_data", "manager"],
       "^other_text": ["_extract_scheme_data", "scheme"],
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^(minimum_additional|minimum_application_amount)": [
@@ -199,6 +215,10 @@
       "^(scheme_type|investment_objective|scheme_code)",
       "fund_manager",
       ".*(opens_on|closes_on|offer_for_units)$",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -226,15 +246,25 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "(AXIS.+?(?:Funds?|Saver|Path|Index|ETF)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["Instruments Indicative Allocation","minimum\\s*maximum","^\\s*minimum\\s*$","^\\s*maximum\\s*$"],
-        row_order: "instr|min|max",
+        row_keywords: [
+          "Instruments Indicative Allocation",
+          "minimum\\s*maximum",
+          "minimum",
+          "maximum",
+        ],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(AXIS.+?(?:Funds?|Saver|Path|Index|ETF)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order:"instr|min|max"
+      },
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+    },
     IMP_DATA: {
       amc_name: "Axis Asset Management Limited",
       mutual_fund_name: "Axis Mutual Fund",
@@ -242,10 +272,19 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:['_extract_asset_data',"asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -272,18 +311,26 @@
         order: { name: 0, experience: 0, qualification: 0 },
       },
       kim: {
-        fund_regex: "(Bajaj.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,400,612]],
-        initial_page: "1",
-        row_match_threshold: 1,
-        row_keywords: ["minimum","maximum","minimum\\s*maximum","maximum\\s*minimum"],
-        row_order: "instr|min|max",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 2,
+        row_keywords: [
+          "Indicative allocations",
+          "Instruments",
+          "minimum",
+          "maximum",
+          "minimum\\s*maximum",
+          "maximum\\s*minimum",
+        ],
       },
     },
     REGEX: {
-      asset:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
-      main_scheme:"(Bajaj.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
+      main_scheme: "(Bajaj.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fund of Funds?|F[Oo]F|Funds?)?)",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     },
     IMP_DATA: {
       amc_name: "Bajaj Finserv Asset Management Limited",
@@ -293,18 +340,16 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-
       //kim
-      ".*main_scheme_name":["_extract_generic_data","main_scheme"],
-      // "asset_allocation_data":["_extract_asset_data","asset"]
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
-
       //kim
-      "asset_allocation_data",
-      "main_scheme_name"
+      "asset_allocation_pattern",
+      "main_scheme_name",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -333,20 +378,20 @@
       },
       kim: {
         fund_regex: "(Bandhan.+?(?:Funds?|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["maximum","minimum"],
+        row_keywords: ["maximum", "minimum"],
         row_order: "instr|min|max",
       },
     },
     REGEX: {
-      main_scheme:"(Bandhan.+?(?:Funds?|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
-      asset:{
-        pattern:"(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
-        order: "instr|min|max"
+      main_scheme: "(Bandhan.+?(?:Funds?|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
+        order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     },
     IMP_DATA: {
       amc_name: "Bandhan Asset Management Limited",
@@ -356,14 +401,13 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-
       //kid
-      main_scheme_name:["_extract_generic_data","main_scheme"],
-      asset_allocation_pattern:["_extract_asset_data","asset"]
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name","asset_allocation_pattern"],
+    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -380,26 +424,42 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0,0,524,400]],
+        initial_page: "0,1",
+        row_match_threshold: 1,
+        row_keywords: ["^Instruments$","Indicative allocation","minimum","maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(Bank of India.+?(?:Funds?|Plan|Path|Index|Saver|Duration)\\s*(?:Fund?|Fund of Funds?|of Funds?|F[Oo]F)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*([A-Za-z\\s]+)\\s*$",
+        order:"instr|min|max|risk"
+      },
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+    },
     IMP_DATA: {
       amc_name: "Bank Of India Asset Management Limited",
       mutual_fund_name: "Bank Of India Mutual Fund",
       face_value: "Rs.10",
+      offer_price:"Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -433,15 +493,18 @@
         order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["instruments", "indicative\\s*allocations"],
       },
     },
     REGEX: {
+      main_scheme: "(Baroda\\s+BNP.+?(?:Funds?|Path|Index|Saver|ETF)\\s*(?:of\\s*Funds?|Fund of Funds?|Funds?|.+?Path)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+)\\s*(\\d+)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "Name\\s*of\\s*Benchmark\\s*\\:?(.+?)\\s*J?ustification.+$",
       load: "()E?xit\\s*Load\\s*\\:?(.+?)$",
       scheme: [
@@ -467,7 +530,7 @@
       },
       min_amt: "(?:Lumpsum Investment)?\\:?\\s*(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
       nfo: "Rs\\.?\\s*\\d+",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     },
     IMP_DATA: {
       amc_name: "Baroda Bnp Paribas Asset Management Limited",
@@ -487,6 +550,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -506,6 +573,10 @@
       "amc_name",
       "offer_price",
       "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -523,18 +594,25 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "(CANARA.+(?:FUND|INDEX|PATH|SAVER|ETF)\\s*(?:OF\\*FUNDS?s?|FUND\\s*OF\\s*FUNDS?s?|Fo?O?F)?)",
-        bbox: [[0,0,400,612]],
-        initial_page: "1,2",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0,1",
         row_match_threshold: 1,
-        row_keywords: ["min.+?mum","minimum","maximum"],
-        row_order: "instr|min|max",
+        row_keywords: [
+          "min.+?mum",
+          "minimum",
+          "maximum",
+          "^minimum$",
+          "^maximum$",
+        ],
       },
     },
     REGEX: {
-      main_scheme:"(CANARA.+(?:FUND|INDEX|PATH|SAVER|ETF)\\s*(?:OF\\*FUNDS?s?|FUND\\s*OF\\s*FUNDS?s?|Fo?O?F)?)",
-      escape:"",
-      asset:""
+      main_scheme: "(CANARA.+?(?:FUNDS?|INDEX|PATH|SAVER|ETF)\\s*(?:OF\\*FUNDS?|FUND\\s*OF\\s*FUNDS?|F[oO]F|FUNDS?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
+        order: "instr|min|max",
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     },
     IMP_DATA: {
       amc_name: "Canara Robeco Asset Management Limited",
@@ -543,10 +621,18 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      //kim
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      //kim
+      "asset_allocation_pattern",
+      "main_scheme_name",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -580,20 +666,24 @@
         order: { name: 0, experience: 4, qualification: 3 },
       },
       kim: {
-        fund_regex: "(DSP.+?(?:ETF|Funds?|Index|Saver|Path)\\s*(?:of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["minimum","maximum","minimummaximum","maximumminimum"],
-        row_order: "min|max",
+        row_keywords: [
+          "Indicative\\s*allocations",
+          "minimum",
+          "maximum",
+          "minimummaximum",
+          "maximumminimum",
+        ],
       },
     },
     REGEX: {
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
-      main_scheme:"(DSP.+?(?:ETF|Funds?|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fo?O?F|Fund\\s*of\\s*Funds?)?)",
-      asset:{
-        pattern:"(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
-        order:"instr|min|max"
+      main_scheme: "(DSP.+?(?:ETF|Funds?|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fo?O?F|Fund\\s*of\\s*Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
+        order: "instr|min|max",
       },
       load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
       scheme: [
@@ -636,8 +726,8 @@
       fund_manager: ["_extract_manager_data", "manager"],
 
       // KIM
-      ".*main_scheme_name":["_extract_generic_data", "main_scheme"],
-      "asset_allocation_pattern":["_extract_asset_data","asset"]
+      ".*main_scheme_name": ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -661,7 +751,7 @@
 
       //kim
       "main_scheme_name",
-      "asset_allocation_pattern"
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -696,19 +786,19 @@
       },
       kim: {
         fund_regex: "(Edelweiss.+?(?:Funds?|ETF|Index|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "0,1",
         row_match_threshold: 1,
-        row_keywords: ["^maximum","^minimum","max.+?um","min.+?um"],
+        row_keywords: ["^maximum", "^minimum", "max.+?um", "min.+?um"],
         row_order: "instr|min|max",
       },
     },
     REGEX: {
-      asset:{
-        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%)\\s*$",
-        order:"instr|min|max"
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%)\\s*$",
+        order: "instr|min|max",
       },
-      main_scheme:"(Edelweiss.+?(?:Funds?|ETF|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+      main_scheme: "(Edelweiss.+?(?:Funds?|ETF|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
       load: "()E?xit\\s*Load(.+?)$",
       scheme: [
@@ -741,14 +831,13 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-
       //kim
-      "main_scheme_name":["_extract_generic_data","main_scheme"],
-      "asset_allocation_pattern":["_extract_asset_data","asset"]
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name","asset_allocation_pattern"],
+    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -818,15 +907,18 @@
         order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
-        fund_regex: "(GROWW.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F))",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
-        row_match_threshold: 2,
-        row_keywords: ['minimum','maximum'],
-        row_order: "instr|min|max",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0,1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum", "maximum"],
       },
     },
     REGEX: {
+      main_scheme: "(GROWW.+?(?:Funds?|ETF|Path|Saver|Index|Plan)\\s*(?:of Funds?|Fund of Funds?|F[oO]F)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
       load: "()E?xit\\s*Load(.+?)$",
       scheme: [
@@ -867,6 +959,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*?load_structure": ["_extract_load_data", "load"],
@@ -887,6 +983,10 @@
       "amc_name",
       "offer_price",
       "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -904,15 +1004,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "(HDFC.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["Minimum maximum","mini.+?mum","minimum","maximum"],
-        row_order: "instr|min|max",
+        row_keywords: ["Minimum maximum", "mini.+?mum", "minimum", "maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme: "(HDFC.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    },
     IMP_DATA: {
       amc_name: "Hdfc Asset Management Limited",
       mutual_fund_name: "Hdfc Mutual Fund",
@@ -920,10 +1025,17 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -976,26 +1088,42 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0,0,540,400]],
+        initial_page: "0,1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum","^instruments$"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(HSBC.+?(?:Funds?|ETF|Path|Plan|Saver)\\s*(?:of Funds?|F[Oo]F|Fund of Funds?|Funds?)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order:"instr|min|max"
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    },
     IMP_DATA: {
       amc_name: "Hsbc Asset Management Limited",
       mutual_fund_name: "Hsbc Mutual Fund",
       face_value: "Rs.10",
+      offer_price:"Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1012,15 +1140,25 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 2,
+        row_keywords: [
+          "indicative\\s*allocations",
+          "instruments",
+          "minimum",
+          "maximum",
+        ],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme: "(ICICI.+?(?:Funds?|Plan|Path|Index|Saver|Index)\\s*(?:F[Oo]F|Fund of Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    },
     IMP_DATA: {
       amc_name: "Icici Prudential Asset Management Limited",
       mutual_fund_name: "Icici Prudential Mutual Fund",
@@ -1028,10 +1166,18 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1048,15 +1194,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0,0,540,400]],
+        initial_page: "0,1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum","Indicative Allocations"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(Invesco.+?(?:funds?|Path|plan|Index|ETF|Saver)\\s*(?:of funds?|Fund of Funds?|Funds?|F[Oo]F)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order:"instr|min|max"
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    },
     IMP_DATA: {
       amc_name: "Invesco Asset Management Limited",
       mutual_fund_name: "Invesco Mutual Fund",
@@ -1064,10 +1215,20 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1084,15 +1245,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0,0,524,400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["indicative\\s*allocations","instruments","minimum","maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(I\\s*T\\s*I.+?(?:Funds?|Index|path|plan|saver|ETF)\\s*(?:of Funds|Fund of Funds?|F[Oo]F|Funds?)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*([A-Za-z\\s]+)\\s*$",
+        order:"instr|min|max|risk"
+      },
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+    },
     IMP_DATA: {
       amc_name: "Iti Asset Management Limited",
       mutual_fund_name: "Iti Mutual Fund",
@@ -1100,10 +1266,20 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1156,15 +1332,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "(Kotak.+?(?:Fund|ETF|INdex|Path|saver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["minimum", "maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme: "(Kotak.+?(?:Funds?|ETF|Index|Path|saver)\\s*(?:of Funds?|F[oO]F|Fund of Funds?|Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
+        order: "instr|min|max",
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    },
     IMP_DATA: {
       amc_name: "Kotak Mahindra Asset Management Limited",
       mutual_fund_name: "Kotak Mahindra Mutual Fund",
@@ -1172,10 +1353,13 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1192,15 +1376,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0,0,540,400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(LIC\\s*MF.+?(?:Funds?|ETF|Path|Index|Duration|Plan)\\s*(?:F[Oo]F|Funds?|of funds?|Fund of Funds?)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
+        order:"instr|min|max"
+      },
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+    },
     IMP_DATA: {
       amc_name: "Lic Asset Management Limited",
       mutual_fund_name: "Lic Mutual Fund",
@@ -1208,10 +1397,20 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1228,26 +1427,43 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0,0,524,400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["minimum","maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(Mahindra\\s*Manu.+?(?:Funds?|ETF|Index|Path|Duration|Plan)\\s*(?:of funds?|Funds?|F[Oo]F|Fund of Funds?)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order:"instr|min|max"
+      },
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+"
+    },
     IMP_DATA: {
       amc_name: "Mahindra Manulife Asset Management Limited",
       mutual_fund_name: "Mahindra Manulife Mutual Fund",
       face_value: "Rs.10",
+      offer_price:"Rs.10",
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1264,15 +1480,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "(MIRAE.+?(?:Funds?|ETF|Path|SAver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0,1",
         row_match_threshold: 1,
-        row_keywords: [""],
-        row_order: "",
+        row_keywords: ["minimum","maximum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme: "(MIRAE.+?(?:Funds?|ETF|Path|SAver|Plan)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    },
     IMP_DATA: {
       amc_name: "Mirae Asset Asset Management Limited",
       mutual_fund_name: "Mirae Asset Mutual Fund",
@@ -1280,10 +1501,18 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -1316,15 +1545,25 @@
         order: { name: 0, experience: 3, qualification: 1 },
       },
       kim: {
-        fund_regex: "(Motilal.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["maximum","minimum","min.+?um","max.+?um"],
-        row_order: "instr|min|max",
+        row_keywords: [
+          "instruments",
+          "indicative\\s*allocations?",
+          "maximum",
+          "minimum",
+          "min.+?um",
+          "max.+?um",
+        ],
       },
     },
     REGEX: {
+      main_scheme: "(Motilal.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fund of Funds?|F[oO]F|Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "((?:Nifty|BSE|Domestic|CRISIL).+?(?:Total Return Index|TRI))",
       load: "()E?xit\\s*Load\\:?(.+?)$",
       scheme: [
@@ -1370,6 +1609,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -1390,6 +1633,10 @@
       "offer_price",
       "face_value",
       ".*offer_of_units$",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -1460,15 +1707,18 @@
         order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["instruments", "risk\\s*profile", "indicative\\s*asset"],
       },
     },
     REGEX: {
+      main_scheme: "(Nippon.+?(?:Funds?|Path|Saver|Index|ETF)\\s*(?:of Funds?|Fund of Funds?|Funds?|.+?Path|Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*([A-Za-z\\s]+)\\s*$",
+        order: "instr|min|max|risk",
+      },
       benchmark: "(.+?)\\s*(?:The\\s+Scheme\\s+is|The\\s+Benchmark\\s+of).+$",
       load: "()E?xit\\s*Load\\:?(.+?)$",
       scheme: ["Offer of Units", "NAME OF MUTUAL FUND", "EOL"],
@@ -1508,6 +1758,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -1529,6 +1783,10 @@
       "offer_price",
       "face_value",
       ".*offer_of_units$",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -1696,10 +1954,10 @@
       },
       kim: {
         fund_regex: "(Quant.+?(?:Funds?|Index|Path|Saver|ETF)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "1",
         row_match_threshold: 1,
-        row_keywords: ["minimum","maximum"],
+        row_keywords: ["minimum", "maximum"],
         row_order: "instr|min|max",
       },
     },
@@ -1783,15 +2041,18 @@
         order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["instruments", "indicative\\s*allocat"],
       },
     },
     REGEX: {
+      main_scheme: "(Samco.+?(?:Funds?|ETF|Path|Index|Duration|Plan)\\s*(?:of Funds?|Fund of Funds|F[Oo]F|.+Path|Fund?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "((?:Domestic Price of|Price of|NIFTY|Nifty|CRISIL|BSE).+?(?:Index|TRI|Gold|Silver))",
       load: "Entry\\s*Load(.+?)E?xit\\s*Load\\:?(.+?)$",
       scheme: ["Offer of Units", "Name of Mutual Fund", "EOL"],
@@ -1831,6 +2092,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -1852,6 +2117,10 @@
       "offer_price",
       "face_value",
       ".*offer_of_units$",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -1890,15 +2159,18 @@
         order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "()",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
+        row_match_threshold: 1,
+        row_keywords: ["Indicative\\s*allocations", "instruments"],
       },
     },
     REGEX: {
+      main_scheme: "((?:Nifty|SBI).+?(?:Funds?|ETF|Index|Path|Duration|Plan)\\s*(?:of Funds?|F[Oo]F|Fund of Funds?|Funds?|.+?Path)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: ".+?((?:Domestic Price of|Price of|NIFTY|Nifty|CRISIL|BSE).+?(?:Index|TRI|Gold|Silver))",
       load: "()E?xit\\s*Load\\:?(.+?)$",
       scheme: [
@@ -1944,6 +2216,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -1963,6 +2239,10 @@
       "amc_name",
       "offer_price",
       "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -2064,15 +2344,24 @@
         order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
-        fund_regex: "(Tata.+?(?:Funds?|ETF|Saver|Index|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["minimum\\s*maximum","min.+?um","max.+?um"],
-        row_order: "instr|min|max",
+        row_keywords: [
+          "indicative",
+          "instruments",
+          "minimum\\s*maximum",
+          "min.+?um",
+          "max.+?um",
+        ],
       },
     },
     REGEX: {
+      main_scheme: "(?:Key\\s*Information\\s*memorandum)?\\s*(.+?(?:Funds?|ETF|Saver|Index|Path|.+?Plan|Active|F[Oo]F)\\s*(?:of Funds?|Fund of Funds?|F[oO]F|Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "(.+?)\\s*r?ationale.+$",
       load: "E?ntry\\s*Load(.+?)E?xit\\s*Load(.+?)$",
       scheme: [
@@ -2114,6 +2403,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load$": ["_extract_load_data", "load"],
@@ -2133,6 +2426,10 @@
       "amc_name",
       "offer_price",
       "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -2222,15 +2519,20 @@
         order: { name: 1, experience: 2, qualification: 1 },
       },
       kim: {
-        fund_regex: "(UTI.+?(?:Fund|Index|ETF|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
-        initial_page: "1",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0",
         row_match_threshold: 1,
-        row_keywords: ["maximum","minimum"],
-        row_order: "instr|min|max",
+        row_keywords: ["indicative\\s*allocations","maximum", "minimum"],
       },
     },
-    REGEX: {},
+    REGEX: {
+      main_scheme:"(UTI.+?(?:Fund|Index|ETF|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
+      asset:{
+        pattern:"(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order:"instr|min|max"
+      },
+      escape:"[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+"
+    },
     IMP_DATA: {
       amc_name: "Uti Asset Management Limited",
       mutual_fund_name: "Uti Mutual Fund",
@@ -2238,10 +2540,19 @@
       open_date: "",
       close_date: "",
     },
-    PATTERN_TO_FUNCTION: {},
+    PATTERN_TO_FUNCTION: {
+
+      //kim
+      main_scheme_name:["_extract_generic_data","main_scheme"],
+      asset_allocation_pattern:["_extract_asset_data","asset"]
+    },
     SECONDARY_PATTERN_TO_FUNCTION: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: [],
+    SELECTKEYS: [
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern"
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -2312,15 +2623,18 @@
         order: { name: 0, experience: 3, qualification: 1 },
       },
       kim: {
-        fund_regex: "",
-        bbox: [],
-        initial_page: "",
-        row_match_threshold: 0,
-        row_keywords: [],
-        row_order: "",
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0", //fitz
+        row_match_threshold: 1,
+        row_keywords: ["indicative\\s*allocation", "minimum", "maximum"],
       },
     },
     REGEX: {
+      main_scheme: "(Unifi.+?(?:Funds?|Path|Plan|Duration|ETF)\\s*(?:of\\s*Funds?|Fund of Funds?|F[oO]F|Funds?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
       benchmark: "(.+?)\\s*J?ustification.+$",
       load: "E?ntry\\s*Load\\s*\\:?(.+?)E?xit\\s*Load\\s*\\:?(.+?)$",
       scheme: [
@@ -2362,6 +2676,10 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
@@ -2381,6 +2699,10 @@
       "amc_name",
       "offer_price",
       "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -2435,10 +2757,10 @@
       },
       kim: {
         fund_regex: "(Zerodha.+?(?:Funds?|Path|saver|Index|ETF)\\s*(?:of Funds?|Fund of funds?|Fo?O?F)?)",
-        bbox: [[0,0,524,400]],
+        bbox: [[0, 0, 524, 400]],
         initial_page: "1,2",
         row_match_threshold: 1,
-        row_keywords: ["minimum","maximum"],
+        row_keywords: ["minimum", "maximum"],
         row_order: "instr|min|max",
       },
     },

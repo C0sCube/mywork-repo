@@ -339,7 +339,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Angel\\s*One.+?(?:Fund|ETF)\\s*(?:.+?Growth|Fund of Fund|of Fund|.*?Fund)?)",
+        pattern: "(Angel\\s*One.+?(?:Fund|ETF|Plan|Duration|Saver|Index|F[Oo]F)\\s*(?:.+?Growth|Fund of Funds?|of Funds|Funds?|F[Oo]F)?)",
         bbox: [
           0,
           130,
@@ -421,7 +421,7 @@
       },
       tracking: "(\\d+\\.\\d*)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Portfolio YTM|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
+      metric: "(Residual Maturity|Macaulay Duration|Modif?i?ed Duration|Average Maturity|Portfolio YTM|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+"
     },
     PATTERN_TO_FUNCTION: {
@@ -8121,7 +8121,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Unifi.+?(?:Fund|ETF|Fo?O?F|Index)\\s*(?:.+?Growth|Fund of Fund|of Fund|.*?Fund)?)",
+        pattern: "(Unifi.+?(?:Fund|ETF|F[Oo]F|Index|Path|Duration|Index|Plan)\\s*(?:.+?Growth|F[Oo]F|Fund of Funds?|of Funds?|Fund?)?)",
         bbox: [
           0,
           0,
@@ -8195,7 +8195,7 @@
       ],
       metrics: {
         key: "(Assets\\s*Under\\s*Management|Average\\s*AUM|Regular Plan|Direct Plan|Macaulay Duration|Yield\\s*to|avg maturity|Modified Duration)",
-        value: "(-?\\d+\\.\\d+\\s*(?:days?|months?|years?|crores?)?)"
+        value: "(-?\\d+\\.\\d+\\s*(?:days?|months?|years?|crores?|%)?)"
       },
       min_amt: "([\\d,]+)()\\s*Minimum",
       load: "Entry Load(.*)Exit Load(.*)$",
@@ -8229,13 +8229,13 @@
       ]
     },
     SELECTKEYS: [
-      "load",
-      "metrics",
-      "(minimum_application_amount|minimum_additional)",
-      "fund_manager",
-      "scheme_launch_date",
+      "load", //after merge
+      "metrics", //after merge
+      "(minimum_application_amount|minimum_additional)", //after merge
+      "fund_manager", //after clone
+      "scheme_launch_date", //after clone
       ".*tier_1_benchmark_index",
-      "monthly_aaum_value",
+      "monthly_aaum_value", //after clone
       "amc_name",
       "main_scheme_name",
       "page_number",
@@ -8252,7 +8252,8 @@
       metrics: [
         ".*quantitative_indicators",
         ".*net_asset_value"
-      ]
+      ],
+      load:[".*(entry_load|exit_load)"]
     },
     COMMENTS: [],
     IMP_DATA: {

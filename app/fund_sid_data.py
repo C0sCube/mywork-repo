@@ -247,12 +247,13 @@ class GrandSidData: #always call this first in subclass
                 
         return {"fund_manager": final_list}
     
-    def _return_alloc_data(self, instr = "",min = "",max= "",total = ""):
+    def _return_alloc_data(self, instr = "",min = "",max= "",total = "",risk = ""):
         return {
             "instrument":instr.title().strip(),
             "min": min.title().strip(),
             "max": max.title().strip(),
-            "total": total.title().strip()
+            "total": total.title().strip(),
+            "risk_profile": risk.title().strip()
         }
     
     def _extract_asset_data(self, main_key: str, data, pattern: str):

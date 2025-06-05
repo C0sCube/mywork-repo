@@ -1,52 +1,70 @@
 {
-  "metadata": {
-    "document_name": "8_17038_Apr-2025_1744864577_KIM.pdf",
-    "file_type": "kim",
-    "process_date": "20250604"
-  },
-  "value": {
-    "amc_name": "Dsp Asset Management Limited",
-    "asset_allocation_pattern": [
-      {
-        "allocation": [
-          {
-            "type": "min",
-            "value": "95%"
-          },
-          {
-            "type": "max",
-            "value": "100%"
-          },
-          {
-            "type": "total",
-            "value": ""
-          }
+    "metadata": {
+        "document_name": "26_16773_Jan-2025_1737603670_KIM.pdf",
+        "file_type": "kim",
+        "process_date": "20250605"
+    },
+    "value": {
+        "amc_name": "Mahindra Manulife Asset Management Limited",
+        "asset_allocation_pattern": [
+            {
+                "allocation": [
+                    {
+                        "type": "min",
+                        "value": "65"
+                    },
+                    {
+                        "type": "max",
+                        "value": "100"
+                    },
+                    {
+                        "type": "total",
+                        "value": ""
+                    }
+                ],
+                "instrument_type": "Equity And Equity Related Instruments",
+                "risk_profile": ""
+            },
+            {
+                "allocation": [
+                    {
+                        "type": "min",
+                        "value": "0"
+                    },
+                    {
+                        "type": "max",
+                        "value": "35"
+                    },
+                    {
+                        "type": "total",
+                        "value": ""
+                    }
+                ],
+                "instrument_type": "Debt And Money Market Securities Including Treps Tri Party Repo And Reverse Repo In Government Securities",
+                "risk_profile": ""
+            },
+            {
+                "allocation": [
+                    {
+                        "type": "min",
+                        "value": "0"
+                    },
+                    {
+                        "type": "max",
+                        "value": "10"
+                    },
+                    {
+                        "type": "total",
+                        "value": ""
+                    }
+                ],
+                "instrument_type": "Units Issued By Reits And Invits",
+                "risk_profile": ""
+            }
         ],
-        "instrument_type": "Units Of Dsp Silver Etf",
-        "risk_profile": ""
-      },
-      {
-        "allocation": [
-          {
-            "type": "min",
-            "value": "0%"
-          },
-          {
-            "type": "max",
-            "value": "5%"
-          },
-          {
-            "type": "total",
-            "value": ""
-          }
-        ],
-        "instrument_type": "Cash And Cash Equivalents",
-        "risk_profile": ""
-      }
-    ],
-    "description": "",
-    "field_location": {},
-    "main_scheme_name": "DSP Silver ETF Fund of Fund",
-    "mutual_fund_name": "Dsp Mutual Fund"
-  }
+        "description": "",
+        "field_location": {},
+        "main_scheme_name": "Mahindra Manulife Value Fund ",
+        "mutual_fund_name": "Mahindra Manulife Mutual Fund"
+    }
 }

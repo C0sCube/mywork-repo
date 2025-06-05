@@ -544,7 +544,7 @@ class Reader:
         return final_data
 
     def get_generated_content(self, data:list, is_table:list):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}\nParsing Completed, Refining Data.....")
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path  = self.DRYPATH
         try:
@@ -555,10 +555,10 @@ class Reader:
                 Reader._generate_pdf_from_data(blocks, output_path)
                 extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
                 self._update_imp_data(extracted_text[fund],fund,pgn)
-            
+            print("\tParsing Completed, Refining Data.....")
             #section for tabular data DSP, BAJAJ, HDFC
             if is_table[0]:
-                print(f"Table Data Present-> running: _generate_table_data")
+                print(f"\tTable Data Present-> running: _generate_table_data")
                 table_data = self._generate_table_data(self.PDF_PATH,is_table[1])
                 extracted_text = FundRegex()._map_main_and_tabular_data(extracted_text,table_data,self.FUND_NAME)                 
         except Exception as e:
