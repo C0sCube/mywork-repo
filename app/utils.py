@@ -1,4 +1,4 @@
-import os, re, json, pprint, pickle, csv
+import os, re, json, pprint, pickle, csv, string
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -11,6 +11,54 @@ class Helper:
         pass
     
     #PARSING UTILS
+    @staticmethod
+    def get_pdf_paths(base_path: str) -> dict:
+        pdf_paths = {}
+        suffix_map = {}
+        for root, _, files in os.walk(base_path):
+            folder_name = os.path.basename(root).title()
+
+            for file_name in files:
+                if file_name.lower().endswith(".pdf"):
+                    full_path = os.path.join(root, file_name)
+                    key = folder_name
+
+                    if key in pdf_paths:
+                        suffix = string.ascii_uppercase[suffix_map[key]]
+                        key = f"{folder_name}_{suffix}"
+                        suffix_map[folder_name] += 1
+                    else:
+                        suffix_map[folder_name] = 1
+
+                    pdf_paths[key] = full_path
+        return pdf_paths
+
+    @staticmethod
+    def get_amc_paths(base_path: str) -> dict:
+        """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
+        fund_paths = {}
+        print(base_path)
+        for root, _, files in os.walk(base_path):
+            # print(files)
+            for file_name in files:
+                if file_name.endswith("FS.pdf"):
+                    # print(file_name)
+                    full_path = os.path.join(root, file_name)
+                    folder_name = os.path.basename(root).title()
+
+                    parts = file_name.split("_")
+                    fund_id = parts[0]
+
+                    is_passive = len(parts[-2]) == 1 #determine passive
+                    suffix = parts[-2] if is_passive else "0"
+                    fund_key = f"{fund_id}_{suffix}"
+                    fund_name = f"{folder_name} Passive" if is_passive else folder_name
+
+                    # print(fund_name)
+                    fund_paths[fund_key] = (fund_name, full_path)
+
+        return fund_paths
+
     @staticmethod
     def get_fund_paths(path:str):
         mutual_fund_paths = {}
@@ -83,33 +131,33 @@ class Helper:
             print(f"Error loading JSON: {e}")
             return None
     
-    @staticmethod
-    def quick_csv_dump(extracted_text, path: str):
-        current = str(datetime.now().strftime('%H_%M'))
-        fund_name = list(extracted_text.keys())[0].split(" ")[0].lower()
-        output_path = path.replace(".csv", f'_{fund_name}_{current}.csv')
+    # @staticmethod
+    # def quick_csv_dump(extracted_text, path: str):
+    #     current = str(datetime.now().strftime('%H_%M'))
+    #     fund_name = list(extracted_text.keys())[0].split(" ")[0].lower()
+    #     output_path = path.replace(".csv", f'_{fund_name}_{current}.csv')
 
-        with open(output_path, mode="w", newline="", encoding="utf-8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["Key", "Value"])
-            for key, value in extracted_text.items():
-                writer.writerow([key, json.dumps(value, ensure_ascii=False)])
-        print(f'\n CSV saved at {output_path}')
+    #     with open(output_path, mode="w", newline="", encoding="utf-8") as file:
+    #         writer = csv.writer(file)
+    #         writer.writerow(["Key", "Value"])
+    #         for key, value in extracted_text.items():
+    #             writer.writerow([key, json.dumps(value, ensure_ascii=False)])
+    #     print(f'\n CSV saved at {output_path}')
     
-    @staticmethod
-    def quick_csv_load(path: str):
-        try:
-            with open(path, mode="r", encoding="utf-8") as file:
-                reader = csv.reader(file)
-                next(reader) 
+    # @staticmethod
+    # def quick_csv_load(path: str):
+    #     try:
+    #         with open(path, mode="r", encoding="utf-8") as file:
+    #             reader = csv.reader(file)
+    #             next(reader) 
                 
-                data = {row[0]: json.loads(row[1]) for row in reader}
+    #             data = {row[0]: json.loads(row[1]) for row in reader}
             
-            print(f"\n CSV loaded from {path}")
-            return data
-        except Exception as e:
-            print(f"Error loading CSV: {e}")
-            return None
+    #         print(f"\n CSV loaded from {path}")
+    #         return data
+    #     except Exception as e:
+    #         print(f"Error loading CSV: {e}")
+    #         return None
     
     #NESTED DICT CRUD OPS
     @staticmethod
