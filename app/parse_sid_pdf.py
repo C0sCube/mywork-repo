@@ -30,6 +30,10 @@ class ReaderSIDKIM:
         } #to update field location as code progresses
     
         os.makedirs(os.path.dirname(self.JSONPATH), exist_ok=True)
+        
+        #class objs
+        self._regex = SidKimRegex()
+        self._table_parser = TableParser()
     
     def _ocr_pdf(self,path:str,pages)->str:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -117,31 +121,29 @@ class ReaderSIDKIM:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         self.FIELD_LOCATION["page_table"] = pages.split(",")[0]
         table_params = self.PARAMS["table_data"]
-        regex,tableparse = SidKimRegex(),TableParser()
         
-        dfs = tableparse._extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
-        col_start = tableparse._get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
+        dfs = self._table_parser._extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
+        col_start = self._table_parser._get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
         print(f"[COL START]: {col_start} _keys: {table_params["keywords"]}")
         
-        dfs = tableparse._get_sub_dataframe(dfs,cs=col_start[0])
-        dfs = tableparse._clean_dataframe(dfs, ["newline_to_space"])
-        dfs.iloc[:, 0] = tableparse._clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"]).ffill()
+        dfs = self._table_parser._get_sub_dataframe(dfs,cs=col_start[0])
+        dfs = self._table_parser._clean_dataframe(dfs, ["newline_to_space"])
+        dfs.iloc[:, 0] = self._table_parser._clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"]).ffill()
     
         dfs.columns = ['Title'] + [f'Data{i}' for i in range(1, dfs.shape[1])] #new col structure
-        return tableparse._group_and_collect(dfs,group_col="Title")
+        return self._table_parser._group_and_collect(dfs,group_col="Title")
     
     def parse_fund_manager_info(self, pages: str) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         self.FIELD_LOCATION["page_manager"] = pages.split(",")[0]
         manager_params = self.PARAMS["manager_data"]
-        regex,tableparse = SidKimRegex(),TableParser()
 
-        dfs = tableparse._extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
-        row_start = tableparse._get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
+        dfs = self._table_parser._extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
+        row_start = self._table_parser._get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
         print(f"[ROW START]: {row_start} _keys: {manager_params["keywords"]}")
         
-        dfs = tableparse._get_sub_dataframe(dfs,rs=row_start[0])
-        dfs = tableparse._clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
+        dfs = self._table_parser._get_sub_dataframe(dfs,rs=row_start[0])
+        dfs = self._table_parser._clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
         dfs = dfs.dropna(axis=1, how="all").dropna(axis=0, how="all") #drop NA cols
 
         match_order = manager_params["order"]
@@ -151,7 +153,7 @@ class ReaderSIDKIM:
         # pprint.pprint(data_rows)
         for row in data_rows:
             manager = {
-                key: regex._normalize_whitespace(row[col_idx])
+                key: self._regex._normalize_whitespace(row[col_idx])
                 for key, col_idx in match_order.items()
             }
             manager_list.append(manager)
@@ -159,23 +161,22 @@ class ReaderSIDKIM:
       
     # =================== KIM ===================
     
-    def _get_kim_data(self,pages:str, instrument_count = 2)->dict:
+    def parse_KIM_data(self,pages:str, instrument_count = 2)->dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         self.FIELD_LOCATION["kim"] = int(pages.split(",")[0])
         kim_params = self.PARAMS["kim"]
-        regex,tableparse = SidKimRegex(),TableParser()
         
-        dfs = tableparse._extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
-        dfs = tableparse._clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
+        dfs = self._table_parser._extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
+        dfs = self._table_parser._clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
         
-        row_match = tableparse._get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
+        row_match = self._table_parser._get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
         print(f"[ROW START]: {row_match}" )
         
         #range/offset
         row_s,row_e = row_match[0]+1, row_match[0]+ 3 + instrument_count
         
-        dfs = tableparse._get_sub_dataframe(dfs,rs=row_s, re=row_e)
-        dfs = tableparse._clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
+        dfs = self._table_parser._get_sub_dataframe(dfs,rs=row_s, re=row_e)
+        dfs = self._table_parser._clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
         # print(dfs)
         final_data = {}
         #fitz pages check params
@@ -185,61 +186,36 @@ class ReaderSIDKIM:
         for _, row in dfs.iterrows():
             row = list(row)
             values = " ".join(str(item) for item in row)
-            values = regex._normalize_alphanumeric_and_symbol(values,"%&")
+            values = self._regex._normalize_alphanumeric_and_symbol(values,"%&")
             asset_list.append(values)
         final_data["asset_allocation_pattern"] = asset_list
             
         return final_data
         # return dfs
     
-    # def _get_unique_key(self,base_key:str, data:dict):
-    #     for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:
-    #         new_key = f"{base_key}_{suffix}"
-    #         if new_key not in data:
-    #             return new_key
-    #     return "exhausted"
-      
-    def refine_extracted_data(self, extracted_text: dict):
+    def _refine_extracted_data(self,extracted_text:dict,level:str)->dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        regex = SidKimRegex()
-        # header_map = {}
-        primary_refine = {}
+        refine = {}
         for raw_key, raw_values in extracted_text.items():
-            # header_map[raw_key] = raw_key
-            matched = self._match_with_patterns(raw_key, raw_values, level="primary")
-            # print(matched)
+            matched = self._match_with_patterns(raw_key, raw_values, level=level)
             if matched:
                 key, value = next(iter(matched.items()))
-                primary_refine[raw_key] = value
-            else:
-                primary_refine[raw_key] = raw_values  # fallback to original
-        # print("Primary keys:", list(primary_refine.keys()))
-        primary_refine = regex._flatten_dict(primary_refine) #flat_primary
-        primary_refine = regex._transform_keys(primary_refine)
-
-        # print("After flatten:", list(primary_refine.keys()))
-        # print("After transform:", list(primary_refine.keys()))
-        secondary_refine = {}
-        for main_key, main_value in primary_refine.items():
-            matched = self._match_with_patterns(main_key, main_value, level="secondary")
-            if matched:
-                key, value = next(iter(matched.items()))
-                secondary_refine[main_key] = value
-            else:
-                secondary_refine[main_key] = main_value
-
-        tertiary_refine = {}
-        for main_key, main_value in secondary_refine.items():
-            matched = self._match_with_patterns(main_key, main_value, level="tertiary")
-            if matched:
-                key, value = next(iter(matched.items()))
-                tertiary_refine[main_key] = value
-            else:
-                tertiary_refine[main_key] = main_value
-
-        return tertiary_refine
+                refine[raw_key] = value
+            else:refine[raw_key] = raw_values  # fallback to original
+        
+        if level == "primary":
+            refine = self._regex._flatten_dict(refine) #flat_primary
+            refine = self._regex._transform_keys(refine)
+        
+        return refine
+        # pass
+        
+    def refine_data(self, data: dict, levels=["primary", "secondary", "tertiary"]) -> dict:
+        for level in levels:
+           data = self._refine_extracted_data(data, level=level)
+        return data
     
-    def __min_add_ops(self,df:dict):
+    def _min_add_ops(self,df:dict):
         try:
             new_values = {}
             for key in ["min_amt", "min_addl_amt"]:
@@ -248,11 +224,10 @@ class ReaderSIDKIM:
                     new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
             df.update(new_values)
         except Exception as e:
-            # logger.error(e)
             print(f"Error in _min_add_ops ->Min/Add Error: {e}")
         return df
     
-    def __load_ops(self,df:dict):
+    def _load_ops(self,df:dict):
         load_data = df.get("load", {})
         if not isinstance(load_data, dict):
             print(f"Returning _load_ops -> Type Error")
@@ -260,17 +235,13 @@ class ReaderSIDKIM:
         try:
             new_load = []
             for load_key, load_value in load_data.items():
-                load_section = {
-                    "comment":None,
-                    "type":None,
-                    "value":""
-                }
+                load_section = {"comment":None,"type":None,"value":""}
                 value = load_value if isinstance(load_value, str) else " ".join(load_value)
                 if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
                     load_section["comment"] = value
                     load_section["type"] = "entry_load"
                     new_load.append(load_section)
-                elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
+                if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
                     load_section["comment"] = value
                     load_section["type"] = "exit_load"
                     new_load.append(load_section)
@@ -280,10 +251,10 @@ class ReaderSIDKIM:
         df["load"] = new_load
         return df
     
-    def __map_json_ops(self,df, typez:str)->dict:
-        return {SidKimRegex()._map_json_keys_to_dict(k,typez=typez) or k: v for k, v in df.items()}
+    def _map_json_ops(self,df, typez:str)->dict:
+        return {self._regex._map_json_keys_to_dict(k,typez=typez) or k: v for k, v in df.items()}
     
-    def __asset_ops(self,df: dict) -> dict:
+    def _asset_ops(self,df: dict) -> dict:
         asset_data = df.get("asset_allocation_pattern", [])
         if not isinstance(asset_data, list) or not asset_data:
             print(f"[TYPE-ERROR] __asset_ops: NOT A LIST")
@@ -297,15 +268,13 @@ class ReaderSIDKIM:
                     "risk_profile": data.get("risk_profile", "")
                 }
                 asset_alloc_data.append(asset)
-            df["asset_allocation_pattern"] = asset_alloc_data
         except Exception as e:
             print(f"[ERROR] __asset_ops: {e}")
+        df["asset_allocation_pattern"] = asset_alloc_data
         return df
-
-                        
+        
     def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func:bool):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        regex = SidKimRegex()
         
         temp = self._clone_fund_data(data)
         temp = self._merge_fund_data(temp)
@@ -314,22 +283,22 @@ class ReaderSIDKIM:
         
         #mapping typez:sid/kim
         if sid_or_kim == "sid":
-            temp = self.__map_json_ops(temp,typez=sid_or_kim)
-            temp = self.__min_add_ops(temp)
-            temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
-            temp = self.__load_ops(temp)
+            temp = self._map_json_ops(temp,typez=sid_or_kim)
+            temp = self._min_add_ops(temp)
+            temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
+            temp = self._load_ops(temp)
         if sid_or_kim == "kim":
-            temp = self.__map_json_ops(temp,typez=sid_or_kim)
-            temp = self.__asset_ops(temp)
-            temp = regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
+            temp = self._map_json_ops(temp,typez=sid_or_kim)
+            temp = self._asset_ops(temp)
+            temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
         
         if special_func:
             temp = self._apply_special_handling(temp)
         
         temp = self._promote_key_from_dict(temp)
         temp = self._update_imp_data(temp, typez = sid_or_kim) #update default keys
-        temp = regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
+        temp = self._regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
         temp = self._delete_fund_data_by_key(temp) #delete keys
-        temp = regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
+        temp = self._regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
         
         return dict(sorted(temp.items()))
