@@ -1,13 +1,8 @@
 {
   "metadata": {
     "document_name": "95_31-Jan-25_FS.pdf",
-<<<<<<<< HEAD:sql_learn/jan25/95_31-Jan-25_FS.json
     "file_type": "",
     "process_date": "20250514_14:48"
-========
-    "file_type": "fs",
-    "process_date": "20250521"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/95_31-Jan-25_FS.json
   },
   "records": [
     {
@@ -69,21 +64,12 @@
             "value": "0.17"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/95_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30",
         "monthly_aaum_value": "\u20b9 1095.87",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1095.87",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/95_31-Jan-25_FS.json
         "mutual_fund_name": "Old Bridge Mutual Fund",
         "scheme_launch_date": "20240113"
       }

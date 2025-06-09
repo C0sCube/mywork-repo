@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
     "document_name": "9_28-Feb-25_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:06"
-========
-    "document_name": "9_31-Mar-25_FS.pdf",
-    "file_type": "",
-    "process_date": "20250515_17:23"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -19,7 +13,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "6",
             "benchmark_index": "6",
             "count": 61,
@@ -37,25 +30,6 @@
             "monthly_aaum_value": "6",
             "mutual_fund_name": "6",
             "scheme_launch_date": "6"
-========
-            "amc_name": "5",
-            "benchmark_index": "5",
-            "count": 62,
-            "fund_manager_managing_fund_since": "5",
-            "fund_manager_name": "5",
-            "fund_manager_total_exp": "5",
-            "load_entry": "5",
-            "load_exit": "5",
-            "main_scheme_name": "5",
-            "min_addl_amt": "5",
-            "min_addl_amt_multiple": "5",
-            "min_amt": "5",
-            "min_amt_multiple": "5",
-            "monthly_aaum_date": "5",
-            "monthly_aaum_value": "5",
-            "mutual_fund_name": "5",
-            "scheme_launch_date": "5"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -78,21 +52,12 @@
         ],
         "main_scheme_name": "Edelweiss Large Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,099.86 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,110.01 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -143,21 +108,12 @@
         ],
         "main_scheme_name": "Edelweiss Large & Mid Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 228.32 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "231.96 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -266,21 +222,12 @@
         ],
         "main_scheme_name": "Edelweiss Mid Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,316.02 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "8,198.38 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "26dec07"
       }
@@ -314,7 +261,6 @@
         ],
         "fund_manager": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "managing_fund_since": "01-O Bhattacharya Mr. Dhruv Bhatia 12 Years 14-O Mr. Raj Koradia 7 Years 01-A",
             "name": "Trideep",
             "qualification": "",
@@ -373,9 +319,6 @@
         "fund_manager": [
           {
             "managing_fund_since": "14-O Mr. Trideep 25 Years 24-D Bhattacharya Mr. Raj Koradia 7 Years 01-A",
-========
-            "managing_fund_since": "14-O Mr. Trideep 25 Years 24-D Bhattacharya Mr. Raj Koradia 7 Years 01-Au",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
             "name": "Dhruv Bhatia",
             "qualification": "",
             "total_exp": "13 Years"
@@ -393,21 +336,12 @@
         ],
         "main_scheme_name": "Edelweiss Small Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,997.69 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "3,907.86 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "07feb19"
       }
@@ -420,7 +354,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "11",
             "benchmark_index": "11",
             "count": 61,
@@ -438,25 +371,6 @@
             "monthly_aaum_value": "11",
             "mutual_fund_name": "11",
             "scheme_launch_date": "11"
-========
-            "amc_name": "10",
-            "benchmark_index": "10",
-            "count": 62,
-            "fund_manager_managing_fund_since": "10",
-            "fund_manager_name": "10",
-            "fund_manager_total_exp": "10",
-            "load_entry": "10",
-            "load_exit": "10",
-            "main_scheme_name": "10",
-            "min_addl_amt": "10",
-            "min_addl_amt_multiple": "10",
-            "min_amt": "10",
-            "min_amt_multiple": "10",
-            "monthly_aaum_date": "10",
-            "monthly_aaum_value": "10",
-            "mutual_fund_name": "10",
-            "scheme_launch_date": "10"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -479,21 +393,12 @@
         ],
         "main_scheme_name": "Edelweiss Recently Listed IPO Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 861.57 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "819.03 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "22feb18"
       }
@@ -506,7 +411,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "12",
             "benchmark_index": "12",
             "count": 61,
@@ -524,25 +428,6 @@
             "monthly_aaum_value": "12",
             "mutual_fund_name": "12",
             "scheme_launch_date": "12"
-========
-            "amc_name": "11",
-            "benchmark_index": "11",
-            "count": 62,
-            "fund_manager_managing_fund_since": "11",
-            "fund_manager_name": "11",
-            "fund_manager_total_exp": "11",
-            "load_entry": "11",
-            "load_exit": "11",
-            "main_scheme_name": "11",
-            "min_addl_amt": "11",
-            "min_addl_amt_multiple": "11",
-            "min_amt": "11",
-            "min_amt_multiple": "11",
-            "monthly_aaum_date": "11",
-            "monthly_aaum_value": "11",
-            "mutual_fund_name": "11",
-            "scheme_launch_date": "11"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -565,21 +450,12 @@
         ],
         "main_scheme_name": "Edelweiss ELSS Tax saver Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 371.69 Crore",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "",
-        "min_amt": "500",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "368.53 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "30dec08"
       }
@@ -683,30 +559,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% of the applicable NAV. \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Multi Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 875.79 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2,430.00 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "25oct23"
       }
@@ -740,7 +603,6 @@
         ],
         "fund_manager": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "managing_fund_since": "25-O Bhattacharya Mr. Sumanta Khan 18 Years 14-O Mr. Raj Koradia 7 Years 01-A Overseas Securities Mr. Amit Vora 16 Years 25-O",
             "name": "Trideep",
             "qualification": "",
@@ -799,9 +661,6 @@
         "fund_manager": [
           {
             "managing_fund_since": "01-A Mr. Trideep 25 Years 05-M Bhattacharya Mr. Raj Koradia 7 Years 01-A Overseas Securities Mr. Amit Vora 16 Years 05-M",
-========
-            "managing_fund_since": "01-A Mr. Trideep 25 Years 05-M Bhattacharya Mr. Raj Koradia 7 Years 01-Au Overseas Securities Mr. Amit Vora 16 Years 05-M",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
             "name": "Sumanta Khan",
             "qualification": "",
             "total_exp": "18 Years"
@@ -819,21 +678,12 @@
         ],
         "main_scheme_name": "Edelweiss Technology Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 665.50 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "609.58 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "05mar24"
       }
@@ -846,7 +696,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "16",
             "benchmark_index": "16",
             "count": 61,
@@ -864,25 +713,6 @@
             "monthly_aaum_value": "16",
             "mutual_fund_name": "16",
             "scheme_launch_date": "16"
-========
-            "amc_name": "15",
-            "benchmark_index": "15",
-            "count": 62,
-            "fund_manager_managing_fund_since": "15",
-            "fund_manager_name": "15",
-            "fund_manager_total_exp": "15",
-            "load_entry": "15",
-            "load_exit": "15",
-            "main_scheme_name": "15",
-            "min_addl_amt": "15",
-            "min_addl_amt_multiple": "15",
-            "min_amt": "15",
-            "min_amt_multiple": "15",
-            "monthly_aaum_date": "15",
-            "monthly_aaum_value": "15",
-            "mutual_fund_name": "15",
-            "scheme_launch_date": "15"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -905,21 +735,12 @@
         ],
         "main_scheme_name": "Edelweiss Business Cycle Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,673.52 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,632.49 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "29jul24"
       }
@@ -1023,30 +844,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "comment": "\u00b7 If the units are redeemed /switched out on o before 90 days from the date of allotment \u00b7  of the appliable NAV. \u00b7 If the units are redeemed /switched out afte days from the date of allotment - NIL "
-========
-            "comment": "\u00b7 If units are redeemed/switched out on or bef 15 days from the date of allotment - 0.25% \u00b7 If units are redeemed/switched out after 15 d from the date of allotment - Nil "
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Arbitrage Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 102.82 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "13,823.97 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "27jun14"
       }
@@ -1098,21 +906,12 @@
         ],
         "main_scheme_name": "Edelweiss Equity Savings Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 13,485.78 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "571.65 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "13oct14"
       }
@@ -1159,7 +958,6 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 30 days from the date of allotment - 0 \u00b7 If the units are redeemed / switched out on a 30 days from the date of allotment - Nil "
           }
         ],
@@ -1217,28 +1015,17 @@
           },
           {
             "type": "exit_load",
-========
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
             "comment": "\u00b7 10% of the units allotted shall be redeemed without any Exit Load on or before completi 90 days from the date of allotment of units.  redemption in excess of such limit within 90 from the date of allotment shall be subject to following Exit Load: \u00b7 If redeemed or switched out on or before completion of 90 days from the date of allot of units - 1.00% \u00b7 If redeemed or switched out after completion 90 days from the date of allotment of units - "
           }
         ],
         "main_scheme_name": "Edelweiss Aggressive Hybrid Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,354.16 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": ".2,394.22 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "12aug09"
       }
@@ -1251,7 +1038,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "21",
             "benchmark_index": "21",
             "count": 61,
@@ -1269,25 +1055,6 @@
             "monthly_aaum_value": "21",
             "mutual_fund_name": "21",
             "scheme_launch_date": "21"
-========
-            "amc_name": "20",
-            "benchmark_index": "20",
-            "count": 62,
-            "fund_manager_managing_fund_since": "20",
-            "fund_manager_name": "20",
-            "fund_manager_total_exp": "20",
-            "load_entry": "20",
-            "load_exit": "20",
-            "main_scheme_name": "20",
-            "min_addl_amt": "20",
-            "min_addl_amt_multiple": "20",
-            "min_amt": "20",
-            "min_amt_multiple": "20",
-            "monthly_aaum_date": "20",
-            "monthly_aaum_value": "20",
-            "mutual_fund_name": "20",
-            "scheme_launch_date": "20"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1310,21 +1077,12 @@
         ],
         "main_scheme_name": "Edelweiss Balanced Advantage Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 12,075.75 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "11,981.18 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20aug09"
       }
@@ -1337,7 +1095,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "22",
             "benchmark_index": "22",
             "count": 61,
@@ -1355,25 +1112,6 @@
             "monthly_aaum_value": "22",
             "mutual_fund_name": "22",
             "scheme_launch_date": "22"
-========
-            "amc_name": "21",
-            "benchmark_index": "21",
-            "count": 62,
-            "fund_manager_managing_fund_since": "21",
-            "fund_manager_name": "21",
-            "fund_manager_total_exp": "21",
-            "load_entry": "21",
-            "load_exit": "21",
-            "main_scheme_name": "21",
-            "min_addl_amt": "21",
-            "min_addl_amt_multiple": "21",
-            "min_amt": "21",
-            "min_amt_multiple": "21",
-            "monthly_aaum_date": "21",
-            "monthly_aaum_value": "21",
-            "mutual_fund_name": "21",
-            "scheme_launch_date": "21"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1396,21 +1134,12 @@
         ],
         "main_scheme_name": "Edelweiss Multi Asset Allocation Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,510.61 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,559.00 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "23jun23"
       }
@@ -1423,7 +1152,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "23",
             "benchmark_index": "23",
             "count": 61,
@@ -1441,25 +1169,6 @@
             "monthly_aaum_value": "23",
             "mutual_fund_name": "23",
             "scheme_launch_date": "23"
-========
-            "amc_name": "22",
-            "benchmark_index": "22",
-            "count": 62,
-            "fund_manager_managing_fund_since": "22",
-            "fund_manager_name": "22",
-            "fund_manager_total_exp": "22",
-            "load_entry": "22",
-            "load_exit": "22",
-            "main_scheme_name": "22",
-            "min_addl_amt": "22",
-            "min_addl_amt_multiple": "22",
-            "min_amt": "22",
-            "min_amt_multiple": "22",
-            "monthly_aaum_date": "22",
-            "monthly_aaum_value": "22",
-            "mutual_fund_name": "22",
-            "scheme_launch_date": "22"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1482,21 +1191,12 @@
         ],
         "main_scheme_name": "Edelweiss Gold and Silver ETF Fund of Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 249.41 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "283.74 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "14sep22"
       }
@@ -1509,7 +1209,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "24",
             "benchmark_index": "24",
             "count": 61,
@@ -1527,25 +1226,6 @@
             "monthly_aaum_value": "24",
             "mutual_fund_name": "24",
             "scheme_launch_date": "24"
-========
-            "amc_name": "23",
-            "benchmark_index": "23",
-            "count": 62,
-            "fund_manager_managing_fund_since": "23",
-            "fund_manager_name": "23",
-            "fund_manager_total_exp": "23",
-            "load_entry": "23",
-            "load_exit": "23",
-            "main_scheme_name": "23",
-            "min_addl_amt": "23",
-            "min_addl_amt_multiple": "23",
-            "min_amt": "23",
-            "min_amt_multiple": "23",
-            "monthly_aaum_date": "23",
-            "monthly_aaum_value": "23",
-            "mutual_fund_name": "23",
-            "scheme_launch_date": "23"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1570,17 +1250,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 127.97 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "147.39 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "07nov23"
       }
@@ -1593,7 +1266,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "25",
             "benchmark_index": "25",
             "count": 61,
@@ -1611,25 +1283,6 @@
             "monthly_aaum_value": "25",
             "mutual_fund_name": "25",
             "scheme_launch_date": "25"
-========
-            "amc_name": "24",
-            "benchmark_index": "24",
-            "count": 62,
-            "fund_manager_managing_fund_since": "24",
-            "fund_manager_name": "24",
-            "fund_manager_total_exp": "24",
-            "load_entry": "24",
-            "load_exit": "24",
-            "main_scheme_name": "24",
-            "min_addl_amt": "24",
-            "min_addl_amt_multiple": "24",
-            "min_amt": "24",
-            "min_amt_multiple": "24",
-            "monthly_aaum_date": "24",
-            "monthly_aaum_value": "24",
-            "mutual_fund_name": "24",
-            "scheme_launch_date": "24"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1654,17 +1307,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 129.01 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "146.30 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "21nov23"
       }
@@ -1677,7 +1323,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "26",
             "benchmark_index": "26",
             "count": 61,
@@ -1694,24 +1339,6 @@
             "monthly_aaum_value": "26",
             "mutual_fund_name": "26",
             "scheme_launch_date": "26"
-========
-            "amc_name": "25",
-            "benchmark_index": "25",
-            "count": 62,
-            "fund_manager_managing_fund_since": "25",
-            "fund_manager_name": "25",
-            "fund_manager_total_exp": "25",
-            "load_entry": "25",
-            "main_scheme_name": "25",
-            "min_addl_amt": "25",
-            "min_addl_amt_multiple": "25",
-            "min_amt": "25",
-            "min_amt_multiple": "25",
-            "monthly_aaum_date": "25",
-            "monthly_aaum_value": "25",
-            "mutual_fund_name": "25",
-            "scheme_launch_date": "25"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1734,21 +1361,12 @@
         ],
         "main_scheme_name": "Edelweiss Overnight Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 383.52 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "379.73 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "24jul19"
       }
@@ -1761,7 +1379,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "27",
             "benchmark_index": "27",
             "count": 61,
@@ -1779,25 +1396,6 @@
             "monthly_aaum_value": "27",
             "mutual_fund_name": "27",
             "scheme_launch_date": "27"
-========
-            "amc_name": "26",
-            "benchmark_index": "26",
-            "count": 62,
-            "fund_manager_managing_fund_since": "26",
-            "fund_manager_name": "26",
-            "fund_manager_total_exp": "26",
-            "load_entry": "26",
-            "load_exit": "26",
-            "main_scheme_name": "26",
-            "min_addl_amt": "26",
-            "min_addl_amt_multiple": "26",
-            "min_amt": "26",
-            "min_amt_multiple": "26",
-            "monthly_aaum_date": "26",
-            "monthly_aaum_value": "26",
-            "mutual_fund_name": "26",
-            "scheme_launch_date": "26"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1820,21 +1418,12 @@
         ],
         "main_scheme_name": "Edelweiss Liquid Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 7,019.56 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "6,270.15 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "21sep07"
       }
@@ -1847,7 +1436,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "28",
             "benchmark_index": "28",
             "count": 61,
@@ -1864,24 +1452,6 @@
             "monthly_aaum_value": "28",
             "mutual_fund_name": "28",
             "scheme_launch_date": "28"
-========
-            "amc_name": "27",
-            "benchmark_index": "27",
-            "count": 62,
-            "fund_manager_managing_fund_since": "27",
-            "fund_manager_name": "27",
-            "fund_manager_total_exp": "27",
-            "load_entry": "27",
-            "main_scheme_name": "27",
-            "min_addl_amt": "27",
-            "min_addl_amt_multiple": "27",
-            "min_amt": "27",
-            "min_amt_multiple": "27",
-            "monthly_aaum_date": "27",
-            "monthly_aaum_value": "27",
-            "mutual_fund_name": "27",
-            "scheme_launch_date": "27"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1904,21 +1474,12 @@
         ],
         "main_scheme_name": "Edelweiss Banking & PSU Debt Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 268.72 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "262.40 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "13sep13"
       }
@@ -1931,7 +1492,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "29",
             "benchmark_index": "29",
             "count": 61,
@@ -1948,24 +1508,6 @@
             "monthly_aaum_value": "29",
             "mutual_fund_name": "29",
             "scheme_launch_date": "29"
-========
-            "amc_name": "28",
-            "benchmark_index": "28",
-            "count": 62,
-            "fund_manager_managing_fund_since": "28",
-            "fund_manager_name": "28",
-            "fund_manager_total_exp": "28",
-            "load_entry": "28",
-            "main_scheme_name": "28",
-            "min_addl_amt": "28",
-            "min_addl_amt_multiple": "28",
-            "min_amt": "28",
-            "min_amt_multiple": "28",
-            "monthly_aaum_date": "28",
-            "monthly_aaum_value": "28",
-            "mutual_fund_name": "28",
-            "scheme_launch_date": "28"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1988,21 +1530,12 @@
         ],
         "main_scheme_name": "Edelweiss Money Market Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,392.33 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,362.62 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "27jun08"
       }
@@ -2015,7 +1548,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
             "amc_name": "30",
             "benchmark_index": "30",
             "count": 61,
@@ -2032,24 +1564,6 @@
             "monthly_aaum_value": "30",
             "mutual_fund_name": "30",
             "scheme_launch_date": "30"
-========
-            "amc_name": "29",
-            "benchmark_index": "29",
-            "count": 62,
-            "fund_manager_managing_fund_since": "29",
-            "fund_manager_name": "29",
-            "fund_manager_total_exp": "29",
-            "load_entry": "29",
-            "main_scheme_name": "29",
-            "min_addl_amt": "29",
-            "min_addl_amt_multiple": "29",
-            "min_amt": "29",
-            "min_amt_multiple": "29",
-            "monthly_aaum_date": "29",
-            "monthly_aaum_value": "29",
-            "mutual_fund_name": "29",
-            "scheme_launch_date": "29"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2072,21 +1586,12 @@
         ],
         "main_scheme_name": "Edelweiss Government Securities Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 173.72 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "171.08 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "13feb14"
       }
@@ -2193,21 +1698,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 50:50 Gilt Plus SDL Short Duration Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 153.81 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "149.28 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "15feb23"
       }
@@ -2260,17 +1756,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10,049.09 Crore",
-========
-        "min_amt": "25",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "9,844.71 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "2july20"
       }
@@ -2322,21 +1811,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL PSU Plus SDL 50:50 Oct 2025 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 810.00 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "812.73 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "10mar22"
       }
@@ -2388,21 +1868,12 @@
         ],
         "main_scheme_name": "Edelweiss NIFTY PSU Bond Plus SDL Apr - 2026 50:50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 7,755.94 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "7,654.44 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "18mar21"
       }
@@ -2454,21 +1925,12 @@
         ],
         "main_scheme_name": "Edelweiss NIFTY PSU Bond Plus SDL Apr - 2027 50:50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,294.95 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2,300.44 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "14oct21"
       }
@@ -2520,21 +1982,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 50:50 Gilt Plus SDL June 2027 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 91.83 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "91.92 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "18oct22"
       }
@@ -2586,21 +2039,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 50:50 Gilt Plus SDL Sep 2028 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 154.59 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "153.87 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "10nov22"
       }
@@ -2652,21 +2096,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX AAA Financial Services Bond - Jan 2028 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 132.23 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "131.78 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2718,21 +2153,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 35.39 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "81.84 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "18feb25"
       }
@@ -2785,17 +2211,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 18,512.52 Crore",
-========
-        "min_amt": "25",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "18,561.89 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "26dec19"
       }
@@ -2848,17 +2267,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 12,807.67 Crore",
-========
-        "min_amt": "25",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "12,804.08 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "22jul20"
       }
@@ -2911,17 +2323,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10,649.20 Crore",
-========
-        "min_amt": "25",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "10,642.32 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "13dec21"
       }
@@ -2974,17 +2379,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,157.90 Crore",
-========
-        "min_amt": "25",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "6,171.73 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "12dec22"
       }
@@ -3036,21 +2434,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 50:50 Gilt Plus SDL Apr 2037 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,004.00 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,011.85 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "11oct22"
       }
@@ -3101,21 +2490,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 137.06 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "144.84 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "08may15"
       }
@@ -3166,21 +2546,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty 100 Quality 30 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 150.81 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "148.51 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "25may16"
       }
@@ -3234,17 +2605,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 9.41 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "9.42 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "10sep24"
       }
@@ -3297,17 +2661,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10.91 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "11.26 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3360,17 +2717,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 20.33 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "22.85 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "31oct24"
       }
@@ -3390,10 +2740,6 @@
             "fund_manager_name": "56",
             "fund_manager_total_exp": "56",
             "load_entry": "56",
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
-========
-            "load_exit": "56",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
             "main_scheme_name": "56",
             "min_addl_amt": "56",
             "min_addl_amt_multiple": "56",
@@ -3425,21 +2771,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 158.41 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "168.85 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "31oct24"
       }
@@ -3491,21 +2828,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Alpha Low Volatility 30 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 121.37 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "123.27 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "16may24"
       }
@@ -3556,21 +2884,12 @@
         ],
         "main_scheme_name": "Edelweiss MSCI India Domestic & World Healthcare 45 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 155.70 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "157.95 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3621,21 +2940,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Next 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 104.08 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "113.04 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3687,21 +2997,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Midcap 150 Momentum 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 757.29 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "752.94 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3752,21 +3053,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Smallcap 250 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 97.21 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "101.51 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3818,21 +3110,12 @@
         ],
         "main_scheme_name": "Bharat Bond FOF APRIL 2025",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,161.98 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,099.92 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3884,21 +3167,12 @@
         ],
         "main_scheme_name": "Bharat Bond FOF APRIL 2030",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,961.24 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "6,986.10 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -3950,21 +3224,12 @@
         ],
         "main_scheme_name": "Bharat Bond FOF APRIL 2031",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,723.13 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,731.86 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4016,21 +3281,12 @@
         ],
         "main_scheme_name": "Bharat Bond ETF FOF APRIL 2032",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,470.28 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,460.86 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4082,21 +3338,12 @@
         ],
         "main_scheme_name": "Bharat Bond ETF FOF APRIL 2033",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,338.36 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2,345.51 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4148,21 +3395,12 @@
         ],
         "main_scheme_name": "Edelweiss Greater China Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,810.04 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,948.95 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4214,21 +3452,12 @@
         ],
         "main_scheme_name": "Edelweiss US Technology Equity Fund of Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,998.70 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2,578.42 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4280,21 +3509,12 @@
         ],
         "main_scheme_name": "Edelweiss Emerging Markets Opportunities Equity Offshore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 120.39 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "120.39 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4346,21 +3566,12 @@
         ],
         "main_scheme_name": "Edelweiss Asean Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 100.49 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "102.50 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4412,21 +3623,12 @@
         ],
         "main_scheme_name": "Edelweiss Europe Dynamic Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 85.23 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "110.78 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -4478,21 +3680,12 @@
         ],
         "main_scheme_name": "Edelweiss US Value Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/9_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 172.44 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "",
-        "min_amt": "100",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "174.10 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/9_31-Mar-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": ""
       }

@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
     "document_name": "7_28-Feb-25_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:16"
-========
-    "document_name": "7_31-Mar-25_FS.pdf",
-    "file_type": "",
-    "process_date": "20250515_17:34"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -22,7 +16,6 @@
             "amc_name": "8",
             "benchmark_index": "8",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "10",
             "fund_manager_name": "10",
             "fund_manager_qualification": "10",
@@ -43,28 +36,6 @@
             "monthly_aaum_value": "10",
             "mutual_fund_name": "10",
             "scheme_launch_date": "10"
-========
-            "fund_manager_managing_fund_since": "8",
-            "fund_manager_name": "8",
-            "fund_manager_qualification": "8",
-            "fund_manager_total_exp": "8",
-            "load_entry": "8",
-            "load_exit": "8",
-            "main_scheme_name": "8",
-            "metrics_beta": "8",
-            "metrics_port_turnover_ratio": "8",
-            "metrics_sharpe": "8",
-            "metrics_std_dev": "8",
-            "metrics_volatility_measures": "8",
-            "min_addl_amt": "8",
-            "min_addl_amt_multiple": "8",
-            "min_amt": "8",
-            "min_amt_multiple": "8",
-            "monthly_aaum_date": "8",
-            "monthly_aaum_value": "8",
-            "mutual_fund_name": "8",
-            "scheme_launch_date": "8"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -126,21 +97,12 @@
             "value": "3 Years"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 559.73",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "551.72",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "30012003"
       }
@@ -156,7 +118,6 @@
             "amc_name": "9",
             "benchmark_index": "9",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "11",
             "fund_manager_name": "11",
             "fund_manager_qualification": "11",
@@ -176,27 +137,6 @@
             "monthly_aaum_value": "11",
             "mutual_fund_name": "11",
             "scheme_launch_date": "11"
-========
-            "fund_manager_managing_fund_since": "9",
-            "fund_manager_name": "9",
-            "fund_manager_qualification": "9",
-            "fund_manager_total_exp": "9",
-            "load_entry": "9",
-            "load_exit": "9",
-            "main_scheme_name": "9",
-            "metrics_beta": "9",
-            "metrics_port_turnover_ratio": "9",
-            "metrics_std_dev": "9",
-            "metrics_volatility_measures": "9",
-            "min_addl_amt": "9",
-            "min_addl_amt_multiple": "9",
-            "min_amt": "9",
-            "min_amt_multiple": "9",
-            "monthly_aaum_date": "9",
-            "monthly_aaum_value": "9",
-            "mutual_fund_name": "9",
-            "scheme_launch_date": "9"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -254,21 +194,12 @@
             "value": "3 Years"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5925.22",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "5788.37",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "04032015"
       }
@@ -284,7 +215,6 @@
             "amc_name": "10",
             "benchmark_index": "10",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "12",
             "fund_manager_name": "12",
             "fund_manager_qualification": "12",
@@ -301,24 +231,6 @@
             "monthly_aaum_value": "12",
             "mutual_fund_name": "12",
             "scheme_launch_date": "12"
-========
-            "fund_manager_managing_fund_since": "10",
-            "fund_manager_name": "10",
-            "fund_manager_qualification": "10",
-            "fund_manager_total_exp": "10",
-            "load_entry": "10",
-            "load_exit": "10",
-            "main_scheme_name": "10",
-            "metrics_port_turnover_ratio": "10",
-            "min_addl_amt": "10",
-            "min_addl_amt_multiple": "10",
-            "min_amt": "10",
-            "min_amt_multiple": "10",
-            "monthly_aaum_date": "10",
-            "monthly_aaum_value": "10",
-            "mutual_fund_name": "10",
-            "scheme_launch_date": "10"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -364,21 +276,12 @@
             "value": "0.31"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 594.53",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "594.04",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "12022024"
       }
@@ -394,7 +297,6 @@
             "amc_name": "11",
             "benchmark_index": "11",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "13",
             "fund_manager_name": "13",
             "fund_manager_qualification": "13",
@@ -411,24 +313,6 @@
             "monthly_aaum_value": "13",
             "mutual_fund_name": "13",
             "scheme_launch_date": "13"
-========
-            "fund_manager_managing_fund_since": "11",
-            "fund_manager_name": "11",
-            "fund_manager_qualification": "11",
-            "fund_manager_total_exp": "11",
-            "load_entry": "11",
-            "load_exit": "11",
-            "main_scheme_name": "11",
-            "metrics_port_turnover_ratio": "11",
-            "min_addl_amt": "11",
-            "min_addl_amt_multiple": "11",
-            "min_amt": "11",
-            "min_amt_multiple": "11",
-            "monthly_aaum_date": "11",
-            "monthly_aaum_value": "11",
-            "mutual_fund_name": "11",
-            "scheme_launch_date": "11"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -474,21 +358,12 @@
             "value": "0.12"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 336.86",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "335.66",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "10092024"
       }
@@ -504,7 +379,6 @@
             "amc_name": "12",
             "benchmark_index": "12",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "14",
             "fund_manager_name": "14",
             "fund_manager_qualification": "14",
@@ -525,28 +399,6 @@
             "monthly_aaum_value": "14",
             "mutual_fund_name": "14",
             "scheme_launch_date": "14"
-========
-            "fund_manager_managing_fund_since": "12",
-            "fund_manager_name": "12",
-            "fund_manager_qualification": "12",
-            "fund_manager_total_exp": "12",
-            "load_entry": "12",
-            "load_exit": "12",
-            "main_scheme_name": "12",
-            "metrics_beta": "12",
-            "metrics_port_turnover_ratio": "12",
-            "metrics_sharpe": "12",
-            "metrics_std_dev": "12",
-            "metrics_volatility_measures": "12",
-            "min_addl_amt": "12",
-            "min_addl_amt_multiple": "12",
-            "min_amt": "12",
-            "min_amt_multiple": "12",
-            "monthly_aaum_date": "12",
-            "monthly_aaum_value": "12",
-            "mutual_fund_name": "12",
-            "scheme_launch_date": "12"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -608,21 +460,12 @@
             "value": "3 Years"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10182.58",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "10024.50",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "02122013"
       }
@@ -638,7 +481,6 @@
             "amc_name": "13",
             "benchmark_index": "13",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "15",
             "fund_manager_name": "15",
             "fund_manager_qualification": "15",
@@ -659,28 +501,6 @@
             "monthly_aaum_value": "15",
             "mutual_fund_name": "15",
             "scheme_launch_date": "15"
-========
-            "fund_manager_managing_fund_since": "13",
-            "fund_manager_name": "13",
-            "fund_manager_qualification": "13",
-            "fund_manager_total_exp": "13",
-            "load_entry": "13",
-            "load_exit": "13",
-            "main_scheme_name": "13",
-            "metrics_beta": "13",
-            "metrics_port_turnover_ratio": "13",
-            "metrics_sharpe": "13",
-            "metrics_std_dev": "13",
-            "metrics_volatility_measures": "13",
-            "min_addl_amt": "13",
-            "min_addl_amt_multiple": "13",
-            "min_amt": "13",
-            "min_amt_multiple": "13",
-            "monthly_aaum_date": "13",
-            "monthly_aaum_value": "13",
-            "mutual_fund_name": "13",
-            "scheme_launch_date": "13"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -742,21 +562,12 @@
             "value": "3 Years"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1363.01",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1331.65",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "29072021"
       }
@@ -772,7 +583,6 @@
             "amc_name": "14",
             "benchmark_index": "14",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "16",
             "fund_manager_name": "16",
             "fund_manager_qualification": "16",
@@ -793,28 +603,6 @@
             "monthly_aaum_value": "16",
             "mutual_fund_name": "16",
             "scheme_launch_date": "16"
-========
-            "fund_manager_managing_fund_since": "14",
-            "fund_manager_name": "14",
-            "fund_manager_qualification": "14",
-            "fund_manager_total_exp": "14",
-            "load_entry": "14",
-            "load_exit": "14",
-            "main_scheme_name": "14",
-            "metrics_beta": "14",
-            "metrics_port_turnover_ratio": "14",
-            "metrics_sharpe": "14",
-            "metrics_std_dev": "14",
-            "metrics_volatility_measures": "14",
-            "min_addl_amt": "14",
-            "min_addl_amt_multiple": "14",
-            "min_amt": "14",
-            "min_amt_multiple": "14",
-            "monthly_aaum_date": "14",
-            "monthly_aaum_value": "14",
-            "mutual_fund_name": "14",
-            "scheme_launch_date": "14"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -876,21 +664,12 @@
             "value": "3 Years"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 734.17",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "500",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "722.63",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "11122015"
       }
@@ -906,7 +685,6 @@
             "amc_name": "15",
             "benchmark_index": "15",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "17",
             "fund_manager_name": "17",
             "fund_manager_qualification": "17",
@@ -923,24 +701,6 @@
             "monthly_aaum_value": "17",
             "mutual_fund_name": "17",
             "scheme_launch_date": "17"
-========
-            "fund_manager_managing_fund_since": "15",
-            "fund_manager_name": "15",
-            "fund_manager_qualification": "15",
-            "fund_manager_total_exp": "15",
-            "load_entry": "15",
-            "load_exit": "15",
-            "main_scheme_name": "15",
-            "metrics_port_turnover_ratio": "15",
-            "min_addl_amt": "15",
-            "min_addl_amt_multiple": "15",
-            "min_amt": "15",
-            "min_amt_multiple": "15",
-            "monthly_aaum_date": "15",
-            "monthly_aaum_value": "15",
-            "mutual_fund_name": "15",
-            "scheme_launch_date": "15"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -986,21 +746,12 @@
             "value": "0.05"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 104.88",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "100.97",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "06122024"
       }
@@ -1016,7 +767,6 @@
             "amc_name": "16",
             "benchmark_index": "16",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "18",
             "fund_manager_name": "18",
             "fund_manager_qualification": "18",
@@ -1033,24 +783,6 @@
             "monthly_aaum_value": "18",
             "mutual_fund_name": "18",
             "scheme_launch_date": "18"
-========
-            "fund_manager_managing_fund_since": "16",
-            "fund_manager_name": "16",
-            "fund_manager_qualification": "16",
-            "fund_manager_total_exp": "16",
-            "load_entry": "16",
-            "load_exit": "16",
-            "main_scheme_name": "16",
-            "metrics_port_turnover_ratio": "16",
-            "min_addl_amt": "16",
-            "min_addl_amt_multiple": "16",
-            "min_amt": "16",
-            "min_amt_multiple": "16",
-            "monthly_aaum_date": "16",
-            "monthly_aaum_value": "16",
-            "mutual_fund_name": "16",
-            "scheme_launch_date": "16"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1096,21 +828,12 @@
             "value": "0.26"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 70.94",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "70.64",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "15042024"
       }
@@ -1277,7 +1000,6 @@
             "comment": "For Exits within 90 days from date of allotment of units 0.50% For Exits beyond 90 days from date of allotment of units NIL."
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "main_scheme_name": "PGIM INDIA EMERGING MARKETS EQUITY FUND",
         "metrics": [],
         "min_addl_amt": "\u20b9 1000",
@@ -1414,16 +1136,6 @@
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 51.46",
-========
-        "main_scheme_name": "PGIM INDIA GLOBAL SELECT REAL ESTATE SECURITIES FUND OF FUND",
-        "metrics": [],
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "47.71",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "03122021"
       }
@@ -1439,7 +1151,6 @@
             "amc_name": "20",
             "benchmark_index": "20",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "22",
             "fund_manager_name": "22",
             "fund_manager_qualification": "22",
@@ -1463,31 +1174,6 @@
             "monthly_aaum_value": "22",
             "mutual_fund_name": "22",
             "scheme_launch_date": "22"
-========
-            "fund_manager_managing_fund_since": "20",
-            "fund_manager_name": "20",
-            "fund_manager_qualification": "20",
-            "fund_manager_total_exp": "20",
-            "load_entry": "20",
-            "load_exit": "20",
-            "main_scheme_name": "20",
-            "metrics_avg_maturity": "20",
-            "metrics_beta": "20",
-            "metrics_mod_duration": "20",
-            "metrics_port_turnover_ratio": "20",
-            "metrics_sharpe": "20",
-            "metrics_std_dev": "20",
-            "metrics_volatility_measures": "20",
-            "metrics_ytm": "20",
-            "min_addl_amt": "20",
-            "min_addl_amt_multiple": "20",
-            "min_amt": "20",
-            "min_amt_multiple": "20",
-            "monthly_aaum_date": "20",
-            "monthly_aaum_value": "20",
-            "mutual_fund_name": "20",
-            "scheme_launch_date": "20"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1555,21 +1241,12 @@
             "value": "6.87"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 205.47",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "201.32",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "05022004"
       }
@@ -1585,7 +1262,6 @@
             "amc_name": "21",
             "benchmark_index": "21",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "23",
             "fund_manager_name": "23",
             "fund_manager_qualification": "23",
@@ -1606,28 +1282,6 @@
             "monthly_aaum_value": "23",
             "mutual_fund_name": "23",
             "scheme_launch_date": "23"
-========
-            "fund_manager_managing_fund_since": "21",
-            "fund_manager_name": "21",
-            "fund_manager_qualification": "21",
-            "fund_manager_total_exp": "21",
-            "load_entry": "21",
-            "load_exit": "21",
-            "main_scheme_name": "21",
-            "metrics_beta": "21",
-            "metrics_port_turnover_ratio": "21",
-            "metrics_sharpe": "21",
-            "metrics_std_dev": "21",
-            "metrics_volatility_measures": "21",
-            "min_addl_amt": "21",
-            "min_addl_amt_multiple": "21",
-            "min_amt": "21",
-            "min_amt_multiple": "21",
-            "monthly_aaum_date": "21",
-            "monthly_aaum_value": "21",
-            "mutual_fund_name": "21",
-            "scheme_launch_date": "21"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1677,21 +1331,12 @@
             "value": "3 Years"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 88.23",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "94.54",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "27082014"
       }
@@ -1707,7 +1352,6 @@
             "amc_name": "22",
             "benchmark_index": "22",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "24",
             "fund_manager_name": "24",
             "fund_manager_qualification": "24",
@@ -1731,31 +1375,6 @@
             "monthly_aaum_value": "24",
             "mutual_fund_name": "24",
             "scheme_launch_date": "24"
-========
-            "fund_manager_managing_fund_since": "22",
-            "fund_manager_name": "22",
-            "fund_manager_qualification": "22",
-            "fund_manager_total_exp": "22",
-            "load_entry": "22",
-            "load_exit": "22",
-            "main_scheme_name": "22",
-            "metrics_avg_maturity": "22",
-            "metrics_beta": "22",
-            "metrics_mod_duration": "22",
-            "metrics_port_turnover_ratio": "22",
-            "metrics_sharpe": "22",
-            "metrics_std_dev": "22",
-            "metrics_volatility_measures": "22",
-            "metrics_ytm": "22",
-            "min_addl_amt": "22",
-            "min_addl_amt_multiple": "22",
-            "min_amt": "22",
-            "min_amt_multiple": "22",
-            "monthly_aaum_date": "22",
-            "monthly_aaum_value": "22",
-            "mutual_fund_name": "22",
-            "scheme_launch_date": "22"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1829,21 +1448,12 @@
             "value": "6.96"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 69.53",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "69.77",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "05022004"
       }
@@ -1859,7 +1469,6 @@
             "amc_name": "23",
             "benchmark_index": "23",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "25",
             "fund_manager_name": "25",
             "fund_manager_qualification": "25",
@@ -1883,31 +1492,6 @@
             "monthly_aaum_value": "25",
             "mutual_fund_name": "25",
             "scheme_launch_date": "25"
-========
-            "fund_manager_managing_fund_since": "23",
-            "fund_manager_name": "23",
-            "fund_manager_qualification": "23",
-            "fund_manager_total_exp": "23",
-            "load_entry": "23",
-            "load_exit": "23",
-            "main_scheme_name": "23",
-            "metrics_avg_maturity": "23",
-            "metrics_beta": "23",
-            "metrics_mod_duration": "23",
-            "metrics_port_turnover_ratio": "23",
-            "metrics_sharpe": "23",
-            "metrics_std_dev": "23",
-            "metrics_volatility_measures": "23",
-            "metrics_ytm": "23",
-            "min_addl_amt": "23",
-            "min_addl_amt_multiple": "23",
-            "min_amt": "23",
-            "min_amt_multiple": "23",
-            "monthly_aaum_date": "23",
-            "monthly_aaum_value": "23",
-            "mutual_fund_name": "23",
-            "scheme_launch_date": "23"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1981,21 +1565,12 @@
             "value": "7.03"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 959.28",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "941.70",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2011,7 +1586,6 @@
             "amc_name": "26",
             "benchmark_index": "26",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "28",
             "fund_manager_name": "28",
             "fund_manager_total_exp": "28",
@@ -2030,26 +1604,6 @@
             "monthly_aaum_value": "28",
             "mutual_fund_name": "28",
             "scheme_launch_date": "28"
-========
-            "fund_manager_managing_fund_since": "26",
-            "fund_manager_name": "26",
-            "fund_manager_total_exp": "26",
-            "load_entry": "26",
-            "load_exit": "26",
-            "main_scheme_name": "26",
-            "metrics_avg_maturity": "26",
-            "metrics_macaulay": "26",
-            "metrics_mod_duration": "26",
-            "metrics_ytm": "26",
-            "min_addl_amt": "26",
-            "min_addl_amt_multiple": "26",
-            "min_amt": "26",
-            "min_amt_multiple": "26",
-            "monthly_aaum_date": "26",
-            "monthly_aaum_value": "26",
-            "mutual_fund_name": "26",
-            "scheme_launch_date": "26"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2095,21 +1649,12 @@
             "value": "7.30"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 94.80",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "81.42",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "27082019"
       }
@@ -2125,7 +1670,6 @@
             "amc_name": "27",
             "benchmark_index": "27",
             "count": 24,
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "fund_manager_managing_fund_since": "29",
             "fund_manager_name": "29",
             "fund_manager_total_exp": "29",
@@ -2144,26 +1688,6 @@
             "monthly_aaum_value": "29",
             "mutual_fund_name": "29",
             "scheme_launch_date": "29"
-========
-            "fund_manager_managing_fund_since": "27",
-            "fund_manager_name": "27",
-            "fund_manager_total_exp": "27",
-            "load_entry": "27",
-            "load_exit": "27",
-            "main_scheme_name": "27",
-            "metrics_avg_maturity": "27",
-            "metrics_macaulay": "27",
-            "metrics_mod_duration": "27",
-            "metrics_ytm": "27",
-            "min_addl_amt": "27",
-            "min_addl_amt_multiple": "27",
-            "min_amt": "27",
-            "min_amt_multiple": "27",
-            "monthly_aaum_date": "27",
-            "monthly_aaum_value": "27",
-            "mutual_fund_name": "27",
-            "scheme_launch_date": "27"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2209,21 +1733,12 @@
             "value": "6.93"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 405.40",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "360.45",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "05092007"
       }
@@ -2469,21 +1984,12 @@
             "value": "6.90"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 201.14",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "103.43",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "12012012"
       }
@@ -2561,21 +2067,12 @@
             "value": "7.17"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 179.05",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "93.62",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "30012003"
       }
@@ -2653,21 +2150,12 @@
             "value": "6.90"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 106.10",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "114.53",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "27102008"
       }
@@ -2710,7 +2198,6 @@
             "total_exp": "22 Years"
           },
           {
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
             "managing_fund_since": "September 13, 2022",
             "name": "Bhupesh Kalyani",
             "qualification": "",
@@ -2877,8 +2364,6 @@
             "total_exp": "22 Years"
           },
           {
-========
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
             "managing_fund_since": "",
             "name": "Bhupesh Kalyani",
             "qualification": "",
@@ -2914,21 +2399,12 @@
             "value": "6.58"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/7_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 26.50",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "26.62",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/7_31-Mar-25_FS.json
         "mutual_fund_name": "PGIM India Mutual Fund",
         "scheme_launch_date": "22022023"
       }

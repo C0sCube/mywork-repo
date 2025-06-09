@@ -227,7 +227,8 @@
             "^benchmark_index",
             "investment_objective",
             ".*underlying_index$",
-            ".*benchmark$"
+            ".*benchmark$",
+            ".*scheme_benchmark$"
         ],
         "field_location": [],
         "fund_manager": [
@@ -288,7 +289,8 @@
             ".*minimum_additional_subscription_amount$",
             ".*minaddlinvestment$",
             "^additional_investment$",
-            ".*minimum_additional$"
+            ".*minimum_additional$",
+            ".*min.addl.investment$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -316,7 +318,8 @@
             ".*minimum_investment_[0-9]+",
             ".*minimum_application_amount_purchase",
             ".*application_amount$",
-            ".*initial_pruchase$"
+            ".*initial_pruchase$",
+            ".*application_amount_for_fresh$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -585,7 +588,8 @@
             "^std_d$",
             "^standarddeviation$",
             "^std\\.?_dev\\.?$",
-            "^standard_deviation$"
+            "^standard_deviation$",
+            "^\\(annualised\\)$"
         ],
         "tracking_error": [
             "^tracking_error$",

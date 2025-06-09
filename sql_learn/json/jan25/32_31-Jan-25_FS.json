@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
     "document_name": "32_31-Jan-25_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:49"
-========
-    "document_name": "32_31-Mar-25_FS.pdf",
-    "file_type": "",
-    "process_date": "20250515_17:35"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -61,11 +55,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "NIL If 10% of units If redeemed or switched out on or before 365 days from the date of allotment.  1% If Remaining 90% of units if redeemed or switched out on or before 365 days from the date of allotment.  NIL If redeemed or switched out after 365 days from the date of allotment. Note Redemptions  Switch outs of units will be done on First In First Out (FIFO) basis. The above-mentioned load structure shall be equally applicable to the special facilities such as Systematic Withdrawal Plan (SWP)  Systematic Transfer Plan (STP) and Switches etc. However, no load shall be charged for switching between option  plan within the Scheme."
-========
-            "comment": "NIL If 10% of units If redeemed or switched out on or before 365 days from the date of allotment.  1% If Remaining 90% of units if redeemed or switched out on or before 365 days from the date of allotment.  NIL If redeemed or switched out after 365 days from the date of allotment. Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Small Cap Fund",
@@ -75,21 +65,12 @@
             "value": "11.50"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 101.96",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "103.98",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) November 03, 2023"
       }
@@ -147,11 +128,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "NIL If 10% of units if redeemed or switched out during exit load period i.e. 730 days from the allotment Exit Load Period  730 days from the date of allotment \t Remaining 90% of units in parts or full i.\t2% If redeemed or switched out on or before 365 days from the date of allotment ii.\t1% If redeemed or switched out after 365 days but on or before 730 days from the date of allotment \t NIL If units redeemed or switched out after 730 days from the date of allotment Note Redemptions  Switch outs of units will be done on First In First Out (FIFO) basis. The above mentioned Exit Load shall be equally applicable to the special products such as Systematic Withdrawal Plan (SWP)Systematic Transfer Plan (STP) and Switches etc. However, no load shall be charged for switching in between option  plan within the scheme."
-========
-            "comment": "NIL If 10% of units if redeemed or switched out during exit load period i.e. 730 days from the allotment Exit Load Period  730 days from the date of allotment \t Remaining 90% of units in parts or full i.\t2% If redeemed or switched out on or before 365 days from the date of allotment ii.\t1% If redeemed or switched out after 365 days but on or before 730 days from the date of allotment \t NIL If units redeemed or switched out after 730 days from the date of allotment Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Long Term Equity Value Fund",
@@ -173,21 +150,12 @@
             "value": "12.65"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,145.84",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,101.86",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) March 13, 2006"
       }
@@ -235,11 +203,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "NIL 10% of units If redeemed or switched out on or before 365 days from the date of allotment. \t 1% Remaining 90% of units if redeemed or switched out on or before 365 days from the date of allotment. \t Nil If redeemed or switched out after 365 days from the date of allotment Note Redemptions  Switch outs of units will be done on First In First Out (FIFO) basis. The above mentioned Exit Load shall be equally applicable to the special products such as Systematic Withdrawal Plan (SWP)Systematic Transfer Plan (STP) and Switches etc. However, no load shall be charged for switching in between option  plan within the scheme."
-========
-            "comment": "NIL 10% of units If redeemed or switched out on or before 365 days from the date of allotment. \t 1% Remaining 90% of units if redeemed or switched out on or before 365 days from the date of allotment. \t Nil If redeemed or switched out after 365 days from the date of allotment Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Ethical Fund",
@@ -249,21 +213,12 @@
             "value": "NA"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 43.25",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "44.54",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) December 20, 2024"
       }
@@ -349,21 +304,12 @@
             "value": "12.51"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 500",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 210.34",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "500",
-        "min_amt": "500",
-        "min_amt_multiple": "500",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "204.81",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) December 23, 2008"
       }
@@ -424,11 +370,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "1.00% If redeemed or switch out on or before 90 days from the date of allotment of units. \t NIL If redeemed or switch out after 90 days from the date of allotment of units. Note Redemptions  Switch outs of units will be done on First In First Out (FIFO) basis. The above-mentioned load structure shall be equally applicable to the special facilities such as Systematic Withdrawal Plan (SWP)  Systematic Transfer Plan (STP) and Switches etc. However, no load shall be charged for switching between option  plan within the Scheme."
-========
-            "comment": "1.00% If redeemed or switch out on or before 90 days from the date of allotment of units. \t NIL If redeemed or switch out after 90 days from the date of allotment of units. Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Multi Asset Allocation Fund",
@@ -438,21 +380,12 @@
             "value": "2.59"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 30.61",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "31.83",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) March 07, 2024"
       }
@@ -509,11 +442,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "NIL If 10% of units if redeemed or switched out on or before 365 days from the date of allotment \t 1% If Remaining 90% of units if redeemed or switched out on or before 365 days from the date allotment \t NIL If redeemed or switched out of units after 365 days from the date of allotment. Note Redemptions  Switch outs of units will be done on First In First Out (FIFO) basis. The above mentioned Exit Load shall be equally applicable to the special products such as Systematic Withdrawal Plan (SWP)  Systematic Transfer Plan (STP) and Switches etc. However, no load shall be charged for switching in between option  plan within the scheme."
-========
-            "comment": "NIL If 10% of units if redeemed or switched out on or before 365 days from the date of allotment \t 1% If Remaining 90% of units if redeemed or switched out on or before 365 days from the date allotment \t NIL If redeemed or switched out of units after 365 days from the date of allotment. Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Equity Fund of Funds",
@@ -531,21 +460,12 @@
             "value": "13.52"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 122.81",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "117.22",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) July 20, 2009"
       }
@@ -597,11 +517,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "NIL If 10% of units If redeemed or switched out on or before 365 days from the date of allotment \t 1% If Remaining 90% of units if redeemed or switched out on or before 365 days from the date of allotment \t NIL If redeemed or switched out after 365 days from the date of allotment Note Redemptions  Switch outs of units will be done on First In First Out (FIFO) basis. The above mentioned load structure shall be equally applicable to the special facilities such as Systematic Wit drawal Plan (SWP)  Systematic Transfer Plan (STP) and Switches etc. However, no load shall be charged for switching between option  plan within the Scheme."
-========
-            "comment": "NIL If 10% of units If redeemed or switched out on or before 365 days from the date of allotment \t 1% If Remaining 90% of units if redeemed or switched out on or before 365 days from the date of allotment \t NIL If redeemed or switched out after 365 days from the date of allotment Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum ESG Best in Class Strategy Fund",
@@ -623,21 +539,12 @@
             "value": "13.76"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 88.91",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "89.29",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) July 12, 2019"
       }
@@ -688,11 +595,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "Investor Exit Upon Subscription % of Exit Load Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 Onwards NIL Note Redemption  Switched Outs will be done on First in First out (FIFO) basis. The above mentioned Exit Load shall be equally applicable to Systematic Withdrawal Plan (SWP), Systematic Transfer Plan (STP) and Switches in- cluding existing installment of existing SIPs STPs  SWPs falling due after the effective date. However, no exit load will be charged for switching between option  plan within the scheme."
-========
-            "comment": "Investor Exit Upon Subscription % of Exit Load Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 Onwards NIL Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Liquid Fund",
@@ -719,11 +622,7 @@
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "monthly_aaum_value": "\u20b9 534.83",
-========
-        "monthly_aaum_value": "538.05",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) 07 April, 2006"
       }
@@ -791,21 +690,12 @@
             "value": "6.90"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 133.19",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "133.39",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) May 19, 2015"
       }
@@ -857,21 +747,12 @@
         ],
         "main_scheme_name": "Quantum Gold Savings Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 151.10",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "175.24",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) May 19, 2011"
       }
@@ -880,11 +761,7 @@
       "value": {
         "amc_name": "Quantum Asset Management Company Private Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
           "CRISIL Dynamic Bond Fund AIII Index (20%) + CRISIL Liquid Fund AI Index (25%) + Nifty 50 TRI (40%) + Domestic price of Gold (15%). w.e.f. April 03, 2023, benchmark of the scheme has been changed to CRISIL Dynamic Bond A-III Index (20%) + CRISIL Liquid Debt A-I Index (25%) + Nifty 50 TRI (40%) + Domestic price of Gold (15%)"
-========
-          "CRISIL Dynamic Bond A-III Index (20%) + CRISIL Liquid Debt A-I Index (25%) + Nifty 50 TRI (40%) + Domestic price of Gold (15%)"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         ],
         "field_location": [
           {
@@ -938,11 +815,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
             "comment": "Repurchase Redemption Switch Out - a) On or before 90 days from the date of allotment 1.00%. b) After 90 days from the date of allotment Nil"
-========
-            "comment": "Repurchase Redemption Switch Out - a) On or before 90 days from the date of allotment 1.00%. b) After 90 days from the date of allotment Nil Note Redemptions, Switch, Systematic Withdrawal Plan (SWP) and Systematic Transfer Plan (STP) will be processed on First In First Out (FIFO) basis and the applicable exit load will be charged. However, no exit load will be charged for switches between option plan within the scheme."
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "Quantum Multi Asset Fund of Funds",
@@ -960,21 +833,12 @@
             "value": "5.14"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 59.79",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "60.87",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) July 11, 2012"
       }
@@ -1026,21 +890,12 @@
         ],
         "main_scheme_name": "Quantum Nifty 50 ETF Fund of Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 24.29",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "24.83",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) August 05, 2022"
       }
@@ -1100,17 +955,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_amt": "\u20b9 1100",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 249.59",
-========
-        "min_amt": "0",
-        "min_amt_multiple": "01",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "285.15",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) February 22, 2008"
       }
@@ -1176,15 +1024,9 @@
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
         "min_amt": ",",
-<<<<<<<< HEAD:sql_learn/jan25/32_31-Jan-25_FS.json
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 60.68",
-========
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "62.05",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/32_31-Mar-25_FS.json
         "mutual_fund_name": "Quantum Mutual Fund",
         "scheme_launch_date": "(Date of Allotment) July 10, 2008"
       }

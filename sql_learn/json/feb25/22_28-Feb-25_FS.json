@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
     "document_name": "22_28-Feb-25_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:09"
-========
-    "document_name": "22_31-Mar-25_FS.pdf",
-    "file_type": "",
-    "process_date": "20250515_17:27"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -22,7 +16,6 @@
             "amc_name": "21",
             "benchmark_index": "21",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "22",
             "fund_manager_total_exp": "22",
             "load_entry": "22",
@@ -40,25 +33,6 @@
             "monthly_aaum_value": "22",
             "mutual_fund_name": "22",
             "scheme_launch_date": "22"
-========
-            "fund_manager_name": "21",
-            "fund_manager_total_exp": "21",
-            "load_entry": "21",
-            "load_exit": "21",
-            "main_scheme_name": "21",
-            "metrics_beta": "21",
-            "metrics_port_turnover_ratio": "21",
-            "metrics_sharpe": "21",
-            "metrics_std_dev": "21",
-            "min_addl_amt": "21",
-            "min_addl_amt_multiple": "21",
-            "min_amt": "21",
-            "min_amt_multiple": "21",
-            "monthly_aaum_date": "21",
-            "monthly_aaum_value": "21",
-            "mutual_fund_name": "21",
-            "scheme_launch_date": "21"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -110,21 +84,12 @@
             "value": "16.0"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 50",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 176.33 Crore",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "50",
-        "min_amt": "500",
-        "min_amt_multiple": "500",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "176.30 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "31st March, 20"
       }
@@ -140,7 +105,6 @@
             "amc_name": "22",
             "benchmark_index": "22",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "23",
             "fund_manager_total_exp": "23",
             "load_entry": "23",
@@ -158,25 +122,6 @@
             "monthly_aaum_value": "23",
             "mutual_fund_name": "23",
             "scheme_launch_date": "23"
-========
-            "fund_manager_name": "22",
-            "fund_manager_total_exp": "22",
-            "load_entry": "22",
-            "load_exit": "22",
-            "main_scheme_name": "22",
-            "metrics_beta": "22",
-            "metrics_port_turnover_ratio": "22",
-            "metrics_sharpe": "22",
-            "metrics_std_dev": "22",
-            "min_addl_amt": "22",
-            "min_addl_amt_multiple": "22",
-            "min_amt": "22",
-            "min_amt_multiple": "22",
-            "monthly_aaum_date": "22",
-            "monthly_aaum_value": "22",
-            "mutual_fund_name": "22",
-            "scheme_launch_date": "22"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -228,21 +173,12 @@
             "value": "15.98"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5,183.11 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "5,105.11 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "23rd September, 20"
       }
@@ -258,7 +194,6 @@
             "amc_name": "23",
             "benchmark_index": "23",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "24",
             "fund_manager_total_exp": "24",
             "load_entry": "24",
@@ -273,22 +208,6 @@
             "monthly_aaum_value": "24",
             "mutual_fund_name": "24",
             "scheme_launch_date": "24"
-========
-            "fund_manager_name": "23",
-            "fund_manager_total_exp": "23",
-            "load_entry": "23",
-            "load_exit": "23",
-            "main_scheme_name": "23",
-            "metrics_port_turnover_ratio": "23",
-            "min_addl_amt": "23",
-            "min_addl_amt_multiple": "23",
-            "min_amt": "23",
-            "min_amt_multiple": "23",
-            "monthly_aaum_date": "23",
-            "monthly_aaum_value": "23",
-            "mutual_fund_name": "23",
-            "scheme_launch_date": "23"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -322,21 +241,12 @@
             "value": "1.8558"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,279.39 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,228.89 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "21st November, 2"
       }
@@ -352,7 +262,6 @@
             "amc_name": "24",
             "benchmark_index": "24",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "25",
             "fund_manager_total_exp": "25",
             "load_entry": "25",
@@ -366,21 +275,6 @@
             "monthly_aaum_value": "25",
             "mutual_fund_name": "25",
             "scheme_launch_date": "25"
-========
-            "fund_manager_name": "24",
-            "fund_manager_total_exp": "24",
-            "load_entry": "24",
-            "load_exit": "24",
-            "main_scheme_name": "24",
-            "min_addl_amt": "24",
-            "min_addl_amt_multiple": "24",
-            "min_amt": "24",
-            "min_amt_multiple": "24",
-            "monthly_aaum_date": "24",
-            "monthly_aaum_value": "24",
-            "mutual_fund_name": "24",
-            "scheme_launch_date": "24"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -415,21 +309,12 @@
         ],
         "main_scheme_name": "JM Small Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 580.68 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "576.94 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "18th June, 202"
       }
@@ -445,7 +330,6 @@
             "amc_name": "25",
             "benchmark_index": "25",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "26",
             "fund_manager_total_exp": "26",
             "load_entry": "26",
@@ -463,25 +347,6 @@
             "monthly_aaum_value": "26",
             "mutual_fund_name": "26",
             "scheme_launch_date": "26"
-========
-            "fund_manager_name": "25",
-            "fund_manager_total_exp": "25",
-            "load_entry": "25",
-            "load_exit": "25",
-            "main_scheme_name": "25",
-            "metrics_beta": "25",
-            "metrics_port_turnover_ratio": "25",
-            "metrics_sharpe": "25",
-            "metrics_std_dev": "25",
-            "min_addl_amt": "25",
-            "min_addl_amt_multiple": "25",
-            "min_amt": "25",
-            "min_amt_multiple": "25",
-            "monthly_aaum_date": "25",
-            "monthly_aaum_value": "25",
-            "mutual_fund_name": "25",
-            "scheme_launch_date": "25"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -533,21 +398,12 @@
             "value": "14.3"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 481.22 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "477.21 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "1st April, 19"
       }
@@ -563,7 +419,6 @@
             "amc_name": "26",
             "benchmark_index": "26",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "27",
             "fund_manager_total_exp": "27",
             "load_entry": "27",
@@ -581,25 +436,6 @@
             "monthly_aaum_value": "27",
             "mutual_fund_name": "27",
             "scheme_launch_date": "27"
-========
-            "fund_manager_name": "26",
-            "fund_manager_total_exp": "26",
-            "load_entry": "26",
-            "load_exit": "26",
-            "main_scheme_name": "26",
-            "metrics_beta": "26",
-            "metrics_port_turnover_ratio": "26",
-            "metrics_sharpe": "26",
-            "metrics_std_dev": "26",
-            "min_addl_amt": "26",
-            "min_addl_amt_multiple": "26",
-            "min_amt": "26",
-            "min_amt_multiple": "26",
-            "monthly_aaum_date": "26",
-            "monthly_aaum_value": "26",
-            "mutual_fund_name": "26",
-            "scheme_launch_date": "26"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -645,21 +481,12 @@
             "value": "16.87"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 997.89 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "969.14 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "2nd June, 199"
       }
@@ -807,7 +634,6 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "comment": "If the units are redeemedswitched out on or b date of allotment  1.00%.  \t If the units are redeemed  switched out after of allotment  Nil."
           }
         ],
@@ -890,8 +716,6 @@
         "load": [
           {
             "type": "entry_load",
-========
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
             "comment": "None"
           }
         ],
@@ -902,21 +726,12 @@
             "value": "11.2395 EXPENSE RATIO Regular Plan 1.07% Direct Plan 0.40%"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 211.53 Crore",
-========
-        "min_addl_amt": "",
-        "min_addl_amt_multiple": "",
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "18th July, 20"
       }
@@ -932,7 +747,6 @@
             "amc_name": "30",
             "benchmark_index": "30",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
             "fund_manager_name": "31",
             "fund_manager_total_exp": "31",
             "load_entry": "31",
@@ -954,29 +768,6 @@
             "monthly_aaum_value": "31",
             "mutual_fund_name": "31",
             "scheme_launch_date": "31"
-========
-            "fund_manager_name": "30",
-            "fund_manager_total_exp": "30",
-            "load_entry": "30",
-            "load_exit": "30",
-            "main_scheme_name": "30",
-            "metrics_avg_maturity": "30",
-            "metrics_beta": "30",
-            "metrics_macaulay": "30",
-            "metrics_mod_duration": "30",
-            "metrics_port_turnover_ratio": "30",
-            "metrics_sharpe": "30",
-            "metrics_std_dev": "30",
-            "metrics_ytm": "30",
-            "min_addl_amt": "30",
-            "min_addl_amt_multiple": "30",
-            "min_amt": "30",
-            "min_amt_multiple": "30",
-            "monthly_aaum_date": "30",
-            "monthly_aaum_value": "30",
-            "mutual_fund_name": "30",
-            "scheme_launch_date": "30"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1032,21 +823,12 @@
             "value": "6.96"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 750.94 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "750.34 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "1st April, 1995"
       }
@@ -1219,21 +1001,12 @@
             "value": "7.03"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 133.56 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "3,264.35 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "31st December, 199"
       }
@@ -1317,21 +1090,12 @@
             "value": "7.1"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,450.25 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "116.86 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "29th August, 2"
       }
@@ -1415,21 +1179,12 @@
             "value": "6.84"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 116.13 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "44.35 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "25th June, 20"
       }
@@ -1513,21 +1268,12 @@
             "value": "7.4"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 44.04 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "222.68 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "27th September, 2"
       }
@@ -1592,7 +1338,6 @@
             "comment": "NIL"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "main_scheme_name": "JM Low Duration Fund",
         "metrics": [
           {
@@ -1682,8 +1427,6 @@
             "comment": "NIL"
           }
         ],
-========
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "main_scheme_name": "JM Medium to Long Duration Fund",
         "metrics": [
           {
@@ -1703,21 +1446,12 @@
             "value": "6.70"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/22_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 25.51 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "24.35 Crore",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/22_31-Mar-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "1st April, 199"
       }

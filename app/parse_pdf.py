@@ -543,19 +543,19 @@ class Reader:
 
         return final_data
 
-    def get_generated_content(self, data:list, is_table:list):
+    def get_generated_content(self, data:list, is_table= []):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path  = self.DRYPATH
         try:
             for content in data:
                 pgn,fund,blocks = content['page'],content['fundname'], content['block']
-                # fund = regex._sanitize_fund(fund,self.FUND_NAME) #regex clean moved to get_data
-                # print(f'--<<{fund}>>--')
+              
                 Reader._generate_pdf_from_data(blocks, output_path)
                 extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
                 self._update_imp_data(extracted_text[fund],fund,pgn)
             print("\tParsing Completed, Refining Data.....")
+            
             #section for tabular data DSP, BAJAJ, HDFC
             if is_table[0]:
                 print(f"\tTable Data Present-> running: _generate_table_data")
@@ -760,6 +760,7 @@ class Reader:
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
             # temp = regex._format_amt_data(temp) #min/add formatter
+            temp = regex._format_metric_data(temp)
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct

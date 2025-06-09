@@ -1,13 +1,8 @@
 {
   "metadata": {
     "document_name": "22_31-Jan-25_FS.pdf",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
     "file_type": "",
     "process_date": "20250514_14:41"
-========
-    "file_type": "fs",
-    "process_date": "20250521"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
   },
   "records": [
     {
@@ -90,21 +85,12 @@
             "value": "14.96"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 50",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 181.80 Crore",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "500",
-        "min_amt": "500",
-        "min_amt_multiple": "500",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "181.80 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20080331"
       }
@@ -167,11 +153,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemedswitched out on or be date of allotment  1.00%.  \t If the units are redeemed  switched out after 3 of allotment  Nil."
-========
-            "comment": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Flexicap Fund",
@@ -193,21 +175,12 @@
             "value": "14.62"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5,244.25 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "5,244.25 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20080923"
       }
@@ -267,11 +240,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemedswitched out on or b date of allotment  1.00%. \t If the units are redeemedswitched out after 1 of allotment  Nil."
-========
-            "comment": "If the units are redeemedswitched out on or before 180 days from the date of allotment  1.00%. \t If the units are redeemedswitched out after 180 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Midcap Fund",
@@ -281,21 +250,12 @@
             "value": "1.601"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,359.57 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,359.57 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20221121"
       }
@@ -354,30 +314,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemedswitched out on or be date of allotment  1.00%.  \t If the units are redeemed  switched out after 1 of allotment  Nil."
-========
-            "comment": "If the units are redeemedswitched out on or before 180 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 180 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Small Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 607.94 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "607.94 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20240618"
       }
@@ -440,11 +387,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemedswitched out on or b date of allotment  1.00%.  \t If the units are redeemed  switched out after of allotment  Nil."
-========
-            "comment": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Large Cap Fund",
@@ -466,21 +409,12 @@
             "value": "13.48"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 482.25 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "482.25 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "19950401"
       }
@@ -543,11 +477,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemedswitched out on or be date of allotment  1.00%.  \t If the units are redeemed  switched out after 3 of allotment  Nil."
-========
-            "comment": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Value Fund",
@@ -569,21 +499,12 @@
             "value": "15.62"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,046.78 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,046.78 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "19970602"
       }
@@ -646,11 +567,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemedswitched out on or b date of allotment  1.00%.  \t If the units are redeemed  switched out after of allotment  Nil."
-========
-            "comment": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Focused Fund",
@@ -672,21 +589,12 @@
             "value": "13.96"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 225.02 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "225.02 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20080305"
       }
@@ -695,38 +603,19 @@
       "value": {
         "amc_name": "JM Financial Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
           "Nifty 50 Arbitrage Index Additional Benchmark Index Crisil 1 Year T Bill Index % to NAV Name of Instrument % to NAV Ratin Futures 91 Days T-Bill 4.24 SO Total Debt Holdings 17.28 TREPS  Others  14.02 Total Assets 100.00  includes net receivables  payables if any Total no. of Equity Stocks  63"
-========
-          "Nifty 50 Arbitrage Index Additional Benchmark Index Crisil 1 Year T Bill Index Name of Instrument % to NAV Rating % to NAV Futures 91 Days T-Bill 4.24 SOV Total Debt Holdings 17.28 TREPS  Others  14.02 Total Assets 100.00  includes net receivables  payables if any Total no. of Equity Stocks  63"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         ],
         "field_location": [
           {
             "amc_name": "26",
             "benchmark_index": "26",
             "count": 15,
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
-========
-            "fund_manager_managing_fund_since": "26",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
             "fund_manager_name": "26",
             "fund_manager_total_exp": "26",
             "load_entry": "26",
             "load_exit": "26",
             "main_scheme_name": "26",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "metrics_port_turnover_ratio": "26",
-========
-            "metrics_avg_maturity": "26",
-            "metrics_beta": "26",
-            "metrics_macaulay": "26",
-            "metrics_mod_duration": "26",
-            "metrics_port_turnover_ratio": "26",
-            "metrics_sharpe": "26",
-            "metrics_std_dev": "26",
-            "metrics_ytm": "26",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
             "min_addl_amt": "26",
             "min_addl_amt_multiple": "26",
             "min_amt": "26",
@@ -764,11 +653,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemed  switched out on or b date of allotment  0.50%. \t If the units are redeemed  switched out after 3 of allotment  Nil."
-========
-            "comment": "If the units are redeemed  switched out on or before 30 days from the date of allotment  0.50%. \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Arbitrage Fund",
@@ -806,21 +691,12 @@
             "value": "6.67"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 196.33 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "196.33 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20060718"
       }
@@ -887,11 +763,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
             "comment": "If the units are redeemed  switched out on or before  allotment  1.00%.  If the units are redeemed  switched out after 60 days  Nil."
-========
-            "comment": "If the units are redeemed  switched out on or before 60 days from the date of allotment  1.00%.  If the units are redeemed  switched out after 60 days from the date of allotment  Nil."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "JM Aggressive Hybrid Fund",
@@ -929,21 +801,12 @@
             "value": "7.17"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 752.01 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "752.01 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "19950401"
       }
@@ -1028,21 +891,12 @@
             "value": "6.61"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 221.70 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "221.70 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20191203"
       }
@@ -1127,21 +981,12 @@
             "value": "7.23"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,254.15 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3,254.15 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "19971231"
       }
@@ -1226,21 +1071,12 @@
             "value": "7.39"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 118.01 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "118.01 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20220829"
       }
@@ -1325,21 +1161,12 @@
             "value": "6.83"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 43.71 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "43.71 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20030625"
       }
@@ -1424,21 +1251,12 @@
             "value": "7.72"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 231.41 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "231.41 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "20060927"
       }
@@ -1523,21 +1341,12 @@
             "value": "6.80"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/22_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 26.58 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "26.58 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/22_31-Jan-25_FS.json
         "mutual_fund_name": "JM Financial Mutual Fund",
         "scheme_launch_date": "19950401"
       }

@@ -1,13 +1,8 @@
 {
   "metadata": {
     "document_name": "28_31-Jan-2025_1_FS.pdf",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
     "file_type": "",
     "process_date": "20250514_14:45"
-========
-    "file_type": "fs",
-    "process_date": "20250521"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
   },
   "records": [
     {
@@ -21,12 +16,6 @@
             "amc_name": "4",
             "benchmark_index": "4",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "4",
-            "fund_manager_name": "4",
-            "fund_manager_total_exp": "4",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "4",
             "load_exit": "4",
             "main_scheme_name": "4",
@@ -48,28 +37,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1%- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 29-Nov-2018 NAV Regular Plan Growth Option 42.7401 Direct Plan Growth Option 43.7821 Scheme Statistics Monthly AAUM 6,300.85 (cr) Latest AUM (31-Jan-2025) 6,256.58 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 26-July-2019. He has 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15-Oct-2024. He has more than 11 years of rich experience. For Debt Component Mr. Rakesh Shetty Managing this fund since 22-Nov-2022 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.24% Regular 0.58% Note - Investors are requested to note that they will be bearing the recurring expenses of the fund of funds (FoF) scheme, in addition to the expenses of underlying scheme (0.58% of Motilal Oswal NASDAQ 100 ETF) in which the fund of funds scheme makes investments."
-========
-            "comment": "Entry Load Nil Exit Load 1- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nasdaq 100 Fund of Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,300.85 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "6,300.85 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -85,12 +63,6 @@
             "amc_name": "5",
             "benchmark_index": "5",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "5",
-            "fund_manager_name": "5",
-            "fund_manager_total_exp": "5",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "5",
             "load_exit": "5",
             "main_scheme_name": "5",
@@ -108,24 +80,7 @@
             "scheme_launch_date": "5"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "Inception",
-            "name": "Swapnil Mayekar",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "20-Dec-2024",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -133,11 +88,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1%- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 6-Sep-2019 NAV Regular Plan Growth Option 23.9766 Direct Plan Growth Option 24.8499 Scheme Statistics Monthly AAUM 2,034.76 ( cr) Latest AUM (31-Jan-2025) 2,039.81 (cr) Beta 1.0 Portfolio Turnover Ratio 0.21 Standard Deviation 13.6% (Annualised) Sharpe Ratio 0.5 (Annualised) Tracking Error 0.1 (Annualised) Against the benchmark Nifty 500 Index.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Swapnil Mayekar Swapnil has managed this fund since inception. Swapnil has over 13 years of experience in the fund management and product development. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.20% Regular 0.88%"
-========
-            "comment": "Entry Load Nil Exit Load 1- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 500 Index Fund",
@@ -161,17 +112,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,034.76 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,034.76  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -187,12 +131,6 @@
             "amc_name": "6",
             "benchmark_index": "6",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "6",
-            "fund_manager_name": "6",
-            "fund_manager_total_exp": "6",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "6",
             "load_exit": "6",
             "main_scheme_name": "6",
@@ -210,24 +148,7 @@
             "scheme_launch_date": "6"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "Inception",
-            "name": "Swapnil Mayekar",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "20-Dec-2024",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -235,11 +156,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1% - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment. Inception Date 6-Sep-2019 NAV Regular Growth Plan 34.3891 Direct Growth Plan 35.7596 Scheme Statistics Monthly AAUM 1,995.11 ( cr) Latest AUM (31-Jan-2025) 1,981.68 (cr) Beta 1.0 Portfolio Turnover Ratio 0.34 Standard Deviation 16.0% (Annualised) Sharpe Ratio 0.8 (Annualised) Tracking Error 0.1 (Annualised) Against the benchmark Nifty Midcap 150 Index. Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Swapnil Mayekar Swapnil has managed this fund since inception. Swapnil has over 13 years of experience in the fund management and product development. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.30% Regular 1.00%"
-========
-            "comment": "Entry Load Nil Exit Load 1 - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Midcap 150 Index Fund",
@@ -263,17 +180,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,995.11 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,995.11  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -289,12 +199,6 @@
             "amc_name": "7",
             "benchmark_index": "7",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "7",
-            "fund_manager_name": "7",
-            "fund_manager_total_exp": "7",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "7",
             "load_exit": "7",
             "main_scheme_name": "7",
@@ -312,24 +216,7 @@
             "scheme_launch_date": "7"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "Inception",
-            "name": "Swapnil Mayekar",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "20-Dec-2024",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -337,11 +224,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1% - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment. Inception Date 6-Sep-2019 NAV Regular Growth Plan 34.0515 Direct Growth Plan 35.3402 Scheme Statistics Monthly AAUM 829.55 ( cr) Latest AUM (31-Jan-2025) 796.09 (cr) Beta 1.0 Portfolio Turnover Ratio 0.55 Standard Deviation 19.1% (Annualised) Sharpe Ratio 0.5 (Annualised) Tracking Error 0.1 (Annualised) Against the benchmark Nifty Smallcap 250 Index.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Swapnil Mayekar Swapnil has managed this fund since inception. Swapnil has over 13 years of experience in the fund management and product development. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.36% Regular 1.04%"
-========
-            "comment": "Entry Load Nil Exit Load 1 - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Smallcap 250 Index Fund",
@@ -365,17 +248,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 829.55 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "829.55  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -391,12 +267,6 @@
             "amc_name": "8",
             "benchmark_index": "8",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "8",
-            "fund_manager_name": "8",
-            "fund_manager_total_exp": "8",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "8",
             "load_exit": "8",
             "main_scheme_name": "8",
@@ -414,24 +284,7 @@
             "scheme_launch_date": "8"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "Inception",
-            "name": "Swapnil Mayekar",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "20-Dec-2024",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -439,11 +292,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1%- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 6-Sep-2019 NAV Regular Plan Growth Option 17.5961 Direct Plan Growth Option 18.2707 Scheme Statistics Monthly AAUM 583.95( cr) Latest AUM (31-Jan-2025) 585.68 (cr) Beta 1.0 Portfolio Turnover Ratio 0.32 Standard Deviation 14.3% (Annualised) Sharpe Ratio 0.2 (Annualised) Tracking Error 0.1 (Annualised) Against the benchmark Nifty Bank Index.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31- January-2025) Fund Manager Mr. Swapnil Mayekar Swapnil has managed this fund since inception. Swapnil has over 13 years of experience in the fund management and product development. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.33% Regular 1.00%"
-========
-            "comment": "Entry Load Nil Exit Load 1- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Bank Index Fund",
@@ -467,17 +316,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 583.95( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "583.95 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -493,12 +335,6 @@
             "amc_name": "9",
             "benchmark_index": "9",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "9",
-            "fund_manager_name": "9",
-            "fund_manager_total_exp": "9",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "9",
             "load_exit": "9",
             "main_scheme_name": "9",
@@ -516,24 +352,7 @@
             "scheme_launch_date": "9"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "Inception",
-            "name": "Swapnil Mayekar",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "20-Dec-2024",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -541,11 +360,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " Nil Inception Date 23-Dec-2019 NAV Regular Plan Growth Option 19.7426 Direct Plan Growth Option 20.1616 Scheme Statistics Monthly AAUM 582.61 ( cr) Latest AUM (31-Jan-2025) 598.24 (cr) Beta 1.0 Portfolio Turnover Ratio 0.13 Standard Deviation 12.6% (Annualised) Sharpe Ratio 0.4 (Annualised) Tracking Error 0.05 (Annualised) Against the benchmark Nifty 50 Index TRI.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Swapnil Mayekar Swapnil has managed this fund since inception. Swapnil has over 13 years of experience in the fund management and product development. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.15% Regular 0.55% Against the benchmark Nifty 50 Index."
-========
-            "comment": "Entry Load Nil Exit Load Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 50 Index Fund",
@@ -569,17 +384,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 582.61 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "582.61  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -595,12 +403,6 @@
             "amc_name": "10",
             "benchmark_index": "10",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "10",
-            "fund_manager_name": "10",
-            "fund_manager_total_exp": "10",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "10",
             "load_exit": "10",
             "main_scheme_name": "10",
@@ -618,30 +420,7 @@
             "scheme_launch_date": "10"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "Inception",
-            "name": "Swapnil Mayekar",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "15-Oct-2024",
-            "name": "Dishant Mehta",
-            "qualification": "",
-            "total_exp": "11 Years"
-          },
-          {
-            "managing_fund_since": "20-Dec-2024",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -649,11 +428,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1% - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment. Inception Date 23-Dec-2019 NAV Regular Plan Growth Option 21.7108 Direct Plan Growth Option 22.4714 Scheme Statistics Monthly AAUM 288.64 ( cr) Latest AUM (31-Jan-2025) 288.85 (cr) Beta 1.0 Portfolio Turnover Ratio 0.77 Standard Deviation 18.5% (Annualised) Sharpe Ratio 0.5 (Annualised) Tracking Error 0.1 (Annualised) Against the benchmark Nifty Next 50 Index TRI.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Swapnil Mayekar Swapnil has managed this fund since inception. Swapnil has over 13 years of experience in the fund management and product development. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15-Oct-2024. He has more than 11 years of rich experience. For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.36% Regular 1.04% Against the benchmark Nifty Next 50 Index."
-========
-            "comment": "Entry Load Nil Exit Load 1 - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Next 50 Index Fund",
@@ -677,17 +452,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 288.64 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "288.64  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -703,12 +471,6 @@
             "amc_name": "11",
             "benchmark_index": "11",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "11",
-            "fund_manager_name": "11",
-            "fund_manager_total_exp": "11",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "11",
             "load_exit": "11",
             "main_scheme_name": "11",
@@ -734,11 +496,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " 1%- If redeemed on or before 7 days from the date of allotment. Nil- If redeemed after 7 days from the date of allotment Inception Date 28-Apr-2020 NAV Regular Plan Growth Option 23.3910 Direct Plan Growth Option 24.0562 Scheme Statistics Monthly AAUM 3,830.27 ( cr) Latest AUM (31-Jan-2025)3,880.36 (cr) Beta 1.0 Portfolio Turnover Ratio 0.05 Standard Deviation 13.8% (Annualised) Sharpe Ratio 0.7 (Annualised) Tracking Error 0.1 (Annualised) Against the benchmark SP 500 Index TRI.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund and Co-Fund Manager Mr. Sunil Sawant He has been appointed as the Fund Manager for Foreign securities w.e.f. July 1, 2024. For Debt Component Mr. Rakesh Shetty Managing this fund since 22-Nov-2022 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.62% Regular 1.13%"
-========
-            "comment": "Entry Load Nil Exit Load 1- If redeemed on or before 7 days from the date of allotment. Nil- If redeemed after 7 days from the date of allotment"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal S&P 500 Index Fund",
@@ -762,17 +520,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,830.27 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3,830.27  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -788,12 +539,6 @@
             "amc_name": "12",
             "benchmark_index": "12",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "12",
-            "fund_manager_name": "12",
-            "fund_manager_total_exp": "12",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "12",
             "load_exit": "12",
             "main_scheme_name": "12",
@@ -819,11 +564,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "    Nil Inception Date 28-Jul-2010 NAV 241.5727 (Per Unit) Scheme Statistics Monthly AAUM 48.53 ( cr) Latest AUM (31-Jan-2025) 48.91 ( cr) Beta 1.0 Portfolio Turnover Ratio 0.12 Tracking Error 0.1 (Annualised) Standard Deviation 12.5% (Annualised Sharpe Ratio 0.4 (Annualised) Against the benchmark Nifty 50 Index.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31- January-2025) Fund Manager Mr. Swapnil Mayekar Managing this fund since 26-July-2019 He has 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Regular 0.06%"
-========
-            "comment": "Entry Load Nil Exit Load    Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 50 ETF",
@@ -847,17 +588,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 48.53 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "48.53  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -873,12 +607,6 @@
             "amc_name": "13",
             "benchmark_index": "13",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "13",
-            "fund_manager_name": "13",
-            "fund_manager_total_exp": "13",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "13",
             "load_exit": "13",
             "main_scheme_name": "13",
@@ -904,11 +632,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "    Nil Inception Date 31-Jan-2011 NAV 57.5098 (Per Unit) Scheme Statistics Monthly AAUM 528.30 ( cr) Latest AUM (31-Jan-2025) 529.98( cr) Beta 1.0 Portfolio Turnover Ratio 0.41 Tracking Error 0.3 (Annualised) Standard Deviation 16.8% (Annualised Sharpe Ratio 0.9 (Annualised) Against the benchmark Nifty Midcap 100 Index.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Swapnil Mayekar Managing this fund since 26-July-2019 He has 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Regular 0.22%"
-========
-            "comment": "Entry Load Nil Exit Load    Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Midcap 100 ETF",
@@ -932,17 +656,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 528.30 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "528.30  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -958,10 +675,6 @@
             "amc_name": "14",
             "benchmark_index": "14",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "load_entry": "14",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_exit": "14",
             "main_scheme_name": "14",
             "metrics_beta": "14",
@@ -986,11 +699,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "    Nil Inception Date 29-Mar-2011 NAV 181.6957 (Per Unit) Scheme Statistics Monthly AAUM 9,063.11 ( cr) Latest AUM (31-Jan-2025) 9,173.54 ( cr) Beta 1.0 Portfolio Turnover Ratio 0.15 Tracking Error 0.1 (Annualised) Standard Deviation 17.6% (Annualised Sharpe Ratio 0.7 (Annualised) Against the benchmark NASDAQ-100 Index.  Risk free returns based on last overnight MIBOR cut-off of 6.65% (Data as on 31-January-2025) Fund Manager Mr. Sunil Sawant He has been appointed as the Fund Manager for Foreign securities w.e.f. July 1, 2024. Total Expenses Ratio Regular 0.58%"
-========
-            "comment": "Entry Load Nil Exit Load    Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nasdaq 100 ETF",
@@ -1014,17 +723,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 9,063.11 ( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "9,063.11  cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1040,12 +742,6 @@
             "amc_name": "15",
             "benchmark_index": "15",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "15",
-            "fund_manager_name": "15",
-            "fund_manager_total_exp": "15",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "15",
             "load_exit": "15",
             "main_scheme_name": "15",
@@ -1067,28 +763,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "    Nil Inception Date 10-December-2020 NAV 58.8998 (Per Unit) Scheme Statistics Monthly AAUM 95.85 (cr) Latest AUM (31-Jan-2025) 96.18 (cr) Fund Manager Mr. Rakesh Shetty Managing this fund since 22-Nov-2022 He has a rich experience of more than 14 years Total Expenses Ratio Regular 0.24%"
-========
-            "comment": "Entry Load Nil Exit Load    Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 5 year Benchmark G-Sec ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 95.85 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "95.85 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1104,12 +789,6 @@
             "amc_name": "16",
             "benchmark_index": "16",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "16",
-            "fund_manager_name": "16",
-            "fund_manager_total_exp": "16",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "16",
             "load_exit": "16",
             "main_scheme_name": "16",
@@ -1131,28 +810,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% -If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 06-October-2021 NAV Regular Plan Growth Option 11.8942 Direct Plan Growth Option 11.9233 Scheme Statistics Monthly AAUM 30.34 (cr) Latest AUM (31-Jan-2025) 30.24 (cr) Fund Manager Mr. Rakesh Shetty Managing this fund since 22-Nov-2022 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.13% Regular 0.20% Note - Investors are requested to note that they will be bearing the recurring expenses of the fund of funds (FoF) scheme, in addition to the expenses of underlying scheme (0.24% of Motilal Oswal Nifty 5 YR Benchmark G Sec ETF) in which the fund of funds scheme makes investments."
-========
-            "comment": "Entry Load Nil Exit Load  1 -If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal 5 Year G-sec Fund Of Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 30.34 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "30.34 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1161,23 +829,13 @@
       "value": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
           "50% Nifty 500 TRI + 20% SP 500 TRI (INR) + 10% Domestic Price of Gold + 20% Nifty 5 Yr Benchmark G-Sec Index"
-========
-          "50 Nifty 500 TRI  20 SP 500 TRI (INR)  10 Domestic Price of Gold  20 Nifty 5 Yr Benchmark G-Sec Index "
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         ],
         "field_location": [
           {
             "amc_name": "17",
             "benchmark_index": "17",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "17",
-            "fund_manager_name": "17",
-            "fund_manager_total_exp": "17",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "17",
             "load_exit": "17",
             "main_scheme_name": "17",
@@ -1194,24 +852,7 @@
             "scheme_launch_date": "17"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "24-Dec-2024",
-            "name": "Bhalchandra Shinde",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "22-Nov-2022",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -1239,17 +880,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 69.57( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "69.57 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1258,23 +892,13 @@
       "value": {
         "amc_name": "Motilal Oswal Asset Management Company Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
           "30% Nifty 500 TRI + 10% SP 500 TRI (INR) + 10% Domestic Price of Gold + 50% Nifty 5 Yr Benchmark G-Sec Index"
-========
-          "30 Nifty 500 TRI  10 SP 500 TRI (INR)  10 Domestic Price of Gold  50 Nifty 5 Yr Benchmark G-Sec Index "
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         ],
         "field_location": [
           {
             "amc_name": "18",
             "benchmark_index": "18",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "18",
-            "fund_manager_name": "18",
-            "fund_manager_total_exp": "18",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "18",
             "load_exit": "18",
             "main_scheme_name": "18",
@@ -1291,18 +915,7 @@
             "scheme_launch_date": "18"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "24-Dec-2024",
-            "name": "Bhalchandra Shinde",
-            "qualification": "",
-            "total_exp": "13 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -1330,17 +943,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 43.19( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "43.19 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1356,12 +962,6 @@
             "amc_name": "19",
             "benchmark_index": "19",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "19",
-            "fund_manager_name": "19",
-            "fund_manager_total_exp": "19",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "19",
             "load_exit": "19",
             "main_scheme_name": "19",
@@ -1386,11 +986,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  Nil Total Expenses Ratio Regular 0.47%"
-========
-            "comment": "Entry Load Nil Exit Load  Nil Total Expenses Ratio Regular 0.47"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nasdaq Q 50 ETF",
@@ -1410,17 +1006,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 60.30( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "60.30 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1436,12 +1025,6 @@
             "amc_name": "20",
             "benchmark_index": "20",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "20",
-            "fund_manager_name": "20",
-            "fund_manager_total_exp": "20",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "20",
             "load_exit": "20",
             "main_scheme_name": "20",
@@ -1463,28 +1046,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " Nil Total Expenses Ratio Regular 0.30%"
-========
-            "comment": "Entry Load Nil Exit Load Nil Total Expenses Ratio Regular 0.30"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 200 Momentum 30 ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 114.86( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "114.86 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1500,12 +1072,6 @@
             "amc_name": "21",
             "benchmark_index": "21",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "21",
-            "fund_manager_name": "21",
-            "fund_manager_total_exp": "21",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "21",
             "load_exit": "21",
             "main_scheme_name": "21",
@@ -1534,17 +1100,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 864.81( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "864.81 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1560,12 +1119,6 @@
             "amc_name": "22",
             "benchmark_index": "22",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "22",
-            "fund_manager_name": "22",
-            "fund_manager_total_exp": "22",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "22",
             "load_exit": "22",
             "main_scheme_name": "22",
@@ -1594,17 +1147,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 106.78( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "106.78 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1620,12 +1166,6 @@
             "amc_name": "23",
             "benchmark_index": "23",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "23",
-            "fund_manager_name": "23",
-            "fund_manager_total_exp": "23",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "23",
             "load_exit": "23",
             "main_scheme_name": "23",
@@ -1647,28 +1187,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " Nil Total Expenses Ratio Regular 0.37%"
-========
-            "comment": "Entry Load Nil Exit Load Nil Total Expenses Ratio Regular 0.37"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal BSE Low Volatility ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 95.19( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "95.19 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1684,12 +1213,6 @@
             "amc_name": "24",
             "benchmark_index": "24",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "24",
-            "fund_manager_name": "24",
-            "fund_manager_total_exp": "24",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "24",
             "load_exit": "24",
             "main_scheme_name": "24",
@@ -1718,17 +1241,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 17.46( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "17.46 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1744,12 +1260,6 @@
             "amc_name": "25",
             "benchmark_index": "25",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "25",
-            "fund_manager_name": "25",
-            "fund_manager_total_exp": "25",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "25",
             "load_exit": "25",
             "main_scheme_name": "25",
@@ -1771,28 +1281,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " Nil Total Expenses Ratio Regular 0.22%"
-========
-            "comment": "Entry Load Nil Exit Load Nil Total Expenses Ratio Regular 0.22"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal BSE Healthcare ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 32.21( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "32.21 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1808,12 +1307,6 @@
             "amc_name": "26",
             "benchmark_index": "26",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "26",
-            "fund_manager_name": "26",
-            "fund_manager_total_exp": "26",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "26",
             "load_exit": "26",
             "main_scheme_name": "26",
@@ -1842,17 +1335,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 747.38( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "747.38 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1868,12 +1354,6 @@
             "amc_name": "27",
             "benchmark_index": "27",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "27",
-            "fund_manager_name": "27",
-            "fund_manager_total_exp": "27",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "27",
             "load_exit": "27",
             "main_scheme_name": "27",
@@ -1895,28 +1375,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " Nil Total Expenses Ratio Regular 0.30%"
-========
-            "comment": "Entry Load Nil Exit Load Nil Total Expenses Ratio Regular 0.30"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal BSE Enhanced Value ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 129.81( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "129.81 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1932,12 +1401,6 @@
             "amc_name": "28",
             "benchmark_index": "28",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "28",
-            "fund_manager_name": "28",
-            "fund_manager_total_exp": "28",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "28",
             "load_exit": "28",
             "main_scheme_name": "28",
@@ -1966,17 +1429,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 38.49( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "38.49 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -1992,12 +1448,6 @@
             "amc_name": "29",
             "benchmark_index": "29",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "29",
-            "fund_manager_name": "29",
-            "fund_manager_total_exp": "29",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "29",
             "load_exit": "29",
             "main_scheme_name": "29",
@@ -2019,28 +1469,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": " Nil Total Expenses Ratio Regular 0.30%"
-========
-            "comment": "Entry Load Nil Exit Load Nil Total Expenses Ratio Regular 0.30"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal BSE Quality ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 17.82( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "17.82 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2056,12 +1495,6 @@
             "amc_name": "30",
             "benchmark_index": "30",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "30",
-            "fund_manager_name": "30",
-            "fund_manager_total_exp": "30",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "30",
             "load_exit": "30",
             "main_scheme_name": "30",
@@ -2075,24 +1508,7 @@
             "scheme_launch_date": "30"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "fund_manager": [],
-========
-        "fund_manager": [
-          {
-            "managing_fund_since": "24-Dec-2024",
-            "name": "Bhalchandra Shinde",
-            "qualification": "",
-            "total_exp": "13 Years"
-          },
-          {
-            "managing_fund_since": "24-Dec-2022",
-            "name": "Rakesh Shetty",
-            "qualification": "",
-            "total_exp": "14 Years"
-          }
-        ],
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "load": [
           {
             "type": "entry_load",
@@ -2107,17 +1523,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 189.56( cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "189.56 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2133,12 +1542,6 @@
             "amc_name": "31",
             "benchmark_index": "31",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "31",
-            "fund_manager_name": "31",
-            "fund_manager_total_exp": "31",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "31",
             "load_exit": "31",
             "main_scheme_name": "31",
@@ -2160,28 +1563,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment. Inception Date 05-July-2023 NAV Regular Plan Growth Option 16.6519 Direct Plan Growth Option 16.8277 Scheme Statistics Monthly AAUM 1,875.13 (cr) Latest AUM (31-Jan-2025) 1,865.24 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 05-July-2023 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt Component Mr. Rakesh Shetty Managing this fund since 20-Dec-2024. He has more than 14 years of rich experience. Total Expenses Ratio Direct 0.43% Regular 1.07%"
-========
-            "comment": "Entry Load Nil Exit Load  1 - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Microcap 250 Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,875.13 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,875.13 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2197,12 +1589,6 @@
             "amc_name": "32",
             "benchmark_index": "32",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "32",
-            "fund_manager_name": "32",
-            "fund_manager_total_exp": "32",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "32",
             "load_exit": "32",
             "main_scheme_name": "32",
@@ -2224,28 +1610,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment. Inception Date 21-September -2023 NAV Regular Plan Growth Option 12.0261 Direct Plan Growth Option 12.0920 Scheme Statistics Monthly AAUM 28.45 (cr) Latest AUM (31-Jan-2025) 29.09 (cr) Fund Manager Mr. Sunil Sawant Managing this fund since July 1, 2024. He has been an alternate fund manager prior to Mutual Fund, fund manager. For Debt component Mr. Rakesh Shetty Managing this fund since 21-Sep-2023. He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.15% Regular 0.55%"
-========
-            "comment": "Entry Load Nil Exit Load  1 - If redeemed on or before 15 days from the date of allotment. Nil - If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Developed Market Ex Us ETFS Fund of Funds",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 28.45 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "28.45 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2261,12 +1636,6 @@
             "amc_name": "33",
             "benchmark_index": "33",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "33",
-            "fund_manager_name": "33",
-            "fund_manager_total_exp": "33",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "33",
             "load_exit": "33",
             "main_scheme_name": "33",
@@ -2288,28 +1657,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  Nil Inception Date 29-September -2023 NAV 21.7834 (Per Unit) Scheme Statistics Monthly AAUM 106.82 (cr) Latest AUM (31-Jan-2025) 109.57 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 29-Sep-2023. He has more than 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt component Mr. Rakesh Shetty Managing this fund since 29-Sep-2023. He has a rich experience of more than 14 years Total Expenses Ratio Regular 0.21%"
-========
-            "comment": "Entry Load Nil Exit Load  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 500 ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 106.82 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "106.82 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2325,12 +1683,6 @@
             "amc_name": "34",
             "benchmark_index": "34",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "34",
-            "fund_manager_name": "34",
-            "fund_manager_total_exp": "34",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "34",
             "load_exit": "34",
             "main_scheme_name": "34",
@@ -2352,28 +1704,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  Nil Inception Date 15-March-2024 NAV 92.0839 (Per Unit) Scheme Statistics Monthly AAUM 53.14 (cr) Latest AUM (31-Jan-2025) 63.81 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 15-Mar-2024. He has more than 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt component Mr. Rakesh Shetty Managing this fund since 15-Mar-2024. He has a rich experience of more than 14 years Total Expenses Ratio Regular 0.40%"
-========
-            "comment": "Entry Load Nil Exit Load  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Realty ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 53.14 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "53.14 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2389,12 +1730,6 @@
             "amc_name": "35",
             "benchmark_index": "35",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "35",
-            "fund_manager_name": "35",
-            "fund_manager_total_exp": "35",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "35",
             "load_exit": "35",
             "main_scheme_name": "35",
@@ -2416,28 +1751,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  Nil Inception Date 15-March-2024 NAV 15.8631 (Per Unit) Scheme Statistics Monthly AAUM 64.14 (cr) Latest AUM (31-Jan-2025) 65.04 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 15-Mar-2024. He has more than 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt component Mr. Rakesh Shetty Managing this fund since 15-Mar-2024. He has a rich experience of more than 14 years Total Expenses Ratio Regular 0.30%"
-========
-            "comment": "Entry Load Nil Exit Load  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Smallcap 250 ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 64.14 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "64.14 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2453,12 +1777,6 @@
             "amc_name": "36",
             "benchmark_index": "36",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "36",
-            "fund_manager_name": "36",
-            "fund_manager_total_exp": "36",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "36",
             "load_exit": "36",
             "main_scheme_name": "36",
@@ -2480,28 +1798,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1%- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 03-July-2024 NAV Regular Plan Growth Option 8.3170 Direct Plan Growth Option 8.3547 Scheme Statistics Monthly AAUM 2,286.07 (cr) Latest AUM (31-Jan-2025) 2,383.76 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 03-July-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since15 Oct-202 . He has 4 more than 1  years of rich experience. 1 Mr. Rakesh Shetty Managing this fund since 03-July-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.29% Regular 1.06%"
-========
-            "comment": "Entry Load Nil Exit Load  1- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty India Defence Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,286.07 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,286.07 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2517,12 +1824,6 @@
             "amc_name": "37",
             "benchmark_index": "37",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "37",
-            "fund_manager_name": "37",
-            "fund_manager_total_exp": "37",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "37",
             "load_exit": "37",
             "main_scheme_name": "37",
@@ -2544,28 +1845,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  Nil Inception Date 21-August-2024 NAV 69.9732 (Per Unit) Scheme Statistics Monthly AAUM 107.18 (cr) Latest AUM (31-Jan-2025) 135.75 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 21-Aug-2024. He has more than 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt component Mr. Rakesh Shetty Managing this fund since 21-Aug-2024. He has a rich experience of more than 14 years Total Expenses Ratio Regular 0.40%"
-========
-            "comment": "Entry Load Nil Exit Load  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty India Defence ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 107.18 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "107.18 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2581,12 +1871,6 @@
             "amc_name": "38",
             "benchmark_index": "38",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "38",
-            "fund_manager_name": "38",
-            "fund_manager_total_exp": "38",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "38",
             "load_exit": "38",
             "main_scheme_name": "38",
@@ -2608,28 +1892,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1%- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 24-September-2024 NAV Regular Plan Growth Option 7.7286 Direct Plan Growth Option 7.7481 Scheme Statistics Monthly AAUM 471.88 (cr) Latest AUM (31-Jan-2025) 480.49 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 24-September-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since15 Oct-202 . He has 4 more than 1  years of rich experience. 1 Mr. Rakesh Shetty Managing this fund since 24-September-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.36% Regular 1.07%"
-========
-            "comment": "Entry Load Nil Exit Load  1- If redeemed on or before 15 days from the date of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 500 Momentum 50 Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 471.88 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "471.88 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2645,12 +1918,6 @@
             "amc_name": "39",
             "benchmark_index": "39",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "39",
-            "fund_manager_name": "39",
-            "fund_manager_total_exp": "39",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "39",
             "load_exit": "39",
             "main_scheme_name": "39",
@@ -2672,28 +1939,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  Nil Inception Date 24-September-2024 NAV 49.5959 (Per Unit) Scheme Statistics Monthly AAUM 77.57 (cr) Latest AUM (31-Jan-2025) 92.27 (cr) Fund Manager Mr. Swapnil Mayekar Managing this fund since 24-September-2024. He has more than 13 years of rich experience. Associate Fund Manager Mr. Dishant Mehta Managing this fund since 15 Oct-202 . He has 4 more than 1  years of rich experience. 1 For Debt component Mr. Rakesh Shetty Managing this fund since 24-September-2024. He has a rich experience of more than 14 years Total Expenses Ratio Regular 0.40%"
-========
-            "comment": "Entry Load Nil Exit Load  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty 500 Momentum 50 ETF",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "\u20b9 25",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 77.57 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "77.57 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2709,12 +1965,6 @@
             "amc_name": "40",
             "benchmark_index": "40",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "40",
-            "fund_manager_name": "40",
-            "fund_manager_total_exp": "40",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "40",
             "load_exit": "40",
             "main_scheme_name": "40",
@@ -2736,28 +1986,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 19-November-2024 NAV Regular Plan Growth Option 9.7507 Direct Plan Growth Option 9.7598 Scheme Statistics Monthly AAUM 20.55 (cr) Latest AUM (31-Jan-2025) 21.14 (cr) Fund Manager For Equity Component Mr. Swapnil Mayekar Managing this fund since 19-November-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since 20-December-2024 He has a rich experience of more than 11 years For Debt Component Mr. Rakesh Shetty Managing this fund since 19-November-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.61% Regular 1.11%"
-========
-            "comment": "Entry Load Nil Exit Load  1 if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty MidSmall Healthcare Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 20.55 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "20.55 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2773,12 +2012,6 @@
             "amc_name": "41",
             "benchmark_index": "41",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "41",
-            "fund_manager_name": "41",
-            "fund_manager_total_exp": "41",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "41",
             "load_exit": "41",
             "main_scheme_name": "41",
@@ -2800,28 +2033,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 19-November-2024 NAV Regular Plan Growth Option 9.7287 Direct Plan Growth Option 9.7385 Scheme Statistics Monthly AAUM 13.02 (cr) Latest AUM (31-Jan-2025) 13.05 (cr) Fund Manager For Equity Component Mr. Swapnil Mayekar Managing this fund since 19-November-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since 20-December-2024 He has a rich experience of more than 11 years For Debt Component Mr. Rakesh Shetty Managing this fund since 19-November-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.61% Regular 1.11%"
-========
-            "comment": "Entry Load Nil Exit Load  1 if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty MidSmall India Consumption Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 13.02 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "13.02 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2837,12 +2059,6 @@
             "amc_name": "42",
             "benchmark_index": "42",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "42",
-            "fund_manager_name": "42",
-            "fund_manager_total_exp": "42",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "42",
             "load_exit": "42",
             "main_scheme_name": "42",
@@ -2864,28 +2080,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 19-November-2024 NAV Regular Plan Growth Option 9.9653 Direct Plan Growth Option 9.9754 Scheme Statistics Monthly AAUM 14.55 (cr) Latest AUM (31-Jan-2025) 14.63 (cr) Fund Manager For Equity Component Mr. Swapnil Mayekar Managing this fund since 19-November-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since 20-December-2024 He has a rich experience of more than 11 years For Debt Component Mr. Rakesh Shetty Managing this fund since 19-November-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.61% Regular 1.11%"
-========
-            "comment": "Entry Load Nil Exit Load  1 if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty MidSmall Financial Services Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 14.55 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "14.55 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2901,12 +2106,6 @@
             "amc_name": "43",
             "benchmark_index": "43",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "43",
-            "fund_manager_name": "43",
-            "fund_manager_total_exp": "43",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "43",
             "load_exit": "43",
             "main_scheme_name": "43",
@@ -2928,28 +2127,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 19-November-2024 NAV Regular Plan Growth Option 9.9318 Direct Plan Growth Option 9.9418 Scheme Statistics Monthly AAUM 19.46 (cr) Latest AUM (31-Jan-2025) 19.09 (cr) Fund Manager For Equity Component Mr. Swapnil Mayekar Managing this fund since 19-November-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since 20-December-2024 He has a rich experience of more than 11 years For Debt Component Mr. Rakesh Shetty Managing this fund since 19-November-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.61% Regular 1.11%"
-========
-            "comment": "Entry Load Nil Exit Load  1 if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty MidSmall IT and Telecom Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 19.46 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "19.46 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }
@@ -2965,12 +2153,6 @@
             "amc_name": "44",
             "benchmark_index": "44",
             "count": 41,
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
-========
-            "fund_manager_managing_fund_since": "44",
-            "fund_manager_name": "44",
-            "fund_manager_total_exp": "44",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
             "load_entry": "44",
             "load_exit": "44",
             "main_scheme_name": "44",
@@ -2992,28 +2174,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
             "comment": "  1% if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment. Inception Date 16-December-2024 NAV Regular Plan Growth Option 8.1439 Direct Plan Growth Option 8.1512 Scheme Statistics Monthly AAUM 85.28 (cr) Latest AUM (31-Jan-2025) 85.17 (cr) Fund Manager For Equity Component Mr. Swapnil Mayekar Managing this fund since 16-December-2024 He has a rich experience of more than 13 years Associate Fund Manager Mr. Dishant Mehta Managing this fund since 20-December-2024 He has a rich experience of more than 11 years For Debt Component Mr. Rakesh Shetty Managing this fund since 16-December-2024 He has a rich experience of more than 14 years Total Expenses Ratio Direct 0.39% Regular 1.09%"
-========
-            "comment": "Entry Load Nil Exit Load  1 if redeemed on or before 15 days of allotment. Nil- If redeemed after 15 days from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
           }
         ],
         "main_scheme_name": "Motilal Oswal Nifty Capital Market Index Fund",
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/28_31-Jan-2025_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 85.28 (cr)",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "85.28 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/28_31-Jan-2025_1_FS.json
         "mutual_fund_name": "Motilal Oswal Mutual Fund",
         "scheme_launch_date": ""
       }

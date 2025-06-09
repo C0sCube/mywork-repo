@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/feb25/95_28-Feb-25_FS.json
     "document_name": "95_28-Feb-25_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:15"
-========
-    "document_name": "95_31-Mar-25_FS.pdf",
-    "file_type": "",
-    "process_date": "20250515_17:33"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/95_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -70,21 +64,12 @@
             "value": "0.25"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/95_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30",
         "monthly_aaum_value": "\u20b9 1176.15",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30",
-        "monthly_aaum_value": "1256.40",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/95_31-Mar-25_FS.json
         "mutual_fund_name": "Old Bridge Mutual Fund",
         "scheme_launch_date": "13 January 24, 2024"
       }

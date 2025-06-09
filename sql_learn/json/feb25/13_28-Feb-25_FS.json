@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
     "document_name": "13_28-Feb-25_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:07"
-========
-    "document_name": "13_31-Mar-25_FS.pdf",
-    "file_type": "",
-    "process_date": "20250515_17:24"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -19,7 +13,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "11",
             "benchmark_index": "11",
             "count": 38,
@@ -42,30 +35,6 @@
             "monthly_aaum_value": "11",
             "mutual_fund_name": "11",
             "scheme_launch_date": "11"
-========
-            "amc_name": "10",
-            "benchmark_index": "10",
-            "count": 41,
-            "fund_manager_managing_fund_since": "10",
-            "fund_manager_name": "10",
-            "fund_manager_qualification": "10",
-            "fund_manager_total_exp": "10",
-            "load_entry": "10",
-            "load_exit": "10",
-            "main_scheme_name": "10",
-            "metrics_beta": "10",
-            "metrics_port_turnover_ratio": "10",
-            "metrics_r2": "10",
-            "metrics_std_dev": "10",
-            "min_addl_amt": "10",
-            "min_addl_amt_multiple": "10",
-            "min_amt": "10",
-            "min_amt_multiple": "10",
-            "monthly_aaum_date": "10",
-            "monthly_aaum_value": "10",
-            "mutual_fund_name": "10",
-            "scheme_launch_date": "10"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -117,21 +86,12 @@
             "value": "14.29"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1780.34 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,735.82 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "10-Dec-02 Benchmark Nifty 100 TRI6"
       }
@@ -144,7 +104,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "12",
             "benchmark_index": "12",
             "count": 38,
@@ -167,30 +126,6 @@
             "monthly_aaum_value": "12",
             "mutual_fund_name": "12",
             "scheme_launch_date": "12"
-========
-            "amc_name": "11",
-            "benchmark_index": "11",
-            "count": 41,
-            "fund_manager_managing_fund_since": "11",
-            "fund_manager_name": "11",
-            "fund_manager_qualification": "11",
-            "fund_manager_total_exp": "11",
-            "load_entry": "11",
-            "load_exit": "11",
-            "main_scheme_name": "11",
-            "metrics_beta": "11",
-            "metrics_port_turnover_ratio": "11",
-            "metrics_r2": "11",
-            "metrics_std_dev": "11",
-            "min_addl_amt": "11",
-            "min_addl_amt_multiple": "11",
-            "min_amt": "11",
-            "min_amt_multiple": "11",
-            "monthly_aaum_date": "11",
-            "monthly_aaum_value": "11",
-            "mutual_fund_name": "11",
-            "scheme_launch_date": "11"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -242,21 +177,12 @@
             "value": "17.31"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3728.31 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "28-Mar-19 NIFTY Large Midcap Benchmark 6 250 TRI"
       }
@@ -269,7 +195,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "13",
             "benchmark_index": "13",
             "count": 38,
@@ -292,30 +217,6 @@
             "monthly_aaum_value": "13",
             "mutual_fund_name": "13",
             "scheme_launch_date": "13"
-========
-            "amc_name": "12",
-            "benchmark_index": "12",
-            "count": 41,
-            "fund_manager_managing_fund_since": "12",
-            "fund_manager_name": "12",
-            "fund_manager_qualification": "12",
-            "fund_manager_total_exp": "12",
-            "load_entry": "12",
-            "load_exit": "12",
-            "main_scheme_name": "12",
-            "metrics_beta": "12",
-            "metrics_port_turnover_ratio": "12",
-            "metrics_r2": "12",
-            "metrics_std_dev": "12",
-            "min_addl_amt": "12",
-            "min_addl_amt_multiple": "12",
-            "min_amt": "12",
-            "min_amt_multiple": "12",
-            "monthly_aaum_date": "12",
-            "monthly_aaum_value": "12",
-            "mutual_fund_name": "12",
-            "scheme_launch_date": "12"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -367,21 +268,12 @@
             "value": "17.59"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10255.61 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "9,957.32 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "09-Aug-04 Benchmark NIFTY Midcap 150 TRI"
       }
@@ -394,7 +286,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "14",
             "benchmark_index": "14",
             "count": 38,
@@ -417,30 +308,6 @@
             "monthly_aaum_value": "14",
             "mutual_fund_name": "14",
             "scheme_launch_date": "14"
-========
-            "amc_name": "13",
-            "benchmark_index": "13",
-            "count": 41,
-            "fund_manager_managing_fund_since": "13",
-            "fund_manager_name": "13",
-            "fund_manager_qualification": "13",
-            "fund_manager_total_exp": "13",
-            "load_entry": "13",
-            "load_exit": "13",
-            "main_scheme_name": "13",
-            "metrics_beta": "13",
-            "metrics_port_turnover_ratio": "13",
-            "metrics_r2": "13",
-            "metrics_std_dev": "13",
-            "min_addl_amt": "13",
-            "min_addl_amt_multiple": "13",
-            "min_amt": "13",
-            "min_amt_multiple": "13",
-            "monthly_aaum_date": "13",
-            "monthly_aaum_value": "13",
-            "mutual_fund_name": "13",
-            "scheme_launch_date": "13"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -492,21 +359,12 @@
             "value": "15.13"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4503.19 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,376.39 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "24-Feb-04 Benchmark NIFTY 500 TRI6"
       }
@@ -519,7 +377,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "15",
             "benchmark_index": "15",
             "count": 38,
@@ -539,27 +396,6 @@
             "monthly_aaum_value": "15",
             "mutual_fund_name": "15",
             "scheme_launch_date": "15"
-========
-            "amc_name": "14",
-            "benchmark_index": "14",
-            "count": 41,
-            "fund_manager_managing_fund_since": "14",
-            "fund_manager_name": "14",
-            "fund_manager_qualification": "14",
-            "fund_manager_total_exp": "14",
-            "load_entry": "14",
-            "load_exit": "14",
-            "main_scheme_name": "14",
-            "metrics_port_turnover_ratio": "14",
-            "min_addl_amt": "14",
-            "min_addl_amt_multiple": "14",
-            "min_amt": "14",
-            "min_amt_multiple": "14",
-            "monthly_aaum_date": "14",
-            "monthly_aaum_value": "14",
-            "mutual_fund_name": "14",
-            "scheme_launch_date": "14"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -605,21 +441,12 @@
             "value": "0.32"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4137.69 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,097.04 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "30-Jan-23 NIFTY 500 Multicap Benchmark 4 502525 TRI"
       }
@@ -632,7 +459,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "16",
             "benchmark_index": "16",
             "count": 38,
@@ -655,30 +481,6 @@
             "monthly_aaum_value": "16",
             "mutual_fund_name": "16",
             "scheme_launch_date": "16"
-========
-            "amc_name": "15",
-            "benchmark_index": "15",
-            "count": 41,
-            "fund_manager_managing_fund_since": "15",
-            "fund_manager_name": "15",
-            "fund_manager_qualification": "15",
-            "fund_manager_total_exp": "15",
-            "load_entry": "15",
-            "load_exit": "15",
-            "main_scheme_name": "15",
-            "metrics_beta": "15",
-            "metrics_port_turnover_ratio": "15",
-            "metrics_r2": "15",
-            "metrics_std_dev": "15",
-            "min_addl_amt": "15",
-            "min_addl_amt_multiple": "15",
-            "min_amt": "15",
-            "min_amt_multiple": "15",
-            "monthly_aaum_date": "15",
-            "monthly_aaum_value": "15",
-            "mutual_fund_name": "15",
-            "scheme_launch_date": "15"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -730,21 +532,12 @@
             "value": "18.49"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 14609.17 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "14,049.15 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "12-May-14 NIFTY Small Cap Benchmark 6 250 TRI"
       }
@@ -757,7 +550,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "17",
             "benchmark_index": "17",
             "count": 38,
@@ -780,30 +572,6 @@
             "monthly_aaum_value": "17",
             "mutual_fund_name": "17",
             "scheme_launch_date": "17"
-========
-            "amc_name": "16",
-            "benchmark_index": "16",
-            "count": 41,
-            "fund_manager_managing_fund_since": "16",
-            "fund_manager_name": "16",
-            "fund_manager_qualification": "16",
-            "fund_manager_total_exp": "16",
-            "load_entry": "16",
-            "load_exit": "16",
-            "main_scheme_name": "16",
-            "metrics_beta": "16",
-            "metrics_port_turnover_ratio": "16",
-            "metrics_r2": "16",
-            "metrics_std_dev": "16",
-            "min_addl_amt": "16",
-            "min_addl_amt_multiple": "16",
-            "min_amt": "16",
-            "min_amt_multiple": "16",
-            "monthly_aaum_date": "16",
-            "monthly_aaum_value": "16",
-            "mutual_fund_name": "16",
-            "scheme_launch_date": "16"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -855,21 +623,12 @@
             "value": "15.30"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1568.3 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,507.68 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "22-July-2020 Benchmark Nifty 500 TRI4"
       }
@@ -882,7 +641,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "18",
             "benchmark_index": "18",
             "count": 38,
@@ -905,30 +663,6 @@
             "monthly_aaum_value": "18",
             "mutual_fund_name": "18",
             "scheme_launch_date": "18"
-========
-            "amc_name": "17",
-            "benchmark_index": "17",
-            "count": 41,
-            "fund_manager_managing_fund_since": "17",
-            "fund_manager_name": "17",
-            "fund_manager_qualification": "17",
-            "fund_manager_total_exp": "17",
-            "load_entry": "17",
-            "load_exit": "17",
-            "main_scheme_name": "17",
-            "metrics_beta": "17",
-            "metrics_port_turnover_ratio": "17",
-            "metrics_r2": "17",
-            "metrics_std_dev": "17",
-            "min_addl_amt": "17",
-            "min_addl_amt_multiple": "17",
-            "min_amt": "17",
-            "min_amt_multiple": "17",
-            "monthly_aaum_date": "17",
-            "monthly_aaum_value": "17",
-            "mutual_fund_name": "17",
-            "scheme_launch_date": "17"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -980,21 +714,12 @@
             "value": "18.92"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2160.51 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2,138.11 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "27-Sep-07 NIFTY Infrastructure Benchmark 6 TRI"
       }
@@ -1007,7 +732,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "19",
             "benchmark_index": "19",
             "count": 38,
@@ -1030,30 +754,6 @@
             "monthly_aaum_value": "19",
             "mutual_fund_name": "19",
             "scheme_launch_date": "19"
-========
-            "amc_name": "18",
-            "benchmark_index": "18",
-            "count": 41,
-            "fund_manager_managing_fund_since": "18",
-            "fund_manager_name": "18",
-            "fund_manager_qualification": "18",
-            "fund_manager_total_exp": "18",
-            "load_entry": "18",
-            "load_exit": "18",
-            "main_scheme_name": "18",
-            "metrics_beta": "18",
-            "metrics_port_turnover_ratio": "18",
-            "metrics_r2": "18",
-            "metrics_std_dev": "18",
-            "min_addl_amt": "18",
-            "min_addl_amt_multiple": "18",
-            "min_amt": "18",
-            "min_amt_multiple": "18",
-            "monthly_aaum_date": "18",
-            "monthly_aaum_value": "18",
-            "mutual_fund_name": "18",
-            "scheme_launch_date": "18"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1099,21 +799,12 @@
             "value": "15.83"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 12361.87 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "12,132.01Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "08-Jan-10 Benchmark Nifty 500 TRI6"
       }
@@ -1126,7 +817,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "20",
             "benchmark_index": "20",
             "count": 38,
@@ -1149,30 +839,6 @@
             "monthly_aaum_value": "20",
             "mutual_fund_name": "20",
             "scheme_launch_date": "20"
-========
-            "amc_name": "19",
-            "benchmark_index": "19",
-            "count": 41,
-            "fund_manager_managing_fund_since": "19",
-            "fund_manager_name": "19",
-            "fund_manager_qualification": "19",
-            "fund_manager_total_exp": "19",
-            "load_entry": "19",
-            "load_exit": "19",
-            "main_scheme_name": "19",
-            "metrics_beta": "19",
-            "metrics_port_turnover_ratio": "19",
-            "metrics_r2": "19",
-            "metrics_std_dev": "19",
-            "min_addl_amt": "19",
-            "min_addl_amt_multiple": "19",
-            "min_amt": "19",
-            "min_amt_multiple": "19",
-            "monthly_aaum_date": "19",
-            "monthly_aaum_value": "19",
-            "mutual_fund_name": "19",
-            "scheme_launch_date": "19"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1224,21 +890,12 @@
             "value": "17.95"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 917.44 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "913.78 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20-Aug-14 Benchmark Nifty 500 TRI6"
       }
@@ -1251,7 +908,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "21",
             "benchmark_index": "21",
             "count": 38,
@@ -1271,27 +927,6 @@
             "monthly_aaum_value": "21",
             "mutual_fund_name": "21",
             "scheme_launch_date": "21"
-========
-            "amc_name": "20",
-            "benchmark_index": "20",
-            "count": 41,
-            "fund_manager_managing_fund_since": "20",
-            "fund_manager_name": "20",
-            "fund_manager_qualification": "20",
-            "fund_manager_total_exp": "20",
-            "load_entry": "20",
-            "load_exit": "20",
-            "main_scheme_name": "20",
-            "metrics_port_turnover_ratio": "20",
-            "min_addl_amt": "20",
-            "min_addl_amt_multiple": "20",
-            "min_amt": "20",
-            "min_amt_multiple": "20",
-            "monthly_aaum_date": "20",
-            "monthly_aaum_value": "20",
-            "mutual_fund_name": "20",
-            "scheme_launch_date": "20"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1331,21 +966,12 @@
             "value": "0.05"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1450.63 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,401.73 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "31-Aug-23 Nifty India Benchmark Consumption Index TRI4"
       }
@@ -1358,7 +984,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "22",
             "benchmark_index": "22",
             "count": 38,
@@ -1378,27 +1003,6 @@
             "monthly_aaum_value": "22",
             "mutual_fund_name": "22",
             "scheme_launch_date": "22"
-========
-            "amc_name": "21",
-            "benchmark_index": "21",
-            "count": 41,
-            "fund_manager_managing_fund_since": "21",
-            "fund_manager_name": "21",
-            "fund_manager_qualification": "21",
-            "fund_manager_total_exp": "21",
-            "load_entry": "21",
-            "load_exit": "21",
-            "main_scheme_name": "21",
-            "metrics_port_turnover_ratio": "21",
-            "min_addl_amt": "21",
-            "min_addl_amt_multiple": "21",
-            "min_amt": "21",
-            "min_amt_multiple": "21",
-            "monthly_aaum_date": "21",
-            "monthly_aaum_value": "21",
-            "mutual_fund_name": "21",
-            "scheme_launch_date": "21"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1438,21 +1042,12 @@
             "value": "0.04"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1690.77 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,612.03 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "25-Sep-24 Benchmark Nifty 500 TRI4"
       }
@@ -1465,7 +1060,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "23",
             "benchmark_index": "23",
             "count": 38,
@@ -1484,26 +1078,6 @@
             "monthly_aaum_value": "23",
             "mutual_fund_name": "23",
             "scheme_launch_date": "23"
-========
-            "amc_name": "22",
-            "benchmark_index": "22",
-            "count": 41,
-            "fund_manager_managing_fund_since": "22",
-            "fund_manager_name": "22",
-            "fund_manager_qualification": "22",
-            "fund_manager_total_exp": "22",
-            "load_entry": "22",
-            "load_exit": "22",
-            "main_scheme_name": "22",
-            "min_addl_amt": "22",
-            "min_addl_amt_multiple": "22",
-            "min_amt": "22",
-            "min_amt_multiple": "22",
-            "monthly_aaum_date": "22",
-            "monthly_aaum_value": "22",
-            "mutual_fund_name": "22",
-            "scheme_launch_date": "22"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1538,21 +1112,12 @@
         ],
         "main_scheme_name": "HSBC Financial Services Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 504.14 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "520.47Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "27-Feb-25 BSE Financial Benchmark 4 Services Index TRI"
       }
@@ -1677,7 +1242,6 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allotment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.45% Direct 0.20% Portfolio Turnover 0.06 Tracking Difference Regular -0.82% Direct -0.42% Tracking Error Regular 0.07% Direct 0.06% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
           }
         ],
@@ -1749,9 +1313,6 @@
           {
             "type": "exit_load",
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.80% Direct 0.35% Portfolio Turnover 0.59 Tracking Difference Regular -1.3% Direct -0.76% Tracking Error Regular 0.15% Direct 0.14% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo k High ely Ris Risk to te Hig ow era Ris h L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
-========
-            "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.79% Direct 0.34% Portfolio Turnover 0.64 Tracking Difference Regular -1.34% Direct -0.79% Tracking Error Regular 0.16% Direct 0.16% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo k High ely Ris Risk to te Hig ow era Ris h L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Nifty Next 50 Index",
@@ -1761,21 +1322,12 @@
             "value": "0.64"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 120.74 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "119.95 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "15-Apr-20 Benchmark Nifty Next 50 TRI4"
       }
@@ -1788,7 +1340,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "26",
             "benchmark_index": "26",
             "count": 38,
@@ -1811,30 +1362,6 @@
             "monthly_aaum_value": "26",
             "mutual_fund_name": "26",
             "scheme_launch_date": "26"
-========
-            "amc_name": "25",
-            "benchmark_index": "25",
-            "count": 41,
-            "fund_manager_managing_fund_since": "25",
-            "fund_manager_name": "25",
-            "fund_manager_qualification": "25",
-            "fund_manager_total_exp": "25",
-            "load_entry": "25",
-            "load_exit": "25",
-            "main_scheme_name": "25",
-            "metrics_beta": "25",
-            "metrics_port_turnover_ratio": "25",
-            "metrics_r2": "25",
-            "metrics_std_dev": "25",
-            "min_addl_amt": "25",
-            "min_addl_amt_multiple": "25",
-            "min_amt": "25",
-            "min_amt_multiple": "25",
-            "monthly_aaum_date": "25",
-            "monthly_aaum_value": "25",
-            "mutual_fund_name": "25",
-            "scheme_launch_date": "25"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -1886,21 +1413,12 @@
             "value": "15.82"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3827.83 Cr",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "",
-        "min_amt": "500",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "3,765.87 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "27-Feb-06 Benchmark Nifty 500 TRI6"
       }
@@ -1913,7 +1431,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "27",
             "benchmark_index": "27",
             "count": 38,
@@ -1936,30 +1453,6 @@
             "monthly_aaum_value": "27",
             "mutual_fund_name": "27",
             "scheme_launch_date": "27"
-========
-            "amc_name": "26",
-            "benchmark_index": "26",
-            "count": 41,
-            "fund_manager_managing_fund_since": "26",
-            "fund_manager_name": "26",
-            "fund_manager_total_exp": "26",
-            "load_entry": "26",
-            "load_exit": "26",
-            "main_scheme_name": "26",
-            "metrics_beta": "26",
-            "metrics_port_turnover_ratio": "26",
-            "metrics_r2": "26",
-            "metrics_sharpe": "26",
-            "metrics_std_dev": "26",
-            "min_addl_amt": "26",
-            "min_addl_amt_multiple": "26",
-            "min_amt": "26",
-            "min_amt_multiple": "26",
-            "monthly_aaum_date": "26",
-            "monthly_aaum_value": "26",
-            "mutual_fund_name": "26",
-            "scheme_launch_date": "26"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2009,21 +1502,12 @@
             "value": "15.64"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 228.75 Cr",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "",
-        "min_amt": "500",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "05-Jan-07 Benchmark Nifty 500 TRI6"
       }
@@ -2036,7 +1520,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "28",
             "benchmark_index": "28",
             "count": 38,
@@ -2064,35 +1547,6 @@
             "monthly_aaum_value": "28",
             "mutual_fund_name": "28",
             "scheme_launch_date": "28"
-========
-            "amc_name": "27",
-            "benchmark_index": "27",
-            "count": 41,
-            "fund_manager_managing_fund_since": "27",
-            "fund_manager_name": "27",
-            "fund_manager_qualification": "27",
-            "fund_manager_total_exp": "27",
-            "load_entry": "27",
-            "load_exit": "27",
-            "main_scheme_name": "27",
-            "metrics_avg_maturity": "27",
-            "metrics_beta": "27",
-            "metrics_macaulay": "27",
-            "metrics_mod_duration": "27",
-            "metrics_port_turnover_ratio": "27",
-            "metrics_r2": "27",
-            "metrics_sharpe": "27",
-            "metrics_std_dev": "27",
-            "metrics_ytm": "27",
-            "min_addl_amt": "27",
-            "min_addl_amt_multiple": "27",
-            "min_amt": "27",
-            "min_amt_multiple": "27",
-            "monthly_aaum_date": "27",
-            "monthly_aaum_value": "27",
-            "mutual_fund_name": "27",
-            "scheme_launch_date": "27"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2176,21 +1630,12 @@
             "value": "7.19"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5061.52 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,889.84 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "07-Feb-11 Benchmark NIFTY 50 Hybrid Composite Debt 6535 Index6"
       }
@@ -2203,7 +1648,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "29",
             "benchmark_index": "29",
             "count": 38,
@@ -2227,31 +1671,6 @@
             "monthly_aaum_value": "29",
             "mutual_fund_name": "29",
             "scheme_launch_date": "29"
-========
-            "amc_name": "28",
-            "benchmark_index": "28",
-            "count": 41,
-            "fund_manager_managing_fund_since": "28",
-            "fund_manager_name": "28",
-            "fund_manager_qualification": "28",
-            "fund_manager_total_exp": "28",
-            "load_entry": "28",
-            "load_exit": "28",
-            "main_scheme_name": "28",
-            "metrics_avg_maturity": "28",
-            "metrics_macaulay": "28",
-            "metrics_mod_duration": "28",
-            "metrics_port_turnover_ratio": "28",
-            "metrics_ytm": "28",
-            "min_addl_amt": "28",
-            "min_addl_amt_multiple": "28",
-            "min_amt": "28",
-            "min_amt_multiple": "28",
-            "monthly_aaum_date": "28",
-            "monthly_aaum_value": "28",
-            "mutual_fund_name": "28",
-            "scheme_launch_date": "28"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2319,21 +1738,12 @@
             "value": "7.22"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,014.23 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "28-Feb-24 Benchmark BSE 200 TRI (65%) + NIFTY Short Duration Debt Index (20%) +Domestic Price of Gold (10%)+Domestic Price of Silver (5%)4"
       }
@@ -2346,7 +1756,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "30",
             "benchmark_index": "30",
             "count": 38,
@@ -2370,31 +1779,6 @@
             "monthly_aaum_value": "30",
             "mutual_fund_name": "30",
             "scheme_launch_date": "30"
-========
-            "amc_name": "29",
-            "benchmark_index": "29",
-            "count": 41,
-            "fund_manager_managing_fund_since": "29",
-            "fund_manager_name": "29",
-            "fund_manager_qualification": "29",
-            "fund_manager_total_exp": "29",
-            "load_entry": "29",
-            "load_exit": "29",
-            "main_scheme_name": "29",
-            "metrics_avg_maturity": "29",
-            "metrics_macaulay": "29",
-            "metrics_mod_duration": "29",
-            "metrics_port_turnover_ratio": "29",
-            "metrics_ytm": "29",
-            "min_addl_amt": "29",
-            "min_addl_amt_multiple": "29",
-            "min_amt": "29",
-            "min_amt_multiple": "29",
-            "monthly_aaum_date": "29",
-            "monthly_aaum_value": "29",
-            "mutual_fund_name": "29",
-            "scheme_launch_date": "29"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2474,21 +1858,12 @@
             "value": "7.07"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1466.15 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,448.02 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "07-Feb-11 Benchmark Nifty 50 Hybrid composite debt 5050 Index4"
       }
@@ -2501,7 +1876,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "31",
             "benchmark_index": "31",
             "count": 38,
@@ -2525,31 +1899,6 @@
             "monthly_aaum_value": "31",
             "mutual_fund_name": "31",
             "scheme_launch_date": "31"
-========
-            "amc_name": "30",
-            "benchmark_index": "30",
-            "count": 41,
-            "fund_manager_managing_fund_since": "30",
-            "fund_manager_name": "30",
-            "fund_manager_qualification": "30",
-            "fund_manager_total_exp": "30",
-            "load_entry": "30",
-            "load_exit": "30",
-            "main_scheme_name": "30",
-            "metrics_avg_maturity": "30",
-            "metrics_macaulay": "30",
-            "metrics_mod_duration": "30",
-            "metrics_port_turnover_ratio": "30",
-            "metrics_ytm": "30",
-            "min_addl_amt": "30",
-            "min_addl_amt_multiple": "30",
-            "min_amt": "30",
-            "min_amt_multiple": "30",
-            "monthly_aaum_date": "30",
-            "monthly_aaum_value": "30",
-            "mutual_fund_name": "30",
-            "scheme_launch_date": "30"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2629,21 +1978,12 @@
             "value": "6.82"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 638.43 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "623.2 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "18-Oct-11 NIFTY Equity Benchmark 4 Savings Index"
       }
@@ -2656,7 +1996,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "32",
             "benchmark_index": "32",
             "count": 38,
@@ -2676,27 +2015,6 @@
             "monthly_aaum_value": "32",
             "mutual_fund_name": "32",
             "scheme_launch_date": "32"
-========
-            "amc_name": "31",
-            "benchmark_index": "31",
-            "count": 41,
-            "fund_manager_managing_fund_since": "31",
-            "fund_manager_name": "31",
-            "fund_manager_qualification": "31",
-            "fund_manager_total_exp": "31",
-            "load_entry": "31",
-            "load_exit": "31",
-            "main_scheme_name": "31",
-            "metrics_port_turnover_ratio": "31",
-            "min_addl_amt": "31",
-            "min_addl_amt_multiple": "31",
-            "min_amt": "31",
-            "min_amt_multiple": "31",
-            "monthly_aaum_date": "31",
-            "monthly_aaum_value": "31",
-            "mutual_fund_name": "31",
-            "scheme_launch_date": "31"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -2742,21 +2060,12 @@
             "value": "13.63"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2244.0174 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2,234.84 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "30-Jun-14 Benchmark Nifty 50 Arbitrage Index4"
       }
@@ -3092,21 +2401,12 @@
             "value": "7.07"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2927.17 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "3169.74 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "22-May-19 NIFTY 1D Rate Benchmark 5,6 Index"
       }
@@ -3119,7 +2419,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "37",
             "benchmark_index": "37",
             "count": 38,
@@ -3205,8 +2504,6 @@
         ],
         "field_location": [
           {
-========
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
             "amc_name": "38",
             "benchmark_index": "38",
             "count": 41,
@@ -3359,21 +2656,12 @@
             "value": "7.0"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2530.18 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2521.71 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "10-Aug-05 Benchmark NIFTY Money Market Index A-I6"
       }
@@ -3386,7 +2674,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "39",
             "benchmark_index": "39",
             "count": 38,
@@ -3409,30 +2696,6 @@
             "monthly_aaum_value": "39",
             "mutual_fund_name": "39",
             "scheme_launch_date": "39"
-========
-            "amc_name": "40",
-            "benchmark_index": "40",
-            "count": 41,
-            "fund_manager_managing_fund_since": "40",
-            "fund_manager_name": "40",
-            "fund_manager_qualification": "40",
-            "fund_manager_total_exp": "40",
-            "load_entry": "40",
-            "load_exit": "40",
-            "main_scheme_name": "40",
-            "metrics_avg_maturity": "40",
-            "metrics_macaulay": "40",
-            "metrics_mod_duration": "40",
-            "metrics_ytm": "40",
-            "min_addl_amt": "40",
-            "min_addl_amt_multiple": "40",
-            "min_amt": "40",
-            "min_amt_multiple": "40",
-            "monthly_aaum_date": "40",
-            "monthly_aaum_value": "40",
-            "mutual_fund_name": "40",
-            "scheme_launch_date": "40"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -3478,21 +2741,12 @@
             "value": "7.37"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 538.46 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "536.56 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "04-Dec-10 Benchmark NIFTY Low Duration Debt Index A-I 5"
       }
@@ -3505,7 +2759,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "40",
             "benchmark_index": "40",
             "count": 38,
@@ -3528,30 +2781,6 @@
             "monthly_aaum_value": "40",
             "mutual_fund_name": "40",
             "scheme_launch_date": "40"
-========
-            "amc_name": "41",
-            "benchmark_index": "41",
-            "count": 41,
-            "fund_manager_managing_fund_since": "41",
-            "fund_manager_name": "41",
-            "fund_manager_qualification": "41",
-            "fund_manager_total_exp": "41",
-            "load_entry": "41",
-            "load_exit": "41",
-            "main_scheme_name": "41",
-            "metrics_avg_maturity": "41",
-            "metrics_macaulay": "41",
-            "metrics_mod_duration": "41",
-            "metrics_ytm": "41",
-            "min_addl_amt": "41",
-            "min_addl_amt_multiple": "41",
-            "min_amt": "41",
-            "min_amt_multiple": "41",
-            "monthly_aaum_date": "41",
-            "monthly_aaum_value": "41",
-            "mutual_fund_name": "41",
-            "scheme_launch_date": "41"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -3597,21 +2826,12 @@
             "value": "7.19"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2656.2 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "2471.06 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "29-Jan-20 Benchmark NIFTY Ultra Short Duration Debt Index A-I 5"
       }
@@ -3624,7 +2844,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "41",
             "benchmark_index": "41",
             "count": 38,
@@ -3647,30 +2866,6 @@
             "monthly_aaum_value": "41",
             "mutual_fund_name": "41",
             "scheme_launch_date": "41"
-========
-            "amc_name": "42",
-            "benchmark_index": "42",
-            "count": 41,
-            "fund_manager_managing_fund_since": "42",
-            "fund_manager_name": "42",
-            "fund_manager_qualification": "42",
-            "fund_manager_total_exp": "42",
-            "load_entry": "42",
-            "load_exit": "42",
-            "main_scheme_name": "42",
-            "metrics_avg_maturity": "42",
-            "metrics_macaulay": "42",
-            "metrics_mod_duration": "42",
-            "metrics_ytm": "42",
-            "min_addl_amt": "42",
-            "min_addl_amt_multiple": "42",
-            "min_amt": "42",
-            "min_amt_multiple": "42",
-            "monthly_aaum_date": "42",
-            "monthly_aaum_value": "42",
-            "mutual_fund_name": "42",
-            "scheme_launch_date": "42"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -3716,21 +2911,12 @@
             "value": "7.14"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3714.65 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "3677.81 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "27-Dec-11 Benchmark NIFTY Short Duration Debt Index A-II (effective September 04, 2023)5"
       }
@@ -3743,7 +2929,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "42",
             "benchmark_index": "42",
             "count": 38,
@@ -3766,30 +2951,6 @@
             "monthly_aaum_value": "42",
             "mutual_fund_name": "42",
             "scheme_launch_date": "42"
-========
-            "amc_name": "43",
-            "benchmark_index": "43",
-            "count": 41,
-            "fund_manager_managing_fund_since": "43",
-            "fund_manager_name": "43",
-            "fund_manager_qualification": "43",
-            "fund_manager_total_exp": "43",
-            "load_entry": "43",
-            "load_exit": "43",
-            "main_scheme_name": "43",
-            "metrics_avg_maturity": "43",
-            "metrics_macaulay": "43",
-            "metrics_mod_duration": "43",
-            "metrics_ytm": "43",
-            "min_addl_amt": "43",
-            "min_addl_amt_multiple": "43",
-            "min_amt": "43",
-            "min_amt_multiple": "43",
-            "monthly_aaum_date": "43",
-            "monthly_aaum_value": "43",
-            "mutual_fund_name": "43",
-            "scheme_launch_date": "43"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -3829,21 +2990,12 @@
             "value": "7.70"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 698.06 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "657.71 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "02-Feb-15 Benchmark NIFTY Medium Duration Debt Index A-III5"
       }
@@ -3856,7 +3008,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "43",
             "benchmark_index": "43",
             "count": 38,
@@ -3879,30 +3030,6 @@
             "monthly_aaum_value": "43",
             "mutual_fund_name": "43",
             "scheme_launch_date": "43"
-========
-            "amc_name": "44",
-            "benchmark_index": "44",
-            "count": 41,
-            "fund_manager_managing_fund_since": "44",
-            "fund_manager_name": "44",
-            "fund_manager_qualification": "44",
-            "fund_manager_total_exp": "44",
-            "load_entry": "44",
-            "load_exit": "44",
-            "main_scheme_name": "44",
-            "metrics_avg_maturity": "44",
-            "metrics_macaulay": "44",
-            "metrics_mod_duration": "44",
-            "metrics_ytm": "44",
-            "min_addl_amt": "44",
-            "min_addl_amt_multiple": "44",
-            "min_amt": "44",
-            "min_amt_multiple": "44",
-            "monthly_aaum_date": "44",
-            "monthly_aaum_value": "44",
-            "mutual_fund_name": "44",
-            "scheme_launch_date": "44"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -3948,21 +3075,12 @@
             "value": "6.98"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 48.48 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "48.43 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "10-Dec-02 Benchmark NIFTY Medium to Long Dura- tion Debt Index A-III (effective September 04, 2023) 5"
       }
@@ -3975,7 +3093,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "44",
             "benchmark_index": "44",
             "count": 38,
@@ -3998,30 +3115,6 @@
             "monthly_aaum_value": "44",
             "mutual_fund_name": "44",
             "scheme_launch_date": "44"
-========
-            "amc_name": "45",
-            "benchmark_index": "45",
-            "count": 41,
-            "fund_manager_managing_fund_since": "45",
-            "fund_manager_name": "45",
-            "fund_manager_qualification": "45",
-            "fund_manager_total_exp": "45",
-            "load_entry": "45",
-            "load_exit": "45",
-            "main_scheme_name": "45",
-            "metrics_avg_maturity": "45",
-            "metrics_macaulay": "45",
-            "metrics_mod_duration": "45",
-            "metrics_ytm": "45",
-            "min_addl_amt": "45",
-            "min_addl_amt_multiple": "45",
-            "min_amt": "45",
-            "min_amt_multiple": "45",
-            "monthly_aaum_date": "45",
-            "monthly_aaum_value": "45",
-            "mutual_fund_name": "45",
-            "scheme_launch_date": "45"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -4067,21 +3160,12 @@
             "value": "6.95"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 155.84 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "150.72 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "27-Sep-10 Benchmark NIFTY Composite Debt Index A-III 5"
       }
@@ -4094,7 +3178,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "45",
             "benchmark_index": "45",
             "count": 38,
@@ -4117,30 +3200,6 @@
             "monthly_aaum_value": "45",
             "mutual_fund_name": "45",
             "scheme_launch_date": "45"
-========
-            "amc_name": "46",
-            "benchmark_index": "46",
-            "count": 41,
-            "fund_manager_managing_fund_since": "46",
-            "fund_manager_name": "46",
-            "fund_manager_qualification": "46",
-            "fund_manager_total_exp": "46",
-            "load_entry": "46",
-            "load_exit": "46",
-            "main_scheme_name": "46",
-            "metrics_avg_maturity": "46",
-            "metrics_macaulay": "46",
-            "metrics_mod_duration": "46",
-            "metrics_ytm": "46",
-            "min_addl_amt": "46",
-            "min_addl_amt_multiple": "46",
-            "min_amt": "46",
-            "min_amt_multiple": "46",
-            "monthly_aaum_date": "46",
-            "monthly_aaum_value": "46",
-            "mutual_fund_name": "46",
-            "scheme_launch_date": "46"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -4186,21 +3245,12 @@
             "value": "7.1"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5860.84 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "5,739.09 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "31-Mar-97 Benchmark NIFTY Corporate Bond Index A-II5"
       }
@@ -4213,7 +3263,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "46",
             "benchmark_index": "46",
             "count": 38,
@@ -4236,30 +3285,6 @@
             "monthly_aaum_value": "46",
             "mutual_fund_name": "46",
             "scheme_launch_date": "46"
-========
-            "amc_name": "47",
-            "benchmark_index": "47",
-            "count": 41,
-            "fund_manager_managing_fund_since": "47",
-            "fund_manager_name": "47",
-            "fund_manager_qualification": "47",
-            "fund_manager_total_exp": "47",
-            "load_entry": "47",
-            "load_exit": "47",
-            "main_scheme_name": "47",
-            "metrics_avg_maturity": "47",
-            "metrics_macaulay": "47",
-            "metrics_mod_duration": "47",
-            "metrics_ytm": "47",
-            "min_addl_amt": "47",
-            "min_addl_amt_multiple": "47",
-            "min_amt": "47",
-            "min_amt_multiple": "47",
-            "monthly_aaum_date": "47",
-            "monthly_aaum_value": "47",
-            "mutual_fund_name": "47",
-            "scheme_launch_date": "47"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -4299,21 +3324,12 @@
             "value": "7.10"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4164.14 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "4,273.68 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "12-Sep-12 Benchmark Nifty Banking  PSU Debt Index A-II5"
       }
@@ -4326,7 +3342,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "47",
             "benchmark_index": "47",
             "count": 38,
@@ -4349,30 +3364,6 @@
             "monthly_aaum_value": "47",
             "mutual_fund_name": "47",
             "scheme_launch_date": "47"
-========
-            "amc_name": "48",
-            "benchmark_index": "48",
-            "count": 41,
-            "fund_manager_managing_fund_since": "48",
-            "fund_manager_name": "48",
-            "fund_manager_qualification": "48",
-            "fund_manager_total_exp": "48",
-            "load_entry": "48",
-            "load_exit": "48",
-            "main_scheme_name": "48",
-            "metrics_avg_maturity": "48",
-            "metrics_macaulay": "48",
-            "metrics_mod_duration": "48",
-            "metrics_ytm": "48",
-            "min_addl_amt": "48",
-            "min_addl_amt_multiple": "48",
-            "min_amt": "48",
-            "min_amt_multiple": "48",
-            "monthly_aaum_date": "48",
-            "monthly_aaum_value": "48",
-            "mutual_fund_name": "48",
-            "scheme_launch_date": "48"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -4412,21 +3403,12 @@
             "value": "7.89"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 581.93 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "588.34 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "08-Oct-09 Benchmark NIFTY Credit Risk Bond Index B-II5"
       }
@@ -4439,7 +3421,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "48",
             "benchmark_index": "48",
             "count": 38,
@@ -4462,30 +3443,6 @@
             "monthly_aaum_value": "48",
             "mutual_fund_name": "48",
             "scheme_launch_date": "48"
-========
-            "amc_name": "49",
-            "benchmark_index": "49",
-            "count": 41,
-            "fund_manager_managing_fund_since": "49",
-            "fund_manager_name": "49",
-            "fund_manager_qualification": "49",
-            "fund_manager_total_exp": "49",
-            "load_entry": "49",
-            "load_exit": "49",
-            "main_scheme_name": "49",
-            "metrics_avg_maturity": "49",
-            "metrics_macaulay": "49",
-            "metrics_mod_duration": "49",
-            "metrics_ytm": "49",
-            "min_addl_amt": "49",
-            "min_addl_amt_multiple": "49",
-            "min_amt": "49",
-            "min_amt_multiple": "49",
-            "monthly_aaum_date": "49",
-            "monthly_aaum_value": "49",
-            "mutual_fund_name": "49",
-            "scheme_launch_date": "49"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -4531,21 +3488,12 @@
             "value": "6.96"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 259.56 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "255.42 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "29-Mar-00 Benchmark NIFTY All Duration G-Sec Index5"
       }
@@ -4558,7 +3506,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "49",
             "benchmark_index": "49",
             "count": 38,
@@ -4581,30 +3528,6 @@
             "monthly_aaum_value": "49",
             "mutual_fund_name": "49",
             "scheme_launch_date": "49"
-========
-            "amc_name": "50",
-            "benchmark_index": "50",
-            "count": 41,
-            "fund_manager_managing_fund_since": "50",
-            "fund_manager_name": "50",
-            "fund_manager_qualification": "50",
-            "fund_manager_total_exp": "50",
-            "load_entry": "50",
-            "load_exit": "50",
-            "main_scheme_name": "50",
-            "metrics_avg_maturity": "50",
-            "metrics_macaulay": "50",
-            "metrics_mod_duration": "50",
-            "metrics_ytm": "50",
-            "min_addl_amt": "50",
-            "min_addl_amt_multiple": "50",
-            "min_amt": "50",
-            "min_amt_multiple": "50",
-            "monthly_aaum_date": "50",
-            "monthly_aaum_value": "50",
-            "mutual_fund_name": "50",
-            "scheme_launch_date": "50"
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
           }
         ],
         "fund_manager": [
@@ -4650,20 +3573,12 @@
             "value": "6.83"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
-========
-        "min_addl_amt": "1,000",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "min_addl_amt_multiple": "",
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "monthly_aaum_value": "\u20b9 148.48 Cr",
-========
-        "monthly_aaum_value": "146.58 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "24-Feb-04 Benchmark NIFTY 50 Hybrid Composite Debt 1585 Index5"
       }
@@ -4676,7 +3591,6 @@
         ],
         "field_location": [
           {
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
             "amc_name": "50",
             "benchmark_index": "50",
             "count": 38,
@@ -4762,8 +3676,6 @@
         ],
         "field_location": [
           {
-========
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
             "amc_name": "51",
             "benchmark_index": "51",
             "count": 41,
@@ -4812,7 +3724,6 @@
             "comment": "None"
           }
         ],
-<<<<<<<< HEAD:sql_learn/feb25/13_28-Feb-25_FS.json
         "main_scheme_name": "HSBC CRISIL IBX Gilt June 2027 Index",
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
@@ -4821,97 +3732,6 @@
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 198.24 Cr",
-========
-        "main_scheme_name": "HSBC CRISIL IBX 5050 Gilt Plus SDL Apr 2028 Index",
-        "metrics": [
-          {
-            "name": "avg_maturity",
-            "value": "2.82 Yea"
-          },
-          {
-            "name": "macaulay",
-            "value": "2.54 Yea"
-          },
-          {
-            "name": "mod_duration",
-            "value": "2.46 Yea"
-          },
-          {
-            "name": "ytm",
-            "value": "6.75"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "1,887.08 Cr",
-        "mutual_fund_name": "HSBC Mutual Fund",
-        "scheme_launch_date": "31-Mar-22 Benchmark CRISIL IBX 5050 Gilt Plus SDL Index - April 20285"
-      }
-    },
-    {
-      "value": {
-        "amc_name": "HSBC Asset Management (India) Private Limited",
-        "benchmark_index": [
-          "23-Mar-23 Benchmark CRISIL-IBX Gilt Index - June 20275"
-        ],
-        "field_location": [
-          {
-            "amc_name": "52",
-            "benchmark_index": "52",
-            "count": 41,
-            "fund_manager_managing_fund_since": "52",
-            "fund_manager_name": "52",
-            "fund_manager_qualification": "52",
-            "fund_manager_total_exp": "52",
-            "load_entry": "52",
-            "load_exit": "52",
-            "main_scheme_name": "52",
-            "min_addl_amt": "52",
-            "min_addl_amt_multiple": "52",
-            "min_amt": "52",
-            "min_amt_multiple": "52",
-            "monthly_aaum_date": "52",
-            "monthly_aaum_value": "52",
-            "mutual_fund_name": "52",
-            "scheme_launch_date": "52"
-          }
-        ],
-        "fund_manager": [
-          {
-            "managing_fund_since": "Jul 15, 2023",
-            "name": "Mahesh Chhabria",
-            "qualification": "Fixed Income",
-            "total_exp": "14.5 Years"
-          },
-          {
-            "managing_fund_since": "Feb 01, 2025",
-            "name": "Mohd. Asif Rizwi",
-            "qualification": "Fixed Income",
-            "total_exp": "15.5 Years"
-          }
-        ],
-        "load": [
-          {
-            "type": "entry_load",
-            "comment": "None"
-          },
-          {
-            "type": "exit_load",
-            "comment": "None"
-          }
-        ],
-        "main_scheme_name": "HSBC CRISIL IBX Gilt June 2027 Index",
-        "metrics": [],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "197.73 Cr",
->>>>>>>> deploy:sql_learn/json/AMC FEB 2025/13_31-Mar-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "23-Mar-23 Benchmark CRISIL-IBX Gilt Index - June 20275"
       }

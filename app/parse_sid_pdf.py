@@ -122,13 +122,13 @@ class ReaderSIDKIM:
         self.FIELD_LOCATION["page_table"] = pages.split(",")[0]
         table_params = self.PARAMS["table_data"]
         
-        dfs = self._table_parser._extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
-        col_start = self._table_parser._get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
+        dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
+        col_start = self._table_parser.get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
         print(f"[COL START]: {col_start} _keys: {table_params["keywords"]}")
         
-        dfs = self._table_parser._get_sub_dataframe(dfs,cs=col_start[0])
-        dfs = self._table_parser._clean_dataframe(dfs, ["newline_to_space"])
-        dfs.iloc[:, 0] = self._table_parser._clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"]).ffill()
+        dfs = self._table_parser.get_sub_dataframe(dfs,cs=col_start[0])
+        dfs = self._table_parser.clean_dataframe(dfs, ["newline_to_space"])
+        dfs.iloc[:, 0] = self._table_parser.clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"]).ffill()
     
         dfs.columns = ['Title'] + [f'Data{i}' for i in range(1, dfs.shape[1])] #new col structure
         return self._table_parser._group_and_collect(dfs,group_col="Title")
@@ -138,12 +138,12 @@ class ReaderSIDKIM:
         self.FIELD_LOCATION["page_manager"] = pages.split(",")[0]
         manager_params = self.PARAMS["manager_data"]
 
-        dfs = self._table_parser._extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
-        row_start = self._table_parser._get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
+        dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
+        row_start = self._table_parser.get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
         print(f"[ROW START]: {row_start} _keys: {manager_params["keywords"]}")
         
-        dfs = self._table_parser._get_sub_dataframe(dfs,rs=row_start[0])
-        dfs = self._table_parser._clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
+        dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_start[0])
+        dfs = self._table_parser.clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
         dfs = dfs.dropna(axis=1, how="all").dropna(axis=0, how="all") #drop NA cols
 
         match_order = manager_params["order"]
@@ -166,17 +166,17 @@ class ReaderSIDKIM:
         self.FIELD_LOCATION["kim"] = int(pages.split(",")[0])
         kim_params = self.PARAMS["kim"]
         
-        dfs = self._table_parser._extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
-        dfs = self._table_parser._clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
+        dfs = self._table_parser.extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
+        dfs = self._table_parser.clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
         
-        row_match = self._table_parser._get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
+        row_match = self._table_parser.get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
         print(f"[ROW START]: {row_match}" )
         
         #range/offset
         row_s,row_e = row_match[0]+1, row_match[0]+ 3 + instrument_count
         
-        dfs = self._table_parser._get_sub_dataframe(dfs,rs=row_s, re=row_e)
-        dfs = self._table_parser._clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
+        dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_s, re=row_e)
+        dfs = self._table_parser.clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
         # print(dfs)
         final_data = {}
         #fitz pages check params

@@ -1,13 +1,8 @@
 {
   "metadata": {
     "document_name": "10_31-Jan-25_FS.pdf",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
     "file_type": "",
     "process_date": "20250514_14:49"
-========
-    "file_type": "fs",
-    "process_date": "20250521"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
   },
   "records": [
     {
@@ -68,11 +63,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% if exit  1 Year NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY SMALLCAP 250 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% if exit  1 Year"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Small Cap Fund",
@@ -102,21 +93,12 @@
             "value": "23.29"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 25,183 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "25,183 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "19961029"
       }
@@ -203,21 +185,12 @@
             "value": "18.18"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10,279 cr",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "500",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "10,279 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20000413"
       }
@@ -280,11 +253,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 500 MULTICAP 502525 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Active Fund",
@@ -314,21 +283,12 @@
             "value": "17.73"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 9,863 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "9,863 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20010417"
       }
@@ -391,11 +351,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "0.5% if exit  3 Months NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY MIDCAP 150 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "0.5% if exit  3 Months"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Mid Cap Fund",
@@ -425,21 +381,12 @@
             "value": "17.68"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 8,608 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "8,608 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20010320"
       }
@@ -508,11 +455,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 500 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Flexi Cap Fund",
@@ -542,21 +485,12 @@
             "value": "17.97"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,829 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "6,829 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20081017"
       }
@@ -619,11 +553,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY LARGE MIDCAP 250 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Large & Mid Cap Fund",
@@ -653,21 +583,12 @@
             "value": "16.19"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,612 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3,612 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20070108"
       }
@@ -724,11 +645,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "0.5% if exit  3 Months NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY INFRASTRUCTURE TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "0.5% if exit  3 Months"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Infrastructure Fund",
@@ -758,21 +675,12 @@
             "value": "19.49"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,304 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3,304 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20070920"
       }
@@ -841,11 +749,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 100 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Large Cap Fund",
@@ -875,21 +779,12 @@
             "value": "11.37"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,521 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,521 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20220811"
       }
@@ -958,11 +853,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 200 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Quantamental Fund",
@@ -992,21 +883,12 @@
             "value": "13.77"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,122 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,122 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20210503"
       }
@@ -1069,11 +951,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 50 Hybrid Composite Debt 6535 Index Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Absolute Fund",
@@ -1103,21 +981,12 @@
             "value": "13.59"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,056 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,056 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20010404"
       }
@@ -1186,11 +1055,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 500 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Momentum Fund",
@@ -1220,21 +1085,12 @@
             "value": "17.40"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,890 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,890 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20231120"
       }
@@ -1303,11 +1159,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 500 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Value Fund",
@@ -1337,21 +1189,12 @@
             "value": "16.18"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,776 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,776 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20211130"
       }
@@ -1420,11 +1263,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 500 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Business Cycle Fund",
@@ -1454,21 +1293,12 @@
             "value": "15.12"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,385 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,385 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20230530"
       }
@@ -1537,11 +1367,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 50 Hybrid Composite debt 5050 Index Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Dynamic Asset Allocation Fund",
@@ -1571,21 +1397,12 @@
             "value": "13.76"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,274 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,274 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20230412"
       }
@@ -1648,11 +1465,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 500 TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Focused Fund",
@@ -1682,21 +1495,12 @@
             "value": "15.62"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,064 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,064 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20080828"
       }
@@ -1765,11 +1569,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX Nifty India Manufacturing Index Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Manufacturing Fund",
@@ -1799,21 +1599,12 @@
             "value": "14.66"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 894 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "894 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20230814"
       }
@@ -1882,11 +1673,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX Nifty PSE TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant PSU Fund",
@@ -1916,21 +1703,12 @@
             "value": "15.17"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 759 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "759 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20240220"
       }
@@ -1999,11 +1777,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX Nifty Financial Services TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant BFSI Fund",
@@ -2033,21 +1807,12 @@
             "value": "14.59"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 601 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "601 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20230620"
       }
@@ -2110,11 +1875,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX Nifty IT TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Teck Fund",
@@ -2144,21 +1905,12 @@
             "value": "15.93"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 407 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "407 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20230911"
       }
@@ -2227,11 +1979,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY Healthcare TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Healthcare Fund",
@@ -2261,21 +2009,12 @@
             "value": "16.38"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 402 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "402 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20230717"
       }
@@ -2350,11 +2089,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX Nifty Commodities TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Commodities Fund",
@@ -2384,21 +2119,12 @@
             "value": "15.95"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 375 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "375 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20231227"
       }
@@ -2467,11 +2193,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY India Consumption TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Consumption Fund",
@@ -2501,21 +2223,12 @@
             "value": "10.87"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 310 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "310 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20240124"
       }
@@ -2578,11 +2291,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "1% for 15 days NAV Details  Pleaseclick here EXPENSE RATIO  Please click here (For both Direct and Reqular plans) BENCHMARK INDEX NIFTY 100 ESG TRI Scheme Riskometer Benchmark Riskometer Investors should consult their financial advisers if in doubt about whether the product is suitable for them As on January 31, 2025"
-========
-            "comment": "1% for 15 days"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant ESG Equity Fund",
@@ -2612,21 +2321,12 @@
             "value": "16.25"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 288 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "288 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20201105"
       }
@@ -2751,21 +2451,12 @@
             "value": "6.57"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3,162 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3,162 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20010417"
       }
@@ -2814,11 +2505,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
             "comment": "(w.e.f. October 20, 2019) 9 lnvestor exit upon Exit Load as a % of 9 subscription  switch-In redemption Proceeds T Day1 0.0070% C Day2 0.0065% Day3 0.0060% ( Day4 0.0055% T Day5 0.0050% G Day6 0.0045% Day7 Onwards 0.0000% BENCHMARK INDEX CRISIL LIQUID FUND A1 INDEX Scheme Riskometer Benchmark Riskometer i Investors should consult their financial advisers if in doubt about whether the product is B suitable for them  As on January 31, 2025"
-========
-            "comment": "(w.e.f. October 20, 2019) 9 lnvestor exit upon Exit Load as a % of 9 subscription  switch-In redemption Proceeds T Day1 0.0070% C Day2 0.0065% Day3 0.0060% ( Day4 0.0055% T Day5 0.0050% G Day6 0.0045% Day7 Onwards 0.0000%"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "quant Liquid Fund",
@@ -2840,21 +2527,12 @@
             "value": "7.44"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,547 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,547 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20051003"
       }
@@ -2925,21 +2603,12 @@
             "value": "6.89"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 121 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "121 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20221221"
       }
@@ -3010,21 +2679,12 @@
             "value": "6.51"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/10_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 117 cr",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "117 cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/10_31-Jan-25_FS.json
         "mutual_fund_name": "Quant Mutual Fund",
         "scheme_launch_date": "20221204"
       }

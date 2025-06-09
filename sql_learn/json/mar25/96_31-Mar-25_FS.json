@@ -2,11 +2,7 @@
   "metadata": {
     "document_name": "96_31-Mar-25_FS.pdf",
     "file_type": "",
-<<<<<<<< HEAD:sql_learn/mar25/96_31-Mar-25_FS.json
     "process_date": "20250514_13:24"
-========
-    "process_date": "20250515_16:47"
->>>>>>>> deploy:sql_learn/json/AMC MAR 2025/96_31-Mar-25_FS.json
   },
   "records": [
     {
@@ -73,11 +69,7 @@
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
-<<<<<<<< HEAD:sql_learn/mar25/96_31-Mar-25_FS.json
         "monthly_aaum_value": "\u20b9 5.92 crs",
-========
-        "monthly_aaum_value": "5.92 crs",
->>>>>>>> deploy:sql_learn/json/AMC MAR 2025/96_31-Mar-25_FS.json
         "mutual_fund_name": "Angel One Mutual Fund",
         "scheme_launch_date": "25th March 2025"
       }
@@ -146,11 +138,7 @@
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
-<<<<<<<< HEAD:sql_learn/mar25/96_31-Mar-25_FS.json
         "monthly_aaum_value": "\u20b9 15.60 crs",
-========
-        "monthly_aaum_value": "15.60 crs",
->>>>>>>> deploy:sql_learn/json/AMC MAR 2025/96_31-Mar-25_FS.json
         "mutual_fund_name": "Angel One Mutual Fund",
         "scheme_launch_date": "28th February 2025"
       }
@@ -214,21 +202,12 @@
             "value": "0.12"
           }
         ],
-<<<<<<<< HEAD:sql_learn/mar25/96_31-Mar-25_FS.json
         "min_addl_amt": "\u20b9 1000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 1000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 31.84 crs",
-========
-        "min_addl_amt": "1000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "1000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "30-04-2025",
-        "monthly_aaum_value": "31.84 crs",
->>>>>>>> deploy:sql_learn/json/AMC MAR 2025/96_31-Mar-25_FS.json
         "mutual_fund_name": "Angel One Mutual Fund",
         "scheme_launch_date": "28th February 2025"
       }

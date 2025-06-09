@@ -1,13 +1,8 @@
 {
   "metadata": {
     "document_name": "9_31-Jan-25_FS.pdf",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
     "file_type": "",
     "process_date": "20250514_14:38"
-========
-    "file_type": "fs",
-    "process_date": "20250521"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
   },
   "records": [
     {
@@ -45,7 +40,6 @@
             "total_exp": "18 Years"
           },
           {
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "type": "exit_load",
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
           }
@@ -91,9 +85,6 @@
         "fund_manager": [
           {
             "managing_fund_since": "01-D",
-========
-            "managing_fund_since": "02-May-17",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "name": "Bhavesh Jain",
             "qualification": "",
             "total_exp": "16 Years"
@@ -111,21 +102,12 @@
         ],
         "main_scheme_name": "Edelweiss Large Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 231.51 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,098.73 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20090520"
       }
@@ -253,30 +235,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00%  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Flexi Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,399.62 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,399.62 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20150203"
       }
@@ -335,30 +304,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00%  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Mid Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 8,408.57 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "8,408.57 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20071226"
       }
@@ -417,30 +373,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00%  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Small Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,263.91 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4,263.91 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20190207"
       }
@@ -493,30 +436,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 Upto 180 days : 2% \u00b7 After 180 days : Nil "
-========
-            "comment": "Upto 180 days  2%  After 180 days  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Recently Listed IPO Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 955.06 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "955.06 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20180222"
       }
@@ -580,21 +510,12 @@
         ],
         "main_scheme_name": "Edelweiss ELSS Tax saver Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 387.14 Crore",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "500",
-        "min_amt": "500",
-        "min_amt_multiple": "500",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "387.14 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20081230"
       }
@@ -659,30 +580,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00%  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Focused Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 897.05 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "897.05 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20220801"
       }
@@ -747,30 +655,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% of the applicable NAV. \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% of the applicable NAV.  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Multi Cap Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,556.19 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,556.19 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20231025"
       }
@@ -835,30 +730,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% of the appliable NAV. \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% of the appliable NAV.  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Technology Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 698.50 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "698.50 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20240305"
       }
@@ -917,30 +799,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 90 days from the date of allotment \u00b7 1.00% of the appliable NAV. \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% of the appliable NAV.  If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Business Cycle Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,786.11 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,786.11 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20240729"
       }
@@ -1005,30 +874,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 30 days from the date of allotment - 0 \u00b7 If the units are redeemed / switched out on a 30 days from the date of allotment - Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 30 days from the date of allotment - 0.10%  If the units are redeemed  switched out on after 30 days from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Arbitrage Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 12,560.18 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "12,560.18 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20140627"
       }
@@ -1093,30 +949,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 30 days from the date of allotment - 0 \u00b7 If the units are redeemed / switched out on a 30 days from the date of allotment - Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 30 days from the date of allotment - 0.25%  If the units are redeemed  switched out on after 30 days from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Equity Savings Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 563.22 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "563.22 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20141013"
       }
@@ -1181,30 +1024,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 10% of the units allotted shall be redeemed without any Exit Load on or before completi 90 days from the date of allotment of units.  redemption in excess of such limit within 90 from the date of allotment shall be subject to following Exit Load: \u00b7 If redeemed or switched out on or before completion of 90 days from the date of allot of units - 1.00% \u00b7 If redeemed or switched out after completion 90 days from the date of allotment of units - "
-========
-            "comment": "10% of the units allotted shall be redeemed without any Exit Load on or before completion of 90 days from the date of allotment of units. Any redemption in excess of such limit within 90 days from the date of allotment shall be subject to the following Exit Load  If redeemed or switched out on or before completion of 90 days from the date of allotment of units - 1.00%  If redeemed or switched out after completion of 90 days from the date of allotment of units - NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Aggressive Hybrid Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,357.51 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,357.51 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20090812"
       }
@@ -1269,30 +1099,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 10% of the units allotted shall be redeemed  any Exit Load on or before completion of 90 from the date of allotment of units. Any rede in excess of such limit within 90 days from t of allotment shall be subject to the following Load: \u00b7 If redeemed or switched out on or before completion of 90 days from the date of allot of units - 1.00% \u00b7 If redeemed or switched out after completion days from the date of allotment of units - NI "
-========
-            "comment": "10% of the units allotted shall be redeemed without any Exit Load on or before completion of 90 days from the date of allotment of units. Any redemption in excess of such limit within 90 days from the date of allotment shall be subject to the following Exit Load  If redeemed or switched out on or before completion of 90 days from the date of allotment of units - 1.00%  If redeemed or switched out after completion of 90 days from the date of allotment of units - NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Balanced Advantage Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 12,291.78 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "12,291.78 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20090820"
       }
@@ -1363,30 +1180,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 30 days from the date of allotment - 0 \u00b7 If the units are redeemed / switched out afte days from the date of allotment - Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 30 days from the date of allotment - 0.10%  If the units are redeemed  switched out after 30 days from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Multi Asset Allocation Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,448.60 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,448.60 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20230623"
       }
@@ -1439,30 +1243,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 15 days from the date of allotment - 0 \u00b7 If the units are redeemed / switched out afte days from the date of allotment - Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 15 days from the date of allotment - 0.10%  If the units are redeemed  switched out after 15 days from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Gold and Silver ETF Fund of Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 214.33 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "214.33 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20220914"
       }
@@ -1516,17 +1307,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 109.38 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": ",",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "109.38 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20231107"
       }
@@ -1580,17 +1364,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 111.62 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": ",",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "111.62 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20231121"
       }
@@ -1610,10 +1387,6 @@
             "fund_manager_name": "27",
             "fund_manager_total_exp": "27",
             "load_entry": "27",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "27",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "27",
             "min_addl_amt": "27",
             "min_addl_amt_multiple": "27",
@@ -1651,21 +1424,12 @@
         ],
         "main_scheme_name": "Edelweiss Overnight Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 304.48 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "304.48 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20190724"
       }
@@ -1723,21 +1487,12 @@
         ],
         "main_scheme_name": "Edelweiss Liquid Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,186.11 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "6,186.11 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20070921"
       }
@@ -1757,10 +1512,6 @@
             "fund_manager_name": "29",
             "fund_manager_total_exp": "29",
             "load_entry": "29",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "29",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "29",
             "min_addl_amt": "29",
             "min_addl_amt_multiple": "29",
@@ -1798,21 +1549,12 @@
         ],
         "main_scheme_name": "Edelweiss Banking & PSU Debt Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 268.82 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "268.82 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20130913"
       }
@@ -1832,10 +1574,6 @@
             "fund_manager_name": "30",
             "fund_manager_total_exp": "30",
             "load_entry": "30",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "30",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "30",
             "min_addl_amt": "30",
             "min_addl_amt_multiple": "30",
@@ -1873,21 +1611,12 @@
         ],
         "main_scheme_name": "Edelweiss Money Market Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,527.60 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,527.60 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20080627"
       }
@@ -1907,10 +1636,6 @@
             "fund_manager_name": "31",
             "fund_manager_total_exp": "31",
             "load_entry": "31",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "31",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "31",
             "min_addl_amt": "31",
             "min_addl_amt_multiple": "31",
@@ -1948,21 +1673,12 @@
         ],
         "main_scheme_name": "Edelweiss Government Securities Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 174.18 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "174.18 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20140213"
       }
@@ -1982,10 +1698,6 @@
             "fund_manager_name": "38",
             "fund_manager_total_exp": "38",
             "load_entry": "38",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "38",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "38",
             "min_addl_amt": "38",
             "min_addl_amt_multiple": "38",
@@ -2023,21 +1735,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL Short Duration Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 154.86 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "154.86 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20230215"
       }
@@ -2046,11 +1749,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2025 "
-========
-          "Nifty BHARAT Bond Index  April 2025"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2061,10 +1760,6 @@
             "fund_manager_name": "39",
             "fund_manager_total_exp": "39",
             "load_entry": "39",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "39",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "39",
             "min_addl_amt": "39",
             "min_addl_amt_multiple": "39",
@@ -2104,17 +1799,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10,101.54 Crore",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "10,101.54 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20200722"
       }
@@ -2123,11 +1811,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "CRISIL IBX 50:50 PSU + SDL Index \u00b7 Octobe "
-========
-          "CRISIL IBX 5050 PSU + SDL Index  October 2025"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2176,21 +1860,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL PSU Plus SDL 5050 Oct 2025 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 808.93 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "808.93 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20220310"
       }
@@ -2248,21 +1923,12 @@
         ],
         "main_scheme_name": "Edelweiss NIFTY PSU Bond Plus SDL Apr - 2026 5050 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 7,849.37 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "7,849.37 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20210318"
       }
@@ -2320,21 +1986,12 @@
         ],
         "main_scheme_name": "Edelweiss NIFTY PSU Bond Plus SDL Apr - 2027 5050 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,283.05 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,283.05 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20211014"
       }
@@ -2343,11 +2000,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "CRISIL IBX 50:50 Gilt Plus SDL Index \u00b7 June "
-========
-          "CRISIL IBX 5050 Gilt Plus SDL Index  June 2027"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2396,21 +2049,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL June 2027 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 95.79 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "95.79 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221018"
       }
@@ -2419,11 +2063,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "CRISIL IBX 50:50 Gilt Plus SDL Index \u00b7 Sep 2 "
-========
-          "CRISIL IBX 5050 Gilt Plus SDL Index  Sep 2028"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2472,21 +2112,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL Sep 2028 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 155.64 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "155.64 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221110"
       }
@@ -2495,11 +2126,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "CRISIL IBX AAA Financial Services \u00b7 Jan 202 index. "
-========
-          "CRISIL IBX AAA Financial Services  Jan 2028 index."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2548,21 +2175,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX AAA Financial Services Bond - Jan 2028 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 131.38 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "131.38 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20241127"
       }
@@ -2571,11 +2189,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2030 "
-========
-          "Nifty BHARAT Bond Index  April 2030"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2586,10 +2200,6 @@
             "fund_manager_name": "46",
             "fund_manager_total_exp": "46",
             "load_entry": "46",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "46",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "46",
             "min_addl_amt": "46",
             "min_addl_amt_multiple": "46",
@@ -2629,17 +2239,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 18,393.19 Crore",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "18,393.19 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20191226"
       }
@@ -2648,11 +2251,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2031 "
-========
-          "Nifty BHARAT Bond Index  April 2031"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2663,10 +2262,6 @@
             "fund_manager_name": "47",
             "fund_manager_total_exp": "47",
             "load_entry": "47",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "47",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "47",
             "min_addl_amt": "47",
             "min_addl_amt_multiple": "47",
@@ -2706,17 +2301,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 12,813.96 Crore",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "12,813.96 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20200722"
       }
@@ -2725,27 +2313,17 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2032 "
-========
-          "Nifty BHARAT Bond Index  April 2032"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
             "amc_name": "48",
             "benchmark_index": "48",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "count": 59,
             "fund_manager_managing_fund_since": "48",
             "fund_manager_name": "48",
             "fund_manager_total_exp": "48",
             "load_entry": "48",
-========
-            "count": 60,
-            "load_entry": "48",
-            "load_exit": "48",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "48",
             "min_addl_amt": "48",
             "min_addl_amt_multiple": "48",
@@ -2772,17 +2350,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10,719.31 Crore",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "10,719.31 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20211213"
       }
@@ -2791,11 +2362,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2033 "
-========
-          "Nifty BHARAT Bond Index  April 2033"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2806,10 +2373,6 @@
             "fund_manager_name": "49",
             "fund_manager_total_exp": "49",
             "load_entry": "49",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "49",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "49",
             "min_addl_amt": "49",
             "min_addl_amt_multiple": "49",
@@ -2849,17 +2412,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 25",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,067.19 Crore",
-========
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "6,067.19 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221212"
       }
@@ -2868,11 +2424,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "CRISIL IBX 50:50 Gilt Plus SDL Index \u00b7 April  "
-========
-          "CRISIL IBX 5050 Gilt Plus SDL Index  April 2037"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -2921,21 +2473,12 @@
         ],
         "main_scheme_name": "Edelweiss CRISIL IBX 5050 Gilt Plus SDL Apr 2037 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,014.10 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,014.10 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221011"
       }
@@ -2955,10 +2498,6 @@
             "fund_manager_name": "51",
             "fund_manager_total_exp": "51",
             "load_entry": "51",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "51",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "51",
             "min_addl_amt": "51",
             "min_addl_amt_multiple": "51",
@@ -2996,21 +2535,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 127.78 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "127.78 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20150508"
       }
@@ -3030,10 +2560,6 @@
             "fund_manager_name": "52",
             "fund_manager_total_exp": "52",
             "load_entry": "52",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "52",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "52",
             "min_addl_amt": "52",
             "min_addl_amt_multiple": "52",
@@ -3071,21 +2597,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty 100 Quality 30 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 149.14 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "149.14 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20160525"
       }
@@ -3139,17 +2656,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 9.36 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": ",",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "9.36 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20240906"
       }
@@ -3169,10 +2679,6 @@
             "fund_manager_name": "54",
             "fund_manager_total_exp": "54",
             "load_entry": "54",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "54",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "54",
             "min_addl_amt": "54",
             "min_addl_amt_multiple": "54",
@@ -3206,17 +2712,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 10.84 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": ",",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "10.84 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20241230"
       }
@@ -3236,10 +2735,6 @@
             "fund_manager_name": "55",
             "fund_manager_total_exp": "55",
             "load_entry": "55",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "55",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "55",
             "min_addl_amt": "55",
             "min_addl_amt_multiple": "55",
@@ -3273,17 +2768,10 @@
         "metrics": [],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_amt": "\u20b9 1",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 16.28 Crore",
-========
-        "min_amt": "1",
-        "min_amt_multiple": ",",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20241031"
       }
@@ -3303,10 +2791,6 @@
             "fund_manager_name": "56",
             "fund_manager_total_exp": "56",
             "load_entry": "56",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "56",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "56",
             "min_addl_amt": "56",
             "min_addl_amt_multiple": "56",
@@ -3344,21 +2828,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 160.75 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20241031"
       }
@@ -3410,21 +2885,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Alpha Low Volatility 30 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 121.09 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "121.09 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20240524"
       }
@@ -3444,10 +2910,6 @@
             "fund_manager_name": "58",
             "fund_manager_total_exp": "58",
             "load_entry": "58",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "58",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "58",
             "min_addl_amt": "58",
             "min_addl_amt_multiple": "58",
@@ -3479,21 +2941,12 @@
         ],
         "main_scheme_name": "Edelweiss MSCI India Domestic & World Healthcare 45 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 154.48 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "154.48 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20201026"
       }
@@ -3570,10 +3023,6 @@
             "fund_manager_name": "60",
             "fund_manager_total_exp": "60",
             "load_entry": "60",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "60",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "60",
             "min_addl_amt": "60",
             "min_addl_amt_multiple": "60",
@@ -3605,21 +3054,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Next 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 100.97 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "100.97 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221130"
       }
@@ -3672,30 +3112,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If the units are redeemed / switched out on o before 30 days from the date of allotment \u00b7 0.50%. \u00b7 If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "Nil  If the units are redeemed  switched out on or before 30 days from the date of allotment  0.50%.  If the units are redeemed  switched out after 30 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Nifty Midcap 150 Momentum 50 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 792.72 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "792.72 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221130"
       }
@@ -3715,10 +3142,6 @@
             "fund_manager_name": "62",
             "fund_manager_total_exp": "62",
             "load_entry": "62",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
-========
-            "load_exit": "62",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
             "main_scheme_name": "62",
             "min_addl_amt": "62",
             "min_addl_amt_multiple": "62",
@@ -3750,21 +3173,12 @@
         ],
         "main_scheme_name": "Edelweiss Nifty Smallcap 250 Index Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 100.74 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "100.74 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221130"
       }
@@ -3773,11 +3187,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2025 "
-========
-          "Nifty BHARAT Bond Index  April 2025"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -3821,30 +3231,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
-========
-            "comment": "If redeemed or switched out on or before completion of 30 days from the date of allotment of units 0.10%  If redeemed or switched out after completion of 30 days from the date of allotment of units NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Bharat Bond FOF APRIL 2025",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,188.66 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4,188.66 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20200723"
       }
@@ -3853,11 +3250,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2030 "
-========
-          "Nifty BHARAT Bond Index  April 2030"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -3901,30 +3294,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
-========
-            "comment": "If redeemed or switched out on or before completion of 30 days from the date of allotment of units 0.10%  If redeemed or switched out after completion of 30 days from the date of allotment of units NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Bharat Bond FOF APRIL 2030",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 6,906.40 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "6,906.40 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20191230"
       }
@@ -3933,11 +3313,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2031 "
-========
-          "Nifty BHARAT Bond Index  April 2031"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -3981,30 +3357,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
-========
-            "comment": "If redeemed or switched out on or before completion of 30 days from the date of allotment of units 0.10%  If redeemed or switched out after completion of 30 days from the date of allotment of units NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Bharat Bond FOF APRIL 2031",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,685.92 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4,685.92 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20200723"
       }
@@ -4013,11 +3376,7 @@
       "value": {
         "amc_name": "Edelweiss Asset Management Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
           "Nifty BHARAT Bond Index \u00b7 April 2032 "
-========
-          "Nifty BHARAT Bond Index  April 2032"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -4061,30 +3420,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
-========
-            "comment": "If redeemed or switched out on or before completion of 30 days from the date of allotment of units 0.10%  If redeemed or switched out after completion of 30 days from the date of allotment of units NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Bharat Bond ETF FOF APRIL 2032",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4,596.63 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4,596.63 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20211215"
       }
@@ -4137,30 +3483,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7 If redeemed or switched out on or before completion of 30 days from the date of allotm of units \u00b70.10% \u00b7 If redeemed or switched out after completio 30 days from the date of allotment of units \u00b7N "
-========
-            "comment": "If redeemed or switched out on or before completion of 30 days from the date of allotment of units 0.10%  If redeemed or switched out after completion of 30 days from the date of allotment of units NIL"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Bharat Bond ETF FOF APRIL 2033",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,284.94 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,284.94 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20221214"
       }
@@ -4213,30 +3546,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% \t If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Greater China Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1,637.04 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1,637.04 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20090826"
       }
@@ -4289,30 +3609,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% \t If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss US Technology Equity Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2,777.87 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2,777.87 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20200305"
       }
@@ -4365,30 +3672,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% \t If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Emerging Markets Opportunities Equity Offshore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 115.07 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "115.07 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20140707"
       }
@@ -4441,30 +3735,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% \t If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Asean Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 96.17 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "96.17 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20110701"
       }
@@ -4517,30 +3798,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% \t If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss Europe Dynamic Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 74.66 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "74.66 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20140207"
       }
@@ -4593,30 +3861,17 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
             "comment": "\u00b7\t If the units are redeemed / switched out on  before 90 days from the date of allotment \u00b7 1.00% \u00b7\t If the units are redeemed / switched out afte days from the date of allotment \u00b7 Nil "
-========
-            "comment": "If the units are redeemed  switched out on or before 90 days from the date of allotment  1.00% \t If the units are redeemed  switched out after 90 days from the date of allotment  Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "Edelweiss US Value Equity Off-Shore Fund",
         "metrics": [],
-<<<<<<<< HEAD:sql_learn/jan25/9_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 100",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 100",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 154.58 Crore",
-========
-        "min_addl_amt": "100",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "100",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "154.58 Crore",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/9_31-Jan-25_FS.json
         "mutual_fund_name": "Edelweiss Mutual Fund",
         "scheme_launch_date": "20130807"
       }

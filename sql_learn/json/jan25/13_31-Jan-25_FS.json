@@ -1,13 +1,8 @@
 {
   "metadata": {
     "document_name": "13_31-Jan-25_FS.pdf",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
     "file_type": "",
     "process_date": "20250514_14:39"
-========
-    "file_type": "fs",
-    "process_date": "20250521"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
   },
   "records": [
     {
@@ -69,11 +64,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Large Cap Fund",
@@ -95,21 +86,12 @@
             "value": "13.38"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1848.94 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1848.94 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20021210"
       }
@@ -173,11 +155,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) with- in 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) with- in 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Large and Mid Cap Fund",
@@ -199,21 +177,12 @@
             "value": "15.73"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4056.39 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4056.39 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20190328"
       }
@@ -277,11 +246,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Midcap Fund",
@@ -303,21 +268,12 @@
             "value": "15.88"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 11407.69 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "11407.69 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20040809"
       }
@@ -381,11 +337,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Flexi Cap Fund",
@@ -407,21 +359,12 @@
             "value": "13.38"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4821.17 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4821.17 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20040224"
       }
@@ -488,11 +431,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If units redeemed or switched out are upto 10% of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1% If units are redeemed or switched out on or after 1 year from the date of allotment.  Nil Month End Total Expenses Ratios (Annualized) 2 Regular3 1.87% Direct 0.60% Portfolio Turnover 0.28 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. Note - Criteria for Large, Mid  Small companies - SEBI has demarcated the definitions of large cap, mid cap and small cap companies as given below. Large Cap 1st -100th company in terms of full market capitalization, Mid Cap 101st -250th company in terms of full market capitalization, Small Cap 251st company onwards in terms of full market capitalization of large midsmall cap companies. A list of stocks as per above criteria will be uploaded on AMFI website and updated every six months by AMFI. derate Moderat Mo Hig ely Risk h Risk to e Hi ow erat Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
-========
-            "comment": ": If units redeemed or switched out are upto 10% of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1% If units are redeemed or switched out on or after 1 year from the date of allotment.  Nil Month End Total Expenses Ratios (Annualized) 2 Regular3 1.87% Direct 0.60% Portfolio Turnover 0.28 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. Note - Criteria for Large, Mid  Small companies - SEBI has demarcated the definitions of large cap, mid cap and small cap companies as given below. Large Cap: 1st -100th company in terms of full market capitalization, Mid Cap: 101st -250th company in terms of full market capitalization, Small Cap: 251st company onwards in terms of full market capitalization of large midsmall cap companies. A list of stocks as per above criteria will be uploaded on AMFI website and updated every six months by AMFI. derate Moderat Mo Hig ely Risk h Risk to e Hi ow erat Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Multi Cap Fund",
@@ -502,21 +441,12 @@
             "value": "0.28"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4335.94 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4335.94 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20230130"
       }
@@ -580,11 +510,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Small Cap Fund",
@@ -606,21 +532,12 @@
             "value": "16.70"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 16285.21 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "16285.21 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20140512"
       }
@@ -684,11 +601,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Focused Fund",
@@ -710,21 +623,12 @@
             "value": "13.97"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1692.89 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1692.89 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20200722"
       }
@@ -788,11 +692,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Infrastructure Fund",
@@ -814,21 +714,12 @@
             "value": "16.21"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2371.99 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2371.99 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20070927"
       }
@@ -886,11 +777,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Value Fund",
@@ -912,21 +799,12 @@
             "value": "14.33"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 13009.25 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "13009.25 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20100108"
       }
@@ -990,11 +868,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 year from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 year from the date of allotment - Nil"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Business Cycles Fund",
@@ -1016,21 +890,12 @@
             "value": "15.53"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 982.09 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "982.09 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20140820"
       }
@@ -1091,11 +956,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If units redeemed or switched out are upto 10% of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1% If units are redeemed or switched out on or after 1 year from the date of allotment  Nil Month End Total Expenses Ratios (Annualized) 2 Regular3 2.11% Direct 0.74% Portfolio Turnover 0.06 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
-========
-            "comment": ": If units redeemed or switched out are upto 10% of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1% If units are redeemed or switched out on or after 1 year from the date of allotment  Nil Month End Total Expenses Ratios (Annualized) 2 Regular3 2.11% Direct 0.74% Portfolio Turnover 0.06 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Consumption Fund",
@@ -1105,21 +966,12 @@
             "value": "0.06"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1531.44 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1531.44 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20230831"
       }
@@ -1180,11 +1032,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment  Nil. If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1%. If units are redeemed or switched out on or after 1 year from the date of allotment  Nil. Month End Total Expenses Ratios (Annualized) 2 Regular3 2.07% Direct 0.65% Portfolio Turnover 0.01 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment  Nil. If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1%. If units are redeemed or switched out on or after 1 year from the date of allotment  Nil. Month End Total Expenses Ratios (Annualized) 2 Regular3 2.07% Direct 0.65% Portfolio Turnover 0.01 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC India Export Opportunities Fund",
@@ -1194,21 +1042,12 @@
             "value": "0.01"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1791.89 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1791.89 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20240925"
       }
@@ -1263,11 +1102,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allotment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.45% Direct 0.20% Portfolio Turnover 0.07 Tracking Difference Regular -0.84% Direct -0.43% Tracking Error Regular 0.07% Direct 0.06% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allotment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.45% Direct 0.20% Portfolio Turnover 0.07 Tracking Difference Regular -0.84% Direct -0.43% Tracking Error Regular 0.07% Direct 0.06% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Nifty 50 Index",
@@ -1277,21 +1112,12 @@
             "value": "0.07"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 287.91 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "287.91 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20200415"
       }
@@ -1346,11 +1172,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.80% Direct 0.35% Portfolio Turnover 0.59 Tracking Difference Regular -1.34% Direct -0.79% Tracking Error Regular 0.15% Direct 0.14% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo k High ely Ris Risk to te Hig ow era Ris h L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
-========
-            "comment": ":  If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil  If units redeemed or switched out are over and above the limit within 1 Month from the date of allot- ment - 1%  If units are redeemed or switched out on or after 1 Month from the date of allotment - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 0.80% Direct 0.35% Portfolio Turnover 0.59 Tracking Difference Regular -1.34% Direct -0.79% Tracking Error Regular 0.15% Direct 0.14% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. derate Moderat Mo k High ely Ris Risk to te Hig ow era Ris h L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk r"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Nifty Next 50 Index",
@@ -1360,21 +1182,12 @@
             "value": "0.59"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 126.05 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "126.05 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20200415"
       }
@@ -1460,21 +1273,12 @@
             "value": "14.55"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4100.39 Cr",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "",
-        "min_amt": "500",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4100.39 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20060227"
       }
@@ -1558,21 +1362,12 @@
             "value": "14.07"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 500",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 248.24 Cr",
-========
-        "min_addl_amt": "500",
-        "min_addl_amt_multiple": "",
-        "min_amt": "500",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "248.24 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20070105"
       }
@@ -1653,11 +1448,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "Any redemption  switch-out of units with- in 1 year from the date of allotment shall be subject to exit load as under a. For 10% of the units redeemed  switched-out Nil b. For remaining units redeemed or switched-out 1.00% No Exit Load will be charged, if Units are redeemed  switchedout after 1 year from the date of allotment."
-========
-            "comment": ": Any redemption  switch-out of units with- in 1 year from the date of allotment shall be subject to exit load as under: a. For 10% of the units redeemed  switched-out: Nil b. For remaining units redeemed or switched-out: 1.00% No Exit Load will be charged, if Units are redeemed  switchedout after 1 year from the date of allotment."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Aggressive Hybrid Fund",
@@ -1699,21 +1490,12 @@
             "value": "7.32"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5452.38 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "5452.38 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20110207"
       }
@@ -1722,11 +1504,7 @@
       "value": {
         "amc_name": "HSBC Asset Management (India) Private Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
           "28-Feb-24 Benchmark BSE 200 TRI (65%) + NIFTY Short Duration Debt Index (20%) +Domestic Price of Gold (10%)+Domestic Price of Silver (5%)4"
-========
-          "BSE 200 TRI (65%) + NIFTY Short Duration Debt Index (20%) +Domestic Price of Gold (10%)+Domestic Price of Silver (5%)4"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         ],
         "field_location": [
           {
@@ -1794,11 +1572,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If units redeemed or switched out are upto 10% of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1% If units are redeemed or switched out on or after 1 year from the date of allotment  Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 1.87% Direct 0.51% Portfolio Turnover 0.47 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized. The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk c"
-========
-            "comment": ": If units redeemed or switched out are upto 10% of the units purchased or switched in within 1 year from the date of allotment  Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment  1% If units are redeemed or switched out on or after 1 year from the date of allotment  Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 1.87% Direct 0.51% Portfolio Turnover 0.47 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized. The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Very High Risk c"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Multi Asset Allocation Fund",
@@ -1824,7 +1598,6 @@
             "value": "7.42"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
@@ -1833,16 +1606,6 @@
         "monthly_aaum_value": "\u20b9 2139.89 Cr",
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "28-Feb-24 Benchmark BSE 200 TRI (65%) + NIFTY Short Duration Debt Index (20%) +Domestic Price of Gold (10%)+Domestic Price of Silver (5%)4"
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2139.89 Cr",
-        "mutual_fund_name": "HSBC Mutual Fund",
-        "scheme_launch_date": "20240228"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
       }
     },
     {
@@ -1929,11 +1692,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment. - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 2.12% Direct 0.78% Portfolio Turnover 3.24 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is High Risk Please note that the above risk-o-meter is as per the product T labelling of the scheme available as on the date of this communication disclosure. Any change in risk-o-meter shall be communicated by way of Notice cum Addendum and by way of an e-mail or SMS to unitholders of that particular Scheme."
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 year from the date of allotment - Nil If units redeemed or switched out are over and above the limit within 1 year from the date of allotment - 1% If units are redeemed or switched out on or after 1 year from the date of allotment. - Nil Month End Total Expenses Ratios (Annualized) 2 Regular5 2.12% Direct 0.78% Portfolio Turnover 3.24 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is High Risk Please note that the above risk-o-meter is as per the product T labelling of the scheme available as on the date of this communication disclosure. Any change in risk-o-meter shall be communicated by way of Notice cum Addendum and by way of an e-mail or SMS to unitholders of that particular Scheme."
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Balanced Advantage Fund",
@@ -1959,21 +1718,12 @@
             "value": "7.32"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1498.58 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1498.58 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20110207"
       }
@@ -2062,11 +1812,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil If redeemed or switched out units are over and above the limit i.e beyond 10% of the allotted units within 1 month exit load applicable - 0.50% If units are redeemed or switched out on or after 1 Month from the date of Purchase - Nil Month End Total Expenses Ratios (Annualized) 2 Regular 5 1.51% Direct 0.61% Portfolio Turnover 5.33 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Moderate Risk"
-========
-            "comment": ": If the units redeemed or switched out are upto 10% of the units purchased or switched in (the limit) within 1 Month from the date of allotment - Nil If redeemed or switched out units are over and above the limit i.e beyond 10% of the allotted units within 1 month exit load applicable - 0.50% If units are redeemed or switched out on or after 1 Month from the date of Purchase - Nil Month End Total Expenses Ratios (Annualized) 2 Regular 5 1.51% Direct 0.61% Portfolio Turnover 5.33 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD-PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore , the same is effective from 01 December 2021. YTM is annualized The Macaulay duration is the weighted average term to maturity of the cash flows from a bond. The weight of each cash flow is determined by dividing the present value of the cash flow by the price. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Moderate Risk"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Equity Savings Fund",
@@ -2092,21 +1838,12 @@
             "value": "7.06"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 662.03 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "662.03 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20111018"
       }
@@ -2173,11 +1910,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "Any redemptionswitch-out of units on or before 1 month from the date of allotment 0.25% If units are redeemed or switched out after 1 Month from the date of allotment NIL (Effective date August 01, 2023) Month End Total Expenses Ratios (Annualized) 2 Regular3 0.92% Direct 0.25% Portfolio Turnover 13.75 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans Portfolio Classification By Market Segment Class (%) 10.09% 16.52% 49.59% 23.80% Large Cap Debt Mid Cap Small Cap derate Moderat Mo Hig ely Risk hRisk to e Hi owerat Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Low Risk Please note that the above risk-o-meter is as per the product labelling of the scheme available as on the date of this T communication disclosure. Any change in risk-o-meter shall be communicated by way of Notice cum Addendum and by way of an  e-mail or SMS to unitholders of that particular Scheme.  a"
-========
-            "comment": ": Any redemptionswitch-out of units on or before 1 month from the date of allotment: 0.25% If units are redeemed or switched out after 1 Month from the date of allotment: NIL (Effective date: August 01, 2023) Month End Total Expenses Ratios (Annualized) 2 Regular3 0.92% Direct 0.25% Portfolio Turnover 13.75 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans Portfolio Classification By Market Segment Class (%) 10.09% 16.52% 49.59% 23.80% Large Cap Debt Mid Cap Small Cap derate Moderat Mo Hig ely Risk hRisk to e Hi owerat Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Low Risk Please note that the above risk-o-meter is as per the product labelling of the scheme available as on the date of this T communication disclosure. Any change in risk-o-meter shall be communicated by way of Notice cum Addendum and by way of an  e-mail or SMS to unitholders of that particular Scheme.  a"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Arbitrage Fund",
@@ -2187,21 +1920,12 @@
             "value": "13.75"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2373.87 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2373.87 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20140630"
       }
@@ -2253,11 +1977,7 @@
           },
           {
             "type": "exit_load",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
             "comment": "NIL Month End Total Expenses Ratios (Annualized) 2 Regular3 0.16% Direct 0.06% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD- PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore, the same is effective from 01 December 2021. 6Funds benchmark has changed with effect from April 01, 2022. YTM is annualized. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Low Risk r"
-========
-            "comment": ": NIL Month End Total Expenses Ratios (Annualized) 2 Regular3 0.16% Direct 0.06% 1in multiples of Re 1 thereafter. 2TERAnnualized TER including GST on Investment Management Fees 3Continuing plans 4As per clause 1.9 of the SEBI Master Circular for Mutual Funds no. SEBIHOIMDIMD- PoD-1PCIR202490 dated June 27, 2024, on Guiding Principles for bringing uniformity in Benchmarks of Mutual Fund Schemes has introduced two-tiered structure for benchmarking of certain categories of schemes. Accordingly, the benchmark has been classified as Tier 1 benchmark. Furthermore, the same is effective from 01 December 2021. 6Funds benchmark has changed with effect from April 01, 2022. YTM is annualized. derate Moderat Mo Hig ely Risk hRisk to te Hi owera Ris gh L od isk k M R V er ow sk Ris yH L Ri k ig h The risk of the scheme is Low Risk r"
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
           }
         ],
         "main_scheme_name": "HSBC Overnight Fund",
@@ -2279,21 +1999,12 @@
             "value": "6.64"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3081.72 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3081.72 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20190522"
       }
@@ -2373,21 +2084,12 @@
             "value": "7.25"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 22030.98 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "22030.98 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20021204"
       }
@@ -2467,21 +2169,12 @@
             "value": "7.50"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2626.87 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2626.87 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20050810"
       }
@@ -2561,21 +2254,12 @@
             "value": "7.72"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 503.10 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "503.10 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20101204"
       }
@@ -2649,21 +2333,12 @@
             "value": "7.47"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 2686.88 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "2686.88 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20200129"
       }
@@ -2743,21 +2418,12 @@
             "value": "7.37"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 3709.02 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "3709.02 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20111227"
       }
@@ -2831,21 +2497,12 @@
             "value": "7.77"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 746.34 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "746.34 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20150202"
       }
@@ -2925,21 +2582,12 @@
             "value": "6.91"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 49.57 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "49.57 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20021210"
       }
@@ -3019,21 +2667,12 @@
             "value": "7.03"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 158.46 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "158.46 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20100927"
       }
@@ -3113,21 +2752,12 @@
             "value": "7.29"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 5750.94 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "5750.94 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "19970331"
       }
@@ -3201,21 +2831,12 @@
             "value": "7.41"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 4145.65 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "4145.65 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20120912"
       }
@@ -3289,21 +2910,12 @@
             "value": "8.14"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 583.65 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "583.65 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20091008"
       }
@@ -3383,21 +2995,12 @@
             "value": "7.03"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 262.14 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "262.14 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20000329"
       }
@@ -3477,21 +3080,12 @@
             "value": "6.97"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 150.50 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "150.50 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20040224"
       }
@@ -3571,21 +3165,12 @@
             "value": "6.88"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 1886.13 Cr",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "1886.13 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20220331"
       }
@@ -3647,7 +3232,6 @@
           }
         ],
         "main_scheme_name": "HSBC CRISIL IBX Gilt June 2027 Index",
-<<<<<<<< HEAD:sql_learn/jan25/13_31-Jan-25_FS.json
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "",
@@ -3655,32 +3239,6 @@
         "min_amt_multiple": "",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "\u20b9 194.95 Cr",
-========
-        "metrics": [
-          {
-            "name": "avg_maturity",
-            "value": "2.30 Years"
-          },
-          {
-            "name": "macaulay",
-            "value": "2.14 Years"
-          },
-          {
-            "name": "mod_duration",
-            "value": "2.08 Years"
-          },
-          {
-            "name": "ytm",
-            "value": "6.71"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "",
-        "min_amt": "5,000",
-        "min_amt_multiple": "",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "194.95 Cr",
->>>>>>>> deploy:sql_learn/pdfs/JFM 2025/JAN25 20250521/13_31-Jan-25_FS.json
         "mutual_fund_name": "HSBC Mutual Fund",
         "scheme_launch_date": "20230323"
       }

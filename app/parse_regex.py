@@ -143,13 +143,13 @@ class FundRegex():
         return text.strip("_")
 
     #match type
-    def is_numeric(text):
+    def is_numeric(self,text):
         return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))
 
-    def is_alphanumeric(text):
+    def is_alphanumeric(self,text):
         return bool(re.fullmatch(r'[A-Za-z0-9]+', text))
 
-    def is_alpha(text):
+    def is_alpha(self,text):
         return bool(re.fullmatch(r'[A-Za-z]+', text))
         
     def _remove_non_word_space_chars(self,text:str)->str:
@@ -266,27 +266,32 @@ class FundRegex():
         return data
 
     def _format_metric_data(self, data):
-        #generic
-        
-        #specific
-        for metric in data:
-            value = data.get(metric, "").strip()
+        metric_data = data.get("metrics", {})
+        if not isinstance(metric_data, dict) or not metric_data:
+            return data
+
+        for metric, value in metric_data.items():
+            if not value:
+                continue
             if metric == "port_turnover_ratio":
+                # print(metric, value)
                 if re.search(r"times?$", value, re.IGNORECASE):
                     value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
 
                 if value.endswith("%"):
                     value = value.rstrip("%").strip()
                     if self.is_numeric(value):
-                        value = str(int(float(value)))  # %
+                        value = str(int(float(value)))
                 elif self.is_numeric(value):
                     num = float(value)
                     if num < 1:
-                        value = str(int(num * 100))  # / -> %
+                        value = str(int(num * 100))  # Convert ratio to %
                     else:
                         value = str(int(num))
-                data[metric] = value
+                metric_data[metric] = value
+        data["metrics"] = metric_data
         return data
+
 
                         
     

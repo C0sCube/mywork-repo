@@ -11,6 +11,12 @@ from app.config_loader import *
 
 conf = get_config() #path to paths.json
 
+
+# TableParser handles PDF table extraction, cleaning, and formatting.
+# It uses Camelot for extracting tables and includes utilities to clean text,
+# normalize data, match keywords, and extract meaningful sections from DataFrames.
+# Designed to support parsing SID/KIM mutual fund documents.
+
 class TableParser:
     
     def __init__(self):
@@ -25,25 +31,48 @@ class TableParser:
             'drop_all_na': lambda df: df.dropna(axis=0, how='all').dropna(axis=1, how='all') if isinstance(df, pd.DataFrame) else df
         }
     
-    def _clean_dataframe(self, df, steps, columns=None):
+    def clean_dataframe(self, df, steps, columns=None):
+        """Apply a sequence of cleaning functions to specified columns in a DataFrame.
+        Args:   df (pd.DataFrame): The input DataFrame to clean.
+                steps (list): List of function names (as keys in self.pipeline) to apply.
+                columns (list, optional): List of column names to clean. If None, all columns are used.
+        Returns: pd.DataFrame: Cleaned DataFrame."""
+        
         cols = columns or df.columns
         for step in steps:
             df[cols] = df[cols].map(self.pipeline[step])
         return df
     
-    
-    def _clean_series(self, series, steps):
+    def clean_series(self, series, steps):
+        """Apply a sequence of cleaning functions to a pandas Series.
+        Args:   series (pd.Series): The input Series to clean.
+                steps (list): List of function names (as keys in self.pipeline) to apply.
+        Returns:pd.Series: Cleaned Series."""
+        
         for step in steps:
             series = series.apply(self.pipeline[step])
         return series
     
-    def _extract_tables_from_pdf(self,path, pages, flavor='lattice',stack= True, padding = 1):
+    def extract_tables_from_pdf(self,path, pages, flavor='lattice',stack= True, padding = 1):
+        """Extract tables from a PDF file using Camelot and return combined DataFrame.
+        Args:   path (str): Path to the PDF file.
+                pages (str): Pages to extract (e.g., '1,2' or '1-3').
+                flavor (str): Camelot flavor to use ('lattice' or 'stream').
+                stack (bool): Whether to stack all tables vertically.
+                padding (int): Number of empty rows to add between stacked tables.
+        Returns:pd.DataFrame: Combined DataFrame of extracted tables."""
+        
         tables = camelot.read_pdf(path, pages=pages, flavor=flavor)
         dfs = [t.df for t in tables]
-        # return pd.concat([table.df for table in tables], ignore_index=True)
         return self._concat_padding_vertical(*dfs,padding_rows=padding) if stack else self._concat_padding_vertical(*dfs,padding_rows=padding)
     
-    def _get_matching_row_indices(self, df, keywords, thresh):
+    def get_matching_row_indices(self, df, keywords, thresh):
+        """Find row indices in a DataFrame that match a set of keywords in at least 'thresh' cells.
+        Args:   df (pd.DataFrame): DataFrame to search.
+                keywords (list): List of keyword strings to match.
+                thresh (int): Minimum number of matching cells required per row.
+        Returns:list: List of matching row indices. Returns [0] if none found."""
+        
         regex = SidKimRegex()
         pattern = re.compile("|".join(keywords), re.IGNORECASE)
         # print(pattern)
@@ -60,7 +89,14 @@ class TableParser:
                         break
         return matched_rows if matched_rows else [0]
     
-    def _get_matching_col_indices(self, df, keywords, thresh=1, match_start_only=False):
+    def get_matching_col_indices(self, df, keywords, thresh=1):
+        """Find column names where content matches the given keywords at least 'thresh' times.
+        Args:   df (pd.DataFrame): DataFrame to search.
+                keywords (list): List of keyword strings to match.
+                thresh (int): Minimum number of matches required per column.
+                match_start_only (bool): (Unused currently) If True, match only at the start of text.
+        Returns:list: List of matching column names. Returns [0] if none found."""
+        
         regex = SidKimRegex()
         pattern = re.compile(rf"({'|'.join(keywords)})", re.IGNORECASE)
         matched_cols = []
@@ -94,13 +130,16 @@ class TableParser:
                 result = pd.concat([result, padding], axis=1)
         return result
     
-    # def _get_sub_dataframe(self,df,rs=0,re=None,cs=0,ce=None):
-    #     sub_df = df.iloc[rs:re,cs:ce]
-    #     sub_df.columns = range(sub_df.shape[1])  # reset column names to integers
-    #     sub_df = sub_df.reset_index(drop=True)   # reset row index
-    #     return sub_df
-    
-    def _get_sub_dataframe(self, df, rs=0, re=None, cs=0, ce=None):
+    def get_sub_dataframe(self, df, rs=0, re=None, cs=0, ce=None): 
+        """Extract a sub-section of the DataFrame with optional row and column slicing.
+        Args:
+            df (pd.DataFrame): The input DataFrame.
+            rs (int): Starting row index (default is 0).
+            re (int or None): Ending row index (exclusive). If None, goes till the end.
+            cs (int): Starting column index (default is 0).
+            ce (int or None): Ending column index (exclusive). If None, goes till the end.
+        Returns:pd.DataFrame: A sub-DataFrame with reset index and re-numbered columns."""
+        
         max_row, max_col = df.shape
 
         # Clip indices to valid bounds
@@ -113,8 +152,7 @@ class TableParser:
         sub_df.columns = range(sub_df.shape[1])
         sub_df = sub_df.reset_index(drop=True)
         return sub_df
-
-    
+ 
     def _drop_na_all(self,dfs,row = True, col = True):
         if row:
             dfs = dfs.dropna(axis=0,how="all")

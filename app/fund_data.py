@@ -43,6 +43,9 @@ class GrandFundData:
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
         return {main_key:data}
+    
+    def _extract_str_data(self, main_key: str, data: list):
+        return {main_key: " ".join(data)}
 
     def _extract_scheme_non_esc_data(self,main_key:str,data:list, pattern:str):
         """
@@ -58,16 +61,12 @@ class GrandFundData:
         regex_ = self.REGEX[pattern] #list
         mention_start = regex_[:-1]
         mention_end = regex_[1:]
-
-        # patterns = [r"(\b{start}\b)\s*(.+?)\s*(\b{end}\b|$)".format(start=start, end=end)
-        #     for start, end in zip(mention_start, mention_end)]
         patterns = [r"(\b{start}\b)\s*((?:(?!\b{end}\b).)*)\s*(\b{end}\b|$)".format(start=start, end=end)
             for start, end in zip(mention_start, mention_end)]
 
 
         final_dict = {}
         scheme_data = " ".join(data) if isinstance(data,list) else data
-        # scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
         unique_set = set()
         for pattern in patterns:
             if matches:= re.findall(pattern, scheme_data, re.MULTILINE):
@@ -92,9 +91,6 @@ class GrandFundData:
         regex_ = self.REGEX[pattern] #list
         mention_start = regex_[:-1]
         mention_end = regex_[1:]
-
-        # patterns = [r"(\b{start}\b)\s*(.+?)\s*(\b{end}\b|$)".format(start=start, end=end)
-        #     for start, end in zip(mention_start, mention_end)]
         patterns = [r"(\b{start}\b)\s*((?:(?!\b{end}\b).)*)\s*(\b{end}\b|$)".format(start=start, end=end)
             for start, end in zip(mention_start, mention_end)]
 
@@ -111,9 +107,6 @@ class GrandFundData:
                         final_dict[key] = value
                         unique_set.add(key)
         return {main_key:final_dict}
-    
-    def _extract_str_data(self, main_key: str, data: list):
-        return {main_key: " ".join(data)}
     
     def _extract_whitespace_data(self, main_key:str,data, pattern:str):
         """
@@ -480,8 +473,8 @@ class BajajFinServ(Reader,GrandFundData):
         table_parser = TableParser()
         tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
         dfs = pd.concat([table.df for table in tables], ignore_index=True)
-        sc1 = table_parser._get_matching_col_indices(dfs,["Bajaj.+?Fund","SCHEME\\s*NAME"],thresh=20)
-        sc2 = table_parser._get_matching_col_indices(dfs,["Jensen","Standard\\s*Deviation","Information\\s*ratio","Portfolio\\s*Quants","Tracking Error","YTM","Average\\s*Maturity","Sharpe"],thresh=10)
+        sc1 = table_parser.get_matching_col_indices(dfs,["Bajaj.+?Fund","SCHEME\\s*NAME"],thresh=20)
+        sc2 = table_parser.get_matching_col_indices(dfs,["Jensen","Standard\\s*Deviation","Information\\s*ratio","Portfolio\\s*Quants","Tracking Error","YTM","Average\\s*Maturity","Sharpe"],thresh=10)
         all_cols = sorted(set(sc1)) + list(range(sc2[0], dfs.shape[1]))
         fdf = dfs.iloc[:, all_cols]
         fdf.columns = ["MUTUAL_FUND"] + [f"METRICS_{i}" for i in range(1, fdf.shape[1])]
@@ -489,11 +482,11 @@ class BajajFinServ(Reader,GrandFundData):
             r"(Baj.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN|.+?GROWTH)?)",
             re.IGNORECASE
         )
-        fdf.MUTUAL_FUND = table_parser._clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
+        fdf.MUTUAL_FUND = table_parser.clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
         fdf.MUTUAL_FUND = fdf.MUTUAL_FUND.apply(lambda x: hdfc_pattern.findall(x)[0] if isinstance(x, str) and hdfc_pattern.findall(x) else "")
-        fdf = table_parser._clean_dataframe(fdf,["newline_to_space","str_to_pd_NA"])
+        fdf = table_parser.clean_dataframe(fdf,["newline_to_space","str_to_pd_NA"])
         fdf = fdf.dropna(axis=0, how="all").dropna(axis=1, how="all")
-        fdf =table_parser._clean_dataframe(fdf,['NA_to_str'])
+        fdf =table_parser.clean_dataframe(fdf,['NA_to_str'])
 
         data = {}
         temp = None
@@ -566,9 +559,9 @@ class DSP(Reader,GrandFundData):
         table_parser = TableParser()
         tables = camelot.read_pdf(path,flavor="lattice",pages=pages) 
         dfs = pd.concat([table.df for table in tables], ignore_index=True)
-        sc1 = table_parser._get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=20)
-        sc2 = table_parser._get_matching_col_indices(dfs,["REGULAR\\s+PLAN","DIRECT\\s+PLAN"], thresh=20)
-        sc3 = table_parser._get_matching_col_indices(dfs,["Managing this scheme","total work experience"],thresh=20)
+        sc1 = table_parser.get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=20)
+        sc2 = table_parser.get_matching_col_indices(dfs,["REGULAR\\s+PLAN","DIRECT\\s+PLAN"], thresh=20)
+        sc3 = table_parser.get_matching_col_indices(dfs,["Managing this scheme","total work experience"],thresh=20)
         print("Matched columns:", sc1,sc2,sc3)
         all_cols = list(set(sc1 + sc2 + sc3))
         fdf = dfs.iloc[:, all_cols]
@@ -580,11 +573,11 @@ class DSP(Reader,GrandFundData):
             re.IGNORECASE
         )
 
-        fdf.MUTUAL_FUND = table_parser._clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
+        fdf.MUTUAL_FUND = table_parser.clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
         fdf.MUTUAL_FUND = fdf.MUTUAL_FUND.apply(lambda x: dsp_pattern.findall(x)[0] if isinstance(x, str) and dsp_pattern.findall(x) else x)
-        fdf = table_parser._clean_dataframe(fdf,["newline_to_space","str_to_pd_NA"])
+        fdf = table_parser.clean_dataframe(fdf,["newline_to_space","str_to_pd_NA"])
         fdf = fdf.dropna(axis=0, how="all").dropna(axis=1, how="all")
-        fdf =table_parser._clean_dataframe(fdf,['NA_to_str'])
+        fdf =table_parser.clean_dataframe(fdf,['NA_to_str'])
         
         data = {}
         for idx, rows in fdf.iterrows():
@@ -684,9 +677,20 @@ class ICICI(Reader,GrandFundData):
         Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_metric_data(self,main_key:str,data):
-        if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
-            data["std_dev"], data["port_turnover_ratio"] = data["port_turnover_ratio"], data["std_dev"]
+        # if isinstance(data["beta"],str) and isinstance(data["sharpe"],str) and isinstance(data["std_dev"],str):
+        #     data["std_dev"],data["sharpe"],data["beta"] = data["sharpe"], data["beta"],data["std_dev"]
         return {main_key:data}
+    
+class ICICIPassive(Reader,GrandFundData):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
+        GrandFundData.__init__(self,fund_name,amc_id) 
+        Reader.__init__(self, self.PARAMS,amc_id,path) 
+        
+    def _update_metric_data(self,main_key:str,data):
+        # if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
+        #     data["std_dev"], data["port_turnover_ratio"] = data["port_turnover_ratio"], data["std_dev"]
+        return {main_key:data}
+    
 #15 <>
 class Invesco(Reader,GrandFundData): 
     def __init__(self, fund_name:str,amc_id:str,path:str):

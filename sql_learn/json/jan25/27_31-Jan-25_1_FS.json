@@ -1,14 +1,8 @@
 {
   "metadata": {
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
     "document_name": "27_31-Jan-25_1_FS.pdf",
     "file_type": "",
     "process_date": "20250514_14:44"
-========
-    "document_name": "27_30-Apr-25_FS.pdf",
-    "file_type": "fs",
-    "process_date": "20250519"
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
   },
   "records": [
     {
@@ -61,7 +55,6 @@
           }
         ],
         "main_scheme_name": "MIRAE ASSET LARGE CAP FUND",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -69,40 +62,6 @@
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 37,845.29",
-========
-        "metrics": [
-          {
-            "name": "beta",
-            "value": "0.85"
-          },
-          {
-            "name": "information_ratio",
-            "value": "-0.41"
-          },
-          {
-            "name": "port_turnover_ratio",
-            "value": "0.43"
-          },
-          {
-            "name": "r_squared_ratio",
-            "value": "0.96"
-          },
-          {
-            "name": "sharpe",
-            "value": "0.50"
-          },
-          {
-            "name": "volatility",
-            "value": "12.67"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 38,891.55",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20080404"
       }
@@ -185,17 +144,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 36,514.01",
-========
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 37,798.82",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20100709"
       }
@@ -250,7 +202,6 @@
           }
         ],
         "main_scheme_name": "MIRAE ASSET GREAT CONSUMER FUND",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -258,40 +209,6 @@
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 3,942.01",
-========
-        "metrics": [
-          {
-            "name": "beta",
-            "value": "0.93"
-          },
-          {
-            "name": "information_ratio",
-            "value": "-0.08"
-          },
-          {
-            "name": "port_turnover_ratio",
-            "value": "0.46"
-          },
-          {
-            "name": "r_squared_ratio",
-            "value": "0.93"
-          },
-          {
-            "name": "sharpe",
-            "value": "0.72"
-          },
-          {
-            "name": "volatility",
-            "value": "16.03"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 4,117.11",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20110329"
       }
@@ -374,17 +291,10 @@
         ],
         "min_addl_amt": "",
         "min_addl_amt_multiple": "",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_amt": "\u20b9 500",
         "min_amt_multiple": "\u20b9 500",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 24,007.47",
-========
-        "min_amt": "500",
-        "min_amt_multiple": "500",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 24,774.08",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20151228"
       }
@@ -439,7 +349,6 @@
           }
         ],
         "main_scheme_name": "MIRAE ASSET HEALTHCARE FUND",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -447,40 +356,6 @@
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 2,652.24",
-========
-        "metrics": [
-          {
-            "name": "beta",
-            "value": "0.95"
-          },
-          {
-            "name": "information_ratio",
-            "value": "-0.19"
-          },
-          {
-            "name": "port_turnover_ratio",
-            "value": "0.35"
-          },
-          {
-            "name": "r_squared_ratio",
-            "value": "0.97"
-          },
-          {
-            "name": "sharpe",
-            "value": "0.73"
-          },
-          {
-            "name": "volatility",
-            "value": "17.06"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 2,682.70",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20180702"
       }
@@ -535,7 +410,6 @@
           }
         ],
         "main_scheme_name": "MIRAE ASSET FOCUSED FUND",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -543,40 +417,6 @@
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 7,663.56",
-========
-        "metrics": [
-          {
-            "name": "beta",
-            "value": "0.79"
-          },
-          {
-            "name": "information_ratio",
-            "value": "-0.93"
-          },
-          {
-            "name": "port_turnover_ratio",
-            "value": "0.37"
-          },
-          {
-            "name": "r_squared_ratio",
-            "value": "0.87"
-          },
-          {
-            "name": "sharpe",
-            "value": "0.24"
-          },
-          {
-            "name": "volatility",
-            "value": "12.85"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 7,649.83",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20190514"
       }
@@ -631,7 +471,6 @@
           }
         ],
         "main_scheme_name": "MIRAE ASSET MIDCAP FUND",
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "metrics": [],
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
@@ -639,40 +478,6 @@
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 15,460.84",
-========
-        "metrics": [
-          {
-            "name": "beta",
-            "value": "0.94"
-          },
-          {
-            "name": "information_ratio",
-            "value": "-0.91"
-          },
-          {
-            "name": "port_turnover_ratio",
-            "value": "1.06"
-          },
-          {
-            "name": "r_squared_ratio",
-            "value": "0.96"
-          },
-          {
-            "name": "sharpe",
-            "value": "0.61"
-          },
-          {
-            "name": "volatility",
-            "value": "17.08"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 15,414.99",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20190729"
       }
@@ -681,95 +486,6 @@
       "value": {
         "amc_name": "Mirae Asset Investment Managers (India) Private Limited",
         "benchmark_index": [
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
-========
-          "Nifty Financial Services Index (TRI)"
-        ],
-        "field_location": [
-          {
-            "amc_name": "31",
-            "benchmark_index": "31",
-            "count": 23,
-            "fund_manager_name": "31",
-            "load_entry": "31",
-            "load_exit": "31",
-            "main_scheme_name": "31",
-            "metrics_beta": "31",
-            "metrics_information_ratio": "31",
-            "metrics_port_turnover_ratio": "31",
-            "metrics_r_squared_ratio": "31",
-            "metrics_sharpe": "31",
-            "metrics_volatility": "31",
-            "min_addl_amt": "31",
-            "min_addl_amt_multiple": "31",
-            "min_amt": "31",
-            "min_amt_multiple": "31",
-            "monthly_aaum_date": "31",
-            "monthly_aaum_value": "31",
-            "mutual_fund_name": "31",
-            "scheme_launch_date": "31"
-          }
-        ],
-        "fund_manager": [
-          {
-            "managing_fund_since": "",
-            "name": "Gaurav Kochar",
-            "qualification": "",
-            "total_exp": ""
-          }
-        ],
-        "load": [
-          {
-            "type": "entry_load",
-            "comment": "None"
-          },
-          {
-            "type": "exit_load",
-            "comment": "Please refer page no.12"
-          }
-        ],
-        "main_scheme_name": "MIRAE ASSET BANKING AND FINANCIAL SERVICES FUND",
-        "metrics": [
-          {
-            "name": "beta",
-            "value": "0.94"
-          },
-          {
-            "name": "information_ratio",
-            "value": "0.18"
-          },
-          {
-            "name": "port_turnover_ratio",
-            "value": "0.45"
-          },
-          {
-            "name": "r_squared_ratio",
-            "value": "0.87"
-          },
-          {
-            "name": "sharpe",
-            "value": "0.84"
-          },
-          {
-            "name": "volatility",
-            "value": "15.13"
-          }
-        ],
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 1,946.52",
-        "mutual_fund_name": "Mirae Asset Mutual Fund",
-        "scheme_launch_date": "20201211"
-      }
-    },
-    {
-      "value": {
-        "amc_name": "Mirae Asset Investment Managers (India) Private Limited",
-        "benchmark_index": [
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
           "Nifty Liquid Index A-I"
         ],
         "field_location": [
@@ -832,21 +548,12 @@
             "value": "6.42"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 13,614.30",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 12,196.59",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20090112"
       }
@@ -917,21 +624,12 @@
             "value": "6.87"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 1,392.91",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 1,784.29",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20120626"
       }
@@ -1002,21 +700,12 @@
             "value": "6.56"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 118.44",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 119.27",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20170324"
       }
@@ -1087,21 +776,12 @@
             "value": "6.98"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 342.45",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 401.28",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20180316"
       }
@@ -1172,21 +852,12 @@
             "value": "6.09"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 944.06",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 864.44",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20191015"
       }
@@ -1257,21 +928,12 @@
             "value": "6.81"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 49.03",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 46.59",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20200724"
       }
@@ -1342,21 +1004,12 @@
             "value": "6.79"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 1,781.56",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 1,681.12",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20201007"
       }
@@ -1427,21 +1080,12 @@
             "value": "6.90"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 41.56",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 42.57",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20210317"
       }
@@ -1512,21 +1156,12 @@
             "value": "6.66"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 1,911.53",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 2,626.59",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20210811"
       }
@@ -1597,21 +1232,12 @@
             "value": "6.83"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 37.69",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 41.42",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20241206"
       }
@@ -1725,21 +1351,12 @@
             "value": "6.80"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 8,685.12",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 8,854.07",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20150729"
       }
@@ -1858,21 +1475,12 @@
             "value": "6.27"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 1,370.74",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 1,402.45",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20181217"
       }
@@ -1961,21 +1569,12 @@
             "value": "5.91"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 2,900.03",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 3,054.14",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20200619"
       }
@@ -2058,21 +1657,12 @@
             "value": "6.43"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 1,750.90",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 1,811.12",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20220811"
       }
@@ -2167,21 +1757,12 @@
             "value": "6.32"
           }
         ],
-<<<<<<<< HEAD:sql_learn/jan25/27_31-Jan-25_1_FS.json
         "min_addl_amt": "\u20b9 1,000",
         "min_addl_amt_multiple": "\u20b9 1",
         "min_amt": "\u20b9 5,000",
         "min_amt_multiple": "\u20b9 1",
         "monthly_aaum_date": "30-04-2025",
         "monthly_aaum_value": "(Cr.) 1,799.77",
-========
-        "min_addl_amt": "1,000",
-        "min_addl_amt_multiple": "1",
-        "min_amt": "5,000",
-        "min_amt_multiple": "1",
-        "monthly_aaum_date": "20250430",
-        "monthly_aaum_value": "Cr. 1,910.56",
->>>>>>>> deploy:sql_learn/json/APR25/27_30-Apr-25_FS.json
         "mutual_fund_name": "Mirae Asset Mutual Fund",
         "scheme_launch_date": "20240131"
       }
