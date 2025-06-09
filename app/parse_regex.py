@@ -274,23 +274,18 @@ class FundRegex():
             if not value:
                 continue
             if metric == "port_turnover_ratio":
-                # print(metric, value)
-                if re.search(r"times?$", value, re.IGNORECASE):
-                    value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
+                value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
 
                 if value.endswith("%"):
                     value = value.rstrip("%").strip()
-                    if self.is_numeric(value):
-                        value = str(int(float(value)))
-                elif self.is_numeric(value):
+
+                if self.is_numeric(value):
                     num = float(value)
-                    if num < 1:
-                        value = str(int(num * 100))  # Convert ratio to %
-                    else:
-                        value = str(int(num))
+                    value = str(int(num * 100))
                 metric_data[metric] = value
         data["metrics"] = metric_data
         return data
+
 
 
                         

@@ -1692,7 +1692,7 @@
       line_x: 245.0,
       data: {
         size: [7, 10],
-        color: [-1, -2545112],
+        color: [-30], //-1, -2545112 redacted
         update_size: 30.0,
         font: ["Poppins-SemiBold"],
       },
@@ -1705,22 +1705,27 @@
       stop_words: [],
     },
     REGEX: {
-      metric: "(Sharpe Ratio|Standard Deviation|Beta|Annualised|Average Maturity|Modi?f?ied Duration|Macaulay Duration|Yield to Maturity)\\s*(-?[\\d,.]+\\s*(?:days?|months?|years?)?)",
+      date:"([0-9a-z]+\\s*[A-Za-z]+\\s*\\d{3,4})",
+      benchmark:"((?:Nifty|BSE|CRISIL|Domestic|NYSE).+$)",
+      metric: "(Equity Turnover|Total Turnover|Sharpe Ratio|Standard Deviation|Beta|Annualised|Average Maturity|Modi?f?ied Duration|Macaulay Duration|Yield to Maturity)\\s*(-?\\d+\\,?\\.?\\d*\\s*(?:days?|months?|years?|times?)?)",
       scheme: [
         "Scheme Category",
-        "Benchmark",
+        "Benchmark\\s*\\:?",
         "Plans and Options",
-        "Inception Date",
-        "Minimum Investment Amount",
-        "Additional Investment Amount",
-        "Fund Manager",
-        "Entry Load",
-        "Exit Load",
+        "Inception Date\\s*\\:?",
+        "Minimum Investment Amount\\s*\\:?",
+        "Additional Investment Amount\\s*\\:?",
+        "Fund Manager\\s*\\:?",
+        "Entry Load\\s*\\:?",
+        "Exit Load\\s*\\:?",
         "Face Value per Unit",
+        "Monthly Avg AUM\\s*\\:?",
+        "Month end AUM\\s*\\:?",
+        "Total Expense Ratio\\s*\\:?",
         "EOL",
       ],
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      aum: "(Monthly Avg AUM|Month End AUM)\\s*([\\d,.\\-]+)",
+      // aum: "(Monthly Avg AUM|Month End AUM)\\s*([\\d,.\\-]+)",
       ptr: "(Equity Turnover|Total Turnover)\\s*([\\d,.\\-]+)",
       manager: {
         pattern: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)?\\s*([\\w\\s]+)(?:\\([^)]+\\))?\\s*\\(Since ([^)]+)\\s*Overall\\s*(\\d+ years)",
@@ -1729,34 +1734,35 @@
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualised\\)",
     },
     PATTERN_TO_FUNCTION: {
-      "^investment.*": ["_extract_str_data", null],
-      "^aum.*": ["_extract_generic_data", "aum"],
-      "^portfolio$": ["_extract_scheme_data", "scheme"],
-      "^portfolio_turnover.*": ["_extract_generic_data", "ptr"],
+      // "^investment.*": ["_extract_str_data", null],
+      // "^aum.*": ["_extract_generic_data", "aum"],
+      // "^portfolio$": ["_extract_scheme_data", "scheme"],
+      // "^portfolio_turnover.*": ["_extract_generic_data", "ptr"],
+      "^(before|dummy)":["_extract_scheme_non_esc_data","scheme"]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^portfolio.fund_manager": ["_extract_manager_data", "manager"],
+      ".*fund_manager$": ["_extract_manager_data", "manager"],
       ".*investment_amount$": ["_extract_amt_data", "min_amt"],
-      "^metric": ["_extract_generic_data", "metric"],
+      ".*total_expense_ratio$": ["_extract_generic_data", "metric"],
+      ".*benchmark":["_extract_generic_data","benchmark"],
+      ".*inception_date":["_extract_generic_data","date"]
     },
     SELECTKEYS: [
       ".*(benchmark|inception_date|fund_manager)$",
-      ".*(investment_amount)$",
-      "^portfolio_turnover.*",
-      ".*(entry_load|exit_load)$",
-      "load",
+      ".*(investment_amount)$", //4
+      "load", //after merge
       "main_scheme_name",
       "monthly_aaum_date",
       "amc_name",
       "pgn",
-      "^aum.monthly_avg_aum",
-      "^metrics.*",
+      ".*monthly_avg_aum",
+      "metrics",
       "mutual_fund_name",
       "^page_number",
     ],
     MERGEKEYS: {
-      load: ["portfolio.entry_load", "portfolio.exit_load"],
-      metrics: ["metrics", "portfolio_turnover_times.total_turnover"],
+      load: [".*entry_load", ".*exit_load"],
+      metrics: ["metrics", "portfolio_turnover_times.total_turnover",".*total_expense_ratio"],
     },
     COMMENTS: ["ptr take total turn"],
     IMP_DATA: {
@@ -4358,7 +4364,7 @@
         pattern: "(Samco.*?(?:Fund|ETF|FOF|Index)\\s*(?:of Funds?|FOF)?)",
         bbox: [0, 30, 600, 100],
       },
-      clip_bbox: [[35, 120, 250, 765]],
+      clip_bbox: [[35, 120, 250, 812],[250,120,624,812]],
       line_x: 200.0,
       data: {
         size: [7, 12],
@@ -4397,15 +4403,15 @@
       escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\%]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment).*": ["_extract_str_data", null],
-      "^nav.*": ["_extract_generic_data", "nav"],
+      // "^(investment).*": ["_extract_str_data", null],
+      // "^nav.*": ["_extract_generic_data", "nav"],
       "^fund_manag": ["_extract_manager_data", "manager"],
-      "^scheme_det": ["_extract_scheme_data", "scheme"],
+      "^scheme_det": ["_extract_scheme_non_esc_data", "scheme"],
       "^aum.*": ["_extract_generic_data", "aum"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^(metrics|quantitative_data).*": ["_extract_generic_data", "metric"],
-      ".*(min_application|minapplication|additional)": [
+      ".*(min_application|min.application|additional|min._application|min_.application)": [
         "_extract_amt_data",
         "min_amt",
       ],
@@ -4413,21 +4419,24 @@
     },
     SELECTKEYS: [
       ".*(inception_date|benchmark)",
-      ".*(min_application|minapplication|additional)",
-      ".*(entry_load|exit_load)",
+      // ".*(min_application|min.application|additional)",
+      "min_amt",
+      "min_addl_amt",
       "fund_manager",
       "aum.average_aum",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
-      "metrics",
+      "metrics", //after merge
       "mutual_fund_name",
       "page_number",
-      "load",
+      "load", //after merge
     ],
     MERGEKEYS: {
       load: [".*entry_load", ".*exit_load"],
       metrics: ["^metrics.*", "quantitative_data.*"],
+      min_amt:[".*(min.application|min_.application|min._application)"],
+      min_addl_amt:[".*additional"]
     },
     COMMENTS: [],
     IMP_DATA: {

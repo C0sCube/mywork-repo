@@ -290,7 +290,8 @@
             ".*minaddlinvestment$",
             "^additional_investment$",
             ".*minimum_additional$",
-            ".*min.addl.investment$"
+            ".*min.addl.investment$",
+            "^min_addl_amt$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -319,7 +320,10 @@
             ".*minimum_application_amount_purchase",
             ".*application_amount$",
             ".*initial_pruchase$",
-            ".*application_amount_for_fresh$"
+            ".*application_amount_for_fresh$",
+            ".*min.application$",
+            ".*min._application$",
+            ".*min_.application$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
