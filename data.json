@@ -1,280 +1,501 @@
 {
-  "Helios Flexi Cap Fund": {
-    "before.scheme_category": ": Flexi Cap Fund",
-    "before.benchmark": "NIFTY 500 Total Return Index(TRI)",
-    "before.plans_and_options": ": Direct and Regular Plan, each with Growth and IDCW Option (Re-investment, Transfer, Pay-out Sub-Option)",
-    "before.inception_date": "13th November 2023",
-    "before.minimum_investment_amount": {
-      "amt": "5,000",
-      "thraftr": "1"
+  "JM ELSS Tax Saver Fund": {
+    "before.inception_date": "31st March, 2008",
+    "before.benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Chaitanya Choksi (Managing this Scheme since July 18, 2014 and has around 21 years of work experience in the field of equity research and fund management). Co-Fund Managers Mr. Satish Ramanathan (Managing this Scheme since October 01, 2024  total years of experience of around 3 decades). Mr. Asit Bhandarkar (Managing this Scheme since December, 2021  total 20 years of experience in fund management  equity research). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 44.6623 (Regular) - IDCW (Payout) 44.6616 (Direct) - Growth Option 50.8079 (Direct) - IDCW (Payout) 49.5552",
+    "before.fund_size": "",
+    "before.month_end_aum": "183.63 Crore",
+    "before.monthly_aaum": "176.30 Crore",
+    "before.portfolio_turnover_ratio": "0.927",
+    "before.minimum_application_amount_purchase": {
+      "amt": "500",
+      "thraftr": "500"
     },
-    "before.additional_investment_amount": {
-      "amt": "1,000",
-      "thraftr": "1"
+    "before.additional_purchase": {
+      "amt": "500",
+      "thraftr": "500"
     },
-    "before.fund_manager": [
-      {
-        "managing_fund_since": "Inception",
-        "name": "Alok Bahl",
-        "qualification": "",
-        "total_exp": "32 Years"
-      },
-      {
-        "managing_fund_since": "April 20, 2024",
-        "name": "Pratik Singh",
-        "qualification": "",
-        "total_exp": "10 Years"
-      }
-    ],
-    "before.entry_load": ": NA",
-    "before.exit_load": ": (i) If units redeemed or switched out are upto 10% (limit) of the units purchased or switched in within 3 months from the date of allotment \u00b7 Nil (ii) If units redeemed or switched out are over and above the limit within 3 months from the date of allotment \u00b7 1% of the applicable NAV (iii) If redeemed/switched out after 3 months from the date of allotment \u00b7 Nil",
-    "before.face_value_per_unit": ": Rs. 10 AUM Details",
-    "before.monthly_avg_aum": "2,875.53 Crores",
-    "before.month_end_aum": "2,970.94 Crores",
-    "before.total_expense_ratio": {
-      "Equity Turnover": "0.73",
-      "Total Turnover": "0.73"
+    "before.exit_load": "NIL",
+    "before.expense_ratio": "Regular Plan 2.37% Direct Plan 1.03%",
+    "before.risk_ratios": {
+      "Beta": "0.93",
+      "Sharpe": "0.59",
+      "Std. Dev.": "16.07"
     },
-    "amc_name": "Helios Capital Asset Management (India) Private Limited",
-    "main_scheme_name": "Helios Flexi Cap Fund",
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM ELSS Tax Saver Fund",
     "monthly_aaum_date": "20250531",
     "page_number": [
-      2
+      20
     ],
-    "mutual_fund_name": "Helios Mutual Fund",
+    "mutual_fund_name": "JM Financial Mutual Fund",
     "file_name": ""
   },
-  "Helios Financial Services Fund": {
-    "before.scheme_category": ": Sectoral Fund",
-    "before.benchmark": "NIFTY Financial Services Total Return Index(TRI)",
-    "before.plans_and_options": ": Direct and Regular Plan, each with Growth and IDCW Option (Re-investment, Transfer, Pay-out Sub-Option)",
-    "before.inception_date": "24th June 2024",
-    "before.minimum_investment_amount": {
-      "amt": "5,000",
+  "JM Flexicap Fund": {
+    "before.inception_date": "23rd September, 2008",
+    "before.benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Satish Ramanathan (Managing this Scheme since August 20, 2021  total years of experience of around 3 decades). Co-Fund Managers Mr. Asit Bhandarkar (Managing this Scheme since October 01, 2024  total 20 years of experience in fund management  equity research). Mr. Chaitanya Choksi (Managing this Scheme since December 2021 and has around 21 years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 91.0281 (Regular) - IDCW (Payout) 70.1442 (Direct) - Growth Option 103.1756 (Direct) - IDCW (Payout) 93.7815",
+    "before.fund_size": "",
+    "before.month_end_aum": "5,263.18 Crore",
+    "before.monthly_aaum": "5,105.11 Crore",
+    "before.portfolio_turnover_ratio": "1.592",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
       "thraftr": "1"
     },
-    "before.additional_investment_amount": {
-      "amt": "1,000",
+    "before.additional_purchase": {
+      "amt": "100",
       "thraftr": "1"
     },
-    "before.fund_manager": [
-      {
-        "managing_fund_since": "Inception",
-        "name": "Alok Bahl",
-        "qualification": "",
-        "total_exp": "32 Years"
-      },
-      {
-        "managing_fund_since": "Inception",
-        "name": "Pratik Singh",
-        "qualification": "",
-        "total_exp": "10 Years"
-      }
-    ],
-    "before.entry_load": ": NA",
-    "before.exit_load": ": (i) If units redeemed or switched out are upto 10% (limit) of the units purchased or switched in within 3 months from the date of allotment \u00b7 Nil (ii) If units redeemed or switched out are over and above the limit within 3 months from the date of allotment \u00b7 1% of the applicable NAV (iii) If redeemed/switched out after 3 months from the date of allotment \u00b7 Nil",
-    "before.face_value_per_unit": ": Rs. 10 AUM Details",
-    "before.monthly_avg_aum": "157.10 Crores",
-    "before.month_end_aum": "164.38 Crores",
-    "before.total_expense_ratio": {
-      "Equity Turnover": "0.50",
-      "Total Turnover": "0.50"
+    "before.exit_load": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 1.81% Direct Plan 0.56%",
+    "before.risk_ratios": {
+      "Beta": "0.92",
+      "Sharpe": "0.83",
+      "Std. Dev.": "15.98"
     },
-    "amc_name": "Helios Capital Asset Management (India) Private Limited",
-    "main_scheme_name": "Helios Financial Services Fund",
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Flexicap Fund",
     "monthly_aaum_date": "20250531",
     "page_number": [
-      4
+      21
     ],
-    "mutual_fund_name": "Helios Mutual Fund",
+    "mutual_fund_name": "JM Financial Mutual Fund",
     "file_name": ""
   },
-  "Helios Large & Mid Cap Fund": {
-    "before.scheme_category": ": Large & Mid Cap Fund",
-    "before.benchmark": "NIFTY Large Midcap 250 Total Return Index (TRI)",
-    "before.plans_and_options": ": Direct and Regular Plan, each with Growth and IDCW Option (Re-investment, Transfer, Pay-out Sub-Option)",
-    "before.inception_date": "30th October 2024",
-    "before.minimum_investment_amount": {
-      "amt": "5,000",
+  "JM Midcap Fund": {
+    "before.inception_date": "21st November, 2022",
+    "before.benchmark_index": "Nifty Midcap 150 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Satish Ramanathan (Managing this Scheme since November 21, 2022  total years of experience of around 3 decades). Co-Fund Managers Mr. Asit Bhandarkar (Managing this Scheme since October 01, 2024  total 20 years of experience in fund management  equity research). Mr. Chaitanya Choksi (Managing this Scheme since November 21, 2022 and has around 21  years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 17.2806 (Regular) - IDCW (Payout) 17.2806 (Direct) - Growth Option 18.0422 (Direct) - IDCW ( Payout) 18.0421",
+    "before.fund_size": "",
+    "before.month_end_aum": "1,261.10 Crore",
+    "before.monthly_aaum": "1,228.89 Crore",
+    "before.portfolio_turnover_ratio": "1.855",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
       "thraftr": "1"
     },
-    "before.additional_investment_amount": {
-      "amt": "1,000",
+    "before.additional_purchase": {
+      "amt": "100",
       "thraftr": "1"
     },
-    "before.fund_manager": [
-      {
-        "managing_fund_since": "Inception",
-        "name": "Alok Bahl",
-        "qualification": "",
-        "total_exp": "32 Years"
-      },
-      {
-        "managing_fund_since": "Inception",
-        "name": "Pratik Singh",
-        "qualification": "",
-        "total_exp": "10 Years"
-      }
-    ],
-    "before.entry_load": ": NA",
-    "before.exit_load": ": i) If units redeemed or switched out are upto 10% (limit) of the units purchased or switched in within 3 months from the date of allotment \u00b7 Nil (ii) If units redeemed or switched out are over and above the limit within 3 months from thedate of allotment \u00b7 1% of the applicable NAV (iii) If redeemed/switched out after 3 months from the date of allotment \u00b7 Nil",
-    "before.face_value_per_unit": ": Rs. 10 AUM Details",
-    "before.monthly_avg_aum": "279.59 Crores",
-    "before.month_end_aum": "293.24 Crores",
-    "before.total_expense_ratio": {
-      "Equity Turnover": "0.30",
-      "Total Turnover": "0.30"
-    },
-    "amc_name": "Helios Capital Asset Management (India) Private Limited",
-    "main_scheme_name": "Helios Large & Mid Cap Fund",
+    "before.exit_load": "If the units are redeemedswitched out on or before 180 days from the date of allotment  1.00%. \t If the units are redeemedswitched out after 180 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 2.12% Direct Plan 0.56%",
+    "before.risk_ratios": {},
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Midcap Fund",
     "monthly_aaum_date": "20250531",
     "page_number": [
-      6
+      22
     ],
-    "mutual_fund_name": "Helios Mutual Fund",
+    "mutual_fund_name": "JM Financial Mutual Fund",
     "file_name": ""
   },
-  "Helios Balanced Advantage Fund": {
-    "before.scheme_category": ": Balanced Advantage Fund",
-    "before.benchmark": "CRISIL Hybrid 50+50  Moderate Total Return Index (TRI)",
-    "before.plans_and_options": ": Direct and Regular Plan, each with Growth and IDCW Option",
-    "before.inception_date": "27th March 2024",
-    "before.minimum_investment_amount": {
-      "amt": "5,000",
+  "JM Small Cap Fund": {
+    "before.inception_date": "18th June, 2024",
+    "before.benchmark_index": "Nifty Smallcap 250 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Asit Bhandarkar (Managing this Scheme since June 18, 2024  total 20 years of experience in fund management  equity research). Co-Fund Managers Mr. Satish Ramanathan (Managing this Scheme since October 01, 2024  total years of experience of around 3 decades). Mr. Chaitanya Choksi (Managing this Scheme since June 18, 2024 and has around 21 years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 8.9628 (Regular) - IDCW (Payout) 8.9628 (Direct) - Growth Option 9.0850 (Direct) - IDCW (Payout) 9.0852",
+    "before.fund_size": "",
+    "before.month_end_aum": "594.06 Crore",
+    "before.monthly_aaum": "576.94 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
       "thraftr": "1"
     },
-    "before.additional_investment_amount": {
-      "amt": "1,000",
+    "before.additional_purchase": {
+      "amt": "100",
       "thraftr": "1"
     },
-    "before.fund_manager": [
-      {
-        "managing_fund_since": "Inception",
-        "name": "Alok Bahl",
-        "qualification": "",
-        "total_exp": "32 Years"
-      },
-      {
-        "managing_fund_since": "Inception",
-        "name": "Pratik Singh",
-        "qualification": "",
-        "total_exp": "10 Years"
-      },
-      {
-        "managing_fund_since": "Inception",
-        "name": "Utssav Modi",
-        "qualification": "",
-        "total_exp": "11 Years"
-      }
-    ],
-    "before.entry_load": ": NA",
-    "before.exit_load": ": (i) If units redeemed or switched out are upto 10% (limit) of the units purchased or switched in within 3 months from the date of allotment \u00b7 Nil (ii) If units redeemed or switched out are over and above the limit within 3 months from the date of allotment \u00b7 1% of the applicable NAV (iii) If units are redeemed/switched out after 3 months from the date of allotment \u00b7 Nil",
-    "before.face_value_per_unit": ": Rs. 10 AUM Details",
-    "before.monthly_avg_aum": "297.59 Crores",
-    "before.month_end_aum": "300.87  Crores",
-    "before.total_expense_ratio": {
-      "Equity Turnover": "0.61",
-      "Total Turnover": "3.88"
-    },
-    "amc_name": "Helios Capital Asset Management (India) Private Limited",
-    "main_scheme_name": "Helios Balanced Advantage Fund",
+    "before.exit_load": "If the units are redeemedswitched out on or before 180 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 180 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 2.34% Direct Plan 0.71%",
+    "before.risk_ratios": {},
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Small Cap Fund",
     "monthly_aaum_date": "20250531",
     "page_number": [
-      8
+      23
     ],
-    "mutual_fund_name": "Helios Mutual Fund",
+    "mutual_fund_name": "JM Financial Mutual Fund",
     "file_name": ""
   },
-  "Helios Mid Cap Fund": {
-    "before.scheme_category": ": Mid Cap Fund",
-    "before.benchmark": "NIFTY Midcap 150 Total Return Index (TRI)",
-    "before.plans_and_options": ": Direct and Regular Plan, each with Growth and IDCW Option (Re-investment, Transfer, Pay-out Sub-Option)",
-    "before.inception_date": "13th March 2025",
-    "before.minimum_investment_amount": {
-      "amt": "5,000",
+  "JM Large Cap Fund": {
+    "before.inception_date": "1st April, 1995",
+    "before.benchmark_index": "BSE 100 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Satish Ramanathan (Managing this Scheme since August 20, 2021  total experience of around 3 decades). Co-Fund Managers Mr. Asit Bhandarkar (Managing this Scheme since October 5, 2017  total 20 years of experience in fund management  equity research). Mr. Deepak Gupta (Managing this Scheme since January 27, 2025 and has around 21 years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 143.0760 (Regular) - IDCW (Payout) 27.7744 (Direct) - Growth Option 162.9174 (Direct) - IDCW (Payout) 65.4094",
+    "before.fund_size": "",
+    "before.month_end_aum": "490.71 Crore",
+    "before.monthly_aaum": "477.21 Crore",
+    "before.portfolio_turnover_ratio": "2.833",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
       "thraftr": "1"
     },
-    "before.additional_investment_amount": {
-      "amt": "1,000",
+    "before.additional_purchase": {
+      "amt": "100",
       "thraftr": "1"
     },
-    "before.fund_manager": [
-      {
-        "managing_fund_since": "Inception",
-        "name": "Alok Bahl",
-        "qualification": "",
-        "total_exp": "32 Years"
-      },
-      {
-        "managing_fund_since": "Inception",
-        "name": "Pratik Singh",
-        "qualification": "",
-        "total_exp": "10 Years"
-      }
-    ],
-    "before.entry_load": ": NA",
-    "before.exit_load": ": (i) If units redeemed or switched out are upto 10% (limit) of the units purchased or switched in within 3 months from the date of allotment-Ni (ii) If units redeemed or switched out are over and above the limit within 3 months from the date of allotment of the applicable NAV - 1% of the applicable NAV (iii) If redeemed/switched out after 3 months from the date of allotment-Nil",
-    "before.face_value_per_unit": ": Rs. 10 AUM Details",
-    "before.monthly_avg_aum": "66.06 Crores",
-    "before.month_end_aum": "74.49 Crores",
-    "before.total_expense_ratio": {
-      "Equity Turnover": "0.00",
-      "Total Turnover": "0.00"
+    "before.exit_load": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 2.37% Direct Plan 0.72%",
+    "before.risk_ratios": {
+      "Beta": "0.87",
+      "Sharpe": "0.44",
+      "Std. Dev.": "14.30"
     },
-    "amc_name": "Helios Capital Asset Management (India) Private Limited",
-    "main_scheme_name": "Helios Mid Cap Fund",
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Large Cap Fund",
     "monthly_aaum_date": "20250531",
     "page_number": [
-      10
+      24
     ],
-    "mutual_fund_name": "Helios Mutual Fund",
+    "mutual_fund_name": "JM Financial Mutual Fund",
     "file_name": ""
   },
-  "Helios Overnight Fund": {
-    "before.scheme_category": ": Overnight Fund",
-    "before.benchmark": "CRISIL Liquid Overnight Index",
-    "before.plans_and_options": ": Direct and Regular Plan, each with Growth and Daily IDCW Re-investment Option",
-    "before.inception_date": "25th October 2023",
-    "before.minimum_investment_amount": {
-      "amt": "5,000",
+  "JM Value Fund": {
+    "before.inception_date": "2nd June, 1997",
+    "before.benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Satish Ramanathan (Managing this Scheme since August 20, 2021  total years of experience of around 3 decades). Co-Fund Managers Mr. Chaitanya Choksi (Managing this Scheme since October 01, 2024 and has around 21 years of work experience in the field of equity research and fund management). Mr. Asit Bhandarkar (Managing this Scheme since December, 2006  total 20 years of experience in fund management  equity research). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 88.4119 (Regular) - IDCW (Payout) 61.7370 (Direct) - Growth Option 98.8857 (Direct) - IDCW (Payout) 67.3745",
+    "before.fund_size": "",
+    "before.month_end_aum": "987.88 Crore",
+    "before.monthly_aaum": "969.14 Crore",
+    "before.portfolio_turnover_ratio": "1.178",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
       "thraftr": "1"
     },
-    "before.additional_investment_amount": {
-      "amt": "1,000",
+    "before.additional_purchase": {
+      "amt": "100",
       "thraftr": "1"
     },
-    "before.fund_manager": [
-      {
-        "managing_fund_since": "Inception",
-        "name": "Alok Bahl",
-        "qualification": "",
-        "total_exp": "32 Years"
-      },
-      {
-        "managing_fund_since": "Inception",
-        "name": "Utssav Modi",
-        "qualification": "",
-        "total_exp": "11 Years"
-      }
-    ],
-    "before.entry_load": ": NA",
-    "before.exit_load": ": NIL",
-    "before.face_value_per_unit": ": Rs. 1,000 AUM Details",
-    "before.monthly_avg_aum": "160.27 Crores",
-    "before.month_end_aum": "155.12 Crores",
-    "before.total_expense_ratio": {
-      "Average Maturity": "1 day",
-      "Modied Duration": "1 day",
-      "Macaulay Duration": "1 day",
-      "Yield to Maturity": "5.96"
+    "before.exit_load": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 2.24% Direct Plan 0.93%",
+    "before.risk_ratios": {
+      "Beta": "0.94",
+      "Sharpe": "0.75",
+      "Std. Dev.": "16.87"
     },
-    "amc_name": "Helios Capital Asset Management (India) Private Limited",
-    "main_scheme_name": "Helios Overnight Fund",
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Value Fund",
     "monthly_aaum_date": "20250531",
     "page_number": [
-      12
+      25
     ],
-    "mutual_fund_name": "Helios Mutual Fund",
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Focused Fund": {
+    "before.inception_date": "5th  March, 2008",
+    "before.benchmark_index": "BSE 500 TRI Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Asit Bhandarkar (Managing this Scheme since February, 2009  total 20 years of experience in fund management  equity research). Co-Fund Managers Mr. Satish Ramanathan (Managing this Scheme since October 01, 2024  total years of experience of around 3 decades). Mr. Chaitanya Choksi (Managing this Scheme since July 18, 2014 and has around 21 years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 18.6280 (Regular) - IDCW (Payout) 18.6273 (Direct) - Growth Option 21.6323 (Direct) - IDCW (Payout) 21.2003",
+    "before.fund_size": "",
+    "before.month_end_aum": "246.58 Crore",
+    "before.monthly_aaum": "233.45 Crore",
+    "before.portfolio_turnover_ratio": "1.907",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "If the units are redeemedswitched out on or before 30 days from the date of allotment  1.00%.  \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 2.37% Direct Plan 0.74%",
+    "before.risk_ratios": {
+      "Beta": "0.86",
+      "Sharpe": "0.64",
+      "Std. Dev.": "15.28"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Focused Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      26
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Arbitrage Fund": {
+    "before.inception_date": "18th July, 2006",
+    "before.benchmark_index": "Nifty 50 Arbitrage Index Additional Benchmark Index Crisil 1 Year T Bill Index Name of Instrument % to NAV Rating % to NAV Futures Tata Power Company Limited 2.47 -2.48 Realty 1.02 -1.04 DLF Limited 1.02 -1.04 Retailing 1.07 -1.07 Aditya Birla Fashion and Retail Limited 0.61 -0.61 Info Edge (India) Limited 0.17 -0.17 Trent Limited 0.29 -0.29 Transport Infrastructure 0.64 -0.65 Adani Ports and Special Economic Zone Limited 0.25 -0.26 GMR Airports Limited 0.39 -0.39 Transport Services 0.63 -0.63 Container Corporation of India Limited 0.63 -0.63 Telecom - Services 8.42 -8.46 Bharti Airtel Limited 2.87 -2.88 Indus Towers Limited 3.26 -3.27 Vodafone Idea Limited 2.29 -2.31 Total Equity Holdings 74.96 -75.36 Other Mutual Fund Units 7.27 JM Liquid Fund - Direct Growth 7.27 Treasury Bills 12.24 182 Days T-Bill 4.21 SOV 364 Days T-Bill 1.12 SOV 91 Days T-Bill 6.91 SOV Total Debt Holdings 19.51 TREPS  Others  5.53 Total Assets 100.00  includes net receivables  payables if any Total no. of Equity Stocks  87",
+    "before.fund_manager_details": "Fund Manager Mr. Asit Bhandarkar (Managing this Scheme since July 18, 2014  total 20 years of experience in fund management  equity research). Co-Fund Managers Mr. Satish Ramanathan (Managing this Scheme since October 01, 2024  total years of experience of around 3 decades). Mr. Chaitanya Choksi (Managing this Scheme since February 01, 2011 and has around 21 years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 32.1418 (Regular) - IDCW (Payout) 14.9182 (Direct) - Growth Option 34.2214 (Direct) - IDCW (Payout) 16.1264 PORTFOLIO TURNOVER RATIO 11.2395 EXPENSE RATIO Regular Plan 1.07% Direct Plan 0.40%",
+    "before.portfolio_turnover_ratio": "11.2395",
+    "before.expense_ratio": "Regular Plan 1.07% Direct Plan 0.40%",
+    "dummyuxxjuwpbiayzvyp.fund_size": "",
+    "dummyuxxjuwpbiayzvyp.month_end_aum": "186.62 Crore",
+    "dummyuxxjuwpbiayzvyp.monthly_aaum": "204.63 Crore",
+    "dummyuxxjuwpbiayzvyp.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "dummyuxxjuwpbiayzvyp.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "dummyuxxjuwpbiayzvyp.risk_ratios": {
+      "Beta": "0.54",
+      "Sharpe": "2.25",
+      "Std. Dev.": "0.52"
+    },
+    "dummyolfhzvjftungfnf.exit_load": "If the units are redeemed  switched out on or before 30 days from the date of allotment  0.50%. \t If the units are redeemed  switched out after 30 days from the date of allotment  Nil. PORTFOLIO STATISTICS (FOR DEBT PORTION) Annualised Portfolio YTM 6.50%  Modified Duration 0.0776 years Average Maturity 0.0839 years Macaulay Duration 0.0828 years  Semi annual YTM has been annualised. Value of 10,000 invested nal Returns Additional Benchmark Benchmark ( ) ( ) 10,676 10,765 10,749 11,973 12,249 12,041 12,571 13,016 13,077 32,157 NA 30,918 may not necessarily provide the basis for comparison with other investment. Scheme ( ) e  Date of First allotment in the Scheme  Plan. Absolute returns are computed on (CAGR) basis. Source www.mutualfundsindia.com. Returns greater than 1 year period emes managed by Fund Managers, refer httpswww.jmfinancialmf.comdownloads e no. 36. For Additional Performance Note, refer page no. 37. For complete portfolio   Annualised Roll spreads of Top 50 stocks in March25 were higher as compared to February25.  Indian Government Securities 1 year Yield was in-line in March25 as compared to February25. Si l St k F t R ll",
+    "dummyolfhzvjftungfnf.portfolio_statistics": {
+      "Annualised Portfolio YTM": "6.50",
+      "Modified Duration": "0.0776 years",
+      "Average Maturity": "0.0839 years",
+      "Macaulay Duration": "0.0828 years"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Arbitrage Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      27,
+      28
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Aggressive Hybrid Fund": {
+    "before.inception_date": "1st April, 1995",
+    "before.benchmark_index": "CRISIL Hybrid 35+65 Aggressive Index Additional Benchmark Index Nifty 50 TRI",
+    "before.fund_manager_details": "Fund Manager Mr. Asit Bhandarkar (Managing this Scheme since December, 2021  total 20 years of experience in fund management  equity research). Co-Fund Managers Mr. Satish Ramanathan (Managing this Scheme since October 01, 2024  total years of experience of around 3 decades). Mr. Chaitanya Choksi (Managing this Scheme since August 20, 2021 and has around 21 years of work experience in the field of equity research and fund management). Debt Portion Ms. Ruchi Fozdar (Managing this Scheme since October 04, 2024 and has 10 years of experience in fixed income market)",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 113.2609 (Regular) - IDCW (Payout) 31.6780 (Direct) - Growth Option 128.7673 (Direct) - IDCW (Payout) 70.9922",
+    "before.fund_size": "",
+    "before.month_end_aum": "767.72 Crore",
+    "before.monthly_aaum": "750.34 Crore",
+    "before.portfolio_turnover_ratio": "1.381",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "If the units are redeemed  switched out on or before 60 days from the date of allotment  1.00%.  If the units are redeemed  switched out after 60 days from the date of allotment  Nil.",
+    "before.expense_ratio": "Regular Plan 2.29% Direct Plan 0.68%",
+    "before.risk_ratios": {
+      "Beta": "1.00",
+      "Sharpe": "0.88",
+      "Std. Dev.": "12.58"
+    },
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "6.96",
+      "Modified Duration": "3.9637 years",
+      "Average Maturity": "5.7671 years",
+      "Macaulay Duration": "4.1395 years"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Aggressive Hybrid Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      29
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Overnight Fund": {
+    "before.inception_date": "3rd December, 2019",
+    "before.benchmark_index": "CRISIL Liquid Overnight Index Additional Benchmark Index Crisil 1 Year T Bill Index",
+    "before.fund_manager_details": "Fund Manager Mr. Killol Pandya (Managing this Scheme since November 05, 2024 and has more than 17 years of experience in the asset management industry). Co-Fund Managers Ms. Naghma Khoja (Managing this Scheme since April 05, 2022 and has more than 6 years of experience in the asset management industry). Ms. Ruchi Fozdar (Managing this Scheme since April 03, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option  1291.0971 (Direct) - Growth Option  1295.9019",
+    "before.fund_size": "",
+    "before.month_end_aum": "237.72 Crore",
+    "before.monthly_aaum": "213.62 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "NIL",
+    "before.expense_ratio": "Regular Plan 0.15% Direct Plan 0.08% PORTFOLIO STATISTICS Annualised Portfolio YTM 6.62%  Modified Duration 1.86 days Average Maturity 2.01 days Macaulay Duration 2.01 days  Semi annual YTM has been annualised. For Risk-o-meter (Scheme  Benchmark)  Potential Risk Class (PRC), refer page no. 42. 27",
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "6.62",
+      "Modified Duration": "1.86 days",
+      "Average Maturity": "2.01 days",
+      "Macaulay Duration": "2.01 days"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Overnight Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      30
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Liquid Fund": {
+    "before.inception_date": "31st December, 1997",
+    "before.benchmark_index": "CRISIL Liquid Debt A-I Index Additional Benchmark Index Crisil 1 Year T Bill Index",
+    "before.fund_manager_details": "Fund Manager Mr. Killol Pandya (Managing this Scheme since November 05, 2024 and has more than 17 years of experience in the asset management industry). Co-Fund Managers Ms. Naghma Khoja (Managing this Scheme since October 21, 2021 and has more than 6 years of experience in the asset management industry). Ms. Ruchi Fozdar (Managing this Scheme since April 03, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option  70.0942 (Direct) - Growth Option  70.8267",
+    "before.fund_size": "",
+    "before.month_end_aum": "2,805.99 Crore",
+    "before.monthly_aaum": "3,264.35 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.expense_ratio": "Regular Plan 0.26% Direct Plan 0.16% EXIT LOAD Investor Exit upon Exit Load as a % of redemption subscription (based on proceeds (including systematic Applicable NAV) transactions) Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 Onwards 0.0000% PORTFOLIO STATISTICS Annualised Portfolio YTM 7.03%  Modified Duration 0.1499 years Average Maturity 0.1609 years Macaulay Duration 0.1603 years  Semi annual YTM has been annualised. For Risk-o-meter (Scheme  Benchmark)  Potential Risk Class (PRC), refer page no. 42.",
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "7.03",
+      "Modified Duration": "0.1499 years",
+      "Average Maturity": "0.1609 years",
+      "Macaulay Duration": "0.1603 years"
+    },
+    "before.exit_load": "Investor Exit upon Exit Load as a % of redemption subscription (based on proceeds (including systematic Applicable NAV) transactions) Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 Onwards 0.0000%",
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Liquid Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      31
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Short Duration Fund": {
+    "before.inception_date": "29th August, 2022",
+    "before.benchmark_index": "CRISIL Short Duration Debt A-II Index Additional Benchmark Index Crisil 1 Year T Bill Index",
+    "before.fund_manager_details": "Fund Manager Mr. Killol Pandya (Managing this Scheme since November 05, 2024 and has more than 17 years of experience in the asset management industry). Co-Fund Managers Ms. Naghma Khoja (Managing this Scheme since April 03, 2024 and has more than 6 years of experience in the asset management industry.) Ms. Ruchi Fozdar (Managing this Scheme since April 03, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 11.7670 (Direct) - Growth Option 12.0188",
+    "before.fund_size": "",
+    "before.month_end_aum": "115.23 Crore",
+    "before.monthly_aaum": "116.86 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "NIL",
+    "before.expense_ratio": "Regular Plan 1.09% Direct Plan 0.37% PORTFOLIO STATISTICS Annualised Portfolio YTM 7.19%  Modified Duration 2.4948 years Average Maturity 3.0417 years Macaulay Duration 2.6308 years  Semi annual YTM has been annualised. For Risk-o-meter (Scheme  Benchmark)  Potential Risk Class (PRC), refer page no. 42. MATURITY PROFILE 50.00 44.42% 45.00 40.00 36.14% 35.00 30.00 25.00 19.13% 20.00 15.00 10.00 5.00 0.00 0 to 1 year 1 to 4 years 4 to 7 years  Excluding investment in CDMDFA2 29",
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "7.19",
+      "Modified Duration": "2.4948 years",
+      "Average Maturity": "3.0417 years",
+      "Macaulay Duration": "2.6308 years"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Short Duration Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      32
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Dynamic Bond Fund": {
+    "before.inception_date": "25th June, 2003",
+    "before.benchmark_index": "CRISIL Dynamic Bond A-III Index Additional Benchmark Index Crisil 10 Year Gilt Index",
+    "before.fund_manager_details": "Fund Manager Mr. Killol Pandya (Managing this Scheme since November 05, 2024 and has more than 17 years of experience in the asset management industry). Co-Fund Managers Ms. Naghma Khoja (Managing this Scheme since April 03, 2024 and has more than 6 years of experience in the asset management industry.) Ms. Ruchi Fozdar (Managing this Scheme since April 03, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option  40.8084 (Direct) - Growth Option  43.4838",
+    "before.fund_size": "",
+    "before.month_end_aum": "44.80 Crore",
+    "before.monthly_aaum": "44.35 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "NIL",
+    "before.expense_ratio": "Regular Plan 0.97% Direct Plan 0.52% PORTFOLIO STATISTICS Annualised Portfolio YTM 6.84%  Modified Duration 6.9776 years Average Maturity 10.4981 years Macaulay Duration 7.2646 years  Semi annual YTM has been annualised. For Risk-o-meter (Scheme  Benchmark)  Potential Risk Class (PRC), refer page no. 42.",
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "6.84",
+      "Modified Duration": "6.9776 years",
+      "Average Maturity": "10.4981 years",
+      "Macaulay Duration": "7.2646 years"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Dynamic Bond Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      33
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Low Duration Fund": {
+    "before.inception_date": "27th September, 2006",
+    "before.benchmark_index": "CRISIL Low Duration Debt A-I Index Additional Benchmark Index Crisil 1 Year T Bill Index",
+    "before.fund_manager_details": "Fund Manager Mr. Killol Pandya (Managing this Scheme since November 05, 2024 and has more than 17 years of experience in the asset management industry). Co-Fund Managers Ms. Naghma Khoja (Managing this Scheme since April 03, 2024 and has more than 6 years of experience in the asset management industry). Ms. Ruchi Fozdar (Managing this Scheme since April 03, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option 36.3348 (Direct) - Growth Option 37.2917",
+    "before.fund_size": "",
+    "before.month_end_aum": "223.94 Crore",
+    "before.monthly_aaum": "222.68 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "NIL",
+    "before.expense_ratio": "Regular Plan 0.73% Direct Plan 0.35% PORTFOLIO STATISTICS Annualised Portfolio YTM 7.40%  Modified Duration 0.8800 years Average Maturity 0.9956 years Macaulay Duration 0.9396 years  Semi annual YTM has been annualised. For Risk-o-meter (Scheme  Benchmark)  Potential Risk Class (PRC), refer page no. 42. MATURITY PROFILE 35.00 30.20% 28.93% 30.00 25.00 18.25% 20.00 13.34% 15.00 8.98% 10.00 5.00 0.00 0 to 1 month 1 to 3 months 3 to 6 months 6 to 12 months Above 1 yr  Excluding investment in CDMDFA2 31",
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "7.40",
+      "Modified Duration": "0.8800 years",
+      "Average Maturity": "0.9956 years",
+      "Macaulay Duration": "0.9396 years"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Low Duration Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      34
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
+    "file_name": ""
+  },
+  "JM Medium to Long Duration Fund": {
+    "before.inception_date": "1st April, 1995",
+    "before.benchmark_index": "CRISIL Medium to Long Duration Debt A-III Index Additional Benchmark Index Crisil 10 Year Gilt Index",
+    "before.fund_manager_details": "Fund Manager Mr. Killol Pandya (Managing this Scheme since November 05, 2024 and has more than 17 years of experience in the asset management industry). Co-Fund Managers Ms. Naghma Khoja (Managing this Scheme since April 03, 2024 and has more than 6 years of experience in the asset management industry). Ms. Ruchi Fozdar (Managing this Scheme since April 03, 2024 and has 10 years of experience in fixed income market).",
+    "before.nav_details": "(IN RS. PER UNIT) (Regular) - Growth Option  60.7991 (Direct) - Growth Option  67.6613",
+    "before.fund_size": "",
+    "before.month_end_aum": "23.67 Crore",
+    "before.monthly_aaum": "24.35 Crore",
+    "before.minimum_application_amount_purchase": {
+      "amt": "1000",
+      "thraftr": "1"
+    },
+    "before.additional_purchase": {
+      "amt": "100",
+      "thraftr": "1"
+    },
+    "before.exit_load": "NIL",
+    "before.expense_ratio": "Regular Plan 1.06% Direct Plan 0.53% PORTFOLIO STATISTICS Annualised Portfolio YTM 6.70%  Modified Duration 6.7494 years Average Maturity 9.7652 years Macaulay Duration 6.9720 years  Semi annual YTM has been annualised. For Risk-o-meter (Scheme  Benchmark)  Potential Risk Class (PRC), refer page no. 42. nsitivity to interest rate changes. Duration tells investors the length of time, in years, sitivity i.e. the changes in price of higher duration bonds are higher as compared to residual maturity. Formula There is more than one way to calculate duration, but ds, M  maturity value (in ), P  market price of bond. Notes Duration is quoted st-rate risk. Or, stated differently, duration is a measure of how sensitive the price of ds price will decline by 4%.",
+    "before.portfolio_statistics": {
+      "Annualised Portfolio YTM": "6.70",
+      "Modified Duration": "6.7494 years",
+      "Average Maturity": "9.7652 years",
+      "Macaulay Duration": "6.9720 years"
+    },
+    "amc_name": "JM Financial Asset Management Limited",
+    "main_scheme_name": "JM Medium to Long Duration Fund",
+    "monthly_aaum_date": "20250531",
+    "page_number": [
+      35
+    ],
+    "mutual_fund_name": "JM Financial Mutual Fund",
     "file_name": ""
   }
 }

@@ -48,11 +48,6 @@ class Reader:
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
-        # with tempfile.NamedTemporaryFile(suffix="_clipped.pdf", delete=False) as clipped_temp, \
-        #     tempfile.NamedTemporaryFile(suffix="_ocr.pdf", delete=False) as ocr_temp:
-        #     clipped_pdf = clipped_temp.name
-        #     ocr_pdf = ocr_temp.name
-        
         try:
             with fitz.open(path) as doc:
                 with fitz.open() as new_doc:
@@ -624,7 +619,7 @@ class Reader:
     
     
     #MAP/SELECT
-    def __load_ops(self,fund:str,df:dict): #got to correct vendor side before adding this
+    def __load_ops(self,fund:str,df:dict):
         load_data = df.get("load", {})
         if not isinstance(load_data, dict):
             print(f"Returning _load_ops: {fund} -> Type Error")
@@ -640,65 +635,10 @@ class Reader:
                     new_load.append({"comment": value,"type": "exit_load"})
         except Exception as e:
             print(f"Error in _load_ops ->Load Error: {e}")
-        # print(new_load)
+    
         df["load"] = new_load
-        # print(df['load'])
         return df
     
-    
-    # def __load_ops(self, fund: str, df: dict):
-    #     load_data = df.get("load", {})
-    #     if not isinstance(load_data, dict):
-    #         print(f"[SKIP] _load_ops: {fund} -> load missing or invalid type")
-    #         return df
-
-    #     try:
-    #         new_load = []
-    #         for load_key, load_value in load_data.items():
-    #             if isinstance(load_value, str):
-    #                 value = load_value
-    #             elif isinstance(load_value, list):
-    #                 value = " ".join(str(v) for v in load_value)
-    #             else:
-    #                 value = str(load_value)
-
-    #             if re.search(r"entry(_load)?", load_key, re.IGNORECASE) and value:
-    #                 new_load.append({"comment": value, "type": "entry_load"})
-    #             elif re.search(r"exit(_load)?", load_key, re.IGNORECASE) and value:
-    #                 new_load.append({"comment": value, "type": "exit_load"})
-
-    #         if new_load:
-    #             df["load"] = new_load
-    #         else:
-    #             print(f"[INFO] No valid load data for: {fund}")
-    #     except Exception as e:
-    #         print(f"[ERROR] in _load_ops:{fund} -> Load Error: {e}")
-        
-    #     return df
-
-    
-    # def __load_ops(self,fund:str,df:dict):
-    #     load_data = df.get("load", {})
-    #     if not isinstance(load_data, dict):
-    #         print(f"Returning _load_ops -> Type Error")
-    #         return df
-    #     try:
-    #         new_load = {"entry_load": None, "exit_load": None}
-    #         for load_key, load_value in load_data.items():
-    #             value = load_value if isinstance(load_value, str) else " ".join(str(v) for v in load_value)
-    #             if re.search(r"\bentry(_load)?\b", load_key, re.IGNORECASE):
-    #                 new_load["entry_load"] = value
-    #             elif re.search(r"\bexit(_load)?\b", load_key, re.IGNORECASE):
-    #                 new_load["exit_load"] = value
-    #             else:
-    #                 new_load[load_key] = value
-    #     except Exception as e:
-    #         # logger.error(e)
-    #         print(f"Error in _load_ops:{fund} ->Load Error: {e}")
-        
-    #     df["load"] = new_load
-    #     return df
-
     def __metric_ops(self,fund:str,df:dict):
         try:
             new_metrics = {}
@@ -707,7 +647,6 @@ class Reader:
                 # print(f"new_key {new_key}, metric_key {metric_key}")
                 new_metrics[new_key] = metric_value
         except Exception as e:
-            # logger.error(e)
             print(f"Error in _metric_ops:{fund} ->Metric Error: {e}")
         df["metrics"] = FundRegex()._populate_all_metrics_in_json(new_metrics)
         return df

@@ -273,16 +273,39 @@ class FundRegex():
         for metric, value in metric_data.items():
             if not value:
                 continue
+            value = value.strip()
             if metric == "port_turnover_ratio":
-                value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
-
+                if re.search(r"times?$", value, re.IGNORECASE):
+                    value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
+                    if self.is_numeric(value):
+                        num = float(value)
+                        value = str(int(num * 100))
+                elif value.endswith("%"):
+                    value = value.rstrip("%").strip()
+                elif self.is_numeric(value):
+                    num = float(value)
+                    value = str(int(num * 100))
+            
+            if metric == "std_dev" or metric == "ytm":
                 if value.endswith("%"):
                     value = value.rstrip("%").strip()
+            if metric in ["avg_maturity", "macaulay", "mod_duration"]:
+                divide = 1
+                val_lower = value.lower()
+                if "day" in val_lower:
+                    divide = 365
+                elif "month" in val_lower:
+                    divide = 12
+                elif "year" in val_lower:
+                    divide = 1
+
+                value = re.sub(r"[^0-9.]+", "", value).strip()
 
                 if self.is_numeric(value):
                     num = float(value)
-                    value = str(int(num * 100))
-                metric_data[metric] = value
+                    value = str(round(num / divide, 4))
+
+            metric_data[metric] = value
         data["metrics"] = metric_data
         return data
 

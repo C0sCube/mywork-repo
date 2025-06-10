@@ -2411,7 +2411,7 @@
       },
       lumpsum: "Purchase(.+?)Additional Purchase(.+?)$",
       manager: {
-        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)\\s*\\(Managing.+?since\\s*([A-Za-z]+.*?\\d{3,4})\\D+?(\\d+\\s*(?:years?|decades?)).+?\\)",
+        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)\\s*\\(Managing.+?since\\s*([A-Za-z]+.+?\\d{4})\\D+?(\\d+\\s*(?:years?|decades?)).+?\\)",
         fields: ["name", "since", "exp"],
       },
       scheme: [
@@ -2445,9 +2445,9 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(month_end_aum|monthly_aaum)$": ["_extract_generic_data", "aum"],
-      ".*fund_manager": ["_extract_manager_data", "manager"],
+      // ".*fund_manager": ["_extract_manager_data", "manager"],
       ".*statistics": ["_extract_generic_data", "metric"],
-      ".*risk_ratios": ["_extract_iter_data", "metric2"],
+      ".*risk_ratios": ["_extract_metric_data", "metric2"],
       ".*(additional_purchase|amount_purchase)": [
         "_extract_amt_data",
         "min_amt",
@@ -3670,7 +3670,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(NJ.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF|SCHEME))",
+        pattern: "(NJ.+?(?:FUNDS?|ETF|F[Oo]F|PATH|SCHEME|PLAN)\\s*(?:OF FUNDS?|FUND OF FUNDS?|F[Oo]F|FUNDS?)?)",
         bbox: [0, 30, 480, 70],
       },
       clip_bbox: [[0, 5, 250, 812]],
@@ -4234,21 +4234,21 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(QUANTUM.*?(?:FUNDS?\\s*(?:OF FUNDS?)?|ETF\\s*(?:FUND OF FUNDS?)?|EOF|FOF|FTF|PATH))",
+        pattern: "(QUANTUM.+?(?:FUNDS?|ETF|PATH|.+?PLAN|SAVER)\\s*(?:FUND\\s+OF\\s+FUNDS?|FUNDS?|OF\\s+FUNDS?|F[oO]F)?)",
         bbox: [0, 0, 450, 90],
       },
       clip_bbox: [[0, 115, 220, 812]],
       line_x: 180.0,
       data: {
         size: [6, 11],
-        color: [-23],
+        color: [-23], //redacted
         update_size: 30.0,
         font: ["Prompt-SemiBold"],
       },
       content_size: [30.0, 8.0],
       method: "clip",
       line_side: "",
-      max_financial_index_highlight: 4,
+      max_financial_index_highlight: 2,
       pdf_ocr: false,
       sanitize_fund: false,
       stop_words: [],
@@ -4282,13 +4282,13 @@
         "Portfolio Turnover Ratio",
         "EOL",
       ],
-      ptr: "([\\d\\.]+|NA)",
+      ptr: "([\\d\\.]+\\s*(?:%)?|NA)",
       manager: {
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*([\\w\\s]+)(?:\\s*\\-\\s*([\\w\\s]+)\\s*)?\\(Work Experience\\s*([\\d]+ years)\\)(?:.*?(?:effective from|fund since)?\\s*([A-Z][a-z]+\\s*\\d{1,2},?\\s*\\d{4}))?",
         fields: ["name", "desig", "exp", "since"],
       },
       min_amt: "([\\d,]+)-?\\D+?([\\d]+)-?",
-      metric: "(Average Maturity.+?of the Month|Annualised Portfolio YTM|Modified Duration|Macaulays? Duration|Standard Deviation|Beta|Sharpe Ratio|Tracking Error|Alpha)\\s*([\\d.]+\\s*(?:days|months|years)?)",
+      metric: "(Residual Maturity\\D*|Average Maturity.+?of the Month|Annualised Portfolio YTM|Modified Duration|Macaulays? Duration|Standard Deviation|Beta\\D*|Sharpe Ratio\\D*|Tracking Error|Alpha)\\s*(-?[\\d.]+\\s*(?:days|months|years|%)?)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualised\\)|\\(\\s*Date\\s*of\\s*Allotment\\s*\\)",
     },
     PATTERN_TO_FUNCTION: {
@@ -4308,7 +4308,7 @@
     },
     SELECTKEYS: [
       ".*(inception_date|benchmark_index)",
-      "load",
+      "load", //after load
       "amc_name",
       ".*average_aum",
       ".*fund_manager",
@@ -4316,7 +4316,7 @@
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics",
+      "metrics", //after merge
       ".*(minimum_application_amount|additional_purchase)",
     ],
     MERGEKEYS: {
@@ -4708,7 +4708,7 @@
     REGEX: {
       aum: "(?:Net|Latest)\\s*AUM\\D*([\\d.]+\\s*cr)",
       benchmark: "^.+?(?:Index|TRI)",
-      date: "(\\d{1,2}\\s*(?:th|st|rd|nd)?\\s*[A-Za-z]+\\s*\\d{3,4})",
+      date: "(\\d{1,2}\\s*(?:th|st|rd|nd)?\\s*[A-Za-z]+\\s*,?\\s*\\d{3,4})",
       scheme: [
         "About the Fund",
         "Date of Inception",
@@ -4733,7 +4733,7 @@
         pattern: "(?:Mr\\.?|Ms\\.?)\\s*([\\w\\s]+)\\(Since\\s*([A-Za-z\\s,0-9]+?)\\)\\D*?Experience\\D*?(\\d{1,2} years)",
         fields: ["name", "since", "exp"],
       },
-      metrics: "(Portfolio Turnover Ratio\\D*|Standard Deviation|Portfolio Beta|Sharpe Ratio|Information Ratio|Average Maturity|Residual Maturity\\D*|Modified Duration\\D*|Macaulay Duration\\D*|Annualised Portfolio YTM\\D*|Yield to Maturity)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?)?)",
+      metrics: "(Portfolio Turnover Ratio\\D*|Standard Deviation|Portfolio Beta|Sharpe Ratio|Information Ratio|Average Maturity|Residual Maturity\\D*|Modified Duration\\D*|Macaulay Duration\\D*|Annualised Portfolio YTM\\D*|Yield to Maturity)\\s*(-?[\\d.]+\\s*(?:years?|days?|months?|%)?)",
       load: "()Exit Load(.+)$",
       escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\-\\%]+|\\(Annualised\\)",
     },
@@ -4997,14 +4997,14 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "((?:TAURUS|Taurus).*?(?:FUND|Fund))",
+        pattern: "((?:TAURUS|Taurus).+?(?:FUNDs?|Funds?|ETF|Path|.+?Plan|F[oO]F|Saver)\\s*(?:Funds?|of Funds?|Fund of Funds?|F[oO]F|.+?Plan)?)",
         bbox: [0, 0, 480, 40],
       },
       clip_bbox: [[0, 65, 210, 812]],
       line_x: 210.0,
       data: {
         size: [6, 12],
-        color: [-1],
+        color: [-1], //redacted
         update_size: 30.0,
         font: ["Calibri-Bold"],
       },

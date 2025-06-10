@@ -179,13 +179,19 @@ class GrandFundData:
         
         values = re.findall(self.REGEX[pattern]["value"],metric_data,re.IGNORECASE)
         keys = re.findall(self.REGEX[pattern]["key"],metric_data,re.IGNORECASE)
-        for k,v in zip(keys,values):
-            final_dict[k.strip()] = v.strip()
+        for key,val in zip(keys,values):
+            key,val = key.strip(), val.strip()
+            if key in final_dict:
+                continue
+            final_dict[key] = val
+        
+        # print(final_dict)
         return{main_key:final_dict}
     
     def _extract_iter_data(self, main_key: str, data, pattern: str):
         """
         Extracts key-value pairs by aligning regex 'key' and 'value' matches by order and position.
+        Avoids overwriting duplicate keys; first match is preserved.
         """
         final_dict = {}
         metric_data = " ".join(data) if isinstance(data, list) else data
@@ -196,14 +202,19 @@ class GrandFundData:
 
         val_idx = 0
         for key, key_pos in key_matches:
-            # find the next value that comes AFTER this key
+            key = key.strip()
+            if key in final_dict:
+                continue  # Skip if already added
+
             while val_idx < len(value_matches) and value_matches[val_idx][1] < key_pos:
                 val_idx += 1
+
             if val_idx < len(value_matches):
-                final_dict[key.strip()] = value_matches[val_idx][0].strip()
+                final_dict[key] = value_matches[val_idx][0].strip()
                 val_idx += 1
 
         return {main_key: final_dict}
+
 
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
         """
@@ -329,7 +340,7 @@ class GrandFundData:
                         return func(string, data, regex_key)
                     return func(string, data)
         except Exception as e:
-            print(f"[ERROR] _match_with_patterns: {e}")
+            print(f"[ERROR] _match_with_patterns->{level}->{string}: {e}")
         return self._extract_dummy_data(string, data)  # fallback
 
     def _special_match_regex_to_content(self, string: str, data):
@@ -339,7 +350,7 @@ class GrandFundData:
                     func = getattr(self, func_name) #dynamic function|attribute lookup
                     return func(string, data)    
         except Exception as e:
-            print(f"[ERROR] _match_with_patterns: {e}")
+            print(f"[ERROR] _match_with_patterns->special: {e}")
         return self._extract_dummy_data(string, data) #fallback
     
     def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 
