@@ -215,7 +215,6 @@ class GrandFundData:
 
         return {main_key: final_dict}
 
-
     def _extract_load_data(self,main_key:str,data:list, pattern:str):
         """
             Extracts entry and exit load values from the given text using a regex pattern.
@@ -515,8 +514,19 @@ class BajajFinServ(Reader,GrandFundData):
                 data[temp]["metrics"].append(" ".join(map(str, values)))
 
         return data
+    
+    def _update_bench_data(self,main_key:str,data):
+        data = " ".join(data) if isinstance(data, list) else data
+        matches = re.findall(self.REGEX["benchmark"],data,re.IGNORECASE)
+        return {"benchmark_index":matches[0] if matches else ""}
+    
+    def _update_date_data(self,main_key:str,data):
+        data = " ".join(data) if isinstance(data, list) else data
+        matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
+        return {"scheme_launch_date":matches[0] if matches else ""}
 #3 <>
 class Bandhan(Reader,GrandFundData):  
+    
    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
         Reader.__init__(self, self.PARAMS,amc_id,path) 
