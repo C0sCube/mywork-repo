@@ -272,7 +272,7 @@ class FundRegex():
         
         return data
 
-    def _format_metric_data(self, data):
+    def _format_metric_data(self, fund,data):
         metric_data = data.get("metrics", {})
         if not isinstance(metric_data, dict) or not metric_data:
             return data
@@ -282,6 +282,10 @@ class FundRegex():
                 continue
             value = value.strip()
             if metric == "port_turnover_ratio":
+                
+                #fund specific
+                if "sundaram" in fund.lower():
+                    continue
                 if re.search(r"times?$", value, re.IGNORECASE):
                     value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
                     if self.is_numeric(value):

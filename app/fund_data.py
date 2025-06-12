@@ -527,9 +527,33 @@ class BajajFinServ(Reader,GrandFundData):
 #3 <>
 class Bandhan(Reader,GrandFundData):  
     
-   def __init__(self, fund_name:str,amc_id:str,path:str):
+    def __init__(self, fund_name:str,amc_id:str,path:str):
         GrandFundData.__init__(self,fund_name,amc_id) 
-        Reader.__init__(self, self.PARAMS,amc_id,path) 
+        Reader.__init__(self, self.PARAMS,amc_id,path)
+    
+    def _extract_manager_data(self, main_key: str, manager_data, pattern: str):
+        manager_data = " ".join(manager_data.values()) if isinstance(manager_data, dict) else manager_data
+        manager_data = re.sub(self.REGEX["escape"], "", manager_data, re.IGNORECASE)
+
+        names = re.findall(self.REGEX[pattern]['name'], manager_data, re.IGNORECASE)
+        since = re.findall(self.REGEX[pattern]['since'], manager_data, re.IGNORECASE)
+
+        if not names:
+            return {main_key: []}
+
+        n_len, s_len = len(names), len(since)
+
+        if s_len == 0:
+            since = [""] * n_len
+        elif s_len == 1 and n_len > 1:
+            since = since * n_len
+        elif s_len < n_len:
+            since += [since[-1]] * (n_len - s_len)
+
+        final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
+        return {main_key: final_list}
+ 
+    
 #4
 class BankOfIndia(Reader,GrandFundData):   
    def __init__(self, fund_name:str,amc_id:str,path:str):
