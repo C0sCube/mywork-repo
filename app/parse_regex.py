@@ -225,21 +225,6 @@ class FundRegex():
             return data
         except (ValueError, TypeError): #empty string, str other than date
             return data
-
-    def _convert_to_year_format(self,data): #imcomplete here
-        metrics = data.get("metrics",{})
-        time_str = metrics["macaulay"]
-        year_value = time_str
-        if any(x in time_str.lower() for x in ["days", "day","da"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value / 365)
-        elif any(x in time_str.lower() for x in ["months", "month","mon","mont"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value / 12.0)
-        elif any(x in time_str.lower() for x in ["years", "year","yea","ye"]):
-            numeric_value = float(re.findall(r"\d+\.?\d*", time_str, re.IGNORECASE)[0])
-            year_value = str(numeric_value)
-        return year_value
     
     def _remove_duplicates(self,text):
         if not text:
@@ -252,6 +237,28 @@ class FundRegex():
                 seen.append(word)
         return " ".join(seen)
 
+    # def _format_fund_manager(self, data):
+    #     fund_managers = data.get("fund_manager", [])
+    #     if not fund_managers:
+    #         return data
+
+    #     clean_fund_managers = []
+    #     for manager in fund_managers:
+    #         name = manager.get("name", "")
+    #         if not name:
+    #             continue
+
+    #         # Clean and normalize name
+    #         cleaned_name = self.MANAGER_STOP_WORDS.sub(' ', name)
+    #         cleaned_name = self._normalize_alpha(cleaned_name)
+    #         cleaned_name = self._remove_duplicates(cleaned_name)
+    #         if cleaned_name and len(cleaned_name)>=3:
+    #             manager["name"] = cleaned_name.title()
+    #             clean_fund_managers.append(manager)
+
+    #     data["fund_manager"] = clean_fund_managers
+    #     return data
+    
     def _format_fund_manager(self, data):
         fund_managers = data.get("fund_manager", [])
         if not fund_managers:
@@ -259,20 +266,25 @@ class FundRegex():
 
         clean_fund_managers = []
         for manager in fund_managers:
+            if isinstance(manager, str):
+                manager = {"name": manager}
+            elif not isinstance(manager, dict):
+                continue
+
             name = manager.get("name", "")
             if not name:
                 continue
 
-            # Clean and normalize name
             cleaned_name = self.MANAGER_STOP_WORDS.sub(' ', name)
             cleaned_name = self._normalize_alpha(cleaned_name)
             cleaned_name = self._remove_duplicates(cleaned_name)
-            if cleaned_name and len(cleaned_name)>=3:
+            if cleaned_name and len(cleaned_name) >= 3:
                 manager["name"] = cleaned_name.title()
                 clean_fund_managers.append(manager)
 
         data["fund_manager"] = clean_fund_managers
         return data
+
 
     def _format_amt_data(self,data):
         clean_terms = {}

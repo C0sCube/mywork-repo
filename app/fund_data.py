@@ -577,7 +577,6 @@ class Bandhan(Reader,GrandFundData):
         final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
         return {main_key: final_list}
  
-    
 #4
 class BankOfIndia(Reader,GrandFundData):   
    def __init__(self, fund_name:str,amc_id:str,path:str):
@@ -783,7 +782,6 @@ class LIC(Reader,GrandFundData):
         Reader.__init__(self, self.PARAMS,amc_id,path) 
         
     def _update_manager_data(self, main_key: str, data):
-        # print("hi")
         final_list = []
         manager_data = " ".join(data) if isinstance(data,list) else data
         manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()

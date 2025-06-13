@@ -222,7 +222,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Baroda BNP.*?(?:Fund|Path|ETF|FTF|FOF|Index)\\s*(?:Fund|of Fund)?)",
+        pattern: "(Baroda\\s*BNP.*?(?:Fund|Path|ETF|F[Oo]F|Index|Plan)\\s*(?:Funds?|of [Ff]und?|Fund of [Ff]unds?)?)",
         bbox: [0, 0, 220, 120],
       },
       clip_bbox: [[0, 65, 210, 700]],
@@ -245,9 +245,9 @@
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "([\\d,.]+\\s*crores?)",
-      metric: "(RoE\\D+|Average Maturity\\D+|Macaulay Duration\\D+|Tracking Error\\s*(?:Regular)?|Modified Duration\\D*|YTM\\D*|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Direct)\\s*(-?\\d+\\.?\\d*\\s*(?:years?|months?|days?)?)",
+      metric: "(RoE\\D+|Average Maturity\\D+|Macaulay Duration\\D+|Tracking Error\\s*(?:Regular)?|Modified Duration\\D*|YTM\\D*|Portfolio Turnover Ratio|Standard Deviation|Beta|Sharpe Ratio|Tracking Error Direct)\\s*[\\:\\-]?\\s*(-?\\d+\\.?\\d*\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?)",
       manager: {
-        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s+(\\d{2}-[A-Za-z]{3}-\\d{2})\\s+(\\d+ years)",
+        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s+(\\d{2}-[A-Za-z]{3}-\\d{2})\\s+(\\d+\\s*years?)",
         fields: ["name", "since", "exp"],
       },
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
@@ -438,7 +438,7 @@
       },
       content_size: [30.0, 10.0],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["FUNd manager not coming for ELSS FUND etc"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       load: "Entry Load\\s*(Nil|.*?)\\s*Exit Load\\s*(.+?)$",
@@ -750,7 +750,7 @@
       stop_words: ["last_12_months"],
       table: "107-123",
     },
-    DUPLICATE_MUTUAL_FUNDS: ["fund manager and min/add in table"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: ["^before.*", "^dummy.*"],
     REGEX: {
       scheme: ["INCEPTION DATE?", "BENCHMARK", "NAV AS ON", "TOTAL AUM", "EOL"],
@@ -840,7 +840,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["METRIC data in graphical format"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: ["^before.*"],
     REGEX: {
       metric: "(Sharpe Ratio|Standard Deviation|Beta|Annualised)\\s*\\:?\\s*(-?[\\d,]+\\.\\d+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?)",
@@ -1163,10 +1163,7 @@
       stop_words: [],
       table: "",
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "color white text also added",
-      "min/add present in seperate page",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "(As on|Average for Month).*?([\\d,.]+)\\s*Cr",
@@ -1252,10 +1249,7 @@
       pdf_ocr: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "color white text also added",
-      "min/add present in seperate page",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "(As on|Average for Month).*?([\\d,.]+)\\s*Cr",
@@ -1651,7 +1645,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Bandhan.+?(?:Funds?|Path|Saver|ETF|F[oO]F)\\s*(?:of [Ff]unds?\\s*(?:.+?Plan)?|[Ff]und of [Ff]unds?\\s*(?:.+?Plan)?|[Ff]unds?|F[Oo]F|.+?Plan)?)",
+        pattern: "Bandhan.+?(?:Funds?|Path|Saver|ETF|F[oO]F)\\s*(?:of [Ff]unds?.*?Plan|[Ff]und of [Ff]unds?.*?Plan|[Ff]unds?|F[oO]F|.*?Plan)?",
         bbox: [0, 0, 490, 45],
       },
       clip_bbox: [[0, 80, 200, 812]],
@@ -1670,7 +1664,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["Better ,Regex for Fund Manager"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "([\\d,.]+\\s*crores?)",
@@ -1780,11 +1774,7 @@
       sanitize_fund: true,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "Tracking Error capture",
-      "fund Manager issue",
-      "pages = [5, 6, 7, 8, 9, 10, 11, 12]",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       manager: {
@@ -1995,7 +1985,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["two funds on same page", "FUND PE regex tricky"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       load: "(?:Entry Load)?(.*?)\\s*Exit Load\\s*(.+)$",
@@ -2109,11 +2099,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "objective on left",
-      "sometimes date is with header",
-      "overlapppp",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: ["^before", "^dummy.*"],
     REGEX: {
       aum: "\\D*\\s*([\\d,.]+\\s*crore)",
@@ -2227,15 +2213,10 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "1 or more fund data on same page",
-      "title overlap the content",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
-      metric: "(PE|PBV|Portfolio Turnover|Standard Deviation|Beta|Sharpe|Tracking Error|Average Maturity|Modified Duration|Annualised YTM|Macaulay Duration|Tracking Error)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*(-?[\\d.]+\\s*(?:days?|ye?a?rs?|months?|%)?)",
-      nav: "(Growth|IDCW)\\s*([\\d,]+\\.\\d+)\\s*([\\d,]+\\.\\d+)",
-      ter: "(Regular Plan|Direct Plan):\\s*([\\d.]+)%",
+      metric: "(PE|PBV|Portfolio Turnover|Standard Deviation|Beta|Sharpe|Tracking Error|Average Maturity|Modified Duration|Annualised YTM|Macaulay Duration|Tracking Error)\\s*(?:\\([\\w\\s%-]*\\)|\\*)?\\s*(-?[\\d.]+\\s*(?:[Dd]ays?|[Yy]e?a?rs?|[Mm]onths?|%|[Tt]imes?)?)",
       manager: {
         pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)",
         fields: ["name"],
@@ -2262,7 +2243,7 @@
       "benchmark_index$",
       "allotment_date$",
       "initial__additional_investment",
-      "load",
+      "load", //after merge
       "amc_name",
       "main_scheme_name",
       "page_number",
@@ -2271,7 +2252,7 @@
       "minimum_investment_clone",
     ],
     MERGEKEYS: {
-      load: ["^entry_load$", "^exit_load$"],
+      load: [".*entry_load$", ".*exit_load$", "^load"],
     },
     CLONEKEYS: {
       minimum_investment_clone: ".*additional_investment",
@@ -2312,7 +2293,7 @@
       sanitize_fund: true,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["OCR Issue, min. addl. amt missing"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "([\\d,.]+\\s*crs?)",
@@ -2405,13 +2386,7 @@
       sanitize_fund: false,
       stop_words: ["experience"],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "incrase pages count",
-      "objective on left",
-      "sometimes date is with header",
-      "overlapppp",
-      "min/add same for short duration fund",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       benchmark: "(?:Nifty|BSE|FTSE|CRISIL|Domestic).+?(?:TRI|Gold|Silver|Index\\s*(?:TRI)?)",
@@ -2957,7 +2932,7 @@
       sanitize_fund: true,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["metric data coming in letter"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: ".+Average AUM\\D*\\s*([\\d,.]+\\s*Crores)",
@@ -3064,12 +3039,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "monthly_aaum_date_error",
-      "minimum_application_amount needs to be flattened and mapped",
-      "ELSS NAME ISSUE",
-      "LIQUID FUND ADDL AMT not coming",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "(Average AUM|Absolute AUM)\\s*([\\d,.]+)",
@@ -3606,8 +3576,17 @@
       stop_words: [],
     },
     DUPLICATE_MUTUAL_FUNDS: {
-      "long\\s*term\\s*tax\\s*advantage":["Sundaram Long Term Tax Advantage Fund Series III","Sundaram Long Term Tax Advantage Fund Series IV","Sundaram Long Term Tax Advantage Fund Series II"],
-      "long\\s*term\\s*micro\\s*cap\\s*tax\\s*advantage":["Sundaram Long Term Micro Cap Tax Advantage Fund Series III","Sundaram Long Term Micro Cap Tax Advantage Fund Series IV","Sundaram Long Term Micro Cap Tax Advantage Fund Series V","Sundaram Long Term Micro Cap Tax Advantage Fund Series VI"]
+      "long\\s*term\\s*tax\\s*advantage": [
+        "Sundaram Long Term Tax Advantage Fund Series III",
+        "Sundaram Long Term Tax Advantage Fund Series IV",
+        "Sundaram Long Term Tax Advantage Fund Series II",
+      ],
+      "long\\s*term\\s*micro\\s*cap\\s*tax\\s*advantage": [
+        "Sundaram Long Term Micro Cap Tax Advantage Fund Series III",
+        "Sundaram Long Term Micro Cap Tax Advantage Fund Series IV",
+        "Sundaram Long Term Micro Cap Tax Advantage Fund Series V",
+        "Sundaram Long Term Micro Cap Tax Advantage Fund Series VI",
+      ],
     },
     PRE_DATA_SELECT: [],
     REGEX: {
@@ -3635,7 +3614,6 @@
         // "SIP\\s*STP\\s*SWP", //case 3
         // "Exit Load",
         // "EOL"
-
       ],
       min_amt: "([\\d,]+).*?([\\d,]+)",
       manager: {
@@ -3709,9 +3687,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "some metric value data needs to be checked as they have different font",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       nav: "((?:Regular|Direct|Reg)\\s*(?:Growth|IDCW))\\s*([\\d,.]+)",
@@ -4155,7 +4131,7 @@
       sanitize_fund: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["No issues as of now."],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       scheme: [
@@ -4931,10 +4907,7 @@
       stop_words: [],
       table: "11-14",
     },
-    DUPLICATE_MUTUAL_FUNDS: [
-      "set clip correctly",
-      "fund manager regex make robust",
-    ],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       aum: "(\\d+\\,?\\d+\\.\\d+)",
@@ -5040,7 +5013,7 @@
       pdf_ocr: false,
       stop_words: [],
     },
-    DUPLICATE_MUTUAL_FUNDS: ["ptr take total turn"],
+    DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
       date: "([0-9a-z]+\\s*[A-Za-z]+\\s*\\d{3,4})",
@@ -5322,6 +5295,7 @@
     MAIN_MAP: {
       select: true,
       map: true,
+      special:true
     },
     IMP_DATA: {
       amc_name: "Angel One Asset Management Company Limited",

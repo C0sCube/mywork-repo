@@ -1,4 +1,10 @@
+
+
+
 import sys, os,json,traceback
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 from datetime import datetime
 from app.config_loader import load_config_once, get_config, restore_config
 
@@ -34,7 +40,7 @@ class Tee:
 
 # Setup dual logging: console + file
 log_filename = f"run_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-log_file = open(log_filename, "w")
+log_file = open(log_filename, "w", encoding="utf-8")
 sys.stdout = sys.stderr = Tee(sys.__stdout__, log_file)
 
 mutual_fund = Helper.get_amc_paths(CONFIG["amc_path"])
@@ -65,7 +71,7 @@ for amc_id, class_name in CLASS_REGISTRY.items():
         if not data:
             raise ValueError("get_data returned None.")
 
-        extracted_text = obj.get_generated_content(data,is_table = obj.MAIN_MAP["table"])
+        extracted_text = obj.get_generated_content(data)
         if not extracted_text:
             raise ValueError("get_generated_content returned None.")
 

@@ -39,7 +39,8 @@ class Reader:
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                 # print(title)
                 if title:
-                    print(f"{pgn:02d} -- {title}")
+                    # print(f"{pgn:02d} -- {title}")
+                    print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
                 title_detected[pgn] = title
         return title_detected
                 
