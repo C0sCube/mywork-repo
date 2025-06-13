@@ -174,6 +174,18 @@ class FundRegex():
             return text
         text = re.sub(r"[^a-zA-Z0-9]+", " ", str(text))
         return re.sub(r"\s+", " ", text).strip().lower()
+    
+    def _normalize_alpha(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^a-zA-Z]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
+
+    def _normalize_numeric(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^0-9\.]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
 
     def _sanitize_fund(self,fund:str,fund_name:str):
         fund = re.sub(self.ESCAPE, '', fund)
@@ -235,6 +247,7 @@ class FundRegex():
         seen = []
         text = text.split(" ")
         for word in text:
+            word = word.lower().strip()
             if word not in seen:
                 seen.append(word)
         return " ".join(seen)
@@ -251,8 +264,8 @@ class FundRegex():
                 continue
 
             # Clean and normalize name
-            cleaned_name = self.MANAGER_STOP_WORDS.sub('', name)
-            cleaned_name = self._normalize_alphanumeric(cleaned_name)
+            cleaned_name = self.MANAGER_STOP_WORDS.sub(' ', name)
+            cleaned_name = self._normalize_alpha(cleaned_name)
             cleaned_name = self._remove_duplicates(cleaned_name)
             if cleaned_name and len(cleaned_name)>=3:
                 manager["name"] = cleaned_name.title()

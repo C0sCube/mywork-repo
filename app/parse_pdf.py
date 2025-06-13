@@ -538,28 +538,79 @@ class Reader:
 
         return final_data
 
-    def get_generated_content(self, data:list, is_table=[]):
+    # def get_generated_content(self, data:list, is_table=[]):
+    #     print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+    #     extracted_text = {}
+    #     output_path  = self.DRYPATH
+    #     try:
+    #         for content in data:
+    #             pgn,fund,blocks = content['page'],content['fundname'], content['block']
+              
+    #             Reader._generate_pdf_from_data(blocks, output_path)
+    #             extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
+    #             self._update_imp_data(extracted_text[fund],fund,pgn)
+    #         print("\tParsing Completed, Refining Data.....")
+            
+    #         try:#section for tabular data DSP, BAJAJ, HDFC
+    #             is_table = self.PARAMS.get("table","")
+    #             if is_table: #non-empty string true
+    #                 print(f"\tTable Data Present-> running: _generate_table_data")
+    #                 table_data = self._generate_table_data(self.PDF_PATH,is_table)
+    #                 extracted_text = FundRegex()._map_main_and_tabular_data(extracted_text,table_data,self.FUND_NAME)
+    #         except Exception as e:
+    #             print(f"[Error] _generate_table_data failed: {e}")
+            
+    #         try: #section to duplicate mutual_funds
+    #             is_duplicate_fund = self.DUPLICATE_FUNDS
+    #             if is_duplicate_fund:
+    #                 extracted_text = self._update_duplicate_fund_data(extracted_text)
+    #             pass
+    #         except Exception as e:
+    #             pass
+                        
+    #     except Exception as e:
+    #         print(f"[Error] get_generated_content failed: {e}")
+    #     return extracted_text
+    
+    def get_generated_content(self, data: list, is_table: str = ""):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
-        output_path  = self.DRYPATH
+        output_path = self.DRYPATH
+
         try:
             for content in data:
-                pgn,fund,blocks = content['page'],content['fundname'], content['block']
-              
+                pgn, fund, blocks = content['page'], content['fundname'], content['block']
                 Reader._generate_pdf_from_data(blocks, output_path)
-                extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
-                self._update_imp_data(extracted_text[fund],fund,pgn)
-            print("\tParsing Completed, Refining Data.....")
-            
-            #section for tabular data DSP, BAJAJ, HDFC
-            is_table = self.MAIN_MAP["table"]
-            if is_table[0]:
-                print(f"\tTable Data Present-> running: _generate_table_data")
-                table_data = self._generate_table_data(self.PDF_PATH,is_table[1])
-                extracted_text = FundRegex()._map_main_and_tabular_data(extracted_text,table_data,self.FUND_NAME)                 
+                extracted_text[fund] = self._extract_data_from_pdf(output_path, fund)
+                self._update_imp_data(extracted_text[fund], fund, pgn)
+
+            print("  Parsing Completed, Refining Data.....")
+
+            # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
+            table_mode = is_table or self.PARAMS.get("table", "")
+            if table_mode:
+                print(f">>Table Data Present -> running: _generate_table_data")
+                try:
+                    table_data = self._generate_table_data(self.PDF_PATH, table_mode)
+                    extracted_text = FundRegex()._map_main_and_tabular_data(
+                        extracted_text, table_data, self.FUND_NAME
+                    )
+                except Exception as e:
+                    print(f"[Error] _generate_table_data failed: {e}")
+
+            # Section to duplicate mutual funds
+            if isinstance(self.DUPLICATE_FUNDS, dict) and self.DUPLICATE_FUNDS:
+                print(f">>Duplicate Mutual Fund Present -> running: _update_duplicate_fund_data")
+                try:
+                    extracted_text = self._update_duplicate_fund_data(extracted_text)
+                except Exception as e:
+                    print(f"[Error] _update_duplicate_fund_data failed: {e}")
+
         except Exception as e:
             print(f"[Error] get_generated_content failed: {e}")
+
         return extracted_text
+
     
     #REFINE
     def __get_unique_key(self,base_key:str, data:dict):

@@ -1,6 +1,7 @@
 import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
 from app.parse_pdf import Reader
 from app.parse_table import *
+from app.parse_regex import FundRegex
 import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
@@ -26,11 +27,11 @@ class GrandFundData:
         self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
         self.CLONEKEYS = fund_config.get("CLONEKEYS",[])
-        self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
         self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS",{})
         
         self.IMP_DATA = fund_config.get("IMP_DATA",{})
         self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
+        self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS",{})
         self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS",{})
         
         self.PATTERN = {
@@ -440,6 +441,29 @@ class GrandFundData:
             if re.match(pattern, key,re.IGNORECASE):
                 return True
         return False
+    
+    def _update_duplicate_fund_data(self, data: dict):
+        final_data = data.copy()
+        remove_fund = []
+        for fund, content in data.items():
+            clean_fund = FundRegex()._normalize_alphanumeric(fund)
+            for regex, mutual_funds in self.DUPLICATE_FUNDS.items():
+                matches = re.findall(regex, clean_fund, re.IGNORECASE)
+                if matches:
+                    print(f"match found: {regex} -> {fund}")
+                    remove_fund.append(fund)
+                    for dup_fund in mutual_funds:
+                        if dup_fund not in final_data:
+                            content["main_scheme_name"] = dup_fund
+                            final_data[dup_fund] = content
+                    break
+        
+        for fund in remove_fund:
+            final_data.pop(fund, None)
+            
+        return final_data
+
+
 
 
     # clean + other
