@@ -159,7 +159,7 @@ class Reader:
 
                 page = doc[pgn]
                 all_blocks = []
-                for bbox in bboxes:
+                for count,bbox in enumerate(bboxes): #count for dummy block
                     blocks, seen_blocks = [], set()
                     page_blocks = page.get_text('dict', clip=bbox)['blocks']
 
@@ -183,7 +183,7 @@ class Reader:
                     # dummy data
                     fontz = self.PARAMS['data']['font'][0]
                     colorz = self.PARAMS['data']['color'][0]
-                    sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz))
+                    sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz,count))
                     all_blocks.extend(sorted_blocks)
 
                 if fundName in fund_seen:
@@ -231,8 +231,8 @@ class Reader:
                 #adding dummy data
                 fontz = self.PARAMS['data']['font'][0]
                 colorz = self.PARAMS['data']['color'][0]
-                left_blocks.append(FundRegex()._dummy_block(fontz,colorz))
-                right_blocks.append(FundRegex()._dummy_block(fontz,colorz))
+                left_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
+                right_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
                 
                 if side == "both":
                     left_blocks.extend(right_blocks)

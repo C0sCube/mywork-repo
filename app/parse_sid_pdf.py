@@ -194,7 +194,6 @@ class ReaderSIDKIM:
         # return dfs
     
     def _refine_extracted_data(self,extracted_text:dict,level:str)->dict:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         refine = {}
         for raw_key, raw_values in extracted_text.items():
             matched = self._match_with_patterns(raw_key, raw_values, level=level)
@@ -211,6 +210,7 @@ class ReaderSIDKIM:
         # pass
         
     def refine_data(self, data: dict, levels=["primary", "secondary", "tertiary"]) -> dict:
+        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         for level in levels:
            data = self._refine_extracted_data(data, level=level)
         return data

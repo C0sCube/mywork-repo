@@ -5,37 +5,54 @@
             "^benchmark_total_return.*$",
             "^benchmark$",
             "^benchmark_index_total_return_index$",
-            "^_benchmark$"
+            "^_benchmark$",
+            "^benchmark_tier_1$",
+            "^benchmark_total_return_index$",
+            "^tier_i_benchmark_index$",
+            ".*benchmark$"
         ],
         "fund_manager": [],
         "load": [
             "^load_structure$",
-            "^load$"
+            "^load$",
+            "^loads$"
         ],
         "main_scheme_name": [
-            "^name_of_the_scheme$"
+            "^name_of_the_scheme$",
+            ".*_name_of_the_scheme$"
         ],
         "mutual_fund_name": [],
         "suitable_for_investors": [
             ".*suitable_for_investors.*$",
-            ".*suitable.+?investors.*$"
+            ".*suitable.+?investors.*$",
+            ".*suitable_for_"
         ],
         "scheme_objective": [
             "^investment_objective$"
         ],
         "scheme_code": [
-            "^scheme_code$"
+            "^scheme_code$",
+            "^scheme_code.*$",
+            "^sebi_scheme_code$"
         ],
         "type_of_scheme": [
-            "^scheme_type$"
+            "^scheme_type$",
+            "type_of_the_scheme",
+            "type_of_scheme"
         ],
         "open_date": [
             ".*offer_opens_on$",
-            ".*new_fund_offer_nfo_opens"
+            ".*new_fund_offer_nfo_opens",
+            ".*new_fund_offer_opens",
+            ".*new_fund_offer_opening_date$",
+            ".*nfo_opens_on$"
         ],
         "close_date": [
             ".*offer_closes_on$",
-            ".*new_fund_offer_nfo_closes"
+            ".*new_fund_offer_nfo_closes",
+            ".*new_fund_offer_closes",
+            ".*new_fund_offer_closing_date$",
+            ".*nfo_closes_on$"
         ],
         "face_value": [],
         "riskometer_scheme": [],
@@ -43,17 +60,22 @@
         "min_amt": [
             "^minimum_application_amount",
             "^minimum_application_amount.*",
-            "^.*?minimum_application_amount.*"
+            "^.*?minimum_application_amount.*",
+            ".*min_amt$",
+            ".*minimum_application_amount.*"
         ],
         "min_amt_multiple": [],
         "min_addl_amt": [
             "^minimum_additional",
-            "^.*minimum_additional"
+            "^.*minimum_additional",
+            ".*add_amt$",
+            "additional_purchase_amount"
         ],
         "min_addl_amt_multiple": [],
         "page_number": [],
         "offer_price": [
-            ".*offer_for_units$"
+            ".*offer_for_units$",
+            "^new_fund_offer_price.*"
         ]
     },
      "add_sid_headers": {

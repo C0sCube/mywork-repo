@@ -411,7 +411,8 @@ class FundRegex():
         record_value["field_location"] = [dict(sorted(field_location.items()))]
         return dict(sorted(record_value.items()))
     
-    def _dummy_block(self,fontz:str,colorz:str):
+    def _dummy_block(self,fontz:str,colorz:str, count:int):
+        num_to_str = {1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine"}
         return {
                 "number": 0,
                 "type": 0,
@@ -426,7 +427,7 @@ class FundRegex():
                                 "color": colorz, #set this
                                 "ascender": 1.0429999828338623,
                                 "descender": -0.2619999945163727,
-                                "text": f"DUMMY{"".join(random.choices(string.ascii_letters,k=15))}", #garbage val
+                                "text": f"DUMMY{"".join(random.choices(string.ascii_letters,k=15))}{num_to_str[count]}", #garbage val
                                 "origin": (round(random.uniform(0, 100), 11), round(random.uniform(0, 100), 11)),
                                 "bbox": (0,0,0,0), #406.72119140625,439.4930419921875,565.697265625,462.9830322265625,
                             }
