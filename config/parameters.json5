@@ -13,8 +13,8 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(AXIS.*?(?:FUNDS?|ETF|INDEX)\\s*(?:OF FUNDS?|FOF|FUND|.+?PLAN)?)",
-        bbox: [0, 0, 500, 36],
+        pattern:  "(AXIS.*?(?:FUNDS?|ETF[Ss]?|INDEX|PLAN|PATH|F[Oo]F)\\s*(?:OF\\s*FUNDS?|F[Oo]F|FUNDS?|FUND OF FUNDS?|.+?PLAN)?)",
+        bbox: [0, 0, 580, 36],
       },
       clip_bbox: [
         [0, 90, 200, 500],
@@ -24,7 +24,7 @@
       line_x: 260.0,
       data: {
         size: [6, 12],
-        color: [-1],
+        color: [23], //-1 redacted
         update_size: 30.0,
         font: ["Lato-Bold"],
       },
@@ -40,54 +40,57 @@
     PRE_DATA_SELECT: [],
     REGEX: {
       date: "(\\d{1,2}\\s*(?:th|rd|st|nd)\\s*(?:Jan|Feb|Mar|Apr|May|June|July|Aug|Sep|Oct|Nov|Dec)\\D*\\d{4})",
-      benchmark: "((?:Nifty|BSE|CRISIL|Domestic|MSCI).+?(?:TRI|\\(INR\\)|Index|Gold|Physical\\s*Silver))\\s*(?:FUND\\s*M?A?N?A?|$)?",
+      benchmark: "(.+?)\\s*(?:FUND\\s*MAN?|STATISTICAL\\s*MEAS|TRACKING|$)",
       scheme: [
-        "DATE OF ALLOTMENT",
+        "DATE\\s*OF\\s*ALLOTMENT",
         "BENCHMARK",
-        "PORTFOLIO TURNOVER|EOL",
+        "PORTFOLIO\\s*TURNOVER",
+        "EOL",
         "Entry Load",
         "Exit Load",
         "EOL",
-        "MONTHLY AVERAGE",
+        "MONTHLY\\s*AVERAGE",
         "AS ON",
-        "STATISTICAL MEASURES|TRACKING ERROR",
+        // "STATISTICAL MEASURES|TRACKING ERROR",
         "EOL",
         "BENCHMARK",
-        "FUND MANAG?E?R?",
+        "FUND\\s*MANAG?E?R?",
         "EOL",
       ],
-      aum: "([\\d.,]+\\s*cr)",
+      aum: "([\\d.,]+\\s*[Cc]r)",
       ptr: "([\\d.]+ times)",
       tracking: "([\\d.]+)\\s*(?=\\(As comp)",
       manager: {
         name: "(?:Mr|Ms|Mrs)\\.?\\s*(\\w+\\s\\w+)",
         exp: "p?e?r?i?e?n?c?e?\\s*(\\d+\\s*years?)",
       },
-      metrics: "(RESIDUAL MATURITY|MODIFIED DURATION|MACAULAY DURATION|TRACKING ERROR|Standard Deviation|Beta|Sharpe Ratio)\\D*(\\d+\\.?\\d*\\s*(?:years?|days?|months?)?)",
-      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+",
+      metrics: "(MODIFIED\\s*DURATION|YTM\\s*MODIFIED\\s*DURATION|RESIDUAL\\s*MATURITY|MACAULAY\\s*DURATION|TRACKING\\s*ERROR|Standard\\s*Deviation|Beta|Sharpe\\s*Ratio|PORTFOLIO\\s*TURNOVER\\s*\\(\\d+YEAR\\))\\D*(-?\\d+\\.?\\d*\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%\\:]+",
     },
     PATTERN_TO_FUNCTION: {
       "^(before|dumm.*)": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*(statistical_measure.*|as_on.*)": ["_extract_generic_data", "metrics"],
-      ".*monthly_average$": ["_extract_generic_data", "aum"],
+      ".*(statistical_measure.*|as_on)": ["_extract_generic_data", "metrics"],
+      ".*monthly_?average$": ["_extract_generic_data", "aum"],
       ".*portfolio_turnover": ["_extract_generic_data", "ptr"],
       ".*tracking_error": ["_extract_generic_data", "tracking"],
-      ".*date_of_allotment": ["_extract_generic_data", "date"],
+      ".*date_of_?allotment": ["_extract_generic_data", "date"],
+      ".*benchmark":["_extract_generic_data","benchmark"]
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
       "main_scheme_name",
       "mutual_fund_name",
+      "monthly_aaum_value", //after merge
+      "scheme_launch_date", //after merge
       "amc_name",
       "page_number",
       "monthly_aaum_date",
-      ".*monthly_average$",
-      ".*(date_of_allotment|benchmark)",
-      ".*fund_manager",
-      "metrics",
-      "load",
+      ".*benchmark",
+      "fund_manager", //after merge
+      "metrics", //after merge
+      "load", //after merge
       "pgn",
     ],
     MERGEKEYS: {
@@ -97,7 +100,10 @@
       ],
       fund_manager: [".*fund_manager"],
     },
-    CLONEKEYS: {},
+    CLONEKEYS: {
+      monthly_aaum_value:".*monthly_?average$",
+      scheme_launch_date:".*date_of_?allotment$"
+    },
     PROMOTE_KEYS: {},
     SPECIAL_FUNCTIONS: {
       fund_manager: "_update_manager_data",
@@ -921,12 +927,12 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(quant.*?(?:FUNDS?|Funds?|ETF|Index|Plan|Path)\\s*(?:of Funds?|F[oO]F|Funds?|Fund of Funds?)?)",
+        pattern: "([Qq]uant.*?(?:FUNDS?|Funds?|ETF|Index|Plan|Path)\\s*(?:of [Ff]unds?|F[oO]F|Funds?|Fund of [Ff]unds?)?)",
         bbox: [0, 0, 480, 80],
       },
       clip_bbox: [
         [0, 96, 180, 812],
-        [430, 0, 610, 500],
+        [430, 0, 650, 500],
         [170, 740, 560, 812],
       ],
       line_x: 200.0,
@@ -936,7 +942,7 @@
         update_size: 30.0,
         font: ["Calibri,Bold", "Inter-Bold"],
       },
-      content_size: [30.0, 10.0],
+      content_size: [30.0, 14.0],
       method: "clip",
       line_side: "",
       max_financial_index_highlight: 5,
@@ -960,30 +966,26 @@
         "Scheme",
         "EOL",
       ],
-      lumpsum: [
+      scheme2: [
         "MINIMUM INVESTMENT",
         "SUBSEQUENT INVESTMENT",
         "FUND SIZE",
         "EOL",
       ],
       load: "Entry(.+?)Exit(.+?)\\s*(?=NAV Details|BENCHMARK INDEX|$)",
-      aum: "([\\d,.]+\\s*bn)",
+      aum: "([\\d,.]+\\s*[Cc]r?)",
       manager: {
         pattern: "([A-Za-z\\s]{2,}),?",
         fields: ["name"],
       },
       min_amt: "([\\d,]+).*?([\\d,]+)",
       date: "([0-9]+\\s*[A-Za-z]+\\s*[0-9]+)",
-      metrics: "(Sharpe Ratio|Sortino Ratio|Jensens Alpha|R-?\\s*Squared|Downside\\s*Deviation|Upside\\s*Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:days?|months?|years?|%)?)",
+      metrics: "(Sharpe\\s*Ratio|Sortino\\s*Ratio|Jensens\\s*Alpha|R-?\\s*Squared|Downside\\s*Deviation|Upside\\s*Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|%|[Tt]imes?)?)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
-      aaum: {
-        coord: [484, 50, 600, 100],
-        regex: "([\\d,.]+\\s*cr)",
-      },
     },
     PATTERN_TO_FUNCTION: {
       scheme_details: ["_extract_scheme_data", "scheme"],
-      "^dummy.*": ["_extract_scheme_data", "lumpsum"],
+      "^dummy.*": ["_extract_scheme_data", "scheme2"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*(subsequent_investment|minimum_investment)$": [
@@ -1008,16 +1010,11 @@
       ".*load_structure",
       ".*risk.*measures$",
       ".*fund_size",
-      "generate_avg_manage",
     ],
     MERGEKEYS: {},
-    CLONEKEYS: {
-      generate_avg_manage: "page_number",
-    },
+    CLONEKEYS: {},
     PROMOTE_KEYS: {},
-    SPECIAL_FUNCTIONS: {
-      generate_avg_manage: "_generate_aum_data",
-    },
+    SPECIAL_FUNCTIONS: {},
   },
   "11_0": {
     AMC_NAME: "Franklin Templeton Mutual Fund",
@@ -2303,7 +2300,7 @@
         "Scheme Type",
         "Inception\\s*Allotment Date",
         "Fund Size",
-        "Average AUM",
+        "Average AUM\\s*for",
         "Load Structure",
         "Exit Load",
         "First Tier Benchmark",
@@ -2327,14 +2324,14 @@
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*nav$": ["_extract_generic_data", "metric"],
       ".*minimum_investment": ["_extract_amt_data", "min_amt"],
-      ".*average_aum": ["_extract_generic_data", "aum"],
+      ".*average_aum\\s*_?\\s*for": ["_extract_generic_data", "aum"],
       ".*fund_manager": ["_extract_manager_data", "manager"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
       ".*(inceptionallotment_date|first_tier_benchmark)",
       "load",
-      ".*average_aum",
+      "monthly_aaum_value",//".*average_aum$", clone
       ".*minimum_investment",
       "fund_manager",
       "metrics",
@@ -2349,7 +2346,9 @@
       load: [".*exit_load"],
       metrics: [".*nav"],
     },
-    CLONEKEYS: {},
+    CLONEKEYS: {
+      monthly_aaum_value:".*average_aum\\s*_?\\s*for$"
+    },
     PROMOTE_KEYS: {},
     SPECIAL_FUNCTIONS: {},
   },
@@ -2959,7 +2958,7 @@
         fields: ["name", "desig", "since"],
       },
       min_amt: "(?:Additional.*?|.*Purchase.*?)([\\d.,]+).*?([\\d.,]+|any|$)\\s*(?:Q u a n t i t a t i v e.+)?",
-      metrics: "(Beta|Standard\\s*Deviation|Sharpe\\s*Ratio|Macaulay\\s*Duration\\D*?|Portfolio\\s*Turnover\\D*?|Avg\\s*maturity\\D*?|Modified\\s*Duration\\D*?|Yield\\s*to\\s*Maturity\\D*?)\\s*(-?[\\d.\\s]+)",
+      metrics: "(Beta|Standard\\s*Deviation|Sharpe\\s*Ratio|Macaulay\\s*Duration\\D*?|Portfolio\\s*Turnover\\D*?|Avg\\s*maturity\\D*?|Modified\\s*Duration\\D*?|Yield\\s*to\\s*Maturity\\D*?)\\s*(-?[\\d.\\s]+\\s*(?:[Tt]imes?|[Dd]ays?|[Mm]onths?|[Yy]ears?|%|[Tt]imes?)?)",
       load: "Entry Load(.+?)Exit Load(.+)$",
       escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\%]+",
     },

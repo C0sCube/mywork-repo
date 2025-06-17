@@ -151,6 +151,7 @@ class GrandFundData:
         generic_data = re.sub(self.REGEX['escape'], "", generic_data).strip()
       
         matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
+        # print(generic_data)
         for match in matches:
             if isinstance(match, str):
                 return {main_key: match}
@@ -909,23 +910,6 @@ class QuantMF(Reader,GrandFundData):
         GrandFundData.__init__(self,fund_name,amc_id) 
         Reader.__init__(self, self.PARAMS,amc_id,path) 
         
-    def _generate_aum_data(self,main_key:str,data):
-        text = ""
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        with fitz.open(self.PDF_PATH) as doc:
-            if not data:
-                return {main_key:data}
-            
-            for page_number in data:
-                if page_number < 0 or page_number >= len(doc):
-                    continue
-                page = doc[page_number]
-                text += page.get_text("text", clip=self.REGEX["aaum"]['coord']).strip()
-                # print(text)
-            if matches:=re.findall(self.REGEX["aaum"]['regex'],text,re.IGNORECASE):
-                # print(matches)
-                return {"monthly_aaum_value":matches[0]}        
-        return  {main_key:data}
 #29 
 class Quantum(Reader,GrandFundData): 
     def __init__(self, fund_name:str,amc_id:str,path:str):

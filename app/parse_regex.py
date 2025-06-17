@@ -322,7 +322,7 @@ class FundRegex():
                     num = float(value)
                     value = str(int(num * 100))
             
-            if metric == "std_dev" or metric == "ytm":
+            if metric == "std_dev" or metric == "ytm" or metric == "tracking_error":
                 if value.endswith("%"):
                     value = value.rstrip("%").strip()
             if metric in ["avg_maturity", "macaulay", "mod_duration"]:

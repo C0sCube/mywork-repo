@@ -159,7 +159,9 @@ class Reader:
 
                 page = doc[pgn]
                 all_blocks = []
-                for count,bbox in enumerate(bboxes): #count for dummy block
+                
+                page_bboxes = bboxes.get(str(pgn),[]) if isinstance(bboxes,dict) else bboxes
+                for count,bbox in enumerate(page_bboxes): #count for dummy block
                     blocks, seen_blocks = [], set()
                     page_blocks = page.get_text('dict', clip=bbox)['blocks']
 
@@ -183,7 +185,7 @@ class Reader:
                     # dummy data
                     fontz = self.PARAMS['data']['font'][0]
                     colorz = self.PARAMS['data']['color'][0]
-                    sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz,count))
+                    sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz,count+1))
                     all_blocks.extend(sorted_blocks)
 
                 if fundName in fund_seen:
@@ -396,7 +398,7 @@ class Reader:
     #     nested = self.create_nested_dict(clean_data)
     #     return nested
     
-    def get_data(self, path: str, titles:dict):
+    def get_data(self, path: str, titles:dict, *args):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
@@ -409,7 +411,7 @@ class Reader:
             extracted_data.extend(self.extract_span_data(data, []))
         
         if method in ["clip", "both"]:
-            data = self.extract_clipped_data(path, titles)
+            data = self.extract_clipped_data(path, titles,*args)
             extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean
@@ -444,8 +446,11 @@ class Reader:
             Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
 
             for header, content_blocks in data.items():
+                
+                if not content_blocks:
+                    continue
+                
                 page = doc.new_page()
-
                 try:
                     page.insert_text(
                         (LEFT_MARGIN, TITLE_POSITION),
