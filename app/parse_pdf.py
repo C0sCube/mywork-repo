@@ -756,7 +756,7 @@ class Reader:
             temp = regex._remove_rupee_symbol(temp)
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
-            # temp = regex._format_amt_data(temp) #min/add formatter
+            temp = regex._format_amt_data(fund,temp) #min/add formatter
             temp = regex._format_metric_data(fund,temp)
             finalData[fund] = temp
   

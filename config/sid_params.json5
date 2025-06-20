@@ -17,7 +17,7 @@
         row_count: 2,
         threshold: 1,
         keywords: ["Fund\\s*Manager", "Brief\\s*Experience"],
-        order: { name: 0, experience: 1},
+        order: { name: 0, experience: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -73,13 +73,19 @@
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
 
       //sid
-      "benchmark":["_extract_generic_data","benchmark"],
-      ".*(name_of|category_of|scheme_type|scheme_code|investment_objective)":["_extract_str_data",null],
+      benchmark: ["_extract_generic_data", "benchmark"],
+      ".*(name_of|category_of|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "(minimum_application_amount|minimum_additional)":["_extract_amt_data","min_amt"],
-      "^load_structure":["_extract_load_data","load"],
-      "^new_fund_offer_price.*":["_extract_generic_data","nfo"]
+      "(minimum_application_amount|minimum_additional)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      "^load_structure": ["_extract_load_data", "load"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -97,7 +103,7 @@
   "3": {
     AMC: "Aditya Birla Sun Life Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 70, 300, 580]], ocr: false },
       table_data: {
         threshold: 3,
         keywords: [
@@ -109,8 +115,10 @@
         ],
       },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 1,
+        keywords: ["Name", "Experience", "Age"],
+        order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -125,17 +133,42 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Aditya\\s*Birla.+?(?:Funds?|Etf|Path|Saver|Index|Plan)\\s*(?:of\\s*Funds?|Funds?|Fund\\s*of\\s*Funds?|F[Oo]F|.+?Plan)?)",
       asset: {
         pattern: "(.+?)(\\d+\\%?)\\s*(\\d+\\%?)",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
+      min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      load: "(?:Entry\\s*Load)?()E?xit\\s*Load(.+?)$",
+      manager: {
+        name: "((?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:over|around|about|of)\\s*(\\d+\\.?\\d*\\s*years?).*$",
+        qualification: "(.+)",
+      },
+      nfo: "Rs\\.?\\s*\\d+",
+      scheme: [
+        "Offer\\s*(?:for|of)\\s*Units",
+        "New Fund Offer opens\\s*on",
+        "New Fund Offer closes\\s*on",
+        "Scheme r.+?pens on",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+      ],
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Aditya Birla Sun Life Asset Management Limited",
       mutual_fund_name: "Aditya Birla Sun Life Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
@@ -143,12 +176,49 @@
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
+
+      //sid
+      benchmark: ["_extract_generic_data", "benchmark"],
+      ".*(name_of|category_of|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      other_text: ["_extract_scheme_data", "scheme"],
+      risk_bbox: ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "(minimum_application_amount|minimum_additional)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      "^load_structure": ["_extract_load_data", "load"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
+    SELECTKEYS: [
+      //sid
+      "name_of_the_scheme",
+      "category_of_the_scheme",
+      "scheme_type",
+      "scheme_code",
+      "investment_objective",
+      "(minimum_application_amount|minimum_additional)", //4
+      "load_structure",
+      "new_fund_offer_price",
+      "^benchmark",
+      ".*suitable_for_investors_who_are_seeking",
+      "^(new_fund_offer_closes_on|new_fund_offer_opens_on)",
+      "fund_manager",
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
     MERGEKEYS: {},
-    CLONEKEYS: {},
+    CLONEKEYS: {
+      new_fund_offer_opens_on: "other_text.new_fund_offer_opens_on",
+      new_fund_offer_closes_on: "other_text.new_fund_offer_closes_on",
+    },
     COMBINEKEYS: {},
     PROMOTEKEYS: {},
     SPECIAL_FUNCTIONS: {},
@@ -274,7 +344,7 @@
   "1": {
     AMC: "Axis Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 230, 770]], ocr: false },
       table_data: {
         threshold: 3,
         keywords: [
@@ -286,8 +356,14 @@
         ],
       },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 1,
+        keywords: [
+          "Name\\s*of\\s*Fund",
+          "Ages?.+?Qualification",
+          "Experience\\s*of\\s*the",
+        ],
+        order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -302,28 +378,86 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(AXIS.+?(?:Funds?|Saver|Path|Index|ETF)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
+      min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D*?(?:and in multiples)\\D*?(\\d+\\.?\\d*)",
+      load: "Entry\\s*Load(.+?)E?xit\\s*Load(.+?)$",
+      manager: {
+        name: "((?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:over|around|about|experience\\s*\\:?)\\s*(\\d+\\.?\\d*\\s*years?).*$",
+        qualification: "ualifications\\s*(.+)$",
+      },
+      nfo: "Rs\\.?\\s*\\d+",
+      scheme: [
+        "Offer for Units",
+        "New Fund Offer opens\\s*on",
+        "New Fund Offer closes\\s*on",
+        "Scheme re.+?pens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+      ],
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Axis Asset Management Limited",
       mutual_fund_name: "Axis Mutual Fund",
       face_value: "Rs. 10",
+      offer_price: "Rs. 10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      //sid
+      "^(name_of|category_of|scheme_type|.*scheme_code|investment_objective).*": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      risk_bbox: ["_extract_scheme_data", "scheme2"],
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^(minimum_additional|minimum_application_amount)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      "^load_structure": ["_extract_load_data", "load"],
+      ".*(opens_on|closes_on)$": ["_extract_generic_data", "date"],
+      "^(.*offer_for_units|new_fund_offer_price.+)$": [
+        "_extract_generic_data",
+        "nfo",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      "amc_name",
+      "mutual_fund_name",
+      "face_value",
+      "offer_price",
+      "name_of_the_scheme",
+      "load_structure",
+      "^(minimum_additional|minimum_application_amount)",
+      "^benchmark",
+      "^(scheme_type|investment_objective|.*scheme_code)",
+      "fund_manager",
+      ".*(opens_on|closes_on|offer_for_units)$",
+      ".*suitable_for_investors_who_are_seeking",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -351,7 +485,13 @@
       },
       manager_data: {
         row_count: 3,
-        order: { name: 0, experience: 0, qualification: 0 },
+        threshold: 1,
+        keywords: [
+          "Name\\s*of\\s*the",
+          "work\\s*experience",
+          "other\\s*schemes",
+        ],
+        order: { name: 0, experience: 1, qualification: 0 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -368,34 +508,95 @@
       },
     },
     REGEX: {
+      //kim
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
       main_scheme: "(Bajaj.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fund of Funds?|F[Oo]F|Funds?)?)",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
+      min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D*?(?:and in multiples)\\D*?(\\d+\\.?\\d*)",
+      load: "Entry\\s*Load(.+?)E?xit\\s*Load(.+?)$",
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:over|around|about|experience\\s*\\:?)\\s*(\\d+\\.?\\d*\\s*years?).*$",
+        qualification: "years\\s*(.+)$",
+      },
+      nfo: "Rs\\.?\\s*\\d+",
+      scheme: [
+        "Offer for Units",
+        "New Fund Offer opens\\s*on",
+        "New Fund Offer closes\\s*on",
+        "Scheme re.+?pens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+      ],
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Bajaj Finserv Asset Management Limited",
       mutual_fund_name: "Bajaj Finserv Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs. 10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      //sid
+      "^(.*name_of|category_of|.*scheme_type|.*scheme_code|investment_objective).*": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      risk_bbox: ["_extract_scheme_data", "scheme2"],
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^(minimum_additional|minimum_application_amount)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      ".*load_structure": ["_extract_load_data", "load"],
+      ".*(opens_on|closes_on)$": ["_extract_generic_data", "date"],
+      "^(.*offer_for_units|new_fund_offer_price.+)$": [
+        "_extract_generic_data",
+        "nfo",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      "amc_name",
+      "mutual_fund_name",
+      "face_value",
+      "offer_price",
+      "_?name_of_the_scheme",
+      "load_structure", //clone
+      "^(minimum_additional|minimum_application_amount)",
+      "benchmark", //clone
+      "^(_?scheme_type|investment_objective|.*scheme_code)",
+      "fund_manager",
+      ".*(opens_on|closes_on|offer_for_units)$",
+      ".*suitable_for_investors_who_are_seeking",
+
       //kim
-      "asset_allocation_pattern",
       "main_scheme_name",
+      "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
-    CLONEKEYS: {},
+    CLONEKEYS: {
+      benchmark: "^benchmark_total_return_index",
+      load_structure: ".*load_structure",
+    },
     COMBINEKEYS: {},
     PROMOTEKEYS: {},
     SPECIAL_FUNCTIONS: {},
@@ -404,7 +605,7 @@
   "16": {
     AMC: "Bandhan Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 230, 650]], ocr: false },
       table_data: {
         threshold: 3,
         keywords: [
@@ -416,8 +617,10 @@
         ],
       },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 3,
+        threshold: 1,
+        keywords: ["Name.*?Age.*?Qualification", "Brief Experience"],
+        order: { name: 0, experience: 1, qualification: 0 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -427,28 +630,86 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Bandhan.+?(?:Funds?|Path|Saver|Index)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
+      min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D*?(?:and in multiples)\\D*?(\\d+\\.?\\d*)",
+      load: "(?:Entry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      manager: {
+        name: "((?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:over|around|about|experience\\s*\\:?|)\\s*(\\d+\\.?\\d*\\s*\\+?\\s*years?).*$",
+        qualification: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*[A-Za-z]+\\s*[A-Za-z]+(.+)$",
+      },
+      nfo: "Rs\\.?\\s*\\d+",
+      scheme: [
+        "Offer for Units",
+        "New Fund Offer opens\\s*on",
+        "New Fund Offer closes\\s*on",
+        "Scheme re.+?pens",
+        "EOL",
+      ],
+      scheme2: ["suitable for investors", "Investors should consult"],
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Bandhan Asset Management Limited",
       mutual_fund_name: "Bandhan Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-      //kid
+      //sid
+      "^(name_of|category_of|scheme_type|.*scheme_code|investment_objective).*": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      risk_bbox: ["_extract_scheme_data", "scheme2"],
+      //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^(?:minimum_?)?(additional|application_amount)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      "^load_structure": ["_extract_load_data", "load"],
+      ".*(opens_on|closes_on)$": ["_extract_generic_data", "date"],
+      "^(.*offer_for_units|new_fund_offer_price.+)$": [
+        "_extract_generic_data",
+        "nfo",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
+    SELECTKEYS: [
+      "amc_name",
+      "mutual_fund_name",
+      "face_value",
+      "offer_price",
+      "name_of_the_scheme",
+      "load_structure",
+      "^(additional_purchase|application_amount)",
+      "^benchmark",
+      "^(scheme_type|investment_objective|.*scheme_code)",
+      "fund_manager",
+      ".*(opens_on|closes_on|offer_for_units)$",
+      ".*suitable_for_investors",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -723,12 +984,14 @@
       },
     },
     REGEX: {
+      //kim
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
       main_scheme: "(DSP.+?(?:ETF|Funds?|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fo?O?F|Fund\\s*of\\s*Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%)\\s*(\\d+\\%)",
         order: "instr|min|max",
       },
+      //sid
       load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
       scheme: [
         "Offer for Units",
@@ -749,7 +1012,7 @@
       },
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
       nfo: "Rs\\.?\\s*\\d+",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Dsp Asset Management Limited",
@@ -807,7 +1070,7 @@
   "9": {
     AMC: "Edelweiss Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [[0, 100, 255, 500]], ocr: false },
+      page_zero: { bbox: [[0, 0, 255, 500]], ocr: false },
       table_data: {
         threshold: 3,
         keywords: [
@@ -819,11 +1082,11 @@
         ],
       },
       manager_data: {
-        row_count: 5,
-        threshold: 2,
+        row_count: 4,
+        threshold: 1,
         keywords: [
-          "Name of the Fund Manager",
-          "Managing Scheme Since",
+          "Name\\s*of\\s*.+?Fund\\s*Manager",
+          "Age.+?Qualifi",
           "Previous Experience",
         ],
         order: { name: 0, experience: 2, qualification: 1 },
@@ -838,18 +1101,21 @@
       },
     },
     REGEX: {
+      //kim
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%)\\s*$",
         order: "instr|min|max",
       },
       main_scheme: "(Edelweiss.+?(?:Funds?|ETF|Index|Saver|Path|Duration)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
-      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
-      load: "()E?xit\\s*Load(.+?)$",
+
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:Entry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
       scheme: [
-        "Offer for Sale",
-        "New Fund Offer opens on",
-        "New Fund Offer closes on",
-        "Scheme re-opens?",
+        "Offer\\s*(?:for|of)\\s*(?:Sale|Unit)",
+        "Fund Offer\\s*opens on",
+        "Fund Offer\\s*closes on",
+        "Scheme\\s*re.+?opens?",
         "EOL",
       ],
       scheme2: [
@@ -860,7 +1126,7 @@
       manager: {
         name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
         experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
-        qualification: "(.+)$",
+        qualification: "(?:\\d+\\s*years?)(.+)$",
       },
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
       nfo: "Rs\\.?\\s*\\d+",
@@ -875,13 +1141,43 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-      //kim
-      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      "^(name_of_the_scheme|benchmark|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
+      // KIM
+      ".*main_scheme_name": ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^(.*?additional.*?purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
+    SELECTKEYS: [
+      ".*suitable.+?investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^(minimum_?application_?amount|minimum_?additional_?purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
     MERGEKEYS: {},
     CLONEKEYS: {},
     COMBINEKEYS: {},
@@ -892,10 +1188,27 @@
   "11": {
     AMC: "Franklin Templeton Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 190, 800]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 2,
+        keywords: [
+          "Name",
+          "Qualifications",
+          "Experience",
+          "Managing Scheme Since",
+        ],
+        order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -910,28 +1223,78 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Franklin.+?(?:Funds?|Index|Path|Duration|ETF|Plan)\\s*(?:of Funds?|Funds?|Fund of Funds?|F[oO]F)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Units",
+        "New Fund Offer opens on",
+        "New Fund Offer closes on",
+        "Scheme re-opens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for.+?who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "(^[A-Za-z]+\\s+[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\:\\%]+",
     },
     IMP_DATA: {
       amc_name: "Franklin Templeton Asset Management Limited",
       mutual_fund_name: "Franklin Templeton Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-      //kim
-      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      "^(name_of_the_scheme|benchmark|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
+      // KIM
+      ".*main_scheme_name": ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^(.*?additional.*?purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      ".*suitable.+?investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -961,10 +1324,10 @@
         row_count: 5,
         threshold: 2,
         keywords: [
-          "Name of the Fund Manager",
+          "Name\\s*of\\s*.+?Fund\\s*Manager",
           "Age",
           "Experience",
-          "Educational Qualification",
+          "Educational\\s*Qualification",
         ],
         order: { name: 0, experience: 3, qualification: 2 },
       },
@@ -976,18 +1339,20 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(GROWW.+?(?:Funds?|ETF|Path|Saver|Index|Plan)\\s*(?:of Funds?|Fund of Funds?|F[oO]F)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
+      //sid
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price).+?(?:Index|TRI|Gold|Silver))",
       load: "()E?xit\\s*Load(.+?)$",
       scheme: [
         "Offer for Sale",
-        "New Fund Offer opens on",
-        "New Fund Offer closes on",
-        "Scheme re-opens",
+        "New\\s*Fund\\s*Offer\\s*opens\\s*on",
+        "New\\s*Fund\\s*Offer\\s*closes\\s*on",
+        "Scheme\\s*re.+?opens",
         "EOL",
       ],
       scheme2: [
@@ -1002,7 +1367,7 @@
       },
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
       nfo: "Rs\\.?\\s*\\d+",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Groww Asset Management Limited",
@@ -1036,6 +1401,7 @@
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
       ".*suitable_for_investors",
       ".*(offer_opens_on|offer_closes_on)",
       "^(.*?benchmark|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
@@ -1060,10 +1426,22 @@
   "12": {
     AMC: "Hdfc Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 180, 650]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 1,
+        keywords: ["Name.+?Age", "Educational.+?Qualification", "experience"],
+        order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1073,27 +1451,80 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(HDFC.+?(?:Funds?|ETF|Index|Path|Saver)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "()E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Sale",
+        "New\\s*Fund\\s*Offer\\s*opens\\s*on",
+        "New\\s*Fund\\s*Offer\\s*closes\\s*on",
+        "Scheme\\s*re.+?opens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)?\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Hdfc Asset Management Limited",
       mutual_fund_name: "Hdfc Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of|benchmark|category_of|scheme_type|.*scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*?load_structure": ["_extract_load_data", "load"],
+      ".*?benchmark": ["_extract_generic_data", "benchmark"],
+      "^.*?(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(.*?benchmark|scheme_type|.*scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^.*?(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -1108,10 +1539,22 @@
   "60": {
     AMC: "Helios Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 200, 800]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 5,
+        threshold: 2,
+        keywords: ["Name", "Age", "Qualification", "Brief Experience"],
+        order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1127,12 +1570,31 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Helios.+?(?:Funds?|Path|Index|Duration|Plan)\\s*(?:of Funds?|Fund of Funds?|Funds?|F[Oo]F)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*([A-Za-z\\s]+)\\s*$",
         order: "instr|min|max|risk",
       },
-      escape: "",
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic|NSE).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
+      min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      load: "()E?xit\\s*Load(.+?)$",
+      manager: {
+        name: "((?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:over|around|about)\\s*(\\d+\\.?\\d*\\s*years?).*$",
+        qualification: "\\b(?!\\d+\\s*years?\\b)[A-Za-z.,]+\\b",
+      },
+      nfo: "Rs\\.?\\s*\\d+",
+      scheme: [
+        "Offer for Units",
+        "New Fund Offer opens\\s*on",
+        "New Fund Offer closes\\s*on",
+        "Scheme\\s*r.+?pens",
+        "EOL",
+      ],
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Helios Asset Management Limited",
@@ -1146,10 +1608,40 @@
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
+
+      //sid
+      benchmark: ["_extract_generic_data", "benchmark"],
+      ".*(name_of|category_of|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      other_text: ["_extract_scheme_data", "scheme"],
+      risk_bbox: ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "(minimum_application_amount|minimum_additional)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      "^load_structure": ["_extract_load_data", "load"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
+      "name_of_the_scheme",
+      "category_of_the_scheme",
+      "scheme_type",
+      "scheme_code",
+      "investment_objective",
+      "(minimum_application_amount|minimum_additional)", //4
+      "load_structure",
+      "new_fund_offer_price",
+      "^benchmark",
+      ".*suitable_for_investors_who_are_seeking",
+      "^(new_fund_offer_closes_on|new_fund_offer_opens_on)",
+      "fund_manager",
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -1164,10 +1656,22 @@
   "13": {
     AMC: "Hsbc Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 266, 790]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 1,
+        keywords: ["Name.+?Fund", "Age", "qualifications"],
+        order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
         bbox: [[0, 0, 540, 400]],
@@ -1177,12 +1681,40 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(HSBC.+?(?:Funds?|ETF|Path|Plan|Saver)\\s*(?:of Funds?|F[Oo]F|Fund of Funds?|Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:Nifty|CRISIL|BSE|Domestic|NSE).+?(?:Index|TRI|Gold|Silver|Total Return Index))",
+      date: "([A-Za-z]+\\s*\\d{1,2}\\.?\\s*\\d{4})",
+      min_amt: "(?:Lumpsum\\D+)?\\s*(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      load: "()E?xit\\s*Load(.+?)$",
+      manager: {
+        name: "((?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:over|around|about|of|nearly)\\s*(\\d+\\.?\\d*\\s*years?).*$",
+        qualification: "(.+$)",
+      },
+      nfo: "Rs\\.?\\s*\\d+",
+      scheme: [
+        "Offer for Units",
+        "New Fund Offer opens\\s*on",
+        "New Fund Offer closes\\s*on",
+        "Scheme\\s*r.+?pens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      metric: {
+        key: "(New Fund Offer Opens|New Fund Offer Closes|Scheme re-opens)",
+        value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{4})",
+      },
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Hsbc Asset Management Limited",
@@ -1193,13 +1725,40 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of|benchmark|category_of|scheme_type|.*scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_metric_data", "metric"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*?load_structure": ["_extract_load_data", "load"],
+      ".*?benchmark": ["_extract_generic_data", "benchmark"],
+      "^.*?(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
+      ".*suitable_for_investors",
+      ".*(offer_opens|offer_closes)",
+      "^(.*?benchmark|scheme_type|.*scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^.*?(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -1214,10 +1773,22 @@
   "14": {
     AMC: "Icici Prudential Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 240, 750]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 1,
+        keywords: ["Name.+?Age", "Educational.+?Qualification", "experience"],
+        order: { name: 2, experience: 3, qualification: 2 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1232,28 +1803,79 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(ICICI.+?(?:Funds?|Plan|Path|Index|Saver|Index)\\s*(?:F[Oo]F|Fund of Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty|NYSE).+?(?:Index|TRI|Gold|Silver))",
+      load: "()E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Sale",
+        "New\\s*Fund\\s*Offer\\s*opens\\s*on",
+        "New\\s*Fund\\s*Offer\\s*closes\\s*on",
+        "Scheme\\s*re.+?opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: ".+\\/(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Icici Prudential Asset Management Limited",
       mutual_fund_name: "Icici Prudential Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of|benchmark|category_of|scheme_type|.*scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*?load_structure": ["_extract_load_data", "load"],
+      ".*?benchmark": ["_extract_generic_data", "benchmark"],
+      "^.*?(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(.*?benchmark|scheme_type|.*scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^.*?(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -1387,10 +2009,22 @@
   "51": {
     AMC: "Iti Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 257, 750]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 6,
+        order: { name: 0, experience: 2, qualification: 1 },
+        threshold: 1,
+        keywords: ["Name.+?Fund", "Age.+?Qualifi", "Experience"],
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1405,28 +2039,83 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(I\\s*T\\s*I.+?(?:Funds?|Index|path|plan|saver|ETF)\\s*(?:of Funds|Fund of Funds?|F[Oo]F|Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*([A-Za-z\\s]+)\\s*$",
         order: "instr|min|max|risk",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty|NYSE).+?(?:Index|TRI|Gold|Silver))",
+      load: "E?ntry\\s*Load(.+?)E?xit\\s*Load(.+?)$",
+      // scheme: [
+      //   "Offer for Sale",
+      //   "New\\s*Fund\\s*Offer\\s*opens\\s*on",
+      //   "New\\s*Fund\\s*Offer\\s*closes\\s*on",
+      //   "Scheme\\s*re.+?opens?",
+      //   "EOL",
+      // ],
+      metric: {
+        key: "(New Fund Offer\\s*Opens|New Fund Offer\\s*Closes|Scheme\\s*re-?opens)",
+        value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{4})",
+      },
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Iti Asset Management Limited",
       mutual_fund_name: "Iti Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of|benchmark|category_of|scheme_type|.*scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_metric_data", "metric"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*?load_structure": ["_extract_load_data", "load"],
+      ".*?benchmark": ["_extract_generic_data", "benchmark"],
+      "^.*?(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
+      ".*suitable_for_investors",
+      ".*(offer_opens|offer_closes)",
+      "^(.*?benchmark|scheme_type|.*scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^.*?(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -1494,7 +2183,7 @@
       lump: "Rs(.+?)Additional Investment Amount(.+)$",
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
       nfo: "Rs\\.?\\s*\\d+",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\:\\%]+",
     },
     IMP_DATA: {
       amc_name: "Jm Financial Asset Management Limited",
@@ -1550,10 +2239,22 @@
   "23": {
     AMC: "Kotak Mahindra Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 280, 730]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 5,
+        order: { name: 0, experience: 3, qualification: 2 },
+        threshold: 1,
+        keywords: ["Name", "Age", "Brief Experience", "Qualification"],
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1563,29 +2264,84 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Kotak.+?(?:Funds?|ETF|Index|Path|saver)\\s*(?:of Funds?|F[oO]F|Fund of Funds?|Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty|NYSE).+?(?:Index|TRI|Gold|Silver))",
+      load: "()E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Sale",
+        "New\\s*Fund\\s*O[ff\ufb00]+er\\s*opens\\s*on",
+        "New\\s*Fund\\s*O[ff\ufb00]+er\\s*closes\\s*on",
+        "Scheme\\s*re\\-?opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Kotak Mahindra Asset Management Limited",
       mutual_fund_name: "Kotak Mahindra Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      //sid
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "(name_of|category_of|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      benchmark: ["_extract_generic_data", "benchmark"],
+      //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      load_structure: ["_extract_load_data", "load"],
+      new_fund_offer_price: ["_extract_generic_data", "nfo"],
+      "(.*minimum_application_amount|.*minimum_additional_purchase)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
+    SELECTKEYS: [
+      //sid
+      ".*suitable_for_investors_who_are_seeking",
+      ".*(new_fund_o[ff\ufb00]+er_opens_on|new_fund_o[ff\ufb00]er_closes_on)", //2
+      "(benchmark|name_of|category_of|scheme_type|scheme_code|investment_objective)",
+      "load_structure",
+      "fund_manager",
+      "(minimum_application_amount|minimum_additional_amount)", //4 after clone
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
     MERGEKEYS: {},
-    CLONEKEYS: {},
+    CLONEKEYS: {
+      minimum_application_amount: ".*minimum_application_amount",
+      minimum_additional_amount: ".*minimum_additional_purchase",
+    },
     COMBINEKEYS: {},
     PROMOTEKEYS: {},
     SPECIAL_FUNCTIONS: {},
@@ -1594,10 +2350,22 @@
   "25": {
     AMC: "Lic Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 240, 770]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        order: { name: 0, experience: 2, qualification: 1 },
+        threshold: 1,
+        keywords: ["Name.+?Fund\\s*Manager", "Age", "Experience", "Qualification"],
       },
       kim: {
         bbox: [[0, 0, 540, 400]],
@@ -1607,17 +2375,46 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(LIC\\s*MF.+?(?:Funds?|ETF|Path|Index|Duration|Plan)\\s*(?:F[Oo]F|Funds?|of funds?|Fund of Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "Entry\\s*Load(.+?)Exit\\s*Load(.+?)$",
+      metric: {
+        key: "(New Fund Offer Opens|New Fund Offer Closes|Scheme re-opens)",
+        value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{4})",
+      },
+      // scheme: [
+      //   "Offer for Sale",
+      //   "New Fund Offer opens on",
+      //   "New Fund Offer closes on",
+      //   "Scheme re-opens",
+      //   "EOL",
+      // ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of|has)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)Age.+?$",
+      },
+      lump: "Rs(.+?)Additional Investment Amount(.+)$",
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Lic Asset Management Limited",
       mutual_fund_name: "Lic Mutual Fund",
       face_value: "Rs.10",
+      offer_price:"Rs.10",
       open_date: "",
       close_date: "",
     },
@@ -1693,10 +2490,22 @@
   "27": {
     AMC: "Mirae Asset Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 310, 820]], ocr: true },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        order: { name: 1, experience: 3, qualification: 2 },
+        threshold: 1,
+        keywords: ["Name", "Age", "Brief Experience", "Qualification"],
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1706,34 +2515,86 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(MIRAE.+?(?:Funds?|ETF|Path|SAver|Plan)\\s*(?:of Funds?|Fo?O?F|Fund of Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty|NYSE).+?(?:Index|TRI|Gold|Silver))",
+      load: "()E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Offer for Sale",
+        "New\\s*Fund\\s*Offer\\s*opens\\s*on",
+        "New\\s*Fund\\s*Offer\\s*closes\\s*on",
+        "Scheme\\s*re-?opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: ".+\\/(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Mirae Asset Asset Management Limited",
       mutual_fund_name: "Mirae Asset Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      //sid
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "(name_of|category_of|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      total_return_index: ["_extract_generic_data", "benchmark"],
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      ".*load_structure": ["_extract_load_data", "load"],
+      new_fund_offer_price: ["_extract_generic_data", "nfo"],
+      ".*(?:minimum_?)?(application_amount|additional_purchase)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
+      ".*suitable_for_investors_who_are_seeking",
+      ".*(new_fund_offer_opens_on|new_fund_offer_closes_on)", //2
+      "(benchmark|name_of|scheme_type|scheme_code|investment_objective)",
+      "load", //after clone
+      "fund_manager",
+      "(minimum_application_amount|minimum_additional_purchase)", //4 after clone
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
     ],
     MERGEKEYS: {},
-    CLONEKEYS: {},
+    CLONEKEYS: {
+      benchmark: "total_return_index",
+      load: ".*load_structure",
+      minimum_application_amount: ".*application_amount",
+      minimum_additional_purchase: ".*additional_purchase",
+    },
     COMBINEKEYS: {},
     PROMOTEKEYS: {},
     SPECIAL_FUNCTIONS: {},
@@ -1789,7 +2650,7 @@
         "Offer of Units",
         "New Fund Offer Opens on\\s*\\:?",
         "New Fund Offer Closes on\\s*\\:?",
-        "Scheme\\s*re-opens",
+        "Scheme\\s*re-?opens",
         "EOL",
       ],
       scheme2: [
@@ -1802,13 +2663,13 @@
         value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{3,4})",
       },
       manager: {
-        name: "(.+)$",
+        name: "((?:Mr|Ms|Mrs)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+).+$",
         experience: "(?:Over|Around|of|more than)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
         qualification: "Q?ualification\\s*\\:?(.+)$",
       },
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
       nfo: "Rs\\.?\\s*\\d+",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Motilal Oswal Asset Management Limited",
@@ -1835,18 +2696,19 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
-      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+      "^(?:minimum_?)?(additional_purchase_amount|application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
       ],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      //sid
       ".*suitable_for_investors",
       ".*(offer_opens_on|offer_closes_on)",
       "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
       "load_structure",
-      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "^(?:minimum_?)?(application_amount|additional_purchase).*$",
       "fund_manager",
       "amc_name",
       "offer_price",
@@ -1867,10 +2729,27 @@
   "56": {
     AMC: "Navi Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 240, 800]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 5,
+        threshold: 2,
+        keywords: [
+          "Name\\s*of\\s*.+?Fund\\s*Manager",
+          "Experience",
+          "Age.+?Qualification",
+          "managing scheme since",
+        ],
+        order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -1885,29 +2764,85 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Navi.+?(?:Funds?|ETF|Path|Saver|Index)\\s*(?:of Funds?|Fund of Funds?|F[oO]F|Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:Nifty|BSE|Domestic|CRISIL).+?(?:Total Return Index|TRI))",
+      load: "()E?xit\\s*Load\\:?(.+?)$",
+      scheme: [
+        "Offer of Units",
+        "New Fund Offer Opens on\\s*\\:?",
+        "New Fund Offer Closes on\\s*\\:?",
+        "Scheme\\s*re-?opens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "Investors should consult",
+        "EOL",
+      ],
+      metric: {
+        key: "(New Fund Offer Opens|New Fund Offer Closes|Scheme re-opens)",
+        value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{3,4})",
+      },
+      manager: {
+        name: "((?:Mr|Ms|Mrs)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+).+$",
+        experience: "(?:Over|Around|of|more than)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "Q?ualification\\s*\\:?(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Navi Asset Management Limited",
       mutual_fund_name: "Navi Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark_total.*": ["_extract_generic_non_escape_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(?:minimum_?)?(additional_purchase_amount|application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
-      // //kim
+      //sid
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "load_structure",
+      "^(?:minimum_?)?(application_amount|additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+      ".*offer_of_units$",
+
+      //kim
       "main_scheme_name",
       "asset_allocation_pattern",
     ],
@@ -1935,12 +2870,7 @@
       manager_data: {
         row_count: 5,
         threshold: 2,
-        keywords: [
-          "Name of the Fund Manager",
-          "Name",
-          "Age",
-          "Educational Qualifications",
-        ],
+        keywords: ["Name", "Age", "Educational Qualifications"],
         order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
@@ -1970,7 +2900,7 @@
       },
       manager: {
         name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
-        experience: "(?:Over|Around|of)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        experience: "(?:Over|Around|of|nearly)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
         qualification: "(.+)$",
       },
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
@@ -2418,7 +3348,7 @@
       lump: "New Purchase(.+?)A?dditional Purchase(.+)$",
       min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
       nfo: "Rs\\.?\\s*\\d+",
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Ppfas Asset Management Limited",
@@ -2477,10 +3407,22 @@
   "10": {
     AMC: "Quant Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 245, 780]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 1,
+        keywords: ["Name.+?Age", "tenure", "qualification"],
+        order: { name: 0, experience: 3, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -2490,31 +3432,84 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Quant.+?(?:Funds?|Index|Path|Saver|ETF|Plan)\\s*(?:of Funds?|Fund of Funds?|F[Oo]F|Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:Entry\\s*Load)?()E?xit\\s*Load(.+?)$",
+      // metric: {
+      //   key: "(New Fund Offer Opens|New Fund Offer Closes|Scheme re-opens)",
+      //   value: "([A-Za-z]+\\s+\\d{1,2}\\,?\\s+\\d{4})",
+      // },
+      scheme: [
+        "Offer of units",
+        "New Fund Offer [Oo]pens on",
+        "New Fund Offer [Cc]loses on",
+        "[Ss]cheme\\s*[Rr]eopens",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable for investors who are seeking",
+        "[Ii]nvestors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+).+$",
+        experience: "(?:Over|Around|of|has|than)\\s*(\\d+\\.?\\d*\\+?\\s*years?)",
+        qualification: "(.+)$",
+      },
+      lump: "New Purchase(.+?)A?dditional Purchase(.+)$",
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Quant Asset Management Limited",
       mutual_fund_name: "Quant Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      //sid
+      "^(name_of|category_of|scheme_type|.*scheme_code|investment_objective).*": [
+        "_extract_str_data",
+        null,
+      ],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      benchmark: ["_extract_generic_data", "benchmark"],
+
       //kim
-      main_scheme_name: ["_extract_generic_data", "main_scheme"],
-      asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^fund_manager": ["_extract_manager_data", "manager"],
+      "(minimum_application_amount|minimum_additional_purchase)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
-      //kim
-      "main_scheme_name",
-      "asset_allocation_pattern",
+      ".*suitable_for_inve",
+      ".*(new_fund_offer_opens|new_fund_offer_closes)",
+      "name_of_the_scheme",
+      ".*scheme_code",
+      "scheme_type",
+      "category_of_the_scheme",
+      "investment_objective",
+      "benchmark_total_return_index",
+      "load_structure",
+      "(minimum_application_amount|minimum_additional_purchase)", //4
+      "^new_fund_offer_price.*",
+      "^fund_manager$",
     ],
     MERGEKEYS: {},
     CLONEKEYS: {},
@@ -3450,10 +4445,22 @@
   "41": {
     AMC: "Uti Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 255, 700]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the Scheme",
+          "Category of the Scheme",
+          "Scheme Type",
+          "Scheme Code",
+          "Investment Objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 2,
+        keywords: ["Age", "qualification", "experience"],
+        order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -3463,28 +4470,78 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(UTI.+?(?:Fund|Index|ETF|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Units were offered at",
+        "New Fund Offer [Oo]pens [Oo]n",
+        "New Fund Offer [Cc]loses [Oo]n",
+        "Scheme Re-?Opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable\\s*for\\s*investors\\s*who\\s*are\\s*seeking",
+        "I?i?nvestors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "(.+)$",
+        experience: "((?:Around|than|about|of|over)\\s*\\d+[Yy]ears?)$",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Uti Asset Management Limited",
       mutual_fund_name: "Uti Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "^load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -3499,10 +4556,27 @@
   "40": {
     AMC: "Union Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 235, 750]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the Scheme",
+          "Category of the Scheme",
+          "Scheme Type",
+          "Scheme Code",
+          "Investment Objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 5,
+        threshold: 2,
+        keywords: [
+          "Age",
+          "qualification",
+          "experience",
+          "name\\s*of\\s*the\\s*fund",
+        ],
+        order: { name: 0, experience: 3, qualification: 2 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -3517,12 +4591,35 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Union.+?(?:Fund|Index|ETF|Saver|Path)\\s*(?:of Funds?|Fund of Funds?|Fo?O?F)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
-      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Units were offered at",
+        "New Fund Offer [Oo]pens [Oo]n",
+        "New Fund Offer [Cc]loses [Oo]n",
+        "Scheme Re-?Opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable\\s*for\\s*investors\\s*who\\s*are\\s*seeking",
+        "I?i?nvestors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Mrs|Ms)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+).+$",
+        experience: "((?:Around|than|about|of|over)\\s*\\d+[Yy]ears?)$",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Union Asset Management Limited",
@@ -3533,13 +4630,39 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "^load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",
@@ -3723,10 +4846,22 @@
   "71": {
     AMC: "Zerodha Mutual Fund",
     PARAMS: {
-      page_zero: { bbox: [], ocr: false },
+      page_zero: { bbox: [[0, 0, 275, 800]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
       manager_data: {
-        row_count: 2,
-        order: { name: 1, experience: 2, qualification: 1 },
+        row_count: 4,
+        threshold: 2,
+        keywords: ["Name.+?Age", "Qualification", "Experience", "Managed"],
+        order: { name: 0, experience: 2, qualification: 1 },
       },
       kim: {
         bbox: [[0, 0, 524, 400]],
@@ -3736,27 +4871,78 @@
       },
     },
     REGEX: {
+      //kim
       main_scheme: "(Zerodha.+?(?:Funds?|Path|saver|Index|ETF|Plan)\\s*(?:of Funds?|Fund of funds?|F[Oo]F|Funds?)?)",
       asset: {
         pattern: "",
         order: "instr|min|max",
       },
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Units were offered at",
+        "New Fund Offer [Oo]pens [Oo]n",
+        "New Fund Offer [Cc]loses [Oo]n",
+        "Scheme Re-?Opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable\\s*for\\s*investors\\s*who\\s*are\\s*seeking",
+        "I?i?nvestors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Ms|Mrs)?\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "((?:Around|than|about|of|over)\\s*\\d+[Yy]ears?)$",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
       amc_name: "Zerodha Asset Management Limited",
       mutual_fund_name: "Zerodha Mutual Fund",
       face_value: "Rs.10",
+      offer_price: "Rs.10",
       open_date: "",
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|type_of_scheme|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^loads": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
+      ".*suitable_for_investors",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark.*|type_of_scheme|scheme_code|name_of_the_scheme|investment_objective)",
+      "^loads",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
       //kim
       "main_scheme_name",
       "asset_allocation_pattern",

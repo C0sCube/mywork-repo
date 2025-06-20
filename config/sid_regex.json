@@ -19,7 +19,8 @@
         ],
         "main_scheme_name": [
             "^name_of_the_scheme$",
-            ".*_name_of_the_scheme$"
+            ".*_name_of_the_scheme$",
+            "^_name_of_the_scheme$"
         ],
         "mutual_fund_name": [],
         "suitable_for_investors": [
@@ -38,21 +39,24 @@
         "type_of_scheme": [
             "^scheme_type$",
             "type_of_the_scheme",
-            "type_of_scheme"
+            "type_of_scheme",
+            "^_scheme_type"
         ],
         "open_date": [
             ".*offer_opens_on$",
             ".*new_fund_offer_nfo_opens",
             ".*new_fund_offer_opens",
             ".*new_fund_offer_opening_date$",
-            ".*nfo_opens_on$"
+            ".*nfo_opens_on$",
+            ".*new_fund_o\ufb00er_opens_on"
         ],
         "close_date": [
             ".*offer_closes_on$",
             ".*new_fund_offer_nfo_closes",
             ".*new_fund_offer_closes",
             ".*new_fund_offer_closing_date$",
-            ".*nfo_closes_on$"
+            ".*nfo_closes_on$",
+            ".*new_fund_o\ufb00er_closes_on"
         ],
         "face_value": [],
         "riskometer_scheme": [],
@@ -62,14 +66,17 @@
             "^minimum_application_amount.*",
             "^.*?minimum_application_amount.*",
             ".*min_amt$",
-            ".*minimum_application_amount.*"
+            ".*minimum_application_amount.*",
+            "^application_amount"
         ],
         "min_amt_multiple": [],
         "min_addl_amt": [
             "^minimum_additional",
             "^.*minimum_additional",
             ".*add_amt$",
-            "additional_purchase_amount"
+            "additional_purchase_amount",
+            "^additional_purchase",
+            ".*additional_purchase_amount"
         ],
         "min_addl_amt_multiple": [],
         "page_number": [],
@@ -137,6 +144,6 @@
         "description":null
     },
     "kim_field_location":{},
-    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     "header_patterns": {}
 }

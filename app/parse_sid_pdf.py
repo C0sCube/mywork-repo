@@ -149,7 +149,7 @@ class ReaderSIDKIM:
         match_order = manager_params["order"]
         # print(match_order)
         manager_list = []
-        data_rows = [list(row) for _, row in dfs.iterrows()] #row_count gets NA sometimes  if row.count() >= manager_params["row_count"]
+        data_rows = [[str(item) if isinstance(item, str) else "" for item in row] for _, row in dfs.iterrows()] #row_count gets NA sometimes  if row.count() >= manager_params["row_count"]
         # pprint.pprint(data_rows)
         for row in data_rows:
             manager = {
@@ -237,6 +237,8 @@ class ReaderSIDKIM:
             for load_key, load_value in load_data.items():
                 load_section = {"comment":None,"type":None,"value":""}
                 value = load_value if isinstance(load_value, str) else " ".join(load_value)
+                value = self._regex._normalize_whitespace(value)
+                value = self._regex._clean_leading_specials(value)
                 if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
                     load_section["comment"] = value
                     load_section["type"] = "entry_load"
@@ -264,7 +266,7 @@ class ReaderSIDKIM:
             for data in asset_data:
                 asset = {
                     "allocation": [{"type": key, "value": data.get(key, "")}for key in ["min", "max", "total"]],
-                    "instrument_type": data.get("instrument", ""),
+                    "instrument_type": self._regex._normalize_whitespace(data.get("instrument", "")),
                     "risk_profile": data.get("risk_profile", "")
                 }
                 asset_alloc_data.append(asset)

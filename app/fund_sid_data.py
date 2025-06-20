@@ -240,6 +240,10 @@ class GrandSidData: #always call this first in subclass
             for key, val in manager.items():
                 if not val or key not in manager_regex:
                     continue
+                if not isinstance(val,str):
+                    if isinstance(val,list):
+                        val = " ".join(val)
+                    val = str(val)
                 clean_val = re.findall(manager_regex[key],val,re.IGNORECASE)
                 temp[key] = " ".join(clean_val)
             if temp.get("name"):
@@ -310,10 +314,27 @@ class GrandSidData: #always call this first in subclass
                         return func(string, data, regex_key)
                     return func(string, data)
         except Exception as e:
-            print(f"[ERROR] in _match_with_patterns {e}")
+            print(f"[ERROR] in _match_with_patterns for: {string}: {e}")
             return self._extract_dummy_data(string, data)
 
         return self._extract_dummy_data(string, data)  # fallback
+    
+    # def _match_with_patterns(self, string: str, data: list, level:str):
+    #     try: 
+    #         for pattern, content in self.PATTERN[level].items():
+    #             func_name, regex_key = content.split("~~")
+    #             if regex_key == "None":
+    #                 regex_key = None
+    #             if re.match(pattern, string, re.IGNORECASE):
+    #                 func = getattr(self, func_name)  # dynamic function|attribute lookup
+    #                 if regex_key:
+    #                     return func(string, data, regex_key)
+    #                 return func(string, data)
+    #     except Exception as e:
+    #         print(f"[ERROR] in _match_with_patterns for: {string}: {e}")
+    #         return self._extract_dummy_data(string, data)
+
+    #     return self._extract_dummy_data(string, data)  # fallback
 
     def _special_match_regex_to_content(self, string: str, data):
         try:

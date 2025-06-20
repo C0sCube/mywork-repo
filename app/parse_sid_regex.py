@@ -65,6 +65,12 @@ class SidKimRegex():
             return text
         return re.sub(r"\s+", " ", text).strip()
     
+    def _clean_leading_specials(self, text: str) -> str:
+        if not isinstance(text, str):
+            return text
+        return re.sub(r"^[\s:*\-.,]+", "", text)
+
+    
     def _normalize_alphanumeric_and_symbol(self,text: str, keep: str = "") -> str:
         if not isinstance(text, str):
             return text
@@ -156,6 +162,8 @@ class SidKimRegex():
         else:
             print(f"[ERROR] _final_json_construct Incorrect sid/kim")
             return data
+        
+        data = {k:self._clean_leading_specials(self._normalize_whitespace(v)) if isinstance(v,str) else v for k,v in data.items()}
         return {
             "metadata":{
                 "document_name": doc_name,

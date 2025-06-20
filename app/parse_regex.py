@@ -286,16 +286,21 @@ class FundRegex():
         return data
 
 
-    def _format_amt_data(self,data):
-        clean_terms = {}
-        for term in ["min_amt","min_addl_amt","min_amt_multiple","min_addl_amt_multiple"]:
-            content = data.get(term,"")
-            content = re.sub(r"[,\s.]+|any","",content,re.IGNORECASE)
-            if content:
-                clean_terms[term] = content
-        data.update(clean_terms)
-        
+    def _format_amt_data(self, fund, data):
+        if re.search(r"\betf\b", str(fund), re.IGNORECASE):
+            for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
+                data.pop(key, None)
+            return data
+
+        for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
+            val = data.get(key, "")
+            if isinstance(val, str):
+                cleaned = re.sub(r"[,\s.]+", "", val, flags=re.IGNORECASE)
+                if cleaned:
+                    data[key] = cleaned
+
         return data
+
 
     def _format_metric_data(self, fund,data):
         metric_data = data.get("metrics", {})
@@ -342,6 +347,12 @@ class FundRegex():
                     value = str(round(num / divide, 4))
 
             metric_data[metric] = value
+            
+        #NA string
+        metric_data = {
+            k: v for k, v in metric_data.items()
+            if not re.fullmatch(r"NA", str(v).strip(), re.IGNORECASE)
+        }
         data["metrics"] = metric_data
         return data
 
