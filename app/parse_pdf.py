@@ -9,10 +9,11 @@ from app.utils import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
-conf = get_config() #path to paths.json
 class Reader:
     def __init__(self,params:dict,amc_id:str,path:str):
-    
+        
+        conf = get_config() #path to paths.json
+        
         self.PARAMS = params #amc specific paramaters
         self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
         self.OUTPUTPATH = conf["output_path"]
@@ -27,7 +28,7 @@ class Reader:
     
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         print(f"Regex: {regex}")
         title_detected = {}
         with fitz.open(path) as doc:
@@ -146,7 +147,7 @@ class Reader:
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
     def extract_clipped_data(self, path: str, title: dict, *args) -> list:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         finalData = []
         fund_seen = {}
         bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
@@ -199,7 +200,7 @@ class Reader:
         return finalData
 
     def extract_data_relative_line(self, path: str,title: dict)->list:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         with fitz.open(path) as doc:
             finalData = []
             fund_seen = {}
@@ -251,7 +252,7 @@ class Reader:
         return finalData
 
     def extract_span_data(self, data: list,*args)->list:  # all
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         finalData = []
         for page in data:
             seen_entries = set()
@@ -272,7 +273,7 @@ class Reader:
         return ''.join(random.choices(string.ascii_lowercase, k=length))
     
     def process_text_data(self, data: list)->list:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}") 
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         stop_words,finalData = FundRegex().STOP_WORDS,[]
         #checkers
         data_cond = self.PARAMS['data']
@@ -347,7 +348,7 @@ class Reader:
         return finalData
 
     def create_nested_dict(self,data: list,*args)->list:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         header_size, content_size = self.PARAMS['content_size']
         finalData = []
         for content in data:
@@ -543,40 +544,6 @@ class Reader:
                     final_data[header].extend(content_lines)
 
         return final_data
-
-    # def get_generated_content(self, data:list, is_table=[]):
-    #     print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-    #     extracted_text = {}
-    #     output_path  = self.DRYPATH
-    #     try:
-    #         for content in data:
-    #             pgn,fund,blocks = content['page'],content['fundname'], content['block']
-              
-    #             Reader._generate_pdf_from_data(blocks, output_path)
-    #             extracted_text[fund] = self._extract_data_from_pdf(output_path,fund)
-    #             self._update_imp_data(extracted_text[fund],fund,pgn)
-    #         print("\tParsing Completed, Refining Data.....")
-            
-    #         try:#section for tabular data DSP, BAJAJ, HDFC
-    #             is_table = self.PARAMS.get("table","")
-    #             if is_table: #non-empty string true
-    #                 print(f"\tTable Data Present-> running: _generate_table_data")
-    #                 table_data = self._generate_table_data(self.PDF_PATH,is_table)
-    #                 extracted_text = FundRegex()._map_main_and_tabular_data(extracted_text,table_data,self.FUND_NAME)
-    #         except Exception as e:
-    #             print(f"[Error] _generate_table_data failed: {e}")
-            
-    #         try: #section to duplicate mutual_funds
-    #             is_duplicate_fund = self.DUPLICATE_FUNDS
-    #             if is_duplicate_fund:
-    #                 extracted_text = self._update_duplicate_fund_data(extracted_text)
-    #             pass
-    #         except Exception as e:
-    #             pass
-                        
-    #     except Exception as e:
-    #         print(f"[Error] get_generated_content failed: {e}")
-    #     return extracted_text
     
     def get_generated_content(self, data: list, is_table: str = ""):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -725,7 +692,7 @@ class Reader:
     def __map_json_ops(self,df):
         return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
-    def merge_and_select_data(self, data: dict, select = False, map_keys = False,special_handling = False):
+    def merge_and_select_data(self, data: dict):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
@@ -738,7 +705,7 @@ class Reader:
             # if select:
             temp = self._select_by_regex(temp)
             
-            if map_keys:
+            if self.MAIN_MAP['map']:
                 temp = self.__map_json_ops(temp) #map proper keys
                 
             temp = self.__min_add_ops(fund,temp)
@@ -747,7 +714,7 @@ class Reader:
             temp = self.__load_ops(fund,temp)
             temp = self.__metric_ops(fund,temp)
             
-            if special_handling:
+            if self.MAIN_MAP['special']:
                 temp = self._apply_special_handling(temp)
                 
             temp = self._promote_key_from_dict(temp)
@@ -757,7 +724,7 @@ class Reader:
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
             temp = regex._format_amt_data(fund,temp) #min/add formatter
-            temp = regex._format_metric_data(fund,temp)
+            temp = regex._format_metric_data(fund,temp) #metric
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct

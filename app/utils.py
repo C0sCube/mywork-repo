@@ -1,4 +1,4 @@
-import os, re, json, pprint, pickle, csv, string
+import os, re, json, logging, string, sys
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -9,6 +9,28 @@ class Helper:
     
     def __init__(self):
         pass
+    
+    @staticmethod
+    def setup_logger(log_dir):
+        os.makedirs(log_dir, exist_ok=True)
+        log_path = os.path.join(log_dir, f"run_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+
+        logger = logging.getLogger("PipelineLogger")
+        logger.setLevel(logging.INFO)
+
+        formatter = logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+
+        # File Handler
+        file_handler = logging.FileHandler(log_path, encoding='utf-8')
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+
+        # Console Handler
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
+
+        return logger
     
     #PARSING UTILS
     @staticmethod
@@ -131,33 +153,15 @@ class Helper:
             print(f"Error loading JSON: {e}")
             return None
     
-    # @staticmethod
-    # def quick_csv_dump(extracted_text, path: str):
-    #     current = str(datetime.now().strftime('%H_%M'))
-    #     fund_name = list(extracted_text.keys())[0].split(" ")[0].lower()
-    #     output_path = path.replace(".csv", f'_{fund_name}_{current}.csv')
+    @staticmethod
+    def save_json(data: dict, path: str, indent: int = 2):
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=indent)
 
-    #     with open(output_path, mode="w", newline="", encoding="utf-8") as file:
-    #         writer = csv.writer(file)
-    #         writer.writerow(["Key", "Value"])
-    #         for key, value in extracted_text.items():
-    #             writer.writerow([key, json.dumps(value, ensure_ascii=False)])
-    #     print(f'\n CSV saved at {output_path}')
-    
-    # @staticmethod
-    # def quick_csv_load(path: str):
-    #     try:
-    #         with open(path, mode="r", encoding="utf-8") as file:
-    #             reader = csv.reader(file)
-    #             next(reader) 
-                
-    #             data = {row[0]: json.loads(row[1]) for row in reader}
-            
-    #         print(f"\n CSV loaded from {path}")
-    #         return data
-    #     except Exception as e:
-    #         print(f"Error loading CSV: {e}")
-    #         return None
+    @staticmethod
+    def load_json(path: str):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
     
     #NESTED DICT CRUD OPS
     @staticmethod

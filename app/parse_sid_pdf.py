@@ -10,12 +10,12 @@ from app.parse_table import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
-conf = get_config() #path to paths.json
-
-
 class ReaderSIDKIM:
     
     def __init__(self,params:dict,path:str):
+        
+        conf = get_config() #path to paths.json
+        
         self.PARAMS = params #amc specific paramaters
         self.DOCUMENT_NAME = path.split("\\")[-1] # docname requried later for json
         self.OUTPUTPATH = conf["output_path"]

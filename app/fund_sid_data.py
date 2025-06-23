@@ -8,15 +8,14 @@ from dateutil.relativedelta import relativedelta #type: ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 from app.parse_sid_regex import *
-conf = get_config()
-
-PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['sid_params'])
 
 # +===========COMPLETE THE DOC STRINGS ===============+
 
 class GrandSidData: #always call this first in subclass
     
     def __init__(self,amc_id:str):
+        conf = get_config()
+        PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['sid_params'])
         with open(PARAMS_PATH, "r") as file:
             config = json5.load(file)
 

@@ -180,7 +180,7 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "(.*index_facts|.*debt_quants|metrics)": [
-        "_extract_generic_data",
+        "_extract_generic_data", 
         "metrics",
       ],
       ".*fund_manager": ["_extract_manager_data", "manager"],
@@ -197,8 +197,8 @@
       "monthly_aaum_date",
       "monthly_aaum_value",
       ".*(benchmark|inception_date)",
-      "load",
-      "metrics",
+      "load", //after merge
+      "metrics", //after merge
       "pgn",
       ".*aaum_for_the_month",
       ".*minimum_investment",
@@ -1417,7 +1417,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "((?:ICICI|BHARAT).+?(?:Funds?|ETF|F[Oo]F|Plan|Saver|Index|Path)\\s*(?:of funds?|Fund of Funds?|F[Oo]F|.+?Plan)?)",
+        pattern: "((?:ICICI|BHARAT).+?(?:Funds?|ETF|F[Oo]F|Plan|Saver|Index|Path)\\s*(?:of\\s*[Ff]unds?|Fund\\s*of\\s*[Ff]unds?|F[Oo]F|.+?Plan)?)",
         bbox: [0, 0, 540, 60],
       },
       clip_bbox: [
@@ -1469,8 +1469,8 @@
       lumpsum: ".+?Application Amount(.+)Min.Addl.Investment(.+)$",
       min_amt: "\\.?\\s*([\\d,.]+).*?\\.?\\s*([\\d.,]+)\\)?.+$",
       metrics: {
-        key: "\\b(PE|PB|Dividend Yield|\\(Annualised\\)|Turnover Ratio|Sharpe|Beta|Tracking Error\\s*1 year|Tracking Error\\s*3 year|Average Maturity|Macaulay Duration|Modified Duration|Portfolio\\s*YTM)\\b",
-        value: "\\b(\\-?\\d+\\.\\d*\\s*(?:days?|years?|months?|times?)?)\\b",
+        key: "(\\bPE\\b|\\bPB\\b|Average\\s*Dividend|Annualised\\s*\\)|Turnover|Sharpe|Beta|Tracking Error\\s*1 year|Tracking Error\\s*3 year|Average Maturity|Macaulay Duration|Modified Duration|Portfolio\\s*YTM)",
+        value: "(\\-?\\d+\\.\\d*\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|[Tt]imes?|%)?)",
       },
       escape: "[^a-zA-Z0-9\\.\\,\\+\\s\\-\\(\\)\\%]+",
     },

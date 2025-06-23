@@ -8,12 +8,12 @@ from dateutil.relativedelta import relativedelta #type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
-conf = get_config()
 
-PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['params'])
 class GrandFundData:
     
     def __init__(self,fund_name:str,amc_id:str):
+        conf = get_config()
+        PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['params'])
         with open(PARAMS_PATH, "r") as file:
             config = json5.load(file)
 

@@ -6,13 +6,12 @@ from dateutil import parser #type:ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
-conf = get_config()
-REGEX_PATH = os.path.join(conf["base_path"],conf["configs"]["regex"])
-
 class FundRegex():
     
-    def __init__(self, path = REGEX_PATH):
-        self.config_path = path
+    def __init__(self):
+        conf = get_config()
+        REGEX_PATH = os.path.join(conf["base_path"],conf["configs"]["regex"])
+        self.config_path = REGEX_PATH
         try:
             if not os.path.exists(self.config_path):
                 raise FileNotFoundError(f"Config file not found: {self.config_path}")
@@ -357,9 +356,6 @@ class FundRegex():
         return data
 
 
-
-                        
-    
     #MAPPER FINSTINCT
     def _format_to_finstinct(self,data,filename):
         scheme_count = len(data)

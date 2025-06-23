@@ -465,7 +465,8 @@
         "arithmetic_mean_ratio": [],
         "average_div_yield": [
             "^dividend_yield$",
-            "^average_dividend_yield$"
+            "^average_dividend_yield$",
+            "^average_dividend$"
         ],
         "average_pb": [
             ".*_pb",
@@ -561,7 +562,8 @@
             "^portfolioturnover.*arbitrage\\)?$",
             "^equity$",
             "^portfolio_turnover_ratio.+equity.*$",
-            "^aggregate$"
+            "^aggregate$",
+            "^turnover$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -595,7 +597,7 @@
             "^standarddeviation$",
             "^std\\.?_dev\\.?$",
             "^standard_deviation$",
-            "^\\(annualised\\)$"
+            "^\\(?annualised\\)?$"
         ],
         "tracking_error": [
             "^tracking_error$",

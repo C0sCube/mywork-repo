@@ -9,9 +9,6 @@ from app.fund_sid_data import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
-conf = get_config() #path to paths.json
-
-
 # TableParser handles PDF table extraction, cleaning, and formatting.
 # It uses Camelot for extracting tables and includes utilities to clean text,
 # normalize data, match keywords, and extract meaningful sections from DataFrames.
@@ -20,6 +17,9 @@ conf = get_config() #path to paths.json
 class TableParser:
     
     def __init__(self):
+        
+        conf = get_config() #path to paths.json
+        
         self.pipeline = {
             'remove_extra_whitespace': lambda x: re.sub(r'\s+', ' ', x) if isinstance(x, str) else x,
             'strip_edges': lambda x: x.strip() if isinstance(x, str) else x,
