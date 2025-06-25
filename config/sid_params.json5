@@ -4954,4 +4954,115 @@
     SPECIAL_FUNCTIONS: {},
     DELETEKEYS: [],
   },
+  "72": {
+    AMC: "Jio BlackRock Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [[0, 0, 220, 800]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the scheme",
+          "Category of the Scheme",
+          "Scheme type",
+          "Scheme code",
+          "Investment objective",
+        ],
+      },
+      manager_data: {
+        row_count: 4,
+        threshold: 2,
+        keywords: ["Name.+?Age", "Qualification", "Experience", "Managed"],
+        order: { name: 1, experience: 3, qualification: 2 },
+      },
+      kim: {
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0,1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum", "maximum", "Indicative\\s*allocations"],
+      },
+    },
+    REGEX: {
+      //kim
+      main_scheme: "(Zerodha.+?(?:Funds?|Path|saver|Index|ETF|Plan)\\s*(?:of Funds?|Fund of funds?|F[Oo]F|Funds?)?)",
+      asset: {
+        pattern: "",
+        order: "instr|min|max",
+      },
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      scheme: [
+        "Units were offered at",
+        "New Fund Offer [Oo]pens [Oo]n",
+        "New Fund Offer [Cc]loses [Oo]n",
+        "Scheme Re-?Opens?",
+        "EOL",
+      ],
+      scheme2: [
+        "suitable\\s*for.+?who\\s*are\\s*seeking",
+        "[Ii]nvestors should consult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Ms|Mrs)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "((?:Around|than|about|of|over)\\s*\\d+[Yy]ears?)$",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
+    },
+    IMP_DATA: {
+      amc_name: "Jio BlackRock Asset Management Limited",
+      mutual_fund_name: "Jio BlackRock Mutual Fund",
+      face_value: "Rs.10",
+      offer_price: "Rs.10",
+      open_date: "",
+      close_date: "",
+    },
+    PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [
+      ".*who_are_seeking",
+      ".*(offer_opens_on|offer_closes_on)",
+      "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "^load_structure",
+      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
+    MERGEKEYS: {},
+    CLONEKEYS: {},
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {},
+    DELETEKEYS: [],
+  },
 }
