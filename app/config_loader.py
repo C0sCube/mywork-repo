@@ -1,5 +1,7 @@
 import os
-import json
+import json, logging
+
+logger = logging.getLogger(__name__)
 
 _config = None
 _original_config = None
@@ -46,4 +48,5 @@ def restore_config():
     if _original_config and _config_path:
         with open(_config_path, "w") as f:
             json.dump(_original_config, f, indent=4)
-        print("Restored original paths.json")
+        # print("Restored original paths.json")
+        logger.info("Restored original 'paths.json'")

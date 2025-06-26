@@ -1,10 +1,13 @@
-import os, re, math, json, inspect,sys, ocrmypdf,time, tempfile # type: ignore
+import os, re, math,sys, ocrmypdf,time, logging # type: ignore
 import fitz # type: ignore
 from collections import defaultdict
 
 from app.parse_regex import *
 from app.fund_data import *
 from app.utils import *
+
+logger = logging.getLogger(__name__)
+
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
@@ -23,13 +26,14 @@ class Reader:
         self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
         
+        # self.logger = Helper.setup_logger(log_dir=self.OUTPUTPATH)
         for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        print(f"Regex: {regex}")
+        # print(f"Regex: {regex}")
         title_detected = {}
         with fitz.open(path) as doc:
             for pgn, page in enumerate(doc):
@@ -39,14 +43,15 @@ class Reader:
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                 # print(title)
-                if title:
+                # if title:
                     # print(f"{pgn:02d} -- {title}")
-                    print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
+                    # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
                 title_detected[pgn] = title
         return title_detected
                 
     def _get_ocr_title(self,path:str,regex:str,bbox):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
@@ -96,14 +101,16 @@ class Reader:
             pass
     
     def _ocr_pdf(self,path:str):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         time.sleep(2)
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
         return ocr_path
     
     def check_and_highlight(self, path: str):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
         regex = FundRegex()
@@ -132,9 +139,9 @@ class Reader:
                                     page.add_highlight_annot(fitz.Rect(span["bbox"]))
                                     break
                 data.append({"page": pgn,"title": detected_titles[pgn],"highlight_count": highlight_count,"indices": found_indices})
-        #     doc.save(output_path)
+            doc.save(output_path)
         #     print(f"\tHighlighted PDF at: {output_path}")
-        # Helper._save_pdf_data(data, self.REPORTPATH)
+        Helper.pdf_report(data, self.REPORTPATH, self.FILE_NAME)
 
         return {
             d["page"]: d["title"]
@@ -400,7 +407,8 @@ class Reader:
     #     return nested
     
     def get_data(self, path: str, titles:dict, *args):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
@@ -546,7 +554,8 @@ class Reader:
         return final_data
     
     def get_generated_content(self, data: list, is_table: str = ""):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path = self.DRYPATH
 
@@ -557,30 +566,32 @@ class Reader:
                 extracted_text[fund] = self._extract_data_from_pdf(output_path, fund)
                 self._update_imp_data(extracted_text[fund], fund, pgn)
 
-            print("  Parsing Completed, Refining Data.....")
+            # print("Parsing Completed, Refining Data.....")
 
             # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
             table_mode = is_table or self.PARAMS.get("table", "")
             if table_mode:
-                print(f">>Table Data Present -> running: _generate_table_data")
+                # print(f">>Table Data Present -> running: _generate_table_data")
+                logger.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
                 try:
                     table_data = self._generate_table_data(self.PDF_PATH, table_mode)
                     extracted_text = FundRegex()._map_main_and_tabular_data(
                         extracted_text, table_data, self.FUND_NAME
                     )
                 except Exception as e:
-                    print(f"[Error] _generate_table_data failed: {e}")
+                    logger.exception(f"'_generate_table_data' Failed: {e}")
 
             # Section to duplicate mutual funds
             if isinstance(self.DUPLICATE_FUNDS, dict) and self.DUPLICATE_FUNDS:
-                print(f">>Duplicate Mutual Fund Present -> running: _update_duplicate_fund_data")
+                # print(f">>Duplicate Mutual Fund Present -> running: _update_duplicate_fund_data")
+                logger.info(f"Duplication Required. Running:{inspect.currentframe().f_code.co_name}")
                 try:
                     extracted_text = self._update_duplicate_fund_data(extracted_text)
                 except Exception as e:
-                    print(f"[Error] _update_duplicate_fund_data failed: {e}")
+                    logger.exception(f"'_update_duplicate_fund_data' Failed: {e}")
 
         except Exception as e:
-            print(f"[Error] get_generated_content failed: {e}")
+            logger.exception(f"'get_generated_content' Failed: {e}")
 
         return extracted_text
 
@@ -594,7 +605,8 @@ class Reader:
         return "exhausted"
 
     def refine_extracted_data(self, extracted_text: dict):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
         regex = FundRegex()
         
@@ -641,7 +653,6 @@ class Reader:
                     content_dict.update(content)
             tertiary_refine[fund] = content_dict
         return tertiary_refine
-    
     
     #MAP/SELECT
     def __load_ops(self,fund:str,df:dict):
@@ -693,7 +704,8 @@ class Reader:
         return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():

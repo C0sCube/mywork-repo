@@ -1,36 +1,16 @@
-import os, re, json, logging, string, sys
+import os, re, json, string, logging, shutil
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
 from functools import reduce
 
+logger = logging.getLogger(__name__)
+
 class Helper:
     
     def __init__(self):
         pass
-    
-    @staticmethod
-    def setup_logger(log_dir):
-        os.makedirs(log_dir, exist_ok=True)
-        log_path = os.path.join(log_dir, f"run_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
-
-        logger = logging.getLogger("PipelineLogger")
-        logger.setLevel(logging.INFO)
-
-        formatter = logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-
-        # File Handler
-        file_handler = logging.FileHandler(log_path, encoding='utf-8')
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
-
-        # Console Handler
-        console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setFormatter(formatter)
-        logger.addHandler(console_handler)
-
-        return logger
     
     #PARSING UTILS
     @staticmethod
@@ -59,7 +39,7 @@ class Helper:
     def get_amc_paths(base_path: str) -> dict:
         """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
         fund_paths = {}
-        print(base_path)
+        logger.info(f"AMC At: {base_path}")
         for root, _, files in os.walk(base_path):
             # print(files)
             for file_name in files:
@@ -84,9 +64,7 @@ class Helper:
     @staticmethod
     def get_fund_paths(path:str):
         mutual_fund_paths = {}
-
         for root, dirs, files in os.walk(path):
-            
             file_found = False
             for name in files:
                 if name.endswith((".pdf")) and not file_found:
@@ -100,13 +78,12 @@ class Helper:
 
     @staticmethod
     def _get_financial_indices(path:str):
-        
         df = pd.read_excel(path)
         financial_indexes = df['indexes'].tolist()
         return set(financial_indexes)
     
     @staticmethod
-    def _save_pdf_data(data, excel_path: str):
+    def pdf_report(data, excel_path: str, sheet_name:str):
         df = pd.DataFrame(data)
 
         if 'indices' in df.columns:
@@ -121,10 +98,54 @@ class Helper:
         else:
             df_final = df
 
-        df_final.to_excel(excel_path, engine="openpyxl", index=False)
+        if os.path.exists(excel_path):
+            with pd.ExcelWriter(excel_path, engine="openpyxl", mode='a', if_sheet_exists='replace') as writer:
+                df_final.to_excel(writer, sheet_name=sheet_name, index=False)
+        else:
+            with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
+                df_final.to_excel(writer, sheet_name=sheet_name, index=False)
 
-        print(f"\n\tDoc Saved At: {excel_path}\n\n")
+        logger.info(f"Report:Sheet Name::{sheet_name} Saved")
         return df_final
+    
+    @staticmethod
+    def delete_file_by_suffix(base_folder: str, suffixes=[ "_clipped.pdf","_ocr.pdf","_all_ocr.pdf","_hltd.pdf"]):
+        deleted_files = []
+
+        for dirpath, _, filenames in os.walk(base_folder):
+            for file in filenames:
+                if any(file.endswith(suffix) for suffix in suffixes):
+                    full_path = os.path.join(dirpath, file)
+                    try:
+                        os.remove(full_path)
+                        deleted_files.append(full_path)
+                    except Exception as e:
+                        print(f"[ERROR] Could not delete {full_path}: {e}")
+
+        logger.info(f"Deleted PDFs. {suffixes}")
+        return deleted_files
+    
+    @staticmethod
+    def copy_pdfs_to_folder(dest_folder: str, data):
+        os.makedirs(dest_folder, exist_ok=True)
+
+        if isinstance(data, dict):
+            file_paths = list(data.values())
+        elif isinstance(data, list):
+            file_paths = data
+        else:
+            raise ValueError("Data must be a list of paths or a dict with path values")
+
+        for path in file_paths:
+            if not os.path.isfile(path):
+                continue
+            try:
+                file_name = os.path.basename(path)
+                dest_path = os.path.join(dest_folder, file_name)
+                shutil.copy2(path, dest_path)
+            except Exception as e:
+                logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
+    
     
     #JSON UN/LOAD 
     @staticmethod
@@ -162,6 +183,23 @@ class Helper:
     def load_json(path: str):
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
+    
+    #WRITE TEXT
+    @staticmethod
+    def save_text(data,path:str):
+        if not data:
+            print("Empty Data")
+            return
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'a', encoding='utf-8') as f:
+            if isinstance(data,dict):
+                f.writelines(f"{k}:{v}\n" for k,v in data.items())
+            elif isinstance(data,list):
+                f.writelines(f"{k}\n" for k in data)
+            elif isinstance(data,str):
+                f.writelines(data)
+            else: print("Invalid type")
+        
     
     #NESTED DICT CRUD OPS
     @staticmethod

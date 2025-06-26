@@ -4954,7 +4954,7 @@
     SPECIAL_FUNCTIONS: {},
     DELETEKEYS: [],
   },
-  "72": {
+  "98": {
     AMC: "Jio BlackRock Mutual Fund",
     PARAMS: {
       page_zero: { bbox: [[0, 0, 220, 800]], ocr: false },
@@ -4963,7 +4963,6 @@
         keywords: [
           "Name of the scheme",
           "Category of the Scheme",
-          "Scheme type",
           "Scheme code",
           "Investment objective",
         ],
@@ -4983,9 +4982,9 @@
     },
     REGEX: {
       //kim
-      main_scheme: "(Zerodha.+?(?:Funds?|Path|saver|Index|ETF|Plan)\\s*(?:of Funds?|Fund of funds?|F[Oo]F|Funds?)?)",
+      main_scheme: "(Jio\\s*Black\\s*Rock.+?(?:Funds?|Path|saver|Index|ETF|Plan)\\s*(?:of Funds?|Fund of funds?|F[Oo]F|Funds?)?)",
       asset: {
-        pattern: "",
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
       },
       //sid
@@ -5013,7 +5012,7 @@
       escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
     },
     IMP_DATA: {
-      amc_name: "Jio BlackRock Asset Management Limited",
+      amc_name: "Jio BlackRock Asset Management Private Limited",
       mutual_fund_name: "Jio BlackRock Mutual Fund",
       face_value: "Rs.10",
       offer_price: "Rs.10",

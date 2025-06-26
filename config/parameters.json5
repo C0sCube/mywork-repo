@@ -5536,13 +5536,13 @@
       special: true,
     },
     IMP_DATA: {
-      amc_name: "Unifi Asset Management Company Private Limited",
-      mutual_fund_name: "Unifi Mutual Fund",
+      amc_name: "JioBlackRock Asset Management Company Private Limited",
+      mutual_fund_name: "JioBlackRock Mutual Fund",
     },
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Unifi.+?(?:Fund|ETF|F[Oo]F|Index|Path|Duration|Index|Plan)\\s*(?:.+?Growth|F[Oo]F|Fund of Funds?|of Funds?|Fund?)?)",
+        pattern: "(Jio\\s*Black\\s*Rock.+?(?:Fund|ETF|F[Oo]F|Index|Path|Duration|Index|Plan)\\s*(?:.+?Growth|F[Oo]F|Fund of Funds?|of Funds?|Fund?)?)",
         bbox: [0, 0, 600, 60],
       },
       clip_bbox: [
