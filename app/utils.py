@@ -105,7 +105,7 @@ class Helper:
             with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
                 df_final.to_excel(writer, sheet_name=sheet_name, index=False)
 
-        logger.info(f"Report:Sheet Name::{sheet_name} Saved")
+        logger.warning(f"Report:Sheet Name -> {sheet_name} Saved.")
         return df_final
     
     @staticmethod
@@ -122,7 +122,7 @@ class Helper:
                     except Exception as e:
                         print(f"[ERROR] Could not delete {full_path}: {e}")
 
-        logger.info(f"Deleted PDFs. {suffixes}")
+        # logger.info(f"Deleted PDFs. {suffixes}")
         return deleted_files
     
     @staticmethod
@@ -146,6 +146,34 @@ class Helper:
             except Exception as e:
                 logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
     
+    
+    @staticmethod
+    def delete_files_and_empty_folder(file_path: str) -> bool:
+        try:
+            # print(file_path)
+            if os.path.exists(file_path):
+                os.remove(file_path)
+                
+                parent_dir = os.path.dirname(file_path)
+                print("Remaining:", os.listdir(parent_dir))
+
+                if os.path.isdir(parent_dir) and not os.listdir(parent_dir):
+                    os.rmdir(parent_dir)
+                return True
+            return False
+        except Exception as e:
+            logger.exception(f"delete_file_and_empty_folder -> {e}")
+            return False
+        
+    @staticmethod
+    def delete_amc_pdf(data):
+        try:
+            for k, path in data.items():
+                Helper.delete_files_and_empty_folder(path)
+        except Exception as e:
+            logger.exception(f"delete_amc_pdf: {e}")
+            return
+        return
     
     #JSON UN/LOAD 
     @staticmethod

@@ -26,13 +26,12 @@ class Reader:
         self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
         
-        # self.logger = Helper.setup_logger(log_dir=self.OUTPUTPATH)
-        for output_path in [self.DRYPATH, self.JSONPATH]: # self.REPORTPATH
+        for output_path in [self.DRYPATH, self.JSONPATH,self.REPORTPATH]:
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         # print(f"Regex: {regex}")
         title_detected = {}
         with fitz.open(path) as doc:
@@ -50,7 +49,7 @@ class Reader:
         return title_detected
                 
     def _get_ocr_title(self,path:str,regex:str,bbox):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
@@ -101,7 +100,7 @@ class Reader:
             pass
     
     def _ocr_pdf(self,path:str):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         time.sleep(2)
@@ -109,8 +108,8 @@ class Reader:
         return ocr_path
     
     def check_and_highlight(self, path: str):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
         regex = FundRegex()
@@ -154,7 +153,7 @@ class Reader:
         return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
     def extract_clipped_data(self, path: str, title: dict, *args) -> list:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = []
         fund_seen = {}
         bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
@@ -207,7 +206,7 @@ class Reader:
         return finalData
 
     def extract_data_relative_line(self, path: str,title: dict)->list:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         with fitz.open(path) as doc:
             finalData = []
             fund_seen = {}
@@ -259,7 +258,7 @@ class Reader:
         return finalData
 
     def extract_span_data(self, data: list,*args)->list:  # all
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = []
         for page in data:
             seen_entries = set()
@@ -280,7 +279,7 @@ class Reader:
         return ''.join(random.choices(string.ascii_lowercase, k=length))
     
     def process_text_data(self, data: list)->list:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         stop_words,finalData = FundRegex().STOP_WORDS,[]
         #checkers
         data_cond = self.PARAMS['data']
@@ -355,7 +354,7 @@ class Reader:
         return finalData
 
     def create_nested_dict(self,data: list,*args)->list:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         header_size, content_size = self.PARAMS['content_size']
         finalData = []
         for content in data:
@@ -407,8 +406,8 @@ class Reader:
     #     return nested
     
     def get_data(self, path: str, titles:dict, *args):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
@@ -443,7 +442,7 @@ class Reader:
     #PROCESS
     @staticmethod
     def _generate_pdf_from_data(data: dict, output_path: str) -> None:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         regex = FundRegex()
         with fitz.open() as doc:
             TITLE_FONT_SIZE = 24
@@ -531,7 +530,7 @@ class Reader:
             doc.save(output_path)
     
     def _extract_data_from_pdf(self,path: str, fund:str):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         final_data = {}
         with fitz.open(path) as doc:
             for page in doc:
@@ -554,8 +553,8 @@ class Reader:
         return final_data
     
     def get_generated_content(self, data: list, is_table: str = ""):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path = self.DRYPATH
 
@@ -605,8 +604,8 @@ class Reader:
         return "exhausted"
 
     def refine_extracted_data(self, extracted_text: dict):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
         regex = FundRegex()
         
@@ -704,8 +703,8 @@ class Reader:
         return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        logger.info(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():
