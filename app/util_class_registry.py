@@ -1,4 +1,5 @@
 from app.fund_data import *
+from app.fund_sid_data import *
 
 CLASS_REGISTRY = {
     "18_0": ThreeSixtyOne,
@@ -62,7 +63,49 @@ CLASS_REGISTRY = {
     "35_1": SBIPassive, #ocr
 }
 
-
-
-SID_CLASS_REGISTRY = {}
-KIM_CLASS_REGISTRY = {}
+SID_CLASS_REGISTRY = {'18': ThreeSixtyOne,
+ '3': AdityaBirla,
+ '96': AngelOne,
+ '1': AXISMF,
+ '59': BajajFinServ,
+ '16': Bandhan,
+ '5': BankOfIndia,
+ '2': BarodaBNP,
+ '6': Canara,
+ '8': DSP,
+ '9': Edelweiss,
+ '11': FranklinTempleton,
+ '20': GROWW,
+ '12': HDFC,
+ '60': Helios,
+ '13': HSBC,
+ '14': ICICI,
+ '21': Invesco,
+ '51': ITI,
+ '22': JMMF,
+ '23': Kotak,
+ '25': LIC,
+ '26': MahindraManu,
+ '27': MIRAE,
+ '28': MotilalOswal,
+ '56': NAVI,
+ '33': Nippon,
+ '57': NJMF,
+ '95': OldBridge,
+ '7': PGIM,
+ '30': PPFAS,
+ '10': QuantMF,
+ '32': Quantum,
+ '58': Samco,
+ '35':SBI,
+ '36': Shriram,
+ '37': Sundaram,
+ '38': Tata,
+ '39': Taurus,
+ '55': Trust,
+ '41': UTI,
+ '40': Union,
+ '97': Unifi,
+ '42': WhiteOak,
+ '71': Zerodha,
+ '98': JioBlackRock}

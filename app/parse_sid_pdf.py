@@ -104,7 +104,7 @@ class ReaderSIDKIM:
 
     def parse_page_zero(self, pages: str) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["page_zero"] = int(pages)
+        self.FIELD_LOCATION["page_zero"] = int(pages[0])
         zero_params = self.PARAMS["page_zero"]
         
         path = self._ocr_pdf(self.PDF_PATH,pages) if zero_params["ocr"] else self.PDF_PATH
@@ -119,7 +119,8 @@ class ReaderSIDKIM:
 
     def parse_scheme_table_data(self,pages:str)->dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["page_table"] = pages.split(",")[0]
+        
+        self.FIELD_LOCATION["page_table"] = int(pages[0])
         table_params = self.PARAMS["table_data"]
         
         dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
@@ -135,7 +136,7 @@ class ReaderSIDKIM:
     
     def parse_fund_manager_info(self, pages: str) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["page_manager"] = pages.split(",")[0]
+        self.FIELD_LOCATION["page_manager"] = int(pages[0])
         manager_params = self.PARAMS["manager_data"]
 
         dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
@@ -163,7 +164,7 @@ class ReaderSIDKIM:
     
     def parse_KIM_data(self,pages:str, instrument_count = 2)->dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["kim"] = int(pages.split(",")[0])
+        self.FIELD_LOCATION["kim"] = int(pages[0])
         kim_params = self.PARAMS["kim"]
         
         dfs = self._table_parser.extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)

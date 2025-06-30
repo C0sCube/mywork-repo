@@ -5,8 +5,8 @@ from app.utils import *
 from app.program_logger import setup_logger
 from app.util_class_registry import CLASS_REGISTRY
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
+print("FS_JSON_PARSE main.py Running ...", flush=True)
 
 # === Watcher Setup ===
 with open("paths.json", "r") as file:
@@ -14,11 +14,15 @@ with open("paths.json", "r") as file:
 
 WATCH_PATH = CONFIG["amc_path"]
 CHECK_INTERVAL = 10  # seconds
-print(f"[WATCHER] Watching for new folders in: {WATCH_PATH}")
 
 known_folders = set(os.listdir(WATCH_PATH))
+print(f"[WATCHER] Watching for new folders in: {WATCH_PATH}", flush=True)
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 while True:
+    
     try:
         current_folders = set(os.listdir(WATCH_PATH))
         new_folders = current_folders - known_folders
@@ -38,7 +42,7 @@ while True:
             OUTPUT_ROOT = os.path.join(CONFIG["output_path"], output_foldername)
             logger = setup_logger(log_dir=OUTPUT_ROOT)
 
-            logger.info(f"Program Execution Started for: {new_folder}")
+            logger.info(f"\nProgram Execution Started for: {new_folder}")
             amc_path = os.path.join(CONFIG["amc_path"], new_folder)
             mutual_fund = Helper.get_amc_paths(amc_path)
             amc_done = {}
@@ -46,10 +50,11 @@ while True:
             for amc_id, class_name in CLASS_REGISTRY.items():
                 try:
                     fund_name, path = mutual_fund[amc_id]
-                except KeyError:
+                except KeyError as e:
+                    logger.error(f"{amc_id}: {e}")
                     continue
-                logger.debug(f"AMC : {amc_id}:{class_name}")
                 try:
+                    logger.warning(f"AMC : {amc_id}:{class_name}")
                     obj = class_name(fund_name, amc_id, path)
                     title, path_pdf = obj.check_and_highlight(path)
                     if not (path_pdf and title):
@@ -81,17 +86,13 @@ while True:
 
             Helper.delete_file_by_suffix(base_folder=amc_path)
             
-            amc_not_done = {
-                v[0]: v[1]  # fund_name : path
-                for k, v in mutual_fund.items()
-                if v[0] not in amc_done
-            }
+            amc_not_done = {v[0]: v[1] for k, v in mutual_fund.items() if v[0] not in amc_done}  # fund_name : path
 
             # Save failed
             if amc_not_done:
                 failed_path = os.path.join(OUTPUT_ROOT, "failed")
                 os.makedirs(failed_path, exist_ok=True)
-                Helper.save_text(amc_not_done, os.path.join(failed_path, "failed.txt"))
+                Helper.save_text(amc_not_done, os.path.join(OUTPUT_ROOT, "failed_amc.txt"))
                 Helper.copy_pdfs_to_folder(failed_path, amc_not_done)
                 logger.warning(f"{len(amc_not_done)} AMC(s) failed.")
 
@@ -99,12 +100,18 @@ while True:
             if amc_done:
                 processed_path = os.path.join(OUTPUT_ROOT, "processed")
                 os.makedirs(processed_path, exist_ok=True)
-                Helper.save_text(amc_done, os.path.join(processed_path, "processed.txt"))
+                Helper.save_text(amc_done, os.path.join(OUTPUT_ROOT, "processed_amc.txt"))
                 Helper.copy_pdfs_to_folder(processed_path, amc_done)
                 logger.warning(f"{len(amc_done)} AMC(s) done.")
 
             shutil.rmtree(amc_path,ignore_errors=True)
             logger.warning(f"Deleted empty input folder: {amc_path}")
+            
+            #zip + send mail
+            zip_filename = f"{output_foldername}.zip"
+            zip_path = Helper.zip_output_folder(OUTPUT_ROOT, zip_filename,exclude_folders =("processed", "failed"))
+            Helper.send_email_report(inserted=len(amc_done), skipped=len(amc_not_done), attachment=Path(zip_path))
+
             logger.warning("Program Completed.")
 
         known_folders = current_folders
@@ -116,34 +123,3 @@ while True:
     except Exception as e:
         print(f"[WATCHER ERROR] {e}")
         time.sleep(CHECK_INTERVAL)
-
-
-    # def _send_email_report(self, inserted: int, skipped: int, attachment: Path) -> None:
-    #     try:
-    #         recipient_email = [prashant.bhosale@cogencis.com]
-    #         msg = MIMEMultipart()
-    #         msg['From'] = 'prashant.bhosale@cogencis.com'
-    #         msg['To'] = ', '.join(r for r in recipient_email)
-    #         msg['Subject'] = f"NSE-CASH Data Import Report - {datetime.now().strftime('%Y-%m-%d')}"
- 
-    #         # Email body
-    #         body = f"""
-	# 		body
-    #         """
-    #         msg.attach(MIMEText(body, 'html'))
- 
-    #         # Attach CSV file
-    #         with open(attachment, 'rb') as f:
-    #             part = MIMEApplication(f.read(), Name=attachment.name)
-    #             part['Content-Disposition'] = f'attachment; filename="{attachment.name}"'
-    #             msg.attach(part)
- 
-    #         # Send email
-    #         smtp_server = "192.168.1.126"
-    #         smtp_port = 25
-    #         with smtplib.SMTP(smtp_server, smtp_port) as server:
-    #             server.send_message(msg)
- 
-    #         self.logger.info("Email report sent successfully")
-    #     except Exception as e:
-    #         self.logger.error(f"Failed to send email: {str(e)}")

@@ -5013,7 +5013,7 @@
     },
     IMP_DATA: {
       amc_name: "Jio BlackRock Asset Management Private Limited",
-      mutual_fund_name: "Jio BlackRock Mutual Fund",
+      mutual_fund_name: "JioBlackRock Mutual Fund",
       face_value: "Rs.10",
       offer_price: "Rs.10",
       open_date: "",
@@ -5036,7 +5036,7 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "^load_structure": ["_extract_load_data", "load"],
-      "^(minimum_additional_purchase_amount|minimum_application_amount.*)": [
+      "^(?:minimum_)?(additional_purchase_amount|application_amount.*)": [
         "_extract_amt_data",
         "min_amt",
       ],
@@ -5047,7 +5047,7 @@
       ".*(offer_opens_on|offer_closes_on)",
       "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
       "^load_structure",
-      "^(minimum_application_amount|minimum_additional_purchase).*$",
+      "^(?:minimum_)?(application_amount|additional_purchase).*$",
       "fund_manager",
       "amc_name",
       "offer_price",

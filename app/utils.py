@@ -1,9 +1,16 @@
-import os, re, json, string, logging, shutil
+import os, re, json, string, logging, shutil, zipfile
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
 from functools import reduce
+
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
+from email.mime.text import MIMEText
+from pathlib import Path
+
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +66,14 @@ class Helper:
                     # print(fund_name)
                     fund_paths[fund_key] = (fund_name, full_path)
 
+                elif file_name.endswith("KIM.pdf") or file_name.endswith("SID.pdf"):
+                    full_path = os.path.join(root, file_name)
+                    folder_name = os.path.basename(root).title()
+
+                    parts = file_name.split("_")
+                    fund_id = parts[0]
+                    fund_paths[fund_id] = (folder_name, full_path)
+                     
         return fund_paths
 
     @staticmethod
@@ -494,5 +509,63 @@ class Helper:
                 
         else:
             print(f"{indent}{type(obj).__name__}")
+            
+
+    #SEND E-MAIL / ZIP
+    @staticmethod
+    def zip_output_folder(output_dir: str, zip_name: str, exclude_folders=("processed", "failed")):
+        zip_path = os.path.join(output_dir, zip_name)
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            for root, dirs, files in os.walk(output_dir):
+                # Skip excluded folders
+                if any(excluded in root for excluded in exclude_folders):
+                    continue
+                for file in files:
+                    abs_file_path = os.path.join(root, file)
+                    rel_path = os.path.relpath(abs_file_path, start=output_dir)
+                    zipf.write(abs_file_path, rel_path)
+        return zip_path
+
+    
+    @staticmethod
+    def send_email_report(inserted: int, skipped: int, attachment: Path) -> None:
+        try:
+            recipient_email = ['Kaustubh.Keny@cogencis.com','Santosh.Shelar@cogencis.com']
+            msg = MIMEMultipart()
+            msg['From'] = 'Kaustubh.Keny@cogencis.com'
+            msg['To'] = ', '.join(recipient_email)
+            msg['Subject'] = f"FS JSON PARSE Data - {datetime.now().strftime('%Y-%m-%d')}"
+
+            body = f"""
+            <html>
+                <body>
+                    <p>Hello Team,</p>
+                    <p>The FS JSON DATA parsing completed.</p>
+                    <ul>
+                        <li><strong>AMC's Completed:</strong> {inserted}</li>
+                        <li><strong>AMC's Skipped:</strong> {skipped}</li>
+                    </ul>
+                    <p>Please find the attached ZIP file.</p>
+                    <p>Regards,<br>Kaustubh</p>
+                </body>
+            </html>
+            """
+            msg.attach(MIMEText(body, 'html'))
+
+            with open(attachment, 'rb') as f:
+                part = MIMEApplication(f.read(), Name=attachment.name)
+                part['Content-Disposition'] = f'attachment; filename="{attachment.name}"'
+                msg.attach(part)
+
+            smtp_server = "172.22.225.126"
+            smtp_port = 25
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.send_message(msg)
+
+            logger.info("Email report sent successfully")
+
+        except Exception as e:
+            logger.error(f"Failed to send email: {str(e)}")
+
 
     

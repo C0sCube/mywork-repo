@@ -2480,8 +2480,8 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(MIRAE.*?(?:ETF|EOF|FOF|FTF|FUNDS?\\s*(?:OF FUNDS?)?|INDEX FUND))",
-        bbox: [0, 0, 724, 140],
+        pattern: "(MIRAE.*?(?:ETF|EOF|F[Oo]F|FTF|FUNDS?|PLAN|SAVER)\\s*(?:OF FUNDS?|FUND OF FUNDS?|FUND?|FUNDS?)?)",
+        bbox: [0, 0, 724, 150],
       },
       clip_bbox: [[0, 190, 270, 812]],
       line_x: 270.0,
@@ -2569,8 +2569,8 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(MIRAE.*?(?:ETF|EOF|FOF|FTF|FUNDS?\\s*(?:OF FUNDS?)?|INDEX FUND))",
-        bbox: [0, 0, 560, 140],
+        pattern: "(MIRAE.*?(?:ETF|EOF|F[Oo]F|FTF|FUNDS?|PLAN|SAVER)\\s*(?:OF\\s*FUNDS?|FUND\\s*OF\\s*FUNDS?|FUND?|FUNDS?)?)",
+        bbox: [0, 0, 560, 150],
       },
       clip_bbox: [[0, 190, 270, 812]],
       line_x: 270.0,
