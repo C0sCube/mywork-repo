@@ -79,6 +79,10 @@ class ReaderSIDKIM:
         return extracted
 
     # =================== SID ===================
+    # | Tool      | Page Indexing | Example                  |
+    # | --------- | ------------- | ------------------------ |
+    # | `fitz`    | **0-based**   | `doc[0]` → first page    |
+    # | `camelot` | **1-based**   | `pages="1"` → first page |
     
     def __resolve_page_index(self,pages_str: str, fitz: bool) -> str:
         pages_str = pages_str.strip()
@@ -109,7 +113,7 @@ class ReaderSIDKIM:
         
         path = self._ocr_pdf(self.PDF_PATH,pages) if zero_params["ocr"] else self.PDF_PATH
         
-        fitz_pages = self.__resolve_page_index(pages,True)
+        fitz_pages = self.__resolve_page_index(pages,True) #True for 0 based indexing
         # print(fitz_pages, pages)
         final_dict = {
             "risk_bbox": self._get_text_from_pages_and_bboxes(path=path,pages_csv=fitz_pages, bboxes=zero_params["bbox"]),
@@ -125,7 +129,7 @@ class ReaderSIDKIM:
         
         dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
         col_start = self._table_parser.get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
-        print(f"[COL START]: {col_start} _keys: {table_params["keywords"]}")
+        print(f"[COL START]: {col_start} _keys: {table_params['keywords']}")
         
         dfs = self._table_parser.get_sub_dataframe(dfs,cs=col_start[0])
         dfs = self._table_parser.clean_dataframe(dfs, ["newline_to_space"])
@@ -141,7 +145,7 @@ class ReaderSIDKIM:
 
         dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
         row_start = self._table_parser.get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
-        print(f"[ROW START]: {row_start} _keys: {manager_params["keywords"]}")
+        print(f"[ROW START]: {row_start} _keys: {manager_params['keywords']}")
         
         dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_start[0])
         dfs = self._table_parser.clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])

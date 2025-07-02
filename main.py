@@ -22,7 +22,6 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 while True:
-    
     try:
         current_folders = set(os.listdir(WATCH_PATH))
         new_folders = current_folders - known_folders
@@ -33,8 +32,7 @@ while True:
                 continue
 
             print(f"[WATCHER] New folder detected: {new_folder}")
-            filename = new_folder.upper()
-            output_foldername = f"FS_{filename}_{datetime.now().strftime('%Y%m%d')}"
+            output_foldername = f"FS_{new_folder.upper()}_{datetime.now().strftime('%Y%m%d')}"
 
             load_config_once(output_folder=output_foldername)
             CONFIG = get_config()
@@ -51,7 +49,7 @@ while True:
                 try:
                     fund_name, path = mutual_fund[amc_id]
                 except KeyError as e:
-                    logger.error(f"{amc_id}: {e}")
+                    logger.error(f"{amc_id} Corresponding FS not attatched. Skiped")
                     continue
                 try:
                     logger.warning(f"AMC : {amc_id}:{class_name}")
@@ -110,11 +108,12 @@ while True:
             #zip + send mail
             zip_filename = f"{output_foldername}.zip"
             zip_path = Helper.zip_output_folder(OUTPUT_ROOT, zip_filename,exclude_folders =("processed", "failed"))
-            Helper.send_email_report(inserted=len(amc_done), skipped=len(amc_not_done), attachment=Path(zip_path))
+            Helper.send_email_report(processed=len(amc_done), failed=len(amc_not_done), attachment=Path(zip_path))
 
             logger.warning("Program Completed.")
 
         known_folders = current_folders
+        print("[WATCHER] No new folders found. Sleeping...", flush=True)
         time.sleep(CHECK_INTERVAL)
 
     except KeyboardInterrupt:

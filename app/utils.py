@@ -161,7 +161,6 @@ class Helper:
             except Exception as e:
                 logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
     
-    
     @staticmethod
     def delete_files_and_empty_folder(file_path: str) -> bool:
         try:
@@ -528,11 +527,11 @@ class Helper:
 
     
     @staticmethod
-    def send_email_report(inserted: int, skipped: int, attachment: Path) -> None:
+    def send_email_report(processed: int, failed: int, attachment: Path) -> None:
         try:
-            recipient_email = ['Kaustubh.Keny@cogencis.com','Santosh.Shelar@cogencis.com']
+            recipient_email = ['kaustubh.keny@cogencis.com','santosh.shelar@cogencis.com']
             msg = MIMEMultipart()
-            msg['From'] = 'Kaustubh.Keny@cogencis.com'
+            msg['From'] = 'kaustubh.keny@cogencis.com'
             msg['To'] = ', '.join(recipient_email)
             msg['Subject'] = f"FS JSON PARSE Data - {datetime.now().strftime('%Y-%m-%d')}"
 
@@ -542,8 +541,8 @@ class Helper:
                     <p>Hello Team,</p>
                     <p>The FS JSON DATA parsing completed.</p>
                     <ul>
-                        <li><strong>AMC's Completed:</strong> {inserted}</li>
-                        <li><strong>AMC's Skipped:</strong> {skipped}</li>
+                        <li><strong>AMC's Completed:</strong> {processed}</li>
+                        <li><strong>AMC's Skipped:</strong> {failed}</li>
                     </ul>
                     <p>Please find the attached ZIP file.</p>
                     <p>Regards,<br>Kaustubh</p>
@@ -552,15 +551,18 @@ class Helper:
             """
             msg.attach(MIMEText(body, 'html'))
 
-            with open(attachment, 'rb') as f:
-                part = MIMEApplication(f.read(), Name=attachment.name)
-                part['Content-Disposition'] = f'attachment; filename="{attachment.name}"'
-                msg.attach(part)
+            # with open(attachment, 'rb') as f:
+            #     part = MIMEApplication(f.read(), Name=attachment.name)
+            #     part['Content-Disposition'] = f'attachment; filename="{attachment.name}"'
+            #     msg.attach(part)
 
-            smtp_server = "172.22.225.126"
+            #192.168.1.120 #172.22.225.126
+            smtp_server = "172.22.225.70"
             smtp_port = 25
+            # smtp_server = "192.168.1.126"
+            # smtp_port = 25
             with smtplib.SMTP(smtp_server, smtp_port) as server:
-                server.send_message(msg)
+                server.sendmail(msg)
 
             logger.info("Email report sent successfully")
 

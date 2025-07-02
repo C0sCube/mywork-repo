@@ -64,7 +64,7 @@ class TableParser:
         
         tables = camelot.read_pdf(path, pages=pages, flavor=flavor)
         dfs = [t.df for t in tables]
-        return self._concat_padding_vertical(*dfs,padding_rows=padding) if stack else self._concat_padding_vertical(*dfs,padding_rows=padding)
+        return self._concat_padding_vertical(*dfs,padding_rows=padding) if stack else self._concat_padding_horizontal(*dfs,padding_rows=padding)
     
     def get_matching_row_indices(self, df, keywords, thresh):
         """Find row indices in a DataFrame that match a set of keywords in at least 'thresh' cells.

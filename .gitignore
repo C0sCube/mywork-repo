@@ -13,7 +13,8 @@ logs/
 *.tmp
 
 # Ignore virtual environment
-venv/
+.venv/
+.venv-py1310/
 envPDF/
 
 # Ignore Others

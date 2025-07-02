@@ -92,11 +92,6 @@ class Reader:
             print(f"[ERROR] Permission denied: {e}")
             return {}
         finally: 
-            # for temp_file in [clipped_pdf, ocr_pdf]:
-            #     try:
-            #         os.remove(temp_file)
-            #     except Exception as e:
-            #         print(f"[WARN] Could not delete temp file {temp_file}: {e}")
             pass
     
     def _ocr_pdf(self,path:str):
@@ -549,7 +544,7 @@ class Reader:
                         final_data[header] = content_lines
                 else:
                     final_data[header].extend(content_lines)
-
+        os.remove(path=path)
         return final_data
     
     def get_generated_content(self, data: list, is_table: str = ""):
