@@ -21,6 +21,37 @@ class Helper:
     
     #PARSING UTILS
     @staticmethod
+    def get_pdf_with_id(path: str) -> dict:
+        pdf_paths = {}
+        suffix_map = {}
+
+        for root, _, files in os.walk(path):
+            for file_name in files:
+                if file_name.endswith("FS.pdf"):
+                    full_path = os.path.join(root, file_name)
+                    # folder_name = os.path.basename(root).title()
+
+                    parts = file_name.split("_")
+                    fund_id = parts[0]
+
+                    is_passive = len(parts[-2]) == 1 #determine passive
+                    suffix = parts[-2] if is_passive else "0"
+                    fund_key = f"{fund_id}_{suffix}"
+                    # fund_name = f"{folder_name} Passive" if is_passive else folder_name
+
+                    # print(fund_name)
+                    pdf_paths[fund_key] = (file_name, full_path)
+
+                elif file_name.endswith("KIM.pdf") or file_name.endswith("SID.pdf"):
+                    full_path = os.path.join(root, file_name)
+                    # folder_name = os.path.basename(root).title()
+
+                    parts = file_name.split("_")
+                    fund_id = parts[0]
+                    pdf_paths[fund_id] = (file_name, full_path)
+        return pdf_paths
+                    
+    @staticmethod
     def get_pdf_paths(base_path: str) -> dict:
         pdf_paths = {}
         suffix_map = {}
@@ -90,6 +121,15 @@ class Helper:
                     file_found = True
         
         return mutual_fund_paths
+    
+    @staticmethod
+    def create_subdirs(base_path, folder_names):
+        paths = {}
+        for name in folder_names:
+            dir_path = os.path.join(base_path, name)
+            os.makedirs(dir_path, exist_ok=True)
+            paths[f"{name.upper()}_DIR"] = dir_path
+        return paths
 
     @staticmethod
     def _get_financial_indices(path:str):
@@ -98,7 +138,9 @@ class Helper:
         return set(financial_indexes)
     
     @staticmethod
-    def pdf_report(data, excel_path: str, sheet_name:str):
+    def pdf_report(data, path: str, sheet_name:str):
+        file_name = f"amc_report_{datetime.now().strftime('%Y%m%d%H%M')}.xlsx"
+        excel_path = os.path.join(path,file_name)
         df = pd.DataFrame(data)
 
         if 'indices' in df.columns:
@@ -490,40 +532,22 @@ class Helper:
         output_path = input_pdf_path.replace('.pdf', '_bbox_highlighted.pdf')
         doc.save(output_path)
         doc.close()
-    
-    @staticmethod
-    def get_structure(obj, level=0):
-        """Recursively prints the structure of a nested list/dictionary."""
-        indent = "  " * level  # Indentation for readability
-        
-        if isinstance(obj, list):
-            print(f"{indent}List of {len(obj)} items")
-            if obj:  # Check if the list is not empty
-                Helper.get_structure(obj[0], level + 1)  # Check structure of first element
-                
-        elif isinstance(obj, dict):
-            print(f"{indent}Dictionary with keys: {list(obj.keys())}")
-            for key, value in obj.items():
-                Helper.get_structure(value, level + 1)
-                
-        else:
-            print(f"{indent}{type(obj).__name__}")
             
 
     #SEND E-MAIL / ZIP
-    @staticmethod
-    def zip_output_folder(output_dir: str, zip_name: str, exclude_folders=("processed", "failed")):
-        zip_path = os.path.join(output_dir, zip_name)
-        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            for root, dirs, files in os.walk(output_dir):
-                # Skip excluded folders
-                if any(excluded in root for excluded in exclude_folders):
-                    continue
-                for file in files:
-                    abs_file_path = os.path.join(root, file)
-                    rel_path = os.path.relpath(abs_file_path, start=output_dir)
-                    zipf.write(abs_file_path, rel_path)
-        return zip_path
+    # @staticmethod
+    # def zip_output_folder(output_dir: str, zip_name: str, exclude_folders=("processed", "failed")):
+    #     zip_path = os.path.join(output_dir, zip_name)
+    #     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+    #         for root, dirs, files in os.walk(output_dir):
+    #             # Skip excluded folders
+    #             if any(excluded in root for excluded in exclude_folders):
+    #                 continue
+    #             for file in files:
+    #                 abs_file_path = os.path.join(root, file)
+    #                 rel_path = os.path.relpath(abs_file_path, start=output_dir)
+    #                 zipf.write(abs_file_path, rel_path)
+    #     return zip_path
 
     
     @staticmethod

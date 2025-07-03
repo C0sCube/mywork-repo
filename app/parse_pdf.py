@@ -22,7 +22,7 @@ class Reader:
         self.OUTPUTPATH = conf["output_path"]
         self.PDF_PATH = path #amc factsheet pdf path
         self.DRYPATH = os.path.join(self.OUTPUTPATH, conf["output"]["dry"])
-        self.REPORTPATH = os.path.join(self.OUTPUTPATH, conf["output"]["rep"])
+        self.REPORTPATH = os.path.join(self.OUTPUTPATH, conf["output"]["report"])
         self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
         self.TEXT_ONLY = {}
         

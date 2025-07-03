@@ -20,10 +20,9 @@ class GrandFundData:
         fund_config = config.get(amc_id, {}) #paramters.json5
 
         #amc indicators
-        self.FUND_NAME = fund_name
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
-        
+        self.FUND_NAME = fund_config.get("AMC_NAME","")
         self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
         self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
         self.CLONEKEYS = fund_config.get("CLONEKEYS",[])

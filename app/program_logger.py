@@ -43,3 +43,13 @@ def setup_logger(log_dir):
 
     logger.addHandler(console_handler)
     return logger
+
+def cleanup_logger(logger):
+    handlers = logger.handlers[:]
+    for handler in handlers:
+        try:
+            handler.flush()
+            handler.close()
+        except Exception:
+            pass
+        logger.removeHandler(handler)
