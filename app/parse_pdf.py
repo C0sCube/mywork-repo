@@ -1,21 +1,20 @@
-import os, re, math,sys, ocrmypdf,time, logging # type: ignore
+import os, re, math,sys, ocrmypdf,time # type: ignore
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz # type: ignore
 from collections import defaultdict
 
 from app.parse_regex import *
 from app.fund_data import *
 from app.utils import *
+from app.program_logger import get_logger
 
-logger = logging.getLogger(__name__)
-
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
 
 class Reader:
     def __init__(self,params:dict,amc_id:str,path:str):
         
         conf = get_config() #path to paths.json
+        self.logger = get_logger()
         
         self.PARAMS = params #amc specific paramaters
         self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
@@ -50,7 +49,7 @@ class Reader:
                 
     def _get_ocr_title(self,path:str,regex:str,bbox):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        self.logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
@@ -96,7 +95,7 @@ class Reader:
     
     def _ocr_pdf(self,path:str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        self.logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         time.sleep(2)
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
@@ -104,7 +103,7 @@ class Reader:
     
     def check_and_highlight(self, path: str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.warning(f"step>> {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
         regex = FundRegex()
@@ -402,7 +401,7 @@ class Reader:
     
     def get_data(self, path: str, titles:dict, *args):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
@@ -549,7 +548,7 @@ class Reader:
     
     def get_generated_content(self, data: list, is_table: str = ""):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path = self.DRYPATH
 
@@ -600,7 +599,7 @@ class Reader:
 
     def refine_extracted_data(self, extracted_text: dict):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
         regex = FundRegex()
         
@@ -683,12 +682,12 @@ class Reader:
 
     def __min_add_ops(self,fund:str,df:dict):
         try:
-                new_values = {}
-                for key in ["min_amt", "min_addl_amt"]:
-                    if key in df:
-                        new_values[key] = df[key].get("amt", "")
-                        new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
-                df.update(new_values)
+            new_values = {}
+            for key in ["min_amt", "min_addl_amt"]:
+                if key in df:
+                    new_values[key] = df[key].get("amt", "")
+                    new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
+            df.update(new_values)
         except Exception as e:
             # logger.error(e)
             print(f"Error in {fund} ->Min/Add Error: {e}")
@@ -699,7 +698,7 @@ class Reader:
     
     def merge_and_select_data(self, data: dict):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():

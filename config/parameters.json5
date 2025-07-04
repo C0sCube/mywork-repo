@@ -1780,7 +1780,7 @@
       },
       min_amt: "([\\d,]+).*?([\\d,]+)",
       ter: "([\\d.]+)",
-      date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4}+)",
+      date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
       aum: "(Net\\s*AUM|Monthly Average AUM)\\s*(-?[\\d,.]+\\s*crores?)",
       scheme: [
         "Investment Objective",

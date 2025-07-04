@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mutual Fund Parser Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <section class="main-bg">
+        <div class="header">
+            <div class="hero">
+                <img src="{{ url_for('static', filename='img/logo_nse.svg') }}" alt="Logo">
+                <h1>FACTSHEET PARSER</h1>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">UPLOADS</a></li>
+                    <li><a href="#">PROCESSED</a></li>
+                    <li><a href="{{ url_for('logs') }}">LOGS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <h2>Upload FS/SID/KIM PDF</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="foldername">Folder Name</label>
+                <input type="text" name="foldername" id="foldername" required>
+
+                <label for="pdfs">Select PDFs</label>
+                <input type="file" name="pdfs" id="pdfs" accept=".pdf" multiple required
+                    onchange="showSelectedFiles(event)">
+
+                <button type="submit">UPLOAD</button>
+            </form>
+
+            <!-- Console-style Display -->
+            <div class="upload-console" id="uploadConsole">
+                <p>No files selected.</p>
+            </div>
+
+            <!-- <button onclick="clearConsole()" style="margin-top: 10px;">Clear Console</button> -->
+            {% if error %}
+            <div class="upload-console error">
+                <p>{{ error }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</body>
+<script>
+    function showSelectedFiles(event) {
+        const consoleDiv = document.getElementById("uploadConsole");
+        const files = event.target.files;
+
+        if (files.length === 0) {
+            consoleDiv.innerHTML = "<p>No files selected.</p>";
+            return;
+        }
+
+        let list = "<ul>";
+        for (let i = 0; i < files.length; i++) {
+            list += `<li>${files[i].name}</li>`;
+        }
+        list += "</ul>";
+
+        consoleDiv.innerHTML = "<strong>Selected files:</strong>" + list;
+    }
+
+    function showSelectedFiles(event) {
+        const consoleDiv = document.getElementById("uploadConsole");
+        const files = event.target.files;
+
+        if (files.length === 0) {
+            consoleDiv.innerHTML = "<p>No files selected.</p>";
+            return;
+        }
+
+        let list = "<ul>";
+        for (let i = 0; i < files.length; i++) {
+            list += `<li>${files[i].name}</li>`;
+        }
+        list += "</ul>";
+
+        consoleDiv.innerHTML = "<strong>Selected files:</strong>" + list;
+    }
+
+    function clearConsole() {
+        document.getElementById("uploadConsole").innerHTML = "<p>No files selected.</p>";
+    }
+
+</script>
+
+</html>

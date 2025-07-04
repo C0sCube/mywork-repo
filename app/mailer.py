@@ -7,10 +7,10 @@ from datetime import datetime
 import logging
 import os
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("fs_logger")
 
 class Mailer:
-    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com','santosh.shelar@cogencis.com']):
+    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com']):
         self.SERVER = server
         self.PORT = port
         self.FROM = sender
@@ -80,11 +80,7 @@ class Mailer:
     def send_mail(self, msg):
         try:
             with smtplib.SMTP(self.SERVER, self.PORT) as server:
-                server.send_message(
-                    from_addr=self.FROM,
-                    to_addrs=self.RECPTS,
-                    msg=msg.as_string()
-                )
+                server.send_message(msg)
             logger.info("E-Mail sent successfully !!")
         except Exception as e:
             logger.error(f"Failed to send email: {e}")

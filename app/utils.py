@@ -1,4 +1,4 @@
-import os, re, json, string, logging, shutil, zipfile
+import os, re, json, string, shutil
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -11,13 +11,13 @@ from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from pathlib import Path
 
+from app.program_logger import get_logger
 
-logger = logging.getLogger(__name__)
 
 class Helper:
     
     def __init__(self):
-        pass
+        self.logger = get_logger()
     
     #PARSING UTILS
     @staticmethod
@@ -77,6 +77,7 @@ class Helper:
     def get_amc_paths(base_path: str) -> dict:
         """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
         fund_paths = {}
+        logger = get_logger()
         logger.info(f"AMC At: {base_path}")
         for root, _, files in os.walk(base_path):
             # print(files)
@@ -161,7 +162,7 @@ class Helper:
         else:
             with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
                 df_final.to_excel(writer, sheet_name=sheet_name, index=False)
-
+        logger = get_logger()
         logger.warning(f"Report:Sheet Name -> {sheet_name} Saved.")
         return df_final
     
@@ -201,6 +202,7 @@ class Helper:
                 dest_path = os.path.join(dest_folder, file_name)
                 shutil.copy2(path, dest_path)
             except Exception as e:
+                logger = get_logger()
                 logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
     
     @staticmethod
@@ -218,6 +220,7 @@ class Helper:
                 return True
             return False
         except Exception as e:
+            logger = get_logger()
             logger.exception(f"delete_file_and_empty_folder -> {e}")
             return False
         
@@ -227,37 +230,12 @@ class Helper:
             for k, path in data.items():
                 Helper.delete_files_and_empty_folder(path)
         except Exception as e:
+            logger = get_logger()
             logger.exception(f"delete_amc_pdf: {e}")
             return
         return
     
     #JSON UN/LOAD 
-    @staticmethod
-    def quick_json_dump(extracted_text, path:str, indent=4):
-        
-        current = str(datetime.now().strftime('%H_%M_%S'))
-        try:
-            fund_name = list(extracted_text.keys())[0].split(" ")[0].lower()
-        except Exception as e:
-           print(e)
-           return
-        output_path = path.replace(".json",f'_{fund_name}_{current}.json')
-        with open(output_path, "w") as file:
-            json.dump(extracted_text, file, indent=indent)
-        
-        print(f'\n  JSON saved at {output_path}')
-    
-    @staticmethod
-    def quick_json_load(path:str):
-        try:
-            with open(path, "r", encoding="utf-8") as file:
-                data = json.load(file)
-            print(f"\n  JSON loaded from {path}")
-            return data
-        except Exception as e:
-            print(f"Error loading JSON: {e}")
-            return None
-    
     @staticmethod
     def save_json(data: dict, path: str, indent: int = 2):
         with open(path, "w", encoding="utf-8") as f:
@@ -283,98 +261,7 @@ class Helper:
             elif isinstance(data,str):
                 f.writelines(data)
             else: print("Invalid type")
-        
-    
-    #NESTED DICT CRUD OPS
-    @staticmethod
-    def merge_nested_dicts(*dicts):
-        return {key: reduce(lambda acc, d: {**acc, **d.get(key, {})}, dicts, {}) for key in dicts[0].keys()}
-
-    @staticmethod
-    def drop_empty_dict_values(final_dict:dict):
-        finally_dict = {}
-        for fund, content in final_dict.items():
-            non_empty_dict = {}
-            for key, value in content.items():
-                if len(value)>=1:
-                    non_empty_dict[key] = value
-            finally_dict[fund] = non_empty_dict
-        return finally_dict
-    
-    @staticmethod
-    def drop_selected_dict_values(final_dict:dict, patterns:list):
-        finally_dict = {}
-        for fund, content in final_dict.items():
-            clean_dict = {}
-            for k, v in content.items():
-                if not any(re.search(pattern, k) for pattern in patterns):
-                    clean_dict[k] = v
-            finally_dict[fund] = clean_dict
-        return finally_dict
-    
-    @staticmethod
-    def select_dict_with_keys(final_dict: dict, patterns: list):
-        selected_dict = {}
-        for fund, content in final_dict.items():
-            filtered_dict = {k: v for k, v in content.items() if any(re.search(pattern, k) for pattern in patterns)}
-            selected_dict[fund] = filtered_dict
-
-        return selected_dict
-    
-    @staticmethod
-    def drop_keys_by_regex(data, patterns):
-        if not isinstance(data, dict):
-            return data
-        
-        regex_list = [re.compile(pattern) for pattern in patterns]
-        final_dict = {}
-        for key, value in data.items():
-            if any(regex.match(key) for regex in regex_list):
-                continue
-            
-            if isinstance(value, dict): #dict
-                final_dict[key] = Helper.drop_keys_by_regex(value, patterns)
-            elif isinstance(value, list): #list
-                final_dict[key] = [Helper.drop_keys_by_regex(item, patterns) if isinstance(item, dict) else item for item in value]
-            else:
-                final_dict[key] = value
-        
-        return final_dict
-    
-    @staticmethod
-    def merge_key_values(data, key1, key2):
-        if isinstance(data, dict):
-            if key1 in data and key2 in data:
-                val1, val2 = data[key1], data[key2]
-
-                if isinstance(val1, list) and isinstance(val2, list):
-                    data[key1] = val1 + val2  # Merge lists
-                elif isinstance(val1, dict) and isinstance(val2, dict):
-                    merged_dict = defaultdict(dict, val1)
-                    for k, v in val2.items():
-                        if k in merged_dict and isinstance(merged_dict[k], dict) and isinstance(v, dict):
-                            merged_dict[k].update(v)  # Merge nested dicts
-                        else:
-                            merged_dict[k] = v
-                    data[key1] = dict(merged_dict)
-                elif isinstance(val1, str) and isinstance(val2, str):
-                    data[key1] = val1 + " " + val2  # Concatenate strings
-                else:
-                    data[key1] = [val1, val2]  # Handle mixed types as a list
-
-                del data[key2]  # Remove key2 after merging
-
-            for k, v in data.items():  # Recursively merge nested dictionaries
-                Helper.merge_key_values(v, key1, key2)
-
-        elif isinstance(data, list):  # Handle lists of dictionaries
-            for item in data:
-                Helper.merge_key_values(item, key1, key2)
-
-        return data
-   
-   
-   
+      
     #PDF CRUD
     @staticmethod
     def get_pdf_text(path:str):
@@ -534,64 +421,6 @@ class Helper:
         doc.close()
             
 
-    #SEND E-MAIL / ZIP
-    # @staticmethod
-    # def zip_output_folder(output_dir: str, zip_name: str, exclude_folders=("processed", "failed")):
-    #     zip_path = os.path.join(output_dir, zip_name)
-    #     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-    #         for root, dirs, files in os.walk(output_dir):
-    #             # Skip excluded folders
-    #             if any(excluded in root for excluded in exclude_folders):
-    #                 continue
-    #             for file in files:
-    #                 abs_file_path = os.path.join(root, file)
-    #                 rel_path = os.path.relpath(abs_file_path, start=output_dir)
-    #                 zipf.write(abs_file_path, rel_path)
-    #     return zip_path
 
     
-    @staticmethod
-    def send_email_report(processed: int, failed: int, attachment: Path) -> None:
-        try:
-            recipient_email = ['kaustubh.keny@cogencis.com','santosh.shelar@cogencis.com']
-            msg = MIMEMultipart()
-            msg['From'] = 'kaustubh.keny@cogencis.com'
-            msg['To'] = ', '.join(recipient_email)
-            msg['Subject'] = f"FS JSON PARSE Data - {datetime.now().strftime('%Y-%m-%d')}"
-
-            body = f"""
-            <html>
-                <body>
-                    <p>Hello Team,</p>
-                    <p>The FS JSON DATA parsing completed.</p>
-                    <ul>
-                        <li><strong>AMC's Completed:</strong> {processed}</li>
-                        <li><strong>AMC's Skipped:</strong> {failed}</li>
-                    </ul>
-                    <p>Please find the attached ZIP file.</p>
-                    <p>Regards,<br>Kaustubh</p>
-                </body>
-            </html>
-            """
-            msg.attach(MIMEText(body, 'html'))
-
-            # with open(attachment, 'rb') as f:
-            #     part = MIMEApplication(f.read(), Name=attachment.name)
-            #     part['Content-Disposition'] = f'attachment; filename="{attachment.name}"'
-            #     msg.attach(part)
-
-            #192.168.1.120 #172.22.225.126
-            smtp_server = "172.22.225.70"
-            smtp_port = 25
-            # smtp_server = "192.168.1.126"
-            # smtp_port = 25
-            with smtplib.SMTP(smtp_server, smtp_port) as server:
-                server.sendmail(msg)
-
-            logger.info("Email report sent successfully")
-
-        except Exception as e:
-            logger.error(f"Failed to send email: {str(e)}")
-
-
     
