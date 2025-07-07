@@ -291,7 +291,8 @@
             "^additional_investment$",
             ".*minimum_additional$",
             ".*min.addl.investment$",
-            "^min_addl_amt$"
+            "^min_addl_amt$",
+            ".*min\\.?_addl\\.?_investment$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -456,6 +457,7 @@
     ],
     "manager_stop_words": "nov,Options,Sip Stp Swp,Nifty,Small,Cap,Regulardirect,Growthidcw,benchmarknifty,tri,bse,Additional,inception,date,benchmark,Tier,Bectors,Charge,If,Upto,Nil,Free,Is,Availed,Has,Been,Gold,Available,July,August,September,November,Charged,In,March,Underlying,Will,Date,Units,First,Multiple,Average,At,Have,Debt,Co,Assets,Associate,Assurance,Above,A,Actual,All,Allocation,Allotment,Also,An,And,Applicable,Applied,Appreciation,As,Assets,Associate,Arbitrage,Are,Balanced,Based,Basis,Be,Below,Benefit,Beyond,By,Calculated,Can,Capital,Capture,Carried,Category,Also,Steady,Structure,Subject,Subsequent,Term,That,The,There,Through,To,Total,Transaction,Transactions,Type,Waiver,Wherever,While,Within,Year,Yearly,Zerodha,Rates,Ratio,Realized,Redeemed,Redeeming,Redemption,Respect,Sales,Scheme,Selecting,Separately,September,Shall,Since,Size,Specified,Redeemed,Redeeming,Redemption,Respect,S,S.,Scheme,Selecting,Separately,September,Shall,Maximum,Mentioned,Month,Monthly,Mor,More,Mr,Mr.,Net,Next,No,Not,November,Objective,October,Of,On,Only,Open,Or,Out,Over,Overseas,Parameters,Portfolio,Portion,Proportionate,Provide,Purchase,Purchases,Qualitative,Quantitative,Mutual,Plans,Ratio,Realized,Sales,Silver,Since,Specified,This,Characteristics,Cities,Clubbed,Co-,Completion,Crores,Daily,December,Derivative,Determined,Different,Domestic,During,Dynamically,Each,End,Ended,Entry,Equities,Equity,Etf,Etfs,Excess,Exit,Expense,Expenses,Experience,February,Fixed,Fixedincome,Fj,Fof,Food,For,Forward,From,Full,Fund,Funds,Generate,Generating,Generation,Gst,Includes,Income,India,Inflow,Inflows,Initial,Intends,Invest,Investing,Investment,Investments,Limit,Load,Loadnil,Logic,Ltd,Made,Managed,Management,Manager,Managers,Manages,Managing,After",
     "metrics_headers": {
+    
         "alpha": [
             "^jensens_alpha",
             "^jensons_alpha$",
@@ -2098,7 +2100,9 @@
             "Union VALUE FUND": "VALUE\\s*FUND$"
         },
         "Unifi Mutual Fund": {
-            "Unifi Dynamic Asset Allocation Fund": "Dynamic\\s*Asset*Allocation"
+            "Unifi Dynamic Asset Allocation Fund": "Dynamic\\s*Asset*Allocation",
+            "Unifi Liquid Fund":"Unifi\\s*Liquid\\s*Fund",
+            "Unifi Flexi Cap Fund":"Unifi Flexi\\s*Cap\\s*Fund"
         },
         "Whiteoak Mutual Fund": {
             "WhiteOak Capital Arbitrage Fund": "Arbitrage",
@@ -2128,6 +2132,9 @@
             "Zerodha Nifty 1D Rate Liquid ETF": "Rate Liquid",
             "Zerodha Nifty LargeMidcap 250 Index Fund": "Large.+?250\\s*Index",
             "Zerodha Nifty Midcap 150 ETF": "Midcap 150\\s*ETF"
+        },
+        "Jioblackrock Mutual Fund":{
+            
         }
     }
 }

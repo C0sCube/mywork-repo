@@ -156,7 +156,7 @@ class Helper:
             with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
                 df_final.to_excel(writer, sheet_name=sheet_name, index=False)
         logger = get_logger()
-        logger.warning(f"Report:Sheet Name -> {sheet_name} Saved.")
+        logger.save(f"Report:Sheet Name -> {sheet_name} Saved.")
         return df_final
     
     @staticmethod
@@ -172,8 +172,6 @@ class Helper:
                         deleted_files.append(full_path)
                     except Exception as e:
                         print(f"[ERROR] Could not delete {full_path}: {e}")
-
-        # logger.info(f"Deleted PDFs. {suffixes}")
         return deleted_files
     
     @staticmethod

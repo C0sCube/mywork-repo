@@ -1,13 +1,14 @@
-import os, sys, io, time, shutil
+import os, sys, io, time, shutil,logging
 from datetime import datetime
 from app.config_loader import Config
 from app.utils import *
-from app.program_logger import setup_logger, cleanup_logger
+from app.program_logger import setup_logger, cleanup_logger, StreamToLogger
 from app.mailer import Mailer
 
 # Set UTF-8 encoding for stdout/stderr
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 
 print("FS_JSON_PARSE main.py Running ...", flush=True)
 
@@ -16,7 +17,7 @@ CONFIG = Config()
 WATCH_PATH, OUTPUT_PATH = CONFIG.watch_path, CONFIG.output_path
 
 # mail config
-# mail = Mailer()
+mail = Mailer()
 
 # Output folders
 CHECK_INTERVAL = 10
@@ -43,10 +44,10 @@ while True:
             # Setup a unique logger per folder
             log_filename = new_folder
             logger = setup_logger(log_dir=LOG_DIR, logger_name="fs_logger",folder_name=log_filename)
-
-            print(f"[WATCHER] New folder detected: {new_folder}")
-            logger.info(f"\nProgram Execution Started for: {new_folder}")
-            # mail.started("FS main.py")
+    
+            logger.info(f"[WATCHER] New folder detected: {new_folder}")
+            logger.info(f"Program Execution Started.")
+            # mail.started(f"FS in Folder: ..\input\{new_folder}")
             mutual_fund = Helper.get_pdf_with_id(amc_path)
             amc_done, amc_not_done = {}, {}
 
@@ -55,8 +56,8 @@ while True:
                 try:
                     fund_name, path = mutual_fund[amc_id]
                 except KeyError:
-                    logger.warning(f"{amc_id} FS not attached. Skipping.")
-                    time.sleep(.2)
+                    logger.notice(f"{amc_id} FS not attached. Skipping.")
+                    time.sleep(.4)
                     continue
 
                 try:
@@ -77,11 +78,12 @@ while True:
 
                     save_path = os.path.join(JSON_DIR, obj.FILE_NAME.replace(".pdf", ".json"))
                     Helper.save_json(dfs, save_path)
-                    logger.info(f"Saved JSON: {save_path}")
+                    logger.save(f"Saved JSON: {save_path}")
                     amc_done[fund_name] = path
 
                 except Exception:
-                    logger.exception(f"[Pipeline Error] {fund_name}({class_.__name__})")
+                    logger.error(f"[Pipeline Error] File:{fund_name} Class: {class_.__name__}")
+                    logger.error(f"File {fund_name} Failed.")
                     amc_not_done[fund_name] = path
                     continue
 
@@ -89,21 +91,19 @@ while True:
             if amc_done:
                 Helper.save_text(amc_done, os.path.join(PROCESSED_DIR, "processed_amc.txt"))
                 Helper.copy_pdfs_to_folder(PROCESSED_DIR, amc_done)
-                print(PROCESSED_DIR)
-                logger.warning(f"{len(amc_done)} AMC(s) processed.")
+                logger.save(f"{len(amc_done)} AMC(s) processed.")
 
             if amc_not_done:
                 Helper.save_text(amc_not_done, os.path.join(FAILED_DIR, "failed_amc.txt"))
                 Helper.copy_pdfs_to_folder(FAILED_DIR, amc_not_done)
-                print(FAILED_DIR)
                 logger.warning(f"{len(amc_not_done)} AMC(s) failed.")
 
             if os.path.exists(amc_path):
                 shutil.rmtree(amc_path, ignore_errors=True)
-                logger.warning(f"Deleted input folder: {amc_path}")
+                logger.save(f"Deleted input folder: {amc_path}")
 
-            logger.warning("Program Completed.")
-            # mail.end("FS main.py program completed")
+            logger.trace("Program Completed.")
+            mail.end(program=f"FS AMC",data = [amc_done,amc_not_done])
             cleanup_logger(logger)
 
         known_folders.update(new_folders)

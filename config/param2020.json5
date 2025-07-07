@@ -228,10 +228,10 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Baroda\\s*BNP.*?(?:Fund|Path|ETF|F[Oo]F|Index|Plan)\\s*(?:Funds?|of [Ff]und?|Fund of [Ff]unds?)?)",
-        bbox: [0, 0, 220, 120],
+        pattern: "(Baroda.*?(?:Fund|Path|ETF|F[Oo]F|Index|Plan|ELSS.+?96)\\s*(?:Funds?|of [Ff]und?|Fund of [Ff]unds?)?)",
+        bbox: [0, 0, 460, 65],
       },
-      clip_bbox: [[0, 65, 210, 700]],
+      clip_bbox: [[0, 60, 170, 820]],
       line_x: 210.0,
       data: {
         size: [9, 10],
@@ -258,20 +258,16 @@
       },
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
       scheme: [
-        "NAV Details",
-        "Benchmark Index",
-        "Date of Allotment",
-        "Monthly AAUM",
-        "AUM",
         "Fund Manager",
+        "Date of Allotment",
+        "Type of Scheme",
+        "Application Amount",
+        "Min.\\s*Addl.\\s*Investment",
+        "Benchmark",
+        "Monthly Average AUM",
+        "AUM as on",
         "Load Structure",
-        "Quantitative Data",
-        "Key Statistics",
-        "Minimum\\s*Amount",
-        "Minimum Additional Purchase Amount",
-        "EOL",
-        "Minimum\\s*Application\\s*Amount",
-        "Minimum\\s*Additional\\s*Application\\s*Amount",
+        "Other Parameter",
         "EOL",
       ],
       min_amt: "([\\d,]+) and in multiples of\\s*([\\d,]+)",
@@ -328,15 +324,15 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|F[Oo]F\\*?|Scheme|Funds\\*?|Yojna)?)$",
-        bbox: [0, 0, 470, 25],
+        pattern: "(Aditya\\s*Birla.*(?:Plan|Funds?|Path|Saver)\\s*(?:of Funds?|F[Oo]F|Funds?|Fund of Funds?|ETF)?)",
+        bbox: [0, 0, 550, 50],
       },
       clip_bbox: [
-        [0, 50, 200, 330],
-        [200, 50, 380, 330],
-        [380, 90, 580, 330],
+        // [0, 50, 200, 330],
+        [25, 45, 230, 770],
+        // [380, 90, 580, 330],
       ],
-      line_x: 210.0,
+      line_x: 230.0,
       data: {
         size: [4, 10],
         color: [-1, 0],
@@ -354,8 +350,23 @@
     DUPLICATE_MUTUAL_FUNDS: {},
     PRE_DATA_SELECT: [],
     REGEX: {
-      aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
+      aum: "([\\d,.]+)\\s*crores",
       load: "Entry Load(.*?)\\s*Exit Load(.*)$",
+      scheme:[
+        "Fund Manager",
+        "Managing Fund Since",
+        "Experience in Managing",
+        "Date of Allotment",
+        "Type of Scheme",
+        "Application Amount",
+        "Min.\\s*Addl.\\s*Investment",
+        "Benchmark",
+        "Monthly\\s*Average\\s*AUM",
+        "AUM as on",
+        "Load\\s*Structure",
+        "Other\\s*Parameter",
+        "EOL"
+      ],
       manager: {
         name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
         exp: "\\d+\\.\\d+\\s*Years?",
@@ -363,24 +374,20 @@
       },
       tracking: "regular\\s*(-?[\\d.]+)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)",
-      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+",
+      metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*\\:?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)",
+      escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%\\:]+",
     },
     PATTERN_TO_FUNCTION: {
-      "^(date_of_allotment|benchmark_index|fund_manager|managing_fund_since|experience_in_managing)": [
-        "_extract_str_data",
-        null,
-      ],
-      "^aum": ["_extract_generic_data", "aum"],
+      before:["_extract_scheme_data","scheme"]
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      "^(application_amount|minimum_investment).*": [
+      ".*(application_amount|min._addl._investment).*": [
         "_extract_amt_data",
         "min_amt",
       ],
-      metrics: ["_extract_generic_data", "metric"],
-      tracking_error: ["_extract_generic_data", "tracking"],
-      load: ["_extract_load_data", "load"],
+      ".*other_parameter": ["_extract_generic_data", "metric"],
+      // ".*fund_manager": ["_extract_manager_data", "manager"],
+      ".*load_structure": ["_extract_load_data", "load"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -389,21 +396,22 @@
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics",
-      "load",
-      "aum.monthly_average_aum",
-      "^(date_of|benchmark).*",
-      "^(application_amount|minimum_investment).*",
+      "metrics", //after merge
+      "load", //after merge
+      ".*monthly_average_aum",
+      "^(date_of|benchmark).*", 
+      ".*(application_amount|min_addl_amt).*", //after merge
       "^(fund_manager|managing_fund|experience_in).*",
-      "tracking_error",
     ],
     MERGEKEYS: {
+      load:[".*load_structure"],
+      min_addl_amt:[".*min._addl._investment"],
       fund_manager: [
         "fund_manager",
-        "experience_in_managing_the_fund",
+        "experience_in_managing",
         "managing_fund_since",
       ],
-      metrics: ["metrics", "tracking_error"],
+      metrics: ["metrics", "tracking_error",".*other_parameter"],
     },
     CLONEKEYS: {},
     PROMOTE_KEYS: {},
@@ -431,14 +439,14 @@
       stop_words: [],
       title: {
         ocr: false,
-        pattern: "(Bank of India.*?(?:Plan|Funds?|ETF|FOF|FTF|Saver)\\s*(?:of Funds?|FO?o?F)?)",
-        bbox: [0, 55, 280, 105],
+        pattern: "((?:Bank of India|BOI).*?(?:Plan|Funds?|ETF|FOF|FTF|Saver)\\s*(?:of Funds?|FO?o?F)?)",
+        bbox: [0, 0, 360, 150],
       },
-      clip_bbox: [[0, 480, 290, 812]],
+      clip_bbox: [[0, 150, 285, 810],[285, 150, 570, 810]],
       line_x: 290.0,
       data: {
         size: [6, 9],
-        color: [-13948375],
+        color: [-1], //-13948375 redacted
         update_size: 30.0,
         font: ["Calibri-Bold"],
       },
@@ -448,47 +456,60 @@
     PRE_DATA_SELECT: [],
     REGEX: {
       load: "Entry Load\\s*(Nil|.*?)\\s*Exit Load\\s*(.+?)$",
-      ptr: "([\\d\\.]+).*",
+      ptr: "(\\d+\\.\\d+\\s*times?)",
+      scheme:[
+        "INVESTMENT OBJECTIVE",
+        "BENCHMARK",
+        "DATE\\s*OF\\s*ALLOTMENT",
+        "FUND\\s*MANAGER",
+        "AVERAGE\\s*AUM",
+        "LATEST\\s*AUM",
+        "MINIMUM\\s*APPLICATION",
+        "ADDITIONAL\\s*PURCHASE\\s*AMOUNT",
+        "PORTFOLIO\\s*TURNOVER\\s*RATIO",
+        "OTHER\\s*PARAMETERS",
+        "LOAD\\s*STRUCTURE",
+        "EOL"
+      ],
       manager: {
-        pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<actual_name>[A-Za-z]+\\s[A-Za-z]+)(?:\\s+\\(w\\.e\\.f\\.?s*(?P<wef>[A-Za-z]+\\s*[\\d,\\s]+)\\))?.*?(?P<experience>\\d{1,2}\\s+years)",
+        pattern: "([A-Za-z]+\\s[A-Za-z]+)(?:\\s+\\(w\\.e\\.f\\.?\\s*([A-Za-z]+\\s*[\\d,\\s]+)\\))?.*(\\d{1,2}\\s+years)",
         fields: ["name", "since", "exp"],
       },
+      benchmark:"(.+?)\\s*\\(w.+?",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metrics: "(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*\\_?Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R\\s*Squared|Treynor)\\s*(-?[\\d,.]+\\s*(?:days?|months?|years?|%)?)",
-      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualized\\)",
+      metrics: "(Standard Deviation|Modified Duration|Annualised Yield|Average\\s*\\_?Residual Maturity|Macaulay Duration|Tracking Error|Sharpe Ratio|Beta|R\\s*Squared|Treynor)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:days?|months?|years?|%)?)",
+      escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+|\\(Annualized\\)",
     },
     PATTERN_TO_FUNCTION: {
-      "^(investment|benchmark|date|average|latest|minimum|additional|portfolio_turn).*": [
-        "_extract_str_data",
-        null,
-      ],
-      "^fund_manager": ["_extract_manager_data", "manager"],
+      before:["_extract_scheme_data","scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      load: ["_extract_load_data", "load"],
-      metrics: ["_extract_generic_data", "metrics"],
-      "^(additional_purchase_amount|min_amt)": ["_extract_amt_data", "min_amt"],
-      "^portfolio_turn.*": ["_extract_generic_data", "ptr"],
+      ".*load_structure": ["_extract_load_data", "load"],
+      ".*benchmark":["_extract_generic_data","benchmark"],
+      ".*fund_manager": ["_extract_manager_data", "manager"],
+      ".*other_parameter": ["_extract_generic_data", "metrics"],
+      ".*(additional_purchase_amount|minimum_application)": ["_extract_amt_data", "min_amt"],
+      ".*portfolio_turn": ["_extract_generic_data", "ptr"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
-      "load",
-      "additional_purchase_amount",
-      "min_amt",
-      "average_aum",
+      "load", //after merge
+      ".*additional_purchase_amount",
+      ".*minimum_application",
+      ".*average_aum",
       "amc_name",
       "main_scheme_name",
       "monthly_aaum_date",
       "page_number",
       "mutual_fund_name",
-      "metrics",
-      "fund_manager",
-      "date_of_allotment",
-      "benchmark_index",
-      "^portfolio_turn",
+      "metrics", //after merge
+      ".*fund_manager",
+      ".*date_of_allotment",
+      ".*benchmark",
     ],
     MERGEKEYS: {
-      metrics: ["metrics", "^portfolio_turnover_ratio.*"],
+      load:[".*load_structure"],
+      metrics: ["metrics", ".*portfolio_turnover_ratio.*",".*other_parameter"],
     },
     CLONEKEYS: {},
     PROMOTE_KEYS: {},
@@ -509,11 +530,11 @@
       title: {
         ocr: false,
         pattern: "CANARA.*?\\)",
-        bbox: [0, 0, 400, 55],
+        bbox: [0, 0, 460, 80],
       },
       clip_bbox: [
-        [20, 115, 210, 812],
-        [220, 115, 400, 812],
+        [20, 120, 215, 812],
+        [215, 120, 400, 812],
       ],
       data: {
         size: [8, 11],
@@ -628,7 +649,7 @@
       },
       clip_bbox: [
         [0, 115, 210, 812],
-        [0, 680, 570, 812],
+        [0, 730, 570, 812],
       ],
       line_x: 210.0,
       data: {
@@ -830,7 +851,7 @@
         pattern: "((?:Edelweiss|Bharat)\\s*.+?(?:Fund|Path|ETF|F[Oo]F|Path|Plan)\\s*(?:[Ff]und of [Ff]unds?|of [Ff]unds?|[Ff]unds?|[A-Za-z\\s]+\\s*[0-9]+)?)",
         bbox: [0, 0, 150, 100],
       },
-      clip_bbox: [[415, 0, 612, 812]],
+      clip_bbox: [[420, 0, 612, 812]],
       line_x: 410.0,
       data: {
         size: [5, 15],
@@ -931,9 +952,9 @@
         bbox: [0, 0, 480, 80],
       },
       clip_bbox: [
-        [0, 96, 180, 812],
-        [430, 0, 650, 500],
-        [170, 740, 560, 812],
+        [0, 85, 195, 830],
+        // [430, 0, 650, 500],
+        // [170, 740, 560, 812],
       ],
       line_x: 200.0,
       data: {
@@ -1033,7 +1054,7 @@
         pattern: "((?:Franklin|Templeton).*?(?:Fund\\s*(?:of Funds)?|Plan))",
         bbox: [0, 0, 470, 80],
       },
-      clip_bbox: [[0, 100, 170, 812]],
+      clip_bbox: [[0, 80, 180, 812]],
       line_x: 180.0,
       data: {
         size: [6, 9],
@@ -1138,13 +1159,13 @@
       title: {
         ocr: false,
         pattern: "(HDFC.*?(?:FUND|Fund|ETF|FO?o?F|Index|Active)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
-        bbox: [0, 0, 400, 60],
+        bbox: [0, 0, 460, 60],
       },
       clip_bbox: [
-        [0, 70, 190, 812],
-        [370, 100, 570, 812],
+        // [0, 70, 190, 812],
+        [0, 60, 210, 812],
       ],
-      line_x: 200.0,
+      line_x: 210.0,
       data: {
         size: [5, 13],
         color: [-15970928, -14401393, -15971185, -1],
@@ -1310,14 +1331,14 @@
       title: {
         ocr: false,
         pattern: "(HSBC.+?(?:FUNDS?|Funds?|ETF|Active|F[oO]F|Index|Plan|Path)\\s*(?:of [Ff]unds?|Fund of [Ff]unds?|F[oO]F|Fund?|FUNDS?)?)",
-        bbox: [0, 0, 600, 45],
+        bbox: [0, 0, 600, 60],
       },
       clip_bbox: [
-        [0, 90, 180, 812],
-        [180, 90, 375, 812],
-        [375, 90, 600, 812],
+        // [0, 90, 180, 812],
+        // [180, 90, 375, 812],
+        [0, 140, 190, 812],
       ],
-      line_x: 180.0,
+      line_x: 190.0,
       data: {
         size: [6, 9],
         color: [-1],
@@ -1418,12 +1439,12 @@
       title: {
         ocr: false,
         pattern: "((?:ICICI|BHARAT).+?(?:Funds?|ETF|F[Oo]F|Plan|Saver|Index|Path)\\s*(?:of funds?|Fund of Funds?|F[Oo]F|.+?Plan)?)",
-        bbox: [0, 0, 540, 60],
+        bbox: [0, 0, 235, 80],
       },
       clip_bbox: [
-        [0, 90, 200, 800],
-        [200, 90, 380, 800],
-        [380, 90, 612, 800],
+        [0, 80, 130, 812],
+        [130, 620, 575, 800],
+        // [380, 90, 612, 800],
       ],
       line_x: 175.0,
       data: {
@@ -1642,10 +1663,10 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "Bandhan.+?(?:Funds?|Path|Saver|ETF|F[oO]F)\\s*(?:of [Ff]unds?.*?Plan|[Ff]und of [Ff]unds?.*?Plan|[Ff]unds?|F[oO]F|.*?Plan)?",
-        bbox: [0, 0, 490, 45],
+        pattern: "IDFC.+?(?:Funds?|Path|Saver|ETF|F[oO]F)\\s*(?:of [Ff]unds?.*?Plan|[Ff]und of [Ff]unds?.*?Plan|[Ff]unds?|F[oO]F|.*?Plan)?",
+        bbox: [0, 0, 460, 55],
       },
-      clip_bbox: [[0, 80, 200, 812]],
+      clip_bbox: [[0, 0, 202, 820]],
       line_x: 200.0,
       data: {
         size: [6, 9],
@@ -1672,7 +1693,9 @@
         "Month end AUM",
         "Inception Date",
         "Fund Manager",
-        "Total Expense Ratio",
+        "Other Parameter",
+        "Portfolio Turnover",
+        "Expense Ratio",
         "Benchmark:?",
         "SIP\\s*\\(Minimum Amount",
         "Fund Manager",
@@ -1695,7 +1718,7 @@
         since: "(\\d{1,2}(?:nd|st|rd|th)?\\s*[A-Za-z]+,?\\s*\\d{4}|[A-Za-z]+\\s*\\d{2},?\\s*\\d{4})",
       },
       nav: "(Regular Plan Growth|Regular Plan IDCW|Direct Plan Growth|Direct Plan IDCW)[\\s]+([\\d]+(?:\\.\\d+)?|NA|Nil)",
-      metric: "(Aggregate|Beta|R\\s*Squared|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Y?ield to Maturity|Information Ratio|Tracking\\s*Error.+?)\\s*\\:?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?|NA|Nil)",
+      metric: "(Aggregate|Beta|R\\s*Square|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Y?ield to Maturity|Information Ratio|Tracking\\s*Error.+?)\\s*\\:?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?|NA|Nil)",
       ptr: "(Equity|Aggregate|Tracking Error)\\s*(-?[\\d.]+)",
       escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:]+|\\(Annualized\\)|\u00b7",
     },
@@ -1704,7 +1727,7 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       ".*minimum_investment": ["_extract_amt_data", "min_amt"],
-      ".*(total_expense_ratio|portfolio_turnover_ratio|other_parameter)": [
+      ".*(total_expense_ratio|portfolio_turnover|other_parameter)": [
         "_extract_generic_data",
         "metric",
       ],
@@ -1964,9 +1987,9 @@
       title: {
         ocr: false,
         pattern: "(Invesco India.*?(?:Fund\\s*(?:of Funds?)?|ETF\\s*(?:Fund of F?f?unds?)?|FOF|Path))",
-        bbox: [180, 0, 590, 40],
+        bbox: [180,0,580,60],
       },
-      clip_bbox: [[0, 135, 185, 812]],
+      clip_bbox: [[0, 0,180,820]],
       line_x: 180.0,
       data: {
         size: [7, 9],
@@ -2192,9 +2215,9 @@
       title: {
         ocr: false,
         pattern: "(KOTAK.*?(?:FUND\\s*(?:OF FUNDS?\\s*|-\\s*\\w+)?|ETF|FOF|PATH|FTF|INDEX\\s*(?:.*?FUND)?))",
-        bbox: [0, 0, 612, 70],
+        bbox: [0, 0, 420, 80],
       },
-      clip_bbox: [[0, 80, 150, 812]],
+      clip_bbox: [[0, 80, 160, 812]],
       line_x: 150.0,
       data: {
         size: [6, 8],
@@ -2272,9 +2295,9 @@
       title: {
         ocr: true,
         pattern: "((?:LI?i?C|BSE|BANK|SMALL|HEALTH|MNEY|An\\s*open).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|tax saving scheme|small cap stocks)\\s*(?:FUND\\s*OF\\s*FUND)?)",
-        bbox: [0, 0, 400, 100],
+        bbox: [240, 0, 620, 100],
       },
-      clip_bbox: [[0, 80, 210, 812]],
+      clip_bbox: [[0, 80, 235, 812]],
       line_x: 210.0,
       data: {
         size: [6, 12],
@@ -2367,9 +2390,9 @@
       title: {
         ocr: false,
         pattern: "(Mahindra\\s*Manulife.*?(?:Funds?|ETF|EOF|F[Oo]F|Plan|Path|Saver|Index|Growth)\\s*(?:F[Oo]F|of Funds?|Fund of Funds?|Funds?)?)",
-        bbox: [170, 0, 500, 80],
+        bbox: [150, 0, 330, 80],
       },
-      clip_bbox: [[0, 65, 200, 812]],
+      clip_bbox: [[0, 90, 200, 812]],
       line_x: 200.0,
       data: {
         size: [7, 10],
@@ -2481,9 +2504,9 @@
       title: {
         ocr: false,
         pattern: "(MIRAE.*?(?:ETF|EOF|FOF|FTF|FUNDS?\\s*(?:OF FUNDS?)?|INDEX FUND))",
-        bbox: [0, 0, 724, 140],
+        bbox: [0, 0, 455, 85],
       },
-      clip_bbox: [[0, 190, 270, 812]],
+      clip_bbox: [[0, 80, 220, 830]],
       line_x: 270.0,
       data: {
         size: [8, 12],
@@ -2667,11 +2690,11 @@
       title: {
         ocr: false,
         pattern: "(Motilal.*?(?:Fund\\s*(?:o?O?f Funds?(?:.+?Aggressive|.+?Conservative)?)?|ETF(?:.+? of Funds?)?|FoF))",
-        bbox: [0, 0, 600, 60],
+        bbox: [0, 0, 600, 65],
       },
       clip_bbox: [
-        [0, 65, 170, 812],
-        [370, 265, 700, 812],
+        [0, 65, 175, 812],
+        // [370, 265, 700, 812],
       ],
       line_x: 170.0,
       data: {
@@ -2913,9 +2936,9 @@
       title: {
         ocr: true,
         pattern: "(Parag Parikh.*?(?:Fu\\s*n\\s*ds?|ETF|Fo?O?F|Plans?|rune))",
-        bbox: [0, 0, 400, 60],
+        bbox: [0, 0, 580, 80],
       },
-      clip_bbox: [[0, 60, 300, 812]],
+      clip_bbox: [[0, 80, 300, 850]],
       line_x: 210.0,
       data: {
         size: [6, 12],
@@ -3020,9 +3043,9 @@
       title: {
         ocr: false,
         pattern: "(QUANTUM.+?(?:FUNDS?|ETF|PATH|.+?PLAN|SAVER)\\s*(?:FUND\\s+OF\\s+FUNDS?|FUNDS?|OF\\s+FUNDS?|F[oO]F)?)",
-        bbox: [0, 0, 450, 90],
+        bbox: [0, 0, 490, 90],
       },
-      clip_bbox: [[0, 115, 220, 812]],
+      clip_bbox: [[0, 140, 320, 860],[320, 140, 600, 860]],
       line_x: 180.0,
       data: {
         size: [6, 11],
@@ -3135,11 +3158,11 @@
       title: {
         ocr: true,
         pattern: "((?:Nippon India|CPSE).*)$",
-        bbox: [0, 0, 500, 40],
+        bbox: [0, 0, 560, 40],
       },
       clip_bbox: [
-        [0, 25, 220, 812],
-        [220, 300, 565, 812],
+        [0, 25, 210, 812],
+        [210, 300, 565, 812],
         [400, 380, 565, 812],
       ],
       line_x: 180.0,
@@ -3756,10 +3779,10 @@
       title: {
         ocr: false,
         pattern: "((?:TAURUS|Taurus).+?(?:FUNDs?|Funds?|ETF|Path|.+?Plan|F[oO]F|Saver)\\s*(?:Funds?|of Funds?|Fund of Funds?|F[oO]F|.+?Plan)?)",
-        bbox: [0, 0, 480, 40],
+        bbox: [0, 0, 560, 70],
       },
-      clip_bbox: [[0, 65, 210, 812]],
-      line_x: 210.0,
+      clip_bbox: [[0, 65, 205, 840]],
+      line_x: 205.0,
       data: {
         size: [6, 12],
         color: [-1],
@@ -3852,11 +3875,11 @@
       title: {
         ocr: false,
         pattern: "(Union\\s*[A-Z&\\s]+(?:FUND|PATH|ETF|FOF|PLAN|SAVER)\\s*(?:FUND\\s*OF\\s*FUNDS?|F[Oo]F|OF\\s*FUNDS?)?)",
-        bbox: [0, 0, 180, 150],
+        bbox: [0, 0, 250, 150],
       },
       clip_bbox: [
-        [0, 140, 180, 812],
-        [360, 140, 580, 812],
+        [0, 140, 180, 830],
+        [370, 140, 580, 830],
       ],
       line_x: 180.0,
       data: {
@@ -3944,12 +3967,12 @@
       title: {
         ocr: false,
         pattern: "(UTI.*?(?:FUND|PLAN|ETF|FTF|FOF|Fund|ETF)\\s*(?:FUND OF FUND|\\s*OF FUND|.+?DURATION)?)",
-        bbox: [0, 0, 460, 35],
+        bbox: [0, 0, 560, 75],
       },
       clip_bbox: [
-        [0, 65, 200, 812],
-        [380, 65, 580, 812],
-        [205, 65, 450, 812],
+        [0, 75, 300, 812],
+        [300, 75, 590, 812],
+        // [205, 65, 450, 812],
       ],
       line_x: 200.0,
       data: {
@@ -4112,9 +4135,9 @@
       title: {
         ocr: false,
         pattern: "(WhiteOak.*?(?:Funds?|ETF|Index|Path|Saver|Plan|Saver)\\s*(?:of Funds?|F[oO]F|Fund of Funds?|Funds?)?)",
-        bbox: [0, 0, 410, 60],
+        bbox: [0, 0, 400, 90],
       },
-      clip_bbox: [[0, 85, 240, 812]],
+      clip_bbox: [[0, 210, 245, 812]],
       line_x: 240.0,
       data: {
         size: [7, 11],
@@ -4216,9 +4239,9 @@
       title: {
         ocr: false,
         pattern: "(ITI.*?(?:Fund|ETF|Path|Index|Plan)\\s*(?:of Funds?|F[Oo]F|[Ff]und of [Ff]unds?|Funds?)?)",
-        bbox: [0, 30, 450, 100],
+        bbox: [0, 0, 460, 65],
       },
-      clip_bbox: [[0, 105, 180, 812]],
+      clip_bbox: [[0, 65, 170, 812]],
       line_x: 180.0,
       data: {
         size: [5, 8],

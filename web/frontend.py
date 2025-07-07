@@ -2,11 +2,11 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 import os, sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import get_config,load_config_once
+from app.config_loader import Config
 
 app = Flask(__name__)
-load_config_once(output_folder=None)
-CONFIG = get_config()
+
+CONFIG = Config(config_path=r"..\paths.json")
 
 INPUT_DIR = CONFIG["amc_path"]
 OUTPUT_DIR = CONFIG["output_path"]

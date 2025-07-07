@@ -8,6 +8,7 @@ from dateutil.relativedelta import relativedelta #type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import Config
+from app.program_logger import get_logger
 
 class GrandFundData:
     def __init__(self, fund_name: str, amc_id: str):
@@ -324,6 +325,7 @@ class GrandFundData:
     
     # dynamic function match
     def _match_with_patterns(self, string: str, data: list, level:str):
+        logger = get_logger()
         try: 
             for pattern, (func_name, regex_key) in self.PATTERN[level].items():
                 if re.match(pattern, string, re.IGNORECASE):
@@ -332,17 +334,20 @@ class GrandFundData:
                         return func(string, data, regex_key)
                     return func(string, data)
         except Exception as e:
-            print(f"[ERROR] _match_with_patterns->{level}->{string}: {e}")
+            # logger.error(f"_match_with_patterns->{level}->{string}",exc_info=True)
+            print(f"_match_with_patterns->{level}->{string}")
         return self._extract_dummy_data(string, data)  # fallback
 
     def _special_match_regex_to_content(self, string: str, data):
+        logger = get_logger()
         try:
             for pattern,func_name, in self.SPECIAL_FUNCTIONS.items():
                 if re.match(pattern,string,re.IGNORECASE):
                     func = getattr(self, func_name) #dynamic function|attribute lookup
                     return func(string, data)    
         except Exception as e:
-            print(f"[ERROR] _match_with_patterns->special: {e}")
+            # logger.error(f"_match_with_patterns->special",exc_info=True)
+            print(f"special_match_with_patterns->{string}")
         return self._extract_dummy_data(string, data) #fallback
     
     def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 
@@ -1020,10 +1025,12 @@ class AdityaBirla(Reader,GrandFundData):
                 nsample = re.findall(self.REGEX["manager"]["name"], value, re.IGNORECASE)
                 nlength = len(nsample)
 
-            elif re.search(r"^managing", key, re.IGNORECASE):
+            elif re.search(r".*managing_fund", key, re.IGNORECASE):
+                # print(value)
                 msample = re.findall(self.REGEX["manager"]["since"], value, re.IGNORECASE)
                 
-            elif re.search(r"^experience", key, re.IGNORECASE):
+            elif re.search(r".*experience", key, re.IGNORECASE):
+                # print(value)
                 esample = re.findall(self.REGEX["manager"]["exp"], value, re.IGNORECASE)
         nlength = len(nsample)
         msample += [""] * (nlength - len(msample))

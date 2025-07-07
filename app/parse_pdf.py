@@ -40,7 +40,7 @@ class Reader:
                 # print(title_text)
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
-                # print(title)
+                # print(f">>{title}")
                 # if title:
                     # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
                 title_detected[pgn] = title
@@ -151,103 +151,113 @@ class Reader:
         fund_seen = {}
         bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
 
-        with fitz.open(path) as doc:
-            for pgn in title:
-                fundName = title.get(pgn, "").strip()
-                if not fundName:
-                    continue
+        try:
+            with fitz.open(path) as doc:
+                for pgn in title:
+                    fundName = title.get(pgn, "").strip()
+                    if not fundName:
+                        continue
 
-                page = doc[pgn]
-                all_blocks = []
-                
-                page_bboxes = bboxes.get(str(pgn),[]) if isinstance(bboxes,dict) else bboxes
-                for count,bbox in enumerate(page_bboxes): #count for dummy block
-                    blocks, seen_blocks = [], set()
-                    page_blocks = page.get_text('dict', clip=bbox)['blocks']
+                    page = doc[pgn]
+                    all_blocks = []
+                    
+                    page_bboxes = bboxes.get(str(pgn),[]) if isinstance(bboxes,dict) else bboxes
+                    for count,bbox in enumerate(page_bboxes): #count for dummy block
+                        blocks, seen_blocks = [], set()
+                        page_blocks = page.get_text('dict', clip=bbox)['blocks']
 
-                    for block in page_blocks:
-                        if block['type'] == 0 and 'lines' in block:
-                            block_key_text = []
-                            for line in block['lines']:
-                                spans = line.get('spans', [])
-                                if spans:
-                                    block_key_text.append(spans[0]['text'])
-                                else:
-                                    block_key_text.append("")
+                        for block in page_blocks:
+                            if block['type'] == 0 and 'lines' in block:
+                                block_key_text = []
+                                for line in block['lines']:
+                                    spans = line.get('spans', [])
+                                    if spans:
+                                        block_key_text.append(spans[0]['text'])
+                                    else:
+                                        block_key_text.append("")
 
-                            block_key = (tuple(block['bbox']), tuple(block_key_text))
-                            if block_key not in seen_blocks:
-                                seen_blocks.add(block_key)
-                                blocks.append(block)
+                                block_key = (tuple(block['bbox']), tuple(block_key_text))
+                                if block_key not in seen_blocks:
+                                    seen_blocks.add(block_key)
+                                    blocks.append(block)
 
-                    sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
+                        sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
 
-                    # dummy data
-                    fontz = self.PARAMS['data']['font'][0]
-                    colorz = self.PARAMS['data']['color'][0]
-                    sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz,count+1))
-                    all_blocks.extend(sorted_blocks)
+                        # dummy data
+                        fontz = self.PARAMS['data']['font'][0]
+                        colorz = self.PARAMS['data']['color'][0]
+                        sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz,count+1))
+                        all_blocks.extend(sorted_blocks)
 
-                if fundName in fund_seen:
-                    fund_seen[fundName]["block"].extend(all_blocks)
-                    fund_seen[fundName]["page"].append(pgn)
-                else:
-                    new_entry = {"page": [pgn], "fundname": fundName, "block": all_blocks}
-                    finalData.append(new_entry)
-                    fund_seen[fundName] = new_entry 
+                    if fundName in fund_seen:
+                        fund_seen[fundName]["block"].extend(all_blocks)
+                        fund_seen[fundName]["page"].append(pgn)
+                    else:
+                        new_entry = {"page": [pgn], "fundname": fundName, "block": all_blocks}
+                        finalData.append(new_entry)
+                        fund_seen[fundName] = new_entry
+                        
+        except Exception as e:
+            logger.error(f"Error in 'extract_clipped_data'",exc_info=True)
 
         return finalData
 
     def extract_data_relative_line(self, path: str,title: dict)->list:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        with fitz.open(path) as doc:
-            finalData = []
-            fund_seen = {}
-            line_x = self.PARAMS['line_x']
-            side = self.PARAMS['line_side']
+        finalData = []
+        fund_seen = {}
+        line_x = self.PARAMS['line_x']
+        side = self.PARAMS['line_side']
+        
+        try:
+            with fitz.open(path) as doc:
+                
+                for pgn in title:
+                    page, fundName = doc[pgn],title.get(pgn,"")
+                    left_blocks, right_blocks, seen_blocks = [],[], set()
+                    page_blocks = page.get_text("dict")["blocks"]
+                    
+                    for block in page_blocks:
+                        if block['type'] == 0 and 'lines' in block:
+                            block_key = id(block) #hash_key
+
+                            for line in block["lines"]:
+                                for span in line["spans"]:
+                                    x0, _ = span["origin"]
+
+                                    if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
+                                        seen_blocks.add(block_key)
+                                        left_blocks.append(block)
+
+                                    if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
+                                        seen_blocks.add(block_key)
+                                        right_blocks.append(block)
+
+                    left_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))  
+                    right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
+                    
+                    #adding dummy data
+                    fontz = self.PARAMS['data']['font'][0]
+                    colorz = self.PARAMS['data']['color'][0]
+                    left_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
+                    right_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
+                    
+                    if side == "both":
+                        left_blocks.extend(right_blocks)
+
+                    sorted_blocks = left_blocks if side != "right" else right_blocks
+                    
+                    if fundName in fund_seen:
+                        fund_seen[fundName]["block"].extend(sorted_blocks)
+                        fund_seen[fundName]["page"].append(pgn)
+                    else:
+                        new_entry = {"page": [pgn], "fundname": fundName, "block": sorted_blocks}
+                        finalData.append(new_entry)
+                        fund_seen[fundName] = new_entry
+                        
+        except Exception as e:
+            logger.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
             
-            for pgn in title:
-                page, fundName = doc[pgn],title.get(pgn,"")
-                left_blocks, right_blocks, seen_blocks = [],[], set()
-                page_blocks = page.get_text("dict")["blocks"]
-                
-                for block in page_blocks:
-                    if block['type'] == 0 and 'lines' in block:
-                        block_key = id(block) #hash_key
-
-                        for line in block["lines"]:
-                            for span in line["spans"]:
-                                x0, _ = span["origin"]
-
-                                if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
-                                    seen_blocks.add(block_key)
-                                    left_blocks.append(block)
-
-                                if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
-                                    seen_blocks.add(block_key)
-                                    right_blocks.append(block)
-
-                left_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))  
-                right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
-                
-                #adding dummy data
-                fontz = self.PARAMS['data']['font'][0]
-                colorz = self.PARAMS['data']['color'][0]
-                left_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
-                right_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
-                
-                if side == "both":
-                    left_blocks.extend(right_blocks)
-
-                sorted_blocks = left_blocks if side != "right" else right_blocks
-                
-                if fundName in fund_seen:
-                    fund_seen[fundName]["block"].extend(sorted_blocks)
-                    fund_seen[fundName]["page"].append(pgn)
-                else:
-                    new_entry = {"page": [pgn], "fundname": fundName, "block": sorted_blocks}
-                    finalData.append(new_entry)
-                    fund_seen[fundName] = new_entry
         return finalData
 
     def extract_span_data(self, data: list,*args)->list:  # all
@@ -404,31 +414,35 @@ class Reader:
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
-        
         regex = FundRegex()
         
-        if method in ["line", "both"]:
-            data = self.extract_data_relative_line(path, titles)
-            extracted_data.extend(self.extract_span_data(data, []))
-        
-        if method in ["clip", "both"]:
-            data = self.extract_clipped_data(path, titles,*args)
-            extracted_data.extend(self.extract_span_data(data, []))
-        
-        clean_data = self.process_text_data(extracted_data) #process & clean
-        nested_data = self.create_nested_dict(clean_data)
-        
-        for page in nested_data:
-            page_text = {}
-            page_blocks,fundname = page['block'],page['fundname']
+        try:
+            if method in ["line", "both"]:
+                data = self.extract_data_relative_line(path, titles)
+                extracted_data.extend(self.extract_span_data(data, []))
             
-            if sanitize_fund: #map to clear fund names
-                fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
-            page['fundname'] = fundname
+            if method in ["clip", "both"]:
+                data = self.extract_clipped_data(path, titles,*args)
+                extracted_data.extend(self.extract_span_data(data, []))
             
-            for key, content in page_blocks.items():
-                page_text[key] = [txt[1] for txt in content]
-            self.TEXT_ONLY[fundname] = page_text
+            clean_data = self.process_text_data(extracted_data) #process & clean
+            nested_data = self.create_nested_dict(clean_data)
+            
+            for page in nested_data:
+                page_text = {}
+                page_blocks,fundname = page['block'],page['fundname']
+                
+                if sanitize_fund: #map to clear fund names
+                    fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
+                page['fundname'] = fundname
+                
+                for key, content in page_blocks.items():
+                    page_text[key] = [txt[1] for txt in content]
+                self.TEXT_ONLY[fundname] = page_text
+            
+        except Exception as e:
+            logger.error(f"Error in 'get_data' ",exc_info=True)
+            
         # print(self.TEXT_ONLY)
         return nested_data
     
@@ -558,12 +572,9 @@ class Reader:
                 extracted_text[fund] = self._extract_data_from_pdf(output_path, fund)
                 self._update_imp_data(extracted_text[fund], fund, pgn)
 
-            # print("Parsing Completed, Refining Data.....")
-
-            # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
-            table_mode = is_table or self.PARAMS.get("table", "")
+    
+            table_mode = is_table or self.PARAMS.get("table", "") # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
             if table_mode:
-                # print(f">>Table Data Present -> running: _generate_table_data")
                 logger.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
                 try:
                     table_data = self._generate_table_data(self.PDF_PATH, table_mode)
@@ -571,19 +582,19 @@ class Reader:
                         extracted_text, table_data, self.FUND_NAME
                     )
                 except Exception as e:
-                    logger.exception(f"'_generate_table_data' Failed: {e}")
+                    logger.error(f"'_generate_table_data' Failed",exc_info=True)
 
             # Section to duplicate mutual funds
-            if isinstance(self.DUPLICATE_FUNDS, dict) and self.DUPLICATE_FUNDS:
-                # print(f">>Duplicate Mutual Fund Present -> running: _update_duplicate_fund_data")
-                logger.info(f"Duplication Required. Running:{inspect.currentframe().f_code.co_name}")
-                try:
-                    extracted_text = self._update_duplicate_fund_data(extracted_text)
-                except Exception as e:
-                    logger.exception(f"'_update_duplicate_fund_data' Failed: {e}")
+            # if isinstance(self.DUPLICATE_FUNDS, dict) and self.DUPLICATE_FUNDS:
+            #     # print(f">>Duplicate Mutual Fund Present -> running: _update_duplicate_fund_data")
+            #     logger.info(f"Duplication Required. Running:{inspect.currentframe().f_code.co_name}")
+            #     try:
+            #         extracted_text = self._update_duplicate_fund_data(extracted_text)
+            #     except Exception as e:
+            #         logger.error(f"'_update_duplicate_fund_data' Failed",exc_info=True)
 
         except Exception as e:
-            logger.exception(f"'get_generated_content' Failed: {e}")
+            logger.error(f"'get_generated_content' Failed", exc_info=True)
 
         return extracted_text
 
@@ -662,7 +673,7 @@ class Reader:
                 if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
                     new_load.append({"comment": value,"type": "exit_load"})
         except Exception as e:
-            print(f"Error in _load_ops ->Load Error: {e}")
+            logger.error(f"_load_ops ->Load Error",exc_info=True)
     
         df["load"] = new_load
         return df
@@ -675,7 +686,8 @@ class Reader:
                 # print(f"new_key {new_key}, metric_key {metric_key}")
                 new_metrics[new_key] = metric_value
         except Exception as e:
-            print(f"Error in _metric_ops:{fund} ->Metric Error: {e}")
+            logger.error(f"_metric_ops:{fund} ->Metric Error",exc_info=True)
+            
         df["metrics"] = FundRegex()._populate_all_metrics_in_json(new_metrics)
         return df
 
@@ -688,15 +700,14 @@ class Reader:
                     new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
             df.update(new_values)
         except Exception as e:
-            # logger.error(e)
-            print(f"Error in {fund} ->Min/Add Error: {e}")
+            logger.error(f"_min_add_ops: {fund} ->Min/Add Error",exc_info=True)
+            
         return df
     
     def __map_json_ops(self,df):
         return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()

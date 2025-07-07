@@ -35,7 +35,7 @@ class Config:
     def params(self) -> dict:
         if self._params_cache is None:
             param_path = Path(self["base_path"]) / self["configs"]["params"]
-            print(f"[DEBUG] Loading params from: {param_path}")
+            # print(f"[DEBUG] Loading params from: {param_path}")
             if not param_path.exists():
                 raise FileNotFoundError(f"params.json5 not found at: {param_path}")
             with param_path.open("r", encoding="utf-8") as f:
@@ -46,7 +46,7 @@ class Config:
     def sid_params(self) -> dict:
         if self._sid_params_cache is None:
             param_path = Path(self["base_path"]) / self["configs"]["sid_params"]
-            print(f"[DEBUG] Loading sid_params from: {param_path}")
+            # print(f"[DEBUG] Loading sid_params from: {param_path}")
             if not param_path.exists():
                 raise FileNotFoundError(f"sid_params.json5 not found at: {param_path}")
             with param_path.open("r", encoding="utf-8") as f:
@@ -57,7 +57,7 @@ class Config:
     def regex(self) -> dict:
         if self._regex_cache is None:
             regex_path = Path(self["base_path"]) / self["configs"]["regex"]
-            print(f"[DEBUG] Loading regex from: {regex_path}")
+            # print(f"[DEBUG] Loading regex from: {regex_path}")
             if not regex_path.exists():
                 raise FileNotFoundError(f"Regex config not found: {regex_path}")
             with regex_path.open("r", encoding="utf-8") as f:
@@ -68,7 +68,7 @@ class Config:
     def sid_regex(self) -> dict:
         if self._sid_regex_cache is None:
             regex_path = Path(self["base_path"]) / self["configs"]["sid_regex"]
-            print(f"[DEBUG] Loading sid_regex from: {regex_path}")
+            # print(f"[DEBUG] Loading sid_regex from: {regex_path}")
             if not regex_path.exists():
                 raise FileNotFoundError(f"Sid Regex config not found: {regex_path}")
             with regex_path.open("r", encoding="utf-8") as f:

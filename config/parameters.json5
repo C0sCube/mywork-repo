@@ -5470,7 +5470,7 @@
         key: "(Assets\\s*Under\\s*Management|Average\\s*AUM|Regular Plan|Direct Plan|Macaulay Duration|Yield\\s*to|avg maturity|Modified Duration)",
         value: "(-?\\d+\\.\\d+\\s*(?:days?|months?|years?|crores?|%)?)",
       },
-      min_amt: "([\\d,]+)()\\s*Minimum",
+      min_amt: "([\\d,]+)()\\s*",
       load: "Entry Load(.*)Exit Load(.*)$",
       manager: {
         pattern: "(\\w+\\s+\\w+)\\s*([A-Za-z]+\\s*Fund\\s*Manager)",

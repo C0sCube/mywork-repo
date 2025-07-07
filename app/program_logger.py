@@ -77,11 +77,24 @@ def setup_logger(log_dir, logger_name="fs_logger", folder_name=None):
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setFormatter(file_formatter)
 
+    console_handler.addFilter(NoTracebackFilter())
     console_handler.setLevel(logging.DEBUG)
     logger.addHandler(console_handler)
 
     LOGGER = logger
     return logger
+
+def get_notebook_logger(logger_name="jupyter_logger"):
+    logger = logging.getLogger(logger_name)
+    if not logger.hasHandlers():
+        logger.setLevel(logging.DEBUG)
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s',
+                                      datefmt='%Y-%m-%d %H:%M:%S')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+    return logger
+
 
 def cleanup_logger(logger):
     handlers = logger.handlers[:]
@@ -98,4 +111,28 @@ def cleanup_logger(logger):
     logging.shutdown()
 
 def get_logger():
-    return LOGGER
+    global LOGGER
+    if LOGGER is not None:
+        return LOGGER
+    return get_notebook_logger()
+
+class NoTracebackFilter(logging.Filter):
+    def filter(self, record):
+        record.exc_info = None
+        return True
+
+
+
+class StreamToLogger:
+    def __init__(self, logger, level=logging.ERROR):
+        self.logger = logger
+        self.level = level
+        self.buffer = ''
+
+    def write(self, message):
+        message = message.strip()
+        if message:
+            self.logger.log(self.level, message)
+
+    def flush(self):
+        pass  # Needed for file-like compatibility
