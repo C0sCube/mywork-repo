@@ -1,5 +1,5 @@
 import os, re, math,sys, ocrmypdf,time # type: ignore
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz # type: ignore
 from collections import defaultdict
 
@@ -7,22 +7,23 @@ from app.parse_regex import *
 from app.fund_data import *
 from app.utils import *
 from app.program_logger import get_logger
+from app.config_loader import get_config
+
+logger = get_logger()
+config = get_config()
 
 from app.config_loader import *
 
 class Reader:
     def __init__(self,params:dict,amc_id:str,path:str):
         
-        conf = get_config() #path to paths.json
-        self.logger = get_logger()
-        
-        self.PARAMS = params #amc specific paramaters
-        self.FILE_NAME = path.split("\\")[-1] # filename requried later for json
-        self.OUTPUTPATH = conf["output_path"]
+        self.PARAMS = params #amc specific
+        self.FILE_NAME = path.split("\\")[-1] # filename
+        self.OUTPUTPATH = config["output_path"]
         self.PDF_PATH = path #amc factsheet pdf path
-        self.DRYPATH = os.path.join(self.OUTPUTPATH, conf["output"]["dry"])
-        self.REPORTPATH = os.path.join(self.OUTPUTPATH, conf["output"]["report"])
-        self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
+        self.DRYPATH = os.path.join(self.OUTPUTPATH, config.output["dry"])
+        self.REPORTPATH = os.path.join(self.OUTPUTPATH, config.output["report"])
+        self.JSONPATH = os.path.join(self.OUTPUTPATH, config.output["json"])
         self.TEXT_ONLY = {}
         
         for output_path in [self.DRYPATH, self.JSONPATH,self.REPORTPATH]:
@@ -30,7 +31,6 @@ class Reader:
     
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         # print(f"Regex: {regex}")
         title_detected = {}
         with fitz.open(path) as doc:
@@ -42,14 +42,13 @@ class Reader:
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                 # print(title)
                 # if title:
-                    # print(f"{pgn:02d} -- {title}")
                     # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
                 title_detected[pgn] = title
         return title_detected
                 
     def _get_ocr_title(self,path:str,regex:str,bbox):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
@@ -95,7 +94,7 @@ class Reader:
     
     def _ocr_pdf(self,path:str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         time.sleep(2)
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
@@ -103,7 +102,7 @@ class Reader:
     
     def check_and_highlight(self, path: str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.warning(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
         regex = FundRegex()
@@ -401,7 +400,7 @@ class Reader:
     
     def get_data(self, path: str, titles:dict, *args):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
@@ -548,7 +547,7 @@ class Reader:
     
     def get_generated_content(self, data: list, is_table: str = ""):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path = self.DRYPATH
 
@@ -599,7 +598,7 @@ class Reader:
 
     def refine_extracted_data(self, extracted_text: dict):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
         regex = FundRegex()
         
@@ -698,7 +697,7 @@ class Reader:
     
     def merge_and_select_data(self, data: dict):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():

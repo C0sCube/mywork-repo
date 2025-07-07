@@ -4,32 +4,22 @@ import json, random,string, inspect, json5,datetime
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import *
+from app.config_loader import get_config
 
-class FundRegex():
-    
+class FundRegex:
     def __init__(self):
-        conf = get_config()
-        REGEX_PATH = os.path.join(conf["base_path"],conf["configs"]["regex"])
-        self.config_path = REGEX_PATH
-        try:
-            if not os.path.exists(self.config_path):
-                raise FileNotFoundError(f"Config file not found: {self.config_path}")
-            with open(self.config_path,'r') as file:
-                data = json.load(file)
-        except Exception as e:
-            print(f'Error: {e}')
-        
-        #============FACTSHEET===================
+        config = get_config()
+        data = config.regex
+
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
-        self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, data.get("manager_stop_words","").split(","))) + r')\b', flags=re.IGNORECASE)
-        self.JSON_HEADER = data.get("json_headers",{})
-        self.POPULATE_ALL_INDICE = data.get("add_json_headers",[])
-        self.METRIC_HEADER = data.get("metrics_headers",{})
-        self.FINANCIAL_TERMS = data.get("financial_indices",[])
-        self.ESCAPE = data.get("escape_regex","")
-        self.MAIN_SCHEME_NAME = data.get("main_scheme_name",{})
+        self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, data.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
+        self.JSON_HEADER = data.get("json_headers", {})
+        self.POPULATE_ALL_INDICE = data.get("add_json_headers", [])
+        self.METRIC_HEADER = data.get("metrics_headers", {})
+        self.FINANCIAL_TERMS = data.get("financial_indices", [])
+        self.ESCAPE = data.get("escape_regex", "")
+        self.MAIN_SCHEME_NAME = data.get("main_scheme_name", {})
 
     def _header_mapper(self, text: str)->str:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
@@ -236,27 +226,6 @@ class FundRegex():
                 seen.append(word)
         return " ".join(seen)
 
-    # def _format_fund_manager(self, data):
-    #     fund_managers = data.get("fund_manager", [])
-    #     if not fund_managers:
-    #         return data
-
-    #     clean_fund_managers = []
-    #     for manager in fund_managers:
-    #         name = manager.get("name", "")
-    #         if not name:
-    #             continue
-
-    #         # Clean and normalize name
-    #         cleaned_name = self.MANAGER_STOP_WORDS.sub(' ', name)
-    #         cleaned_name = self._normalize_alpha(cleaned_name)
-    #         cleaned_name = self._remove_duplicates(cleaned_name)
-    #         if cleaned_name and len(cleaned_name)>=3:
-    #             manager["name"] = cleaned_name.title()
-    #             clean_fund_managers.append(manager)
-
-    #     data["fund_manager"] = clean_fund_managers
-    #     return data
     
     def _format_fund_manager(self, data):
         fund_managers = data.get("fund_manager", [])

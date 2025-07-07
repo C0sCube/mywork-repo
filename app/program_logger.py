@@ -3,7 +3,8 @@ from datetime import datetime
 import colorlog
 
 # --- Custom Log Levels ---
-TRACE_LEVEL_NUM = 5
+#DEBUG lowest 10
+TRACE_LEVEL_NUM = 15
 SAVE_LEVEL_NUM = 22
 NOTICE_LEVEL_NUM = 25
 LOGGER = None
@@ -52,23 +53,22 @@ def setup_logger(log_dir, logger_name="fs_logger", folder_name=None):
         datefmt='%Y-%m-%d %H:%M:%S'
     )
     file_handler = logging.FileHandler(log_path, encoding='utf-8')
-    file_handler.setLevel(logging.DEBUG)
+    file_handler.setLevel(TRACE_LEVEL_NUM)
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
-
     try:
         color_formatter = colorlog.ColoredFormatter(
             "%(log_color)s%(asctime)s [%(levelname)s]: %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S",
             log_colors={
+                "TRACE": "white",          
+                "SAVE": "blue",
+                "NOTICE": "bold_cyan",
                 "DEBUG": "cyan",
                 "INFO": "green",
                 "WARNING": "yellow",
                 "ERROR": "red",
                 "CRITICAL": "bold_red",
-                "TRACE": "white",
-                "SAVE": "blue",
-                "NOTICE": "bold_cyan"
             }
         )
         console_handler = colorlog.StreamHandler(sys.stdout)
@@ -77,7 +77,7 @@ def setup_logger(log_dir, logger_name="fs_logger", folder_name=None):
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setFormatter(file_formatter)
 
-    console_handler.setLevel(logging.INFO)
+    console_handler.setLevel(logging.DEBUG)
     logger.addHandler(console_handler)
 
     LOGGER = logger

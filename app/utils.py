@@ -3,13 +3,6 @@ import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
-from functools import reduce
-
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.application import MIMEApplication
-from email.mime.text import MIMEText
-from pathlib import Path
 
 from app.program_logger import get_logger
 

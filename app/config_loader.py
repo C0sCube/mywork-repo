@@ -1,49 +1,85 @@
-import os
 import json
+import json5  # type: ignore
+from pathlib import Path
 
-_config = None
-_original_config = None
-_config_path = None
+class Config:
+    def __init__(self, config_path: str = "paths.json"):
+        self._path = Path(config_path)
+        if not self._path.exists():
+            raise FileNotFoundError(f"Config file not found: {self._path}")
 
-def get_project_root():
-    return os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        with self._path.open("r", encoding="utf-8") as f:
+            self._data = json5.load(f)
 
-def load_config_once(filename="paths.json", output_folder=None):
-    global _config, _original_config, _config_path
+        self._params_cache = None
+        self._sid_params_cache = None
+        self._regex_cache = None
+        self._sid_regex_cache = None
 
-    if _config is not None:
-        print("Config already loaded. Skipping re-initialization.")
-        return _config  # Return cached config if already loaded
+    def __getitem__(self, key):
+        return self._data[key]
 
-    root = get_project_root()
-    _config_path = os.path.join(root, filename)
+    @property
+    def output(self) -> dict:
+        return self._data.get("output", {})
 
-    if not os.path.exists(_config_path):
-        raise FileNotFoundError(f"Config file not found: {_config_path}")
+    @property
+    def output_path(self) -> str:
+        return self._data.get("output_path", "")
 
-    with open(_config_path, "r") as f:
-        _original_config = json.load(f)
-        _config = json.loads(json.dumps(_original_config))  # Deep copy
+    @property
+    def watch_path(self) -> str:
+        return self._data.get("amc_path", "")
 
-    if output_folder:
-        output_base = os.path.join(_config["output_path"], output_folder)
-        os.makedirs(output_base, exist_ok=True)
+    @property
+    def params(self) -> dict:
+        if self._params_cache is None:
+            param_path = Path(self["base_path"]) / self["configs"]["params"]
+            print(f"[DEBUG] Loading params from: {param_path}")
+            if not param_path.exists():
+                raise FileNotFoundError(f"params.json5 not found at: {param_path}")
+            with param_path.open("r", encoding="utf-8") as f:
+                self._params_cache = json5.load(f)
+        return self._params_cache
 
-        for key, val in _config.get("output", {}).items():
-            basename = os.path.basename(val)
-            _config["output"][key] = os.path.join(output_folder, basename)
+    @property
+    def sid_params(self) -> dict:
+        if self._sid_params_cache is None:
+            param_path = Path(self["base_path"]) / self["configs"]["sid_params"]
+            print(f"[DEBUG] Loading sid_params from: {param_path}")
+            if not param_path.exists():
+                raise FileNotFoundError(f"sid_params.json5 not found at: {param_path}")
+            with param_path.open("r", encoding="utf-8") as f:
+                self._sid_params_cache = json5.load(f)
+        return self._sid_params_cache
 
-    print(f"Loaded config with output_folder = {output_folder}")
-    return _config
+    @property
+    def regex(self) -> dict:
+        if self._regex_cache is None:
+            regex_path = Path(self["base_path"]) / self["configs"]["regex"]
+            print(f"[DEBUG] Loading regex from: {regex_path}")
+            if not regex_path.exists():
+                raise FileNotFoundError(f"Regex config not found: {regex_path}")
+            with regex_path.open("r", encoding="utf-8") as f:
+                self._regex_cache = json5.load(f)
+        return self._regex_cache
+
+    @property
+    def sid_regex(self) -> dict:
+        if self._sid_regex_cache is None:
+            regex_path = Path(self["base_path"]) / self["configs"]["sid_regex"]
+            print(f"[DEBUG] Loading sid_regex from: {regex_path}")
+            if not regex_path.exists():
+                raise FileNotFoundError(f"Sid Regex config not found: {regex_path}")
+            with regex_path.open("r", encoding="utf-8") as f:
+                self._sid_regex_cache = json5.load(f)
+        return self._sid_regex_cache
+
+
+_config_instance = None
 
 def get_config():
-    if _config is None:
-        raise RuntimeError("Config not loaded. Call load_config_once() first.")
-    return _config
-
-def restore_config():
-    global _original_config, _config_path
-    if _original_config and _config_path:
-        with open(_config_path, "w") as f:
-            json.dump(_original_config, f, indent=4)
-        # logger.info("Restored original 'paths.json'")
+    global _config_instance
+    if _config_instance is None:
+        _config_instance = Config()
+    return _config_instance

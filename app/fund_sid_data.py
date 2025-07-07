@@ -2,46 +2,40 @@ import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
 from app.parse_sid_pdf import ReaderSIDKIM
 
 import fitz #type:ignore
-from datetime import datetime
-from dateutil.relativedelta import relativedelta #type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import *
+from app.config_loader import get_config
 from app.parse_sid_regex import *
 
 # +===========COMPLETE THE DOC STRINGS ===============+
 
-class GrandSidData: #always call this first in subclass
-    
-    def __init__(self,amc_id:str):
-        conf = get_config()
-        PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['sid_params'])
-        with open(PARAMS_PATH, "r") as file:
-            config = json5.load(file)
 
-        fund_config = config.get(amc_id, {}) #paramters.json5
+class GrandSidData:
+    def __init__(self, amc_id: str):
+        config = get_config()
+        fund_config = config.sid_params.get(amc_id, {})
 
-        #amc indicators
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
-        
-        self.SELECTKEYS = fund_config.get("SELECTKEYS",[])
-        self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
-        self.CLONEKEYS = fund_config.get("CLONEKEYS",{})
-        self.COMBINEKEYS = fund_config.get("COMBINEKEYS",{})
-        self.PROMOTEKEYS = fund_config.get("PROMOTEKEYS",{})
-        self.DELETEKEYS = fund_config.get("DELETEKEYS",[])
-        
-        self.IMP_DATA = fund_config.get("IMP_DATA",{})
-        self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
-        self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS",{})
-        
+
+        self.SELECTKEYS = fund_config.get("SELECTKEYS", [])
+        self.MERGEKEYS = fund_config.get("MERGEKEYS", {})
+        self.CLONEKEYS = fund_config.get("CLONEKEYS", {})
+        self.COMBINEKEYS = fund_config.get("COMBINEKEYS", {})
+        self.PROMOTEKEYS = fund_config.get("PROMOTEKEYS", {})
+        self.DELETEKEYS = fund_config.get("DELETEKEYS", [])
+
+        self.IMP_DATA = fund_config.get("IMP_DATA", {})
+        self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT", [])
+        self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS", {})
+
         self.PATTERN = {
-            "primary":fund_config.get("PATTERN_TO_FUNCTION", {}),
-            "secondary":fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{}),
-            "tertiary":fund_config.get("TERTIARY_PATTERN_TO_FUNCTION",{})
+            "primary": fund_config.get("PATTERN_TO_FUNCTION", {}),
+            "secondary": fund_config.get("SECONDARY_PATTERN_TO_FUNCTION", {}),
+            "tertiary": fund_config.get("TERTIARY_PATTERN_TO_FUNCTION", {}),
         }
-        self.MAIN_MAP = fund_config.get("MAIN_MAP",{})
+
+        self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):

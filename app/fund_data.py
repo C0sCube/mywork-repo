@@ -1,4 +1,4 @@
-import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
+import re, os,sys, json5#type:ignore
 from app.parse_pdf import Reader
 from app.parse_table import *
 from app.parse_regex import FundRegex
@@ -7,38 +7,30 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import *
+from app.config_loader import Config
 
 class GrandFundData:
-    
-    def __init__(self,fund_name:str,amc_id:str):
-        conf = get_config()
-        PARAMS_PATH = os.path.join(conf["base_path"],conf["configs"]['params'])
-        with open(PARAMS_PATH, "r") as file:
-            config = json5.load(file)
+    def __init__(self, fund_name: str, amc_id: str):
+        config = Config()
+        fund_config = config.params.get(amc_id, {})
 
-        fund_config = config.get(amc_id, {}) #paramters.json5
-
-        #amc indicators
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
-        self.FUND_NAME = fund_config.get("AMC_NAME","")
-        self.SELECTKEYS = fund_config.get("SELECTKEYS",{})
-        self.MERGEKEYS = fund_config.get("MERGEKEYS",{})
-        self.CLONEKEYS = fund_config.get("CLONEKEYS",[])
-        self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS",{})
-        
-        self.IMP_DATA = fund_config.get("IMP_DATA",{})
-        self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT",[])
-        self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS",{})
-        self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS",{})
-        
+        self.FUND_NAME = fund_config.get("AMC_NAME", "")
+        self.SELECTKEYS = fund_config.get("SELECTKEYS", {})
+        self.MERGEKEYS = fund_config.get("MERGEKEYS", {})
+        self.CLONEKEYS = fund_config.get("CLONEKEYS", [])
+        self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS", {})
+        self.IMP_DATA = fund_config.get("IMP_DATA", {})
+        self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT", [])
+        self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS", {})
+        self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS", {})
         self.PATTERN = {
-            "primary":fund_config.get("PATTERN_TO_FUNCTION", {}),
-            "secondary":fund_config.get("SECONDARY_PATTERN_TO_FUNCTION",{}),
-            "tertiary":fund_config.get("TERTIARY_PATTERN_TO_FUNCTION",{})
+            "primary": fund_config.get("PATTERN_TO_FUNCTION", {}),
+            "secondary": fund_config.get("SECONDARY_PATTERN_TO_FUNCTION", {}),
+            "tertiary": fund_config.get("TERTIARY_PATTERN_TO_FUNCTION", {}),
         }
-        self.MAIN_MAP = fund_config.get("MAIN_MAP",{})
+        self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):

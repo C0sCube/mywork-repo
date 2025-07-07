@@ -1,9 +1,8 @@
 import os, sys, io, time, shutil
 from datetime import datetime
-from app.config_loader import load_config_once, get_config
+from app.config_loader import Config
 from app.utils import *
 from app.program_logger import setup_logger, cleanup_logger
-from app.class_registry import CLASS_REGISTRY
 from app.mailer import Mailer
 
 # Set UTF-8 encoding for stdout/stderr
@@ -12,20 +11,19 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 print("FS_JSON_PARSE main.py Running ...", flush=True)
 
-# Load config
-load_config_once(output_folder=None)
-CONFIG = get_config()
-WATCH_PATH, OUTPUT_PATH = CONFIG["amc_path"], CONFIG["output_path"]
+
+CONFIG = Config()
+WATCH_PATH, OUTPUT_PATH = CONFIG.watch_path, CONFIG.output_path
 
 # mail config
 # mail = Mailer()
 
 # Output folders
 CHECK_INTERVAL = 10
-JSON_DIR = os.path.join(OUTPUT_PATH, CONFIG["output"]["json"])
-LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG["output"]["logs"])
-FAILED_DIR = os.path.join(OUTPUT_PATH, CONFIG["output"]["failed"])
-PROCESSED_DIR = os.path.join(OUTPUT_PATH, CONFIG["output"]["processed"])
+JSON_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["json"])
+LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["logs"])
+FAILED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["failed"])
+PROCESSED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["processed"])
 
 # Known folders
 known_folders = set(os.listdir(WATCH_PATH))
@@ -52,6 +50,7 @@ while True:
             mutual_fund = Helper.get_pdf_with_id(amc_path)
             amc_done, amc_not_done = {}, {}
 
+            from app.class_registry import CLASS_REGISTRY
             for amc_id, class_ in CLASS_REGISTRY.items():
                 try:
                     fund_name, path = mutual_fund[amc_id]
