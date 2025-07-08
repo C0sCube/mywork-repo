@@ -15,7 +15,7 @@ class Helper:
     #PARSING UTILS
     @staticmethod
     def get_pdf_with_id(path: str) -> dict:
-        pdf_paths = {}
+        pdf_paths = defaultdict(list)
         suffix_map = {}
 
         for root, _, files in os.walk(path):
@@ -30,11 +30,8 @@ class Helper:
                     is_passive = len(parts[-2]) == 1 #determine passive
                     suffix = parts[-2] if is_passive else "0"
                     fund_key = f"{fund_id}_{suffix}"
-                    # fund_name = f"{folder_name} Passive" if is_passive else folder_name
-
-                    # print(fund_name)
-                    pdf_paths[fund_key] = (file_name, full_path)
-
+                    
+                    pdf_paths[fund_key].append((file_name, full_path))
                 elif file_name.endswith("KIM.pdf") or file_name.endswith("SID.pdf"):
                     full_path = os.path.join(root, file_name)
                     # folder_name = os.path.basename(root).title()

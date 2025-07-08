@@ -46,6 +46,7 @@ while True:
             logger = setup_logger(log_dir=LOG_DIR, logger_name="fs_logger",folder_name=log_filename)
     
             logger.info(f"[WATCHER] New folder detected: {new_folder}")
+            time.sleep(300)
             logger.info(f"Program Execution Started.")
             # mail.started(f"FS in Folder: ..\input\{new_folder}")
             mutual_fund = Helper.get_pdf_with_id(amc_path)
@@ -54,32 +55,34 @@ while True:
             from app.class_registry import CLASS_REGISTRY
             for amc_id, class_ in CLASS_REGISTRY.items():
                 try:
-                    fund_name, path = mutual_fund[amc_id]
+                    content = mutual_fund[amc_id]
                 except KeyError:
                     logger.notice(f"{amc_id} FS not attached. Skipping.")
                     time.sleep(.4)
                     continue
 
                 try:
-                    logger.info(f"Processing {amc_id}:{class_.__name__}")
-                    obj = class_(fund_name, amc_id, path)
-                    title, path_pdf = obj.check_and_highlight(path)
+                    for value in content:
+                        fund_name,path = value
+                        logger.info(f"Processing {amc_id}:{class_.__name__}")
+                        obj = class_(fund_name, amc_id, path)
+                        title, path_pdf = obj.check_and_highlight(path)
 
-                    if not (path_pdf and title):
-                        raise Exception("check_and_highlight returned invalid results")
+                        if not (path_pdf and title):
+                            raise Exception("check_and_highlight returned invalid results")
 
-                    data = obj.get_data(path_pdf, title)
-                    extracted_text = obj.get_generated_content(data)
-                    final_text = obj.refine_extracted_data(extracted_text)
-                    dfs = obj.merge_and_select_data(final_text)
+                        data = obj.get_data(path_pdf, title)
+                        extracted_text = obj.get_generated_content(data)
+                        final_text = obj.refine_extracted_data(extracted_text)
+                        dfs = obj.merge_and_select_data(final_text)
 
-                    if not dfs:
-                        raise Exception("Final merged data is empty")
+                        if not dfs:
+                            raise Exception("Final merged data is empty")
 
-                    save_path = os.path.join(JSON_DIR, obj.FILE_NAME.replace(".pdf", ".json"))
-                    Helper.save_json(dfs, save_path)
-                    logger.save(f"Saved JSON: {save_path}")
-                    amc_done[fund_name] = path
+                        save_path = os.path.join(JSON_DIR, obj.FILE_NAME.replace(".pdf", ".json"))
+                        Helper.save_json(dfs, save_path)
+                        logger.save(f"Saved JSON: {save_path}")
+                        amc_done[fund_name] = path
 
                 except Exception:
                     logger.error(f"[Pipeline Error] File:{fund_name} Class: {class_.__name__}")

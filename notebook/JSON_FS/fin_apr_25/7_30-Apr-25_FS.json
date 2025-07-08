@@ -1,0 +1,2093 @@
+{
+ "metadata": {
+  "document_name": "7_30-Apr-25_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250515"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY 100 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "8",
+      "benchmark_index": "8",
+      "count": 24,
+      "fund_manager_managing_fund_since": "8",
+      "fund_manager_name": "8",
+      "fund_manager_total_exp": "8",
+      "load_entry": "8",
+      "load_exit": "8",
+      "main_scheme_name": "8",
+      "metrics_beta": "8",
+      "metrics_mod_duration": "8",
+      "metrics_port_turnover_ratio": "8",
+      "metrics_sharpe": "8",
+      "metrics_std_dev": "8",
+      "min_addl_amt": "8",
+      "min_addl_amt_multiple": "8",
+      "min_amt": "8",
+      "min_amt_multiple": "8",
+      "monthly_aaum_date": "8",
+      "monthly_aaum_value": "8",
+      "mutual_fund_name": "8",
+      "scheme_launch_date": "8"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 19, 2023",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14\nyears"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "LARGE CAP FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.48"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.59%"
+     },
+     {
+      "name": "beta",
+      "value": "0.90"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.40"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "561.50",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20030130"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Nifty 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "9",
+      "benchmark_index": "9",
+      "count": 24,
+      "fund_manager_managing_fund_since": "9",
+      "fund_manager_name": "9",
+      "fund_manager_total_exp": "9",
+      "load_entry": "9",
+      "load_exit": "9",
+      "main_scheme_name": "9",
+      "metrics_beta": "9",
+      "metrics_port_turnover_ratio": "9",
+      "metrics_sharpe": "9",
+      "metrics_std_dev": "9",
+      "min_addl_amt": "9",
+      "min_addl_amt_multiple": "9",
+      "min_amt": "9",
+      "min_amt_multiple": "9",
+      "monthly_aaum_date": "9",
+      "monthly_aaum_value": "9",
+      "mutual_fund_name": "9",
+      "scheme_launch_date": "9"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "june 01, 2021",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "FLEXI CAP FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.39"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.15%"
+     },
+     {
+      "name": "beta",
+      "value": "0.90"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.39"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "5948.10",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20150304"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY LargeMidcap 250 Index TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "10",
+      "benchmark_index": "10",
+      "count": 24,
+      "fund_manager_managing_fund_since": "10",
+      "fund_manager_name": "10",
+      "fund_manager_total_exp": "10",
+      "load_entry": "10",
+      "load_exit": "10",
+      "main_scheme_name": "10",
+      "metrics_mod_duration": "10",
+      "metrics_port_turnover_ratio": "10",
+      "min_addl_amt": "10",
+      "min_addl_amt_multiple": "10",
+      "min_amt": "10",
+      "min_amt_multiple": "10",
+      "monthly_aaum_date": "10",
+      "monthly_aaum_value": "10",
+      "mutual_fund_name": "10",
+      "scheme_launch_date": "10"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Anandha Padmanabhan Anjeneyan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "LARGE AND MID CAP FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.28"
+     },
+     {
+      "name": "mod_duration",
+      "value": "250"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "598.37",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20240212"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Nifty 500 Multicap 50:25:25 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "11",
+      "benchmark_index": "11",
+      "count": 24,
+      "fund_manager_managing_fund_since": "11",
+      "fund_manager_name": "11",
+      "fund_manager_total_exp": "11",
+      "load_entry": "11",
+      "load_exit": "11",
+      "main_scheme_name": "11",
+      "metrics_mod_duration": "11",
+      "metrics_port_turnover_ratio": "11",
+      "min_addl_amt": "11",
+      "min_addl_amt_multiple": "11",
+      "min_amt": "11",
+      "min_amt_multiple": "11",
+      "monthly_aaum_date": "11",
+      "monthly_aaum_value": "11",
+      "mutual_fund_name": "11",
+      "scheme_launch_date": "11"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "MULTICAP FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.12"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "338.59",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20240910"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY Midcap 150 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "12",
+      "benchmark_index": "12",
+      "count": 24,
+      "fund_manager_managing_fund_since": "12",
+      "fund_manager_name": "12",
+      "fund_manager_total_exp": "12",
+      "load_entry": "12",
+      "load_exit": "12",
+      "main_scheme_name": "12",
+      "metrics_beta": "12",
+      "metrics_port_turnover_ratio": "12",
+      "metrics_sharpe": "12",
+      "metrics_std_dev": "12",
+      "min_addl_amt": "12",
+      "min_addl_amt_multiple": "12",
+      "min_amt": "12",
+      "min_amt_multiple": "12",
+      "monthly_aaum_date": "12",
+      "monthly_aaum_value": "12",
+      "mutual_fund_name": "12",
+      "scheme_launch_date": "12"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "november 01, 2023",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "MIDCAP OPPORTUNITIES FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.47"
+     },
+     {
+      "name": "std_dev",
+      "value": "14.47%"
+     },
+     {
+      "name": "beta",
+      "value": "0.82"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.42"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "10323.98",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20131202"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY Smallcap 250 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "13",
+      "benchmark_index": "13",
+      "count": 24,
+      "fund_manager_managing_fund_since": "13",
+      "fund_manager_name": "13",
+      "fund_manager_total_exp": "13",
+      "load_entry": "13",
+      "load_exit": "13",
+      "main_scheme_name": "13",
+      "metrics_beta": "13",
+      "metrics_mod_duration": "13",
+      "metrics_port_turnover_ratio": "13",
+      "metrics_sharpe": "13",
+      "metrics_std_dev": "13",
+      "min_addl_amt": "13",
+      "min_addl_amt_multiple": "13",
+      "min_amt": "13",
+      "min_amt_multiple": "13",
+      "monthly_aaum_date": "13",
+      "monthly_aaum_value": "13",
+      "mutual_fund_name": "13",
+      "scheme_launch_date": "13"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SMALL CAP FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.22"
+     },
+     {
+      "name": "std_dev",
+      "value": "15.35%"
+     },
+     {
+      "name": "beta",
+      "value": "0.76"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.63"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "1388.32",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20210729"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "14",
+      "benchmark_index": "14",
+      "count": 24,
+      "fund_manager_managing_fund_since": "14",
+      "fund_manager_name": "14",
+      "fund_manager_total_exp": "14",
+      "load_entry": "14",
+      "load_exit": "14",
+      "main_scheme_name": "14",
+      "metrics_beta": "14",
+      "metrics_port_turnover_ratio": "14",
+      "metrics_sharpe": "14",
+      "metrics_std_dev": "14",
+      "min_addl_amt": "14",
+      "min_amt": "14",
+      "min_amt_multiple": "14",
+      "monthly_aaum_date": "14",
+      "monthly_aaum_value": "14",
+      "mutual_fund_name": "14",
+      "scheme_launch_date": "14"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ELSS TAX SAVER FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.51"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.53%"
+     },
+     {
+      "name": "beta",
+      "value": "0.86"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.33"
+     }
+    ],
+    "min_addl_amt": "500",
+    "min_amt": "500",
+    "min_amt_multiple": "500",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "739.31",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20151211"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "BSE Healthcare TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "15",
+      "benchmark_index": "15",
+      "count": 24,
+      "fund_manager_managing_fund_since": "15",
+      "fund_manager_name": "15",
+      "fund_manager_total_exp": "15",
+      "load_entry": "15",
+      "load_exit": "15",
+      "main_scheme_name": "15",
+      "metrics_port_turnover_ratio": "15",
+      "min_addl_amt": "15",
+      "min_addl_amt_multiple": "15",
+      "monthly_aaum_date": "15",
+      "monthly_aaum_value": "15",
+      "mutual_fund_name": "15",
+      "scheme_launch_date": "15"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years of"
+     },
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details Inception Date: Regular Plan: 06/12/2024, Direct Plan: 06/12/2024. Application Amount:",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "HEALTHCARE FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.05"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "104.85",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20241206"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "BSE 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "16",
+      "benchmark_index": "16",
+      "count": 24,
+      "fund_manager_managing_fund_since": "16",
+      "fund_manager_name": "16",
+      "fund_manager_total_exp": "16",
+      "load_entry": "16",
+      "load_exit": "16",
+      "main_scheme_name": "16",
+      "metrics_port_turnover_ratio": "16",
+      "min_addl_amt": "16",
+      "min_addl_amt_multiple": "16",
+      "min_amt": "16",
+      "min_amt_multiple": "16",
+      "monthly_aaum_date": "16",
+      "monthly_aaum_value": "16",
+      "mutual_fund_name": "16",
+      "scheme_launch_date": "16"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Puneet",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "august 01, 2024",
+      "name": "Mr. Anandha Padmanabhan Anjeneyan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "august 01, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years of"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "RETIREMENT FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.26"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "71.85",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20240415"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "MSCI Emerging Markets Index TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "17",
+      "benchmark_index": "17",
+      "count": 24,
+      "fund_manager_managing_fund_since": "17",
+      "fund_manager_name": "17",
+      "fund_manager_total_exp": "17",
+      "load_entry": "17",
+      "load_exit": "17",
+      "main_scheme_name": "17",
+      "metrics_port_turnover_ratio": "17",
+      "min_addl_amt": "17",
+      "min_addl_amt_multiple": "17",
+      "min_amt": "17",
+      "min_amt_multiple": "17",
+      "monthly_aaum_date": "17",
+      "monthly_aaum_value": "17",
+      "mutual_fund_name": "17",
+      "scheme_launch_date": "17"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Jennison Emerging Markets",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "EMERGING MARKETS EQUITY FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.04"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "97.11",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20070911"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "MSCI All Country World Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "18",
+      "benchmark_index": "18",
+      "count": 24,
+      "fund_manager_managing_fund_since": "18",
+      "fund_manager_name": "18",
+      "fund_manager_total_exp": "18",
+      "load_entry": "18",
+      "load_exit": "18",
+      "main_scheme_name": "18",
+      "metrics_port_turnover_ratio": "18",
+      "min_addl_amt": "18",
+      "min_addl_amt_multiple": "18",
+      "min_amt": "18",
+      "min_amt_multiple": "18",
+      "monthly_aaum_date": "18",
+      "monthly_aaum_value": "18",
+      "mutual_fund_name": "18",
+      "scheme_launch_date": "18"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Jennison Global",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "GLOBAL EQUITY OPPORTUNITIES FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.05"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "1397.19",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20100513"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "FTSE EPRA / NAREIT Developed Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 24,
+      "fund_manager_managing_fund_since": "19",
+      "fund_manager_name": "19",
+      "fund_manager_total_exp": "19",
+      "load_entry": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "metrics_port_turnover_ratio": "19",
+      "min_addl_amt": "19",
+      "min_addl_amt_multiple": "19",
+      "min_amt": "19",
+      "min_amt_multiple": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19",
+      "scheme_launch_date": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Global Select Real",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "GLOBAL SELECT REAL ESTATE SECURITIES FUND OF FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.01"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "50.14",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20211203"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 35+65 - Aggresive Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "20",
+      "benchmark_index": "20",
+      "count": 24,
+      "fund_manager_managing_fund_since": "20",
+      "fund_manager_name": "20",
+      "fund_manager_total_exp": "20",
+      "load_entry": "20",
+      "load_exit": "20",
+      "main_scheme_name": "20",
+      "metrics_avg_maturity": "20",
+      "metrics_beta": "20",
+      "metrics_mod_duration": "20",
+      "metrics_port_turnover_ratio": "20",
+      "metrics_sharpe": "20",
+      "metrics_std_dev": "20",
+      "min_addl_amt": "20",
+      "min_addl_amt_multiple": "20",
+      "min_amt": "20",
+      "min_amt_multiple": "20",
+      "monthly_aaum_date": "20",
+      "monthly_aaum_value": "20",
+      "mutual_fund_name": "20",
+      "scheme_launch_date": "20"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "august 19, 2023",
+      "name": "Mr. Anandha",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "HYBRID EQUITY FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.58"
+     },
+     {
+      "name": "std_dev",
+      "value": "9.95%"
+     },
+     {
+      "name": "beta",
+      "value": "1.06"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.22"
+     },
+     {
+      "name": "mod_duration",
+      "value": "5.72 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.85 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "205.01",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20040205"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Nifty 50 Arbitrage Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 24,
+      "fund_manager_managing_fund_since": "21",
+      "fund_manager_name": "21",
+      "fund_manager_total_exp": "21",
+      "load_entry": "21",
+      "load_exit": "21",
+      "main_scheme_name": "21",
+      "metrics_beta": "21",
+      "metrics_port_turnover_ratio": "21",
+      "metrics_sharpe": "21",
+      "metrics_std_dev": "21",
+      "min_addl_amt": "21",
+      "min_addl_amt_multiple": "21",
+      "min_amt": "21",
+      "min_amt_multiple": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21",
+      "scheme_launch_date": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "march 29, 2024",
+      "name": "Mr. Chetan Chavan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 22, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "(w.e.f. October 25, 2023) For exits within 30 days from the date of allotment of units: 0.25%; For exits beyond 30 days from the date of allotment of units: Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ARBITRAGE FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.01"
+     },
+     {
+      "name": "std_dev",
+      "value": "0.91%"
+     },
+     {
+      "name": "beta",
+      "value": "0.48"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "1.42"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "89.90",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20140827"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY Equity Savings Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "22",
+      "benchmark_index": "22",
+      "count": 24,
+      "fund_manager_managing_fund_since": "22",
+      "fund_manager_name": "22",
+      "fund_manager_total_exp": "22",
+      "load_entry": "22",
+      "load_exit": "22",
+      "main_scheme_name": "22",
+      "metrics_avg_maturity": "22",
+      "metrics_beta": "22",
+      "metrics_mod_duration": "22",
+      "metrics_port_turnover_ratio": "22",
+      "metrics_sharpe": "22",
+      "metrics_std_dev": "22",
+      "min_addl_amt": "22",
+      "min_addl_amt_multiple": "22",
+      "min_amt": "22",
+      "min_amt_multiple": "22",
+      "monthly_aaum_date": "22",
+      "monthly_aaum_value": "22",
+      "mutual_fund_name": "22",
+      "scheme_launch_date": "22"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "may 12, 2022",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years of"
+     },
+     {
+      "managing_fund_since": "december 01, 2021",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "EQUITY SAVINGS FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.21"
+     },
+     {
+      "name": "std_dev",
+      "value": "2.24%"
+     },
+     {
+      "name": "beta",
+      "value": "0.44"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.29"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.22 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.33 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "69.99",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20040205"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 50+50 Moderate Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 24,
+      "fund_manager_managing_fund_since": "23",
+      "fund_manager_name": "23",
+      "fund_manager_total_exp": "23",
+      "load_entry": "23",
+      "load_exit": "23",
+      "main_scheme_name": "23",
+      "metrics_avg_maturity": "23",
+      "metrics_beta": "23",
+      "metrics_mod_duration": "23",
+      "metrics_port_turnover_ratio": "23",
+      "metrics_sharpe": "23",
+      "metrics_std_dev": "23",
+      "min_addl_amt": "23",
+      "min_addl_amt_multiple": "23",
+      "min_amt": "23",
+      "min_amt_multiple": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23",
+      "scheme_launch_date": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "december 01, 2021",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "BALANCED ADVANTAGE FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.37"
+     },
+     {
+      "name": "std_dev",
+      "value": "9.04%"
+     },
+     {
+      "name": "beta",
+      "value": "1.04"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.47"
+     },
+     {
+      "name": "mod_duration",
+      "value": "5.53 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.81 years"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "961.64",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20210204"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY 1D Rate Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "26",
+      "benchmark_index": "26",
+      "count": 24,
+      "fund_manager_managing_fund_since": "26",
+      "fund_manager_name": "26",
+      "fund_manager_total_exp": "26",
+      "indicative_inv_horizon": "26",
+      "load_entry": "26",
+      "load_exit": "26",
+      "main_scheme_name": "26",
+      "metrics_avg_maturity": "26",
+      "metrics_macaulay": "26",
+      "metrics_mod_duration": "26",
+      "min_addl_amt": "26",
+      "min_addl_amt_multiple": "26",
+      "min_amt": "26",
+      "min_amt_multiple": "26",
+      "monthly_aaum_date": "26",
+      "monthly_aaum_value": "26",
+      "mutual_fund_name": "26",
+      "scheme_launch_date": "26"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Moderate Risk High Moderately Risk",
+     "\n",
+     "Moderate Moderately",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil ## For rating methodology refer page no. 34 Regular Plan and Direct Plan are available for subscription as per the below details Inception Date: Regular Plan: 27/08/2019, Direct Plan: 27/08/2019. ` 1/- thereafter. Repurchase / Redemption Amount: ` 1000/- and in multiples of 5 installments of 1000/- each and in multiples of 1/- thereafter.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "OVERNIGHT FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "1 day"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1 day"
+     },
+     {
+      "name": "macaulay",
+      "value": "1 day"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "97.58",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20190827"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Liquid Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "27",
+      "benchmark_index": "27",
+      "count": 24,
+      "fund_manager_managing_fund_since": "27",
+      "fund_manager_name": "27",
+      "fund_manager_total_exp": "27",
+      "load_entry": "27",
+      "load_exit": "27",
+      "main_scheme_name": "27",
+      "metrics_avg_maturity": "27",
+      "metrics_macaulay": "27",
+      "metrics_mod_duration": "27",
+      "min_addl_amt": "27",
+      "min_addl_amt_multiple": "27",
+      "min_amt": "27",
+      "min_amt_multiple": "27",
+      "monthly_aaum_date": "27",
+      "monthly_aaum_value": "27",
+      "mutual_fund_name": "27",
+      "scheme_launch_date": "27"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Investor exit upon Exit load as a % of redemption/ subscription switch proceeds Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 onwards 0.0000% ## For rating methodology refer page no. 34",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "LIQUID FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "1.50 months"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1.56 months"
+     },
+     {
+      "name": "macaulay",
+      "value": "1.60 months"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "398.11",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20070905"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Ultra Short Duration Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "28",
+      "benchmark_index": "28",
+      "count": 24,
+      "fund_manager_managing_fund_since": "28",
+      "fund_manager_name": "28",
+      "fund_manager_total_exp": "28",
+      "load_entry": "28",
+      "load_exit": "28",
+      "main_scheme_name": "28",
+      "metrics_avg_maturity": "28",
+      "metrics_macaulay": "28",
+      "metrics_mod_duration": "28",
+      "min_addl_amt": "28",
+      "min_addl_amt_multiple": "28",
+      "min_amt": "28",
+      "min_amt_multiple": "28",
+      "monthly_aaum_date": "28",
+      "monthly_aaum_value": "28",
+      "mutual_fund_name": "28",
+      "scheme_launch_date": "28"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years of"
+     },
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil. ## For rating methodology refer page no. 34",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ULTRA SHORT DURATION FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "5.40 months"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "5.76 months"
+     },
+     {
+      "name": "macaulay",
+      "value": "5.79 months"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "208.50",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20080714"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Money Market A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 24,
+      "fund_manager_managing_fund_since": "29",
+      "fund_manager_name": "29",
+      "fund_manager_total_exp": "29",
+      "load_entry": "29",
+      "load_exit": "29",
+      "main_scheme_name": "29",
+      "metrics_avg_maturity": "29",
+      "metrics_macaulay": "29",
+      "metrics_mod_duration": "29",
+      "min_addl_amt": "29",
+      "min_addl_amt_multiple": "29",
+      "min_amt": "29",
+      "min_amt_multiple": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29",
+      "scheme_launch_date": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years of"
+     },
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "(W.e.f. January 10, 2022) Nil. ## For rating methodology refer page no. 34",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "MONEY MARKET FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "8.62 months"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.24 months"
+     },
+     {
+      "name": "macaulay",
+      "value": "9.21 months"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "174.67",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20200306"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Dynamic Bond A-III Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "30",
+      "benchmark_index": "30",
+      "count": 24,
+      "fund_manager_managing_fund_since": "30",
+      "fund_manager_name": "30",
+      "fund_manager_total_exp": "30",
+      "load_entry": "30",
+      "load_exit": "30",
+      "main_scheme_name": "30",
+      "metrics_avg_maturity": "30",
+      "metrics_macaulay": "30",
+      "metrics_mod_duration": "30",
+      "min_addl_amt": "30",
+      "min_addl_amt_multiple": "30",
+      "min_amt": "30",
+      "min_amt_multiple": "30",
+      "monthly_aaum_date": "30",
+      "monthly_aaum_value": "30",
+      "mutual_fund_name": "30",
+      "scheme_launch_date": "30"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "(W.e.f. January 10, 2022) Nil ## For rating methodology refer page no. 34",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "DYNAMIC BOND FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "8.68 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "20.30 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "8.99 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "105.31",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20120112"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Corporate Debt A-II Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "31",
+      "benchmark_index": "31",
+      "count": 24,
+      "fund_manager_managing_fund_since": "31",
+      "fund_manager_name": "31",
+      "fund_manager_total_exp": "31",
+      "load_entry": "31",
+      "load_exit": "31",
+      "main_scheme_name": "31",
+      "metrics_avg_maturity": "31",
+      "metrics_macaulay": "31",
+      "metrics_mod_duration": "31",
+      "min_addl_amt": "31",
+      "min_addl_amt_multiple": "31",
+      "min_amt": "31",
+      "min_amt_multiple": "31",
+      "monthly_aaum_date": "31",
+      "monthly_aaum_value": "31",
+      "mutual_fund_name": "31",
+      "scheme_launch_date": "31"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil ## For rating methodology refer page no. 34",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "CORPORATE BOND FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "3.72 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.99 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.94 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "94.31",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20030130"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Dynamic Gilt Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "32",
+      "benchmark_index": "32",
+      "count": 24,
+      "fund_manager_managing_fund_since": "32",
+      "fund_manager_name": "32",
+      "fund_manager_total_exp": "32",
+      "load_entry": "32",
+      "load_exit": "32",
+      "main_scheme_name": "32",
+      "metrics_avg_maturity": "32",
+      "metrics_macaulay": "32",
+      "metrics_mod_duration": "32",
+      "min_addl_amt": "32",
+      "min_addl_amt_multiple": "32",
+      "min_amt": "32",
+      "min_amt_multiple": "32",
+      "monthly_aaum_date": "32",
+      "monthly_aaum_value": "32",
+      "mutual_fund_name": "32",
+      "scheme_launch_date": "32"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "GILT FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "9.29 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "21.90 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "9.60 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "114.11",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20081027"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL-IBX Gilt Index - April 2028"
+    ],
+    "field_location": [
+     {
+      "amc_name": "33",
+      "benchmark_index": "33",
+      "count": 24,
+      "fund_manager_name": "33",
+      "fund_manager_total_exp": "33",
+      "load_entry": "33",
+      "load_exit": "33",
+      "main_scheme_name": "33",
+      "metrics_avg_maturity": "33",
+      "metrics_macaulay": "33",
+      "metrics_mod_duration": "33",
+      "metrics_tracking_error": "33",
+      "min_addl_amt": "33",
+      "min_addl_amt_multiple": "33",
+      "monthly_aaum_date": "33",
+      "monthly_aaum_value": "33",
+      "mutual_fund_name": "33",
+      "scheme_launch_date": "33"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "CRISIL IBX GILT INDEX - APR 2028 FUND",
+    "metrics": [
+     {
+      "name": "tracking_error",
+      "value": "22"
+     },
+     {
+      "name": "mod_duration",
+      "value": "2.19 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "2.51 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.26 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "monthly_aaum_date": "-MAR 2025",
+    "monthly_aaum_value": "26.51",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20230222"
+   }
+  }
+ ]
+}

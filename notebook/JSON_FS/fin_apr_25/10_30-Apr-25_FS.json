@@ -1,0 +1,2510 @@
+{
+ "metadata": {
+  "document_name": "10_30-Apr-25_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250502"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY SMALLCAP 250 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "13",
+      "benchmark_index": "13",
+      "count": 27,
+      "fund_manager_name": "13",
+      "load_entry": "13",
+      "load_exit": "13",
+      "main_scheme_name": "13",
+      "metrics_alpha": "13",
+      "metrics_r_squared_ratio": "13",
+      "metrics_sharpe": "13",
+      "metrics_sortino_ratio": "13",
+      "monthly_aaum_date": "13",
+      "monthly_aaum_value": "13",
+      "mutual_fund_name": "13",
+      "scheme_launch_date": "13"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     },
+     {
+      "comment": "1% if exit <= 1 Year NAV Details : Please click here",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "quant Small Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.85"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.76"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "4.04"
+     },
+     {
+      "name": "alpha",
+      "value": "10.79"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 26,222 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "19961029"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "15",
+      "benchmark_index": "15",
+      "count": 27,
+      "fund_manager_name": "15",
+      "load_entry": "15",
+      "main_scheme_name": "15",
+      "metrics_alpha": "15",
+      "metrics_r_squared_ratio": "15",
+      "metrics_sharpe": "15",
+      "metrics_sortino_ratio": "15",
+      "monthly_aaum_date": "15",
+      "monthly_aaum_value": "15",
+      "mutual_fund_name": "15",
+      "scheme_launch_date": "15"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant ELSS Tax Saver Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.60"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.69"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "3.08"
+     },
+     {
+      "name": "alpha",
+      "value": "9.56"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 10,873 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20000413"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 MULTICAP 50:25:25 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "17",
+      "benchmark_index": "17",
+      "count": 27,
+      "fund_manager_name": "17",
+      "load_entry": "17",
+      "main_scheme_name": "17",
+      "metrics_alpha": "17",
+      "metrics_r_squared_ratio": "17",
+      "metrics_sharpe": "17",
+      "metrics_sortino_ratio": "17",
+      "monthly_aaum_date": "17",
+      "monthly_aaum_value": "17",
+      "mutual_fund_name": "17",
+      "scheme_launch_date": "17"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Active Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.39"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.77"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "2.57"
+     },
+     {
+      "name": "alpha",
+      "value": "2.26"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 9,549 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20010417"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY MIDCAP 150 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 27,
+      "fund_manager_name": "19",
+      "load_entry": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "metrics_alpha": "19",
+      "metrics_r_squared_ratio": "19",
+      "metrics_sharpe": "19",
+      "metrics_sortino_ratio": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19",
+      "scheme_launch_date": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     },
+     {
+      "comment": "0.5% if exit <= 3 Months NAV Details : Please click here",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "quant Mid Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.59"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.68"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "2.99"
+     },
+     {
+      "name": "alpha",
+      "value": "1.55"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 8,776 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20010320"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 27,
+      "fund_manager_name": "21",
+      "load_entry": "21",
+      "main_scheme_name": "21",
+      "metrics_alpha": "21",
+      "metrics_r_squared_ratio": "21",
+      "metrics_sharpe": "21",
+      "metrics_sortino_ratio": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21",
+      "scheme_launch_date": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Flexi Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.60"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.68"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "3.17"
+     },
+     {
+      "name": "alpha",
+      "value": "10.74"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 7,016 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20081017"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY LARGE MIDCAP 250 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 27,
+      "fund_manager_name": "23",
+      "load_entry": "23",
+      "main_scheme_name": "23",
+      "metrics_alpha": "23",
+      "metrics_r_squared_ratio": "23",
+      "metrics_sharpe": "23",
+      "metrics_sortino_ratio": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23",
+      "scheme_launch_date": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Large & Mid Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.26"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.71"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "2.34"
+     },
+     {
+      "name": "alpha",
+      "value": "0.31"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 3,645 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20070108"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY INFRASTRUCTURE TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "25",
+      "benchmark_index": "25",
+      "count": 27,
+      "fund_manager_name": "25",
+      "load_entry": "25",
+      "load_exit": "25",
+      "main_scheme_name": "25",
+      "metrics_alpha": "25",
+      "metrics_r_squared_ratio": "25",
+      "metrics_sharpe": "25",
+      "metrics_sortino_ratio": "25",
+      "monthly_aaum_date": "25",
+      "monthly_aaum_value": "25",
+      "mutual_fund_name": "25",
+      "scheme_launch_date": "25"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     },
+     {
+      "comment": "0.5% if exit <= 3 Months NAV Details : Please click here",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "quant Infrastructure Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.77"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.64"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "3.47"
+     },
+     {
+      "name": "alpha",
+      "value": "9.62"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 3,173 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20070920"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 100 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "27",
+      "benchmark_index": "27",
+      "count": 27,
+      "fund_manager_name": "27",
+      "load_entry": "27",
+      "main_scheme_name": "27",
+      "metrics_alpha": "27",
+      "metrics_r_squared_ratio": "27",
+      "metrics_sharpe": "27",
+      "metrics_sortino_ratio": "27",
+      "monthly_aaum_date": "27",
+      "monthly_aaum_value": "27",
+      "mutual_fund_name": "27",
+      "scheme_launch_date": "27"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Large Cap Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.43"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.83"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "0.68"
+     },
+     {
+      "name": "alpha",
+      "value": "0.57"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 2,520 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20220811"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 50 Hybrid Composite Debt"
+    ],
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 27,
+      "fund_manager_name": "29",
+      "load_entry": "29",
+      "main_scheme_name": "29",
+      "metrics_alpha": "29",
+      "metrics_r_squared_ratio": "29",
+      "metrics_sharpe": "29",
+      "metrics_sortino_ratio": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29",
+      "scheme_launch_date": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Absolute Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.59"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.58"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "3.17"
+     },
+     {
+      "name": "alpha",
+      "value": "13.34"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 2,054 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20010404"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 200 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "31",
+      "benchmark_index": "31",
+      "count": 27,
+      "fund_manager_name": "31",
+      "load_entry": "31",
+      "main_scheme_name": "31",
+      "metrics_alpha": "31",
+      "metrics_r_squared_ratio": "31",
+      "metrics_sharpe": "31",
+      "metrics_sortino_ratio": "31",
+      "monthly_aaum_date": "31",
+      "monthly_aaum_value": "31",
+      "mutual_fund_name": "31",
+      "scheme_launch_date": "31"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Quantamental Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.93"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.65"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.61"
+     },
+     {
+      "name": "alpha",
+      "value": "4.10"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,902 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20210503"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "33",
+      "benchmark_index": "33",
+      "count": 27,
+      "fund_manager_name": "33",
+      "load_entry": "33",
+      "main_scheme_name": "33",
+      "metrics_alpha": "33",
+      "metrics_r_squared_ratio": "33",
+      "metrics_sharpe": "33",
+      "metrics_sortino_ratio": "33",
+      "monthly_aaum_date": "33",
+      "monthly_aaum_value": "33",
+      "mutual_fund_name": "33",
+      "scheme_launch_date": "33"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Value Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.67"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.77"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.14"
+     },
+     {
+      "name": "alpha",
+      "value": "4.86"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,734 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20211130"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "35",
+      "benchmark_index": "35",
+      "count": 27,
+      "fund_manager_name": "35",
+      "load_entry": "35",
+      "main_scheme_name": "35",
+      "metrics_alpha": "35",
+      "metrics_mod_duration": "35",
+      "metrics_r_squared_ratio": "35",
+      "metrics_sharpe": "35",
+      "metrics_sortino_ratio": "35",
+      "monthly_aaum_date": "35",
+      "monthly_aaum_value": "35",
+      "mutual_fund_name": "35",
+      "scheme_launch_date": "35"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Momentum Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.83"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.74"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.53"
+     },
+     {
+      "name": "alpha",
+      "value": "6.55"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1,687"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,687 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20231120"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "37",
+      "benchmark_index": "37",
+      "count": 27,
+      "fund_manager_name": "37",
+      "load_entry": "37",
+      "main_scheme_name": "37",
+      "metrics_alpha": "37",
+      "metrics_r_squared_ratio": "37",
+      "metrics_sharpe": "37",
+      "metrics_sortino_ratio": "37",
+      "monthly_aaum_date": "37",
+      "monthly_aaum_value": "37",
+      "mutual_fund_name": "37",
+      "scheme_launch_date": "37"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Business Cycle Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.92"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.77"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.45"
+     },
+     {
+      "name": "alpha",
+      "value": "4.85"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,275 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20230530"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 50 Hybrid Composite debt"
+    ],
+    "field_location": [
+     {
+      "amc_name": "39",
+      "benchmark_index": "39",
+      "count": 27,
+      "fund_manager_name": "39",
+      "load_entry": "39",
+      "main_scheme_name": "39",
+      "metrics_alpha": "39",
+      "metrics_r_squared_ratio": "39",
+      "metrics_sharpe": "39",
+      "metrics_sortino_ratio": "39",
+      "monthly_aaum_date": "39",
+      "monthly_aaum_value": "39",
+      "mutual_fund_name": "39",
+      "scheme_launch_date": "39"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Dynamic Asset Allocation Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.15"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.61"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "2.16"
+     },
+     {
+      "name": "alpha",
+      "value": "13.12"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,220 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20230412"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "41",
+      "benchmark_index": "41",
+      "count": 27,
+      "fund_manager_name": "41",
+      "load_entry": "41",
+      "main_scheme_name": "41",
+      "metrics_alpha": "41",
+      "metrics_r_squared_ratio": "41",
+      "metrics_sharpe": "41",
+      "metrics_sortino_ratio": "41",
+      "monthly_aaum_date": "41",
+      "monthly_aaum_value": "41",
+      "mutual_fund_name": "41",
+      "scheme_launch_date": "41"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Focused Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.21"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.72"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "2.21"
+     },
+     {
+      "name": "alpha",
+      "value": "1.33"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,021 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20080828"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "Nifty India Manufacturing Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "43",
+      "benchmark_index": "43",
+      "count": 27,
+      "fund_manager_name": "43",
+      "load_entry": "43",
+      "main_scheme_name": "43",
+      "metrics_alpha": "43",
+      "metrics_r_squared_ratio": "43",
+      "metrics_sharpe": "43",
+      "metrics_sortino_ratio": "43",
+      "monthly_aaum_date": "43",
+      "monthly_aaum_value": "43",
+      "mutual_fund_name": "43",
+      "scheme_launch_date": "43"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Varun Pattani",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Manufacturing Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.74"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.75"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.17"
+     },
+     {
+      "name": "alpha",
+      "value": "2.17"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 843 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20230814"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "Nifty PSE TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "45",
+      "benchmark_index": "45",
+      "count": 27,
+      "fund_manager_name": "45",
+      "load_entry": "45",
+      "main_scheme_name": "45",
+      "metrics_alpha": "45",
+      "metrics_r_squared_ratio": "45",
+      "metrics_sharpe": "45",
+      "metrics_sortino_ratio": "45",
+      "monthly_aaum_date": "45",
+      "monthly_aaum_value": "45",
+      "mutual_fund_name": "45",
+      "scheme_launch_date": "45"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant PSU Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.25"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.93"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "0.37"
+     },
+     {
+      "name": "alpha",
+      "value": "1.53"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 717 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20240220"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "Nifty Financial Services TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "47",
+      "benchmark_index": "47",
+      "count": 27,
+      "fund_manager_name": "47",
+      "load_entry": "47",
+      "main_scheme_name": "47",
+      "metrics_alpha": "47",
+      "metrics_r_squared_ratio": "47",
+      "metrics_sharpe": "47",
+      "metrics_sortino_ratio": "47",
+      "monthly_aaum_date": "47",
+      "monthly_aaum_value": "47",
+      "mutual_fund_name": "47",
+      "scheme_launch_date": "47"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant BFSI Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.05"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.12"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.73"
+     },
+     {
+      "name": "alpha",
+      "value": "8.57"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 580 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20230620"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY Healthcare TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "49",
+      "benchmark_index": "49",
+      "count": 27,
+      "fund_manager_name": "49",
+      "load_entry": "49",
+      "main_scheme_name": "49",
+      "metrics_alpha": "49",
+      "metrics_r_squared_ratio": "49",
+      "metrics_sharpe": "49",
+      "metrics_sortino_ratio": "49",
+      "monthly_aaum_date": "49",
+      "monthly_aaum_value": "49",
+      "mutual_fund_name": "49",
+      "scheme_launch_date": "49"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Healthcare Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.83"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.70"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "1.44"
+     },
+     {
+      "name": "alpha",
+      "value": "1.21"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 396 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20230717"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "Nifty IT TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "51",
+      "benchmark_index": "51",
+      "count": 27,
+      "fund_manager_name": "51",
+      "load_entry": "51",
+      "main_scheme_name": "51",
+      "metrics_alpha": "51",
+      "metrics_r_squared_ratio": "51",
+      "metrics_sharpe": "51",
+      "metrics_sortino_ratio": "51",
+      "monthly_aaum_date": "51",
+      "monthly_aaum_value": "51",
+      "mutual_fund_name": "51",
+      "scheme_launch_date": "51"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Teck Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.14"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.64"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "0.22"
+     },
+     {
+      "name": "alpha",
+      "value": "1.96"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 377 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20230911"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "Nifty Commodities TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "53",
+      "benchmark_index": "53",
+      "count": 27,
+      "fund_manager_name": "53",
+      "load_entry": "53",
+      "main_scheme_name": "53",
+      "metrics_alpha": "53",
+      "metrics_r_squared_ratio": "53",
+      "metrics_sharpe": "53",
+      "metrics_sortino_ratio": "53",
+      "monthly_aaum_date": "53",
+      "monthly_aaum_value": "53",
+      "mutual_fund_name": "53",
+      "scheme_launch_date": "53"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Commodities Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.46"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.54"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "0.75"
+     },
+     {
+      "name": "alpha",
+      "value": "6.79"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 367 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20231227"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY 100 ESG TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "55",
+      "benchmark_index": "55",
+      "count": 27,
+      "fund_manager_name": "55",
+      "load_entry": "55",
+      "main_scheme_name": "55",
+      "metrics_alpha": "55",
+      "metrics_r_squared_ratio": "55",
+      "metrics_sharpe": "55",
+      "metrics_sortino_ratio": "55",
+      "monthly_aaum_date": "55",
+      "monthly_aaum_value": "55",
+      "mutual_fund_name": "55",
+      "scheme_launch_date": "55"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant ESG Equity Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.30"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.63"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "2.36"
+     },
+     {
+      "name": "alpha",
+      "value": "11.69"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 284 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20201105"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "NIFTY India Consumption TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "57",
+      "benchmark_index": "57",
+      "count": 27,
+      "fund_manager_name": "57",
+      "load_entry": "57",
+      "main_scheme_name": "57",
+      "metrics_alpha": "57",
+      "metrics_r_squared_ratio": "57",
+      "metrics_sharpe": "57",
+      "metrics_sortino_ratio": "57",
+      "monthly_aaum_date": "57",
+      "monthly_aaum_value": "57",
+      "mutual_fund_name": "57",
+      "scheme_launch_date": "57"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Consumption Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.30"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.72"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "0.43"
+     },
+     {
+      "name": "alpha",
+      "value": "10.81"
+     }
+    ],
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 283 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20240124"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "field_location": [
+     {
+      "amc_name": "59",
+      "count": 27,
+      "fund_manager_name": "59",
+      "main_scheme_name": "59",
+      "metrics_alpha": "59",
+      "metrics_avg_maturity": "59",
+      "metrics_macaulay": "59",
+      "metrics_mod_duration": "59",
+      "metrics_r_squared_ratio": "59",
+      "metrics_sharpe": "59",
+      "metrics_sortino_ratio": "59",
+      "metrics_ytm": "59",
+      "min_amt": "59",
+      "min_amt_multiple": "59",
+      "monthly_aaum_date": "59",
+      "monthly_aaum_value": "59",
+      "mutual_fund_name": "59",
+      "scheme_launch_date": "59"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sandeep Tandon",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ankit Pande",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ayusha Kumbhat",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Yug Tibrewal",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sameer Kate",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "main_scheme_name": "quant Multi Asset Fund",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "1.65"
+     },
+     {
+      "name": "ytm",
+      "value": "5.89%"
+     },
+     {
+      "name": "r_squared_ratio",
+      "value": "0.46"
+     },
+     {
+      "name": "mod_duration",
+      "value": "240 Days"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "394 Days"
+     },
+     {
+      "name": "macaulay",
+      "value": "249 Days"
+     },
+     {
+      "name": "sortino_ratio",
+      "value": "3.89"
+     },
+     {
+      "name": "alpha",
+      "value": "21.01"
+     }
+    ],
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 3,282 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20010417"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "CRISIL LIQUID FUND A1 INDEX"
+    ],
+    "field_location": [
+     {
+      "amc_name": "62",
+      "benchmark_index": "62",
+      "count": 27,
+      "fund_manager_name": "62",
+      "load_entry": "62",
+      "load_exit": "62",
+      "main_scheme_name": "62",
+      "metrics_avg_maturity": "62",
+      "metrics_macaulay": "62",
+      "metrics_mod_duration": "62",
+      "metrics_ytm": "62",
+      "min_addl_amt": "62",
+      "min_addl_amt_multiple": "62",
+      "min_amt": "62",
+      "min_amt_multiple": "62",
+      "monthly_aaum_date": "62",
+      "monthly_aaum_value": "62",
+      "mutual_fund_name": "62",
+      "scheme_launch_date": "62"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Harshvardhan Bharatia",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": ": Nil",
+      "type": "entry"
+     },
+     {
+      "comment": "(w.e.f. October 20, 2019) lnvestor exit upon Exit Load as a % of subscription / switch-In redemption Proceeds Day1 0.0070% Day2 0.0065% Day3 0.0060% Day4 0.0055% Day5 0.0050% Day6 0.0045% Day7 Onwards 0.0000%",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "quant Liquid Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.62%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "41 Days"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "43 Days"
+     },
+     {
+      "name": "macaulay",
+      "value": "43 Days"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 1,610 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20051003"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "CRISIL OVERNIGHT INDEX"
+    ],
+    "field_location": [
+     {
+      "amc_name": "64",
+      "benchmark_index": "64",
+      "count": 27,
+      "fund_manager_name": "64",
+      "load_entry": "64",
+      "main_scheme_name": "64",
+      "metrics_avg_maturity": "64",
+      "metrics_macaulay": "64",
+      "metrics_mod_duration": "64",
+      "metrics_ytm": "64",
+      "min_addl_amt": "64",
+      "min_addl_amt_multiple": "64",
+      "min_amt": "64",
+      "min_amt_multiple": "64",
+      "monthly_aaum_date": "64",
+      "monthly_aaum_value": "64",
+      "mutual_fund_name": "64",
+      "scheme_launch_date": "64"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Harshvardhan Bharatia",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Overnight Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "5.82%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "2 Days"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "2 Days"
+     },
+     {
+      "name": "macaulay",
+      "value": "2 Days"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 182 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20221204"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "Quant Money Managers Limited",
+    "benchmark_index": [
+     "CRISIL DYNAMIC GILT INDEX"
+    ],
+    "field_location": [
+     {
+      "amc_name": "66",
+      "benchmark_index": "66",
+      "count": 27,
+      "fund_manager_name": "66",
+      "load_entry": "66",
+      "main_scheme_name": "66",
+      "metrics_avg_maturity": "66",
+      "metrics_macaulay": "66",
+      "metrics_mod_duration": "66",
+      "metrics_ytm": "66",
+      "min_addl_amt": "66",
+      "min_addl_amt_multiple": "66",
+      "min_amt": "66",
+      "min_amt_multiple": "66",
+      "monthly_aaum_date": "66",
+      "monthly_aaum_value": "66",
+      "mutual_fund_name": "66",
+      "scheme_launch_date": "66"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Sanjeev Sharma",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Harshvardhan Bharatia",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "Nil |",
+      "type": "entry"
+     }
+    ],
+    "main_scheme_name": "quant Gilt Fund",
+    "metrics": [
+     {
+      "name": "ytm",
+      "value": "6.32%"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1846 Days"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3444 Days"
+     },
+     {
+      "name": "macaulay",
+      "value": "1909 Days"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "20250430",
+    "monthly_aaum_value": "₹ 139 cr",
+    "mutual_fund_name": "Quant Mutual Fund",
+    "scheme_launch_date": "20221221"
+   }
+  }
+ ]
+}

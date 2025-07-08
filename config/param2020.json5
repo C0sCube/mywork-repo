@@ -324,7 +324,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(Aditya\\s*Birla.*(?:Plan|Funds?|Path|Saver)\\s*(?:of Funds?|F[Oo]F|Funds?|Fund of Funds?|ETF)?)",
+        pattern: "(Aditya\\s*Birla.*?(?:Plan|Funds?|Path|Saver|F[Oo]F)\\s*(?:[Ss]cheme|.+?Plan\\s*(?:A|B)?|of Funds?|F[Oo]F|Funds?|Fund of Funds?|ETF)?)",
         bbox: [0, 0, 550, 50],
       },
       clip_bbox: [
@@ -364,7 +364,7 @@
         "Monthly\\s*Average\\s*AUM",
         "AUM as on",
         "Load\\s*Structure",
-        "Other\\s*Parameter",
+        "Other\\s*Parameters?",
         "EOL"
       ],
       manager: {
@@ -1158,7 +1158,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(HDFC.*?(?:FUND|Fund|ETF|FO?o?F|Index|Active)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
+        pattern: "(HDFC.*?(?:FUND|Fund|ETF|FO?o?F|Index|Active|Tax[Ss]aver)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
         bbox: [0, 0, 460, 60],
       },
       clip_bbox: [
@@ -1330,7 +1330,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern: "(HSBC.+?(?:FUNDS?|Funds?|ETF|Active|F[oO]F|Index|Plan|Path)\\s*(?:of [Ff]unds?|Fund of [Ff]unds?|F[oO]F|Fund?|FUNDS?)?)",
+        pattern:"(HSBC.+?(?:FUNDS?|Funds?|ETF|Active|F[oO]F|Index|Plan|Path)\\s*(?:of [Ff]unds?|Fund of [Ff]unds?|F[oO]F|Fund?|FUNDS?)?)",
         bbox: [0, 0, 600, 60],
       },
       clip_bbox: [

@@ -1,0 +1,3753 @@
+{
+ "metadata": {
+  "document_name": "7_28-Feb-25_FS.pdf",
+  "file_type": "fs",
+  "process_date": "20250318"
+ },
+ "records": [
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY 100 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "10",
+      "benchmark_index": "10",
+      "count": 24,
+      "fund_manager_managing_fund_since": "10",
+      "fund_manager_name": "10",
+      "fund_manager_total_exp": "10",
+      "load_entry": "10",
+      "load_exit": "10",
+      "main_scheme_name": "10",
+      "metrics_beta": "10",
+      "metrics_mod_duration": "10",
+      "metrics_port_turnover_ratio": "10",
+      "metrics_std_dev": "10",
+      "min_addl_amt": "10",
+      "min_addl_amt_multiple": "10",
+      "min_amt": "10",
+      "min_amt_multiple": "10",
+      "monthly_aaum_date": "10",
+      "monthly_aaum_value": "10",
+      "mutual_fund_name": "10",
+      "scheme_launch_date": "10"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "august 19, 2023",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14\nyears"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "LARGE CAP FUND",
+    "metrics": [
+     {
+      "name": "std_dev",
+      "value": "12.73%"
+     },
+     {
+      "name": "beta",
+      "value": "0.91"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.52"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "596.13",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20030130"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Nifty 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "11",
+      "benchmark_index": "11",
+      "count": 24,
+      "fund_manager_managing_fund_since": "11",
+      "fund_manager_name": "11",
+      "fund_manager_total_exp": "11",
+      "load_entry": "11",
+      "load_exit": "11",
+      "main_scheme_name": "11",
+      "metrics_beta": "11",
+      "metrics_port_turnover_ratio": "11",
+      "metrics_sharpe": "11",
+      "metrics_std_dev": "11",
+      "min_addl_amt": "11",
+      "min_addl_amt_multiple": "11",
+      "min_amt": "11",
+      "min_amt_multiple": "11",
+      "monthly_aaum_date": "11",
+      "monthly_aaum_value": "11",
+      "mutual_fund_name": "11",
+      "scheme_launch_date": "11"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "june 01, 2021",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "FLEXI CAP FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.11"
+     },
+     {
+      "name": "std_dev",
+      "value": "13.93%"
+     },
+     {
+      "name": "beta",
+      "value": "0.90"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.50"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "6,414.29",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20150304"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY LargeMidcap 250 Index TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "12",
+      "benchmark_index": "12",
+      "count": 24,
+      "fund_manager_managing_fund_since": "12",
+      "fund_manager_name": "12",
+      "fund_manager_total_exp": "12",
+      "load_entry": "12",
+      "load_exit": "12",
+      "main_scheme_name": "12",
+      "metrics_mod_duration": "12",
+      "metrics_port_turnover_ratio": "12",
+      "min_addl_amt": "12",
+      "min_addl_amt_multiple": "12",
+      "min_amt": "12",
+      "min_amt_multiple": "12",
+      "monthly_aaum_date": "12",
+      "monthly_aaum_value": "12",
+      "mutual_fund_name": "12",
+      "scheme_launch_date": "12"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Anandha Padmanabhan Anjeneyan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "february 12, 2024",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "LARGE AND MID CAP FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.29"
+     },
+     {
+      "name": "mod_duration",
+      "value": "250"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "584.19",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20240212"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Nifty 500 Multicap 50:25:25 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "13",
+      "benchmark_index": "13",
+      "count": 24,
+      "fund_manager_managing_fund_since": "13",
+      "fund_manager_name": "13",
+      "fund_manager_total_exp": "13",
+      "load_entry": "13",
+      "load_exit": "13",
+      "main_scheme_name": "13",
+      "metrics_mod_duration": "13",
+      "metrics_port_turnover_ratio": "13",
+      "min_addl_amt": "13",
+      "min_addl_amt_multiple": "13",
+      "min_amt": "13",
+      "min_amt_multiple": "13",
+      "monthly_aaum_date": "13",
+      "monthly_aaum_value": "13",
+      "mutual_fund_name": "13",
+      "scheme_launch_date": "13"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "september 10, 2024",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "MULTICAP FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.11"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "334.56",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "FEBRUARY 28"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY Midcap 150 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "14",
+      "benchmark_index": "14",
+      "count": 24,
+      "fund_manager_managing_fund_since": "14",
+      "fund_manager_name": "14",
+      "fund_manager_total_exp": "14",
+      "load_entry": "14",
+      "load_exit": "14",
+      "main_scheme_name": "14",
+      "metrics_beta": "14",
+      "metrics_port_turnover_ratio": "14",
+      "metrics_sharpe": "14",
+      "metrics_std_dev": "14",
+      "min_addl_amt": "14",
+      "min_addl_amt_multiple": "14",
+      "min_amt": "14",
+      "min_amt_multiple": "14",
+      "monthly_aaum_date": "14",
+      "monthly_aaum_value": "14",
+      "mutual_fund_name": "14",
+      "scheme_launch_date": "14"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "november 01, 2023",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "MIDCAP OPPORTUNITIES FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.27"
+     },
+     {
+      "name": "std_dev",
+      "value": "14.16%"
+     },
+     {
+      "name": "beta",
+      "value": "0.82"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.50"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "11209.15",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20131202"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY Smallcap 250 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "15",
+      "benchmark_index": "15",
+      "count": 24,
+      "fund_manager_managing_fund_since": "15",
+      "fund_manager_name": "15",
+      "fund_manager_total_exp": "15",
+      "load_entry": "15",
+      "load_exit": "15",
+      "main_scheme_name": "15",
+      "metrics_beta": "15",
+      "metrics_mod_duration": "15",
+      "metrics_port_turnover_ratio": "15",
+      "metrics_sharpe": "15",
+      "metrics_std_dev": "15",
+      "min_addl_amt": "15",
+      "min_addl_amt_multiple": "15",
+      "min_amt": "15",
+      "min_amt_multiple": "15",
+      "monthly_aaum_date": "15",
+      "monthly_aaum_value": "15",
+      "mutual_fund_name": "15",
+      "scheme_launch_date": "15"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "SMALL CAP FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.18"
+     },
+     {
+      "name": "std_dev",
+      "value": "14.95%"
+     },
+     {
+      "name": "beta",
+      "value": "0.76"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.63"
+     },
+     {
+      "name": "mod_duration",
+      "value": "1"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "1558.28",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20210729"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "16",
+      "benchmark_index": "16",
+      "count": 24,
+      "fund_manager_managing_fund_since": "16",
+      "fund_manager_name": "16",
+      "fund_manager_total_exp": "16",
+      "load_entry": "16",
+      "load_exit": "16",
+      "main_scheme_name": "16",
+      "metrics_beta": "16",
+      "metrics_port_turnover_ratio": "16",
+      "metrics_sharpe": "16",
+      "metrics_std_dev": "16",
+      "min_addl_amt": "16",
+      "min_amt": "16",
+      "min_amt_multiple": "16",
+      "monthly_aaum_date": "16",
+      "monthly_aaum_value": "16",
+      "mutual_fund_name": "16",
+      "scheme_launch_date": "16"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ELSS TAX SAVER FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.33"
+     },
+     {
+      "name": "std_dev",
+      "value": "12.45%"
+     },
+     {
+      "name": "beta",
+      "value": "0.86"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.39"
+     }
+    ],
+    "min_addl_amt": "500",
+    "min_amt": "500",
+    "min_amt_multiple": "500",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "770.63",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20151211"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "BSE Healthcare TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "17",
+      "benchmark_index": "17",
+      "count": 24,
+      "fund_manager_managing_fund_since": "17",
+      "fund_manager_name": "17",
+      "fund_manager_total_exp": "17",
+      "load_entry": "17",
+      "load_exit": "17",
+      "main_scheme_name": "17",
+      "metrics_port_turnover_ratio": "17",
+      "min_addl_amt": "17",
+      "min_addl_amt_multiple": "17",
+      "monthly_aaum_date": "17",
+      "monthly_aaum_value": "17",
+      "mutual_fund_name": "17",
+      "scheme_launch_date": "17"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years of"
+     },
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "dec 06, 2024",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details Inception Date: Regular Plan: 06/12/2024, Direct Plan: 06/12/2024. Application Amount:",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "HEALTHCARE FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.05"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "27.23",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20241206"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "BSE 500 TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "18",
+      "benchmark_index": "18",
+      "count": 24,
+      "fund_manager_managing_fund_since": "18",
+      "fund_manager_name": "18",
+      "fund_manager_total_exp": "18",
+      "load_entry": "18",
+      "load_exit": "18",
+      "main_scheme_name": "18",
+      "metrics_port_turnover_ratio": "18",
+      "min_addl_amt": "18",
+      "min_addl_amt_multiple": "18",
+      "min_amt": "18",
+      "min_amt_multiple": "18",
+      "monthly_aaum_date": "18",
+      "monthly_aaum_value": "18",
+      "mutual_fund_name": "18",
+      "scheme_launch_date": "18"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Puneet",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "august 01, 2024",
+      "name": "Mr. Anandha Padmanabhan Anjeneyan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "august 01, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years of"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "RETIREMENT FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.23"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "72.85",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20240415"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "MSCI Emerging Markets Index TRI"
+    ],
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 24,
+      "fund_manager_managing_fund_since": "19",
+      "fund_manager_name": "19",
+      "fund_manager_total_exp": "19",
+      "load_entry": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "min_addl_amt": "19",
+      "min_addl_amt_multiple": "19",
+      "min_amt": "19",
+      "min_amt_multiple": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19",
+      "scheme_launch_date": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Jennison Emerging Markets",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "EMERGING MARKETS EQUITY FUND",
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "97.84",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20070911"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "MSCI All Country World Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "20",
+      "benchmark_index": "20",
+      "count": 24,
+      "fund_manager_managing_fund_since": "20",
+      "fund_manager_name": "20",
+      "fund_manager_total_exp": "20",
+      "load_entry": "20",
+      "load_exit": "20",
+      "main_scheme_name": "20",
+      "metrics_port_turnover_ratio": "20",
+      "min_addl_amt": "20",
+      "min_addl_amt_multiple": "20",
+      "min_amt": "20",
+      "min_amt_multiple": "20",
+      "monthly_aaum_date": "20",
+      "monthly_aaum_value": "20",
+      "mutual_fund_name": "20",
+      "scheme_launch_date": "20"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Jennison Global",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "GLOBAL EQUITY OPPORTUNITIES FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.04"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "1361.94",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20100513"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "FTSE EPRA / NAREIT Developed Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 24,
+      "fund_manager_managing_fund_since": "21",
+      "fund_manager_name": "21",
+      "fund_manager_total_exp": "21",
+      "load_entry": "21",
+      "load_exit": "21",
+      "main_scheme_name": "21",
+      "metrics_port_turnover_ratio": "21",
+      "min_addl_amt": "21",
+      "min_addl_amt_multiple": "21",
+      "min_amt": "21",
+      "min_amt_multiple": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21",
+      "scheme_launch_date": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "february 15, 2025",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Global Select Real",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL. Regular Plan and Direct Plan are available for subscription as per the below details",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "GLOBAL SELECT REAL ESTATE SECURITIES FUND OF FUND",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.01"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "53.26",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20211203"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 35+65 - Aggresive Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "22",
+      "benchmark_index": "22",
+      "count": 24,
+      "fund_manager_managing_fund_since": "22",
+      "fund_manager_name": "22",
+      "fund_manager_total_exp": "22",
+      "load_entry": "22",
+      "load_exit": "22",
+      "main_scheme_name": "22",
+      "metrics_avg_maturity": "22",
+      "metrics_beta": "22",
+      "metrics_mod_duration": "22",
+      "metrics_port_turnover_ratio": "22",
+      "metrics_sharpe": "22",
+      "metrics_std_dev": "22",
+      "min_addl_amt": "22",
+      "min_addl_amt_multiple": "22",
+      "min_amt": "22",
+      "min_amt_multiple": "22",
+      "monthly_aaum_date": "22",
+      "monthly_aaum_value": "22",
+      "mutual_fund_name": "22",
+      "scheme_launch_date": "22"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "august 19, 2023",
+      "name": "Mr. Anandha",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "HYBRID EQUITY FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.35"
+     },
+     {
+      "name": "std_dev",
+      "value": "10.10%"
+     },
+     {
+      "name": "beta",
+      "value": "1.07"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.30"
+     },
+     {
+      "name": "mod_duration",
+      "value": "5.74 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "9.90 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "212.07",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20040205"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Nifty 50 Arbitrage Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 24,
+      "fund_manager_managing_fund_since": "23",
+      "fund_manager_name": "23",
+      "fund_manager_total_exp": "23",
+      "load_entry": "23",
+      "load_exit": "23",
+      "main_scheme_name": "23",
+      "metrics_beta": "23",
+      "metrics_port_turnover_ratio": "23",
+      "metrics_sharpe": "23",
+      "metrics_std_dev": "23",
+      "min_addl_amt": "23",
+      "min_addl_amt_multiple": "23",
+      "min_amt": "23",
+      "min_amt_multiple": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23",
+      "scheme_launch_date": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "march 29, 2024",
+      "name": "Mr. Chetan Chavan",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "april 22, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "(w.e.f. October 25, 2023) For exits within 30 days from the date of allotment of units: 0.25%; For exits beyond 30 days from the date of allotment of units: Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ARBITRAGE FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.26"
+     },
+     {
+      "name": "std_dev",
+      "value": "0.90%"
+     },
+     {
+      "name": "beta",
+      "value": "0.48"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "1.11"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "90.60",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20140827"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY Equity Savings Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "24",
+      "benchmark_index": "24",
+      "count": 24,
+      "fund_manager_managing_fund_since": "24",
+      "fund_manager_name": "24",
+      "fund_manager_total_exp": "24",
+      "load_entry": "24",
+      "load_exit": "24",
+      "main_scheme_name": "24",
+      "metrics_avg_maturity": "24",
+      "metrics_beta": "24",
+      "metrics_mod_duration": "24",
+      "metrics_port_turnover_ratio": "24",
+      "metrics_sharpe": "24",
+      "metrics_std_dev": "24",
+      "min_addl_amt": "24",
+      "min_addl_amt_multiple": "24",
+      "min_amt": "24",
+      "min_amt_multiple": "24",
+      "monthly_aaum_date": "24",
+      "monthly_aaum_value": "24",
+      "mutual_fund_name": "24",
+      "scheme_launch_date": "24"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "may 12, 2022",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Vivek Sharma",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years of"
+     },
+     {
+      "managing_fund_since": "december 01, 2021",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "EQUITY SAVINGS FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.06"
+     },
+     {
+      "name": "std_dev",
+      "value": "2.25%"
+     },
+     {
+      "name": "beta",
+      "value": "0.44"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.34"
+     },
+     {
+      "name": "mod_duration",
+      "value": "3.01 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.13 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "84.79",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20040205"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Hybrid 50+50 Moderate Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "25",
+      "benchmark_index": "25",
+      "count": 24,
+      "fund_manager_managing_fund_since": "25",
+      "fund_manager_name": "25",
+      "fund_manager_total_exp": "25",
+      "load_entry": "25",
+      "load_exit": "25",
+      "main_scheme_name": "25",
+      "metrics_avg_maturity": "25",
+      "metrics_beta": "25",
+      "metrics_mod_duration": "25",
+      "metrics_port_turnover_ratio": "25",
+      "metrics_sharpe": "25",
+      "metrics_std_dev": "25",
+      "min_addl_amt": "25",
+      "min_addl_amt_multiple": "25",
+      "min_amt": "25",
+      "min_amt_multiple": "25",
+      "monthly_aaum_date": "25",
+      "monthly_aaum_value": "25",
+      "mutual_fund_name": "25",
+      "scheme_launch_date": "25"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "april 15, 2024",
+      "name": "Mr. Utsav Mehta",
+      "qualification": "",
+      "total_exp": "13 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Anandha Padmanabhan",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "april 01, 2023",
+      "name": "Mr. Vinay Paharia",
+      "qualification": "",
+      "total_exp": "20 years"
+     },
+     {
+      "managing_fund_since": "december 01, 2021",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "For Exits within 90 days from date of allotment of units: 0.50%; For Exits beyond 90 days from date of allotment of units: NIL.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "BALANCED ADVANTAGE FUND",
+    "metrics": [
+     {
+      "name": "sharpe",
+      "value": "0.11"
+     },
+     {
+      "name": "std_dev",
+      "value": "8.97%"
+     },
+     {
+      "name": "beta",
+      "value": "1.03"
+     },
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.49"
+     },
+     {
+      "name": "mod_duration",
+      "value": "4.38 years"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "7.18 years"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "1050.68",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20210204"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "NIFTY 1D Rate Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "28",
+      "benchmark_index": "28",
+      "count": 24,
+      "fund_manager_managing_fund_since": "28",
+      "fund_manager_name": "28",
+      "fund_manager_total_exp": "28",
+      "indicative_inv_horizon": "28",
+      "load_entry": "28",
+      "load_exit": "28",
+      "main_scheme_name": "28",
+      "metrics_avg_maturity": "28",
+      "metrics_macaulay": "28",
+      "metrics_mod_duration": "28",
+      "min_addl_amt": "28",
+      "min_addl_amt_multiple": "28",
+      "min_amt": "28",
+      "min_amt_multiple": "28",
+      "monthly_aaum_date": "28",
+      "monthly_aaum_value": "28",
+      "mutual_fund_name": "28",
+      "scheme_launch_date": "28"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Moderate Risk High Moderately Risk",
+     "\n",
+     "Moderate Moderately",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil ## For rating methodology refer page no. 36 Regular Plan and Direct Plan are available for subscription as per the below details Inception Date: Regular Plan: 27/08/2019, Direct Plan: 27/08/2019. ` 1/- thereafter. Repurchase / Redemption Amount: ` 1000/- and in multiples of 5 installments of 1000/- each and in multiples of 1/- thereafter.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "OVERNIGHT FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "1 day"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1 day"
+     },
+     {
+      "name": "macaulay",
+      "value": "1 day"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "67.55",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20190827"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Liquid Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 24,
+      "fund_manager_managing_fund_since": "29",
+      "fund_manager_name": "29",
+      "fund_manager_total_exp": "29",
+      "load_entry": "29",
+      "load_exit": "29",
+      "main_scheme_name": "29",
+      "metrics_avg_maturity": "29",
+      "metrics_macaulay": "29",
+      "metrics_mod_duration": "29",
+      "min_addl_amt": "29",
+      "min_addl_amt_multiple": "29",
+      "min_amt": "29",
+      "min_amt_multiple": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29",
+      "scheme_launch_date": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     },
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Investor exit upon Exit load as a % of redemption/ subscription switch proceeds Day 1 0.0070% Day 2 0.0065% Day 3 0.0060% Day 4 0.0055% Day 5 0.0050% Day 6 0.0045% Day 7 onwards 0.0000% ## For rating methodology refer page no. 36",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "LIQUID FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "1.70 months"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "1.80 months"
+     },
+     {
+      "name": "macaulay",
+      "value": "1.80 months"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "498.30",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20070905"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Ultra Short Duration Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "30",
+      "benchmark_index": "30",
+      "count": 24,
+      "fund_manager_managing_fund_since": "30",
+      "fund_manager_name": "30",
+      "fund_manager_total_exp": "30",
+      "load_entry": "30",
+      "load_exit": "30",
+      "main_scheme_name": "30",
+      "metrics_avg_maturity": "30",
+      "metrics_macaulay": "30",
+      "metrics_mod_duration": "30",
+      "min_addl_amt": "30",
+      "min_amt": "30",
+      "min_amt_multiple": "30",
+      "monthly_aaum_date": "30",
+      "monthly_aaum_value": "30",
+      "mutual_fund_name": "30",
+      "scheme_launch_date": "30"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years of"
+     },
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil. ## For rating methodology refer page no. 36",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "ULTRA SHORT DURATION FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "4.51 months"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "4.93 months"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.92 months"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "238.43",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20080714"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Money Market A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "31",
+      "benchmark_index": "31",
+      "count": 24,
+      "fund_manager_managing_fund_since": "31",
+      "fund_manager_name": "31",
+      "fund_manager_total_exp": "31",
+      "load_entry": "31",
+      "load_exit": "31",
+      "main_scheme_name": "31",
+      "metrics_avg_maturity": "31",
+      "metrics_macaulay": "31",
+      "metrics_mod_duration": "31",
+      "min_addl_amt": "31",
+      "min_addl_amt_multiple": "31",
+      "min_amt": "31",
+      "min_amt_multiple": "31",
+      "monthly_aaum_date": "31",
+      "monthly_aaum_value": "31",
+      "mutual_fund_name": "31",
+      "scheme_launch_date": "31"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "july 16, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years of"
+     },
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Bhupesh",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "(W.e.f. January 10, 2022) Nil. ## For rating methodology refer page no. 36",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "MONEY MARKET FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "6.94 months"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "7.56 months"
+     },
+     {
+      "name": "macaulay",
+      "value": "7.56 months"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "175.62",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20200306"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Dynamic Bond A-III Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "32",
+      "benchmark_index": "32",
+      "count": 24,
+      "fund_manager_managing_fund_since": "32",
+      "fund_manager_name": "32",
+      "fund_manager_total_exp": "32",
+      "load_entry": "32",
+      "load_exit": "32",
+      "main_scheme_name": "32",
+      "metrics_avg_maturity": "32",
+      "metrics_macaulay": "32",
+      "metrics_mod_duration": "32",
+      "min_addl_amt": "32",
+      "min_addl_amt_multiple": "32",
+      "min_amt": "32",
+      "min_amt_multiple": "32",
+      "monthly_aaum_date": "32",
+      "monthly_aaum_value": "32",
+      "mutual_fund_name": "32",
+      "scheme_launch_date": "32"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "(W.e.f. January 10, 2022) Nil ## For rating methodology refer page no. 36",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "DYNAMIC BOND FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "5.60 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "8.60 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "5.81 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "107.44",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20120112"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Corporate Debt A-II Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "33",
+      "benchmark_index": "33",
+      "count": 24,
+      "fund_manager_managing_fund_since": "33",
+      "fund_manager_name": "33",
+      "fund_manager_total_exp": "33",
+      "load_entry": "33",
+      "load_exit": "33",
+      "main_scheme_name": "33",
+      "metrics_avg_maturity": "33",
+      "metrics_macaulay": "33",
+      "metrics_mod_duration": "33",
+      "min_addl_amt": "33",
+      "min_addl_amt_multiple": "33",
+      "min_amt": "33",
+      "min_amt_multiple": "33",
+      "monthly_aaum_date": "33",
+      "monthly_aaum_value": "33",
+      "mutual_fund_name": "33",
+      "scheme_launch_date": "33"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil ## For rating methodology refer page no. 36",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "CORPORATE BOND FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "2.99 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "3.88 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.17 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "95.47",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20030130"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Dynamic Gilt Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "34",
+      "benchmark_index": "34",
+      "count": 24,
+      "fund_manager_managing_fund_since": "34",
+      "fund_manager_name": "34",
+      "fund_manager_total_exp": "34",
+      "load_entry": "34",
+      "load_exit": "34",
+      "main_scheme_name": "34",
+      "metrics_avg_maturity": "34",
+      "metrics_macaulay": "34",
+      "metrics_mod_duration": "34",
+      "min_addl_amt": "34",
+      "min_addl_amt_multiple": "34",
+      "min_amt": "34",
+      "min_amt_multiple": "34",
+      "monthly_aaum_date": "34",
+      "monthly_aaum_value": "34",
+      "mutual_fund_name": "34",
+      "scheme_launch_date": "34"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "september 13, 2022",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18\nyears"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "GILT FUND",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "7.24 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "12.81 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "7.54 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "5000",
+    "min_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "116.14",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20081027"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL-IBX Gilt Index - April 2028"
+    ],
+    "field_location": [
+     {
+      "amc_name": "35",
+      "benchmark_index": "35",
+      "count": 24,
+      "fund_manager_name": "35",
+      "fund_manager_total_exp": "35",
+      "load_entry": "35",
+      "load_exit": "35",
+      "main_scheme_name": "35",
+      "metrics_avg_maturity": "35",
+      "metrics_macaulay": "35",
+      "metrics_mod_duration": "35",
+      "metrics_tracking_error": "35",
+      "min_addl_amt": "35",
+      "min_addl_amt_multiple": "35",
+      "monthly_aaum_date": "35",
+      "monthly_aaum_value": "35",
+      "mutual_fund_name": "35",
+      "scheme_launch_date": "35"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Puneet Pal",
+      "qualification": "",
+      "total_exp": "22 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mr. Bhupesh Kalyani",
+      "qualification": "",
+      "total_exp": "18 years"
+     }
+    ],
+    "load": [
+     {
+      "comment": "NA.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "CRISIL IBX GILT INDEX - APR 2028 FUND",
+    "metrics": [
+     {
+      "name": "tracking_error",
+      "value": "22"
+     },
+     {
+      "name": "mod_duration",
+      "value": "2.28 yrs"
+     },
+     {
+      "name": "avg_maturity",
+      "value": "2.63 yrs"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.35 yrs"
+     }
+    ],
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "monthly_aaum_date": "-DEC 2024",
+    "monthly_aaum_value": "28.95",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20230222"
+   }
+  }
+ ]
+}cal Ltd.",
+     "\n",
+     "Voltas",
+     "Crompton",
+     "Dixon",
+     "Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA Max Healthcare Institute Ltd.BEVERAGES",
+      "type": "entry"
+     },
+     {
+      "comment": "United Spirits Ltd. Varun Beverages Ltd. 1% if units are redeemed/switched out on ELECTRICAL EQUIPMENT GE Vernova T&D India Ltd. or before completion of 15 days from the CG Power And Industrial Solutions Ltd. date of allotment. Nil if redeemed or AEROSPACE & DEFENSE Bharat Electronics Ltd. switched out after completion of 15 days DIVERSIFIED METALS from the date of allotment of units. Vedanta Ltd. TEXTILES & APPARELS *The AUM is inclusive of market value of the Gokaldas Exports Ltd. investments made by Union Gold ETF in INSURANCE Max Financial Services Ltd. Union Multi Asset Fund totalling to ` 27.71 CAPITAL MARKETS crores. Nippon Life India Asset Management Ltd. HOUSEHOLD PRODUCTS **The AAUM is inclusive of market value of Doms Industries Ltd. the investments made by Union Gold ETF OIL Oil & Natural Gas Corporation Ltd.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Long term wealth creation • Investment in a diversified portfolio of Equity & Equity MULTI ASSET Instruments and Units of Gold ETFs and/or Silver Related Instruments, Debt and Money Market ALLOCATION FUND ETFs ",
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "819.10 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "@@@ Techno Electric & Engineering Company Ltd. 0.20% FERROUS METALS"
+    ],
+    "field_location": [
+     {
+      "amc_name": "19",
+      "benchmark_index": "19",
+      "count": 27,
+      "fund_manager_managing_fund_since": "19",
+      "fund_manager_name": "19",
+      "fund_manager_total_exp": "19",
+      "indicative_inv_horizon": "19",
+      "load_entry": "19",
+      "load_exit": "19",
+      "main_scheme_name": "19",
+      "metrics_net_equity_level": "19",
+      "metrics_port_turnover_ratio": "19",
+      "monthly_aaum_date": "19",
+      "monthly_aaum_value": "19",
+      "mutual_fund_name": "19"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 25",
+      "name": "Sanjay Bembalkar Mahindra",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": "november 01, 2024",
+      "name": "Maruti Suzuki India",
+      "qualification": "",
+      "total_exp": "9 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Motor Company Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Eicher Motors Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Bharti Airtel Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Indus Towers Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Gaurav Chopra Vodafone",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Reliance Industries Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Indian Oil Corporation",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Bajaj Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ltd. Shriram Finance",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Aadhar Housing Finance",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Parijat Agrawal Jio",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Financial Services Ltd",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "PHARMACEUTICALS & BIOTECHNOLOGY 2.83%",
+     "\n",
+     "Voltas Ltd. 0.22%",
+     "\n",
+     "Lupin",
+     "Ltd.",
+     "\n",
+     "Sun",
+     "Lupin",
+     "Pharmaceutical",
+     "Ltd.",
+     "Industries",
+     "Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA Quess Corporation Ltd. Awfis Space Solutions Ltd.",
+      "type": "entry"
+     },
+     {
+      "comment": "OIL Oil & Natural Gas Corporation Ltd. AEROSPACE & DEFENSE 1% if units are redeemed or switched out on Bharat Electronics Ltd. or before completion of 15 days from the ELECTRICAL EQUIPMENT CG Power And Industrial Solutions Ltd. date of allotment. Nil thereafter. Hitachi Energy India Ltd. TRANSPORT INFRASTRUCTURE Market Capitalisation as on Feb. 28, 2025 Adani Ports & Special Economic Zone Ltd. CAPITAL MARKETS Large Cap: 75.39% HDFC Asset Management Company Ltd. Nippon Life India Asset Management Ltd. Mid Cap: 16.63% FERTILIZERS & AGROCHEMICALS Coromandel International Ltd. Small Cap: 7.98% DIVERSIFIED METALS Vedanta Ltd. AUTO COMPONENTS Gabriel India Ltd. NON - FERROUS METALS Hindalco Industries Ltd. INSURANCE Max Financial Services Ltd. INDUSTRIAL PRODUCTS",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Long Term Capital Appreciation • Investment predominantly in a portfolio of equity and BALANCED equity linked securities and the rest in debt and money market instruments. ADVANTAGE FUND ",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.54%"
+     },
+     {
+      "name": "net_equity_level",
+      "value": "0.00%"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "1,359.28 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "REC Ltd. Jio Financial Services Ltd. LEISURE SERVICES"
+    ],
+    "field_location": [
+     {
+      "amc_name": "20",
+      "benchmark_index": "20",
+      "count": 27,
+      "fund_manager_managing_fund_since": "20",
+      "fund_manager_name": "20",
+      "fund_manager_total_exp": "20",
+      "indicative_inv_horizon": "20",
+      "load_entry": "20",
+      "load_exit": "20",
+      "main_scheme_name": "20",
+      "metrics_net_equity_level": "20",
+      "metrics_port_turnover_ratio": "20",
+      "monthly_aaum_date": "20",
+      "monthly_aaum_value": "20",
+      "mutual_fund_name": "20"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "january 25",
+      "name": "Bharti Airtel Ltd",
+      "qualification": "",
+      "total_exp": "17 years"
+     },
+     {
+      "managing_fund_since": "november 01, 2024",
+      "name": "Vodafone Idea Ltd",
+      "qualification": "",
+      "total_exp": "9 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sanjay Bembalkar Reliance",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Bharat Petroleum Corporation",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Management. Eicher",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Bajaj Auto Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Maruti Suzuki India",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Motor Company Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Titan Company Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dixon Technologies",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Gaurav Chopra Crompton",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Greaves Consumer Electrical",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Ltd. Blue Star",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Interglobe Aviation Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Hindustan Unilever Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Parijat Agrawal",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "POWER",
+     "\n",
+     "JK",
+     "\n",
+     "Tata"
+    ],
+    "load": [
+     {
+      "comment": "NA Coromandel International Ltd.ELECTRICAL EQUIPMENT",
+      "type": "entry"
+     },
+     {
+      "comment": "CG Power And Industrial Solutions Ltd. Suzlon Energy Ltd. AEROSPACE & DEFENSE 1% if units are redeemed or switched out on Bharat Electronics Ltd. TEXTILES & APPARELS or before completion of 15 days from the Gokaldas Exports Ltd. date of allotment. Nil thereafter. INDUSTRIAL PRODUCTS Cummins India Ltd. Kirloskar Oil Engines Ltd. Market Capitalisation as on Feb. 28, 2025 AUTO COMPONENTS Gabriel India Ltd. Large Cap: 73.02% FERROUS METALS",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • • Investment predominantly in a portfolio of equity and Long Term Capital Appreciation equity related securities EQUITY SAVINGS FUND ",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.55%"
+     },
+     {
+      "name": "net_equity_level",
+      "value": "0.00%"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "0.38",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Adani Green Energy Ltd. Tata Power Company Ltd."
+    ],
+    "field_location": [
+     {
+      "amc_name": "21",
+      "benchmark_index": "21",
+      "count": 27,
+      "fund_manager_managing_fund_since": "21",
+      "fund_manager_name": "21",
+      "fund_manager_total_exp": "21",
+      "indicative_inv_horizon": "21",
+      "load_entry": "21",
+      "load_exit": "21",
+      "main_scheme_name": "21",
+      "metrics_port_turnover_ratio": "21",
+      "monthly_aaum_date": "21",
+      "monthly_aaum_value": "21",
+      "mutual_fund_name": "21"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Consultancy Services",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "inception",
+      "name": "Vishal Thakker",
+      "qualification": "",
+      "total_exp": "24 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Tech Mahindra Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Reliance Industries Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Hindustan Petroleum Corporation",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sun Pharmaceutical Industries",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Divi's Laboratories Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Devesh Thacker",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Cipla Ltd. Aurobindo",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Pharma Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Dr. Reddy's Laboratories",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Granules India",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Banking Industry. Hero",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Maruti Suzuki India",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Motor Company Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Eicher Motors Ltd",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Bajaj Tata Motors Auto Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA L&T Technology Services Ltd.OIL",
+      "type": "entry"
+     },
+     {
+      "comment": "Oil & Natural Gas Corporation Ltd. CAPITAL MARKETS • 0.25% if units are redeemed or switched Multi Commodity Exchange of India Ltd. Computer Age Management Services Ltd. out on or before completion of 1 month LEISURE SERVICES from the date of allotment of units. The Indian Hotels Company Ltd. Jubilant Foodworks Ltd. BEVERAGES • Nil if units are redeemed or switched out Varun Beverages Ltd. after completion of 1 month from the United Spirits Ltd. date of allotment of units. TRANSPORT INFRASTRUCTURE Adani Ports & Special Economic Zone Ltd. GMR Airports Ltd. FINANCIAL TECHNOLOGY (FINTECH) One 97 Communications Ltd.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Income over short term from arbitrage opportunities in equity market. • Investment in arbitrage opportunities in the cash & ARBITRAGE FUND derivatives segment of the equity market ",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "1.02%"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "229.62 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Domestic Price of Physical Gold"
+    ],
+    "field_location": [
+     {
+      "amc_name": "22",
+      "benchmark_index": "22",
+      "count": 27,
+      "fund_manager_managing_fund_since": "22",
+      "fund_manager_name": "22",
+      "fund_manager_total_exp": "22",
+      "indicative_inv_horizon": "22",
+      "load_entry": "22",
+      "load_exit": "22",
+      "main_scheme_name": "22",
+      "monthly_aaum_date": "22",
+      "monthly_aaum_value": "22",
+      "mutual_fund_name": "22",
+      "scheme_launch_date": "22"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Vinod Malviya",
+      "qualification": "",
+      "total_exp": "15 years"
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Long",
+     "Term",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Capital appreciation over long term • Returns that are in line with the performance of GOLD ETF tracking errors physical gold in terms of domestic prices, subject to ",
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "21.57 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20250218"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Info Edge (India) Ltd. Zomato Ltd."
+    ],
+    "field_location": [
+     {
+      "amc_name": "23",
+      "benchmark_index": "23",
+      "count": 27,
+      "fund_manager_managing_fund_since": "23",
+      "fund_manager_name": "23",
+      "fund_manager_total_exp": "23",
+      "indicative_inv_horizon": "23",
+      "load_entry": "23",
+      "load_exit": "23",
+      "main_scheme_name": "23",
+      "metrics_port_turnover_ratio": "23",
+      "monthly_aaum_date": "23",
+      "monthly_aaum_value": "23",
+      "mutual_fund_name": "23"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "november 01, 2024",
+      "name": "Pratik Dharmshi Muthoot",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Shriram Finance Ltd",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Cholamandalam And",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Home First Finance",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Management. Bajaj",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Lupin Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sun Pharmaceutical Industries",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Torrent Pharmaceuticals Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Vinod Malviya Ajanta",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Pharma Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Alivus Life Sciences",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Cipla Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Maruti Suzuki India",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Motor Company Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mahindra Ltd",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Hero Mahindra MotoCorp & Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA KEI Industries Ltd.Cummins India Ltd.Kirloskar Oil Engines Ltd.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil KSB Ltd. AUTO COMPONENTS",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Long Term Capital Appreciation • Investment in a mix of securities comprising of RETIREMENT FUND as per the asset allocation pattern of the Scheme with equity, equity related securities and debt instruments ",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "0.75 time"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "148.78 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "ü Hindustan Unilever Ltd. ITC Ltd."
+    ],
+    "field_location": [
+     {
+      "amc_name": "24",
+      "benchmark_index": "24",
+      "count": 27,
+      "fund_manager_managing_fund_since": "24",
+      "fund_manager_name": "24",
+      "fund_manager_total_exp": "24",
+      "indicative_inv_horizon": "24",
+      "load_entry": "24",
+      "load_exit": "24",
+      "main_scheme_name": "24",
+      "metrics_port_turnover_ratio": "24",
+      "monthly_aaum_date": "24",
+      "monthly_aaum_value": "24",
+      "mutual_fund_name": "24"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "november 01, 2024",
+      "name": "Industries Ltd",
+      "qualification": "",
+      "total_exp": "9 years"
+     },
+     {
+      "managing_fund_since": "november 01, 2024",
+      "name": "Eureka Forbes Ltd",
+      "qualification": "",
+      "total_exp": "15 years"
+     },
+     {
+      "managing_fund_since": "inception",
+      "name": "Gaurav Chopra Crompton",
+      "qualification": "",
+      "total_exp": "28 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Greaves Consumer Electrical",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Titan Company Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Voltas Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Bajaj Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Muthoot Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Vinod Malviya Home",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "First Finance Company",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Shriram Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Financial Aadhar Housing",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Infosys Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mphasis Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Parijat Agrawal Tech",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mahindra Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Consultancy Services",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Toubro Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "International Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Cementation India Ltd",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "COMMERCIAL SERVICES & SUPPLIES",
+     "\n",
+     "ITD Cementation India Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA JK Cement Ltd.JK Lakshmi Cement Ltd.",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil LEISURE SERVICES",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Long Term Capital Appreciation • Investment in a mix of securities comprising of CHILDREN’S FUND equity, equity related securities and debt instruments as per the asset allocation pattern of the Scheme with ",
+    "metrics": [
+     {
+      "name": "port_turnover_ratio",
+      "value": "1.01 time"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "59.04 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "# Rating Class as a % of net assets CRISIL Corporate Debt A-II Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "25",
+      "benchmark_index": "25",
+      "count": 27,
+      "fund_manager_managing_fund_since": "25",
+      "fund_manager_name": "25",
+      "fund_manager_total_exp": "25",
+      "indicative_inv_horizon": "25",
+      "load_entry": "25",
+      "load_exit": "25",
+      "main_scheme_name": "25",
+      "metrics_macaulay": "25",
+      "metrics_mod_duration": "25",
+      "monthly_aaum_date": "25",
+      "monthly_aaum_value": "25",
+      "mutual_fund_name": "25",
+      "scheme_launch_date": "25"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "november 1, 2018",
+      "name": "Railway Finance Corporation",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "National Housing Bank",
+      "qualification": "",
+      "total_exp": "11 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Anindya Sarkar",
+      "qualification": "",
+      "total_exp": "28 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Reliance Industries Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Financial Larsen",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Toubro Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Kotak Mahindra Prime",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Sikka Ports",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Terminals Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Import Bank",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Indian Oil Corporation",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Shrenuj Parekh Power",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Grid Corporation",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "India Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Parijat Agrawal",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Net Triparty Current Repo, Assets",
+     "\n",
+     "Net",
+     "Grand",
+     "Current",
+     "Total",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "Credit Risk of Scheme 1% if units are redeemed or switched out on Interest Rate Risk of the Scheme or before completion of 15 days from the date of allotment. Nil thereafter. Relatively Low (Class I) Moderate (Class II) Relatively High (Class III)",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Regular income over Medium to Long term • Income by investing in fixed income securities of CORPORATE BOND FUND varying maturities and credit ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "3.80 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "4.03 Years"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "330.26 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "JULY 27"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "Government Securities CRISIL Dynamic Bond A-III Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "26",
+      "benchmark_index": "26",
+      "count": 27,
+      "fund_manager_managing_fund_since": "26",
+      "fund_manager_name": "26",
+      "fund_manager_total_exp": "26",
+      "indicative_inv_horizon": "26",
+      "load_entry": "26",
+      "load_exit": "26",
+      "main_scheme_name": "26",
+      "metrics_macaulay": "26",
+      "metrics_mod_duration": "26",
+      "monthly_aaum_date": "26",
+      "monthly_aaum_value": "26",
+      "mutual_fund_name": "26"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Parijat Agrawal",
+      "qualification": "",
+      "total_exp": "28 years"
+     },
+     {
+      "managing_fund_since": "june 28",
+      "name": "Indian Railway Finance",
+      "qualification": "",
+      "total_exp": "24 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Corporation Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Devesh Thacker National",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Rural Development",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Banking Industry",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Corporate Debt Market Development Fund-A2",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NAInterest Rate Risk of the Scheme",
+      "type": "entry"
+     },
+     {
+      "comment": "Relatively Low (Class I) 1% if units are redeemed or switched out on Moderate (Class II) or before completion of 15 days from the Relatively High (Class III) date of allotment. Nil thereafter.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Regular Income over Medium to Long Term • Investment in Debt and Money Market Securities with DYNAMIC BOND FUND prevailing market condition. flexible maturity profile of securities depending on the ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "28,"
+     },
+     {
+      "name": "macaulay",
+      "value": "8.68 Years"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "79.45 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Dynamic Gilt Index # (For disclaimers refer page no. 47) Credit Risk of Scheme"
+    ],
+    "field_location": [
+     {
+      "amc_name": "27",
+      "benchmark_index": "27",
+      "count": 27,
+      "fund_manager_managing_fund_since": "27",
+      "fund_manager_name": "27",
+      "fund_manager_total_exp": "27",
+      "indicative_inv_horizon": "27",
+      "load_entry": "27",
+      "load_exit": "27",
+      "main_scheme_name": "27",
+      "metrics_macaulay": "27",
+      "metrics_mod_duration": "27",
+      "monthly_aaum_date": "27",
+      "monthly_aaum_value": "27",
+      "mutual_fund_name": "27",
+      "scheme_launch_date": "27"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Parijat Agrawal",
+      "qualification": "",
+      "total_exp": "28 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Triparty Repo",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Cash Equivalents",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Net Assets",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Anindya Sarkar",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Financial Classification",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Rating Class",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Medium",
+     "to",
+     "Long",
+     "Term",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "NIL",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Credit risk free return over the medium to long term • Investments in Government Securities across GILT FUND maturities ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "10.64 Years"
+     },
+     {
+      "name": "macaulay",
+      "value": "11.02 Years"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "113.84 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20220808"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "CRISIL Short Duration Debt A-II Index # Triparty Repo, Cash,"
+    ],
+    "field_location": [
+     {
+      "amc_name": "28",
+      "benchmark_index": "28",
+      "count": 27,
+      "fund_manager_managing_fund_since": "28",
+      "fund_manager_name": "28",
+      "fund_manager_total_exp": "28",
+      "indicative_inv_horizon": "28",
+      "load_entry": "28",
+      "load_exit": "28",
+      "main_scheme_name": "28",
+      "metrics_macaulay": "28",
+      "metrics_mod_duration": "28",
+      "monthly_aaum_date": "28",
+      "monthly_aaum_value": "28",
+      "mutual_fund_name": "28",
+      "scheme_launch_date": "28"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Mahindra Prime Ltd",
+      "qualification": "",
+      "total_exp": "21 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Import Bank",
+      "qualification": "",
+      "total_exp": "11 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Housing Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Anindya Sarkar Bajaj",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Financial Bajaj Finance",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Shrenuj Parekh",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Triparty Repo",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Cash Equivalents",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Net Assets",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "Short",
+     "to",
+     "Medium",
+     "Term"
+    ],
+    "load": [
+     {
+      "comment": "NA Moderate (Class II)Relatively High (Class III)",
+      "type": "entry"
+     },
+     {
+      "comment": "• 1% if units are redeemed or switched out on or before completion of 15 days from the date of allotment. • Nil if redeemed or switched out after completion of 15 days from the date of allotment of units.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "Union This product is suitable for investors who are seeking*: • Short term income generation and capital SHORT DURATION FUND appreciation solution. • A debt fund that aims to generate income by investing ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "28,"
+     },
+     {
+      "name": "macaulay",
+      "value": "2.86 Years"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "514.81 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20250131"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "# requirement of Regulation 43A of SEBI (Mutual Funds) Regulations, 1996 read with SEBI Circular dated July 27, 2023. Please"
+    ],
+    "field_location": [
+     {
+      "amc_name": "29",
+      "benchmark_index": "29",
+      "count": 27,
+      "fund_manager_managing_fund_since": "29",
+      "fund_manager_name": "29",
+      "fund_manager_total_exp": "29",
+      "indicative_inv_horizon": "29",
+      "load_entry": "29",
+      "load_exit": "29",
+      "main_scheme_name": "29",
+      "metrics_macaulay": "29",
+      "metrics_mod_duration": "29",
+      "monthly_aaum_date": "29",
+      "monthly_aaum_value": "29",
+      "mutual_fund_name": "29"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "First Bank Ltd",
+      "qualification": "",
+      "total_exp": "24 years"
+     },
+     {
+      "managing_fund_since": "inception",
+      "name": "Punjab National Bank",
+      "qualification": "",
+      "total_exp": "28 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Devesh Thacker Kotak",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Mahindra Bank Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Indian Bank",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Import Bank",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Banking Industry. National",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Rural Development",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Parijat Agrawal Canara",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Aditya Finance",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "LIC Axis Housing Finance Finance Ltd. Ltd.",
+     "\n",
+     "Muthoot",
+     "LIC",
+     "Housing",
+     "Finance",
+     "Finance",
+     "Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NATriparty Repo, Cash,",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil Cash Equivalents & Net Credit Risk of Scheme Interest Rate Risk of the Scheme Relatively Low (Class I) Moderate (Class II) Relatively High (Class III) *The AUM is inclusive of market value of the investments made by Union Arbitrage Fund in Union Money Market Fund totalling to",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Regular income over short term • Investments in money market instruments with MONEY MARKET FUND maturity upto one year ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "28,"
+     },
+     {
+      "name": "macaulay",
+      "value": "97 Days"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "184.77 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "# Net Current Assets Grand Total CRISIL Liquid Debt A-I Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "30",
+      "benchmark_index": "30",
+      "count": 27,
+      "fund_manager_managing_fund_since": "30",
+      "fund_manager_name": "30",
+      "fund_manager_total_exp": "30",
+      "indicative_inv_horizon": "30",
+      "load_entry": "30",
+      "load_exit": "30",
+      "main_scheme_name": "30",
+      "metrics_macaulay": "30",
+      "metrics_mod_duration": "30",
+      "monthly_aaum_date": "30",
+      "monthly_aaum_value": "30",
+      "mutual_fund_name": "30"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Federal Bank Ltd",
+      "qualification": "",
+      "total_exp": "24 years"
+     },
+     {
+      "managing_fund_since": "june 18, 2021",
+      "name": "Import Bank",
+      "qualification": "",
+      "total_exp": "28 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Devesh Thacker",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "First Bank Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "National Bank",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Rural Development",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Banking Industry",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Reliance Retail Ventures",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Parijat Agrawal Kotak",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Muthoot Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Housing Finance Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Alembic Pharmaceuticals Ltd",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Home Finance Company",
+      "qualification": "",
+      "total_exp": ""
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Godrej Industries Ltd",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": [
+     "SIDBI",
+     "\n",
+     "HDFC",
+     "SIDBI",
+     "Securities",
+     "Ltd.",
+     "\n",
+     "Bajaj",
+     "HDFC",
+     "Finance",
+     "Securities",
+     "Ltd.",
+     "\n"
+    ],
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "Investor Exit Exit load as a upon % of redemption subscription proceeds Day 1 0.0070% Credit Risk of Scheme Day 2 0.0065% Interest Rate Risk of the Scheme Day 3 0.0060% Relatively Low (Class I) Day 4 0.0055% Moderate (Class II) Day 5 0.0050% Relatively High (Class III) Day 6 0.0045% *The AUM is inclusive of market value of the investments made by Union Arbitrage Fund in Union Liquid Fund totalling to crores. Day 7 onwards 0.0000% **The AAUM is inclusive of market value of the investments made by Union Arbitrage Fund in Union Liquid Fund totalling to ` 33.35 crores on an average basis.",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Reasonable returns over Short Term commensurate with low risk and high level of liquidity. LIQUID FUND • Investment in Money market and Debt securities with maturity of upto 91 days. ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "5"
+     },
+     {
+      "name": "macaulay",
+      "value": "41 Days"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "33.35 crores",
+    "mutual_fund_name": "PGIM India Mutual Fund"
+   }
+  },
+  {
+   "value": {
+    "amc_name": "PGIM India Asset Management Private Limited",
+    "benchmark_index": [
+     "# Moderate (Class II) Relatively High (Class III) CRISIL Liquid Overnight Index"
+    ],
+    "field_location": [
+     {
+      "amc_name": "31",
+      "benchmark_index": "31",
+      "count": 27,
+      "fund_manager_managing_fund_since": "31",
+      "fund_manager_name": "31",
+      "fund_manager_total_exp": "31",
+      "indicative_inv_horizon": "31",
+      "load_entry": "31",
+      "load_exit": "31",
+      "main_scheme_name": "31",
+      "metrics_macaulay": "31",
+      "metrics_mod_duration": "31",
+      "monthly_aaum_date": "31",
+      "monthly_aaum_value": "31",
+      "mutual_fund_name": "31",
+      "scheme_launch_date": "31"
+     }
+    ],
+    "fund_manager": [
+     {
+      "managing_fund_since": "inception",
+      "name": "Net Assets",
+      "qualification": "",
+      "total_exp": "29 years"
+     },
+     {
+      "managing_fund_since": "inception",
+      "name": "Tarun Singh Grand",
+      "qualification": "",
+      "total_exp": "14 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Devesh Thacker Residual",
+      "qualification": "",
+      "total_exp": "24 years"
+     },
+     {
+      "managing_fund_since": "",
+      "name": "Banking Industry",
+      "qualification": "",
+      "total_exp": ""
+     }
+    ],
+    "indicative_inv_horizon": "30 days",
+    "load": [
+     {
+      "comment": "NA",
+      "type": "entry"
+     },
+     {
+      "comment": "Nil",
+      "type": "exit"
+     }
+    ],
+    "main_scheme_name": "This product is suitable for investors who are seeking*: Union • Income over short term • Investment in Debt and Money Market instruments OVERNIGHT FUND with overnight maturity. ",
+    "metrics": [
+     {
+      "name": "mod_duration",
+      "value": "14.3"
+     },
+     {
+      "name": "macaulay",
+      "value": "3.22 Days"
+     }
+    ],
+    "monthly_aaum_date": "FEB. 2025",
+    "monthly_aaum_value": "253.34 crore",
+    "mutual_fund_name": "PGIM India Mutual Fund",
+    "scheme_launch_date": "20240627"
+   }
+  }
+ ]
+}
