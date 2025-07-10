@@ -10,6 +10,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import Config
 from app.program_logger import get_logger
 
+
+
 class GrandFundData:
     def __init__(self, fund_name: str, amc_id: str):
         config = Config()
@@ -32,6 +34,8 @@ class GrandFundData:
             "tertiary": fund_config.get("TERTIARY_PATTERN_TO_FUNCTION", {}),
         }
         self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
+        
+        self.logger = get_logger()
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
@@ -128,6 +132,19 @@ class GrandFundData:
                     
         return {main_key:final_dict}
     
+    def _extract_findall_select_first_data(self,main_key:str,data,pattern:str):
+        generic_data = " ".join(data) if isinstance(data,list) else data
+        generic_data = re.sub(self.REGEX['escape'], "", generic_data).strip()
+
+        # print("Hello")
+        matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
+        print(matches)
+        if matches:
+            value = matches[0]
+            # print(value)
+            return {main_key:value}
+        return {main_key:generic_data}
+    
     def _extract_generic_data(self, main_key: str, data, pattern: str):
         """
             Extracts values or key-value pairs from text using regex.
@@ -143,7 +160,6 @@ class GrandFundData:
         generic_data = re.sub(self.REGEX['escape'], "", generic_data).strip()
       
         matches = re.findall(self.REGEX[pattern], generic_data, re.IGNORECASE)
-        # print(generic_data)
         for match in matches:
             if isinstance(match, str):
                 return {main_key: match}

@@ -84,16 +84,19 @@ def setup_logger(log_dir, logger_name="fs_logger", folder_name=None):
     LOGGER = logger
     return logger
 
-def get_notebook_logger(logger_name="jupyter_logger"):
-    logger = logging.getLogger(logger_name)
-    if not logger.hasHandlers():
-        logger.setLevel(logging.DEBUG)
-        handler = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s',
-                                      datefmt='%Y-%m-%d %H:%M:%S')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
+def setup_simple_stdout_logger():
+    logger = logging.getLogger("default_stdout_logger")
+    if logger.hasHandlers():
+        return logger
+
+    logger.setLevel(logging.DEBUG)
+    stream_handler = logging.StreamHandler(sys.stdout)
+    formatter = logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s',
+                                  datefmt='%Y-%m-%d %H:%M:%S')
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
     return logger
+
 
 
 def cleanup_logger(logger):
@@ -110,11 +113,15 @@ def cleanup_logger(logger):
 
     logging.shutdown()
 
-def get_logger():
+def get_logger(default_to_stdout=True):
     global LOGGER
     if LOGGER is not None:
         return LOGGER
-    return get_notebook_logger()
+    if default_to_stdout:
+        return setup_simple_stdout_logger()
+    raise RuntimeError("Logger not initialized. Call setup_logger() or enable fallback.")
+
+
 
 class NoTracebackFilter(logging.Filter):
     def filter(self, record):

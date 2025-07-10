@@ -5,9 +5,10 @@ from app.utils import *
 from app.program_logger import setup_logger, cleanup_logger, StreamToLogger
 from app.mailer import Mailer
 
-# Set UTF-8 encoding for stdout/stderr
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+if __name__ == "__main__":
+    # Only apply when running main.py directly
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 
 print("FS_JSON_PARSE main.py Running ...", flush=True)
