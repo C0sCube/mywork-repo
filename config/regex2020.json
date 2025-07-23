@@ -292,7 +292,8 @@
             ".*minimum_additional$",
             ".*min.addl.investment$",
             "^min_addl_amt$",
-            ".*min\\.?_addl\\.?_investment$"
+            ".*min\\.?_?addl\\.?_?investment$",
+            ".*min\\.?_?additional\\.?_?investment"
         ],
         "min_addl_multiple": [],
         "min_amt": [
@@ -324,7 +325,8 @@
             ".*application_amount_for_fresh$",
             ".*min.application$",
             ".*min._application$",
-            ".*min_.application$"
+            ".*min_.application$",
+            ".*new_purchase"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -456,7 +458,7 @@
         "(Date of Allotment)",
         "Last 12 months"
     ],
-    "manager_stop_words": "market,Of,Experience,nov,Options,Sip Stp Swp,Nifty,Small,Cap,Regulardirect,Growthidcw,benchmarknifty,tri,bse,Additional,inception,date,benchmark,Tier,Bectors,Charge,If,Upto,Nil,Free,Is,Availed,Has,Been,Gold,Available,July,August,September,November,Charged,In,March,Underlying,Will,Date,Units,First,Multiple,Average,At,Have,Debt,Co,Assets,Associate,Assurance,Above,A,Actual,All,Allocation,Allotment,Also,An,And,Applicable,Applied,Appreciation,As,Assets,Associate,Arbitrage,Are,Balanced,Based,Basis,Be,Below,Benefit,Beyond,By,Calculated,Can,Capital,Capture,Carried,Category,Also,Steady,Structure,Subject,Subsequent,Term,That,The,There,Through,To,Total,Transaction,Transactions,Type,Waiver,Wherever,While,Within,Year,Yearly,Zerodha,Rates,Ratio,Realized,Redeemed,Redeeming,Redemption,Respect,Sales,Scheme,Selecting,Separately,September,Shall,Since,Size,Specified,Redeemed,Redeeming,Redemption,Respect,S,S.,Scheme,Selecting,Separately,September,Shall,Maximum,Mentioned,Month,Monthly,Mor,More,Mr,Mr.,Net,Next,No,Not,November,Objective,October,Of,On,Only,Open,Or,Out,Over,Overseas,Parameters,Portfolio,Portion,Proportionate,Provide,Purchase,Purchases,Qualitative,Quantitative,Mutual,Plans,Ratio,Realized,Sales,Silver,Since,Specified,This,Characteristics,Cities,Clubbed,Co-,Completion,Crores,Daily,December,Derivative,Determined,Different,Domestic,During,Dynamically,Each,End,Ended,Entry,Equities,Equity,Etf,Etfs,Excess,Exit,Expense,Expenses,Experience,February,Fixed,Fixedincome,Fj,Fof,Food,For,Forward,From,Full,Fund,Funds,Generate,Generating,Generation,Gst,Includes,Income,India,Inflow,Inflows,Initial,Intends,Invest,Investing,Investment,Investments,Limit,Load,Loadnil,Logic,Ltd,Made,Managed,Management,Manager,Managers,Manages,Managing,After",
+    "manager_stop_words": "commodity,debt,april,market,Of,Experience,nov,Options,Sip Stp Swp,Nifty,Small,Cap,Regulardirect,Growthidcw,benchmarknifty,tri,bse,Additional,inception,date,benchmark,Tier,Bectors,Charge,If,Upto,Nil,Free,Is,Availed,Has,Been,Gold,Available,July,August,September,November,Charged,In,March,Underlying,Will,Date,Units,First,Multiple,Average,At,Have,Debt,Co,Assets,Associate,Assurance,Above,A,Actual,All,Allocation,Allotment,Also,An,And,Applicable,Applied,Appreciation,As,Assets,Associate,Arbitrage,Are,Balanced,Based,Basis,Be,Below,Benefit,Beyond,By,Calculated,Can,Capital,Capture,Carried,Category,Also,Steady,Structure,Subject,Subsequent,Term,That,The,There,Through,To,Total,Transaction,Transactions,Type,Waiver,Wherever,While,Within,Year,Yearly,Zerodha,Rates,Ratio,Realized,Redeemed,Redeeming,Redemption,Respect,Sales,Scheme,Selecting,Separately,September,Shall,Since,Size,Specified,Redeemed,Redeeming,Redemption,Respect,S,S.,Scheme,Selecting,Separately,September,Shall,Maximum,Mentioned,Month,Monthly,Mor,More,Mr,Mr.,Net,Next,No,Not,November,Objective,October,Of,On,Only,Open,Or,Out,Over,Overseas,Parameters,Portfolio,Portion,Proportionate,Provide,Purchase,Purchases,Qualitative,Quantitative,Mutual,Plans,Ratio,Realized,Sales,Silver,Since,Specified,This,Characteristics,Cities,Clubbed,Co-,Completion,Crores,Daily,December,Derivative,Determined,Different,Domestic,During,Dynamically,Each,End,Ended,Entry,Equities,Equity,Etf,Etfs,Excess,Exit,Expense,Expenses,Experience,February,Fixed,Fixedincome,Fj,Fof,Food,For,Forward,From,Full,Fund,Funds,Generate,Generating,Generation,Gst,Includes,Income,India,Inflow,Inflows,Initial,Intends,Invest,Investing,Investment,Investments,Limit,Load,Loadnil,Logic,Ltd,Made,Managed,Management,Manager,Managers,Manages,Managing,After",
     "metrics_headers": {
     
         "alpha": [
@@ -484,7 +486,8 @@
             "^pe$",
             "^pe_mul_ple",
             "^pe_multiple$",
-            "^pe.+?ple$"
+            "^pe.+?ple$",
+            "^fund_pe__?fy21e$"
         ],
         "avg_maturity": [
             "^avg_maturity",
@@ -541,7 +544,8 @@
             "^modified_dura?t?i?o?n?$",
             "^modifiedduration.+$",
             "modied.+?on$",
-            "^modied_duration$"
+            "^modied_duration$",
+            "^modiied_duration$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -566,7 +570,8 @@
             "^equity$",
             "^portfolio_turnover_ratio.+equity.*$",
             "^aggregate$",
-            "^turnover$"
+            "^turnover$",
+            "^portfolio_turnovertimes$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -1186,6 +1191,13 @@
             "CANARA ROBECO VALUE FUND (CRVF)": "ROBECO\\s*VALUE FUND"
         },
         "Dsp Mutual Fund": {
+            "DSP World Energy Fund":"World\\s*Energy\\s*Fund",
+            "DSP World Agriculture Fund":"World\\s*Agriculture\\s*Fund",
+            "DSP Equity & Bond Fund":"Equity.+?Bond\\s*Fund$",
+            "DSP Government Securities Fund":"Government\\s*Securities\\s*Fund$",
+            "DSP Tax Saver Fund":"Tax\\s*Saver\\s*Fund$",
+            "DSP US Flexible Equity Fund":"Flexible\\s*Equity\\s*Fund$",
+            "DSP Equity Fund":"Equity\\s*Fund$",
             "DSP Flexi Cap Fund": "Flexi Cap Fund",
             "DSP Top 100 Equity Fund": "Top 100 Equity Fund",
             "DSP Equity Opportunities Fund": "Equity Opportunities Fund",
@@ -1288,7 +1300,7 @@
             "Edelweiss CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund": "CRISIL.+?Jun 2027 Index",
             "Edelweiss ELSS Tax saver Fund": "ELSS Tax saver",
             "Edelweiss Emerging Markets Opportunities Equity Offshore Fund": "Emerging Markets Opportunities",
-            "Edelweiss Equity Savings Fund": "Equity Savings",
+            "Edelweiss Equity Savings Fund": "Equity Savings\\s*Fund",
             "Edelweiss Europe Dynamic Equity Off-Shore Fund": "Europe Dynamic Equity.+?Fund$",
             "Edelweiss Flexi Cap Fund": "Flexi Cap",
             "Edelweiss Focused Fund": "Focused Fund",
@@ -1297,13 +1309,13 @@
             "Edelweiss Government Securities Fund": "Government Securities",
             "Edelweiss Greater China Equity Off-Shore Fund": "Greater China Equity.+?Fund",
             "Edelweiss Large & Mid Cap Fund": "Large.+?Mid Cap",
-            "Edelweiss Large Cap Fund": "Large Cap",
+            "Edelweiss Large Cap Fund": ".*Large Cap\\s*Fund$",
             "Edelweiss Liquid Fund": "Liquid",
             "Edelweiss Mid Cap Fund": "Mid\\s*Cap\\s*Fund",
             "Edelweiss Money Market Fund": "Money Market",
             "Edelweiss MSCI India Domestic & World Healthcare 45 Index Fund": "MSCI India Domestic.+?World Healthcare",
             "Edelweiss Multi Asset Allocation Fund": "Multi Asset Allocation",
-            "Edelweiss Multi Cap Fund": "Multi Cap",
+            "Edelweiss Multi Cap Fund": "Multi\\s*\\-?\\s*Cap\\s*Fund$",
             "Edelweiss Nifty 100 Quality 30 Index Fund": "Nifty 100 Quality 30 Index",
             "Edelweiss Nifty 50 Index Fund": "Edelweiss Nifty 50 Index Fund",
             "Edelweiss Nifty Alpha Low Volatility 30 Index Fund": "Nifty Alpha Low Volatility 30 Index",
@@ -1316,13 +1328,19 @@
             "Edelweiss Nifty Smallcap 250 Index Fund": "Nifty Smallcap 250 Index Fund",
             "Edelweiss Nifty500 Multicap Momentum Quality 50 ETF": "Nifty500 Multicap Momentum Quality.+?ETF$",
             "Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund": "Nifty500 Multicap Momentum Quality.+?Fund$",
-            "Edelweiss Overnight Fund": ".+?Overnight\\s*Fund$",
+            "Edelweiss Overnight Fund": ".*?Overnight\\s*Fund$",
             "Edelweiss Recently Listed IPO Fund": "Recently Listed IPO",
             "Edelweiss Silver ETF": "Silver\\s*ETF$",
-            "Edelweiss Small Cap Fund": "Small Cap",
+            "Edelweiss Small Cap Fund": "Small\\s*Cap\\s*Fund",
             "Edelweiss Technology Fund": "Technology\\s*Fund$",
+            "Edelweiss Low Duration Fund":".*Low\\s*Duration\\s*Fund.*",
+            "Edelweiss Long Term Equity Fund":".*Long Term Equity Fund$",
             "Edelweiss US Technology Equity Fund of Fund": "US Technology Equity",
-            "Edelweiss US Value Equity Off-Shore Fund": "US Value Equity"
+            "Edelweiss US Value Equity Off-Shore Fund": "US Value Equity",
+            "Edelweiss Corporate Bond Fund":".*Corporate Bond Fund",
+            "Edelweiss ETF Nifty 50":"ETF.+?Nifty\\s*50",
+            "Edelweiss ETF Nifty Bank":"ETF.+?Nifty\\s*Bank",
+            "Edelweiss ETF Nifty 100 Quality 30":"ETF.+?Nifty 100 Quality 30"
         },
         "Franklin Templeton Mutual Fund": {
             "Franklin Asian Equity Fund": "Asian Equity",
@@ -1689,7 +1707,17 @@
             "LIC MF NIFTY NEXT 50 INDEX FUND": "NIFTY\\s*NEXT\\s*50\\s*INDEX",
             "LIC MF GOLD EXCHANGE TRADED FUND": "G2?O?LD\\s*EXCHANGE\\s*TRADED",
             "LIC MF GOLD ETF FUND OF FUND": "GS?2?O?LD\\s*ETF\\s*.+?OF FUND",
-            "LIC MF MONEY MARKET FUND": "MNEY\\s*MA[2P]XET\\s*FUND$"
+            "LIC MF MONEY MARKET FUND": "MNEY\\s*MA[2P]XET\\s*FUND$",
+            "LIC MF SHORT TERM DEBT FUND":"SHORT\\s*TERM\\s*DEBT\\s*FUND",
+            "LIC MF INDEX FUND-NIFTY PLAN":"INDEX\\s*FUND.+?NIFTY\\s*PLAN$",
+            "LIC MF EQUITY HYBRID FUND":"EQUITY\\s*HYBRID\\s*FUND$",
+            "LIC MF SAVINGS FUND":"LIC\\s*MF\\s*SA[WV]INGS\\s*FUND$",
+            "LIC MF ULTRA SHORT TERM FUND":"ULTRA\\s*SHO?RT\\s*TERM\\s*FUND$",
+            "LIC MF DEBT HYBRID FUND":"LIC\\s*MF\\s*DEBT.+?(?:nbi[Dd])?\\s*FUND",
+            "LIC MF EXCHANGE TRADED FUND-NIFTY 100":"LIC\\s*MF.+?CHANGE\\s*TRADED.+?NIFTY\\s*100$",
+            "LIC MF EXCHANGE TRADED FUND-NIFTY50":"LIC\\s*MF\\s*EXCHANGE\\s*TRADED.+?NIFTY50$",
+            "LIC MF EXCHANGE TRADED FUND-SENSEX":"LIC\\s*MF\\s*.+?CHANGE\\s*TRADED.+?SENSEX",
+            "LIC MF INDEX FUND-SENSEX PLAN":"open-?ended\\s*scheme\\s*replicating\\s*tracking\\s*[Ss]ensex\\s*[Ii]ndex$"
         },
         "Mahindra Manulife Mutual Fund": {
             "Mahindra Manulife Aggressive Hybrid Fund": "Aggressive Hybrid",

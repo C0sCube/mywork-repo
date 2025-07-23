@@ -7,14 +7,16 @@ from datetime import datetime
 import logging
 import os
 
-logger = logging.getLogger("fs_logger")
+# logger = logging.getLogger("fs_logger")
 
 class Mailer:
-    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com']):
+    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com'],logger = None):
         self.SERVER = server
         self.PORT = port
         self.FROM = sender
         self.RECPTS = recipients or []
+        
+        self.LOGGER = logger
 
     def started(self, program):
         subject = f"{program} — Execution Started"
@@ -29,7 +31,7 @@ class Mailer:
         """
         msg = self.construct_mail(subject=subject, body_html=body)
         self.send_mail(msg)
-        logger.info(f"Program Started Mail Sent: {program}")
+        # logger.info(f"Program Started Mail Sent: {program}")
     
     def end(self, program, data=None):
         subject = f"{program} — Execution Completed"
@@ -52,7 +54,7 @@ class Mailer:
         """
         msg = self.construct_mail(subject=subject, body_html=body)
         self.send_mail(msg)
-        logger.info(f"Program Ended Mail Sent: {program}")
+        # logger.info(f"Program Ended Mail Sent: {program}")
 
 
     def construct_mail(self, subject, body_html=None):
@@ -80,6 +82,7 @@ class Mailer:
         try:
             with smtplib.SMTP(self.SERVER, self.PORT) as server:
                 server.send_message(msg)
-            logger.info("E-Mail sent successfully !!")
+            # logger.info("E-Mail sent successfully !!")
         except Exception as e:
-            logger.error(f"Failed to send email: {e}")
+            # logger.error(f"Failed to send email: {e}")
+            pass

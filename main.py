@@ -1,122 +1,127 @@
-import os, sys, io, time, shutil,logging
-from datetime import datetime
+import os, time, shutil, logging
 from app.config_loader import Config
-from app.utils import *
-from app.program_logger import setup_logger, cleanup_logger, StreamToLogger
+from app.utils import Helper
 from app.mailer import Mailer
-
-if __name__ == "__main__":
-    # Only apply when running main.py directly
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-
-
-print("FS_JSON_PARSE main.py Running ...", flush=True)
-
+from app.program_logger import get_forever_logger, setup_session_logger
+from app.class_registry import CLASS_REGISTRY
 
 CONFIG = Config()
 WATCH_PATH, OUTPUT_PATH = CONFIG.watch_path, CONFIG.output_path
-
-# mail config
-mail = Mailer()
-
-# Output folders
 CHECK_INTERVAL = 10
+
+# Output directories
 JSON_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["json"])
-LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["logs"])
+DAILY_LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["daily_logs"])
+SESSION_LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["session_logs"])
 FAILED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["failed"])
 PROCESSED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["processed"])
 
-# Known folders
-known_folders = set(os.listdir(WATCH_PATH))
-print(f"[WATCHER] Watching for new PDFs in: {WATCH_PATH}", flush=True)
+watch_logger = get_forever_logger("watcher", log_dir=DAILY_LOG_DIR)
+watch_logger.warning("FS_JSON_PARSE main.py Running ...")
 
-# Watcher loop
+mail = Mailer()
+known_folders = set(os.listdir(WATCH_PATH))
+watch_logger.info(f"Watching for new PDFs in: {WATCH_PATH}")
+
+def process_amc(amc_id, content, amc_path, session_logger):
+    page_content = {}
+    results = {"done": {}, "failed": {}}
+
+    if amc_id == "8_0":
+        try:
+            session_logger.info("Trying to read tabular data (xlsx)...")
+            df = Helper().get_xlsx_in_folder(amc_path)
+            if df is not None:
+                page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
+                session_logger.notice("Tabular data loaded.")
+                session_logger.info(page_content)
+        except Exception as e:
+            session_logger.warning(f"Tabular data loading failed: {e}")
+
+    for fund_name, path in content:
+        try:
+            session_logger.info(f"Processing {amc_id}:{fund_name}")
+            obj = CLASS_REGISTRY[amc_id](fund_name, amc_id, path, session_logger)
+
+            fundName = fund_name.replace(".pdf", "").strip()
+            if fundName in page_content:
+                obj.PARAMS["table"] = page_content[fundName]
+                session_logger.info(f"Page Data for {fundName} = {obj.PARAMS['table']}. ")
+
+            title, path_pdf = obj.check_and_highlight(path)
+            if not (title and path_pdf):
+                raise ValueError("check_and_highlight failed")
+
+            data = obj.get_data(path_pdf, title)
+            extracted = obj.get_generated_content(data)
+            final = obj.refine_extracted_data(extracted)
+            dfs = obj.merge_and_select_data(final)
+
+            if not dfs:
+                raise ValueError("No final merged data")
+
+            save_path = os.path.join(JSON_DIR, obj.FILE_NAME.replace(".pdf", ".json"))
+            Helper.save_json(dfs, save_path)
+            session_logger.save(f"Saved JSON: {save_path}")
+            results["done"][fund_name] = path
+
+        except Exception as e:
+            session_logger.error(f"[Pipeline Error] {fund_name} | {type(e).__name__}: {e}")
+            results["failed"][fund_name] = path
+
+    return results
+
 while True:
     try:
         current_folders = set(os.listdir(WATCH_PATH))
         new_folders = current_folders - known_folders
 
-        for new_folder in new_folders:
-            amc_path = os.path.join(WATCH_PATH, new_folder)
+        for folder in new_folders:
+            amc_path = os.path.join(WATCH_PATH, folder)
             if not os.path.isdir(amc_path):
                 continue
 
-            # Setup a unique logger per folder
-            log_filename = new_folder
-            logger = setup_logger(log_dir=LOG_DIR, logger_name="fs_logger",folder_name=log_filename)
-    
-            logger.info(f"[WATCHER] New folder detected: {new_folder}")
-            time.sleep(300)
-            logger.info(f"Program Execution Started.")
-            # mail.started(f"FS in Folder: ..\input\{new_folder}")
-            mutual_fund = Helper.get_pdf_with_id(amc_path)
-            amc_done, amc_not_done = {}, {}
+            folder_key = "_".join(folder.split()).lower()
+            session_logger = setup_session_logger(folder_key, base_log_dir=SESSION_LOG_DIR)
+            session_logger.notice(f"New folder: {folder_key}")
+            time.sleep(20)  # Wait for copy to complete
 
-            from app.class_registry import CLASS_REGISTRY
+            mutual_fund = Helper().get_pdf_with_id(amc_path)
+            total_done, total_failed = {}, {}
+
             for amc_id, class_ in CLASS_REGISTRY.items():
-                try:
-                    content = mutual_fund[amc_id]
-                except KeyError:
-                    logger.notice(f"{amc_id} FS not attached. Skipping.")
-                    time.sleep(.4)
+                content = mutual_fund.get(amc_id)
+                if not content:
                     continue
+            
+                session_logger.notice(f"{amc_id} FS attached.")
+                result = process_amc(amc_id, content, amc_path, session_logger)
+                total_done.update(result["done"])
+                total_failed.update(result["failed"])
 
-                try:
-                    for value in content:
-                        fund_name,path = value
-                        logger.info(f"Processing {amc_id}:{class_.__name__}")
-                        obj = class_(fund_name, amc_id, path)
-                        title, path_pdf = obj.check_and_highlight(path)
+            # Handle output
+            if total_done:
+                Helper.save_text(total_done, os.path.join(PROCESSED_DIR, "processed_amc.txt"))
+                Helper.copy_pdfs_to_folder(PROCESSED_DIR, total_done)
+                session_logger.save(f"{len(total_done)} AMC(s) processed.")
 
-                        if not (path_pdf and title):
-                            raise Exception("check_and_highlight returned invalid results")
+            if total_failed:
+                Helper.save_text(total_failed, os.path.join(FAILED_DIR, "failed_amc.txt"))
+                Helper.copy_pdfs_to_folder(FAILED_DIR, total_failed)
+                session_logger.warning(f"{len(total_failed)} AMC(s) failed. They are {total_failed}")
 
-                        data = obj.get_data(path_pdf, title)
-                        extracted_text = obj.get_generated_content(data)
-                        final_text = obj.refine_extracted_data(extracted_text)
-                        dfs = obj.merge_and_select_data(final_text)
-
-                        if not dfs:
-                            raise Exception("Final merged data is empty")
-
-                        save_path = os.path.join(JSON_DIR, obj.FILE_NAME.replace(".pdf", ".json"))
-                        Helper.save_json(dfs, save_path)
-                        logger.save(f"Saved JSON: {save_path}")
-                        amc_done[fund_name] = path
-
-                except Exception:
-                    logger.error(f"[Pipeline Error] File:{fund_name} Class: {class_.__name__}")
-                    logger.error(f"File {fund_name} Failed.")
-                    amc_not_done[fund_name] = path
-                    continue
-
-            # Handle output folders
-            if amc_done:
-                Helper.save_text(amc_done, os.path.join(PROCESSED_DIR, "processed_amc.txt"))
-                Helper.copy_pdfs_to_folder(PROCESSED_DIR, amc_done)
-                logger.save(f"{len(amc_done)} AMC(s) processed.")
-
-            if amc_not_done:
-                Helper.save_text(amc_not_done, os.path.join(FAILED_DIR, "failed_amc.txt"))
-                Helper.copy_pdfs_to_folder(FAILED_DIR, amc_not_done)
-                logger.warning(f"{len(amc_not_done)} AMC(s) failed.")
-
-            if os.path.exists(amc_path):
-                shutil.rmtree(amc_path, ignore_errors=True)
-                logger.save(f"Deleted input folder: {amc_path}")
-
-            logger.trace("Program Completed.")
-            mail.end(program=f"FS AMC",data = [amc_done,amc_not_done])
-            cleanup_logger(logger)
+            shutil.rmtree(amc_path, ignore_errors=True)
+            session_logger.notice(f"Deleted input folder: {amc_path}")
+            session_logger.trace("Session Completed.")
+            watch_logger.notice("Processing Complete.")
 
         known_folders.update(new_folders)
-        print("[WATCHER] No new folders found. Sleeping...", flush=True)
+        watch_logger.notice("No new folders found. Sleeping...")
         time.sleep(CHECK_INTERVAL)
 
     except KeyboardInterrupt:
-        print("[WATCHER] Stopped by user.")
+        watch_logger.warning("Watcher stopped by user.")
         break
     except Exception as e:
-        print(f"[WATCHER ERROR] {e}")
+        watch_logger.error(f"[Watcher Error] {type(e).__name__}: {e}")
         time.sleep(CHECK_INTERVAL)

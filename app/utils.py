@@ -4,26 +4,23 @@ from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
 
-from app.program_logger import get_logger
+from app.program_logger import get_active_logger
 
 
 class Helper:
     
     def __init__(self):
-        self.logger = get_logger()
+        self.logger = get_active_logger()
     
     #PARSING UTILS
-    @staticmethod
-    def get_pdf_with_id(path: str) -> dict:
+    def get_pdf_with_id(self,path: str) -> dict:
         pdf_paths = defaultdict(list)
-        suffix_map = {}
 
-        for root, _, files in os.walk(path):
+        for root, _ , files in os.walk(path):
             for file_name in files:
                 if file_name.endswith("FS.pdf"):
+                    self.logger.info(f"Factsheet Found: {file_name}")
                     full_path = os.path.join(root, file_name)
-                    # folder_name = os.path.basename(root).title()
-
                     parts = file_name.split("_")
                     fund_id = parts[0]
 
@@ -31,6 +28,7 @@ class Helper:
                     suffix = parts[-2] if is_passive else "0"
                     fund_key = f"{fund_id}_{suffix}"
                     
+                    # print(fund_key)
                     pdf_paths[fund_key].append((file_name, full_path))
                 elif file_name.endswith("KIM.pdf") or file_name.endswith("SID.pdf"):
                     full_path = os.path.join(root, file_name)
@@ -39,8 +37,22 @@ class Helper:
                     parts = file_name.split("_")
                     fund_id = parts[0]
                     pdf_paths[fund_id] = (file_name, full_path)
+                else:
+                    self.logger.info(f"File: {file_name} is neither a factsheet nor a SID/KIM document.")
         return pdf_paths
-                    
+    
+    def get_xlsx_in_folder(self,path:str) -> dict:
+        import pandas as pd
+        df = pd.DataFrame()
+        for root,_,files in os.walk(path):
+            for file_name in files:
+                if file_name.endswith(".xlsx") and file_name.lower() == "table_data.xlsx":
+                    self.logger.notice(f"Excel sheet containing table data found.")
+                    full_path = os.path.join(root, file_name)
+                    df = pd.read_excel(full_path)
+                    return df
+        self.logger.warning(f" 'table_data.xlsx' not found !! Returning empty df.")
+        return df
     @staticmethod
     def get_pdf_paths(base_path: str) -> dict:
         pdf_paths = {}
@@ -67,8 +79,8 @@ class Helper:
     def get_amc_paths(base_path: str) -> dict:
         """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
         fund_paths = {}
-        logger = get_logger()
-        logger.info(f"AMC At: {base_path}")
+        # logger = get_logger()
+        # logger.info(f"AMC At: {base_path}")
         for root, _, files in os.walk(base_path):
             # print(files)
             for file_name in files:
@@ -152,8 +164,8 @@ class Helper:
         else:
             with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
                 df_final.to_excel(writer, sheet_name=sheet_name, index=False)
-        logger = get_logger()
-        logger.save(f"Report:Sheet Name -> {sheet_name} Saved.")
+        # logger = get_logger()
+        # logger.save(f"Report:Sheet Name -> {sheet_name} Saved.")
         return df_final
     
     @staticmethod
@@ -190,8 +202,9 @@ class Helper:
                 dest_path = os.path.join(dest_folder, file_name)
                 shutil.copy2(path, dest_path)
             except Exception as e:
-                logger = get_logger()
-                logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
+                # logger = get_logger()
+                # logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
+                pass
     
     @staticmethod
     def delete_files_and_empty_folder(file_path: str) -> bool:
@@ -208,8 +221,8 @@ class Helper:
                 return True
             return False
         except Exception as e:
-            logger = get_logger()
-            logger.exception(f"delete_file_and_empty_folder -> {e}")
+            # logger = get_logger()
+            # logger.exception(f"delete_file_and_empty_folder -> {e}")
             return False
         
     @staticmethod
@@ -218,8 +231,8 @@ class Helper:
             for k, path in data.items():
                 Helper.delete_files_and_empty_folder(path)
         except Exception as e:
-            logger = get_logger()
-            logger.exception(f"delete_amc_pdf: {e}")
+            # logger = get_logger()
+            # logger.exception(f"delete_amc_pdf: {e}")
             return
         return
     

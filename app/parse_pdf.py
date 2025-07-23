@@ -2,20 +2,18 @@ import os, re, math,sys, ocrmypdf,time # type: ignore
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz # type: ignore
 from collections import defaultdict
-
+import multiprocessing
 from app.parse_regex import *
 from app.fund_data import *
 from app.utils import *
-from app.program_logger import get_logger
-from app.config_loader import get_config
 
-logger = get_logger()
+from app.config_loader import get_config
 config = get_config()
 
 from app.config_loader import *
 
 class Reader:
-    def __init__(self,params:dict,amc_id:str,path:str):
+    def __init__(self,params:dict,amc_id:str,path:str,logger):
         
         self.PARAMS = params #amc specific
         self.FILE_NAME = path.split("\\")[-1] # filename
@@ -26,29 +24,51 @@ class Reader:
         self.JSONPATH = os.path.join(self.OUTPUTPATH, config.output["json"])
         self.TEXT_ONLY = {}
         
+        self.LOGGER = logger
+        
         for output_path in [self.DRYPATH, self.JSONPATH,self.REPORTPATH]:
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
+    #OCR
+
+    # def run_ocr(self,input_path, output_path):
+    #     import ocrmypdf
+    #     ocrmypdf.ocr(input_path, output_path, deskew=True, skip_text=True)
+
+    # def safe_ocr(self,input_path, output_path, timeout=90):
+    #     p = multiprocessing.Process(target=self.run_ocr, args=(input_path, output_path))
+    #     p.start()
+    #     p.join()
+    #     if p.is_alive():
+    #         p.terminate()
+    #         raise TimeoutError(f"OCR timed out on {input_path} after {timeout} seconds")
+    
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
+        self.LOGGER.info(f"Getting All titles : {inspect.currentframe().f_code.co_name}")
         # print(f"Regex: {regex}")
         title_detected = {}
-        with fitz.open(path) as doc:
-            for pgn, page in enumerate(doc):
-                title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
-                title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
-                # print(title_text)
-                title_match = re.findall(regex, title_text, re.DOTALL)
-                title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
-                # print(f">>{title}")
-                # if title:
-                    # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
-                title_detected[pgn] = title
+        try:
+            with fitz.open(path) as doc:
+                for pgn, page in enumerate(doc):
+                    title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
+                    title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
+                    print(title_text)
+                    title_match = re.findall(regex, title_text, re.DOTALL)
+                    title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
+                    # print(title)
+                    if title:
+                        print(f">>{title}")
+                        self.LOGGER.trace(f">>{title}") #FOR - {title_text}
+                        # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
+                    title_detected[pgn] = title
+        except Exception as e:
+            self.LOGGER.error("Error in _get_normal_title")
         return title_detected
                 
     def _get_ocr_title(self,path:str,regex:str,bbox):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
@@ -85,7 +105,13 @@ class Reader:
             time.sleep(2)
             ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
             return self._get_normal_title(ocr_pdf,regex,bbox)
-        
+            # try:
+            #     self.safe_ocr(clipped_pdf, ocr_pdf, timeout=90)
+            #     return self._get_normal_title(ocr_pdf, regex, bbox)
+            # except TimeoutError as e:
+            #     self.LOGGER.error(str(e))
+            #     return {}
+                    
         except PermissionError as e:
             print(f"[ERROR] Permission denied: {e}")
             return {}
@@ -94,15 +120,25 @@ class Reader:
     
     def _ocr_pdf(self,path:str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         time.sleep(2)
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
         return ocr_path
+    # def _ocr_pdf(self, path: str):
+    #     self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+    #     ocr_path = path.replace(".pdf", "_all_ocr.pdf")
+    #     try:
+    #         self.safe_ocr(path, ocr_path, timeout=90)
+    #         return ocr_path
+    #     except TimeoutError as e:
+    #         self.LOGGER.error(str(e))
+    #         return None
+
     
     def check_and_highlight(self, path: str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
         regex = FundRegex()
@@ -132,7 +168,7 @@ class Reader:
                                     break
                 data.append({"page": pgn,"title": detected_titles[pgn],"highlight_count": highlight_count,"indices": found_indices})
             doc.save(output_path)
-        #     print(f"\tHighlighted PDF at: {output_path}")
+    
         Helper.pdf_report(data, self.REPORTPATH, self.FILE_NAME)
 
         return {
@@ -198,7 +234,8 @@ class Reader:
                         fund_seen[fundName] = new_entry
                         
         except Exception as e:
-            logger.error(f"Error in 'extract_clipped_data'",exc_info=True)
+            # logger.error(f"Error in 'extract_clipped_data'",exc_info=True)
+            pass
 
         return finalData
 
@@ -256,7 +293,8 @@ class Reader:
                         fund_seen[fundName] = new_entry
                         
         except Exception as e:
-            logger.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
+            # logger.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
+            pass
             
         return finalData
 
@@ -410,7 +448,7 @@ class Reader:
     
     def get_data(self, path: str, titles:dict, *args):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         method = self.PARAMS['method'] #clip/line/both
         sanitize_fund = self.PARAMS["sanitize_fund"]
         extracted_data = []
@@ -441,7 +479,8 @@ class Reader:
                 self.TEXT_ONLY[fundname] = page_text
             
         except Exception as e:
-            logger.error(f"Error in 'get_data' ",exc_info=True)
+            # logger.error(f"Error in 'get_data' ",exc_info=True)
+            pass
             
         # print(self.TEXT_ONLY)
         return nested_data
@@ -561,7 +600,7 @@ class Reader:
     
     def get_generated_content(self, data: list, is_table: str = ""):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         output_path = self.DRYPATH
 
@@ -575,14 +614,15 @@ class Reader:
     
             table_mode = is_table or self.PARAMS.get("table", "") # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
             if table_mode:
-                logger.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
+                self.LOGGER.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
                 try:
                     table_data = self._generate_table_data(self.PDF_PATH, table_mode)
                     extracted_text = FundRegex()._map_main_and_tabular_data(
                         extracted_text, table_data, self.FUND_NAME
                     )
                 except Exception as e:
-                    logger.error(f"'_generate_table_data' Failed",exc_info=True)
+                    # logger.error(f"'_generate_table_data' Failed",exc_info=True)
+                    pass
 
             # Section to duplicate mutual funds
             # if isinstance(self.DUPLICATE_FUNDS, dict) and self.DUPLICATE_FUNDS:
@@ -594,7 +634,8 @@ class Reader:
             #         logger.error(f"'_update_duplicate_fund_data' Failed",exc_info=True)
 
         except Exception as e:
-            logger.error(f"'get_generated_content' Failed", exc_info=True)
+            # logger.error(f"'get_generated_content' Failed", exc_info=True)
+            pass
 
         return extracted_text
 
@@ -609,7 +650,7 @@ class Reader:
 
     def refine_extracted_data(self, extracted_text: dict):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         primary_refine = {}
         regex = FundRegex()
         
@@ -673,7 +714,9 @@ class Reader:
                 if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
                     new_load.append({"comment": value,"type": "exit_load"})
         except Exception as e:
-            logger.error(f"_load_ops ->Load Error",exc_info=True)
+            # logger.error(f"_load_ops ->Load Error",exc_info=True)
+            print("Error in __load_ops")
+            pass
     
         df["load"] = new_load
         return df
@@ -686,7 +729,9 @@ class Reader:
                 # print(f"new_key {new_key}, metric_key {metric_key}")
                 new_metrics[new_key] = metric_value
         except Exception as e:
-            logger.error(f"_metric_ops:{fund} ->Metric Error",exc_info=True)
+            # logger.error(f"_metric_ops:{fund} ->Metric Error",exc_info=True)
+            print("Error in __metric_ops")
+            pass
             
         df["metrics"] = FundRegex()._populate_all_metrics_in_json(new_metrics)
         return df
@@ -700,7 +745,9 @@ class Reader:
                     new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
             df.update(new_values)
         except Exception as e:
-            logger.error(f"_min_add_ops: {fund} ->Min/Add Error",exc_info=True)
+            # logger.error(f"_min_add_ops: {fund} ->Min/Add Error",exc_info=True)
+            print("Error in __min_add_ops")
+            pass
             
         return df
     
@@ -708,7 +755,7 @@ class Reader:
         return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = FundRegex()
         for fund, content in data.items():

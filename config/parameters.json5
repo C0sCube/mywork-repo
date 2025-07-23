@@ -1362,7 +1362,7 @@
         pattern: "(?:Experience\\s*)?([A-Za-z\\s\\.]+)\\s*(?:\\(([^)]+)\\))?\\s*Total Experience\\s*(?:over\\s*)?([0-9]+(?:\\.[0-9]+)?\\s*Years)\\s*Managing this fund Since\\s*([A-Za-z]+,?\\s+\\d{1,2},?\\s+\\d{4}|[A-Za-z]+,\\s+\\d{4})",
         fields: ["name", "desig", "exp", "since"],
       },
-      metrics: "(Beta\\D+|YTM|Average Maturity|Modified Duration|Macaulay Duration|Standard Deviation|Sharpe Ratio[0-9]+|R[0-9]+)\\s*(-?[\\d.]+\\s*(?:year?s?|mont?h?s?|days?)?)",
+      metrics: "(Beta\\D+|YTM|Average Maturity|Modified Duration|Macaulay Duration|Standard Deviation|Sharpe Ratio[0-9]+|R[0-9]+)\\s*(-?[\\d.]+\\s*(?:[Yy]ear?s?|[Mm]ont?h?s?|[Dd]ays?|[Tt]ime?s?|%)?)",
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
     },
     PATTERN_TO_FUNCTION: {
@@ -5653,4 +5653,6 @@
       fund_manager: "_update_manager_data",
     },
   },
+
+  
 }
