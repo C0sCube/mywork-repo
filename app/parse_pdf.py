@@ -37,10 +37,10 @@ class Reader:
             for pgn, page in enumerate(doc):
                 title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
                 title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
-                # print(title_text)
+                print(title_text)
                 title_match = re.findall(regex, title_text, re.DOTALL)
                 title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
-                # print(f">>{title}")
+                print(f">>{title}")
                 # if title:
                     # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
                 title_detected[pgn] = title

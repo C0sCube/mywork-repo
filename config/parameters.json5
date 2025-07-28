@@ -5304,11 +5304,11 @@
       title: {
         ocr: false,
         pattern: "(Angel\\s*One.+?(?:Fund|ETF|Plan|Duration|Saver|Index|F[Oo]F)\\s*(?:.+?Growth|Fund of Funds?|of Funds|Funds?|F[Oo]F)?)",
-        bbox: [0, 130, 700, 230],
+        bbox: [0, 0, 700, 100],
       },
       clip_bbox: [
-        [0, 220, 300, 812],
-        [300, 220, 600, 812],
+        [0, 120, 300, 812],
+        [300, 120, 600, 812],
       ],
       line_x: 300.0,
       data: {
@@ -5332,7 +5332,7 @@
       benchmark: "((?:Nifty|BSE|Domestic|CRISIL).+?(?:Index|TRI|Silver|Gold))",
       load: "Entry Load(.*?)\\s*Exit Load(.*)$",
       scheme: [
-        "Inception Date",
+        "Inception\\s*[dD]ate|[Dd]ate\\s*of\\s*[Aa]llotment",
         "Benchmark Index",
         "ISIN",
         "NAV",
@@ -5358,7 +5358,7 @@
       },
       tracking: "(\\d+\\.\\d*)",
       min_amt: "([\\d,]+).*?([\\d,]+)",
-      metric: "(Residual Maturity|Macaulay Duration|Modif?i?ed Duration|Average Maturity|Portfolio YTM|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:years|days|months)?)",
+      metric: "(Residual Maturity|Macaulay Duration|Modif?i?ed Duration|Average Maturity|Portfolio YTM|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*([\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|[Tt]imes?)?)",
       escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+",
     },
     PATTERN_TO_FUNCTION: {
