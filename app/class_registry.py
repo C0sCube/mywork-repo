@@ -1,5 +1,7 @@
 from app.fund_data import *
 from app.fund_sid_data import *
+from app.parse_table import TableParser
+
 
 CLASS_REGISTRY = {
     "18_0": ThreeSixtyOne,

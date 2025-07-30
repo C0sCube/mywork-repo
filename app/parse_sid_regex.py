@@ -5,6 +5,7 @@ from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
+from app.parse_table import *
 
 class SidKimRegex():
     
@@ -151,29 +152,39 @@ class SidKimRegex():
                 if data.get(index):
                     final_dict[index] = page_number
 
-        data["field_location"] = {k:v for k,v in sorted(final_dict.items())}
+        data["field_location"] = [{k:v for k,v in sorted(final_dict.items())}]
         # print(field_location)
         # print(FIELD_LOC)
         return dict(sorted(data.items()))
 
     def _final_json_construct(self,data:dict,doc_name:str, typez="")->dict:
-        if typez == "sid": file_type = typez
-        elif typez == "kim": file_type = typez
-        else:
-            print(f"[ERROR] _final_json_construct Incorrect sid/kim")
-            return data
         
         data = {k:self._clean_leading_specials(self._normalize_whitespace(v)) if isinstance(v,str) else v for k,v in data.items()}
-        return {
-            "metadata":{
-                "document_name": doc_name,
-                "file_type": file_type,
-                "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
-            },
-            "value":dict(sorted(data.items()))
-        }
-    
-    
+        if typez == "sid": 
+            file_type = typez
+            return {
+                "metadata":{
+                    "document_name": doc_name,
+                    "file_type": file_type,
+                    "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
+                },
+                "value":dict(sorted(data.items()))
+            }
+        elif typez == "kim": 
+            file_type = typez
+            return {
+                "metadata":{
+                    "document_name": doc_name,
+                    "file_type": file_type,
+                    "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
+                },
+                "records":[{
+                    "value":dict(sorted(data.items()))
+                }]
+            }
+        else:
+            print(f"[ERROR] _final_json_construct Incorrect sid/kim type")
+            return data
     
     #FORMAT
 

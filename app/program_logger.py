@@ -39,7 +39,7 @@ except ImportError:
 # --- Custom Log Levels ---
 TRACE_LEVEL_NUM = 15
 SAVE_LEVEL_NUM = 22
-NOTICE_LEVEL_NUM = 25
+NOTICE_LEVEL_NUM = 35
 
 logging.addLevelName(TRACE_LEVEL_NUM, "TRACE")
 logging.addLevelName(SAVE_LEVEL_NUM, "SAVE")
@@ -176,7 +176,10 @@ def setup_session_logger(
     os.makedirs(base_log_dir, exist_ok=True)
 
     log_filename = f"fs_{folder_name}_{timestamp}.log"
-    log_path = os.path.join(base_log_dir, log_filename)
+    today = datetime.now().strftime('%Y-%m-%d')
+    log_path = os.path.join(base_log_dir,today)
+    os.makedirs(log_path, exist_ok=True)
+    log_path = os.path.join(log_path,log_filename)
     logger = logging.getLogger(f"session_{folder_name}_{timestamp}")
 
     if logger.hasHandlers():

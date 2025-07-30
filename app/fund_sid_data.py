@@ -1,4 +1,4 @@
-import re, os,json,sys, json5,ocrmypdf,io,pytesseract, inspect #type:ignore
+import re, os,json,sys, json5 #type:ignore
 from app.parse_sid_pdf import ReaderSIDKIM
 
 import fitz #type:ignore
@@ -6,7 +6,7 @@ import fitz #type:ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import get_config
 from app.parse_sid_regex import *
-
+from app.parse_table import *
 # +===========COMPLETE THE DOC STRINGS ===============+
 
 

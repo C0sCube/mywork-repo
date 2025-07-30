@@ -9,9 +9,12 @@
             "^benchmark_tier_1$",
             "^benchmark_total_return_index$",
             "^tier_i_benchmark_index$",
-            ".*benchmark$"
+            ".*benchmark$",
+            "benchmark_tri$"
         ],
-        "fund_manager": [],
+        "fund_manager": [
+            "fund_manager_details"
+        ],
         "load": [
             "^load_structure$",
             "^load$",
@@ -20,7 +23,8 @@
         "main_scheme_name": [
             "^name_of_the_scheme$",
             ".*_name_of_the_scheme$",
-            "^_name_of_the_scheme$"
+            "^_name_of_the_scheme$",
+            ".*name_of_the_scheme$"
         ],
         "mutual_fund_name": [],
         "suitable_for_investors": [
@@ -34,7 +38,8 @@
         "scheme_code": [
             "^scheme_code$",
             "^scheme_code.*$",
-            "^sebi_scheme_code$"
+            "^sebi_scheme_code$",
+            ".*scheme_code$"
         ],
         "type_of_scheme": [
             "^scheme_type$",
@@ -48,7 +53,8 @@
             ".*new_fund_offer_opens",
             ".*new_fund_offer_opening_date$",
             ".*nfo_opens_on$",
-            ".*new_fund_o\ufb00er_opens_on"
+            ".*new_fund_o\ufb00er_opens_on",
+            ".*nfo_open_date"
         ],
         "close_date": [
             ".*offer_closes_on$",
@@ -56,7 +62,8 @@
             ".*new_fund_offer_closes",
             ".*new_fund_offer_closing_date$",
             ".*nfo_closes_on$",
-            ".*new_fund_o\ufb00er_closes_on"
+            ".*new_fund_o\ufb00er_closes_on",
+            ".*nfo_close_date"
         ],
         "face_value": [],
         "riskometer_scheme": [],

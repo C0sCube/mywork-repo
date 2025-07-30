@@ -36,7 +36,8 @@ class Helper:
 
                     parts = file_name.split("_")
                     fund_id = parts[0]
-                    pdf_paths[fund_id] = (file_name, full_path)
+                    typez = parts[-1].replace(".pdf","").upper()
+                    pdf_paths[fund_id].append((typez,file_name, full_path))
                 else:
                     self.logger.info(f"File: {file_name} is neither a factsheet nor a SID/KIM document.")
         return pdf_paths
@@ -47,7 +48,7 @@ class Helper:
         for root,_,files in os.walk(path):
             for file_name in files:
                 if file_name.endswith(".xlsx") and file_name.lower() == "table_data.xlsx":
-                    self.logger.notice(f"Excel sheet containing table data found.")
+                    self.logger.info(f"Excel sheet containing table data found.")
                     full_path = os.path.join(root, file_name)
                     df = pd.read_excel(full_path)
                     return df

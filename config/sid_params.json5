@@ -4959,12 +4959,16 @@
     PARAMS: {
       page_zero: { bbox: [[0, 0, 220, 800]], ocr: false },
       table_data: {
-        threshold: 3,
+        threshold: 2,
         keywords: [
           "Name of the scheme",
           "Category of the Scheme",
           "Scheme code",
           "Investment objective",
+          "Plans\\s*and\\s*Options",
+          "Load\\s*Structure",
+          "Benchmark",
+          "Minimum\\s*Application\\s*Amount"
         ],
       },
       manager_data: {
@@ -4991,9 +4995,11 @@
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
       load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
       scheme: [
-        "Units were offered at",
-        "New Fund Offer [Oo]pens [Oo]n",
-        "New Fund Offer [Cc]loses [Oo]n",
+        "Name of the Scheme",
+        "Category of Scheme",
+        "Scheme Code",
+        "NFO open date",
+        "NFO close date",
         "Scheme Re-?Opens?",
         "EOL",
       ],
@@ -5044,8 +5050,8 @@
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
       ".*who_are_seeking",
-      ".*(offer_opens_on|offer_closes_on)",
-      "^(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      ".*(nfo_open_date|nfo_close_date)",
+      ".*(benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
       "^load_structure",
       "^(?:minimum_)?(application_amount|additional_purchase).*$",
       "fund_manager",
