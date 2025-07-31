@@ -43,7 +43,6 @@ class Helper:
         return pdf_paths
     
     def get_xlsx_in_folder(self,path:str) -> dict:
-        import pandas as pd
         df = pd.DataFrame()
         for root,_,files in os.walk(path):
             for file_name in files:

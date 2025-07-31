@@ -86,7 +86,7 @@ while True:
             session_logger.notice(f"New folder: {folder_key}")
             time.sleep(20)  # Wait for copy to complete
 
-            mutual_fund = Helper().get_pdf_with_id(amc_path),
+            mutual_fund = Helper().get_pdf_with_id(amc_path)
             total_done, total_failed = {}, {}
 
             for amc_id, class_ in CLASS_REGISTRY.items():

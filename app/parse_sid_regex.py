@@ -1,6 +1,6 @@
 import re
 import os, sys
-import json, inspect, json5, datetime
+import json, inspect, datetime
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -160,7 +160,7 @@ class SidKimRegex():
     def _final_json_construct(self,data:dict,doc_name:str, typez="")->dict:
         
         data = {k:self._clean_leading_specials(self._normalize_whitespace(v)) if isinstance(v,str) else v for k,v in data.items()}
-        if typez == "sid": 
+        if typez == "SID" or typez == "sid": 
             file_type = typez
             return {
                 "metadata":{
@@ -170,7 +170,7 @@ class SidKimRegex():
                 },
                 "value":dict(sorted(data.items()))
             }
-        elif typez == "kim": 
+        elif typez == "KIM" or typez == "kim": 
             file_type = typez
             return {
                 "metadata":{

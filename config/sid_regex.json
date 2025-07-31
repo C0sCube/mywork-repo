@@ -33,19 +33,21 @@
             ".*suitable_for_"
         ],
         "scheme_objective": [
-            "^investment_objective$"
+            "^investment_objective$",
+            ".*investment_objective"
         ],
         "scheme_code": [
             "^scheme_code$",
             "^scheme_code.*$",
             "^sebi_scheme_code$",
-            ".*scheme_code$"
+            ".*scheme_code"
         ],
         "type_of_scheme": [
             "^scheme_type$",
             "type_of_the_scheme",
             "type_of_scheme",
-            "^_scheme_type"
+            "^_scheme_type",
+            ".*category_of_scheme"
         ],
         "open_date": [
             ".*offer_opens_on$",
@@ -74,7 +76,8 @@
             "^.*?minimum_application_amount.*",
             ".*min_amt$",
             ".*minimum_application_amount.*",
-            "^application_amount"
+            "^application_amount",
+            "^minimum_application_amount_switch_in"
         ],
         "min_amt_multiple": [],
         "min_addl_amt": [
@@ -83,7 +86,8 @@
             ".*add_amt$",
             "additional_purchase_amount",
             "^additional_purchase",
-            ".*additional_purchase_amount"
+            ".*additional_purchase_amount",
+            "^minimum_additional_purchase_amount"
         ],
         "min_addl_amt_multiple": [],
         "page_number": [],

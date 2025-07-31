@@ -1,9 +1,8 @@
 import os, re, inspect,sys, ocrmypdf, camelot, pprint # type: ignore
 import fitz # type: ignore
-import pandas as pd
-import numpy as np
 
-from app.parse_sid_regex import *
+
+from app.parse_sid_regex import SidKimRegex
 from app.fund_sid_data import *
 from app.parse_table import *
 
@@ -129,7 +128,7 @@ class ReaderSIDKIM:
         
         dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
         col_start = self._table_parser.get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
-        print(f"[COL START]: {col_start} _keys: {table_params['keywords']}")
+        print(f"[COL START]: {col_start}") # _keys: {table_params['keywords']}
         
         dfs = self._table_parser.get_sub_dataframe(dfs,cs=col_start[0])
         dfs = self._table_parser.clean_dataframe(dfs, ["newline_to_space"])
@@ -140,12 +139,12 @@ class ReaderSIDKIM:
     
     def parse_fund_manager_info(self, pages: str) -> dict:
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["page_manager"] = int(pages[0])
+        # self.FIELD_LOCATION["page_manager"] = int(pages[0])
         manager_params = self.PARAMS["manager_data"]
 
         dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
         row_start = self._table_parser.get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
-        print(f"[ROW START]: {row_start} _keys: {manager_params['keywords']}")
+        print(f"[ROW START]: {row_start}") #_keys: {manager_params['keywords']}
         
         dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_start[0])
         dfs = self._table_parser.clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
@@ -167,7 +166,7 @@ class ReaderSIDKIM:
     # =================== KIM ===================
     
     def parse_KIM_data(self,pages:str, instrument_count = 2)->dict:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         self.FIELD_LOCATION["kim"] = int(pages[0])
         kim_params = self.PARAMS["kim"]
         
@@ -280,13 +279,15 @@ class ReaderSIDKIM:
         df["asset_allocation_pattern"] = asset_alloc_data
         return df
         
-    def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func:bool):
+    def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func = False):
         print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         
         temp = self._clone_fund_data(data)
         temp = self._merge_fund_data(temp)
         temp = self._clone_fund_data(temp)
         temp = self._select_by_regex(temp) #select
+        
+        sid_or_kim = sid_or_kim.lower()
         
         #mapping typez:sid/kim
         if sid_or_kim == "sid":

@@ -1,10 +1,9 @@
-import os, time, shutil, logging
+import os, time, shutil, logging, json
 from app.config_loader import Config
 from app.utils import Helper
 from app.mailer import Mailer
 from app.program_logger import get_forever_logger, setup_session_logger
-from app.class_registry import SID_CLASS_REGISTRY
-from app.parse_table import TableParser
+from app.sid_registry import SID_CLASS_REGISTRY
 
 CONFIG = Config()
 WATCH_PATH, OUTPUT_PATH = CONFIG.watch_path, CONFIG.output_path
@@ -16,69 +15,73 @@ SESSION_LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["session_logs"])
 FAILED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["failed"])
 PROCESSED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["processed"])
 
-watch_logger = get_forever_logger("watcher", log_dir=DAILY_LOG_DIR,to_console=True, redirect_stdout=True)
+watch_logger = get_forever_logger("watcher", log_dir=DAILY_LOG_DIR,log_level=logging.WARNING)
 watch_logger.notice("SID/KIM JSON PARSE main.py Running ...")
 
 mail = Mailer()
 known_folders = set(os.listdir(WATCH_PATH))
-watch_logger.notice(f"Watching for new PDFs in: {WATCH_PATH}")
+watch_logger.info(f"Watching for new PDFs in: {WATCH_PATH}")
 
 
-def process_amc(amc_id,content,amc_path,session_logger):
+def process_amc(amc_id,content,amc_path,logger):
     page_content = {}
     results = {"done": {}, "failed": {}}
     
     try:
         
-        session_logger.info("Trying to read tabular data (xlsx)...")
+        logger.info("Trying to read tabular data (xlsx)...")
         df = Helper().get_xlsx_in_folder(amc_path)
         if df is not None:
             page_content = {row[0]: list(row[1:]) for row in df.itertuples(index=False)}
-            session_logger.notice("Tabular data loaded.")
-            session_logger.info(page_content)
+            logger.notice("Tabular data loaded.")
+            # logger.info(page_content)
             
     except Exception as e:
         
-        session_logger.warning(f"Tabular data loading failed: {e}")
+        logger.warning(f"Tabular data loading failed: {e}")
     
     for typez,fund_name,path in content:
         
         try:
             
-            session_logger.info(f"Processing {amc_id}:{fund_name}")
+            logger.notice(f"Processing {amc_id}:{fund_name}")
             obj = SID_CLASS_REGISTRY[amc_id](amc_id, path)
+            dfs,temp_dict = {},{}
+            typez = typez.lower()
                         
             fundName = fund_name.replace(".pdf", "").strip()
             if fundName in page_content:
                 args = page_content[fundName]
-                session_logger.info(f"Page Data for {fundName} = {args}. ")
+                logger.info(f"Page Data for {fundName} = {args}. ")
 
-            if typez.upper() == "SID":
-                
-                temp_dict = {}
+            if typez == "sid":
+
                 temp_dict.update(obj.parse_page_zero(args[0]))
                 temp_dict.update(obj.parse_scheme_table_data(args[1]))
-                temp_dict.update(obj.parse_fund_manager_info(args[2]))
-            elif typez.upper() == "KIM":
+                temp_dict.update(obj.parse_fund_manager_info(str(args[2])))
                 
-                temp_dict = obj.parse_KIM_data(pages=args[0], instrument_count=int(args[1]))
-            else:
-                raise ValueError(f"For {fund_name} typez is wrong: {typez}")
+            elif typez == "kim": temp_dict = obj.parse_KIM_data(pages=args[0], instrument_count=int(args[1]))
+            else: raise ValueError(f"For {fund_name} typez is wrong: {typez}")
             
-            data = obj.refine_data(temp_dict)
-            dfs = obj.merge_and_select_data(data,sid_or_kim=typez,special_func=False)
+            dataset = obj.refine_data(temp_dict)
+            dfs = obj.merge_and_select_data(dataset,sid_or_kim=typez)
             
-            if not dfs:
-                raise ValueError("No final merged data.")
+            if not dfs: raise ValueError("No final merged data.")
             
             save_path = os.path.join(JSON_DIR, f"{fundName}.json")
             Helper.save_json(dfs, save_path)
-            session_logger.save(f"Saved JSON: {save_path}")
-            results["done"][fund_name] = path
             
+            # with open("temp.json","w+") as file:
+            #     json.dump(temp_dict,file)
+            # with open("data.json","w+") as file:
+            #     json.dump(dataset,file)
+            
+            logger.save(f"Saved JSON: {save_path}")
+            results["done"][fund_name] = path
+                    
         except Exception as e:
             
-            session_logger.error(f"[Pipeline Error] {fund_name} | {type(e).__name__}: {e}")
+            logger.error(f"[Pipeline Error] {fund_name} | {type(e).__name__}: {e}")
             results["failed"][fund_name] = path
 
     return results
@@ -109,7 +112,7 @@ while True:
                 time.sleep(1)
                 watch_logger.info(f"{amc_id} SID/KIM attached.")
                 
-                result = process_amc(amc_id, content, amc_path, session_logger)
+                result = process_amc(amc_id, content, amc_path, logger=session_logger)
                 total_done.update(result["done"])
                 total_failed.update(result["failed"])
             

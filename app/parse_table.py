@@ -1,10 +1,6 @@
 import os, re, inspect,sys, ocrmypdf, camelot # type: ignore
 import fitz # type: ignore
 import pandas as pd
-import numpy as np
-
-from app.parse_sid_regex import *
-from app.fund_sid_data import *
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
@@ -17,7 +13,7 @@ from app.config_loader import *
 class TableParser:
     
     def __init__(self):
-        
+        from app.parse_sid_regex import SidKimRegex
         conf = get_config() #path to paths.json
         
         self.pipeline = {
@@ -30,6 +26,8 @@ class TableParser:
             'NA_to_str': lambda x: "" if x is pd.NA or pd.isna(x) else x,
             'drop_all_na': lambda df: df.dropna(axis=0, how='all').dropna(axis=1, how='all') if isinstance(df, pd.DataFrame) else df
         }
+        
+        self._regex_ = SidKimRegex()
     
     def clean_dataframe(self, df, steps, columns=None):
         """Apply a sequence of cleaning functions to specified columns in a DataFrame.
@@ -73,14 +71,13 @@ class TableParser:
                 thresh (int): Minimum number of matching cells required per row.
         Returns:list: List of matching row indices. Returns [0] if none found."""
         
-        regex = SidKimRegex()
         pattern = re.compile("|".join(keywords), re.IGNORECASE)
         # print(pattern)
         matched_rows = []
         for idx, row in df.iterrows():
             match_count = 0
             for cell in row:
-                cell_text = regex._normalize_alphanumeric(str(cell))
+                cell_text =self._regex_._normalize_alphanumeric(str(cell))
                 # print(cell_text)
                 if pattern.search(cell_text):  # use .match to anchor to start
                     match_count += 1
@@ -96,12 +93,11 @@ class TableParser:
                 thresh (int): Minimum number of matches required per column.
                 match_start_only (bool): (Unused currently) If True, match only at the start of text.
         Returns:list: List of matching column names. Returns [0] if none found."""
-        
-        regex = SidKimRegex()
+    
         pattern = re.compile(rf"({'|'.join(keywords)})", re.IGNORECASE)
         matched_cols = []
         for col in df.columns:
-            col_text = regex._normalize_alphanumeric(" ".join(map(str, df[col].fillna("").astype(str))))
+            col_text = self._regex_._normalize_alphanumeric(" ".join(map(str, df[col].fillna("").astype(str))))
             match_count = 0
             for _ in pattern.finditer(col_text):
                 match_count += 1
@@ -162,11 +158,10 @@ class TableParser:
     
     def _group_and_collect(self,df, group_col=""):
         final_dict = {}
-        regex = SidKimRegex()
         data_cols = df.columns.drop(group_col)
         
         for title, group_df in df.groupby(group_col, sort=False):
-            norm_title = regex._normalize_key(title)
+            norm_title = self._regex_._normalize_key(title)
             values = [
                 cell
                 for _, row in group_df.iterrows()
