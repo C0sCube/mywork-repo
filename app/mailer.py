@@ -5,18 +5,33 @@ from email.mime.text import MIMEText
 from pathlib import Path
 from datetime import datetime
 import logging
-import os
+import os,json
 
 # logger = logging.getLogger("fs_logger")
 
+
 class Mailer:
-    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com'],logger = None):
+    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com']):
+        
+        try:
+            with open("paths.json", "r") as f:
+                paths = json.load(f)
+                server = paths.get("mail", {}).get("server", server)
+                port = paths.get("mail", {}).get("port", port)
+                sender = paths.get("mail", {}).get("sender", sender)
+                recipients = paths.get("mail", {}).get("recipients", recipients)
+                if isinstance(recipients, str):
+                    recipients = [recipients]
+                
+        except FileNotFoundError:
+            
+            print("paths.json file not found. Using default values.")
+        
         self.SERVER = server
         self.PORT = port
         self.FROM = sender
         self.RECPTS = recipients or []
-        
-        self.LOGGER = logger
+
 
     def started(self, program):
         subject = f"{program} — Execution Started"
@@ -31,8 +46,7 @@ class Mailer:
         """
         msg = self.construct_mail(subject=subject, body_html=body)
         self.send_mail(msg)
-        # logger.info(f"Program Started Mail Sent: {program}")
-    
+   
     def end(self, program, data=None):
         subject = f"{program} — Execution Completed"
         process, failed = data
@@ -54,8 +68,6 @@ class Mailer:
         """
         msg = self.construct_mail(subject=subject, body_html=body)
         self.send_mail(msg)
-        # logger.info(f"Program Ended Mail Sent: {program}")
-
 
     def construct_mail(self, subject, body_html=None):
         msg = MIMEMultipart()

@@ -84,8 +84,11 @@ while True:
             folder_key = "_".join(folder.split()).lower()
             session_logger = setup_session_logger(folder_key, base_log_dir=SESSION_LOG_DIR, redirect_stdout=True)
             session_logger.notice(f"New folder: {folder_key}")
-            time.sleep(20)  # Wait for copy to complete
-
+            time.sleep(30)  # Wait for copy to complete
+            
+            mail.started("FS_JSON_PARSE_KAUSTUBH")
+            session_logger.info("Mail Send to Recipients.")
+            
             mutual_fund = Helper().get_pdf_with_id(amc_path)
             total_done, total_failed = {}, {}
 
@@ -116,6 +119,8 @@ while True:
             session_logger.notice(f"Deleted input folder: {amc_path}")
             session_logger.trace("Session Completed. Ending Current Session.")
             watch_logger.notice(f"Folder {folder_key} Processing Complete.")
+            mail.end("FS_JSON_PARSE_KAUSTUBH",[total_done,total_failed])
+            session_logger.info("Parsed Data Report Send to Recipients")
 
         known_folders.update(new_folders)
         watch_logger.notice("No new folders found. Sleeping...")

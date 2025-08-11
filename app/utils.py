@@ -3,6 +3,7 @@ import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
+from typing import List
 
 from app.program_logger import get_active_logger
 
@@ -235,6 +236,15 @@ class Helper:
             # logger.exception(f"delete_amc_pdf: {e}")
             return
         return
+    
+    @staticmethod        
+    def create_dirs(root_path: str, dirs: List[str]) -> List[str]:
+        created_paths = []
+        for dir_name in dirs:
+            full_path = os.path.join(root_path, dir_name)
+            os.makedirs(full_path, exist_ok=True)
+            created_paths.append(full_path)
+        return created_paths
     
     #JSON UN/LOAD 
     @staticmethod
