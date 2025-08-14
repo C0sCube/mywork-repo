@@ -5468,7 +5468,7 @@
       ],
       metrics: {
         key: "(Assets\\s*Under\\s*Management|Average\\s*AUM|Regular Plan|Direct Plan|Macaulay Duration|Yield\\s*to|avg maturity|Modified Duration)",
-        value: "(-?\\d+\\.\\d+\\s*(?:days?|months?|years?|crores?|%)?)",
+        value: "(-?\\d+\\.\\d+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
       },
       min_amt: "([\\d,]+)()\\s*",
       load: "Entry Load(.*)Exit Load(.*)$",
@@ -5516,7 +5516,7 @@
     CLONEKEYS: {
       fund_manager: "before.date_of_allotment",
       scheme_launch_date: "before.date_of_allotment",
-      monthly_aaum_value: "before.assets_under_management",
+      monthly_aaum_value: ".*assets_under_management",
     },
     PROMOTE_KEYS: {
       ".*fund_specs": {
