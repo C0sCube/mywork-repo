@@ -1157,4 +1157,24 @@ class Unifi(Reader,GrandFundData):
                 final_list.append(self._return_manager_data(**record))
 
         return {main_key: final_list}
-    
+
+#47
+class JioBlackRock(Reader,GrandFundData):   
+    def __init__(self, fund_name:str,amc_id:str,path:str,logger):
+        GrandFundData.__init__(self,fund_name,amc_id,logger) 
+        Reader.__init__(self, self.PARAMS,amc_id,path,logger)
+        
+    def _update_manager_data(self, main_key: str, data):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
+       
+        # print(n,s,e) 
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n,s = adjust(n,e),adjust(s,e)
+        for name,since,exp in zip(n,s,e):
+            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        return {main_key: final_list}  

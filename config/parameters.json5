@@ -13,7 +13,7 @@
     PARAMS: {
       title: {
         ocr: false,
-        pattern:  "(AXIS.*?(?:FUNDS?|ETF[Ss]?|INDEX|PLAN|PATH|F[Oo]F)\\s*(?:OF\\s*FUNDS?|F[Oo]F|FUNDS?|FUND OF FUNDS?|.+?PLAN)?)",
+        pattern: "(AXIS.*?(?:FUNDS?|ETF[Ss]?|INDEX|PLAN|PATH|F[Oo]F)\\s*(?:OF\\s*FUNDS?|F[Oo]F|FUNDS?|FUND OF FUNDS?|.+?PLAN)?)",
         bbox: [0, 0, 580, 36],
       },
       clip_bbox: [
@@ -76,7 +76,7 @@
       ".*portfolio_turnover": ["_extract_generic_data", "ptr"],
       ".*tracking_error": ["_extract_generic_data", "tracking"],
       ".*date_of_?allotment": ["_extract_generic_data", "date"],
-      ".*benchmark":["_extract_generic_data","benchmark"]
+      ".*benchmark": ["_extract_generic_data", "benchmark"],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -101,8 +101,8 @@
       fund_manager: [".*fund_manager"],
     },
     CLONEKEYS: {
-      monthly_aaum_value:".*monthly_?average$",
-      scheme_launch_date:".*date_of_?allotment$"
+      monthly_aaum_value: ".*monthly_?average$",
+      scheme_launch_date: ".*date_of_?allotment$",
     },
     PROMOTE_KEYS: {},
     SPECIAL_FUNCTIONS: {
@@ -180,7 +180,7 @@
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
       "(.*index_facts|.*debt_quants|metrics)": [
-        "_extract_generic_data", 
+        "_extract_generic_data",
         "metrics",
       ],
       ".*fund_manager": ["_extract_manager_data", "manager"],
@@ -2331,7 +2331,7 @@
     SELECTKEYS: [
       ".*(inceptionallotment_date|first_tier_benchmark)",
       "load",
-      "monthly_aaum_value",//".*average_aum$", clone
+      "monthly_aaum_value", //".*average_aum$", clone
       ".*minimum_investment",
       "fund_manager",
       "metrics",
@@ -2347,7 +2347,7 @@
       metrics: [".*nav"],
     },
     CLONEKEYS: {
-      monthly_aaum_value:".*average_aum\\s*_?\\s*for$"
+      monthly_aaum_value: ".*average_aum\\s*_?\\s*for$",
     },
     PROMOTE_KEYS: {},
     SPECIAL_FUNCTIONS: {},
@@ -5294,7 +5294,7 @@
     MAIN_MAP: {
       select: true,
       map: true,
-      special:true
+      special: true,
     },
     IMP_DATA: {
       amc_name: "Angel One Asset Management Company Limited",
@@ -5543,13 +5543,13 @@
       title: {
         ocr: false,
         pattern: "(Jio\\s*Black\\s*Rock.+?(?:Fund|ETF|F[Oo]F|Index|Path|Duration|Index|Plan)\\s*(?:.+?Growth|F[Oo]F|Fund of Funds?|of Funds?|Fund?)?)",
-        bbox: [0, 0, 600, 60],
+        bbox: [0, 0, 600, 120],
       },
       clip_bbox: [
-        [0, 55, 270, 580],
-        [270, 55, 580, 580],
+        [0, 120, 590, 820],
+        // [270, 55, 580, 580],
       ],
-      line_x: 270.0,
+      line_x: 590.0,
       data: {
         size: [8, 18],
         color: [0],
@@ -5570,36 +5570,28 @@
       aum: "[\\d,.]+\\s*crores?\\s*([\\d,.]+\\s*crores?)",
       date: "([A-Za-z]+\\s*\\d{2}\\,\\s*\\d{4})",
       scheme: [
-        "Name of the Fund",
-        "Type of the Scheme",
-        "Date of Allotment",
-        "Tier\\s*1\\s*Benchmark Index",
-        "Additional Benchmark",
-        "Fund Specs",
-        "Assets Under Management",
-        "Quantitative Indicators",
-        "Fund Holdings",
-        "EOL",
-        "Initial purchase",
-        "Additional purchase",
-        "Load Structure",
-        "Entry Load",
+        "INVESTMENT OBJECTIVE",
+        "[Pp]lan and [Oo]ptions?",
+        "Allotment Date",
+        "Minimum Investment.*?Lumpsum",
+        "Minimum Investment\\s*\\-\\s*SIP",
+        "Total Expense Ratio",
+        "Benchmark",
+        "NAV per Unit",
         "Exit Load",
-        "TER",
-        "Net Asset Value",
+        "FUND\\s*MANAGER",
+        "FUND SIZE",
+        "Monthly\\s*Average\\s*AUM",
+        "QUANTITATIVE\\s*DATA",
         "EOL",
-        "Fund Holdings",
-        "Initial purchase",
       ],
-      metrics: {
-        key: "(Assets\\s*Under\\s*Management|Average\\s*AUM|Regular Plan|Direct Plan|Macaulay Duration|Yield\\s*to|avg maturity|Modified Duration)",
-        value: "(-?\\d+\\.\\d+\\s*(?:days?|months?|years?|crores?|%)?)",
-      },
-      min_amt: "([\\d,]+)()\\s*Minimum",
+      metrics: "(YTM|Macaulay Duration|Yield\\s*to|average maturity|Modified Duration)\\s*\\-?\\:?\\s*(-?\\d+\\.?\\d*\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
+      min_amt: "([\\d,]+).*?(\\d+|any)",
       load: "Entry Load(.*)Exit Load(.*)$",
       manager: {
-        pattern: "(\\w+\\s+\\w+)\\s*([A-Za-z]+\\s*Fund\\s*Manager)",
-        fields: ["name", "desig"],
+        name: "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s*[A-Za-z]+)",
+        exp: "Total\\s*Experience\\s*([0-9]+\\s*[Yy]ears?)",
+        since: "fund\\s*since\\s*([A-Za-z]+\\s+\\d{4})",
       },
       escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
     },
@@ -5607,25 +5599,25 @@
       "^(before|dummy).*": ["_extract_scheme_data", "scheme"],
     },
     SECONDARY_PATTERN_TO_FUNCTION: {
-      ".*(initial_purchase|additional_purchase)": [
+      ".*(minimum_investment_lumpsum|additional_purchase)": [
         "_extract_amt_data",
         "min_amt",
       ],
       ".*assets_under_management": ["_extract_generic_data", "aum"],
-      ".*(quantitative_indicators|net_asset_value)": [
-        "_extract_iter_data",
+      ".*(quantitative_data|net_asset_value)": [
+        "_extract_generic_data",
         "metrics",
       ],
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
-      "load",
-      "metrics",
-      "(minimum_application_amount|minimum_additional)",
-      "fund_manager",
-      "scheme_launch_date",
-      ".*tier_1_benchmark_index",
-      "monthly_aaum_value",
+      "load", //after merge
+      "metrics", //after merge
+      ".*(minimum_application_amount|minimum_additional)",
+      ".*fund_manager",
+      ".*allotment_date",
+      ".*benchmark",
+      ".*monthly_average_aum",
       "amc_name",
       "main_scheme_name",
       "page_number",
@@ -5633,26 +5625,15 @@
       "mutual_fund_name",
     ],
     MERGEKEYS: {
-      minimum_application_amount: [".*initial_purchase"],
-      minimum_additional: [".*additional_purchase"],
-      metrics: [".*quantitative_indicators", ".*net_asset_value"],
+      minimum_application_amount: [".*minimum_investment_lumpsum"],
+      // minimum_additional: [".*additional_purchase"],
+      metrics: [".*quantitative_indicators", ".*quantitative_data"],
       load: [".*(entry_load|exit_load)"],
     },
-    CLONEKEYS: {
-      fund_manager: "before.date_of_allotment",
-      scheme_launch_date: "before.date_of_allotment",
-      monthly_aaum_value: "before.assets_under_management",
-    },
-    PROMOTE_KEYS: {
-      ".*fund_specs": {
-        monthly_aaum_value: "average",
-      },
-    },
+    CLONEKEYS: {},
+    PROMOTE_KEYS: {},
     SPECIAL_FUNCTIONS: {
-      scheme_launch_date: "_update_date_data",
-      fund_manager: "_update_manager_data",
+      ".*fund_manager": "_update_manager_data",
     },
   },
-
-  
 }
