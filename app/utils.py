@@ -44,16 +44,21 @@ class Helper:
         return pdf_paths
     
     def get_ext_in_folder(self,path:str,file_name:str, extension = "") -> dict:
-        df = pd.DataFrame()
+        df = None
         xlsx = file_name.lower()
         ext = extension.lower()
         for root,_,files in os.walk(path):
             for file_name in files:
                 if file_name.endswith(ext) and file_name.lower() == xlsx:
                     full_path = os.path.join(root, file_name)
-                    df = pd.read_excel(full_path)
-                    return df
-        return None
+                    if file_name.endswith(".xlsx"):
+                        df = pd.read_excel(full_path)
+                        return df
+                    if file_name.endswith(".json"):
+                        df = Helper.load_json(full_path)
+                        return df
+        return df
+    
     @staticmethod
     def get_pdf_paths(base_path: str) -> dict:
         pdf_paths = {}
@@ -191,27 +196,20 @@ class Helper:
             if os.path.isfile(file_path):
                 try:
                     os.remove(file_path)
-                    print(f"Deleted: {file_path}")
+                    # print(f"Deleted: {file_path}")
                 except Exception as e:
                     print(f"Failed to delete {file_path}: {e}")
 
     
     @staticmethod
     def copy_pdfs_to_folder(dest_folder: str, data):
-        os.makedirs(dest_folder, exist_ok=True)
 
         if isinstance(data, dict):
             file_paths = list(data.values())
         elif isinstance(data, list):
             file_paths = data
-        elif isinstance(data,str):
-            if os.path.isfile(data):
-                file_name = os.path.basename(path)
-                dest_path = os.path.join(dest_folder, file_name)
-                shutil.copy2(path, dest_path)
-                return
-            else:
-                raise ValueError("The path is invalid or File Doesn't Exist")
+        elif isinstance(data, str):
+            file_paths = [data]
         else:
             raise ValueError("Data must be a list of paths or a dict with path values")
 

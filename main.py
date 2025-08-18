@@ -8,17 +8,15 @@ from app.class_registry import CLASS_REGISTRY, check_amc_file
 CONFIG = Config()
 WATCH_PATH, OUTPUT_PATH = CONFIG.watch_path, CONFIG.output_path
 CHECK_INTERVAL = 10
+PROGRAM_NAME = "FS_JSON_PARSE"
 
 # Output directories
 JSON_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["json"])
-LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["daily_logs"])
+LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["daily_log"])
 FAILED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["failed"])
 PROCESSED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["processed"])
 
-
-PROGRAM_NAME = "FS_JSON_PARSE"
-
-logger = get_forever_logger("watcher", log_dir=LOG_DIR,log_level=logging.INFO)
+logger = get_forever_logger("watcher", log_dir=LOG_DIR,log_level=logging.DEBUG)
 logger.notice(f"{PROGRAM_NAME} Running ...")
 
 mail = Mailer(logger=logger)
@@ -27,11 +25,10 @@ logger.notice(f"Watching for new PDFs in: {WATCH_PATH}")
 
 def process_amc(path,amc_id, file_name):
     page_content = {}
-    
-    filename = file_name.replace(".pdf", ".xlsx")
 
     if amc_id == "8_0":
         try:
+            filename = file_name.replace(".pdf", ".xlsx")
             logger.info("Trying to read tabular data (xlsx)...")
             df = Helper.get_ext_in_folder(WATCH_PATH,filename,extension=".xlsx")
             if df:
@@ -46,7 +43,19 @@ def process_amc(path,amc_id, file_name):
     
     if amc_id == "1_0":
         pass
-
+        try:
+            filename = file_name.replace(".pdf", ".json")
+            logger.info("Trying to read annot data (json)...")
+            jsn = Helper.get_ext_in_folder(WATCH_PATH,filename,extension=".json")
+            # if df:
+            #     page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
+            #     logger.notice("Tabular data loaded.")
+            #     logger.info(page_content)
+            # else:
+            #     raise ValueError("Tabular Data Not Found.")
+            
+        except Exception as e:
+            logger.warning(f"Json loading failed: {e}")
 
     try:
         if amc_id not in CLASS_REGISTRY:
@@ -77,7 +86,7 @@ def process_amc(path,amc_id, file_name):
 
         save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
         Helper.save_json(dfs, save_path)
-        logger.save(f"Saved JSON: {save_path}")
+        logger.save(f"Saved Json File: {save_path}")
         return True
 
     except Exception as e:
@@ -99,7 +108,7 @@ try:
         logger.info(f"Files Detected: {' | '.join(sorted(new_files))}")
 
         mail.started(PROGRAM_NAME,data=new_files)
-        logger.info("Mail Send to Recipients.")
+        logger.info("Mail Sent to Recipient(s).")
         
         total_done, total_failed = list(), list()
         time.sleep(30) #wait
@@ -110,17 +119,16 @@ try:
             
             result = process_amc(file_path,file_key, file_name)
             
-            
             if result:
-                # Helper.copy_pdfs_to_folder(PROCESSED_DIR, file_path)
+                Helper.copy_pdfs_to_folder(PROCESSED_DIR, file_path)
                 total_done.append(file_name)
             else:
-                # Helper.copy_pdfs_to_folder(FAILED_DIR, file_path)
+                Helper.copy_pdfs_to_folder(FAILED_DIR, file_path)
                 total_failed.append(file_name)
             
             time.sleep(5)
             
-        logger.warning(f"{total_done} file(s) done. {total_failed} file(s) failed.")
+        logger.save(f"{total_done} file(s) done. {total_failed} file(s) failed.")
         logger.trace("Session Completed. Ending Current Session.")
 
         mail.end(PROGRAM_NAME, [total_done, total_failed])
@@ -133,7 +141,7 @@ except KeyboardInterrupt:
     logger.warning("Watcher stopped by user.")
     mail.send_custom(
         subject=f"{PROGRAM_NAME} - Watcher Stopped",
-        body_html="<p>The watcher has been stopped by the user.</p>",
+        body_html=f"<p>The {PROGRAM_NAME} watcher has been stopped by the user.</p>",
     )
 
 except Exception as e:

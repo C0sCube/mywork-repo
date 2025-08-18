@@ -46,28 +46,25 @@ class Reader:
     #HIGHLIGHT
     def _get_normal_title(self, path:str,regex:str,bbox):
         self.LOGGER.info(f"Getting All titles : {inspect.currentframe().f_code.co_name}")
-        # print(f"Regex: {regex}")
         title_detected = {}
         try:
             with fitz.open(path) as doc:
                 for pgn, page in enumerate(doc):
                     title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
                     title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
-                    print(title_text)
+                
                     title_match = re.findall(regex, title_text, re.DOTALL)
                     title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
                     # print(title)
-                    if title:
-                        print(f">>{title}")
-                        self.LOGGER.trace(f">>{title}") #FOR - {title_text}
-                        # print(f"{pgn:02d} -- {title.encode('cp1252', 'replace').decode('cp1252')}")
+                    if title: self.LOGGER.trace(f">>{pgn}:{title}")
+                    else: self.LOGGER.info(f">>Title not found on {pgn}:{title_text[:15] if len(title_text) > 15 else title_text}")
+                    
                     title_detected[pgn] = title
         except Exception as e:
             self.LOGGER.error("Error in _get_normal_title")
         return title_detected
                 
     def _get_ocr_title(self,path:str,regex:str,bbox):
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
         self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
@@ -118,22 +115,23 @@ class Reader:
         finally: 
             pass
     
-    def _ocr_pdf(self,path:str):
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
-        ocr_path = path.replace(".pdf", "_all_ocr.pdf")
-        time.sleep(2)
-        ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
-        return ocr_path
-    # def _ocr_pdf(self, path: str):
+    # def _ocr_pdf(self,path:str):
+    #     # print(f"step>> {inspect.currentframe().f_code.co_name}")
     #     self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
     #     ocr_path = path.replace(".pdf", "_all_ocr.pdf")
-    #     try:
-    #         self.safe_ocr(path, ocr_path, timeout=90)
-    #         return ocr_path
-    #     except TimeoutError as e:
-    #         self.LOGGER.error(str(e))
-    #         return None
+    #     time.sleep(2)
+    #     ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
+    #     return ocr_path
+    
+    def _ocr_pdf(self, path: str):
+        self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        ocr_path = path.replace(".pdf", "_all_ocr.pdf")
+        try:
+            self.safe_ocr(path, ocr_path, timeout=90)
+            return ocr_path
+        except Exception as e:
+            self.LOGGER.error(str(e))
+            return path
 
     
     def check_and_highlight(self, path: str):

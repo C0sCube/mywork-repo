@@ -120,7 +120,7 @@ class Mailer:
             all_recipients = self.RECPTS + self.CC + self.BCC
             with smtplib.SMTP(self.SERVER, self.PORT) as server:
                 server.send_message(msg, from_addr=self.FROM, to_addrs=all_recipients)
-            self.logger.info("Email sent successfully.")
+            # self.logger.info("Email sent successfully.")
         except Exception as e:
             self.logger.error(f"Failed to send email: {e}")
 
