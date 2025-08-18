@@ -11,35 +11,48 @@ import os,json
 
 
 class Mailer:
-    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com']):
+    def __init__(self, 
+                server='172.17.0.126', 
+                port=25, 
+                sender='Kaustubh.Keny@cogencis.com', 
+                recipients=['Kaustubh.Keny@cogencis.com'], 
+                cc=None, 
+                bcc=None, 
+                logger=None):
         
         try:
             with open("paths.json", "r") as f:
                 paths = json.load(f)
-                server = paths.get("mail", {}).get("server", server)
-                port = paths.get("mail", {}).get("port", port)
-                sender = paths.get("mail", {}).get("sender", sender)
-                recipients = paths.get("mail", {}).get("recipients", recipients)
-                if isinstance(recipients, str):
-                    recipients = [recipients]
+                mail_config = paths.get("mail", {})
+                server = mail_config.get("server", server)
+                port = mail_config.get("port", port)
+                sender = mail_config.get("sender", sender)
+                recipients = mail_config.get("recipients", recipients)
+                cc = mail_config.get("cc", cc)
+                bcc = mail_config.get("bcc", bcc)
+
                 
         except FileNotFoundError:
-            
             print("paths.json file not found. Using default values.")
         
         self.SERVER = server
         self.PORT = port
-        self.FROM = sender
-        self.RECPTS = recipients or []
+        self.FROM = sender or "noreply@example.com"
+        self.RECPTS = recipients if isinstance(recipients, list) else [recipients] if recipients else []
+        self.CC = cc if isinstance(cc, list) else [cc] if cc else []
+        self.BCC = bcc if isinstance(bcc, list) else [bcc] if bcc else []
+        
+        self.logger = logger or logging.getLogger(__name__)
 
 
-    def started(self, program):
+    def started(self, program, data=None):
         subject = f"{program} — Execution Started"
         body = f"""
         <html>
             <body>
                 <p>Hello Team,</p>
                 <p>The program <b>{program}</b> has <b>started</b>.</p>
+                <p>Files attatched are {','.join(data)}</p>
                 <p>Regards,<br>Kaustubh</p>
             </body>
         </html>
@@ -51,8 +64,8 @@ class Mailer:
         subject = f"{program} — Execution Completed"
         process, failed = data
 
-        completed_amcs = '<br>'.join(process.keys())
-        failed_amcs = '<br>'.join(failed.keys())
+        completed_amcs = '<br>'.join(process)
+        failed_amcs = '<br>'.join(failed)
         body = f"""
         <html>
             <body>
@@ -69,32 +82,52 @@ class Mailer:
         msg = self.construct_mail(subject=subject, body_html=body)
         self.send_mail(msg)
 
-    def construct_mail(self, subject, body_html=None):
-        msg = MIMEMultipart()
-        msg['From'] = self.FROM
-        msg['To'] = ', '.join(self.RECPTS)
-        msg['Subject'] = f"{subject} - {datetime.now().strftime('%Y-%m-%d')}"
-
-        body_html = body_html or self.default_body()
-        msg.attach(MIMEText(body_html, 'html'))
-        return msg
-
     def default_body(self):
         return """
         <html>
             <body>
                 <p>Hello Team,</p>
-                <p>The FS JSON DATA parsing completed.</p>
-                <p>Regards,<br>Kaustubh</p>
+                <p>This is Default Mail Message.</p>
+                <p>Regards,<br>System</p>
             </body>
         </html>
         """
+    
+    def send_custom(self, subject, body_html=None, body_text=None):
+        msg = self.construct_mail(subject=subject, body_html=body_html, body_text=body_text)
+        self.send_mail(msg)
+    
+    def construct_mail(self, subject, body_html=None, body_text=None):
+        msg = MIMEMultipart("alternative")
+        msg["From"] = self.FROM
+        msg["To"] = ", ".join(self.RECPTS)
+        if self.CC:
+            msg["Cc"] = ", ".join(self.CC)
+        msg["Subject"] = f"{subject} - {datetime.now().strftime('%Y-%m-%d')}"
+
+        if body_text:
+            msg.attach(MIMEText(body_text, "plain"))
+        if body_html:
+            msg.attach(MIMEText(body_html, "html"))
+        else:
+            msg.attach(MIMEText(self.default_body(), "html"))
+
+        return msg
+
 
     def send_mail(self, msg):
         try:
+            all_recipients = self.RECPTS + self.CC + self.BCC
             with smtplib.SMTP(self.SERVER, self.PORT) as server:
-                server.send_message(msg)
-            # logger.info("E-Mail sent successfully !!")
+                server.send_message(msg, from_addr=self.FROM, to_addrs=all_recipients)
+            self.logger.info("Email sent successfully.")
         except Exception as e:
-            # logger.error(f"Failed to send email: {e}")
-            pass
+            self.logger.error(f"Failed to send email: {e}")
+
+    def test_connection(self):
+        try:
+            with smtplib.SMTP(self.SERVER, self.PORT) as server:
+                server.noop()
+            print("SMTP connection successful.")
+        except Exception as e:
+            print(f"SMTP connection failed: {e}")

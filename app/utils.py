@@ -43,17 +43,17 @@ class Helper:
                     self.logger.info(f"File: {file_name} is neither a factsheet nor a SID/KIM document.")
         return pdf_paths
     
-    def get_xlsx_in_folder(self,path:str) -> dict:
+    def get_ext_in_folder(self,path:str,file_name:str, extension = "") -> dict:
         df = pd.DataFrame()
+        xlsx = file_name.lower()
+        ext = extension.lower()
         for root,_,files in os.walk(path):
             for file_name in files:
-                if file_name.endswith(".xlsx") and file_name.lower() == "table_data.xlsx":
-                    self.logger.info(f"Excel sheet containing table data found.")
+                if file_name.endswith(ext) and file_name.lower() == xlsx:
                     full_path = os.path.join(root, file_name)
                     df = pd.read_excel(full_path)
                     return df
-        self.logger.warning(f" 'table_data.xlsx' not found !! Returning empty df.")
-        return df
+        return None
     @staticmethod
     def get_pdf_paths(base_path: str) -> dict:
         pdf_paths = {}
@@ -185,6 +185,18 @@ class Helper:
         return deleted_files
     
     @staticmethod
+    def delete_all_files(folder_path):
+        for filename in os.listdir(folder_path):
+            file_path = os.path.join(folder_path, filename)
+            if os.path.isfile(file_path):
+                try:
+                    os.remove(file_path)
+                    print(f"Deleted: {file_path}")
+                except Exception as e:
+                    print(f"Failed to delete {file_path}: {e}")
+
+    
+    @staticmethod
     def copy_pdfs_to_folder(dest_folder: str, data):
         os.makedirs(dest_folder, exist_ok=True)
 
@@ -192,6 +204,14 @@ class Helper:
             file_paths = list(data.values())
         elif isinstance(data, list):
             file_paths = data
+        elif isinstance(data,str):
+            if os.path.isfile(data):
+                file_name = os.path.basename(path)
+                dest_path = os.path.join(dest_folder, file_name)
+                shutil.copy2(path, dest_path)
+                return
+            else:
+                raise ValueError("The path is invalid or File Doesn't Exist")
         else:
             raise ValueError("Data must be a list of paths or a dict with path values")
 

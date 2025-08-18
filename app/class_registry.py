@@ -32,6 +32,7 @@ CLASS_REGISTRY = {
     "6_0": Canara,
     "60_0": Helios,
     "7_0": PGIM,
+    "98_0":JioBlackRock,
      
     # add pages
     "59_0": BajajFinServ,
@@ -62,3 +63,23 @@ CLASS_REGISTRY = {
     "35_1": SBIPassive, #ocr
 }
 
+
+def check_amc_file(file_name:str)->bool:
+    
+    if file_name.endswith("FS.pdf"):
+        print(f"Detected Pdf File Named {file_name}")
+        parts = file_name.split("_")
+        fund_id = parts[0]
+
+        is_passive = len(parts[-2]) == 1 #determine passive
+        suffix = parts[-2] if is_passive else "0"
+        fund_key = f"{fund_id}_{suffix}"
+        
+        return fund_key
+    
+    if file_name.endswith(".xlsx") and file_name == "table_data.xlsx":
+        print("Detected Excel File Named 'table_data.xlsx'")
+        return True
+
+    if file_name.endswith(".json"):
+        pass        
