@@ -276,10 +276,15 @@
       nfo: "Rs\\.?\\s*\\d+",
       scheme: [
         "Offer for Units",
-        "New Fund Offer opens\\s*on",
-        "New Fund Offer closes\\s*on",
+        "New Fund Offer\\s*[Oo]pens\\s*on",
+        "New Fund Offer\\s*[Cc]loses\\s*on",
         "Scheme r.+?pens",
         "EOL",
+      ],
+      scheme2:[
+        "[Ss]uitable\\s*[Ff]or.+?are seeking",
+         "[Ii]nvestors\\s*[Ss]hould",
+         "EOL"
       ],
       escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
     },
@@ -300,6 +305,7 @@
       "^benchmark": ["_extract_generic_data", "benchmark"],
       "^fund_manager": ["_extract_manager_data", "manager"],
       "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox":["_extract_scheme_data","scheme2"],
       //kim
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
