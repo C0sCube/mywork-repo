@@ -55,9 +55,9 @@ class Reader:
                 
                     title_match = re.findall(regex, title_text, re.DOTALL)
                     title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
-                    # print(title)
+                    # print(f">>{pgn}:{title}")
                     if title: self.LOGGER.trace(f">>{pgn}:{title}")
-                    else: self.LOGGER.info(f">>Title not found on {pgn}:{title_text[:15] if len(title_text) > 15 else title_text}")
+                    else: self.LOGGER.info(f">>Title not found on {pgn}:{title_text}")
                     
                     title_detected[pgn] = title
         except Exception as e:
