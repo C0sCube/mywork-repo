@@ -5,7 +5,8 @@ from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import *
-from app.parse_table import *
+from app.parse_table import TableParser
+from app.program_constants import *
 
 class SidKimRegex():
     

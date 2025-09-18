@@ -75,6 +75,18 @@ LOG_COLORS = {
     'CRITICAL': 'bold_red',
 }
 
+# Logging levels:
+# Level      Value   Description
+# DEBUG      10      Detailed info, useful for debugging
+# INFO       20      General runtime events
+# WARNING    30      Something unexpected, but not an error
+# ERROR      40      Serious issue, part of the program failed
+# CRITICAL   50      Severe error, may crash the program
+# TRACE SET TO 15
+# SAVE SET TO 22
+# NOTICE SET TO 35
+# Default level is WARNING → shows WARNING, ERROR, CRITICAL
+
 def _get_formatter(use_color=False):
     if use_color and COLORLOG_AVAILABLE:
         return colorlog.ColoredFormatter(
@@ -84,10 +96,10 @@ def _get_formatter(use_color=False):
         )
     return logging.Formatter(DEFAULT_FORMAT, datefmt=DATE_FORMAT)
 
-def _add_console_handler(logger, level, use_color=True):
+def _add_console_handler(logger, use_color=True): #level set to TRACE =15
     handler = colorlog.StreamHandler(sys.stdout) if use_color and COLORLOG_AVAILABLE else logging.StreamHandler(sys.stdout)
     handler.setFormatter(_get_formatter(use_color))
-    handler.setLevel(level)
+    handler.setLevel(15)
     logger.addHandler(handler)
 
 # --- Generic Logger Setup ---
@@ -128,7 +140,7 @@ def setup_logger(
     return logger
 
 # --- Forever Logger ---
-def get_forever_logger(
+def create_logger(
     name="watcher",
     log_dir="logs/daily",
     max_bytes=2 * 1024 * 1024,
@@ -156,63 +168,63 @@ def get_forever_logger(
     logger.addHandler(file_handler)
 
     if to_console:
-        _add_console_handler(logger, log_level, use_color)
+        _add_console_handler(logger, use_color)
     
     if redirect_stdout:
         redirect_stdout_to_logger(logger)
 
     return logger
 
-# --- Session Logger ---
-def setup_session_logger(
-    folder_name: str,
-    base_log_dir: str = "logs/sessions",
-    log_level: int = logging.DEBUG,
-    to_console: bool = True,
-    use_color: bool = True,
-    redirect_stdout=False
-):
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    os.makedirs(base_log_dir, exist_ok=True)
+# # --- Session Logger ---
+# def setup_session_logger(
+#     folder_name: str,
+#     base_log_dir: str = "logs/sessions",
+#     log_level: int = logging.DEBUG,
+#     to_console: bool = True,
+#     use_color: bool = True,
+#     redirect_stdout=False
+# ):
+#     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+#     os.makedirs(base_log_dir, exist_ok=True)
 
-    log_filename = f"fs_{folder_name}_{timestamp}.log"
-    today = datetime.now().strftime('%Y-%m-%d')
-    log_path = os.path.join(base_log_dir,today)
-    os.makedirs(log_path, exist_ok=True)
-    log_path = os.path.join(log_path,log_filename)
-    logger = logging.getLogger(f"session_{folder_name}_{timestamp}")
+#     log_filename = f"fs_{folder_name}_{timestamp}.log"
+#     today = datetime.now().strftime('%Y-%m-%d')
+#     log_path = os.path.join(base_log_dir,today)
+#     os.makedirs(log_path, exist_ok=True)
+#     log_path = os.path.join(log_path,log_filename)
+#     logger = logging.getLogger(f"session_{folder_name}_{timestamp}")
 
-    if logger.hasHandlers():
-        return logger
+#     if logger.hasHandlers():
+#         return logger
 
-    logger.setLevel(log_level)
-    formatter = logging.Formatter(DEFAULT_FORMAT, datefmt=DATE_FORMAT)
+#     logger.setLevel(log_level)
+#     formatter = logging.Formatter(DEFAULT_FORMAT, datefmt=DATE_FORMAT)
 
-    file_handler = logging.FileHandler(log_path, encoding='utf-8')
-    file_handler.setLevel(log_level)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+#     file_handler = logging.FileHandler(log_path, encoding='utf-8')
+#     file_handler.setLevel(log_level)
+#     file_handler.setFormatter(formatter)
+#     logger.addHandler(file_handler)
 
-    if to_console:
-        if use_color and COLORLOG_AVAILABLE:
-            color_formatter = colorlog.ColoredFormatter(
-                "%(log_color)s" + DEFAULT_FORMAT,
-                datefmt=DATE_FORMAT,
-                log_colors= LOG_COLORS
-            )
-            console_handler = colorlog.StreamHandler(stream=sys.stdout)
-            console_handler.setFormatter(color_formatter)
-        else:
-            console_handler = logging.StreamHandler(stream=sys.stdout)
-            console_handler.setFormatter(formatter)
+#     if to_console:
+#         if use_color and COLORLOG_AVAILABLE:
+#             color_formatter = colorlog.ColoredFormatter(
+#                 "%(log_color)s" + DEFAULT_FORMAT,
+#                 datefmt=DATE_FORMAT,
+#                 log_colors= LOG_COLORS
+#             )
+#             console_handler = colorlog.StreamHandler(stream=sys.stdout)
+#             console_handler.setFormatter(color_formatter)
+#         else:
+#             console_handler = logging.StreamHandler(stream=sys.stdout)
+#             console_handler.setFormatter(formatter)
 
-        console_handler.setLevel(log_level)
-        logger.addHandler(console_handler)
+#         console_handler.setLevel(log_level)
+#         logger.addHandler(console_handler)
     
-    if redirect_stdout:
-        redirect_stdout_to_logger(logger)
+#     if redirect_stdout:
+#         redirect_stdout_to_logger(logger)
 
-    return logger
+#     return logger
 
 # --- Global Logger Registry ---
 _active_logger = None

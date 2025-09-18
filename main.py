@@ -1,27 +1,20 @@
 import os, time, shutil, logging
 from app.config_loader import Config
 from app.utils import Helper
-from app.mailer import Mailer
-from app.program_logger import get_forever_logger
-from app.class_registry import CLASS_REGISTRY, check_amc_file
+from app.program_mailer import Mailer
+from app.program_logger import create_logger
+from app.registry_amc import CLASS_REGISTRY, check_amc_file
+from app.program_constants import *
 
-CONFIG = Config()
-WATCH_PATH, OUTPUT_PATH = CONFIG.watch_path, CONFIG.output_path
-CHECK_INTERVAL = 10
-PROGRAM_NAME = "FS_JSON_PARSE"
+# CONFIG = Config()
+# INPUT_PATH, OUTPUT_PATH = CONFIG.INPUT_PATH, CONFIG.output_path
 
-# Output directories
-JSON_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["json"])
-LOG_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["daily_log"])
-FAILED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["failed"])
-PROCESSED_DIR = os.path.join(OUTPUT_PATH, CONFIG.output["processed"])
-
-logger = get_forever_logger("watcher", log_dir=LOG_DIR,log_level=logging.DEBUG)
+logger = create_logger("watcher", log_dir=LOG_DIR,log_level=logging.DEBUG)
 logger.notice(f"{PROGRAM_NAME} Running ...")
 
 mail = Mailer(logger=logger)
-known_folders = set(os.listdir(WATCH_PATH))
-logger.notice(f"Watching for new PDFs in: {WATCH_PATH}")
+known_folders = set(os.listdir(INPUT_PATH))
+logger.notice(f"Watching for new PDFs in: {INPUT_PATH}")
 
 def process_amc(path,amc_id, file_name):
     page_content = {}
@@ -30,7 +23,7 @@ def process_amc(path,amc_id, file_name):
         try:
             filename = file_name.replace(".pdf", ".xlsx")
             logger.info("Trying to read tabular data (xlsx)...")
-            df = Helper.get_ext_in_folder(WATCH_PATH,filename,extension=".xlsx")
+            df = Helper.get_ext_in_folder(INPUT_PATH,filename,extension=".xlsx")
             if df:
                 page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
                 logger.notice("Tabular data loaded.")
@@ -46,7 +39,7 @@ def process_amc(path,amc_id, file_name):
         try:
             filename = file_name.replace(".pdf", ".json")
             logger.info("Trying to read annot data (json)...")
-            jsn = Helper.get_ext_in_folder(WATCH_PATH,filename,extension=".json")
+            jsn = Helper.get_ext_in_folder(INPUT_PATH,filename,extension=".json")
             # if df:
             #     page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
             #     logger.notice("Tabular data loaded.")
@@ -96,13 +89,13 @@ def process_amc(path,amc_id, file_name):
 try:
     known_files = set()
     while True:
-        current_files = {f for f in os.listdir(WATCH_PATH) if os.path.isfile(os.path.join(WATCH_PATH, f))}
+        current_files = {f for f in os.listdir(INPUT_PATH) if os.path.isfile(os.path.join(INPUT_PATH, f))}
         new_files = current_files - known_files
         
         if not new_files:
             logger.notice("No new files found. Sleeping...")
             time.sleep(CHECK_INTERVAL)
-            logger.notice(f"Watching for new PDFs in: {WATCH_PATH}")
+            logger.notice(f"Watching for new PDFs in: {INPUT_PATH}")
             continue
         
         logger.info(f"Files Detected: {' | '.join(sorted(new_files))}")
@@ -114,7 +107,7 @@ try:
         time.sleep(30) #wait
         
         for file_name in new_files:
-            file_path = os.path.join(WATCH_PATH, file_name)
+            file_path = os.path.join(INPUT_PATH, file_name)
             file_key = check_amc_file(file_name=file_name)
             
             result = process_amc(file_path,file_key, file_name)
@@ -135,7 +128,7 @@ try:
         logger.info("Parsed Data Report sent to recipients.")
 
         known_files.update(new_files)
-        Helper.delete_all_files(WATCH_PATH)
+        Helper.delete_all_files(INPUT_PATH)
 
 except KeyboardInterrupt:
     logger.warning("Watcher stopped by user.")
@@ -157,11 +150,11 @@ except Exception as e:
 
 # while True:
 #     try:
-#         current_folders = set(os.listdir(WATCH_PATH))
+#         current_folders = set(os.listdir(INPUT_PATH))
 #         new_folders = current_folders - known_folders
 
 #         for folder in new_folders:
-#             amc_path = os.path.join(WATCH_PATH, folder)
+#             amc_path = os.path.join(INPUT_PATH, folder)
 #             if not os.path.isdir(amc_path):
 #                 continue
 

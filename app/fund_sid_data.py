@@ -4,9 +4,10 @@ import fitz #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.config_loader import get_config
-from app.parse_sid_regex import *
+from app.parse_sid_regex import SidKimRegex
 from app.parse_sid_pdf import ReaderSIDKIM
-from app.parse_table import *
+from app.parse_table import TableParser
+from app.program_constants import *
 # +===========COMPLETE THE DOC STRINGS ===============+
 
 

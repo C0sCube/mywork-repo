@@ -1,4 +1,4 @@
-import os, re, json, string, shutil
+import os, re, json, string, shutil, json5
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -141,6 +141,14 @@ class Helper:
         return paths
 
     @staticmethod
+    def create_dir(base_path, *folders):
+        dir_path = os.path.join(base_path, *folders)
+        os.makedirs(dir_path, exist_ok=True)
+        return dir_path
+
+        
+
+    @staticmethod
     def _get_financial_indices(path:str):
         df = pd.read_excel(path)
         financial_indexes = df['indexes'].tolist()
@@ -274,6 +282,16 @@ class Helper:
     def load_json(path: str):
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
+        
+    @staticmethod
+    def save_json5(data: dict, path: str, indent: int = 2):
+        with open(path, "w", encoding="utf-8") as f:
+            json5.dump(data, f, indent=indent)
+
+    @staticmethod
+    def load_json5(path: str):
+        with open(path, "r", encoding="utf-8") as f:
+            return json5.load(f)
     
     #WRITE TEXT
     @staticmethod

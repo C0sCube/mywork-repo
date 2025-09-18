@@ -4110,11 +4110,16 @@
       table_data: {
         threshold: 3,
         keywords: [
-          "Name of the Scheme",
-          "Category of the Scheme",
-          "Scheme Type",
-          "Scheme Code",
-          "Investment Objective",
+          // "Name of the Scheme",
+          // "Category of the Scheme",
+          // "Scheme Type",
+          // "Scheme Code",
+          // "Investment Objective",
+          "Benchmark",
+          "Plans\\s*and\\s*Options",
+          "Load\\s*Structure",
+          "Tracking\\s*Error",
+          "Fund\\s*manager"
         ],
       },
       manager_data: {
