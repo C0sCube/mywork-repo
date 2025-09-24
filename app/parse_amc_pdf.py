@@ -15,7 +15,7 @@ class Reader:
         self.FILE_NAME = path.split("\\")[-1] # filename
         self.OUTPUTPATH = OUTPUT_PATH
         self.PDF_PATH = path
-        self.DRYPATH = DUMMY_PDF_DIR
+        self.DRYPATH = os.path.join(DUMMY_PDF_DIR,"dry.pdf")
         self.REPORTPATH = REPORT_DIR
         self.JSONPATH = JSON_DIR
         self.TEXT_ONLY = {}
@@ -627,8 +627,7 @@ class Reader:
             #         logger.error(f"'_update_duplicate_fund_data' Failed",exc_info=True)
 
         except Exception as e:
-            # logger.error(f"'get_generated_content' Failed", exc_info=True)
-            pass
+            self.LOGGER.error(f"'get_generated_content' Failed", exc_info=True)
 
         return extracted_text
 

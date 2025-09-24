@@ -706,3 +706,8 @@ class JioBlackRockSIDKIM(ReaderSIDKIM, GrandSidData):
     def __init__(self, amc_id: str, path: str):
         GrandSidData.__init__(self, amc_id)
         ReaderSIDKIM.__init__(self, self.PARAMS,  path)
+
+class WealthCompanySIDKIM(ReaderSIDKIM, GrandSidData):
+    def __init__(self, amc_id: str, path: str):
+        GrandSidData.__init__(self, amc_id)
+        ReaderSIDKIM.__init__(self, self.PARAMS,  path)

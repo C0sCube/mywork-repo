@@ -30,7 +30,8 @@
         "suitable_for_investors": [
             ".*suitable_for_investors.*$",
             ".*suitable.+?investors.*$",
-            ".*suitable_for_"
+            ".*suitable_for_",
+            ".*who_are_seeking$"
         ],
         "scheme_objective": [
             "^investment_objective$",
