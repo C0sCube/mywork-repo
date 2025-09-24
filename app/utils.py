@@ -4,14 +4,14 @@ from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
 from typing import List
-
-from app.program_logger import get_active_logger
+from app.logger import get_global_logger
+logger = get_global_logger()
 
 
 class Helper:
     
     def __init__(self):
-        self.logger = get_active_logger()
+        self.logger = logger
     
     #PARSING UTILS
     def get_pdf_with_id(self,path: str) -> dict:

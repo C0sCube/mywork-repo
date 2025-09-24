@@ -1,20 +1,14 @@
-import re, os,json,sys, json5 #type:ignore
-
-import fitz #type:ignore
-
+import re, os,sys #type:ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import get_config
+from app.konstant import *
 from app.parse_sid_regex import SidKimRegex
 from app.parse_sid_pdf import ReaderSIDKIM
-from app.parse_table import TableParser
-from app.program_constants import *
 # +===========COMPLETE THE DOC STRINGS ===============+
-
 
 class GrandSidData:
     def __init__(self, amc_id: str):
-        config = get_config()
-        fund_config = config.sid_params.get(amc_id, {})
+        config = CONFIG
+        fund_config = config.get(amc_id, {})
 
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
@@ -312,23 +306,6 @@ class GrandSidData:
             return self._extract_dummy_data(string, data)
 
         return self._extract_dummy_data(string, data)  # fallback
-    
-    # def _match_with_patterns(self, string: str, data: list, level:str):
-    #     try: 
-    #         for pattern, content in self.PATTERN[level].items():
-    #             func_name, regex_key = content.split("~~")
-    #             if regex_key == "None":
-    #                 regex_key = None
-    #             if re.match(pattern, string, re.IGNORECASE):
-    #                 func = getattr(self, func_name)  # dynamic function|attribute lookup
-    #                 if regex_key:
-    #                     return func(string, data, regex_key)
-    #                 return func(string, data)
-    #     except Exception as e:
-    #         print(f"[ERROR] in _match_with_patterns for: {string}: {e}")
-    #         return self._extract_dummy_data(string, data)
-
-    #     return self._extract_dummy_data(string, data)  # fallback
 
     def _special_match_regex_to_content(self, string: str, data):
         try:

@@ -1,22 +1,24 @@
-import os, time, shutil, logging
-from app.config_loader import Config
+
+
+import os, time,logging, traceback
+
+from app.konstant import *
+from app.logger import create_logger, set_global_logger
+logger = create_logger("watcher", log_dir=LOG_DIR,log_level=15) #logging.DEBUG is 10
+set_global_logger(logger)
+
 from app.utils import Helper
-from app.program_mailer import Mailer
-from app.program_logger import create_logger
-from app.registry_amc import CLASS_REGISTRY, check_amc_file
-from app.program_constants import *
+from app.mailer import Mailer
 
-# CONFIG = Config()
-# INPUT_PATH, OUTPUT_PATH = CONFIG.INPUT_PATH, CONFIG.output_path
+from app.regis_amc import *
 
-logger = create_logger("watcher", log_dir=LOG_DIR,log_level=logging.DEBUG)
-logger.notice(f"{PROGRAM_NAME} Running ...")
 
-mail = Mailer(logger=logger)
-known_folders = set(os.listdir(INPUT_PATH))
-logger.notice(f"Watching for new PDFs in: {INPUT_PATH}")
 
-def process_amc(path,amc_id, file_name):
+
+logger.info(f"{PROGRAM_NAME} Running ...")
+mail = Mailer()
+
+def program_runner(path,amc_id, file_name):
     page_content = {}
 
     if amc_id == "8_0":
@@ -56,7 +58,7 @@ def process_amc(path,amc_id, file_name):
             return False
 
         logger.info(f"Processing {amc_id}:{file_name}")
-        obj = CLASS_REGISTRY[amc_id](file_name, amc_id, path, logger)
+        obj = CLASS_REGISTRY[amc_id](amc_id, path)
 
         if file_name in page_content:
             obj.PARAMS["table"] = page_content[file_name]
@@ -74,8 +76,7 @@ def process_amc(path,amc_id, file_name):
                     )
                 )
 
-        if not dfs:
-            raise ValueError("No final merged data")
+        if not dfs: raise ValueError("No final merged data")
 
         save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
         Helper.save_json(dfs, save_path)
@@ -84,10 +85,12 @@ def process_amc(path,amc_id, file_name):
 
     except Exception as e:
         logger.error(f"[Pipeline Error] {file_name} | {type(e).__name__}: {e}")
+        logger.debug(traceback.format_exc())
         return False
 
+# try:
+known_files = set()
 try:
-    known_files = set()
     while True:
         current_files = {f for f in os.listdir(INPUT_PATH) if os.path.isfile(os.path.join(INPUT_PATH, f))}
         new_files = current_files - known_files
@@ -97,116 +100,57 @@ try:
             time.sleep(CHECK_INTERVAL)
             logger.notice(f"Watching for new PDFs in: {INPUT_PATH}")
             continue
-        
         logger.info(f"Files Detected: {' | '.join(sorted(new_files))}")
-
-        mail.started(PROGRAM_NAME,data=new_files)
-        logger.info("Mail Sent to Recipient(s).")
-        
-        total_done, total_failed = list(), list()
-        time.sleep(30) #wait
+        logger.notice("Mandatory program pause for file save.")
+        # mail.started(PROGRAM_NAME,data=new_files)
+        # logger.info("Mail Sent to Recipient(s).")
+        time.sleep(PAUSE_AFTER_FILE_DETECTION) #30s mostly
+        completed, failed = dict(), dict()
         
         for file_name in new_files:
-            file_path = os.path.join(INPUT_PATH, file_name)
-            file_key = check_amc_file(file_name=file_name)
+            try:
+                file_path = os.path.join(INPUT_PATH, file_name)
+                file_key = check_amc_file(file_name=file_name)
+
+                result = program_runner(file_path,file_key, file_name)
+                
+                if result:completed.update({file_name:file_path})
+                else:failed.update({file_name:file_path})
             
-            result = process_amc(file_path,file_key, file_name)
+            except Exception as e:
+                logger.error(f"Error in processing {file_name}. {type(e).__name__}: {e}")
+                logger.debug(traceback.format_exc())
             
-            if result:
-                Helper.copy_pdfs_to_folder(PROCESSED_DIR, file_path)
-                total_done.append(file_name)
-            else:
-                Helper.copy_pdfs_to_folder(FAILED_DIR, file_path)
-                total_failed.append(file_name)
+            time.sleep(2)
             
-            time.sleep(5)
-            
-        logger.save(f"{total_done} file(s) done. {total_failed} file(s) failed.")
+        logger.save(f"{",".join(completed.keys())} file(s) done. {",".join(failed.keys())} file(s) failed.")
         logger.trace("Session Completed. Ending Current Session.")
 
-        mail.end(PROGRAM_NAME, [total_done, total_failed])
-        logger.info("Parsed Data Report sent to recipients.")
+        # mail.end(PROGRAM_NAME, [completed, failed])
+        # logger.info("Parsed Data Report sent to recipients.")
 
         known_files.update(new_files)
+        if completed:Helper.copy_pdfs_to_folder(PROCESSED_DIR, completed)
+        if failed:Helper.copy_pdfs_to_folder(FAILED_DIR, failed)
         Helper.delete_all_files(INPUT_PATH)
 
 except KeyboardInterrupt:
     logger.warning("Watcher stopped by user.")
-    mail.send_custom(
-        subject=f"{PROGRAM_NAME} - Watcher Stopped",
-        body_html=f"<p>The {PROGRAM_NAME} watcher has been stopped by the user.</p>",
-    )
+    logger.debug(traceback.format_exc())
+    # mail.send_custom(
+    #     subject=f"{PROGRAM_NAME} - Watcher Stopped",
+    #     body_html=f"<p>The {PROGRAM_NAME} watcher has been stopped by the user.</p>",
+    # )
 
 except Exception as e:
-    logger.error(f"[Watcher Error] {type(e).__name__}: {e}")
-    mail.send_custom(
-        subject=f"{PROGRAM_NAME} - Watcher Unexpected Error",
-        body_html=f"<p>Unexpected error occurred: {type(e).__name__} - {e}</p>"
-    )
-    time.sleep(CHECK_INTERVAL)
+    logger.critical(f"Watcher error in main.py {type(e).__name__}: {e}")
+    logger.debug(traceback.format_exc())
+    # mail.send_custom(
+    #     subject=f"{PROGRAM_NAME} - Watcher Unexpected Error",
+    #     body_html=f"<p>Unexpected error occurred: {type(e).__name__} - {e}</p>"
+    # )
 
 
 
-
-# while True:
-#     try:
-#         current_folders = set(os.listdir(INPUT_PATH))
-#         new_folders = current_folders - known_folders
-
-#         for folder in new_folders:
-#             amc_path = os.path.join(INPUT_PATH, folder)
-#             if not os.path.isdir(amc_path):
-#                 continue
-
-#             folder_key = "_".join(folder.split()).lower()
-#             # logger = setup_logger(folder_key, base_log_dir=SESSION_LOG_DIR, redirect_stdout=True)
-#             logger.notice(f"New folder: {folder_key}")
-#             time.sleep(30)  # Wait for copy to complete
-            
-#             mail.started("FS_JSON_PARSE_KAUSTUBH")
-#             logger.info("Mail Send to Recipients.")
-            
-            # mutual_fund = Helper().get_pdf_with_id(amc_path)
-#             total_done, total_failed = {}, {}
-
-#             for amc_id, class_ in CLASS_REGISTRY.items():
-#                 content = mutual_fund.get(amc_id)
-#                 if not content:
-#                     continue
-            
-#                 logger.info(f"{amc_id} FS attached.")
-#                 logger.info(f"{amc_id} FS attached.")
-                
-#                 result = process_amc(amc_id, content, amc_path, logger)
-#                 total_done.update(result["done"])
-#                 total_failed.update(result["failed"])
-
-#             # Handle output
-#             if total_done:
-#                 Helper.save_text(total_done, os.path.join(PROCESSED_DIR, "processed_amc.txt"))
-#                 Helper.copy_pdfs_to_folder(PROCESSED_DIR, total_done)
-#                 logger.save(f"{len(total_done)} AMC(s) processed.")
-
-#             if total_failed:
-#                 Helper.save_text(total_failed, os.path.join(FAILED_DIR, "failed_amc.txt"))
-#                 Helper.copy_pdfs_to_folder(FAILED_DIR, total_failed)
-#                 logger.warning(f"{len(total_failed)} AMC(s) failed. They are {total_failed}")
-
-#             shutil.rmtree(amc_path, ignore_errors=True)
-#             logger.notice(f"Deleted input folder: {amc_path}")
-#             logger.trace("Session Completed. Ending Current Session.")
-            
-#             #mail
-#             mail.end("FS_JSON_PARSE_KAUSTUBH",[total_done,total_failed])
-#             logger.info("Parsed Data Report Send to Recipients")
-
-#         known_folders.update(new_folders)
-#         logger.notice("No new folders found. Sleeping...")
-#         time.sleep(CHECK_INTERVAL)
-
-#     except KeyboardInterrupt:
-#         logger.warning("Watcher stopped by user.")
-#         break
-#     except Exception as e:
-#         logger.error(f"[Watcher Error] {type(e).__name__}: {e}")
-#         time.sleep(CHECK_INTERVAL)
+    
+    

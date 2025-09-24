@@ -3,7 +3,7 @@ import random,string, inspect,datetime
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.program_constants import REGEX
+from app.konstant import REGEX
 
 class FundRegex:
     def __init__(self):

@@ -1,9 +1,7 @@
-import os, re, inspect,sys, ocrmypdf, camelot # type: ignore
-import fitz # type: ignore
+import os, re,sys, camelot # type: ignore
 import pandas as pd
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import *
 
 # TableParser handles PDF table extraction, cleaning, and formatting.
 # It uses Camelot for extracting tables and includes utilities to clean text,
@@ -14,8 +12,6 @@ class TableParser:
     
     def __init__(self):
         from app.parse_sid_regex import SidKimRegex
-        conf = get_config() #path to paths.json
-        
         self.pipeline = {
             'remove_extra_whitespace': lambda x: re.sub(r'\s+', ' ', x) if isinstance(x, str) else x,
             'strip_edges': lambda x: x.strip() if isinstance(x, str) else x,

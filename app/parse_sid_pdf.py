@@ -1,4 +1,4 @@
-import os, re, inspect,sys, ocrmypdf, camelot, pprint # type: ignore
+import os, re, inspect,sys, ocrmypdf # type: ignore
 import fitz # type: ignore
 
 
@@ -7,28 +7,20 @@ from app.fund_sid_data import *
 from app.parse_table import *
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import *
+
 
 class ReaderSIDKIM:
     
     def __init__(self,params:dict,path:str):
         
-        conf = get_config() #path to paths.json
-        
         self.PARAMS = params #amc specific paramaters
         self.DOCUMENT_NAME = path.split("\\")[-1] # docname requried later for json
-        self.OUTPUTPATH = conf["output_path"]
+        self.OUTPUTPATH = OUTPUT_PATH
         self.PDF_PATH = path #amc factsheet pdf path
-        self.JSONPATH = os.path.join(self.OUTPUTPATH, conf["output"]["json"])
+        self.JSONPATH = JSON_DIR
         self.TEXT_ONLY = {}
-        self.FIELD_LOCATION = {
-            "page_zero":0,
-            "page_table":0,
-            "page_manager":0,
-            "kim":0    
-        } #to update field location as code progresses
+        self.FIELD_LOCATION = {"page_zero":0,"page_table":0,"page_manager":0,"kim":0}
     
-        os.makedirs(os.path.dirname(self.JSONPATH), exist_ok=True)
         
         #class objs
         self._regex = SidKimRegex()

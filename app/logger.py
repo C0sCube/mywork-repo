@@ -1,7 +1,4 @@
-import logging
-import os
-import sys
-from datetime import datetime
+import logging, os, sys
 from logging.handlers import RotatingFileHandler
 
 # --- Stdout Redirection ---
@@ -102,57 +99,10 @@ def _add_console_handler(logger, use_color=True): #level set to TRACE =15
     handler.setLevel(15)
     logger.addHandler(handler)
 
-# --- Generic Logger Setup ---
-def setup_logger(
-    name="app_logger",
-    log_dir="logs",
-    log_level=logging.DEBUG,
-    to_console=True,
-    to_file=True,
-    use_color=True,
-    redirect_stdout=False
-):
-    os.makedirs(log_dir, exist_ok=True)
-    logger = logging.getLogger(name)
-    if logger.hasHandlers():
-        return logger
-    logger.setLevel(log_level)
-    logger.propagate = False
-
-    if to_file:
-        today = datetime.now().strftime('%Y-%m-%d')
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M')
-        folder_path = os.path.join(log_dir,today)
-        os.makedirs(folder_path, exist_ok=True)
-        file_path = os.path.join(folder_path,f"{name}_{timestamp}.log")
-        file_handler = logging.FileHandler(file_path, encoding='utf-8')
-        file_handler.setFormatter(_get_formatter(use_color=False))
-        file_handler.setLevel(TRACE_LEVEL_NUM)
-        logger.addHandler(file_handler)
-
-    if to_console:
-        _add_console_handler(logger, log_level, use_color)
-        
-    if redirect_stdout:
-        redirect_stdout_to_logger(logger)
-
-
-    return logger
 
 # --- Forever Logger ---
-def create_logger(
-    name="watcher",
-    log_dir="logs/daily",
-    max_bytes=2 * 1024 * 1024,
-    backup_count=5,
-    log_level=logging.INFO,
-    to_console=True,
-    use_color=True,
-    redirect_stdout=False
-):
-    today = datetime.now().strftime('%Y-%m-%d')
-    folder_path = os.path.join(log_dir, today)
-    os.makedirs(folder_path, exist_ok=True)
+def create_logger(name="watcher",log_dir="logs/daily",max_bytes=2 * 1024 * 1024,backup_count=5,log_level=logging.INFO,to_console=True,use_color=True,redirect_stdout=False):
+
 
     logger = logging.getLogger(name)
     if logger.hasHandlers():
@@ -160,10 +110,8 @@ def create_logger(
     logger.setLevel(log_level)
     logger.propagate = False
 
-    log_file = os.path.join(folder_path, f"{name}.log")
-    file_handler = RotatingFileHandler(
-        log_file, maxBytes=max_bytes, backupCount=backup_count, encoding='utf-8'
-    )
+    log_file = os.path.join(log_dir, f"{name}.log")
+    file_handler = RotatingFileHandler(log_file, maxBytes=max_bytes, backupCount=backup_count, encoding='utf-8')
     file_handler.setFormatter(_get_formatter(use_color=False))
     logger.addHandler(file_handler)
 
@@ -175,63 +123,13 @@ def create_logger(
 
     return logger
 
-# # --- Session Logger ---
-# def setup_session_logger(
-#     folder_name: str,
-#     base_log_dir: str = "logs/sessions",
-#     log_level: int = logging.DEBUG,
-#     to_console: bool = True,
-#     use_color: bool = True,
-#     redirect_stdout=False
-# ):
-#     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-#     os.makedirs(base_log_dir, exist_ok=True)
-
-#     log_filename = f"fs_{folder_name}_{timestamp}.log"
-#     today = datetime.now().strftime('%Y-%m-%d')
-#     log_path = os.path.join(base_log_dir,today)
-#     os.makedirs(log_path, exist_ok=True)
-#     log_path = os.path.join(log_path,log_filename)
-#     logger = logging.getLogger(f"session_{folder_name}_{timestamp}")
-
-#     if logger.hasHandlers():
-#         return logger
-
-#     logger.setLevel(log_level)
-#     formatter = logging.Formatter(DEFAULT_FORMAT, datefmt=DATE_FORMAT)
-
-#     file_handler = logging.FileHandler(log_path, encoding='utf-8')
-#     file_handler.setLevel(log_level)
-#     file_handler.setFormatter(formatter)
-#     logger.addHandler(file_handler)
-
-#     if to_console:
-#         if use_color and COLORLOG_AVAILABLE:
-#             color_formatter = colorlog.ColoredFormatter(
-#                 "%(log_color)s" + DEFAULT_FORMAT,
-#                 datefmt=DATE_FORMAT,
-#                 log_colors= LOG_COLORS
-#             )
-#             console_handler = colorlog.StreamHandler(stream=sys.stdout)
-#             console_handler.setFormatter(color_formatter)
-#         else:
-#             console_handler = logging.StreamHandler(stream=sys.stdout)
-#             console_handler.setFormatter(formatter)
-
-#         console_handler.setLevel(log_level)
-#         logger.addHandler(console_handler)
-    
-#     if redirect_stdout:
-#         redirect_stdout_to_logger(logger)
-
-#     return logger
 
 # --- Global Logger Registry ---
 _active_logger = None
 
-def set_active_logger(logger):
+def set_global_logger(logger):
     global _active_logger
     _active_logger = logger
 
-def get_active_logger():
+def get_global_logger():
     return _active_logger or logging.getLogger("default_logger")

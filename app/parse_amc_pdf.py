@@ -1,4 +1,4 @@
-import os, re, math,sys, ocrmypdf,time # type: ignore
+import os, re, math,ocrmypdf,time # type: ignore
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz # type: ignore
 from collections import defaultdict
@@ -6,10 +6,12 @@ from collections import defaultdict
 from app.parse_amc_regex import *
 from app.fund_amc_data import *
 from app.utils import Helper
-from app.program_constants import *
+from app.konstant import *
+from app.logger import get_global_logger
 
+logger = get_global_logger()
 class Reader:
-    def __init__(self,params:dict,amc_id:str,path:str,logger):
+    def __init__(self,params:dict,path:str):
         
         self.PARAMS = params #amc specific
         self.FILE_NAME = path.split("\\")[-1] # filename
@@ -19,7 +21,6 @@ class Reader:
         self.REPORTPATH = REPORT_DIR
         self.JSONPATH = JSON_DIR
         self.TEXT_ONLY = {}
-        
         self.LOGGER = logger
     
     #OCR

@@ -1,43 +1,25 @@
-import smtplib
+import smtplib, logging
 from email.mime.multipart import MIMEMultipart
-from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
-from pathlib import Path
 from datetime import datetime
-import logging
-import os,json
 
-# logger = logging.getLogger("fs_logger")
+from app.konstant import MAIL_CONFIG
+from app.logger import get_global_logger
+
+logger = get_global_logger()
 
 
 class Mailer:
-    def __init__(self, 
-                server='172.17.0.126', 
-                port=25, 
-                sender='Kaustubh.Keny@cogencis.com', 
-                recipients=['Kaustubh.Keny@cogencis.com'], 
-                cc=None, 
-                bcc=None, 
-                logger=None):
+    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com'], cc=None, bcc=None, logger=None):
         
-        try:
-            with open("paths.json", "r") as f:
-                paths = json.load(f)
-                mail_config = paths.get("mail", {})
-                server = mail_config.get("server", server)
-                port = mail_config.get("port", port)
-                sender = mail_config.get("sender", sender)
-                recipients = mail_config.get("recipients", recipients)
-                cc = mail_config.get("cc", cc)
-                bcc = mail_config.get("bcc", bcc)
-
-                
-        except FileNotFoundError:
-            print("paths.json file not found. Using default values.")
-        
-        self.SERVER = server
-        self.PORT = port
-        self.FROM = sender or "noreply@example.com"
+        mail_config = MAIL_CONFIG
+        recipients = mail_config.get("recipients", recipients)
+        cc = mail_config.get("cc", cc)
+        bcc = mail_config.get("bcc", bcc)
+    
+        self.SERVER = mail_config.get("server", server)
+        self.PORT = mail_config.get("port", port)
+        self.FROM = mail_config.get("sender", sender)
         self.RECPTS = recipients if isinstance(recipients, list) else [recipients] if recipients else []
         self.CC = cc if isinstance(cc, list) else [cc] if cc else []
         self.BCC = bcc if isinstance(bcc, list) else [bcc] if bcc else []

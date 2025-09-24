@@ -1,28 +1,14 @@
-import re
-import os, sys
-import json, inspect, datetime
+import inspect, datetime, os,sys,re
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import *
-from app.parse_table import TableParser
-from app.program_constants import *
+from app.konstant import *
 
 class SidKimRegex():
     
     def __init__(self):
         
-        conf = get_config()
-        REGEX_PATH = os.path.join(conf["base_path"],conf["configs"]["sid_regex"])
-        self.config_path = REGEX_PATH
-        
-        try:
-            if not os.path.exists(self.config_path):
-                raise FileNotFoundError(f"Config file not found: {self.config_path}")
-            with open(self.config_path,'r') as file:
-                data = json.load(file)
-        except Exception as e:
-            print(f'Error: {e}')
+        data = SIDKIM_REGEX
         
         #=================GENERAL=================
         self.HEADER_PATTERNS = data.get("header_patterns", {})
