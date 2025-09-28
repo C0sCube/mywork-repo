@@ -505,18 +505,61 @@ class GrandFundData:
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
             "file_name":""
         })
-#1 <>
-class ThreeSixtyOne(Reader,GrandFundData):   
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
 
-#2 
-class BajajFinServ(Reader,GrandFundData):  
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
-        
+class BaseAMC(Reader, GrandFundData):
+    def __init__(self, amc_id: str, path: str):
+        GrandFundData.__init__(self, amc_id)
+        Reader.__init__(self, self.PARAMS, path)
+
+# -------------- Plain AMC's ---------------
+class ThreeSixtyOne(BaseAMC): pass
+class BarodaBNP(BaseAMC): pass
+class BankOfIndia(BaseAMC): pass
+class ITI(BaseAMC): pass
+class Trust(BaseAMC): pass
+class NAVI(BaseAMC): pass
+class NAVIPassive(BaseAMC): pass
+class QuantMF(BaseAMC): pass
+class FranklinTempleton(BaseAMC): pass
+class MahindraManu(BaseAMC): pass
+class GROWW(BaseAMC): pass
+class Invesco(BaseAMC): pass
+class JMMF(BaseAMC): pass
+class NJMF(BaseAMC): pass
+class Samco(BaseAMC): pass
+class PPFAS(BaseAMC): pass
+class Quantum(BaseAMC): pass
+class OldBridge(BaseAMC): pass
+class AngelOne(BaseAMC): pass
+class Unifi(BaseAMC): pass
+class Taurus(BaseAMC): pass
+class Union(BaseAMC): pass
+class Shriram(BaseAMC): pass
+class Sundaram(BaseAMC): pass
+class LIC(BaseAMC): pass
+class WhiteOak(BaseAMC): pass
+class AXISMF(BaseAMC): pass
+class AXISMFPassive(BaseAMC): pass
+class Zerodha(BaseAMC): pass
+class Canara(BaseAMC): pass
+class Helios(BaseAMC): pass
+class PGIM(BaseAMC): pass
+class JioBlackRock(BaseAMC): pass
+class MIRAE(BaseAMC): pass
+class MIRAEPassive(BaseAMC): pass
+class MotilalOswal(BaseAMC): pass
+class MotilalOswalPassive(BaseAMC): pass
+class Nippon(BaseAMC): pass
+class Kotak(BaseAMC): pass
+class UTI(BaseAMC): pass
+class UTIPassive(BaseAMC): pass
+class Tata(BaseAMC): pass
+class SBI(BaseAMC): pass
+class SBIPassive(BaseAMC): pass
+class Edelweiss(BaseAMC): pass
+class HDFC(BaseAMC): pass
+
+class BajajFinServ(BaseAMC):  
     def _generate_table_data(self,path:str,pages:str):
         table_parser = TableParser()
         tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
@@ -562,12 +605,7 @@ class BajajFinServ(Reader,GrandFundData):
         data = " ".join(data) if isinstance(data, list) else data
         matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
         return {"scheme_launch_date":matches[0] if matches else ""}
-#3 <>
-class Bandhan(Reader,GrandFundData):  
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
+class Bandhan(BaseAMC):  
     
     def _extract_manager_data(self, main_key: str, manager_data, pattern: str):
         manager_data = " ".join(manager_data.values()) if isinstance(manager_data, dict) else manager_data
@@ -590,24 +628,7 @@ class Bandhan(Reader,GrandFundData):
 
         final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
         return {main_key: final_list}
- 
-#4
-class BankOfIndia(Reader,GrandFundData):   
-   def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#5 <>
-class BarodaBNP(Reader,GrandFundData):
-   def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#6 
-class Canara(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-    
+class Canara(BaseAMC):
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         nlength = 0
@@ -632,11 +653,7 @@ class Canara(Reader,GrandFundData):
         if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
             return {main_key:match[0]}
         return {main_key:bench_data}
-#7
-class DSP(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
+class DSP(BaseAMC):
         
     def _generate_table_data(self,path,pages):
         table_parser = TableParser()
@@ -695,24 +712,7 @@ class DSP(Reader,GrandFundData):
         data = " ".join(data) if isinstance(data, list) else data
         matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
         return {"scheme_launch_date":matches[0] if matches else ""}
-
-#8 <> 
-class Edelweiss(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#9 <>
-class FranklinTempleton(Reader,GrandFundData):
-   def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-
-#10 
-class HDFC(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-    
+class HDFC(BaseAMC):
     def _update_manager_data(self, main_key: str, data):
         DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
         NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
@@ -739,23 +739,8 @@ class HDFC(Reader,GrandFundData):
 
     def _update_benchmark_data(self,main_key:str,data):
         return {"benchmark_index":" ".join(data.values())}
-#11
-class GROWW(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#12 <>
-class Helios(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
+class HSBC(BaseAMC):
 
-#13 
-class HSBC(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
     def _update_date_data(self,main_key:str,data):
         if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
             return {main_key:matches[0]}
@@ -764,49 +749,20 @@ class HSBC(Reader,GrandFundData):
         if matches:= re.findall(self.REGEX["benchmark2"],data,re.IGNORECASE):
             return {main_key:matches[0]}
         return {main_key:data}
-#14
-class ICICI(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
+class ICICI(BaseAMC):
+
     def _update_metric_data(self,main_key:str,data):
         # if isinstance(data["beta"],str) and isinstance(data["sharpe"],str) and isinstance(data["std_dev"],str):
         #     data["std_dev"],data["sharpe"],data["beta"] = data["sharpe"], data["beta"],data["std_dev"]
-        return {main_key:data}
-    
-class ICICIPassive(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
+        return {main_key:data}   
+class ICICIPassive(BaseAMC):
+
     def _update_metric_data(self,main_key:str,data):
         # if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
         #     data["std_dev"], data["port_turnover_ratio"] = data["port_turnover_ratio"], data["std_dev"]
-        return {main_key:data}
-    
-#15 <>
-class Invesco(Reader,GrandFundData): 
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#16 <>
-class ITI(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#17 <>
-class Kotak(Reader,GrandFundData): 
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#18
-class LIC(Reader,GrandFundData): 
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
+        return {main_key:data}   
+class LIC(BaseAMC): 
+
     def _update_manager_data(self, main_key: str, data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data,list) else data
@@ -833,40 +789,8 @@ class LIC(Reader,GrandFundData):
         for name,exp in zip(n,e):
             final_list.append(self._return_manager_data(name=name,exp=exp))
         return {main_key: final_list}
+class NAVI(BaseAMC): 
 
-#19 <>
-class MahindraManu(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#20 <>
-class MIRAE(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-
-class MIRAEPassive(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#21 <>
-class MotilalOswal(Reader,GrandFundData): 
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-
-class MotilalOswalPassive(Reader,GrandFundData): 
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#22 <>
-class NAVI(Reader,GrandFundData): 
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-    
     def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
         bench_data = f"{main_key} {data}"
         bench_data = re.sub(self.REGEX["escape"],"",bench_data).strip()
@@ -874,11 +798,7 @@ class NAVI(Reader,GrandFundData):
             return {"benchmark_index":matches[0]}
         return{"benchmark_index":f"{main_key} {data}"}
     
-class NAVIPassive(Reader,GrandFundData): 
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
+class NAVIPassive(BaseAMC): 
     
     def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
         bench_data = f"{main_key} {data}"
@@ -886,19 +806,8 @@ class NAVIPassive(Reader,GrandFundData):
         if matches:=re.findall(self.REGEX[pattern],bench_data, re.IGNORECASE):
             return {"benchmark_index":matches[0]}
         return{"benchmark_index":f"{main_key} {data}"}
-#23 <>
-class Nippon(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#24
-class NJMF(Reader,GrandFundData):
-   
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
+
+class NJMF(BaseAMC):
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         value = " ".join(manager_data) if isinstance(manager_data,list) else manager_data
@@ -910,49 +819,9 @@ class NJMF(Reader,GrandFundData):
     
     def _update_benchmark_data(self,main_key:str,data):
         return {"benchmark_index":" ".join(data.values())}
-#25
-class OldBridge(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
 
-#26
-class PGIM(Reader, GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
-#27
-class PPFAS(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#28
-class QuantMF(Reader,GrandFundData): 
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
-#29 
-class Quantum(Reader,GrandFundData): 
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#30 <>
-class Samco(Reader, GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#31
-class SBI(Reader, GrandFundData): #OCR
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-    
+class SBI(BaseAMC): #OCR
+
     def _update_manager_data(self, main_key: str, data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data,list) else data
@@ -967,13 +836,7 @@ class SBI(Reader, GrandFundData): #OCR
             final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
         return {main_key: final_list}
 
-#32
-class SBIPassive(Reader, GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-        
+class SBIPassive(BaseAMC):  
     def _update_manager_data(self,main_key:str,data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data, list) else data
@@ -990,62 +853,7 @@ class SBIPassive(Reader, GrandFundData):
 
         return {main_key: final_list}
     
-
-#33 <>
-class Sundaram(Reader,GrandFundData):  
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-
-#34 <>
-class Tata(Reader,GrandFundData):  
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#35 <>
-class Taurus(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#36
-class Trust(Reader,GrandFundData):
-    
-   def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)    
-#37
-class Union(Reader,GrandFundData):   
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)   
-#38
-class UTI(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-class UTIPassive(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#39 <>
-class WhiteOak(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-#40
-class Zerodha(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-#41 Aditya Birla
-class AdityaBirla(Reader,GrandFundData):
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-        
+class AdityaBirla(BaseAMC):
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         nlength = 0
@@ -1072,13 +880,8 @@ class AdityaBirla(Reader,GrandFundData):
 
         return {main_key:final_list}
  
-#42 Axis Mutual
-class AXISMF(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
+class AXISMF(BaseAMC):
+   
     def _update_manager_data(self, main_key: str, data):
         final_list = []
         manager_data = " ".join(data.values()) if isinstance(data,dict) else data
@@ -1092,49 +895,19 @@ class AXISMF(Reader,GrandFundData):
             final_list.append(self._return_manager_data(name=name,exp=exp))
         return {main_key: final_list}
     
-class AXISMFPassive(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
-        
+class AXISMFPassive(BaseAMC):
+           
     def _extract_bench_data(self,main_key:str,data,pattern:str):
         data = " ".join(data) if isinstance(data,list) else data
         data = re.sub(r"Ni\s*y","Nifty",data, re.IGNORECASE)
         return {main_key:data}
         
-    
-#43 JMMF
-class JMMF(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path) 
-        
-# 44 Shriram
-class Shriram(Reader,GrandFundData):
-    
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
-        
+class Shriram(BaseAMC):
     def _update_date_data(self,main_key:str,data):
         if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
             return {main_key:matches[0]}
 
-
-# 45
-class AngelOne(Reader,GrandFundData):   
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)  
-        
-#46
-class Unifi(Reader,GrandFundData):   
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
-    
+class Unifi(BaseAMC):   
     def _update_date_data(self, main_key:str,data):  # GROWW & Edelweiss
         date_data = " ".join(data) if isinstance(data,list) else data
         matches = re.findall(self.REGEX["date"],date_data, re.IGNORECASE)
@@ -1156,12 +929,7 @@ class Unifi(Reader,GrandFundData):
 
         return {main_key: final_list}
 
-#47
-class JioBlackRock(Reader,GrandFundData):   
-    def __init__(self, amc_id:str,path:str):
-        GrandFundData.__init__(self,amc_id) 
-        Reader.__init__(self, self.PARAMS,path)
-        
+class JioBlackRock(BaseAMC):   
     def _update_manager_data(self, main_key: str, data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data,list) else data

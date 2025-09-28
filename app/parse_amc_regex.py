@@ -347,7 +347,6 @@ class FundRegex:
     
     @staticmethod
     def __generate_map_value(scheme_count:int,data:dict):
-        #dynamically get str , dict and list to map to correct format
         record_value, field_location_keys = {}, []
 
         page_list = data.get("page_number", [])

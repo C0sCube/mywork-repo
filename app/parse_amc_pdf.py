@@ -129,7 +129,6 @@ class Reader:
             self.LOGGER.error(str(e))
             return path
 
-    
     def check_and_highlight(self, path: str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
         self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
@@ -172,8 +171,7 @@ class Reader:
         },path_pdf
     
     #EXTRACT 
-    def _create_data_entry(self,*args)->dict:
-        return {"page":args[0],"fundname":args[1],"block":args[2]}
+    def _create_data_entry(self,*args)->dict: return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
     def extract_clipped_data(self, path: str, title: dict, *args) -> list:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
@@ -310,8 +308,7 @@ class Reader:
         return finalData
 
     #CLEAN
-    def _random_suffix(self,length=4):
-        return ''.join(random.choices(string.ascii_lowercase, k=length))
+    def _random_suffix(self,length=4): return ''.join(random.choices(string.ascii_lowercase, k=length))
     
     def process_text_data(self, data: list)->list:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
@@ -417,11 +414,8 @@ class Reader:
                     nested_dict[curr_head].append(block)
             
             # print("Before block contents:", nested_dict['before'])
-            if nested_dict['before'] == []:
-                del nested_dict['before']    
-            
+            if nested_dict['before'] == []: del nested_dict['before']    
             finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
-
         return finalData
     
     # def get_data_via_line(self,path:str,pages:list, side:str, title:dict):
@@ -483,30 +477,15 @@ class Reader:
     @staticmethod
     def _generate_pdf_from_data(data: dict, output_path: str) -> None:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        #constants imported from konstant.py
         regex = FundRegex()
         with fitz.open() as doc:
-            TITLE_FONT_SIZE = 24
-            TITLE_POSITION = 72
-            TITLE_COLOR = (0, 0, 1)
-            DEFAULT_FONT_NAME = "helv"
-            LEFT_MARGIN = 32        # Left margin for alignment
-            MIN_LINE_SPACING = 2     # Extra space between lines
-            Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
-
             for header, content_blocks in data.items():
-                
-                if not content_blocks:
-                    continue
-                
+                if not content_blocks:continue
+            
                 page = doc.new_page()
                 try:
-                    page.insert_text(
-                        (LEFT_MARGIN, TITLE_POSITION),
-                        header,
-                        fontsize=TITLE_FONT_SIZE,
-                        fontname=DEFAULT_FONT_NAME,
-                        color=TITLE_COLOR,
-                    )
+                    page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
                 except Exception as e:
                     print(f"Error inserting header text: {e}")
 
@@ -548,31 +527,18 @@ class Reader:
                     for orig_x, size, text, color, fontname in line_blocks:
                         try:
                             try:
-                               page.insert_text(
-                                (LEFT_MARGIN+ orig_x, line_y),
-                                text,
-                                fontsize=size,
-                                fontname=fontname,
-                                color=regex._to_rgb_tuple(color), # _to_rgb_tuple shifted to class FundRegex()
-                            )
+                               page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=regex._to_rgb_tuple(color),) # _to_rgb_tuple shifted to class FundRegex())
 
                             except Exception:
-                                page.insert_text(
-                                    (LEFT_MARGIN+ orig_x, line_y),
-                                    text,
-                                    fontsize=size,
-                                    fontname=DEFAULT_FONT_NAME,
-                                    color=regex._to_rgb_tuple(color), #_to_rgb_tuple shifted to class FundRegex()
-                                )
+                                page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=regex._to_rgb_tuple(color),) #_to_rgb_tuple shifted to class FundRegex())
                         except Exception as e:
                             print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
-            doc.save(output_path)
+            doc.save(output_path) #bytes
     
-    def _extract_data_from_pdf(self,path: str, fund:str):
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+    def _extract_data_from_pdf(self, pdf_bytes: bytes, fund: str):
         final_data = {}
-        with fitz.open(path) as doc:
+        with fitz.open("pdf", pdf_bytes) as doc:  # open from bytes
             for page in doc:
                 lines = page.get_text("text").split("\n")
                 if not lines:
@@ -582,27 +548,23 @@ class Reader:
                 content_lines = lines[1:]
 
                 if header not in final_data:
-                    # Use TEXT_ONLY if _get_prev_text() returns True and key exists
                     if self._get_prev_text(header) and fund in self.TEXT_ONLY and header in self.TEXT_ONLY[fund]:
                         final_data[header] = self.TEXT_ONLY[fund][header]
                     else:
                         final_data[header] = content_lines
                 else:
                     final_data[header].extend(content_lines)
-        os.remove(path=path)
         return final_data
     
     def get_generated_content(self, data: list, is_table: str = ""):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
         self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
-        output_path = self.DRYPATH
-
         try:
             for content in data:
                 pgn, fund, blocks = content['page'], content['fundname'], content['block']
-                Reader._generate_pdf_from_data(blocks, output_path)
-                extracted_text[fund] = self._extract_data_from_pdf(output_path, fund)
+                pdf_bytes = Reader._generate_pdf_from_data(blocks)
+                extracted_text[fund] = self._extract_data_from_pdf(pdf_bytes, fund)
                 self._update_imp_data(extracted_text[fund], fund, pgn)
 
     
@@ -632,7 +594,6 @@ class Reader:
 
         return extracted_text
 
-    
     #REFINE
     def __get_unique_key(self,base_key:str, data:dict):
         for suffix in ["bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo"]:
@@ -744,8 +705,7 @@ class Reader:
             
         return df
     
-    def __map_json_ops(self,df):
-        return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
+    def __map_json_ops(self,df): return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
         self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")

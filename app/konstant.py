@@ -46,3 +46,15 @@ MAIL_SENDER = PATHS["mail"]["sender"]
 MAIL_RECEIVER = PATHS["mail"]["recipients"]
 MAIL_SERVER = PATHS["mail"]["server"]
 MAIL_PORT = PATHS["mail"]["port"]
+
+
+
+
+#pdf generation constants
+TITLE_FONT_SIZE = 24
+TITLE_POSITION = 72
+TITLE_COLOR = (0, 0, 1)
+DEFAULT_FONT_NAME = "helv"
+LEFT_MARGIN = 32        # Left margin for alignment
+MIN_LINE_SPACING = 2     # Extra space between lines
+Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y

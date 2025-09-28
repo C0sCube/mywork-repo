@@ -23,14 +23,12 @@ class GrandSidData:
         self.IMP_DATA = fund_config.get("IMP_DATA", {})
         self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT", [])
         self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS", {})
-
+        self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         self.PATTERN = {
             "primary": fund_config.get("PATTERN_TO_FUNCTION", {}),
             "secondary": fund_config.get("SECONDARY_PATTERN_TO_FUNCTION", {}),
             "tertiary": fund_config.get("TERTIARY_PATTERN_TO_FUNCTION", {}),
         }
-
-        self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
@@ -454,237 +452,56 @@ class GrandSidData:
         
         return updated_data
 
-class ThreeSixtyOneSIDKIM(ReaderSIDKIM, GrandSidData):
+class BaseSIDKIM(ReaderSIDKIM, GrandSidData):
     def __init__(self, amc_id: str, path: str):
         GrandSidData.__init__(self, amc_id)
         ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class AdityaBirlaSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class AngelOneSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class AXISMFSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class BajajFinServSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class BandhanSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class BankOfIndiaSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class BarodaBNPSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class CanaraSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class DSPSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class HDFCSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class EdelweissSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class FranklinTempletonSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class GROWWSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class HeliosSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class HSBCSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS, path)
-
-class ICICISIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class InvescoSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class ITISIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class JMMFSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class KotakSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class LICSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class MahindraManuSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class MIRAESIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class MotilalOswalSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class NAVISIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class NipponSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class NJMFSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class OldBridgeSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class SamcoSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class PGIMSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class PPFASSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class QuantMFSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class QuantumSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class SBISIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class ShriramSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class SundaramSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class TataSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class TaurusSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class TrustSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class UnionSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class UTISIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class WhiteOakSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class ZerodhaSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class UnifiSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class JioBlackRockSIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
-
-class WealthCompanySIDKIM(ReaderSIDKIM, GrandSidData):
-    def __init__(self, amc_id: str, path: str):
-        GrandSidData.__init__(self, amc_id)
-        ReaderSIDKIM.__init__(self, self.PARAMS,  path)
+        
+# One-liner subclasses for readability / registry keys
+class ThreeSixtyOneSIDKIM(BaseSIDKIM): pass
+class AdityaBirlaSIDKIM(BaseSIDKIM): pass
+class AngelOneSIDKIM(BaseSIDKIM): pass
+class AXISMFSIDKIM(BaseSIDKIM): pass
+class BajajFinServSIDKIM(BaseSIDKIM): pass
+class BandhanSIDKIM(BaseSIDKIM): pass
+class BankOfIndiaSIDKIM(BaseSIDKIM): pass
+class BarodaBNPSIDKIM(BaseSIDKIM): pass
+class CanaraSIDKIM(BaseSIDKIM): pass
+class DSPSIDKIM(BaseSIDKIM): pass
+class HDFCSIDKIM(BaseSIDKIM): pass
+class EdelweissSIDKIM(BaseSIDKIM): pass
+class FranklinTempletonSIDKIM(BaseSIDKIM): pass
+class GROWWSIDKIM(BaseSIDKIM): pass
+class HeliosSIDKIM(BaseSIDKIM): pass
+class HSBCSIDKIM(BaseSIDKIM): pass
+class ICICISIDKIM(BaseSIDKIM): pass
+class InvescoSIDKIM(BaseSIDKIM): pass
+class ITISIDKIM(BaseSIDKIM): pass
+class JMMFSIDKIM(BaseSIDKIM): pass
+class KotakSIDKIM(BaseSIDKIM): pass
+class LICSIDKIM(BaseSIDKIM): pass
+class MahindraManuSIDKIM(BaseSIDKIM): pass
+class MIRAESIDKIM(BaseSIDKIM): pass
+class MotilalOswalSIDKIM(BaseSIDKIM): pass
+class NAVISIDKIM(BaseSIDKIM): pass
+class NipponSIDKIM(BaseSIDKIM): pass
+class NJMFSIDKIM(BaseSIDKIM): pass
+class OldBridgeSIDKIM(BaseSIDKIM): pass
+class SamcoSIDKIM(BaseSIDKIM): pass
+class PGIMSIDKIM(BaseSIDKIM): pass
+class PPFASSIDKIM(BaseSIDKIM): pass
+class QuantMFSIDKIM(BaseSIDKIM): pass
+class QuantumSIDKIM(BaseSIDKIM): pass
+class SBISIDKIM(BaseSIDKIM): pass
+class ShriramSIDKIM(BaseSIDKIM): pass
+class SundaramSIDKIM(BaseSIDKIM): pass
+class TataSIDKIM(BaseSIDKIM): pass
+class TaurusSIDKIM(BaseSIDKIM): pass
+class TrustSIDKIM(BaseSIDKIM): pass
+class UnionSIDKIM(BaseSIDKIM): pass
+class UTISIDKIM(BaseSIDKIM): pass
+class WhiteOakSIDKIM(BaseSIDKIM): pass
+class ZerodhaSIDKIM(BaseSIDKIM): pass
+class UnifiSIDKIM(BaseSIDKIM): pass
+class JioBlackRockSIDKIM(BaseSIDKIM): pass
+class WealthCompanySIDKIM(BaseSIDKIM): pass
