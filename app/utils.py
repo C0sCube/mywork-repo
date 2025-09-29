@@ -146,7 +146,6 @@ class Helper:
         os.makedirs(dir_path, exist_ok=True)
         return dir_path
 
-        
 
     @staticmethod
     def _get_financial_indices(path:str):
@@ -467,7 +466,75 @@ class Helper:
         doc.save(output_path)
         doc.close()
             
+    def debug_save(pdf_bytes: bytes, filename="debug.pdf"):
+        """Save in-memory PDF bytes to disk for debugging purposes."""
+        with open(filename, "wb") as f:
+            f.write(pdf_bytes)
+        print(f"[debug] PDF saved to {filename}")
+    
+    def _clean_leading_noise(self,text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        return re.sub(r'^[\s\n\r\t\\:;\-–—•|]+', '', text).strip()
+    
+    def _normalize_key(self,text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^\w\s\.]", "", text)
+        text = re.sub(r"\s+", "_", text)
+        return text.strip().lower()
+    
+    def _normalize_key_to_alnum_underscore(self, text: str) -> str:
+        if not isinstance(text, str):
+            return text
+        text = text.strip().lower()
+        text = re.sub(r"[^\w]", "_", text)
+        text = re.sub(r"__+", "_", text)
+        return text.strip("_")
 
+    #match type
+    def is_numeric(self,text):
+        return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))
 
+    def is_alphanumeric(self,text):
+        return bool(re.fullmatch(r'[A-Za-z0-9]+', text))
+
+    def is_alpha(self,text):
+        return bool(re.fullmatch(r'[A-Za-z]+', text))
+        
+    def _remove_non_word_space_chars(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub("[^\\w\\s]", "", text).strip()
+        return text
+    
+    def _normalize_whitespace(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        return re.sub(r"\s+", " ", text).strip()
+    
+    def _normalize_date(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^A-Za-z0-9\s\.\/\,\-\\]+"," ",text).strip()
+        return self._normalize_whitespace(text)
+    
+    def _normalize_alphanumeric(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^a-zA-Z0-9]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
+    
+    def _normalize_alpha(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^a-zA-Z]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
+
+    def _normalize_numeric(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^0-9\.]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
     
     

@@ -1,19 +1,21 @@
 import os, re, math,ocrmypdf,time # type: ignore
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from app.logger import get_global_logger
+logger = get_global_logger()
 import fitz # type: ignore
 from collections import defaultdict
 
 from app.parse_amc_regex import *
 from app.fund_amc_data import *
 from app.utils import Helper
-from app.konstant import *
-from app.logger import get_global_logger
+from app.konstant import * #all constants
 
-logger = get_global_logger()
 class Reader:
     def __init__(self,params:dict,path:str):
         
         self.PARAMS = params #amc specific
+        self.PARAM_REGEX = FundRegex()
+        self.UTILS = Helper()
+        
         self.FILE_NAME = path.split("\\")[-1] # filename
         self.OUTPUTPATH = OUTPUT_PATH
         self.PDF_PATH = path
@@ -21,47 +23,33 @@ class Reader:
         self.REPORTPATH = REPORT_DIR
         self.JSONPATH = JSON_DIR
         self.TEXT_ONLY = {}
-        self.LOGGER = logger
-    
-    #OCR
-
-    # def run_ocr(self,input_path, output_path):
-    #     import ocrmypdf
-    #     ocrmypdf.ocr(input_path, output_path, deskew=True, skip_text=True)
-
-    # def safe_ocr(self,input_path, output_path, timeout=90):
-    #     p = multiprocessing.Process(target=self.run_ocr, args=(input_path, output_path))
-    #     p.start()
-    #     p.join()
-    #     if p.is_alive():
-    #         p.terminate()
-    #         raise TimeoutError(f"OCR timed out on {input_path} after {timeout} seconds")
     
     #HIGHLIGHT
-    def _get_normal_title(self, path:str,regex:str,bbox):
-        self.LOGGER.info(f"Getting All titles : {inspect.currentframe().f_code.co_name}")
+    def _get_normal_title(self, path:str,title_regex:str,bbox):
+        logger.info(f"Getting All titles : {inspect.currentframe().f_code.co_name}")
         title_detected = {}
+        escape_regex = self.PARAM_REGEX.ESCAPE
+        
         try:
             with fitz.open(path) as doc:
                 for pgn, page in enumerate(doc):
                     title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
-                    title_text = re.sub(FundRegex().ESCAPE, "", title_text).strip()
+                    title_text = re.sub(escape_regex, "", title_text).strip()
                 
-                    title_match = re.findall(regex, title_text, re.DOTALL)
+                    title_match = re.findall(title_regex, title_text, re.DOTALL)
                     title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
               
-                    if title: self.LOGGER.trace(f">>Title Found{pgn}:{title}")
-                    else: self.LOGGER.debug(f">>Title not found on {pgn}:{title_text}")
-                    
+                    if title: logger.trace(f">>Title Found{pgn}:{title}")
+                    else: logger.debug(f">>Title not found on {pgn}:{title_text}")
                     title_detected[pgn] = title
                 
-                self.LOGGER.info("Untracked Title(s) saved in DEBUG MODE.")
+                logger.info("Untracked Title(s) saved in DEBUG MODE.")
         except Exception as e:
-            self.LOGGER.error("Error in _get_normal_title")
+            logger.error("Error in _get_normal_title")
         return title_detected
                 
-    def _get_ocr_title(self,path:str,regex:str,bbox):
-        self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+    def _get_ocr_title(self,path:str,title_regex:str,bbox):
+        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
@@ -97,13 +85,7 @@ class Reader:
 
             time.sleep(2)
             ocrmypdf.ocr(clipped_pdf, ocr_pdf, deskew=True, force_ocr=True)
-            return self._get_normal_title(ocr_pdf,regex,bbox)
-            # try:
-            #     self.safe_ocr(clipped_pdf, ocr_pdf, timeout=90)
-            #     return self._get_normal_title(ocr_pdf, regex, bbox)
-            # except TimeoutError as e:
-            #     self.LOGGER.error(str(e))
-            #     return {}
+            return self._get_normal_title(ocr_pdf,title_regex,bbox)
                     
         except PermissionError as e:
             print(f"[ERROR] Permission denied: {e}")
@@ -111,38 +93,30 @@ class Reader:
         finally: 
             pass
     
-    # def _ocr_pdf(self,path:str):
-    #     # print(f"step>> {inspect.currentframe().f_code.co_name}")
-    #     self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
-    #     ocr_path = path.replace(".pdf", "_all_ocr.pdf")
-    #     time.sleep(2)
-    #     ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
-    #     return ocr_path
-    
     def _ocr_pdf(self, path: str):
-        self.LOGGER.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         try:
             self.safe_ocr(path, ocr_path, timeout=90)
             return ocr_path
         except Exception as e:
-            self.LOGGER.error(str(e))
+            logger.error(str(e))
             return path
 
     def check_and_highlight(self, path: str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
-        regex = FundRegex()
         title_regex,bbox,ocr = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox'],self.PARAMS["title"]["ocr"]
+        
+        financial_terms = self.PARAM_REGEX.FINANCIAL_TERMS
         
         #detect title
         detected_titles = self._get_ocr_title(path,title_regex,bbox) if ocr else self._get_normal_title(path,title_regex,bbox)
         
         path_pdf = self._ocr_pdf(path) if self.PARAMS['pdf_ocr'] else path
         with fitz.open(path_pdf) as doc:
-            indices = regex.FINANCIAL_TERMS
             for pgn, page in enumerate(doc):
                 highlight_count,found_indices = 0,[]
                 blocks = page.get_text("dict")["blocks"]
@@ -151,8 +125,9 @@ class Reader:
                         continue
                     for line in block["lines"]:
                         for span in line["spans"]:
-                            text = regex._remove_non_word_space_chars(span["text"])
-                            for indice in indices:
+                            #clean the text
+                            text = self.UTILS._remove_non_word_space_chars(span["text"])
+                            for indice in financial_terms:
                                 if re.search(rf"\b{re.escape(indice)}\b", text,re.IGNORECASE):
                                     if indice not in found_indices:
                                         found_indices.append(indice)
@@ -164,21 +139,16 @@ class Reader:
     
         Helper.pdf_report(data, self.REPORTPATH, self.FILE_NAME)
 
-        return {
-            d["page"]: d["title"]
-            for d in data
-            if d["title"] and d["highlight_count"] >= self.PARAMS["max_financial_index_highlight"]
-        },path_pdf
+        return {d["page"]: d["title"] for d in data if d["title"] and d["highlight_count"] >= self.PARAMS["max_financial_index_highlight"]},path_pdf
     
     #EXTRACT 
     def _create_data_entry(self,*args)->dict: return {"page":args[0],"fundname":args[1],"block":args[2]}
                    
     def extract_clipped_data(self, path: str, title: dict, *args) -> list:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        finalData = []
-        fund_seen = {}
+        finalData,fund_seen = [],{}
         bboxes = self.PARAMS['clip_bbox'] if not args else args[0]
-
+      
         try:
             with fitz.open(path) as doc:
                 for pgn in title:
@@ -212,9 +182,8 @@ class Reader:
                         sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
 
                         # dummy data
-                        fontz = self.PARAMS['data']['font'][0]
-                        colorz = self.PARAMS['data']['color'][0]
-                        sorted_blocks.append(FundRegex()._dummy_block(fontz, colorz,count+1))
+                        fontz,colorz = self.PARAMS['data']['font'][0],self.PARAMS['data']['color'][0]
+                        sorted_blocks.append(self.PARAM_REGEX._dummy_block(fontz, colorz,count+1))
                         all_blocks.extend(sorted_blocks)
 
                     if fundName in fund_seen:
@@ -233,10 +202,8 @@ class Reader:
 
     def extract_data_relative_line(self, path: str,title: dict)->list:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        finalData = []
-        fund_seen = {}
-        line_x = self.PARAMS['line_x']
-        side = self.PARAMS['line_side']
+        finalData,fund_seen = [],{}
+        line_x,side = self.PARAMS['line_x'],self.PARAMS['line_side']
         
         try:
             with fitz.open(path) as doc:
@@ -266,14 +233,11 @@ class Reader:
                     right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
                     
                     #adding dummy data
-                    fontz = self.PARAMS['data']['font'][0]
-                    colorz = self.PARAMS['data']['color'][0]
-                    left_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
-                    right_blocks.append(FundRegex()._dummy_block(fontz,colorz,1))
+                    fontz,colorz = self.PARAMS['data']['font'][0],self.PARAMS['data']['color'][0]
+                    left_blocks.append(self.PARAM_REGEX._dummy_block(fontz,colorz,1))
+                    right_blocks.append(self.PARAM_REGEX._dummy_block(fontz,colorz,1))
                     
-                    if side == "both":
-                        left_blocks.extend(right_blocks)
-
+                    if side == "both": left_blocks.extend(right_blocks)
                     sorted_blocks = left_blocks if side != "right" else right_blocks
                     
                     if fundName in fund_seen:
@@ -312,7 +276,7 @@ class Reader:
     
     def process_text_data(self, data: list)->list:
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        stop_words,finalData = FundRegex().STOP_WORDS,[]
+        stop_words,finalData = self.PARAM_REGEX.STOP_WORDS,[]
         #checkers
         data_cond = self.PARAMS['data']
         size_checker = data_cond['size']
@@ -321,7 +285,6 @@ class Reader:
         font_change = data_cond['update_size']
         
         amc_stop_words = self.PARAMS['stop_words']
-        
         combined_stop_words = set(stop_words) | set(amc_stop_words) #set union
         
         for content in data:
@@ -336,11 +299,7 @@ class Reader:
             processed_blocks = [] #update size
             for block in cleaned_blocks:
                 size, text, color, origin, bbox, font = block
-                conditions = [
-                    round(size) in range(size_checker[0], size_checker[1]),
-                    color in color_checker,
-                    font in font_checker,
-                ]
+                conditions = [round(size) in range(size_checker[0], size_checker[1]),color in color_checker,font in font_checker]
                 
                 if all(conditions):
                     size = font_change  # Update size
@@ -436,12 +395,9 @@ class Reader:
     
     def get_data(self, path: str, titles:dict, *args):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
-        method = self.PARAMS['method'] #clip/line/both
-        sanitize_fund = self.PARAMS["sanitize_fund"]
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        sanitize_fund,method = self.PARAMS["sanitize_fund"],self.PARAMS['method']
         extracted_data = []
-        regex = FundRegex()
-        
         try:
             if method in ["line", "both"]:
                 data = self.extract_data_relative_line(path, titles)
@@ -459,7 +415,7 @@ class Reader:
                 page_blocks,fundname = page['block'],page['fundname']
                 
                 if sanitize_fund: #map to clear fund names
-                    fundname = regex._sanitize_fund(fundname,self.FUND_NAME)
+                    fundname = self.PARAM_REGEX._sanitize_fund(fundname,self.FUND_NAME)
                 page['fundname'] = fundname
                 
                 for key, content in page_blocks.items():
@@ -474,67 +430,123 @@ class Reader:
         return nested_data
     
     #PROCESS
+    # @staticmethod
+    # def _generate_pdf_from_data(data: dict, output_path: str) -> None:
+    #     # print(f"step>> {inspect.currentframe().f_code.co_name}")
+    #     #constants imported from konstant.py
+        
+    #     def _to_rgb_tuple(color_int):
+    #         c = color_int & 0xFFFFFF
+    #         r = (c >> 16) & 0xFF
+    #         g = (c >> 8) & 0xFF
+    #         b = c & 0xFF
+    #         return (r/255.0, g/255.0, b/255.0)
+        
+    #     with fitz.open() as doc:
+    #         for header, content_blocks in data.items():
+    #             if not content_blocks:continue
+            
+    #             page = doc.new_page()
+    #             try:
+    #                 page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
+    #             except Exception as e:
+    #                 print(f"Error inserting header text: {e}")
+
+    #             current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
+
+    #             # Group words by approximate Y-line
+    #             lines_dict = defaultdict(list)
+    #             for block in content_blocks:
+    #                 size, text, color, (orig_x, orig_y), bbox, fontname = block
+                    
+    #                 # Snap Y values that are close together to a single baseline
+    #                 snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
+    #                 if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
+    #                     orig_y = snapped_y
+                    
+    #                 lines_dict[orig_y].append((orig_x, size, text, color, fontname))
+
+    #             # Sort lines by Y position
+    #             sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
+    #             adjusted_lines = []
+    #             last_line_bottom = current_y
+
+    #             for line_y, line_blocks in sorted_lines:
+    #                 # Sort words in line by their X position
+    #                 line_blocks.sort(key=lambda b: b[0])
+
+    #                 # Determine max font size for line spacing
+    #                 max_font_size = max(b[1] for b in line_blocks)
+    #                 line_height = max_font_size + MIN_LINE_SPACING
+                    
+    #                 if line_y < last_line_bottom + line_height:
+    #                     line_y = last_line_bottom + line_height
+
+    #                 adjusted_lines.append((line_y, line_blocks))
+    #                 last_line_bottom = line_y
+
+    #             # Insert text while ensuring proper alignment
+    #             for line_y, line_blocks in adjusted_lines:
+    #                 for orig_x, size, text, color, fontname in line_blocks:
+    #                     try:
+    #                         try:
+    #                            page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=_to_rgb_tuple(color),)
+
+    #                         except Exception:
+    #                             page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=_to_rgb_tuple(color),)
+    #                     except Exception as e:
+    #                         print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+
+    #         doc.save(output_path) #bytes
+    
     @staticmethod
-    def _generate_pdf_from_data(data: dict, output_path: str) -> None:
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        #constants imported from konstant.py
-        regex = FundRegex()
+    def _generate_pdf_from_data(data: dict) -> bytes:
+    
         with fitz.open() as doc:
             for header, content_blocks in data.items():
-                if not content_blocks:continue
-            
+                if not content_blocks:
+                    continue
                 page = doc.new_page()
                 try:
                     page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
                 except Exception as e:
-                    print(f"Error inserting header text: {e}")
+                    logger.error(f"Error inserting header text: {e}")
 
                 current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
 
                 # Group words by approximate Y-line
                 lines_dict = defaultdict(list)
                 for block in content_blocks:
-                    size, text, color, (orig_x, orig_y), bbox, fontname = block
-                    
-                    # Snap Y values that are close together to a single baseline
+                    # Ignore font/color from input blocks, just use defaults
+                    _, text, _, (orig_x, orig_y), _, _ = block
                     snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
                     if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
                         orig_y = snapped_y
-                    
-                    lines_dict[orig_y].append((orig_x, size, text, color, fontname))
 
-                # Sort lines by Y position
+                    lines_dict[orig_y].append((orig_x, text))
+
+                # Sort lines by Y
                 sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
                 adjusted_lines = []
                 last_line_bottom = current_y
 
                 for line_y, line_blocks in sorted_lines:
-                    # Sort words in line by their X position
                     line_blocks.sort(key=lambda b: b[0])
-
-                    # Determine max font size for line spacing
-                    max_font_size = max(b[1] for b in line_blocks)
-                    line_height = max_font_size + MIN_LINE_SPACING
-                    
+                    line_height = DEFAULT_FONT_SIZE + MIN_LINE_SPACING
                     if line_y < last_line_bottom + line_height:
                         line_y = last_line_bottom + line_height
-
                     adjusted_lines.append((line_y, line_blocks))
                     last_line_bottom = line_y
 
-                # Insert text while ensuring proper alignment
+                # Insert text with default styling
                 for line_y, line_blocks in adjusted_lines:
-                    for orig_x, size, text, color, fontname in line_blocks:
+                    for orig_x, text in line_blocks:
                         try:
-                            try:
-                               page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=regex._to_rgb_tuple(color),) # _to_rgb_tuple shifted to class FundRegex())
-
-                            except Exception:
-                                page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=regex._to_rgb_tuple(color),) #_to_rgb_tuple shifted to class FundRegex())
+                            page.insert_text((LEFT_MARGIN + orig_x, line_y),text,fontsize=DEFAULT_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=DEFAULT_FONT_COLOR,)
                         except Exception as e:
-                            print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+                            logger.error(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
 
-            doc.save(output_path) #bytes
+            return doc.write()  # return bytes
     
     def _extract_data_from_pdf(self, pdf_bytes: bytes, fund: str):
         final_data = {}
@@ -544,38 +556,32 @@ class Reader:
                 if not lines:
                     continue
 
-                header = lines[0]
-                content_lines = lines[1:]
-
+                header,content_lines = lines[0],lines[1:]
                 if header not in final_data:
-                    if self._get_prev_text(header) and fund in self.TEXT_ONLY and header in self.TEXT_ONLY[fund]:
-                        final_data[header] = self.TEXT_ONLY[fund][header]
-                    else:
-                        final_data[header] = content_lines
-                else:
-                    final_data[header].extend(content_lines)
+                    if self._get_prev_text(header) and fund in self.TEXT_ONLY and header in self.TEXT_ONLY[fund]:final_data[header] = self.TEXT_ONLY[fund][header]
+                    else:final_data[header] = content_lines
+                else:final_data[header].extend(content_lines)
         return final_data
     
     def get_generated_content(self, data: list, is_table: str = ""):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         try:
             for content in data:
                 pgn, fund, blocks = content['page'], content['fundname'], content['block']
                 pdf_bytes = Reader._generate_pdf_from_data(blocks)
                 extracted_text[fund] = self._extract_data_from_pdf(pdf_bytes, fund)
+                
                 self._update_imp_data(extracted_text[fund], fund, pgn)
 
     
             table_mode = is_table or self.PARAMS.get("table", "") # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
             if table_mode:
-                self.LOGGER.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
+                logger.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
                 try:
                     table_data = self._generate_table_data(self.PDF_PATH, table_mode)
-                    extracted_text = FundRegex()._map_main_and_tabular_data(
-                        extracted_text, table_data, self.FUND_NAME
-                    )
+                    extracted_text = self.PARAM_REGEX._map_main_and_tabular_data(extracted_text, table_data, self.FUND_NAME)
                 except Exception as e:
                     # logger.error(f"'_generate_table_data' Failed",exc_info=True)
                     pass
@@ -590,7 +596,7 @@ class Reader:
             #         logger.error(f"'_update_duplicate_fund_data' Failed",exc_info=True)
 
         except Exception as e:
-            self.LOGGER.error(f"'get_generated_content' Failed", exc_info=True)
+            logger.error(f"'get_generated_content' Failed", exc_info=True)
 
         return extracted_text
 
@@ -604,20 +610,18 @@ class Reader:
 
     def refine_extracted_data(self, extracted_text: dict):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
-        primary_refine = {}
-        regex = FundRegex()
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        primary_refine,header_map = {},{} #keep track of headers after each iteration, its imp
         
-        header_map = {} #keep track of headers after each iteration, its imp
         for fund, item in extracted_text.items():
             content_dict = {}
             header_map[fund] = {}
             for head, content in item.items():
-                if clean_head:=  regex._header_mapper(head):
+                if clean_head:=  self.PARAM_REGEX._header_mapper(head):
                     header_map[fund][head] = clean_head
                     
                     content = self._match_with_patterns(clean_head, content,level = "primary") # applies regex to clean data
-                    content = regex._transform_keys(content) #dynamic dict + other -> lowercase
+                    content = self.PARAM_REGEX._transform_keys(content) #dynamic dict + other -> lowercase
                     key, value = next(iter(content.items()))
         
                     if clean_head in content_dict:
@@ -628,7 +632,7 @@ class Reader:
                         
             primary_refine[fund] = content_dict
         # if flatten: #Flatten the dict if true
-        primary_refine = {fund: regex._flatten_dict(data) for fund, data in primary_refine.items()}
+        primary_refine = {fund: self.PARAM_REGEX._flatten_dict(data) for fund, data in primary_refine.items()}
         
         secondary_refine = {}
         for fund, item in primary_refine.items():
@@ -679,7 +683,7 @@ class Reader:
         try:
             new_metrics = {}
             for metric_key,metric_value in df.get("metrics",{}).items():
-                new_key = FundRegex()._map_metric_keys_to_dict(metric_key) or metric_key
+                new_key = self.PARAM_REGEX._map_metric_keys_to_dict(metric_key) or metric_key
                 # print(f"new_key {new_key}, metric_key {metric_key}")
                 new_metrics[new_key] = metric_value
         except Exception as e:
@@ -687,7 +691,7 @@ class Reader:
             print("Error in __metric_ops")
             pass
             
-        df["metrics"] = FundRegex()._populate_all_metrics_in_json(new_metrics)
+        df["metrics"] = self.PARAM_REGEX._populate_all_metrics_in_json(new_metrics)
         return df
 
     def __min_add_ops(self,fund:str,df:dict):
@@ -705,12 +709,12 @@ class Reader:
             
         return df
     
-    def __map_json_ops(self,df): return {FundRegex()._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
+    def __map_json_ops(self,df): return {self.PARAM_REGEX._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
-        self.LOGGER.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
-        regex = FundRegex()
+        regex = self.PARAM_REGEX
         for fund, content in data.items():
             temp = content
             #imp: maintain order

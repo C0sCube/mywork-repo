@@ -108,71 +108,6 @@ class FundRegex:
                 
         return {k:data[k] for k in sorted(data)} #sorted
     
-    def _clean_leading_noise(self,text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        return re.sub(r'^[\s\n\r\t\\:;\-–—•|]+', '', text).strip()
-    
-    def _normalize_key(self,text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^\w\s\.]", "", text)
-        text = re.sub(r"\s+", "_", text)
-        return text.strip().lower()
-    
-    def _normalize_key_to_alnum_underscore(self, text: str) -> str:
-        if not isinstance(text, str):
-            return text
-        text = text.strip().lower()
-        text = re.sub(r"[^\w]", "_", text)
-        text = re.sub(r"__+", "_", text)
-        return text.strip("_")
-
-    #match type
-    def is_numeric(self,text):
-        return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))
-
-    def is_alphanumeric(self,text):
-        return bool(re.fullmatch(r'[A-Za-z0-9]+', text))
-
-    def is_alpha(self,text):
-        return bool(re.fullmatch(r'[A-Za-z]+', text))
-        
-    def _remove_non_word_space_chars(self,text:str)->str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub("[^\\w\\s]", "", text).strip()
-        return text
-    
-    def _normalize_whitespace(self,text:str)->str:
-        if not isinstance(text,str):
-            return text
-        return re.sub(r"\s+", " ", text).strip()
-    
-    def _normalize_date(self,text:str)->str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^A-Za-z0-9\s\.\/\,\-\\]+"," ",text).strip()
-        return self._normalize_whitespace(text)
-    
-    def _normalize_alphanumeric(self, text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^a-zA-Z0-9]+", " ", str(text))
-        return re.sub(r"\s+", " ", text).strip().lower()
-    
-    def _normalize_alpha(self, text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^a-zA-Z]+", " ", str(text))
-        return re.sub(r"\s+", " ", text).strip().lower()
-
-    def _normalize_numeric(self, text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^0-9\.]+", " ", str(text))
-        return re.sub(r"\s+", " ", text).strip().lower()
-
     def _sanitize_fund(self,fund:str,fund_name:str):
         fund = re.sub(self.ESCAPE, '', fund)
         fund = self._normalize_whitespace(fund)
@@ -183,12 +118,12 @@ class FundRegex:
                 break
         return fund
     
-    def _to_rgb_tuple(self,color_int):
-        c = color_int & 0xFFFFFF
-        r = (c >> 16) & 0xFF
-        g = (c >> 8) & 0xFF
-        b = c & 0xFF
-        return (r/255.0, g/255.0, b/255.0)
+    # def _to_rgb_tuple(self,color_int):
+    #     c = color_int & 0xFFFFFF
+    #     r = (c >> 16) & 0xFF
+    #     g = (c >> 8) & 0xFF
+    #     b = c & 0xFF
+    #     return (r/255.0, g/255.0, b/255.0)
     
     def _remove_rupee_symbol(self,data:dict):
         # rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
