@@ -6,9 +6,17 @@ from datetime import datetime
 from app.konstant import MAIL_CONFIG
 from app.logger import get_global_logger
 
-# logger = get_global_logger()
 class Mailer:
-    def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com'], cc=None, bcc=None, logger=None):
+    def __init__(
+        self, 
+        server='172.17.0.126',
+        port=25, 
+        sender='Kaustubh.Keny@cogencis.com', 
+        recipients=['Kaustubh.Keny@cogencis.com'], 
+        cc=None, 
+        bcc=None, 
+        logger=None
+    ):
         
         mail_config = MAIL_CONFIG
         recipients = mail_config.get("recipients", recipients)
@@ -43,9 +51,7 @@ class Mailer:
     def end(self, program, data=None):
         subject = f"{program} — Execution Completed"
         process, failed = data
-
-        completed_amcs = '<br>'.join(process)
-        failed_amcs = '<br>'.join(failed)
+        completed_amcs, failed_amcs = '<br>'.join(process),'<br>'.join(failed)
         body = f"""
         <html>
             <body>
@@ -63,15 +69,7 @@ class Mailer:
         self.send_mail(msg)
 
     def default_body(self):
-        return """
-        <html>
-            <body>
-                <p>Hello Team,</p>
-                <p>This is Default Mail Message.</p>
-                <p>Regards,<br>System</p>
-            </body>
-        </html>
-        """
+        return """<html><body><p>Hello Team,</p><p>This is Default Mail Message.</p><p>Regards,<br>System</p></body></html>"""
     
     def send_custom(self, subject, body_html=None, body_text=None):
         msg = self.construct_mail(subject=subject, body_html=body_html, body_text=body_text)
@@ -103,11 +101,3 @@ class Mailer:
             # self.logger.info("Email sent successfully.")
         except Exception as e:
             self.logger.error(f"Failed to send email: {e}")
-
-    def test_connection(self):
-        try:
-            with smtplib.SMTP(self.SERVER, self.PORT) as server:
-                server.noop()
-            print("SMTP connection successful.")
-        except Exception as e:
-            print(f"SMTP connection failed: {e}")

@@ -74,7 +74,6 @@ def check_amc_file(file_name:str)->bool:
         is_passive = len(parts[-2]) == 1 #determine passive
         suffix = parts[-2] if is_passive else "0"
         fund_key = f"{fund_id}_{suffix}"
-        
         return fund_key
     
     if file_name.endswith(".xlsx") and file_name == "table_data.xlsx":

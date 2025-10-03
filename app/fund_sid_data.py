@@ -462,7 +462,7 @@ class ThreeSixtyOneSIDKIM(BaseSIDKIM): pass
 class AdityaBirlaSIDKIM(BaseSIDKIM): pass
 class AngelOneSIDKIM(BaseSIDKIM): pass
 class AXISMFSIDKIM(BaseSIDKIM): pass
-class BajajFinServSIDKIM(BaseSIDKIM): pass
+class BajajFinServSIDKIM(BaseSIDKIM): pass 
 class BandhanSIDKIM(BaseSIDKIM): pass
 class BankOfIndiaSIDKIM(BaseSIDKIM): pass
 class BarodaBNPSIDKIM(BaseSIDKIM): pass

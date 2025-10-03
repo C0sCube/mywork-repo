@@ -1,6 +1,32 @@
 import logging, os, sys
 from logging.handlers import RotatingFileHandler
 
+# --- Optional ColorLog Support ---
+try:
+    import colorlog
+    COLORLOG_AVAILABLE = True
+except ImportError:
+    COLORLOG_AVAILABLE = False
+
+# --- Custom Log Levels ---
+TRACE_LEVEL_NUM = 15
+SAVE_LEVEL_NUM = 22
+NOTICE_LEVEL_NUM = 35
+
+# --- Shared Formatters and Colors ---
+DEFAULT_FORMAT = "%(asctime)s [%(levelname)s]: %(message)s"
+DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+LOG_COLORS = {
+    'TRACE': 'white',
+    'SAVE': 'blue',
+    'NOTICE': 'bold_cyan',
+    'DEBUG': 'cyan',
+    'INFO': 'green',
+    'WARNING': 'yellow',
+    'ERROR': 'red',
+    'CRITICAL': 'bold_red',
+}
+
 # --- Stdout Redirection ---
 ORIGINAL_STDOUT = sys.stdout
 ORIGINAL_STDERR = sys.stderr
@@ -24,53 +50,6 @@ def redirect_stdout_to_logger(logger):
 def restore_stdout():
     sys.stdout = ORIGINAL_STDOUT
     sys.stderr = ORIGINAL_STDERR
-
-
-# --- Optional ColorLog Support ---
-try:
-    import colorlog
-    COLORLOG_AVAILABLE = True
-except ImportError:
-    COLORLOG_AVAILABLE = False
-
-# --- Custom Log Levels ---
-TRACE_LEVEL_NUM = 15
-SAVE_LEVEL_NUM = 22
-NOTICE_LEVEL_NUM = 35
-
-logging.addLevelName(TRACE_LEVEL_NUM, "TRACE")
-logging.addLevelName(SAVE_LEVEL_NUM, "SAVE")
-logging.addLevelName(NOTICE_LEVEL_NUM, "NOTICE")
-
-def trace(self, message, *args, **kwargs):
-    if self.isEnabledFor(TRACE_LEVEL_NUM):
-        self._log(TRACE_LEVEL_NUM, message, args, **kwargs)
-
-def save(self, message, *args, **kwargs):
-    if self.isEnabledFor(SAVE_LEVEL_NUM):
-        self._log(SAVE_LEVEL_NUM, message, args, **kwargs)
-
-def notice(self, message, *args, **kwargs):
-    if self.isEnabledFor(NOTICE_LEVEL_NUM):
-        self._log(NOTICE_LEVEL_NUM, message, args, **kwargs)
-
-logging.Logger.trace = trace
-logging.Logger.save = save
-logging.Logger.notice = notice
-
-# --- Shared Formatters and Colors ---
-DEFAULT_FORMAT = "%(asctime)s [%(levelname)s]: %(message)s"
-DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
-LOG_COLORS = {
-    'TRACE': 'white',
-    'SAVE': 'blue',
-    'NOTICE': 'bold_cyan',
-    'DEBUG': 'cyan',
-    'INFO': 'green',
-    'WARNING': 'yellow',
-    'ERROR': 'red',
-    'CRITICAL': 'bold_red',
-}
 
 # Logging levels:
 # Level      Value   Description
@@ -103,7 +82,6 @@ def _add_console_handler(logger, use_color=True): #level set to TRACE =15
 # --- Forever Logger ---
 def create_logger(name="watcher",log_dir="logs/daily",max_bytes=2 * 1024 * 1024,backup_count=5,log_level=logging.INFO,to_console=True,use_color=True,redirect_stdout=False):
 
-
     logger = logging.getLogger(name)
     if logger.hasHandlers():
         return logger
@@ -133,3 +111,23 @@ def set_global_logger(logger):
 
 def get_global_logger():
     return _active_logger or logging.getLogger("default_logger")
+
+logging.addLevelName(TRACE_LEVEL_NUM, "TRACE")
+logging.addLevelName(SAVE_LEVEL_NUM, "SAVE")
+logging.addLevelName(NOTICE_LEVEL_NUM, "NOTICE")
+
+def trace(self, message, *args, **kwargs):
+    if self.isEnabledFor(TRACE_LEVEL_NUM):
+        self._log(TRACE_LEVEL_NUM, message, args, **kwargs)
+
+def save(self, message, *args, **kwargs):
+    if self.isEnabledFor(SAVE_LEVEL_NUM):
+        self._log(SAVE_LEVEL_NUM, message, args, **kwargs)
+
+def notice(self, message, *args, **kwargs):
+    if self.isEnabledFor(NOTICE_LEVEL_NUM):
+        self._log(NOTICE_LEVEL_NUM, message, args, **kwargs)
+
+logging.Logger.trace = trace
+logging.Logger.save = save
+logging.Logger.notice = notice

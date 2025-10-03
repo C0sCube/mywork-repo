@@ -8,7 +8,7 @@ from app.parse_amc_pdf import Reader
 from app.parse_table import *
 from app.parse_amc_regex import FundRegex
 from app.logger import get_global_logger
-
+from app.utils import Helper
 
 class GrandFundData:
     def __init__(self, amc_id: str):
@@ -34,6 +34,7 @@ class GrandFundData:
         self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
         self.LOGGER = get_global_logger()
+        self.UTILS = Helper()
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
@@ -328,7 +329,6 @@ class GrandFundData:
     
     def _extract_non_esc_data(self,main_key:str,data,pattern:str):
         benchmark_data = " ".join(data) if isinstance(data,list) else data
-        # benchmark_data = re.sub(self.REGEX['escape'],"",data).strip()
         matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
         return {main_key:matches[0] if matches else ""}
     
@@ -460,7 +460,7 @@ class GrandFundData:
         final_data = data.copy()
         remove_fund = []
         for fund, content in data.items():
-            clean_fund = FundRegex()._normalize_alphanumeric(fund)
+            clean_fund = self.UTILS._normalize_alphanumeric(fund)
             for regex, mutual_funds in self.DUPLICATE_FUNDS.items():
                 matches = re.findall(regex, clean_fund, re.IGNORECASE)
                 if matches:

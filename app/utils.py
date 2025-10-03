@@ -491,6 +491,17 @@ class Helper:
         text = re.sub(r"__+", "_", text)
         return text.strip("_")
 
+    def _remove_duplicates(self,text):
+        if not text:
+            return text
+        seen = []
+        text = text.split(" ")
+        for word in text:
+            word = word.lower().strip()
+            if word not in seen:
+                seen.append(word)
+        return " ".join(seen)
+
     #match type
     def is_numeric(self,text):
         return bool(re.fullmatch(r'[+-]?(\d+(\.\d*)?|\.\d+)', text))

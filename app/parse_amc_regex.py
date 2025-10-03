@@ -4,6 +4,7 @@ from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.konstant import REGEX
+from app.utils import Helper
 
 class FundRegex:
     def __init__(self):
@@ -17,10 +18,11 @@ class FundRegex:
         self.FINANCIAL_TERMS = data.get("financial_indices", [])
         self.ESCAPE = data.get("escape_regex", "")
         self.MAIN_SCHEME_NAME = data.get("main_scheme_name", {})
+        self.UTILS = Helper()
 
     def _header_mapper(self, text: str)->str:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        text = self._remove_non_word_space_chars(text)
+        text = self.UTILS._remove_non_word_space_chars(text)
         # print(text)
         for replacement, patterns in self.HEADER_PATTERNS.items():
             try:
@@ -37,7 +39,7 @@ class FundRegex:
 
     def _transform_keys(self, data:dict)->dict: #lowercase
         if isinstance(data, dict):
-            return {self._normalize_key(key): self._transform_keys(value) for key, value in data.items()}
+            return {self.UTILS._normalize_key(key): self._transform_keys(value) for key, value in data.items()}
         elif isinstance(data, list):
             return [self._transform_keys(item) if isinstance(item, dict) else item for item in data]
         else:
@@ -63,8 +65,8 @@ class FundRegex:
         f1_list = []
         for f1 in original_df:
             for f2, c2 in table_df.items():
-                f1r = self._normalize_alphanumeric(f1)
-                f2r = self._normalize_alphanumeric(f2)
+                f1r = self.UTILS._normalize_alphanumeric(f1)
+                f2r = self.UTILS._normalize_alphanumeric(f2)
                 for _, pattern in self.MAIN_SCHEME_NAME[mutual_fund].items():
                     if re.findall(pattern, f1r, re.IGNORECASE) and re.findall(pattern, f2r, re.IGNORECASE):
                         print(f"Match: original_df ->{f1} table_df -> {f2}")
@@ -82,7 +84,7 @@ class FundRegex:
                     return json_key
                 
     def _map_metric_keys_to_dict(self, text:str):
-        text = self._normalize_key_to_alnum_underscore(text)
+        text = self.UTILS._normalize_key_to_alnum_underscore(text)
         for json_key, patterns in self.METRIC_HEADER.items():
             for pattern in patterns:
                 regex = re.compile(pattern) 
@@ -110,7 +112,7 @@ class FundRegex:
     
     def _sanitize_fund(self,fund:str,fund_name:str):
         fund = re.sub(self.ESCAPE, '', fund)
-        fund = self._normalize_whitespace(fund)
+        fund = self.UTILS._normalize_whitespace(fund)
         for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
             if re.findall(regex,fund,re.IGNORECASE):
                 # print(f"{fund} --> {key}")
@@ -118,37 +120,7 @@ class FundRegex:
                 break
         return fund
 
-    def _normalize_key(self,text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^\w\s\.]", "", text)
-        text = re.sub(r"\s+", "_", text)
-        return text.strip().lower()
-    
-    def _normalize_whitespace(self,text:str)->str:
-        if not isinstance(text,str):
-            return text
-        return re.sub(r"\s+", " ", text).strip()
-    
-    def _normalize_date(self,text:str)->str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^A-Za-z0-9\s\.\/\,\-\\]+"," ",text).strip()
-        return self._normalize_whitespace(text)
-    
-    # def _to_rgb_tuple(self,color_int):
-    #     c = color_int & 0xFFFFFF
-    #     r = (c >> 16) & 0xFF
-    #     g = (c >> 8) & 0xFF
-    #     b = c & 0xFF
-    #     return (r/255.0, g/255.0, b/255.0)
-    
-    def _remove_rupee_symbol(self,data:dict):
-        # rupee_keys = ["monthly_aaum_value","min_addl_amt","min_addl_amt_multiple","min_amt","min_amt_multiple"]
-        # for k,v in data.items():
-        #     if k in rupee_keys and isinstance(v,str) and re.match("^\\d",v):
-        #         data[k] =f"\u20B9 {v}"         
-        # return data   
+    def _remove_rupee_symbol(self,data:dict): 
         clean_keys = ["monthly_aaum_value"]
         for k,v in data.items():
             if k in clean_keys and isinstance(v,str):
@@ -158,7 +130,7 @@ class FundRegex:
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
             date_str = data.get("scheme_launch_date","")
-            date_str = self._normalize_date(date_str)
+            date_str = self.UTILS._normalize_date(date_str)
             dt = parser.parse(date_str)
             data["scheme_launch_date"] = dt.strftime(output_format)
             return data
@@ -175,8 +147,7 @@ class FundRegex:
             if word not in seen:
                 seen.append(word)
         return " ".join(seen)
-
-    
+   
     def _format_fund_manager(self, data):
         fund_managers = data.get("fund_manager", [])
         if not fund_managers:
@@ -194,15 +165,14 @@ class FundRegex:
                 continue
 
             cleaned_name = self.MANAGER_STOP_WORDS.sub(' ', name)
-            cleaned_name = self._normalize_alpha(cleaned_name)
-            cleaned_name = self._remove_duplicates(cleaned_name)
+            cleaned_name = self.UTILS._normalize_alpha(cleaned_name)
+            cleaned_name = self.UTILS._remove_duplicates(cleaned_name)
             if cleaned_name and len(cleaned_name) >= 3:
                 manager["name"] = cleaned_name.title()
                 clean_fund_managers.append(manager)
 
         data["fund_manager"] = clean_fund_managers
         return data
-
 
     def _format_amt_data(self, fund, data):
         if re.search(r"\betf\b", str(fund), re.IGNORECASE):
@@ -226,7 +196,6 @@ class FundRegex:
         
         return data
 
-
     def _format_metric_data(self, fund,data):
         metric_data = data.get("metrics", {})
         if not isinstance(metric_data, dict) or not metric_data:
@@ -243,12 +212,12 @@ class FundRegex:
                     continue
                 if re.search(r"times?$", value, re.IGNORECASE):
                     value = re.sub(r"times?$", "", value, flags=re.IGNORECASE).strip()
-                    if self.is_numeric(value):
+                    if self.UTILS.is_numeric(value):
                         num = float(value)
                         value = str(int(num * 100))
                 elif value.endswith("%"):
                     value = value.rstrip("%").strip()
-                elif self.is_numeric(value):
+                elif self.UTILS.is_numeric(value):
                     num = float(value)
                     value = str(int(num * 100))
             
@@ -267,7 +236,7 @@ class FundRegex:
 
                 value = re.sub(r"[^0-9.]+", "", value).strip()
 
-                if self.is_numeric(value):
+                if self.UTILS.is_numeric(value):
                     num = float(value)
                     value = str(round(num / divide, 4))
 
@@ -280,7 +249,6 @@ class FundRegex:
         }
         data["metrics"] = metric_data
         return data
-
 
     #MAPPER FINSTINCT
     def _format_to_finstinct(self,data,filename):
@@ -304,6 +272,8 @@ class FundRegex:
 
         page_list = data.get("page_number", [])
         page_number = str(page_list[0] + 1) if page_list else "0"
+        
+        helper = Helper()
 
         for key, data_value in data.items():
             
@@ -327,8 +297,8 @@ class FundRegex:
             if isinstance(data_value, str):
                 insert_value = data_value
                 if key == "benchmark_index":
-                    data_value = FundRegex()._clean_leading_noise(data_value)
-                    insert_value = [FundRegex()._normalize_whitespace(data_value)]
+                    data_value = helper._clean_leading_noise(data_value)
+                    insert_value = [helper._normalize_whitespace(data_value)]
                 record_value[key] = insert_value
                 field_location_keys.append(key)
                 
@@ -342,8 +312,8 @@ class FundRegex:
                 load = []
                 for item in data_value:
                     value = item.get("comment", "")
-                    value = FundRegex()._clean_leading_noise(value)
-                    value = FundRegex()._normalize_whitespace(value)
+                    value = helper._clean_leading_noise(value)
+                    value = helper._normalize_whitespace(value)
                     load.append(
                         {
                             "type": item.get("type", ""),
@@ -391,22 +361,4 @@ class FundRegex:
                     
                 ],
             }
-    
-    def _remove_non_word_space_chars(self, text):
-        return re.sub(r'[^\w\s]', '', text)
-    
-    def _normalize_alpha(self, text: str) -> str:
-        if not isinstance(text,str):
-            return text
-        text = re.sub(r"[^a-zA-Z]+", " ", str(text))
-        return re.sub(r"\s+", " ", text).strip().lower()
-
-
-
-
-                
-
-            
-     
-            
     
