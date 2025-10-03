@@ -117,6 +117,24 @@ class FundRegex:
                 fund = key
                 break
         return fund
+
+    def _normalize_key(self,text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^\w\s\.]", "", text)
+        text = re.sub(r"\s+", "_", text)
+        return text.strip().lower()
+    
+    def _normalize_whitespace(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        return re.sub(r"\s+", " ", text).strip()
+    
+    def _normalize_date(self,text:str)->str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^A-Za-z0-9\s\.\/\,\-\\]+"," ",text).strip()
+        return self._normalize_whitespace(text)
     
     # def _to_rgb_tuple(self,color_int):
     #     c = color_int & 0xFFFFFF
@@ -373,6 +391,17 @@ class FundRegex:
                     
                 ],
             }
+    
+    def _remove_non_word_space_chars(self, text):
+        return re.sub(r'[^\w\s]', '', text)
+    
+    def _normalize_alpha(self, text: str) -> str:
+        if not isinstance(text,str):
+            return text
+        text = re.sub(r"[^a-zA-Z]+", " ", str(text))
+        return re.sub(r"\s+", " ", text).strip().lower()
+
+
 
 
                 

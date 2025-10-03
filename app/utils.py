@@ -5,14 +5,14 @@ from collections import defaultdict
 import pandas as pd #type:ignore
 from typing import List
 from app.logger import get_global_logger
-logger = get_global_logger()
-
+# logger = get_global_logger()
 
 class Helper:
-    
     def __init__(self):
-        self.logger = logger
-    
+        # self.logger = get_global_logger()
+        self.logger = get_global_logger()
+
+        pass
     #PARSING UTILS
     def get_pdf_with_id(self,path: str) -> dict:
         pdf_paths = defaultdict(list)
@@ -203,7 +203,6 @@ class Helper:
             if os.path.isfile(file_path):
                 try:
                     os.remove(file_path)
-                    # print(f"Deleted: {file_path}")
                 except Exception as e:
                     print(f"Failed to delete {file_path}: {e}")
 

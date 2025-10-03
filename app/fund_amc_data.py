@@ -1,4 +1,4 @@
-import re, os,sys#type:ignore
+import re, os,sys, camelot#type:ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz #type:ignore
 from datetime import datetime
@@ -9,7 +9,7 @@ from app.parse_table import *
 from app.parse_amc_regex import FundRegex
 from app.logger import get_global_logger
 
-logger = get_global_logger()
+
 class GrandFundData:
     def __init__(self, amc_id: str):
         # config = Config()
@@ -33,7 +33,7 @@ class GrandFundData:
         }
         self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
-        self.LOGGER = logger
+        self.LOGGER = get_global_logger()
         
     #extract 
     def _extract_dummy_data(self,main_key:str,data):
@@ -605,6 +605,7 @@ class BajajFinServ(BaseAMC):
         data = " ".join(data) if isinstance(data, list) else data
         matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
         return {"scheme_launch_date":matches[0] if matches else ""}
+
 class Bandhan(BaseAMC):  
     
     def _extract_manager_data(self, main_key: str, manager_data, pattern: str):
@@ -628,6 +629,7 @@ class Bandhan(BaseAMC):
 
         final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
         return {main_key: final_list}
+
 class Canara(BaseAMC):
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
@@ -653,6 +655,7 @@ class Canara(BaseAMC):
         if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
             return {main_key:match[0]}
         return {main_key:bench_data}
+
 class DSP(BaseAMC):
         
     def _generate_table_data(self,path,pages):
@@ -712,6 +715,7 @@ class DSP(BaseAMC):
         data = " ".join(data) if isinstance(data, list) else data
         matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
         return {"scheme_launch_date":matches[0] if matches else ""}
+
 class HDFC(BaseAMC):
     def _update_manager_data(self, main_key: str, data):
         DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
@@ -739,6 +743,7 @@ class HDFC(BaseAMC):
 
     def _update_benchmark_data(self,main_key:str,data):
         return {"benchmark_index":" ".join(data.values())}
+
 class HSBC(BaseAMC):
 
     def _update_date_data(self,main_key:str,data):
@@ -749,18 +754,21 @@ class HSBC(BaseAMC):
         if matches:= re.findall(self.REGEX["benchmark2"],data,re.IGNORECASE):
             return {main_key:matches[0]}
         return {main_key:data}
+
 class ICICI(BaseAMC):
 
     def _update_metric_data(self,main_key:str,data):
         # if isinstance(data["beta"],str) and isinstance(data["sharpe"],str) and isinstance(data["std_dev"],str):
         #     data["std_dev"],data["sharpe"],data["beta"] = data["sharpe"], data["beta"],data["std_dev"]
         return {main_key:data}   
+
 class ICICIPassive(BaseAMC):
 
     def _update_metric_data(self,main_key:str,data):
         # if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
         #     data["std_dev"], data["port_turnover_ratio"] = data["port_turnover_ratio"], data["std_dev"]
         return {main_key:data}   
+
 class LIC(BaseAMC): 
 
     def _update_manager_data(self, main_key: str, data):
@@ -789,6 +797,7 @@ class LIC(BaseAMC):
         for name,exp in zip(n,e):
             final_list.append(self._return_manager_data(name=name,exp=exp))
         return {main_key: final_list}
+
 class NAVI(BaseAMC): 
 
     def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):

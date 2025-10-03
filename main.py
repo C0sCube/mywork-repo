@@ -1,5 +1,3 @@
-
-
 import os, time,logging, traceback
 
 from app.konstant import *
@@ -9,10 +7,7 @@ set_global_logger(logger)
 
 from app.utils import Helper
 from app.mailer import Mailer
-
 from app.regis_amc import *
-
-
 
 
 logger.info(f"{PROGRAM_NAME} Running ...")
@@ -20,12 +15,12 @@ mail = Mailer()
 
 def program_runner(path,amc_id, file_name):
     page_content = {}
-
+    utils = Helper()
     if amc_id == "8_0":
         try:
             filename = file_name.replace(".pdf", ".xlsx")
             logger.info("Trying to read tabular data (xlsx)...")
-            df = Helper.get_ext_in_folder(INPUT_PATH,filename,extension=".xlsx")
+            df = utils.get_ext_in_folder(INPUT_PATH,filename,extension=".xlsx")
             if df:
                 page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
                 logger.notice("Tabular data loaded.")
@@ -41,7 +36,7 @@ def program_runner(path,amc_id, file_name):
         try:
             filename = file_name.replace(".pdf", ".json")
             logger.info("Trying to read annot data (json)...")
-            jsn = Helper.get_ext_in_folder(INPUT_PATH,filename,extension=".json")
+            jsn = utils.get_ext_in_folder(INPUT_PATH,filename,extension=".json")
             # if df:
             #     page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
             #     logger.notice("Tabular data loaded.")

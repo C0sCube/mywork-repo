@@ -6,9 +6,7 @@ from datetime import datetime
 from app.konstant import MAIL_CONFIG
 from app.logger import get_global_logger
 
-logger = get_global_logger()
-
-
+# logger = get_global_logger()
 class Mailer:
     def __init__(self, server='172.17.0.126', port=25, sender='Kaustubh.Keny@cogencis.com', recipients=['Kaustubh.Keny@cogencis.com'], cc=None, bcc=None, logger=None):
         
@@ -24,7 +22,7 @@ class Mailer:
         self.CC = cc if isinstance(cc, list) else [cc] if cc else []
         self.BCC = bcc if isinstance(bcc, list) else [bcc] if bcc else []
         
-        self.logger = logger or logging.getLogger(__name__)
+        self.logger = get_global_logger()
 
 
     def started(self, program, data=None):

@@ -1,6 +1,5 @@
 import os, re, math,ocrmypdf,time # type: ignore
 from app.logger import get_global_logger
-logger = get_global_logger()
 import fitz # type: ignore
 from collections import defaultdict
 
@@ -12,6 +11,7 @@ from app.konstant import * #all constants
 class Reader:
     def __init__(self,params:dict,path:str):
         
+        self.logger = get_global_logger()
         self.PARAMS = params #amc specific
         self.PARAM_REGEX = FundRegex()
         self.UTILS = Helper()
@@ -23,10 +23,12 @@ class Reader:
         self.REPORTPATH = REPORT_DIR
         self.JSONPATH = JSON_DIR
         self.TEXT_ONLY = {}
+        
+        
     
     #HIGHLIGHT
     def _get_normal_title(self, path:str,title_regex:str,bbox):
-        logger.info(f"Getting All titles : {inspect.currentframe().f_code.co_name}")
+        self.logger.info(f"Getting All titles : {inspect.currentframe().f_code.co_name}")
         title_detected = {}
         escape_regex = self.PARAM_REGEX.ESCAPE
         
@@ -39,17 +41,17 @@ class Reader:
                     title_match = re.findall(title_regex, title_text, re.DOTALL)
                     title = " ".join([_ for _ in title_match[0].strip().split(" ") if _ ]) if title_match else ""
               
-                    if title: logger.trace(f">>Title Found{pgn}:{title}")
-                    else: logger.debug(f">>Title not found on {pgn}:{title_text}")
+                    if title: self.logger.trace(f">>Title Found{pgn}:{title}")
+                    else: self.logger.debug(f">>Title not found on {pgn}:{title_text}")
                     title_detected[pgn] = title
                 
-                logger.info("Untracked Title(s) saved in DEBUG MODE.")
+                self.logger.info("Untracked Title(s) saved in DEBUG MODE.")
         except Exception as e:
-            logger.error("Error in _get_normal_title")
+            self.logger.error("Error in _get_normal_title")
         return title_detected
                 
     def _get_ocr_title(self,path:str,title_regex:str,bbox):
-        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        self.logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         clipped_pdf = path.replace(".pdf", "_clipped.pdf")
         ocr_pdf = path.replace(".pdf", "_ocr.pdf")
         
@@ -94,18 +96,18 @@ class Reader:
             pass
     
     def _ocr_pdf(self, path: str):
-        logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
+        self.logger.info(f"AMC Requires OCR hence: {inspect.currentframe().f_code.co_name}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         try:
             self.safe_ocr(path, ocr_path, timeout=90)
             return ocr_path
         except Exception as e:
-            logger.error(str(e))
+            self.logger.error(str(e))
             return path
 
     def check_and_highlight(self, path: str):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         data = []
         output_path = path.replace(".pdf", "_hltd.pdf")
         title_regex,bbox,ocr = self.PARAMS["title"]['pattern'],self.PARAMS["title"]['bbox'],self.PARAMS["title"]["ocr"]
@@ -195,7 +197,7 @@ class Reader:
                         fund_seen[fundName] = new_entry
                         
         except Exception as e:
-            # logger.error(f"Error in 'extract_clipped_data'",exc_info=True)
+            # self.logger.error(f"Error in 'extract_clipped_data'",exc_info=True)
             pass
 
         return finalData
@@ -249,7 +251,7 @@ class Reader:
                         fund_seen[fundName] = new_entry
                         
         except Exception as e:
-            # logger.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
+            # self.logger.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
             pass
             
         return finalData
@@ -395,7 +397,7 @@ class Reader:
     
     def get_data(self, path: str, titles:dict, *args):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         sanitize_fund,method = self.PARAMS["sanitize_fund"],self.PARAMS['method']
         extracted_data = []
         try:
@@ -423,7 +425,7 @@ class Reader:
                 self.TEXT_ONLY[fundname] = page_text
             
         except Exception as e:
-            # logger.error(f"Error in 'get_data' ",exc_info=True)
+            # self.logger.error(f"Error in 'get_data' ",exc_info=True)
             pass
             
         # print(self.TEXT_ONLY)
@@ -501,7 +503,8 @@ class Reader:
     
     @staticmethod
     def _generate_pdf_from_data(data: dict) -> bytes:
-    
+        
+        logger = get_global_logger()
         with fitz.open() as doc:
             for header, content_blocks in data.items():
                 if not content_blocks:
@@ -565,7 +568,7 @@ class Reader:
     
     def get_generated_content(self, data: list, is_table: str = ""):
         # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         extracted_text = {}
         try:
             for content in data:
@@ -578,25 +581,25 @@ class Reader:
     
             table_mode = is_table or self.PARAMS.get("table", "") # Section for tabular data (e.g., DSP, BAJAJ, HDFC)
             if table_mode:
-                logger.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
+                self.logger.info(f"Tabular Data Present. Running:{inspect.currentframe().f_code.co_name}")
                 try:
                     table_data = self._generate_table_data(self.PDF_PATH, table_mode)
                     extracted_text = self.PARAM_REGEX._map_main_and_tabular_data(extracted_text, table_data, self.FUND_NAME)
                 except Exception as e:
-                    # logger.error(f"'_generate_table_data' Failed",exc_info=True)
+                    self.logger.error(f"'_generate_table_data' Failed",exc_info=True)
                     pass
 
             # Section to duplicate mutual funds
             # if isinstance(self.DUPLICATE_FUNDS, dict) and self.DUPLICATE_FUNDS:
             #     # print(f">>Duplicate Mutual Fund Present -> running: _update_duplicate_fund_data")
-            #     logger.info(f"Duplication Required. Running:{inspect.currentframe().f_code.co_name}")
+            #     self.logger.info(f"Duplication Required. Running:{inspect.currentframe().f_code.co_name}")
             #     try:
             #         extracted_text = self._update_duplicate_fund_data(extracted_text)
             #     except Exception as e:
-            #         logger.error(f"'_update_duplicate_fund_data' Failed",exc_info=True)
+            #         self.logger.error(f"'_update_duplicate_fund_data' Failed",exc_info=True)
 
         except Exception as e:
-            logger.error(f"'get_generated_content' Failed", exc_info=True)
+            self.logger.error(f"'get_generated_content' Failed", exc_info=True)
 
         return extracted_text
 
@@ -609,8 +612,7 @@ class Reader:
         return "exhausted"
 
     def refine_extracted_data(self, extracted_text: dict):
-        # print(f"step>> {inspect.currentframe().f_code.co_name}")
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         primary_refine,header_map = {},{} #keep track of headers after each iteration, its imp
         
         for fund, item in extracted_text.items():
@@ -672,8 +674,8 @@ class Reader:
                 if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
                     new_load.append({"comment": value,"type": "exit_load"})
         except Exception as e:
-            # logger.error(f"_load_ops ->Load Error",exc_info=True)
-            print("Error in __load_ops")
+            self.logger.error(f"_load_ops ->Load Error",exc_info=True)
+            # print("Error in __load_ops")
             pass
     
         df["load"] = new_load
@@ -687,8 +689,8 @@ class Reader:
                 # print(f"new_key {new_key}, metric_key {metric_key}")
                 new_metrics[new_key] = metric_value
         except Exception as e:
-            # logger.error(f"_metric_ops:{fund} ->Metric Error",exc_info=True)
-            print("Error in __metric_ops")
+            self.logger.error(f"_metric_ops:{fund} ->Metric Error",exc_info=True)
+            # print("Error in __metric_ops")
             pass
             
         df["metrics"] = self.PARAM_REGEX._populate_all_metrics_in_json(new_metrics)
@@ -703,8 +705,8 @@ class Reader:
                     new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
             df.update(new_values)
         except Exception as e:
-            # logger.error(f"_min_add_ops: {fund} ->Min/Add Error",exc_info=True)
-            print("Error in __min_add_ops")
+            self.logger.error(f"_min_add_ops: {fund} ->Min/Add Error",exc_info=True)
+            # print("Error in __min_add_ops")
             pass
             
         return df
@@ -712,7 +714,7 @@ class Reader:
     def __map_json_ops(self,df): return {self.PARAM_REGEX._map_json_keys_to_dict(k) or k: v for k, v in df.items()}
     
     def merge_and_select_data(self, data: dict):
-        logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
+        self.logger.trace(f"step>> {inspect.currentframe().f_code.co_name}")
         finalData = {}
         regex = self.PARAM_REGEX
         for fund, content in data.items():
