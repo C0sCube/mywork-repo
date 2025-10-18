@@ -2237,6 +2237,7 @@
         "min_amt",
       ],
       ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
+      "(?:^before)?.*fund_manager":["_extract_manager_data","manager"]
     },
     TERTIARY_PATTERN_TO_FUNCTION: {},
     SELECTKEYS: [
@@ -2308,8 +2309,8 @@
         "Benchmark",
         "Allotment\\s*date",
         "Folio count",
-        "Investment Objective",
-        "Dividend\\s*Frequency",
+        "Investment\\s*[Oo]bjective",
+        "IDCW\\s*Frequency",
         "Minimum\\s*Investment\\s*Amount",
         "Additional\\s*Investment",
         "Entry\\s*Load",
@@ -3828,7 +3829,7 @@
       line_x: 160.0,
       data: {
         size: [5, 8],
-        color: [-15570765],
+        color: [-1], //-15570765
         update_size: 30.0,
         font: ["Swiss721BT-BoldCondensed", "DMSans-Bold"],
       },

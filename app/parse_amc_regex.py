@@ -1,6 +1,7 @@
 import re, sys, os
 import random,string, inspect,datetime
 from dateutil import parser #type:ignore
+from datetime import datetime
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.konstant import REGEX
@@ -257,7 +258,7 @@ class FundRegex:
             "metadata":{
                 "document_name":filename,
                 "file_type":"fs",
-                "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
+                "process_date": f"{datetime.now().strftime('%Y%m%d')}"
             },
             "records":[]
         }

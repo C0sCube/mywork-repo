@@ -2,7 +2,7 @@ import os, time,logging, traceback
 
 from app.konstant import *
 from app.logger import create_logger, set_global_logger
-logger = create_logger("watcher", log_dir=LOG_DIR,log_level=15) #logging.DEBUG is 10
+logger = create_logger("watcher", log_dir=LOG_DIR,log_level=10) #logging.DEBUG is 10
 set_global_logger(logger)
 
 from app.utils import Helper
@@ -16,36 +16,36 @@ mail = Mailer()
 def program_runner(path,amc_id, file_name):
     page_content = {}
     utils = Helper()
-    if amc_id == "8_0":
-        try:
-            filename = file_name.replace(".pdf", ".xlsx")
-            logger.info("Trying to read tabular data (xlsx)...")
-            df = utils.get_ext_in_folder(INPUT_PATH,filename,extension=".xlsx")
-            if df:
-                page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
-                logger.notice("Tabular data loaded.")
-                logger.info(page_content)
-            else:
-                raise ValueError("Tabular Data Not Found.")
+    # if amc_id == "8_0":
+    #     try:
+    #         filename = file_name.replace(".pdf", ".xlsx")
+    #         logger.info("Trying to read tabular data (xlsx)...")
+    #         df = utils.get_ext_in_folder(INPUT_PATH,filename,extension=".xlsx")
+    #         if df:
+    #             page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
+    #             logger.notice("Tabular data loaded.")
+    #             logger.info(page_content)
+    #         else:
+    #             raise ValueError("Tabular Data Not Found.")
             
-        except Exception as e:
-            logger.warning(f"Tabular data loading failed: {e}")
+    #     except Exception as e:
+    #         logger.warning(f"Tabular data loading failed: {e}")
     
-    if amc_id == "1_0":
-        pass
-        try:
-            filename = file_name.replace(".pdf", ".json")
-            logger.info("Trying to read annot data (json)...")
-            jsn = utils.get_ext_in_folder(INPUT_PATH,filename,extension=".json")
-            # if df:
-            #     page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
-            #     logger.notice("Tabular data loaded.")
-            #     logger.info(page_content)
-            # else:
-            #     raise ValueError("Tabular Data Not Found.")
+    # if amc_id == "1_0":
+    #     pass
+    #     try:
+    #         filename = file_name.replace(".pdf", ".json")
+    #         logger.info("Trying to read annot data (json)...")
+    #         jsn = utils.get_ext_in_folder(INPUT_PATH,filename,extension=".json")
+    #         # if df:
+    #         #     page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
+    #         #     logger.notice("Tabular data loaded.")
+    #         #     logger.info(page_content)
+    #         # else:
+    #         #     raise ValueError("Tabular Data Not Found.")
             
-        except Exception as e:
-            logger.warning(f"Json loading failed: {e}")
+    #     except Exception as e:
+    #         logger.warning(f"Json loading failed: {e}")
 
     try:
         if amc_id not in CLASS_REGISTRY:
@@ -62,14 +62,18 @@ def program_runner(path,amc_id, file_name):
         title, path_pdf = obj.check_and_highlight(path)
         if not (title and path_pdf):
             raise ValueError("check_and_highlight failed")
+        
 
-        dfs =   obj.merge_and_select_data(
-                    obj.refine_extracted_data(
-                        obj.get_generated_content(
-                            obj.get_data(path_pdf, title)
-                        )
-                    )
-                )
+        data = obj.get_data(path_pdf,title)
+        extracted_text = obj.get_generated_content(data)
+        final_text = obj.refine_extracted_data(extracted_text)
+        dfs = obj.merge_and_select_data(final_text)
+        
+        with open("data.json", 'w') as f:
+            json.dump(final_text, f, indent=2)
+            
+        with open("extract.json", 'w') as f:
+            json.dump(extracted_text, f, indent=2)
 
         if not dfs: raise ValueError("No final merged data")
 

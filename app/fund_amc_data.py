@@ -506,10 +506,14 @@ class GrandFundData:
             "file_name":""
         })
 
+
 class BaseAMC(Reader, GrandFundData):
     def __init__(self, amc_id: str, path: str):
         GrandFundData.__init__(self, amc_id)
+        # print(f"[DEBUG] PARAMS after GrandFundData: {self.PARAMS}")
         Reader.__init__(self, self.PARAMS, path)
+        # print(f"[DEBUG] Reader initialized with path: {path}")
+
 
 # -------------- Plain AMC's ---------------
 class ThreeSixtyOne(BaseAMC): pass

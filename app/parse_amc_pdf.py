@@ -432,126 +432,144 @@ class Reader:
         return nested_data
     
     #PROCESS
-    # @staticmethod
-    # def _generate_pdf_from_data(data: dict, output_path: str) -> None:
-    #     # print(f"step>> {inspect.currentframe().f_code.co_name}")
-    #     #constants imported from konstant.py
-        
-    #     def _to_rgb_tuple(color_int):
-    #         c = color_int & 0xFFFFFF
-    #         r = (c >> 16) & 0xFF
-    #         g = (c >> 8) & 0xFF
-    #         b = c & 0xFF
-    #         return (r/255.0, g/255.0, b/255.0)
-        
-    #     with fitz.open() as doc:
-    #         for header, content_blocks in data.items():
-    #             if not content_blocks:continue
-            
-    #             page = doc.new_page()
-    #             try:
-    #                 page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
-    #             except Exception as e:
-    #                 print(f"Error inserting header text: {e}")
-
-    #             current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
-
-    #             # Group words by approximate Y-line
-    #             lines_dict = defaultdict(list)
-    #             for block in content_blocks:
-    #                 size, text, color, (orig_x, orig_y), bbox, fontname = block
-                    
-    #                 # Snap Y values that are close together to a single baseline
-    #                 snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
-    #                 if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
-    #                     orig_y = snapped_y
-                    
-    #                 lines_dict[orig_y].append((orig_x, size, text, color, fontname))
-
-    #             # Sort lines by Y position
-    #             sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
-    #             adjusted_lines = []
-    #             last_line_bottom = current_y
-
-    #             for line_y, line_blocks in sorted_lines:
-    #                 # Sort words in line by their X position
-    #                 line_blocks.sort(key=lambda b: b[0])
-
-    #                 # Determine max font size for line spacing
-    #                 max_font_size = max(b[1] for b in line_blocks)
-    #                 line_height = max_font_size + MIN_LINE_SPACING
-                    
-    #                 if line_y < last_line_bottom + line_height:
-    #                     line_y = last_line_bottom + line_height
-
-    #                 adjusted_lines.append((line_y, line_blocks))
-    #                 last_line_bottom = line_y
-
-    #             # Insert text while ensuring proper alignment
-    #             for line_y, line_blocks in adjusted_lines:
-    #                 for orig_x, size, text, color, fontname in line_blocks:
-    #                     try:
-    #                         try:
-    #                            page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=_to_rgb_tuple(color),)
-
-    #                         except Exception:
-    #                             page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=_to_rgb_tuple(color),)
-    #                     except Exception as e:
-    #                         print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
-
-    #         doc.save(output_path) #bytes
-    
     @staticmethod
-    def _generate_pdf_from_data(data: dict) -> bytes:
+    def _generate_pdf_from_data(data: dict, output_path: str) -> None:
+        # print(f"step>> {inspect.currentframe().f_code.co_name}")
+        #constants imported from konstant.py
         
-        logger = get_global_logger()
+        def _to_rgb_tuple(color_int):
+            c = color_int & 0xFFFFFF
+            r = (c >> 16) & 0xFF
+            g = (c >> 8) & 0xFF
+            b = c & 0xFF
+            return (r/255.0, g/255.0, b/255.0)
+        
         with fitz.open() as doc:
             for header, content_blocks in data.items():
-                if not content_blocks:
-                    continue
+                if not content_blocks:continue
+            
                 page = doc.new_page()
                 try:
                     page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
                 except Exception as e:
-                    logger.error(f"Error inserting header text: {e}")
+                    print(f"Error inserting header text: {e}")
 
                 current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
 
                 # Group words by approximate Y-line
                 lines_dict = defaultdict(list)
                 for block in content_blocks:
-                    # Ignore font/color from input blocks, just use defaults
-                    _, text, _, (orig_x, orig_y), _, _ = block
+                    size, text, color, (orig_x, orig_y), bbox, fontname = block
+                    
+                    # Snap Y values that are close together to a single baseline
                     snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
                     if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
                         orig_y = snapped_y
+                    
+                    lines_dict[orig_y].append((orig_x, size, text, color, fontname))
 
-                    lines_dict[orig_y].append((orig_x, text))
-
-                # Sort lines by Y
+                # Sort lines by Y position
                 sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
                 adjusted_lines = []
                 last_line_bottom = current_y
 
                 for line_y, line_blocks in sorted_lines:
+                    # Sort words in line by their X position
                     line_blocks.sort(key=lambda b: b[0])
-                    line_height = DEFAULT_FONT_SIZE + MIN_LINE_SPACING
+
+                    # Determine max font size for line spacing
+                    max_font_size = max(b[1] for b in line_blocks)
+                    line_height = max_font_size + MIN_LINE_SPACING
+                    
                     if line_y < last_line_bottom + line_height:
                         line_y = last_line_bottom + line_height
+
                     adjusted_lines.append((line_y, line_blocks))
                     last_line_bottom = line_y
 
-                # Insert text with default styling
+                # Insert text while ensuring proper alignment
                 for line_y, line_blocks in adjusted_lines:
-                    for orig_x, text in line_blocks:
+                    for orig_x, size, text, color, fontname in line_blocks:
                         try:
-                            page.insert_text((LEFT_MARGIN + orig_x, line_y),text,fontsize=DEFAULT_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=DEFAULT_FONT_COLOR,)
-                        except Exception as e:
-                            logger.error(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+                            try:
+                               page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=_to_rgb_tuple(color),)
 
-            return doc.write()  # return bytes
+                            except Exception:
+                                page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=_to_rgb_tuple(color),)
+                        except Exception as e:
+                            print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+
+            doc.save(output_path) #bytes
+            
+        
+        return output_path
+
+    def _extract_data_from_pdf(self, pdf_path: str, fund: str):
+        final_data = {}
+        with fitz.open(pdf_path) as doc:  # open from path
+            for page in doc:
+                lines = page.get_text("text").split("\n")
+                if not lines:
+                    continue
+
+                header,content_lines = lines[0],lines[1:]
+                if header not in final_data:
+                    if self._get_prev_text(header) and fund in self.TEXT_ONLY and header in self.TEXT_ONLY[fund]:final_data[header] = self.TEXT_ONLY[fund][header]
+                    else:final_data[header] = content_lines
+                else:final_data[header].extend(content_lines)
+        return final_data
     
-    def _extract_data_from_pdf(self, pdf_bytes: bytes, fund: str):
+    # @staticmethod
+    # def _generate_pdf_from_data(data: dict) -> bytes:
+        
+    #     logger = get_global_logger()
+    #     with fitz.open() as doc:
+    #         for header, content_blocks in data.items():
+    #             if not content_blocks:
+    #                 continue
+    #             page = doc.new_page()
+    #             try:
+    #                 page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
+    #             except Exception as e:
+    #                 logger.error(f"Error inserting header text: {e}")
+
+    #             current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
+
+    #             # Group words by approximate Y-line
+    #             lines_dict = defaultdict(list)
+    #             for block in content_blocks:
+    #                 # Ignore font/color from input blocks, just use defaults
+    #                 _, text, _, (orig_x, orig_y), _, _ = block
+    #                 snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
+    #                 if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
+    #                     orig_y = snapped_y
+
+    #                 lines_dict[orig_y].append((orig_x, text))
+
+    #             # Sort lines by Y
+    #             sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
+    #             adjusted_lines = []
+    #             last_line_bottom = current_y
+
+    #             for line_y, line_blocks in sorted_lines:
+    #                 line_blocks.sort(key=lambda b: b[0])
+    #                 line_height = DEFAULT_FONT_SIZE + MIN_LINE_SPACING
+    #                 if line_y < last_line_bottom + line_height:
+    #                     line_y = last_line_bottom + line_height
+    #                 adjusted_lines.append((line_y, line_blocks))
+    #                 last_line_bottom = line_y
+
+    #             # Insert text with default styling
+    #             for line_y, line_blocks in adjusted_lines:
+    #                 for orig_x, text in line_blocks:
+    #                     try:
+    #                         page.insert_text((LEFT_MARGIN + orig_x, line_y),text,fontsize=DEFAULT_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=DEFAULT_FONT_COLOR,)
+    #                     except Exception as e:
+    #                         logger.error(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+
+    #         return doc.write()  # return bytes
+    
+    # def _extract_data_from_pdf(self, pdf_bytes: bytes, fund: str):
         final_data = {}
         with fitz.open("pdf", pdf_bytes) as doc:  # open from bytes
             for page in doc:
@@ -573,8 +591,9 @@ class Reader:
         try:
             for content in data:
                 pgn, fund, blocks = content['page'], content['fundname'], content['block']
-                pdf_bytes = Reader._generate_pdf_from_data(blocks)
-                extracted_text[fund] = self._extract_data_from_pdf(pdf_bytes, fund)
+                pdf_path = Reader._generate_pdf_from_data(blocks,self.DRYPATH)
+                extracted_text[fund] = self._extract_data_from_pdf(pdf_path, fund)
+                # extracted_text[fund] = self._extract_data_from_pdf(pdf_bytes, fund)
                 
                 self._update_imp_data(extracted_text[fund], fund, pgn)
 
