@@ -5,8 +5,8 @@ from app.logger import create_logger, set_global_logger
 logger = create_logger("watcher", log_dir=LOG_DIR,log_level=10) #logging.DEBUG is 10
 set_global_logger(logger)
 
-from core.utils import Helper
-from core.mailer import Mailer
+from app.utils import Helper
+from app.mailer import Mailer
 from app.regis_amc import *
 
 

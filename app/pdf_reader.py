@@ -3,9 +3,9 @@ from app.logger import get_global_logger
 import fitz # type: ignore
 from collections import defaultdict
 
-from parsers.amc.regex_handler import *
-from parsers.amc.fund_data import *
-from core.utils import Helper
+from app.regex_handler import *
+from app.fund_data import *
+from app.utils import Helper
 from app.konstant import * #all constants
 
 class Reader:

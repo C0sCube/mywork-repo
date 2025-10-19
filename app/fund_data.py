@@ -4,15 +4,11 @@ import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 from app.konstant import CONFIG
-from parsers.amc.pdf_reader import Reader
-from parsers.amc.table_parser import *
-from parsers.amc.regex_handler import FundRegex
+from app.pdf_reader import Reader
+from app.table_parser import *
+from app.regex_handler import FundRegex
 from app.logger import get_global_logger
-from core.utils import Helper
-from core.logger import get_logger
-from core.constants import *
-from core.utils import Helper
-from core.config_manager import ConfigManager
+from app.utils import Helper
 
 
 

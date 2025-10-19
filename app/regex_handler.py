@@ -5,7 +5,7 @@ from datetime import datetime
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.konstant import REGEX
-from core.utils import Helper
+from app.utils import Helper
 
 class FundRegex:
     def __init__(self):
