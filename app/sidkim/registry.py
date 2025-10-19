@@ -1,4 +1,4 @@
-from app.fund_sid_data import *
+from app.sidkim.fund_data import *
 
 SID_CLASS_REGISTRY = {
  '18': ThreeSixtyOneSIDKIM,

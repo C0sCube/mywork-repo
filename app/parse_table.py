@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 class TableParser:
     
     def __init__(self):
-        from app.parse_sid_regex import SidKimRegex
+        from app.sidkim.parse_regex import SidKimRegex
         self.pipeline = {
             'remove_extra_whitespace': lambda x: re.sub(r'\s+', ' ', x) if isinstance(x, str) else x,
             'strip_edges': lambda x: x.strip() if isinstance(x, str) else x,

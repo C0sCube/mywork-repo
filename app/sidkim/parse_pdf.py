@@ -2,8 +2,8 @@ import os, re, inspect,sys, ocrmypdf # type: ignore
 import fitz # type: ignore
 
 
-from app.parse_sid_regex import SidKimRegex
-from app.fund_sid_data import *
+from app.sidkim.parse_regex import SidKimRegex
+from app.sidkim.fund_data import *
 from app.parse_table import *
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))

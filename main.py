@@ -1,21 +1,20 @@
-import os, time,logging, traceback
-
-from app.konstant import *
-from app.logger import create_logger, set_global_logger
-logger = create_logger("watcher", log_dir=LOG_DIR,log_level=10) #logging.DEBUG is 10
-set_global_logger(logger)
-
+import os, time, traceback
+# from app.konstant import *
+from app.logger import setup_logger, rotate_daily_log, set_global_logger
 from app.utils import Helper
 from app.mailer import Mailer
-from app.regis_amc import *
+from app.amc.registry import *
+from app.konstant import (JSON_DIR,LOG_DIR,PROCESSED_DIR,FAILED_DIR, INPUT_PATH)
+from app.konstant import(PROGRAM_NAME, CHECK_INTERVAL, PAUSE_AFTER_FILE_DETECTION)
 
+# -------------------- LOGGER SETUP --------------------
+logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12)  # 12 ~ between DEBUG(10) and INFO(20)
+rotate_daily_log(logger)  # ensure correct folder for today
+set_global_logger(logger)
 
 logger.info(f"{PROGRAM_NAME} Running ...")
-mail = Mailer()
 
-def program_runner(path,amc_id, file_name):
-    page_content = {}
-    utils = Helper()
+# -------------------- CORE PIPELINE --------------------
     # if amc_id == "8_0":
     #     try:
     #         filename = file_name.replace(".pdf", ".xlsx")
@@ -27,10 +26,10 @@ def program_runner(path,amc_id, file_name):
     #             logger.info(page_content)
     #         else:
     #             raise ValueError("Tabular Data Not Found.")
-            
+        
     #     except Exception as e:
     #         logger.warning(f"Tabular data loading failed: {e}")
-    
+
     # if amc_id == "1_0":
     #     pass
     #     try:
@@ -43,43 +42,43 @@ def program_runner(path,amc_id, file_name):
     #         #     logger.info(page_content)
     #         # else:
     #         #     raise ValueError("Tabular Data Not Found.")
-            
+        
     #     except Exception as e:
     #         logger.warning(f"Json loading failed: {e}")
 
+def program_runner(path, amc_id, file_name):
+    """Runs the entire AMC data extraction pipeline for a single PDF."""
+    page_content = {}
     try:
         if amc_id not in CLASS_REGISTRY:
             logger.warning(f"Unknown AMC ID: {amc_id}")
             return False
 
-        logger.info(f"Processing {amc_id}:{file_name}")
+        logger.notice(f"Processing {amc_id}: {file_name}")
         obj = CLASS_REGISTRY[amc_id](amc_id, path)
 
         if file_name in page_content:
             obj.PARAMS["table"] = page_content[file_name]
-            logger.info(f"Page Data for {file_name} = {obj.PARAMS['table']}. ")
+            logger.trace(f"Page Data for {file_name} = {obj.PARAMS['table']}")
 
+        # step 1: detect + highlight
         title, path_pdf = obj.check_and_highlight(path)
         if not (title and path_pdf):
             raise ValueError("check_and_highlight failed")
-        
-
-        data = obj.get_data(path_pdf,title)
+        # step 2: extract data
+        data = obj.get_data(path_pdf, title)
+        # step 3: generate content from extracted data
         extracted_text = obj.get_generated_content(data)
+        # step 4: refine text into structured data
         final_text = obj.refine_extracted_data(extracted_text)
+        # step 5: merge and select final JSON data
         dfs = obj.merge_and_select_data(final_text)
-        
-        with open("data.json", 'w') as f:
-            json.dump(final_text, f, indent=2)
-            
-        with open("extract.json", 'w') as f:
-            json.dump(extracted_text, f, indent=2)
-
-        if not dfs: raise ValueError("No final merged data")
-
+        if not dfs:
+            raise ValueError("No final merged data")
+        # step 6: save output JSON
         save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
         Helper.save_json(dfs, save_path)
-        logger.save(f"Saved Json File: {save_path}")
+        logger.save(f"Saved JSON File: {save_path}")
         return True
 
     except Exception as e:
@@ -87,69 +86,64 @@ def program_runner(path,amc_id, file_name):
         logger.debug(traceback.format_exc())
         return False
 
-# try:
-known_files = set()
-try:
+
+# -------------------- WATCHER LOOP --------------------
+def main():
+    known_files = set()
+    mail = Mailer()
+
     while True:
-        current_files = {f for f in os.listdir(INPUT_PATH) if os.path.isfile(os.path.join(INPUT_PATH, f))}
-        new_files = current_files - known_files
-        
-        if not new_files:
-            logger.notice("No new files found. Sleeping...")
-            time.sleep(CHECK_INTERVAL)
-            logger.notice(f"Watching for new PDFs in: {INPUT_PATH}")
-            continue
-        logger.info(f"Files Detected: {' | '.join(sorted(new_files))}")
-        logger.notice("Mandatory program pause for file save.")
-        # mail.started(PROGRAM_NAME,data=new_files)
-        # logger.info("Mail Sent to Recipient(s).")
-        time.sleep(PAUSE_AFTER_FILE_DETECTION) #30s mostly
-        completed, failed = dict(), dict()
-        
-        for file_name in new_files:
-            try:
-                file_path = os.path.join(INPUT_PATH, file_name)
-                file_key = check_amc_file(file_name=file_name)
+        try:
+            # check new PDFs in input folder
+            current_files = {f for f in os.listdir(INPUT_PATH) if os.path.isfile(os.path.join(INPUT_PATH, f))}
+            new_files = current_files - known_files
 
-                result = program_runner(file_path,file_key, file_name)
-                
-                if result:completed.update({file_name:file_path})
-                else:failed.update({file_name:file_path})
-            
-            except Exception as e:
-                logger.error(f"Error in processing {file_name}. {type(e).__name__}: {e}")
-                logger.debug(traceback.format_exc())
-            
-            time.sleep(2)
-            
-        logger.save(f"{",".join(completed.keys())} file(s) done. {",".join(failed.keys())} file(s) failed.")
-        logger.trace("Session Completed. Ending Current Session.")
+            if not new_files:
+                logger.notice("No new files found. Sleeping...")
+                time.sleep(CHECK_INTERVAL)
+                rotate_daily_log(logger)  # ensure correct folder daily
+                logger.trace(f"Watching for new PDFs in: {INPUT_PATH}")
+                continue
 
-        # mail.end(PROGRAM_NAME, [completed, failed])
-        # logger.info("Parsed Data Report sent to recipients.")
+            logger.info(f"Files Detected: {' | '.join(sorted(new_files))}")
+            logger.notice("Mandatory pause for file save.")
+            time.sleep(PAUSE_AFTER_FILE_DETECTION)
 
-        known_files.update(new_files)
-        if completed:Helper.copy_pdfs_to_folder(PROCESSED_DIR, completed)
-        if failed:Helper.copy_pdfs_to_folder(FAILED_DIR, failed)
-        Helper.delete_all_files(INPUT_PATH)
+            completed, failed = {}, {}
 
-except KeyboardInterrupt:
-    logger.warning("Watcher stopped by user.")
-    logger.debug(traceback.format_exc())
-    # mail.send_custom(
-    #     subject=f"{PROGRAM_NAME} - Watcher Stopped",
-    #     body_html=f"<p>The {PROGRAM_NAME} watcher has been stopped by the user.</p>",
-    # )
+            for file_name in new_files:
+                try:
+                    file_path = os.path.join(INPUT_PATH, file_name)
+                    file_key = check_amc_file(file_name=file_name)
 
-except Exception as e:
-    logger.critical(f"Watcher error in main.py {type(e).__name__}: {e}")
-    logger.debug(traceback.format_exc())
-    # mail.send_custom(
-    #     subject=f"{PROGRAM_NAME} - Watcher Unexpected Error",
-    #     body_html=f"<p>Unexpected error occurred: {type(e).__name__} - {e}</p>"
-    # )
+                    result = program_runner(file_path, file_key, file_name)
+                    if result: completed[file_name] = file_path
+                    else: failed[file_name] = file_path
 
+                except Exception as e:
+                    logger.error(f"Error in processing {file_name}: {type(e).__name__}: {e}")
+                    logger.debug(traceback.format_exc())
 
+                time.sleep(1)
 
-    
-    
+            logger.save(f"[{', '.join(completed.keys())}] file(s) done. [{', '.join(failed.keys())}] file(s) failed.")
+            logger.trace("Session completed. Ending current session.")
+
+            # move processed files
+            known_files.update(new_files)
+            if completed: Helper.archive_files(PROCESSED_DIR, completed)
+            if failed:Helper.archive_files(FAILED_DIR, failed)
+            Helper.clear_folder(INPUT_PATH)
+            time.sleep(10)
+            known_files = set()
+
+        except KeyboardInterrupt:
+            logger.warning("Watcher stopped by user (KeyboardInterrupt). Exiting gracefully.")
+            break
+        except Exception as e:
+            logger.critical(f"Unhandled watcher error in main loop: {type(e).__name__}: {e}")
+            logger.debug(traceback.format_exc())
+            time.sleep(5)
+
+if __name__ == "__main__":
+    main()

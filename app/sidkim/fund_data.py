@@ -1,8 +1,8 @@
 import re, os,sys #type:ignore
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.konstant import *
-from app.parse_sid_regex import SidKimRegex
-from app.parse_sid_pdf import ReaderSIDKIM
+from app.sidkim.parse_regex import SidKimRegex
+from app.sidkim.parse_pdf import ReaderSIDKIM
 # +===========COMPLETE THE DOC STRINGS ===============+
 
 class GrandSidData:

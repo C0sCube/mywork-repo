@@ -4,11 +4,11 @@ import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 from app.konstant import CONFIG
-from app.parse_amc_pdf import Reader
+from app.amc.parse_pdf import Reader
 from app.parse_table import *
-from app.parse_amc_regex import FundRegex
-from app.logger import get_global_logger
+from app.logger import get_global_logger, log_exceptions
 from app.utils import Helper
+
 
 class GrandFundData:
     def __init__(self, amc_id: str):
@@ -339,33 +339,65 @@ class GrandFundData:
     
     
     # dynamic function match
-    def _match_with_patterns(self, string: str, data: list, level:str):
-        # logger = get_logger()
-        try: 
-            for pattern, (func_name, regex_key) in self.PATTERN[level].items():
-                if re.match(pattern, string, re.IGNORECASE):
-                    func = getattr(self, func_name)  # dynamic function|attribute lookup
-                    if regex_key:
-                        return func(string, data, regex_key)
-                    return func(string, data)
-        except Exception as e:
-            self.LOGGER.error(f"_match_with_patterns->{level}->{string}")
-            self.LOGGER.error(e)
-            # print(f"ERROR _match_with_patterns->{level}->{string}")
-        return self._extract_dummy_data(string, data)  # fallback
+    # def _match_with_patterns(self, string: str, data: list, level:str):
+    #     # logger = get_logger()
+    #     try: 
+    #         for pattern, (func_name, regex_key) in self.PATTERN[level].items():
+    #             if re.match(pattern, string, re.IGNORECASE):
+    #                 func = getattr(self, func_name)  # dynamic function|attribute lookup
+    #                 if regex_key:
+    #                     return func(string, data, regex_key)
+    #                 return func(string, data)
+    #     except Exception as e:
+    #         self.LOGGER.error(f"_match_with_patterns->{level}->{string}")
+    #         self.LOGGER.error(e)
+    #         # print(f"ERROR _match_with_patterns->{level}->{string}")
+    #     return self._extract_dummy_data(string, data)  # fallback
 
-    def _special_match_regex_to_content(self, string: str, data):
-        # logger = get_logger()
-        try:
-            for pattern,func_name, in self.SPECIAL_FUNCTIONS.items():
-                if re.match(pattern,string,re.IGNORECASE):
-                    func = getattr(self, func_name) #dynamic function|attribute lookup
-                    return func(string, data)    
-        except Exception as e:
-            self.LOGGER.error(f"_match_with_patterns->special")
-            self.LOGGER.error(e)
-            # print(f"special_match_with_patterns->{string}")
+    # def _special_match_regex_to_content(self, string: str, data):
+    #     # logger = get_logger()
+    #     try:
+    #         for pattern,func_name, in self.SPECIAL_FUNCTIONS.items():
+    #             if re.match(pattern,string,re.IGNORECASE):
+    #                 func = getattr(self, func_name) #dynamic function|attribute lookup
+    #                 return func(string, data)    
+    #     except Exception as e:
+    #         self.LOGGER.error(f"_match_with_patterns->special")
+    #         self.LOGGER.error(e)
+    #         # print(f"special_match_with_patterns->{string}")
+    #     return self._extract_dummy_data(string, data) #fallback
+    
+    @log_exceptions()
+    def _match_with_patterns(self, string: str, data: list, level: str):
+        """
+        Dynamically matches regex pattern to method names and invokes them.
+        Example: 'entry_load' → self._extract_load_data(...)
+        """
+        for pattern, (func_name, regex_key) in self.PATTERN[level].items():
+            if re.match(pattern, string, re.IGNORECASE):
+                func = getattr(self, func_name, None)
+                if not func:
+                    self.LOGGER.warning(f"[{level}] No method found for {func_name}")
+                    return self._extract_dummy_data(string, data)
+                return func(string, data, regex_key) if regex_key else func(string, data)
         return self._extract_dummy_data(string, data) #fallback
+
+
+    @log_exceptions()
+    def _special_match_regex_to_content(self, string: str, data):
+        """
+        Dynamically maps special regex patterns to content handlers.
+        Used for handling unique cases defined in SPECIAL_FUNCTIONS.
+        """
+        for pattern, func_name in self.SPECIAL_FUNCTIONS.items():
+            if re.match(pattern, string, re.IGNORECASE):
+                func = getattr(self, func_name, None)
+                if not func:
+                    self.LOGGER.warning(f"[special] No method found for {func_name}")
+                    return self._extract_dummy_data(string, data)
+                return func(string, data)
+        return self._extract_dummy_data(string, data) #fallback
+
     
     def _apply_special_handling(self, temp: dict) -> dict: #brother function of _special_match_regex_to_content 
         updated = temp.copy()
@@ -477,9 +509,6 @@ class GrandFundData:
             
         return final_data
 
-
-
-
     # clean + other
     def _select_by_regex(self, data:dict):
         finalData = {}
@@ -508,11 +537,13 @@ class GrandFundData:
 
 
 class BaseAMC(Reader, GrandFundData):
+    @log_exceptions()
     def __init__(self, amc_id: str, path: str):
+        logger = get_global_logger()
         GrandFundData.__init__(self, amc_id)
-        # print(f"[DEBUG] PARAMS after GrandFundData: {self.PARAMS}")
+        logger.debug(f"PARAMS after GrandFundData: {self.PARAMS}")
         Reader.__init__(self, self.PARAMS, path)
-        # print(f"[DEBUG] Reader initialized with path: {path}")
+        logger.debug(f" Reader initialized with path: {path}")
 
 
 # -------------- Plain AMC's ---------------
@@ -564,6 +595,7 @@ class Edelweiss(BaseAMC): pass
 class HDFC(BaseAMC): pass
 
 class BajajFinServ(BaseAMC):  
+    
     def _generate_table_data(self,path:str,pages:str):
         table_parser = TableParser()
         tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
@@ -635,6 +667,7 @@ class Bandhan(BaseAMC):
         return {main_key: final_list}
 
 class Canara(BaseAMC):
+    
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         nlength = 0
@@ -721,6 +754,7 @@ class DSP(BaseAMC):
         return {"scheme_launch_date":matches[0] if matches else ""}
 
 class HDFC(BaseAMC):
+    
     def _update_manager_data(self, main_key: str, data):
         DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
         NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"

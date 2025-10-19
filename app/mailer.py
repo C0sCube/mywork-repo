@@ -1,10 +1,11 @@
-import smtplib, logging
+import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
 from app.konstant import MAIL_CONFIG
 from app.logger import get_global_logger
+from app.logger_utils import log_exceptions
 
 class Mailer:
     def __init__(
@@ -33,7 +34,8 @@ class Mailer:
         self.logger = get_global_logger()
 
 
-    def started(self, program, data=None):
+    @log_exceptions()
+    def start_mail(self, program, data=None):
         subject = f"{program} — Execution Started"
         body = f"""
         <html>
@@ -47,8 +49,9 @@ class Mailer:
         """
         msg = self.construct_mail(subject=subject, body_html=body)
         self.send_mail(msg)
-   
-    def end(self, program, data=None):
+    
+    @log_exceptions()
+    def end_mail(self, program, data=None):
         subject = f"{program} — Execution Completed"
         process, failed = data
         completed_amcs, failed_amcs = '<br>'.join(process),'<br>'.join(failed)
@@ -92,12 +95,10 @@ class Mailer:
 
         return msg
 
-
+    @log_exceptions()
     def send_mail(self, msg):
-        try:
-            all_recipients = self.RECPTS + self.CC + self.BCC
-            with smtplib.SMTP(self.SERVER, self.PORT) as server:
-                server.send_message(msg, from_addr=self.FROM, to_addrs=all_recipients)
-            # self.logger.info("Email sent successfully.")
-        except Exception as e:
-            self.logger.error(f"Failed to send email: {e}")
+        all_recipients = self.RECPTS + self.CC + self.BCC
+        with smtplib.SMTP(self.SERVER, self.PORT) as server:
+            server.send_message(msg, from_addr=self.FROM, to_addrs=all_recipients)
+  
+

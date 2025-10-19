@@ -1,23 +1,23 @@
-from flask import Flask, render_template, request, redirect, send_from_directory #type: ignore
 import os, sys
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_dir)
+
 from werkzeug.utils import secure_filename
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from app.config_loader import Config
+from flask import Flask, render_template, request, redirect, send_from_directory #type: ignore
+from app.utils import Helper
 
 app = Flask(__name__)
+utils = Helper()
 
-CONFIG = Config(config_path=r"..\paths.json")
-
-INPUT_DIR = CONFIG["amc_path"]
-OUTPUT_DIR = CONFIG["output_path"]
+config = utils.load_json(os.path.join(root_dir,r"paths.json"))
+INPUT_DIR = config["amc_path"]
+OUTPUT_DIR = config["output_path"]
 
 @app.route('/')
 def index():
     json_dir = os.path.join(OUTPUT_DIR, "json")
     json_files = os.listdir(json_dir)
     return render_template("dashboard.html", json_files=json_files)
-
-
 
 @app.route('/upload', methods=['POST'])
 def upload_files():
@@ -31,21 +31,6 @@ def upload_files():
             file.save(os.path.join(INPUT_DIR, filename))
 
     return redirect('/')
-
-
-# @app.route('/upload', methods=['POST'])
-# def upload_files():
-#     folder_name = request.form['foldername']
-#     uploaded_files = request.files.getlist('pdfs')
-
-#     target_dir = os.path.join(INPUT_DIR, folder_name)
-#     os.makedirs(target_dir, exist_ok=True)
-
-#     for file in uploaded_files:
-#         if file and file.filename.endswith(".pdf"):
-#             file.save(os.path.join(target_dir, file.filename))
-
-#     return redirect('/')
 
 @app.route('/json/<filename>')
 def get_json(filename):

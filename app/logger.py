@@ -1,55 +1,28 @@
-import logging, os, sys
-from logging.handlers import RotatingFileHandler
-
-# --- Optional ColorLog Support ---
-try:
-    import colorlog
-    COLORLOG_AVAILABLE = True
-except ImportError:
-    COLORLOG_AVAILABLE = False
+import logging, functools, traceback, os,sys
+from datetime import datetime
 
 # --- Custom Log Levels ---
 TRACE_LEVEL_NUM = 15
 SAVE_LEVEL_NUM = 22
 NOTICE_LEVEL_NUM = 35
 
-# --- Shared Formatters and Colors ---
+logging.addLevelName(TRACE_LEVEL_NUM, "TRACE")
+logging.addLevelName(SAVE_LEVEL_NUM, "SAVE")
+logging.addLevelName(NOTICE_LEVEL_NUM, "NOTICE")
+
+# --- Default Format ---
 DEFAULT_FORMAT = "%(asctime)s [%(levelname)s]: %(message)s"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
-LOG_COLORS = {
-    'TRACE': 'white',
-    'SAVE': 'blue',
-    'NOTICE': 'bold_cyan',
-    'DEBUG': 'cyan',
-    'INFO': 'green',
-    'WARNING': 'yellow',
-    'ERROR': 'red',
-    'CRITICAL': 'bold_red',
-}
 
-# --- Stdout Redirection ---
-ORIGINAL_STDOUT = sys.stdout
-ORIGINAL_STDERR = sys.stderr
+def _get_formatter():
+    return logging.Formatter(DEFAULT_FORMAT, datefmt=DATE_FORMAT)
 
-class StreamToLogger:
-    def __init__(self, logger, level):
-        self.logger = logger
-        self.level = level
+def _add_console_handler(logger, level):
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setFormatter(_get_formatter())
+    handler.setLevel(level)
+    logger.addHandler(handler)
 
-    def write(self, buf):
-        for line in buf.rstrip().splitlines():
-            self.logger.log(self.level, line.rstrip())
-
-    def flush(self):
-        pass
-
-def redirect_stdout_to_logger(logger):
-    sys.stdout = StreamToLogger(logger, logging.INFO)
-    sys.stderr = StreamToLogger(logger, logging.ERROR)
-
-def restore_stdout():
-    sys.stdout = ORIGINAL_STDOUT
-    sys.stderr = ORIGINAL_STDERR
 
 # Logging levels:
 # Level      Value   Description
@@ -63,24 +36,17 @@ def restore_stdout():
 # NOTICE SET TO 35
 # Default level is WARNING → shows WARNING, ERROR, CRITICAL
 
-def _get_formatter(use_color=False):
-    if use_color and COLORLOG_AVAILABLE:
-        return colorlog.ColoredFormatter(
-            "%(log_color)s" + DEFAULT_FORMAT,
-            datefmt=DATE_FORMAT,
-            log_colors=LOG_COLORS
-        )
-    return logging.Formatter(DEFAULT_FORMAT, datefmt=DATE_FORMAT)
-
-def _add_console_handler(logger, use_color=True): #level set to TRACE =15
-    handler = colorlog.StreamHandler(sys.stdout) if use_color and COLORLOG_AVAILABLE else logging.StreamHandler(sys.stdout)
-    handler.setFormatter(_get_formatter(use_color))
-    handler.setLevel(15)
-    logger.addHandler(handler)
-
-
-# --- Forever Logger ---
-def create_logger(name="watcher",log_dir="logs/daily",max_bytes=2 * 1024 * 1024,backup_count=5,log_level=logging.INFO,to_console=True,use_color=True,redirect_stdout=False):
+def setup_logger(
+    name="app_logger",
+    base_dir="logs",
+    log_level=logging.INFO,
+    to_console=True,
+    to_file=True
+):
+    """Simple logger that creates a new dated folder each day."""
+    today_dir = datetime.now().strftime("%Y-%m-%d")
+    log_dir = os.path.join(base_dir, today_dir)
+    os.makedirs(log_dir, exist_ok=True)
 
     logger = logging.getLogger(name)
     if logger.hasHandlers():
@@ -88,18 +54,68 @@ def create_logger(name="watcher",log_dir="logs/daily",max_bytes=2 * 1024 * 1024,
     logger.setLevel(log_level)
     logger.propagate = False
 
-    log_file = os.path.join(log_dir, f"{name}.log")
-    file_handler = RotatingFileHandler(log_file, maxBytes=max_bytes, backupCount=backup_count, encoding='utf-8')
-    file_handler.setFormatter(_get_formatter(use_color=False))
-    logger.addHandler(file_handler)
+    # --- File handler
+    if to_file:
+        file_path = os.path.join(log_dir, f"{name}.log")
+        file_handler = logging.FileHandler(file_path, encoding="utf-8")
+        file_handler.setFormatter(_get_formatter())
+        file_handler.setLevel(log_level)
+        logger.addHandler(file_handler)
 
+    # --- Console handler
     if to_console:
-        _add_console_handler(logger, use_color)
-    
-    if redirect_stdout:
-        redirect_stdout_to_logger(logger)
+        _add_console_handler(logger, log_level)
+
+    # --- Metadata for rotation
+    logger._base_dir = base_dir
+    logger._name = name
+    logger._current_date = datetime.now().date()
+
+    # --- Attach custom levels
+    def trace(self, message, *args, **kwargs):
+        if self.isEnabledFor(TRACE_LEVEL_NUM):
+            self._log(TRACE_LEVEL_NUM, message, args, **kwargs)
+
+    def save(self, message, *args, **kwargs):
+        if self.isEnabledFor(SAVE_LEVEL_NUM):
+            self._log(SAVE_LEVEL_NUM, message, args, **kwargs)
+
+    def notice(self, message, *args, **kwargs):
+        if self.isEnabledFor(NOTICE_LEVEL_NUM):
+            self._log(NOTICE_LEVEL_NUM, message, args, **kwargs)
+
+    logging.Logger.trace = trace
+    logging.Logger.save = save
+    logging.Logger.notice = notice
 
     return logger
+
+
+def rotate_daily_log(logger):
+    """Call at app start or before long loops to move to a new daily folder."""
+    today = datetime.now().date()
+    if today != getattr(logger, "_current_date", None):
+        logger.info("Rotating log folder for new day...")
+
+        # Remove old file handler(s)
+        for handler in list(logger.handlers):
+            if isinstance(handler, logging.FileHandler):
+                logger.removeHandler(handler)
+                handler.close()
+
+        # Create new folder & file
+        today_dir = datetime.now().strftime("%Y-%m-%d")
+        log_dir = os.path.join(logger._base_dir, today_dir)
+        os.makedirs(log_dir, exist_ok=True)
+        new_file = os.path.join(log_dir, f"{logger._name}.log")
+
+        new_handler = logging.FileHandler(new_file, encoding="utf-8")
+        new_handler.setFormatter(_get_formatter())
+        new_handler.setLevel(logger.level)
+        logger.addHandler(new_handler)
+
+        logger._current_date = today
+        logger.info(f"Logger rotated to new file: {new_file}")
 
 
 # --- Global Logger Registry ---
@@ -112,22 +128,31 @@ def set_global_logger(logger):
 def get_global_logger():
     return _active_logger or logging.getLogger("default_logger")
 
-logging.addLevelName(TRACE_LEVEL_NUM, "TRACE")
-logging.addLevelName(SAVE_LEVEL_NUM, "SAVE")
-logging.addLevelName(NOTICE_LEVEL_NUM, "NOTICE")
 
-def trace(self, message, *args, **kwargs):
-    if self.isEnabledFor(TRACE_LEVEL_NUM):
-        self._log(TRACE_LEVEL_NUM, message, args, **kwargs)
+def log_exceptions(level="error", return_value=None):
+    """
+    Decorator that logs exceptions with traceback.
+    Adds class name and file name (if available) for context.
+    """
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            logger = get_global_logger()
+            try:
+                return func(*args, **kwargs)
+            except Exception as e:
+                # Detect context — class, file name, etc.
+                cls_name = args[0].__class__.__name__ if args else ""
+                file_name = getattr(args[0], "FILE_NAME", None) if args else None
 
-def save(self, message, *args, **kwargs):
-    if self.isEnabledFor(SAVE_LEVEL_NUM):
-        self._log(SAVE_LEVEL_NUM, message, args, **kwargs)
+                # Build contextual prefix
+                context = f"[{cls_name}.{func.__name__}]"
+                if file_name:
+                    context += f" ({file_name})"
 
-def notice(self, message, *args, **kwargs):
-    if self.isEnabledFor(NOTICE_LEVEL_NUM):
-        self._log(NOTICE_LEVEL_NUM, message, args, **kwargs)
-
-logging.Logger.trace = trace
-logging.Logger.save = save
-logging.Logger.notice = notice
+                log_func = getattr(logger, level, logger.error)
+                log_func(f"{context} {type(e).__name__}: {e}")
+                logger.debug(traceback.format_exc())
+                return return_value
+        return wrapper
+    return decorator

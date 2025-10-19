@@ -1,4 +1,4 @@
-from app.fund_amc_data import *
+from app.amc.fund_data import *
 
 CLASS_REGISTRY = {
     "18_0": ThreeSixtyOne,
@@ -66,8 +66,11 @@ CLASS_REGISTRY = {
 
 def check_amc_file(file_name:str)->bool:
     
+    from app.logger import get_global_logger
+    logger = get_global_logger()
+    
     if file_name.endswith("FS.pdf"):
-        print(f"Detected Pdf File Named {file_name}")
+        logger.trace(f"Detected Pdf File Named {file_name}")
         parts = file_name.split("_")
         fund_id = parts[0]
 
@@ -77,7 +80,7 @@ def check_amc_file(file_name:str)->bool:
         return fund_key
     
     if file_name.endswith(".xlsx") and file_name == "table_data.xlsx":
-        print("Detected Excel File Named 'table_data.xlsx'")
+        logger.trace("Detected Excel File Named 'table_data.xlsx'")
         return True
 
     if file_name.endswith(".json"):

@@ -1,11 +1,11 @@
 import re, sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import random,string, inspect,datetime
 from dateutil import parser #type:ignore
 from datetime import datetime
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.konstant import REGEX
 from app.utils import Helper
+from app.logger import log_exceptions
 
 class FundRegex:
     def __init__(self):
@@ -21,30 +21,23 @@ class FundRegex:
         self.MAIN_SCHEME_NAME = data.get("main_scheme_name", {})
         self.UTILS = Helper()
 
+    @log_exceptions()
     def _header_mapper(self, text: str)->str:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         text = self.UTILS._remove_non_word_space_chars(text)
-        # print(text)
         for replacement, patterns in self.HEADER_PATTERNS.items():
-            try:
-                if isinstance(patterns, list):
-                    for pattern in patterns:
-                        if re.match(f"^{pattern}.*", text, re.IGNORECASE):
-                            return replacement
-                else:
-                    if re.match(patterns, text, re.IGNORECASE):
+            if isinstance(patterns, list):
+                for pattern in patterns:
+                    if re.match(f"^{pattern}.*", text, re.IGNORECASE):
                         return replacement
-            except Exception as e:
-                print(f"Function Running: {inspect.currentframe().f_code.co_name}\n{e}")
+            else:
+                if re.match(patterns, text, re.IGNORECASE):
+                    return replacement
         return text
 
     def _transform_keys(self, data:dict)->dict: #lowercase
-        if isinstance(data, dict):
-            return {self.UTILS._normalize_key(key): self._transform_keys(value) for key, value in data.items()}
-        elif isinstance(data, list):
-            return [self._transform_keys(item) if isinstance(item, dict) else item for item in data]
-        else:
-            return data
+        if isinstance(data, dict): return {self.UTILS._normalize_key(key): self._transform_keys(value) for key, value in data.items()}
+        elif isinstance(data, list): return [self._transform_keys(item) if isinstance(item, dict) else item for item in data]
+        else: return data
             
     def _flatten_dict(self,data:dict, parent_key='', sep='.'):
         flattened = {}
@@ -128,6 +121,7 @@ class FundRegex:
                 data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
         return data
 
+    
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
             date_str = data.get("scheme_launch_date","")
