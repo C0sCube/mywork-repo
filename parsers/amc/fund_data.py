@@ -4,11 +4,17 @@ import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 from app.konstant import CONFIG
-from app.parse_amc_pdf import Reader
-from app.parse_table import *
-from app.parse_amc_regex import FundRegex
+from parsers.amc.pdf_reader import Reader
+from parsers.amc.table_parser import *
+from parsers.amc.regex_handler import FundRegex
 from app.logger import get_global_logger
-from app.utils import Helper
+from core.utils import Helper
+from core.logger import get_logger
+from core.constants import *
+from core.utils import Helper
+from core.config_manager import ConfigManager
+
+
 
 class GrandFundData:
     def __init__(self, amc_id: str):

@@ -1,6 +1,8 @@
 
 import json,json5,os
 
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 
 def load_json(path: str):
     with open(path, "r", encoding="utf-8") as f:
@@ -16,20 +18,19 @@ def create_dir(base_path, *folders):
     return dir_path
 
 
-PATHS = load_json("paths.json")
+PATHS = load_json(os.path.join(ROOT_DIR,r"paths.json"))
 
 OUTPUT_PATH = PATHS["output_path"]
 INPUT_PATH = PATHS["amc_path"]
 
-CONFIG = load_json5(PATHS["configs"]["params"])
-REGEX = load_json5(PATHS["configs"]["regex"])
-
-SIDKIM_REGEX = load_json5(PATHS["configs"]["sid_regex"])
-SIDKIM_PARAMS = load_json5(PATHS["configs"]["sid_params"])
+CONFIG = load_json5(os.path.join(ROOT_DIR, PATHS["configs"]["params"]))
+REGEX = load_json5(os.path.join(ROOT_DIR, PATHS["configs"]["regex"]))
+SIDKIM_REGEX = load_json5(os.path.join(ROOT_DIR, PATHS["configs"]["sid_regex"]))
+SIDKIM_PARAMS = load_json5(os.path.join(ROOT_DIR, PATHS["configs"]["sid_params"]))
 
 CHECK_INTERVAL = 10
 PROGRAM_NAME = "FS_JSON_PARSE"
-PAUSE_AFTER_FILE_DETECTION = 30
+PAUSE_AFTER_FILE_DETECTION = 20
 
 # Output directories
 JSON_DIR = create_dir(OUTPUT_PATH,"json")
@@ -38,6 +39,7 @@ REPORT_DIR = create_dir(OUTPUT_PATH,"reports")
 FAILED_DIR = create_dir(OUTPUT_PATH,"failed")
 PROCESSED_DIR = create_dir(OUTPUT_PATH,"processed")
 DUMMY_PDF_DIR = create_dir("app","temp")
+
 
 
 #MAILS

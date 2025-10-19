@@ -4,7 +4,7 @@ import fitz # type: ignore
 
 from app.parse_sid_regex import SidKimRegex
 from app.fund_sid_data import *
-from app.parse_table import *
+from parsers.amc.table_parser import *
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 

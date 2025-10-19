@@ -1,4 +1,4 @@
-from app.fund_amc_data import *
+from parsers.amc.fund_data import *
 
 CLASS_REGISTRY = {
     "18_0": ThreeSixtyOne,
