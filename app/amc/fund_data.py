@@ -93,7 +93,7 @@ class GrandFundData:
 
         final_dict = {}
         scheme_data = " ".join(data) if isinstance(data,list) else data
-        scheme_data = re.sub(self.REGEX['escape'],"", scheme_data).strip()
+        scheme_data = re.sub(self.REGEX['escape']," ", scheme_data).strip()
         unique_set = set()
         for pattern in patterns:
             if matches:= re.findall(pattern, scheme_data, re.MULTILINE):
@@ -593,6 +593,7 @@ class SBI(BaseAMC): pass
 class SBIPassive(BaseAMC): pass
 class Edelweiss(BaseAMC): pass
 class HDFC(BaseAMC): pass
+class CapitalMind(BaseAMC):pass
 
 class BajajFinServ(BaseAMC):  
     
