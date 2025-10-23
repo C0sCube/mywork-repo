@@ -4,8 +4,7 @@ from email.mime.text import MIMEText
 from datetime import datetime
 
 from app.konstant import MAIL_CONFIG
-from app.logger import get_global_logger
-from app.logger_utils import log_exceptions
+from app.logger import get_global_logger, log_exceptions
 
 class Mailer:
     def __init__(

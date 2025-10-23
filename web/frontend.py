@@ -1,49 +1,145 @@
-import os, sys
+import os, sys, json, time
+from datetime import timedelta
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
+
+# setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
 
-from werkzeug.utils import secure_filename
-from flask import Flask, render_template, request, redirect, send_from_directory #type: ignore
 from app.utils import Helper
 
+# --- Flask app setup ---
 app = Flask(__name__)
-utils = Helper()
+app.secret_key = "supersecretkey"  # ⚠️ change this in production
+app.permanent_session_lifetime = timedelta(days=7)
 
-config = utils.load_json(os.path.join(root_dir,r"paths.json"))
+# --- paths and config ---
+utils = Helper()
+config = utils.load_json(os.path.join(root_dir, r"paths.json"))
 INPUT_DIR = config["amc_path"]
 OUTPUT_DIR = config["output_path"]
+USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
+
+
+# --- helper to load/save users ---
+def load_users():
+    if not os.path.exists(USERS_FILE):
+        return {}
+    with open(USERS_FILE, "r") as f:
+        return json.load(f)
+
+def save_users(users):
+    os.makedirs(os.path.dirname(USERS_FILE), exist_ok=True)
+    with open(USERS_FILE, "w") as f:
+        json.dump(users, f, indent=2)
+
+
+# --- ROUTES ---
 
 @app.route('/')
 def index():
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+
     json_dir = os.path.join(OUTPUT_DIR, "json")
+    os.makedirs(json_dir, exist_ok=True)
     json_files = os.listdir(json_dir)
-    return render_template("dashboard.html", json_files=json_files)
+    return render_template("dashboard.html", json_files=json_files, user=session.get("user"))
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        username = request.form["username"].strip().lower()
+        password = request.form["password"]
+        remember = "remember" in request.form
+
+        users = load_users()
+
+        if username in users and check_password_hash(users[username]["password"], password):
+            session["logged_in"] = True
+            session["user"] = username
+            session.permanent = remember
+            return redirect(url_for("index"))
+        else:
+            return render_template("login.html", error="Invalid username or password.")
+
+    return render_template("login.html")
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == "POST":
+        username = request.form["username"].strip().lower()
+        password = request.form["password"]
+        confirm = request.form["confirm"]
+
+        if not username or not password:
+            return render_template("signup.html", error="All fields are required.")
+        if password != confirm:
+            return render_template("signup.html", error="Passwords do not match.")
+
+        users = load_users()
+
+        if username in users:
+            return render_template("signup.html", error="User already exists.")
+
+        users[username] = {"password": generate_password_hash(password)}
+        save_users(users)
+
+        return redirect(url_for("login"))
+
+    return render_template("signup.html")
+
+
+# @app.route('/logout')
+# def logout():
+#     session.clear()
+#     return redirect(url_for("login"))
+
 
 @app.route('/upload', methods=['POST'])
 def upload_files():
-    uploaded_files = request.files.getlist('pdfs')
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
 
-    os.makedirs(INPUT_DIR, exist_ok=True)  # Ensure base input dir exists
+    uploaded_files = request.files.getlist('pdfs')
+    os.makedirs(INPUT_DIR, exist_ok=True)
 
     for file in uploaded_files:
         if file and file.filename.lower().endswith(".pdf"):
             filename = secure_filename(file.filename)
             file.save(os.path.join(INPUT_DIR, filename))
 
+    time.sleep(2)
     return redirect('/')
+
 
 @app.route('/json/<filename>')
 def get_json(filename):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
     return send_from_directory(os.path.join(OUTPUT_DIR, "json"), filename)
+
 
 @app.route('/logs')
 def logs():
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
     log_dir = os.path.join(app.root_path, 'static', 'logs')
     log_files = os.listdir(log_dir) if os.path.exists(log_dir) else []
     log_files.sort(reverse=True)
-
     return render_template('logs.html', log_files=log_files)
 
 
+# --- run app ---
 if __name__ == '__main__':
     app.run(debug=True)

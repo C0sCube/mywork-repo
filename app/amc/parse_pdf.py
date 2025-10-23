@@ -144,7 +144,7 @@ class Reader:
         if save_report:
             Reader.__pdf_report(data, self.REPORTPATH, self.FILE_NAME)
 
-        self.logger.save(f"✅ {func} done | total_pages={len(data)}, highlights={sum(d['highlight_count'] for d in data)}")
+        self.logger.save(f"{func} done | total_pages={len(data)}, highlights={sum(d['highlight_count'] for d in data)}")
         return {
             d["page"]: d["title"]
             for d in data
