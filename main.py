@@ -73,8 +73,7 @@ def program_runner(path, amc_id, file_name):
         final_text = obj.refine_extracted_data(extracted_text)
         # step 5: merge and select final JSON data
         dfs = obj.merge_and_select_data(final_text)
-        if not dfs:
-            raise ValueError("No final merged data")
+        if not dfs: raise ValueError("No final merged data")
         # step 6: save output JSON
         save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
         Helper.save_json(dfs, save_path)

@@ -3,6 +3,7 @@ from datetime import timedelta
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
+from ldap3 import Server, Connection, ALL
 
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -21,6 +22,33 @@ config = utils.load_json(os.path.join(root_dir, r"paths.json"))
 INPUT_DIR = config["amc_path"]
 OUTPUT_DIR = config["output_path"]
 USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
+
+LDAP_CONFIG = config.get("ldap")
+LDAP_SERVER = LDAP_CONFIG["path"]
+LDAP_DOMAIN = LDAP_CONFIG["domain"]
+
+
+# def ldap_authenticate(username, password):
+#     server = Server(LDAP_SERVER, get_info=ALL)
+#     user_dn = f"{username}@{LDAP_DOMAIN}"  # UPN format
+#     try:
+#         conn = Connection(server, user=user_dn, password=password, auto_bind=True)
+#         return conn.bound
+#     except Exception as e:
+#         print(f"LDAP auth failed: {e}")
+#         return False
+def ldap_authenticate(username, password):
+    server = Server(LDAP_SERVER, get_info=ALL)
+    user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
+    print(f"Trying LDAP bind with DN: {user_dn}")
+    try:
+        conn = Connection(server, user=user_dn, password=password, auto_bind=True)
+        print("LDAP bind successful.")
+        return conn.bound
+    except Exception as e:
+        print(f"LDAP auth failed: {e}")
+        return False
+
 
 
 # --- helper to load/save users ---
@@ -49,6 +77,25 @@ def index():
     return render_template("dashboard.html", json_files=json_files, user=session.get("user"))
 
 
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == "POST":
+#         username = request.form["username"].strip().lower()
+#         password = request.form["password"]
+#         remember = "remember" in request.form
+
+#         users = load_users()
+
+#         if username in users and check_password_hash(users[username]["password"], password):
+#             session["logged_in"] = True
+#             session["user"] = username
+#             session.permanent = remember
+#             return redirect(url_for("index"))
+#         else:
+#             return render_template("login.html", error="Invalid username or password.")
+
+#     return render_template("login.html")
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
@@ -56,17 +103,16 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        users = load_users()
-
-        if username in users and check_password_hash(users[username]["password"], password):
+        if ldap_authenticate(username, password):
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
             return redirect(url_for("index"))
         else:
-            return render_template("login.html", error="Invalid username or password.")
+            return render_template("login.html", error="Invalid LDAP credentials.")
 
     return render_template("login.html")
+
 
 
 @app.route('/logout')

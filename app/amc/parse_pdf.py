@@ -455,9 +455,7 @@ class Reader:
         
         def _to_rgb_tuple(color_int):
             c = color_int & 0xFFFFFF
-            r = (c >> 16) & 0xFF
-            g = (c >> 8) & 0xFF
-            b = c & 0xFF
+            r,g,b = (c >> 16) & 0xFF,(c >> 8) & 0xFF,c & 0xFF
             return (r/255.0, g/255.0, b/255.0)
         
         with fitz.open() as doc:
