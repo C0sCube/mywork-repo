@@ -448,74 +448,158 @@ class Reader:
         return nested_data
     
     #PROCESS
+    # @staticmethod
+    # def _generate_pdf_from_data(data: dict, output_path: str) -> None:
+      
+    #     #constants imported from konstant.py
+        
+    #     def _to_rgb_tuple(color_int):
+    #         c = color_int & 0xFFFFFF
+    #         r,g,b = (c >> 16) & 0xFF,(c >> 8) & 0xFF,c & 0xFF
+    #         return (r/255.0, g/255.0, b/255.0)
+        
+    #     with fitz.open() as doc:
+    #         for header, content_blocks in data.items():
+    #             if not content_blocks:continue
+            
+    #             page = doc.new_page()
+    #             try:
+    #                 page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
+    #             except Exception as e:
+    #                 print(f"Error inserting header text: {e}")
+
+    #             current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
+
+    #             # Group words by approximate Y-line
+    #             lines_dict = defaultdict(list)
+    #             for block in content_blocks:
+    #                 size, text, color, (orig_x, orig_y), bbox, fontname = block
+                    
+    #                 # Snap Y values that are close together to a single baseline
+    #                 snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
+    #                 if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
+    #                     orig_y = snapped_y
+                    
+    #                 lines_dict[orig_y].append((orig_x, size, text, color, fontname))
+
+    #             # Sort lines by Y position
+    #             sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
+    #             adjusted_lines = []
+    #             last_line_bottom = current_y
+
+    #             for line_y, line_blocks in sorted_lines:
+    #                 # Sort words in line by their X position
+    #                 line_blocks.sort(key=lambda b: b[0])
+
+    #                 # Determine max font size for line spacing
+    #                 max_font_size = max(b[1] for b in line_blocks)
+    #                 line_height = max_font_size + MIN_LINE_SPACING
+                    
+    #                 if line_y < last_line_bottom + line_height:
+    #                     line_y = last_line_bottom + line_height
+
+    #                 adjusted_lines.append((line_y, line_blocks))
+    #                 last_line_bottom = line_y
+
+    #             # Insert text while ensuring proper alignment
+    #             for line_y, line_blocks in adjusted_lines:
+    #                 for orig_x, size, text, color, fontname in line_blocks:
+    #                     try:
+    #                         try:
+    #                            page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=_to_rgb_tuple(color),)
+
+    #                         except Exception:
+    #                             page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=_to_rgb_tuple(color),)
+    #                     except Exception as e:
+    #                         print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
+
+    #         doc.save(output_path) #bytes
+            
+        
+    #     return output_path
+
     @staticmethod
     def _generate_pdf_from_data(data: dict, output_path: str) -> None:
-      
-        #constants imported from konstant.py
-        
+        """Generate PDF from extracted data, page-wise left normalization + safe font fallback."""
+
         def _to_rgb_tuple(color_int):
             c = color_int & 0xFFFFFF
-            r,g,b = (c >> 16) & 0xFF,(c >> 8) & 0xFF,c & 0xFF
-            return (r/255.0, g/255.0, b/255.0)
-        
+            r = (c >> 16) & 0xFF
+            g = (c >> 8) & 0xFF
+            b = c & 0xFF
+            return (r / 255.0, g / 255.0, b / 255.0)
+
         with fitz.open() as doc:
             for header, content_blocks in data.items():
-                if not content_blocks:continue
-            
+                if not content_blocks:
+                    continue
+
                 page = doc.new_page()
+
                 try:
-                    page.insert_text((LEFT_MARGIN, TITLE_POSITION),header,fontsize=TITLE_FONT_SIZE,fontname=DEFAULT_FONT_NAME,color=TITLE_COLOR,)
+                    page.insert_text(
+                        (LEFT_MARGIN, TITLE_POSITION),
+                        header,
+                        fontsize=TITLE_FONT_SIZE,
+                        fontname=DEFAULT_FONT_NAME,
+                        color=TITLE_COLOR,
+                    )
                 except Exception as e:
                     print(f"Error inserting header text: {e}")
 
                 current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
 
-                # Group words by approximate Y-line
+                # Group words by Y
                 lines_dict = defaultdict(list)
                 for block in content_blocks:
                     size, text, color, (orig_x, orig_y), bbox, fontname = block
-                    
-                    # Snap Y values that are close together to a single baseline
                     snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
                     if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
                         orig_y = snapped_y
-                    
                     lines_dict[orig_y].append((orig_x, size, text, color, fontname))
 
-                # Sort lines by Y position
                 sorted_lines = sorted(lines_dict.items(), key=lambda item: item[0])
                 adjusted_lines = []
                 last_line_bottom = current_y
 
                 for line_y, line_blocks in sorted_lines:
-                    # Sort words in line by their X position
                     line_blocks.sort(key=lambda b: b[0])
-
-                    # Determine max font size for line spacing
                     max_font_size = max(b[1] for b in line_blocks)
                     line_height = max_font_size + MIN_LINE_SPACING
-                    
                     if line_y < last_line_bottom + line_height:
                         line_y = last_line_bottom + line_height
-
                     adjusted_lines.append((line_y, line_blocks))
                     last_line_bottom = line_y
 
-                # Insert text while ensuring proper alignment
+                # --- Compute per-page offset dynamically ---
+                all_x = [b[0] for _, line_blocks in adjusted_lines for b in line_blocks]
+                min_x = min(all_x) if all_x else 0
+                target_left = page.rect.width * 0.15   # about 15% in from left edge
+                x_offset = target_left - min_x
+
+                # --- Write with page-wise offset ---
                 for line_y, line_blocks in adjusted_lines:
                     for orig_x, size, text, color, fontname in line_blocks:
+                        x = orig_x + x_offset
                         try:
-                            try:
-                               page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=fontname,color=_to_rgb_tuple(color),)
+                            page.insert_text(
+                                (x, line_y),
+                                text,
+                                fontsize=size,
+                                fontname=fontname,
+                                color=_to_rgb_tuple(color),
+                            )
+                        except Exception:
+                            # fallback font
+                            page.insert_text(
+                                (x, line_y),
+                                text,
+                                fontsize=size,
+                                fontname=DEFAULT_FONT_NAME,
+                                color=_to_rgb_tuple(color),
+                            )
 
-                            except Exception:
-                                page.insert_text((LEFT_MARGIN+ orig_x, line_y),text,fontsize=size,fontname=DEFAULT_FONT_NAME,color=_to_rgb_tuple(color),)
-                        except Exception as e:
-                            print(f"Error inserting text '{text}' at {(LEFT_MARGIN + orig_x, line_y)}: {e}")
-
-            doc.save(output_path) #bytes
-            
-        
+            doc.save(output_path)
         return output_path
 
     def _extract_data_from_pdf(self, pdf_path: str, fund: str):
