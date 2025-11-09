@@ -479,7 +479,8 @@
             "^pb$",
             "^pb_mul_ple",
             "^pb_multiple$",
-            "^pb.+?ple$"
+            "^pb.+?ple$",
+            "average_p_b"
         ],
         "average_pe": [
             ".*_pe",
@@ -487,7 +488,8 @@
             "^pe_mul_ple",
             "^pe_multiple$",
             "^pe.+?ple$",
-            "^fund_pe__?fy21e$"
+            "^fund_pe__?fy21e$",
+            "average_p_e"
         ],
         "avg_maturity": [
             "^avg_maturity",
@@ -571,7 +573,9 @@
             "^portfolio_turnover_ratio.+equity.*$",
             "^aggregate$",
             "^turnover$",
-            "^portfolio_turnovertimes$"
+            "^portfolio_turnovertimes$",
+            "portfolio_turnover_equity_component_only$",
+            "portfolio_turnover_total$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -814,6 +818,9 @@
             "360 ONE QUANT FUND": "QUANT\\s*FUND",
             "360 ONE Gold ETF": "Gold\\s*ETF",
             "360 ONE Silver ETF": "Silver\\s*ETF"
+        },
+        "IIFL Mutual Fund":{
+            
         },
         "Angel One Mutual Fund": {
             "Angel One Nifty 1D Rate Liquid ETF - Growth": "Nifty 1D Rate Liquid ETF",

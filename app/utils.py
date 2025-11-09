@@ -182,7 +182,7 @@ class Helper:
                     logger.warning(f"Permission denied deleting {file_path}")
                 except Exception as e:
                     logger.error(f"Failed to delete {file_path}: {e}")
-        logger.trace(f"Cleared {deleted} file(s) from {folder_path}")
+        logger.info(f"Cleared {deleted} file(s) from {folder_path}")
 
     @staticmethod
     def archive_files(dest_folder: str, data):
@@ -191,7 +191,7 @@ class Helper:
 
         if not os.path.exists(dest_folder):
             os.makedirs(dest_folder, exist_ok=True)
-            logger.trace(f"Created destination folder: {dest_folder}")
+            logger.info(f"Created destination folder: {dest_folder}")
 
         if isinstance(data, dict):
             file_paths = list(data.values())
@@ -216,7 +216,7 @@ class Helper:
             except Exception as e:
                 logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
 
-        logger.save(f"Archived {copied} file(s) to {dest_folder}")
+        logger.info(f"Archived {copied} file(s) to {dest_folder}")
 
     
     #JSON UN/LOAD

@@ -61,7 +61,8 @@ CLASS_REGISTRY = {
     "35_0": SBI,
     "38_0": Tata,
     "35_1": SBIPassive, #ocr
-    "99_0": CapitalMind
+    "99_0": CapitalMind,
+    "100_0": WealthCompany
 }
 
 
@@ -71,7 +72,7 @@ def check_amc_file(file_name:str)->bool:
     logger = get_global_logger()
     
     if file_name.endswith("FS.pdf"):
-        logger.trace(f"Detected Pdf File Named {file_name}")
+        logger.info(f"Detected Pdf File Named {file_name}")
         parts = file_name.split("_")
         fund_id = parts[0]
 
@@ -81,7 +82,7 @@ def check_amc_file(file_name:str)->bool:
         return fund_key
     
     if file_name.endswith(".xlsx") and file_name == "table_data.xlsx":
-        logger.trace("Detected Excel File Named 'table_data.xlsx'")
+        logger.info("Detected Excel File Named 'table_data.xlsx'")
         return True
 
     if file_name.endswith(".json"):

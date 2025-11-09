@@ -7,7 +7,7 @@ REM Activate the virtual environment
 call .venv\Scripts\activate.bat
 
 REM Run your Python script
-python main.py
+python web.py
 
 REM Optional: Deactivate the virtual environment after the script finishes
 REM deactivate

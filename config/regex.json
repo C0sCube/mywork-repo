@@ -235,7 +235,8 @@
             "^fund_manager",
             ".*fund_manager$",
             ".*fund_managers$",
-            ".*fund_manager_details"
+            ".*fund_manager_details",
+            ".*fund_managers_details$"
         ],
         "load": [
             "^load",

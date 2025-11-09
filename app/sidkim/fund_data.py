@@ -7,7 +7,7 @@ from app.sidkim.parse_pdf import ReaderSIDKIM
 
 class GrandSidData:
     def __init__(self, amc_id: str):
-        config = CONFIG
+        config = load_sidkimparams()
         fund_config = config.get(amc_id, {})
 
         self.PARAMS = fund_config.get("PARAMS", {})

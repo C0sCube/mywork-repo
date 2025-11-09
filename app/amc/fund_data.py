@@ -3,7 +3,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
-from app.konstant import CONFIG
+from app.konstant import  load_config
 from app.amc.parse_pdf import Reader
 from app.parse_table import *
 from app.logger import get_global_logger, log_exceptions
@@ -13,7 +13,8 @@ from app.utils import Helper
 class GrandFundData:
     def __init__(self, amc_id: str):
         # config = Config()
-        fund_config = CONFIG.get(amc_id, {})
+        config = load_config()
+        fund_config = config.get(amc_id, {})
 
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
@@ -535,7 +536,6 @@ class GrandFundData:
             "file_name":""
         })
 
-
 class BaseAMC(Reader, GrandFundData):
     @log_exceptions()
     def __init__(self, amc_id: str, path: str):
@@ -594,7 +594,7 @@ class SBIPassive(BaseAMC): pass
 class Edelweiss(BaseAMC): pass
 class HDFC(BaseAMC): pass
 class CapitalMind(BaseAMC):pass
-
+class WealthCompany(BaseAMC):pass
 class BajajFinServ(BaseAMC):  
     
     def _generate_table_data(self,path:str,pages:str):

@@ -24,8 +24,29 @@ INPUT_PATH = PATHS["amc_path"]
 CONFIG = load_json5(PATHS["configs"]["params"])
 REGEX = load_json5(PATHS["configs"]["regex"])
 
+
+def load_config():
+    return load_json5(
+        PATHS["configs"]["params"]
+    )
+
+def load_regex():
+    return load_json5(
+        PATHS["configs"]["regex"]
+    )
+
 SIDKIM_REGEX = load_json5(PATHS["configs"]["sid_regex"])
-SIDKIM_PARAMS = load_json5(PATHS["configs"]["sid_params"])
+SIDKIM_CONFIG = load_json5(PATHS["configs"]["sid_params"])
+
+def load_sidkimregex():
+    return load_json5(
+        PATHS["configs"]["sid_regex"]
+    )
+
+def load_sidkimparams():
+    return load_json5(
+        PATHS["configs"]["sid_params"]
+    )
 
 CHECK_INTERVAL = 10
 PROGRAM_NAME = "FS_JSON_PARSE"

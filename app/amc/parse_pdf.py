@@ -29,7 +29,7 @@ class Reader:
     @log_exceptions()
     def _get_normal_title(self, path: str, title_regex: str, bbox):
         func = inspect.currentframe().f_code.co_name
-        self.logger.trace(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
 
         title_detected,escape_regex = {},self.PARAM_REGEX.ESCAPE
 
@@ -44,7 +44,7 @@ class Reader:
                         if title_match else ""
                     )
 
-                    if title:self.logger.trace(f"Page {pgn} → Title Found: {title}")
+                    if title:self.logger.info(f"Page {pgn} → Title Found: {title}")
                     else:self.logger.debug(f"Page {pgn} → No title detected in '{title_text[:50]}...'")
                     title_detected[pgn] = title
 
@@ -82,19 +82,27 @@ class Reader:
         return self._get_normal_title(ocr_pdf, title_regex, bbox)
 
     @log_exceptions()
-    def _ocr_pdf(self, path: str):
+    
+    def _ocr_pdf(self,path:str):
         func = inspect.currentframe().f_code.co_name
         self.logger.info(f"▶ {func} | Performing full-page OCR on {self.FILE_NAME}")
-
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
-        self.safe_ocr(path, ocr_path, timeout=90)
-        self.logger.debug(f"OCR completed successfully: {ocr_path}")
+        time.sleep(2)
+        ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True)
         return ocr_path
+    # def _ocr_pdf(self, path: str):
+    #     func = inspect.currentframe().f_code.co_name
+    #     self.logger.info(f"▶ {func} | Performing full-page OCR on {self.FILE_NAME}")
+
+    #     ocr_path = path.replace(".pdf", "_all_ocr.pdf")
+    #     self.safe_ocr(path, ocr_path, timeout=90)
+    #     self.logger.debug(f"OCR completed successfully: {ocr_path}")
+    #     return ocr_path
 
     @log_exceptions()
     def check_and_highlight(self, path, save_htld_pdf=False, save_report=False):
         func = inspect.currentframe().f_code.co_name
-        self.logger.trace(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
 
         data,output_path = [],path.replace(".pdf", "_hltd.pdf")
         title_regex, bbox, ocr = self.PARAMS["title"]['pattern'], self.PARAMS["title"]['bbox'], self.PARAMS["title"]["ocr"]
@@ -144,7 +152,7 @@ class Reader:
         if save_report:
             Reader.__pdf_report(data, self.REPORTPATH, self.FILE_NAME)
 
-        self.logger.save(f"{func} done | total_pages={len(data)}, highlights={sum(d['highlight_count'] for d in data)}")
+        self.logger.info(f"{func} done | total_pages={len(data)}, highlights={sum(d['highlight_count'] for d in data)}")
         return {
             d["page"]: d["title"]
             for d in data
@@ -418,7 +426,7 @@ class Reader:
     @log_exceptions()
     def get_data(self, path: str, titles:dict, *args):
         func = inspect.currentframe().f_code.co_name
-        self.logger.trace(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
 
         sanitize_fund,method = self.PARAMS["sanitize_fund"],self.PARAMS['method']
         extracted_data = []
@@ -620,7 +628,7 @@ class Reader:
     @log_exceptions()
     def get_generated_content(self, data: list, is_table: str = ""):
         func = inspect.currentframe().f_code.co_name
-        self.logger.trace(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
         extracted_text = {}
 
         for content in data:
@@ -647,7 +655,7 @@ class Reader:
     @log_exceptions()
     def refine_extracted_data(self, extracted_text: dict):
         func = inspect.currentframe().f_code.co_name
-        self.logger.trace(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
         primary_refine,header_map = {},{} #keep track of headers after each iteration, its imp
         
         def get_unique_key(base_key: str, data: dict):
@@ -759,7 +767,7 @@ class Reader:
     @log_exceptions()
     def merge_and_select_data(self, data: dict):
         func = inspect.currentframe().f_code.co_name
-        self.logger.trace(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
         
         finalData = {}
         regex = self.PARAM_REGEX

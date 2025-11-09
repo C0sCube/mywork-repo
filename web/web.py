@@ -27,16 +27,6 @@ LDAP_CONFIG = config.get("ldap")
 LDAP_SERVER = LDAP_CONFIG["path"]
 LDAP_DOMAIN = LDAP_CONFIG["domain"]
 
-
-# def ldap_authenticate(username, password):
-#     server = Server(LDAP_SERVER, get_info=ALL)
-#     user_dn = f"{username}@{LDAP_DOMAIN}"  # UPN format
-#     try:
-#         conn = Connection(server, user=user_dn, password=password, auto_bind=True)
-#         return conn.bound
-#     except Exception as e:
-#         print(f"LDAP auth failed: {e}")
-#         return False
 def ldap_authenticate(username, password):
     server = Server(LDAP_SERVER, get_info=ALL)
     user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
@@ -75,26 +65,6 @@ def index():
     os.makedirs(json_dir, exist_ok=True)
     json_files = os.listdir(json_dir)
     return render_template("dashboard.html", json_files=json_files, user=session.get("user"))
-
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == "POST":
-#         username = request.form["username"].strip().lower()
-#         password = request.form["password"]
-#         remember = "remember" in request.form
-
-#         users = load_users()
-
-#         if username in users and check_password_hash(users[username]["password"], password):
-#             session["logged_in"] = True
-#             session["user"] = username
-#             session.permanent = remember
-#             return redirect(url_for("index"))
-#         else:
-#             return render_template("login.html", error="Invalid username or password.")
-
-#     return render_template("login.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -145,13 +115,6 @@ def signup():
 
     return render_template("signup.html")
 
-
-# @app.route('/logout')
-# def logout():
-#     session.clear()
-#     return redirect(url_for("login"))
-
-
 @app.route('/upload', methods=['POST'])
 def upload_files():
     if not session.get("logged_in"):
@@ -159,14 +122,60 @@ def upload_files():
 
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
+    
+    total_size = 0
 
     for file in uploaded_files:
         if file and file.filename.lower().endswith(".pdf"):
             filename = secure_filename(file.filename)
             file.save(os.path.join(INPUT_DIR, filename))
+            
+            file.seek(0, os.SEEK_END)
+            size = file.tell()
+            file.seek(0)
+            
 
     time.sleep(2)
     return redirect('/')
+
+
+# @app.route('/upload', methods=['POST'])
+# def upload_files():
+#     if not session.get("logged_in"):
+#         return redirect(url_for("login"))
+
+#     uploaded_files = request.files.getlist('pdfs')
+#     os.makedirs(INPUT_DIR, exist_ok=True)
+
+#     total_size = 0
+#     saved_files = []
+
+#     for file in uploaded_files:
+#         if file and file.filename.lower().endswith(".pdf"):
+#             file.seek(0, os.SEEK_END)
+#             size = file.tell()
+#             file.seek(0)  # Reset pointer
+
+#             total_size += size
+#             if total_size > 50 * 1024 * 1024:  # 50MB limit
+#                 return render_template("dashboard.html", error="Upload exceeds 50MB limit. Please remove some files.")
+
+#             filename = secure_filename(file.filename)
+#             file.save(os.path.join(INPUT_DIR, filename))
+#             saved_files.append(filename)
+
+#     time.sleep(2)
+
+@app.route('/delete/<filename>')
+def delete_file(filename):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+
+    file_path = os.path.join(OUTPUT_DIR, "json", filename)
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    return redirect('/')
+
 
 
 @app.route('/json/<filename>')

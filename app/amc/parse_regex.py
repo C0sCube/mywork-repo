@@ -3,13 +3,13 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import random,string, inspect,datetime
 from dateutil import parser #type:ignore
 from datetime import datetime
-from app.konstant import REGEX
+from app.konstant import load_regex
 from app.utils import Helper
 from app.logger import log_exceptions
 
 class FundRegex:
     def __init__(self):
-        data = REGEX
+        data = load_regex()
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
         self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, data.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
