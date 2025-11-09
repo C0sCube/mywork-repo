@@ -804,4 +804,57 @@ class Reader:
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
-        return final_data
+        return_data = self.trim_data(final_data)
+        return return_data
+
+
+    def trim_data(self, data: dict):
+        str_limit = { "amc_name": 500, "main_scheme_name": 500, "min_addl_amt": 50, "min_addl_amt_multiple": 50, "min_amt": 50, 
+        "min_amt_multiple": 50, "monthly_aaum_date": 50, "monthly_aaum_value": 50,"mutual_fund_name": 500, "scheme_launch_date": 50}
+
+        manager_limit = { "name": 100, "managing_fund_since": 100,  "qualification": 1000, "total_experience": 1000,}
+        benchmark_limit = 1000
+        metrics_limit = 45
+        load_limit = 500
+
+        records = data.get("records", [])
+
+        for record in records:
+            content = record.get("value", {})
+
+            for key, value in content.items():
+
+                if isinstance(value, str) and key in str_limit:
+                    limit = str_limit[key]
+                    content[key] = value[:limit]
+
+                elif key == "benchmark_index" and isinstance(value, list): content[key] = [v[:benchmark_limit] if isinstance(v, str) else v for v in value]
+                    
+                elif key == "fund_manager" and isinstance(value, list):
+                    trimmed_managers = []
+                    for mgr in value:
+                        trimmed = { mk: (mv[:manager_limit[mk]] if isinstance(mv, str) else mv) for mk, mv in mgr.items() if mk in manager_limit }
+                        trimmed_managers.append(trimmed)
+                    content[key] = trimmed_managers
+
+                elif key == "load" and isinstance(value, list):
+                    trimmed_loads = []
+                    for ld in value:
+                        trimmed = {}
+                        for lk, lv in ld.items():
+                            if isinstance(lv, str): trimmed[lk] = lv[:load_limit]
+                            else: trimmed[lk] = lv
+                        trimmed_loads.append(trimmed)
+                    content[key] = trimmed_loads
+
+                elif key == "metrics" and isinstance(value, list):
+                    trimmed_metrics = []
+                    for m in value:
+                        trimmed = {}
+                        for mk, mv in m.items():
+                            if isinstance(mv, str): trimmed[mk] = mv[:metrics_limit]
+                            else: trimmed[mk] = mv
+                        trimmed_metrics.append(trimmed)
+                    content[key] = trimmed_metrics
+
+        return data
