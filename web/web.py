@@ -185,14 +185,46 @@ def get_json(filename):
     return send_from_directory(os.path.join(OUTPUT_DIR, "json"), filename)
 
 
+# @app.route('/logs')
+# def logs():
+#     if not session.get("logged_in"):
+#         return redirect(url_for("login"))
+#     log_dir = os.path.join(app.root_path, 'static', 'logs')
+#     log_files = os.listdir(log_dir) if os.path.exists(log_dir) else []
+#     log_files.sort(reverse=True)
+#     return render_template('logs.html', log_files=log_files)
+
 @app.route('/logs')
 def logs():
     if not session.get("logged_in"):
         return redirect(url_for("login"))
-    log_dir = os.path.join(app.root_path, 'static', 'logs')
-    log_files = os.listdir(log_dir) if os.path.exists(log_dir) else []
-    log_files.sort(reverse=True)
-    return render_template('logs.html', log_files=log_files)
+
+    log_dir = os.path.join(OUTPUT_DIR, "logs")
+    json_dir = os.path.join(OUTPUT_DIR, "json")
+
+    latest_log_text = ""
+    if os.path.exists(log_dir):
+        log_files = sorted(
+            [os.path.join(log_dir, f) for f in os.listdir(log_dir) if f.endswith(".log")],
+            key=os.path.getmtime,
+            reverse=True,
+        )
+        if log_files:
+            with open(log_files[0], "r", encoding="utf-8", errors="ignore") as f:
+                latest_log_text = "".join(f.readlines()[-50:])  # last 50 lines
+
+    json_files = []
+    if os.path.exists(json_dir):
+        json_files = sorted(
+            [f for f in os.listdir(json_dir) if f.endswith(".json")],
+            reverse=True
+        )
+
+    return {
+        "logs": latest_log_text,
+        "json_files": json_files
+    }
+
 
 
 # --- run app ---

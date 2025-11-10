@@ -46,17 +46,25 @@
 
             <!-- Logs Section -->
             <div class="panel logs-panel">
-                <h2>Application Logs</h2>
+                <h2>Processing Status</h2>
+
                 <div class="logs-controls">
                     <button id="refreshLogsBtn" class="small" onclick="loadLogs()">Refresh</button>
-                    <label>
-                        <input type="checkbox" id="autoRefresh"> Auto-refresh
-                    </label>
+                    <label><input type="checkbox" id="autoRefresh"> Auto-refresh</label>
                 </div>
+
+                <!-- Logs text -->
                 <div class="upload-console" id="logsConsole">
                     <p>Loading logs…</p>
                 </div>
+
+                <!-- JSON result files -->
+                <h3 style="margin-top:20px; text-align:center;">JSON Outputs</h3>
+                <div class="upload-console" id="jsonConsole">
+                    <p>Loading results…</p>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -117,29 +125,37 @@
 
         async function loadLogs() {
             const logsConsole = document.getElementById("logsConsole");
+            const jsonConsole = document.getElementById("jsonConsole");
+
             logsConsole.innerHTML = "<p>Refreshing logs…</p>";
+            jsonConsole.innerHTML = "<p>Refreshing results…</p>";
+
             try {
-                const resp = await fetch("/logs", { cache: "no-store" });
-                const html = await resp.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, "text/html");
-                const logsContainer = doc.querySelector(".logs-container");
-                logsConsole.innerHTML = "";
-                if (logsContainer) {
-                    Array.from(logsContainer.children).forEach(node => {
-                        const span = node.querySelector("span");
-                        const link = node.querySelector("a");
-                        const entry = document.createElement("div");
-                        entry.className = "log-item";
-                        entry.innerHTML = `<span>${span ? span.textContent.trim() : node.textContent.trim()}</span>
-                               <a class="view-btn" href="${link ? link.href : '#'}" target="_blank">View</a>`;
-                        logsConsole.appendChild(entry);
+                const resp = await fetch("/logs");
+                const data = await resp.json();
+
+                // Show logs
+                logsConsole.innerHTML = `<pre style="white-space: pre-wrap; font-family: monospace;">${data.logs || "No logs yet."}</pre>`;
+
+                // Show JSON files
+                if (data.json_files && data.json_files.length) {
+                    jsonConsole.innerHTML = "";
+                    data.json_files.forEach(file => {
+                        const row = document.createElement("div");
+                        row.className = "log-item";
+                        row.innerHTML = `
+          <span>${file}</span>
+          <a class="view-btn" href="/json/${file}" target="_blank">View</a>
+        `;
+                        jsonConsole.appendChild(row);
                     });
                 } else {
-                    logsConsole.innerHTML = "<p>No logs found.</p>";
+                    jsonConsole.innerHTML = "<p>No JSON results yet.</p>";
                 }
+
             } catch (err) {
                 logsConsole.innerHTML = "<p>Error loading logs.</p>";
+                jsonConsole.innerHTML = "<p>Error loading JSON list.</p>";
                 console.error(err);
             }
         }
@@ -153,6 +169,7 @@
         });
 
         loadLogs();
+
     </script>
 </body>
 
