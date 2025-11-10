@@ -3,92 +3,69 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Mutual Fund Parser Dashboard</title>
+    <title>Factsheet Parser Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h2>Menu</h2>
-            <nav>
-                <a href="#" class="active">Upload</a>
-                <a href="{{ url_for('logout') }}">Logout</a>
-            </nav>
-        </aside>
+    <section class="main-bg">
+        <div class="header">
+            <div class="hero">
+                <img src="{{ url_for('static', filename='img/logo_nse.svg') }}" alt="Logo">
+                <h1>FACTSHEET PARSER</h1>
+            </div>
+            <div class="user-section">
+                <span class="user-name">{{ user|capitalize }}</span>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </div>
+        </div>
 
-        <!-- Main content -->
-        <main class="content">
-            <header class="header">
-                <div class="hero">
-                    <img src="{{ url_for('static', filename='img/logo_nse.svg') }}" alt="Logo">
-                    <h1>FACTSHEET PARSER</h1>
-                </div>
-                <div class="user-section">
-                    <span class="user-name">{{ user|capitalize }}</span>
-                </div>
-            </header>
+        <div class="main-dashboard">
+            <!-- Upload Section -->
+            <div class="panel upload-panel">
+                <h2>Upload Factsheet PDFs</h2>
 
-            <section class="upload-section">
-                <div class="tab-row">
-                    <button id="tabUpload" class="tab active" onclick="showPanel('upload')">Upload</button>
-                    <button id="tabLogs" class="tab" onclick="showPanel('logs')">Logs</button>
-                    <div class="logs-controls" id="logsControls" style="display:none;">
-                        <label style="margin-left:auto;display:flex;align-items:center;gap:8px;">
-                            <input type="checkbox" id="autoRefresh" /> Auto-refresh
-                        </label>
-                        <button id="refreshLogsBtn" class="small" onclick="loadLogs()">Refresh</button>
+                <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
+                    <div class="upload-grid">
+                        <div id="sizeDisplay">Total Size: 0 MB</div>
+                        <button type="submit" id="uploadBtn">Upload</button>
                     </div>
+                </form>
+
+                <div class="upload-console" id="uploadConsole">
+                    <p>No files selected.</p>
                 </div>
 
-                <!-- Upload panel -->
-                <div id="panel-upload" class="panel">
-                    <h2 style="text-align:center">Upload Factsheet PDFs</h2>
-
-                    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
-
-                        <div class="upload-grid">
-                            <div id="sizeDisplay">Total Size: 0 MB</div>
-                            <button type="submit" id="uploadBtn">Upload</button>
-                        </div>
-                    </form>
-
-                    <div class="upload-console" id="uploadConsole">
-                        <p>No files selected.</p>
-                    </div>
-
-                    {% if error %}
-                    <div class="upload-console error">
-                        <p>{{ error }}</p>
-                    </div>
-                    {% endif %}
+                {% if error %}
+                <div class="upload-console error">
+                    <p>{{ error }}</p>
                 </div>
+                {% endif %}
+            </div>
 
-                <!-- Logs panel (same page) -->
-                <div id="panel-logs" class="panel" style="display:none;">
-                    <h2 style="text-align:center">Application Logs</h2>
-
-                    <div class="upload-console" id="logsConsole">
-                        <p>Loading logs…</p>
-                    </div>
-
-                    <p style="text-align:center; font-size:12px; color:#64748b; margin-top:10px;">
-                        Logs are fetched from <code>/logs</code> and rendered here.
-                    </p>
+            <!-- Logs Section -->
+            <div class="panel logs-panel">
+                <h2>Application Logs</h2>
+                <div class="logs-controls">
+                    <button id="refreshLogsBtn" class="small" onclick="loadLogs()">Refresh</button>
+                    <label>
+                        <input type="checkbox" id="autoRefresh"> Auto-refresh
+                    </label>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div class="upload-console" id="logsConsole">
+                    <p>Loading logs…</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
-        // Upload file management (persistent, appendable)
+        // --- Upload logic ---
         let selectedFiles = [];
 
         document.getElementById("pdfs").addEventListener("change", (e) => {
             const newFiles = Array.from(e.target.files);
-            // append: ensure duplicates are allowed/filtered depending on need
             selectedFiles = selectedFiles.concat(newFiles);
             updateUploadDisplay();
         });
@@ -96,7 +73,7 @@
         function updateUploadDisplay() {
             const consoleDiv = document.getElementById("uploadConsole");
             const sizeDiv = document.getElementById("sizeDisplay");
-            const maxSize = 50 * 1024 * 1024; // 50MB
+            const maxSize = 50 * 1024 * 1024;
             let totalSize = 0;
             consoleDiv.innerHTML = "";
 
@@ -123,89 +100,42 @@
             updateUploadDisplay();
         }
 
-        // Submit handler: attach files from selectedFiles to FormData and post via fetch
-        document.getElementById("uploadForm").addEventListener("submit", async function (ev) {
-            // prevent default, and perform client-side upload using FormData to avoid losing selection
+        document.getElementById("uploadForm").addEventListener("submit", async (ev) => {
             ev.preventDefault();
             if (!selectedFiles.length) return alert("No files selected.");
 
             const fd = new FormData();
             selectedFiles.forEach(f => fd.append("pdfs", f, f.name));
 
-            const resp = await fetch(this.action || "/upload", {
-                method: "POST",
-                body: fd
-            });
-
-            // simple response handling: reload page on success
-            if (resp.redirected) {
-                window.location = resp.url;
-            } else {
-                // fallback: reload page
-                window.location.reload();
-            }
+            const resp = await fetch("/upload", { method: "POST", body: fd });
+            if (resp.redirected) window.location = resp.url;
+            else window.location.reload();
         });
 
-        // Tab switching & logs logic
+        // --- Logs logic ---
         let logsInterval = null;
 
-        function showPanel(name) {
-            document.querySelectorAll(".panel").forEach(p => p.style.display = "none");
-            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-
-            document.getElementById("panel-" + name).style.display = "block";
-            document.getElementById("tab" + capitalize(name)).classList.add("active");
-
-            // show logs control only on logs tab
-            const logsControls = document.getElementById("logsControls");
-            if (name === "logs") {
-                logsControls.style.display = "flex";
-                loadLogs(); // initial load
-
-                // setup auto-refresh checkbox behaviour
-                const auto = document.getElementById("autoRefresh");
-                if (auto.checked && !logsInterval) {
-                    logsInterval = setInterval(loadLogs, 10000);
-                }
-            } else {
-                logsControls.style.display = "none";
-                if (logsInterval) { clearInterval(logsInterval); logsInterval = null; }
-            }
-        }
-
-        function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-
-        // load logs by fetching the /logs endpoint and extracting .log-item HTML
         async function loadLogs() {
             const logsConsole = document.getElementById("logsConsole");
             logsConsole.innerHTML = "<p>Refreshing logs…</p>";
-
             try {
                 const resp = await fetch("/logs", { cache: "no-store" });
                 const html = await resp.text();
-                // parse returned HTML to extract .log-item or .logs-container
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, "text/html");
                 const logsContainer = doc.querySelector(".logs-container");
+                logsConsole.innerHTML = "";
                 if (logsContainer) {
-                    // map each child to our logsConsole
-                    const children = Array.from(logsContainer.children);
-                    logsConsole.innerHTML = "";
-                    children.forEach(node => {
-                        // sanitize minimal: clone text nodes only
-                        const entry = document.createElement("div");
-                        entry.className = "log-item";
-                        // attempt to extract file name & url
+                    Array.from(logsContainer.children).forEach(node => {
                         const span = node.querySelector("span");
                         const link = node.querySelector("a");
-                        const name = span ? span.textContent.trim() : node.textContent.trim();
-                        const href = link ? link.href : (link ? link.href : "#");
-                        entry.innerHTML = `<span>${escapeHtml(name)}</span>
-                               <a class="view-btn" href="${href}" target="_blank">View</a>`;
+                        const entry = document.createElement("div");
+                        entry.className = "log-item";
+                        entry.innerHTML = `<span>${span ? span.textContent.trim() : node.textContent.trim()}</span>
+                               <a class="view-btn" href="${link ? link.href : '#'}" target="_blank">View</a>`;
                         logsConsole.appendChild(entry);
                     });
                 } else {
-                    // fallback: render raw text
                     logsConsole.innerHTML = "<p>No logs found.</p>";
                 }
             } catch (err) {
@@ -214,24 +144,15 @@
             }
         }
 
-        // escape minimal
-        function escapeHtml(s) {
-            return s.replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[m]);
-        }
-
-        // listen to auto refresh checkbox toggle
-        document.addEventListener("change", (e) => {
-            if (e.target && e.target.id === "autoRefresh") {
-                if (e.target.checked) {
-                    if (!logsInterval) logsInterval = setInterval(loadLogs, 10000);
-                } else {
-                    if (logsInterval) { clearInterval(logsInterval); logsInterval = null; }
-                }
+        document.getElementById("autoRefresh").addEventListener("change", (e) => {
+            if (e.target.checked) {
+                logsInterval = setInterval(loadLogs, 10000);
+            } else {
+                clearInterval(logsInterval);
             }
         });
 
-        // start with upload panel visible
-        showPanel("upload");
+        loadLogs();
     </script>
 </body>
 
