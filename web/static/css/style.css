@@ -170,3 +170,127 @@ input[type="file"] {
         width: 90%;
     }
 }
+
+/* Logs Page */
+.logs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.log-item:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.view-btn {
+    text-decoration: none;
+    background: #0f172a;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.view-btn:hover {
+    background: #1e293b;
+}
+
+/* ===== LOGIN PAGE ===== */
+.login-page {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px;
+    width: 350px;
+    color: #f8fafc;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #f1f5f9;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-container button {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #0f172a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
+}
+
+.form-container button:hover {
+    background-color: #1e293b;
+}
+
+.alt-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.alt-link a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.alt-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        width: 85%;
+        padding: 25px;
+    }
+}
