@@ -8,7 +8,7 @@ class SidKimRegex():
     
     def __init__(self):
         
-        data = SIDKIM_REGEX
+        data = load_sidkimregex()
         
         #=================GENERAL=================
         self.HEADER_PATTERNS = data.get("header_patterns", {})

@@ -18,11 +18,11 @@ class Reader:
         self.UTILS = Helper()
         
         self.FILE_NAME = path.split("\\")[-1] # filename
-        self.OUTPUTPATH = OUTPUT_PATH
+        self.OUTPUTPATH = get_output_path()
         self.PDF_PATH = path
-        self.DRYPATH = os.path.join(DUMMY_PDF_DIR,"dry.pdf")
-        self.REPORTPATH = REPORT_DIR
-        self.JSONPATH = JSON_DIR
+        self.DRYPATH = os.path.join("app","temp","dry.pdf")
+        self.REPORTPATH = create_dir(self.OUTPUTPATH,"reports")
+        self.JSONPATH = create_dir(self.OUTPUTPATH,"json")
         self.TEXT_ONLY = {}
         
     #HIGHLIGHT

@@ -15,9 +15,9 @@ class ReaderSIDKIM:
         
         self.PARAMS = params #amc specific paramaters
         self.DOCUMENT_NAME = path.split("\\")[-1] # docname requried later for json
-        self.OUTPUTPATH = OUTPUT_PATH
+        self.OUTPUTPATH = get_output_path()
         self.PDF_PATH = path #amc factsheet pdf path
-        self.JSONPATH = JSON_DIR
+        self.JSONPATH = create_dir(self.OUTPUTPATH,"json")
         self.TEXT_ONLY = {}
         self.FIELD_LOCATION = {"page_zero":0,"page_table":0,"page_manager":0,"kim":0}
     

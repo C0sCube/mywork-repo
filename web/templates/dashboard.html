@@ -20,25 +20,32 @@
             </div>
         </div>
 
-
         <div class="main">
             <h2>UPLOAD FACTSHEET PDF</h2>
-            <form action="/upload" method="POST" enctype="multipart/form-data">
-                <!-- <label for="pdfs">Select PDF(s)</label> -->
-                 <br>
+
+
+            <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
                 <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple required
                     onchange="showSelectedFiles(event)">
-                <button type="submit">UPLOAD</button>
-                  <br>
-                    <br>
-            </form>
 
+                <!-- Side-by-side layout for size and button -->
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                    <!-- Total size display -->
+                    <div style="flex: 1; text-align: center; font-weight: bold; font-size: 16px;" id="sizeDisplay">
+                        Total size: 0 MB
+                    </div>
+
+                    <!-- Upload button -->
+                    <div style="flex: 1; text-align: center;">
+                        <button type="submit" style="padding: 8px 16px; font-size: 16px;">UPLOAD</button>
+                    </div>
+                </div>
+            </form>
             <!-- Console-style Display -->
             <div class="upload-console" id="uploadConsole">
                 <p>No files selected.</p>
             </div>
 
-            <!-- <button onclick="clearConsole()" style="margin-top: 10px;">Clear Console</button> -->
             {% if error %}
             <div class="upload-console error">
                 <p>{{ error }}</p>
@@ -46,48 +53,56 @@
             {% endif %}
         </div>
     </section>
+
+    <script>
+        let selectedFiles = [];
+
+        document.getElementById("pdfs").addEventListener("change", function (event) {
+            selectedFiles = Array.from(event.target.files);
+            updateConsoleDisplay();
+        });
+
+        function updateConsoleDisplay() {
+            const uploadConsole = document.getElementById("uploadConsole");
+            const sizeDisplay = document.getElementById("sizeDisplay");
+            const uploadBtn = document.querySelector("#uploadForm button[type='submit']");
+            const maxSize = 50 * 1024 * 1024;
+            let totalSize = 0;
+
+            uploadConsole.innerHTML = ""; // Clear previous content
+
+            selectedFiles.forEach((file, index) => {
+                totalSize += file.size;
+
+                const fileTag = document.createElement("div");
+                fileTag.style.cssText = "background:#f4f4f4; padding:6px 10px; margin:4px 0; border-radius:4px; display:flex; justify-content:space-between; align-items:center;";
+
+                const fileInfo = document.createElement("span");
+                fileInfo.textContent = `${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
+
+                const removeBtn = document.createElement("button");
+                removeBtn.textContent = "☠️";
+                removeBtn.style.cssText = "border:none; background:none; cursor:pointer; font-size:16px;";
+                removeBtn.onclick = () => {
+                    selectedFiles.splice(index, 1);
+                    updateConsoleDisplay();
+                };
+
+                fileTag.appendChild(fileInfo);
+                fileTag.appendChild(removeBtn);
+                uploadConsole.appendChild(fileTag);
+            });
+
+            sizeDisplay.textContent = `Total size: ${(totalSize / (1024 * 1024)).toFixed(2)} MB`;
+            sizeDisplay.style.color = totalSize > maxSize ? "red" : "green";
+            uploadBtn.disabled = totalSize > maxSize;
+
+            if (selectedFiles.length === 0) {
+                uploadConsole.innerHTML = "<p>No files selected.</p>";
+            }
+        }
+
+    </script>
 </body>
-<script>
-    function showSelectedFiles(event) {
-        const consoleDiv = document.getElementById("uploadConsole");
-        const files = event.target.files;
-
-        if (files.length === 0) {
-            consoleDiv.innerHTML = "<p>No files selected.</p>";
-            return;
-        }
-
-        let list = "<ul>";
-        for (let i = 0; i < files.length; i++) {
-            list += `<li>${files[i].name}</li>`;
-        }
-        list += "</ul>";
-
-        consoleDiv.innerHTML = "<strong>Selected files:</strong>" + list;
-    }
-
-    function showSelectedFiles(event) {
-        const consoleDiv = document.getElementById("uploadConsole");
-        const files = event.target.files;
-
-        if (files.length === 0) {
-            consoleDiv.innerHTML = "<p>No files selected.</p>";
-            return;
-        }
-
-        let list = "<ul>";
-        for (let i = 0; i < files.length; i++) {
-            list += `<li>${files[i].name}</li>`;
-        }
-        list += "</ul>";
-
-        consoleDiv.innerHTML = "<strong>Selected files:</strong>" + list;
-    }
-
-    function clearConsole() {
-        document.getElementById("uploadConsole").innerHTML = "<p>No files selected.</p>";
-    }
-
-</script>
 
 </html>
