@@ -171,44 +171,6 @@ input[type="file"] {
     }
 }
 
-/* Logs Page */
-.logs-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.log-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.log-item:hover {
-    background: #f8fafc;
-    transform: translateY(-1px);
-}
-
-.view-btn {
-    text-decoration: none;
-    background: #0f172a;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: background 0.3s;
-}
-
-.view-btn:hover {
-    background: #1e293b;
-}
-
 /* ===== LOGIN PAGE ===== */
 .login-page {
     margin: 0;
@@ -293,4 +255,127 @@ input[type="file"] {
         width: 85%;
         padding: 25px;
     }
+}
+
+/* tab row */
+.tab-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 1px solid #e6eef8;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.tab {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tab.active {
+    background: #0f172a;
+    color: #fff;
+    border-color: #0f172a;
+}
+
+.logs-controls {
+    margin-left: auto;
+    gap: 10px;
+    align-items: center;
+}
+
+/* small button style */
+button.small {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    background: #0f172a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Panel layout: side-by-side on large screens, stacked on small screens */
+.panel {
+    margin-top: 12px;
+}
+
+/* make sure the upload section uses centered card width but stacks gracefully */
+.upload-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* Log item reuse (already provided in logs css earlier) */
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #e6eef8;
+}
+
+.view-btn {
+    background: #0f172a;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* RESPONSIVE: stack panels (upload on top, logs below) on narrow screens */
+@media (max-width: 900px) {
+    .upload-section {
+        width: 95%;
+        padding: 18px;
+    }
+
+    .tab-row {
+        flex-wrap: wrap;
+    }
+
+    .logs-controls {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: flex-end;
+    }
+}
+
+/* Logs css */
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e6eef8;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.log-item:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.view-btn {
+    background: #0f172a;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.view-btn:hover {
+    background: #1e293b;
 }
