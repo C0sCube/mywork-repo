@@ -3,105 +3,97 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Mutual Fund Parser Dashboard</title>
+    <title>Dashboard | Factsheet Parser</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-    <section class="main-bg">
-        <div class="header">
-            <div class="hero">
-                <img src="{{ url_for('static', filename='img/logo_nse.svg') }}" alt="Logo">
-                <h1>FACTSHEET PARSER</h1>
-            </div>
-            <div class="user-section">
-                <span class="user-name">{{ user|capitalize }}</span>
-                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-            </div>
-        </div>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Menu</h2>
+            <nav>
+                <a href="/" class="active">Upload</a>
+                <a href="/logs">Logs</a>
+            </nav>
+        </aside>
 
-        <div class="main">
-            <h2>UPLOAD FACTSHEET PDF</h2>
-
-
-            <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-                <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple required
-                    onchange="showSelectedFiles(event)">
-
-                <!-- Side-by-side layout for size and button -->
-                <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-                    <!-- Total size display -->
-                    <div style="flex: 1; text-align: center; font-weight: bold; font-size: 16px;" id="sizeDisplay">
-                        Total size: 0 MB
-                    </div>
-
-                    <!-- Upload button -->
-                    <div style="flex: 1; text-align: center;">
-                        <button type="submit" style="padding: 8px 16px; font-size: 16px;">UPLOAD</button>
-                    </div>
+        <!-- Main Content -->
+        <main class="content">
+            <header class="header">
+                <div class="hero">
+                    <img src="{{ url_for('static', filename='img/logo_nse.svg') }}" alt="Logo">
+                    <h1>FACTSHEET PARSER</h1>
                 </div>
-            </form>
-            <!-- Console-style Display -->
-            <div class="upload-console" id="uploadConsole">
-                <p>No files selected.</p>
-            </div>
+                <div class="user-section">
+                    <span class="user-name">{{ user|capitalize }}</span>
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                </div>
+            </header>
 
-            {% if error %}
-            <div class="upload-console error">
-                <p>{{ error }}</p>
-            </div>
-            {% endif %}
-        </div>
-    </section>
+            <section class="upload-section">
+                <h2>Upload Factsheet PDFs</h2>
+
+                <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
+
+                    <div class="upload-grid">
+                        <div id="sizeDisplay">Total Size: 0 MB</div>
+                        <button type="submit" id="uploadBtn">Upload</button>
+                    </div>
+                </form>
+
+                <div class="upload-console" id="uploadConsole">
+                    <p>No files selected.</p>
+                </div>
+
+                {% if error %}
+                <div class="upload-console error">
+                    <p>{{ error }}</p>
+                </div>
+                {% endif %}
+            </section>
+        </main>
+    </div>
 
     <script>
         let selectedFiles = [];
 
-        document.getElementById("pdfs").addEventListener("change", function (event) {
-            selectedFiles = Array.from(event.target.files);
-            updateConsoleDisplay();
+        document.getElementById("pdfs").addEventListener("change", (e) => {
+            const newFiles = Array.from(e.target.files);
+            selectedFiles = [...selectedFiles, ...newFiles]; // append not reset
+            updateDisplay();
         });
 
-        function updateConsoleDisplay() {
-            const uploadConsole = document.getElementById("uploadConsole");
-            const sizeDisplay = document.getElementById("sizeDisplay");
-            const uploadBtn = document.querySelector("#uploadForm button[type='submit']");
+        function updateDisplay() {
+            const consoleDiv = document.getElementById("uploadConsole");
+            const sizeDiv = document.getElementById("sizeDisplay");
             const maxSize = 50 * 1024 * 1024;
             let totalSize = 0;
+            consoleDiv.innerHTML = "";
 
-            uploadConsole.innerHTML = ""; // Clear previous content
-
-            selectedFiles.forEach((file, index) => {
-                totalSize += file.size;
-
-                const fileTag = document.createElement("div");
-                fileTag.style.cssText = "background:#f4f4f4; padding:6px 10px; margin:4px 0; border-radius:4px; display:flex; justify-content:space-between; align-items:center;";
-
-                const fileInfo = document.createElement("span");
-                fileInfo.textContent = `${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
-
-                const removeBtn = document.createElement("button");
-                removeBtn.textContent = "☠️";
-                removeBtn.style.cssText = "border:none; background:none; cursor:pointer; font-size:16px;";
-                removeBtn.onclick = () => {
-                    selectedFiles.splice(index, 1);
-                    updateConsoleDisplay();
-                };
-
-                fileTag.appendChild(fileInfo);
-                fileTag.appendChild(removeBtn);
-                uploadConsole.appendChild(fileTag);
+            selectedFiles.forEach((f, i) => {
+                totalSize += f.size;
+                const item = document.createElement("div");
+                item.className = "file-item";
+                item.innerHTML = `
+          <span>${f.name} (${(f.size / 1048576).toFixed(2)} MB)</span>
+          <button class="remove-btn" onclick="removeFile(${i})">✖</button>
+        `;
+                consoleDiv.appendChild(item);
             });
 
-            sizeDisplay.textContent = `Total size: ${(totalSize / (1024 * 1024)).toFixed(2)} MB`;
-            sizeDisplay.style.color = totalSize > maxSize ? "red" : "green";
-            uploadBtn.disabled = totalSize > maxSize;
+            if (!selectedFiles.length) consoleDiv.innerHTML = "<p>No files selected.</p>";
 
-            if (selectedFiles.length === 0) {
-                uploadConsole.innerHTML = "<p>No files selected.</p>";
-            }
+            sizeDiv.textContent = `Total Size: ${(totalSize / 1048576).toFixed(2)} MB`;
+            sizeDiv.style.color = totalSize > maxSize ? "red" : "green";
+            document.getElementById("uploadBtn").disabled = totalSize > maxSize;
         }
 
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updateDisplay();
+        }
     </script>
 </body>
 
