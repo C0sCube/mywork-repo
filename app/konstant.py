@@ -17,8 +17,8 @@ def create_dir(base_path, *folders):
 
 
 def load_paths(): return load_json("paths.json")
-def get_output_path():load_paths()["output_path"]
-def get_input_path():load_paths()["amc_path"]
+def get_output_path(): return load_paths()["output_path"]
+def get_input_path(): return load_paths()["amc_path"]
 
 
 def load_config():
@@ -43,7 +43,16 @@ def load_sidkimparams():
 
 CHECK_INTERVAL = 10
 PROGRAM_NAME = "FS_JSON_PARSE"
-PAUSE_AFTER_FILE_DETECTION = 30
+PAUSE = 20
+
+
+DB_CONFIG = {
+    "host": "172.22.225.155",
+    "user": "cog_ws_user",
+    "password": "cogstatic",
+    "database": "cog_ws_staging",
+    "port": 3306
+}
 
 #MAILS
 def load_mail_data():

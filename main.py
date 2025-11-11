@@ -4,7 +4,8 @@ from app.logger import setup_logger, rotate_daily_log, set_global_logger
 from app.utils import Helper
 from app.amc.registry import *
 from app.konstant import (get_input_path, get_output_path,create_dir)
-from app.konstant import(PROGRAM_NAME, CHECK_INTERVAL, PAUSE_AFTER_FILE_DETECTION)
+from app.konstant import(PROGRAM_NAME, CHECK_INTERVAL, PAUSE)
+from app.sqlconnect import update_table
 
 OUTPUT_DIR = get_output_path()
 INPUT_DIR = get_input_path()
@@ -46,12 +47,12 @@ def program_runner(path, amc_id, file_name):
         save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
         Helper.save_json(dfs, save_path)
         logger.save(f"Saved JSON File: {save_path}")
-        return True
+        return save_path
 
     except Exception as e:
         logger.error(f"[Pipeline Error] {file_name} | {type(e).__name__}: {e}")
         logger.debug(traceback.format_exc())
-        return False
+        return None
 
 # -------------------- WATCHER LOOP --------------------
 def main():
@@ -74,12 +75,22 @@ def main():
 
             logger.info(f"Files Detected: {' | '.join(sorted(new_files))}")
             logger.notice("Mandatory pause for file save.")
-            time.sleep(PAUSE_AFTER_FILE_DETECTION)
+            time.sleep(PAUSE)
 
             completed, failed = {}, {}
 
             for file_name in new_files:
                 try:
+                    
+                    status_report = {
+                        "start_time":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "end_time":"",
+                        "file_name":file_name,
+                        "json_path":None,
+                        "status":None,
+                        "error":None
+                    }
+                    
                     file_path = os.path.join(INPUT_DIR, file_name)
                     file_key = check_amc_file(file_name=file_name)
 
@@ -87,15 +98,34 @@ def main():
                     if result:
                         completed[file_name] = file_path
                         Helper.archive_files(processed_dir, {file_name: file_path})
+                        status_report.update({
+                            "end_time":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "json_path":result,
+                            "status":"Completed"
+                            })
                     else:
                         failed[file_name] = file_path
                         Helper.archive_files(failed_dir, {file_name: file_path})
-
+                        status_report.update({
+                            "end_time":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "json_path":None,
+                            "status":"Failed"
+                            })
+                    
+                    update_table(status_report)
 
                 except Exception as e:
                     logger.error(f"Error in processing {file_name}: {type(e).__name__}: {e}")
                     logger.debug(traceback.format_exc())
+                    status_report.update({
+                            "end_time":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "json_path":None,
+                            "status":"Error"
+                            })
+                    
+                    update_table(status_report)
 
+ 
                 time.sleep(1)
 
             logger.save(f"[{', '.join(completed.keys())}] file(s) done. [{', '.join(failed.keys())}] file(s) failed.")
@@ -103,7 +133,8 @@ def main():
 
             # move processed files
             known_files.update(new_files)
-            known_files = set()
+            known_file_paths = [os.path.join(INPUT_DIR,f) for f in known_files]
+            Helper.delete_files(known_file_paths)
 
         except KeyboardInterrupt:
             logger.warning("Watcher stopped by user (KeyboardInterrupt). Exiting gracefully.")

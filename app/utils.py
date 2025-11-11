@@ -183,6 +183,30 @@ class Helper:
                 except Exception as e:
                     logger.error(f"Failed to delete {file_path}: {e}")
         logger.info(f"Cleared {deleted} file(s) from {folder_path}")
+        
+    @staticmethod
+    def delete_files(data):
+        """Delete all files (not subfolders) inside the given folder."""
+        logger = get_global_logger()
+
+        if isinstance(data, dict):
+            file_paths = list(data.values())
+        elif isinstance(data, list):
+            file_paths = data
+        elif isinstance(data, str):
+            file_paths = [data]
+        else:
+            logger.error(f"[archive_files] Invalid data type: {type(data)}")
+            return
+
+        for filepath in file_paths:
+            if os.path.isfile(filepath):
+                try:
+                    os.remove(filepath)
+                except PermissionError:
+                    logger.warning(f"Permission denied deleting {filepath}")
+                except Exception as e:
+                    logger.error(f"Failed to delete {filepath}: {e}")
 
     @staticmethod
     def archive_files(dest_folder: str, data):

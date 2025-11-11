@@ -595,6 +595,7 @@ class Edelweiss(BaseAMC): pass
 class HDFC(BaseAMC): pass
 class CapitalMind(BaseAMC):pass
 class WealthCompany(BaseAMC):pass
+
 class BajajFinServ(BaseAMC):  
     
     def _generate_table_data(self,path:str,pages:str):

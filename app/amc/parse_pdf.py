@@ -81,8 +81,7 @@ class Reader:
         self.logger.debug(f"OCR complete — passing to _get_normal_title()")
         return self._get_normal_title(ocr_pdf, title_regex, bbox)
 
-    @log_exceptions()
-    
+    @log_exceptions()  
     def _ocr_pdf(self,path:str):
         func = inspect.currentframe().f_code.co_name
         self.logger.info(f"▶ {func} | Performing full-page OCR on {self.FILE_NAME}")

@@ -61,24 +61,36 @@ body {
 }
 
 /* ===== MAIN DASHBOARD ===== */
+
 .main-dashboard {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 30px;
     padding: 40px 60px;
-    flex-wrap: wrap;
-    /* stacks on smaller screens */
+    flex-wrap: nowrap; /* ✅ Prevent wrapping by default */
 }
 
 .panel {
-    flex: 1 1 45%;
+    flex: 1 1 50%; /* ✅ Each panel takes half width */
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    min-width: 350px;
+    min-width: 400px; /* ✅ Ensure they don't shrink too much */
     max-width: 550px;
+}
+
+/* ✅ Stack only on very small screens */
+@media (max-width: 900px) {
+    .main-dashboard {
+        flex-wrap: wrap; /* ✅ Allow stacking only below 900px */
+    }
+
+    .panel {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 .panel h2 {
