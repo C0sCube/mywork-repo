@@ -68,23 +68,27 @@ body {
     align-items: flex-start;
     gap: 30px;
     padding: 40px 60px;
-    flex-wrap: nowrap; /* ✅ Prevent wrapping by default */
+    flex-wrap: nowrap;
+    /* ✅ Prevent wrapping by default */
 }
 
 .panel {
-    flex: 1 1 50%; /* ✅ Each panel takes half width */
+    flex: 1 1 50%;
+    /* ✅ Each panel takes half width */
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    min-width: 400px; /* ✅ Ensure they don't shrink too much */
+    min-width: 400px;
+    /* ✅ Ensure they don't shrink too much */
     max-width: 550px;
 }
 
 /* ✅ Stack only on very small screens */
 @media (max-width: 900px) {
     .main-dashboard {
-        flex-wrap: wrap; /* ✅ Allow stacking only below 900px */
+        flex-wrap: wrap;
+        /* ✅ Allow stacking only below 900px */
     }
 
     .panel {
@@ -330,4 +334,39 @@ button.small:hover {
         width: 85%;
         padding: 25px;
     }
+}
+
+/* status */
+
+.status-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.status-table th,
+.status-table td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+.status-table th {
+    background: #e2e8f0;
+}
+
+.status-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.status-table td.completed {
+    color: green;
+    font-weight: bold;
+}
+
+.status-table td.failed,
+.status-table td.error {
+    color: red;
+    font-weight: bold;
 }

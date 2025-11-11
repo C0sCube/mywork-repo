@@ -1,54 +1,111 @@
 import traceback
-from app.konstant import DB_CONFIG
-from app.logger import get_global_logger
 import mysql.connector
 from mysql.connector import Error
+from app.konstant import DB_CONFIG
+from app.logger import get_global_logger
 
-def establish_connection(db_config = DB_CONFIG):
+
+# ------------------ CONNECTION HANDLER ------------------
+def establish_connection(db_config=DB_CONFIG):
+    """Create and return a MySQL connection."""
+    logger = get_global_logger()
     try:
-        logger = get_global_logger()
         conn = mysql.connector.connect(**db_config)
         return conn
-      
     except Error as e:
-        logger.warning(f"establish_connection error: {type(e).__name__}: {e}")
+        logger.error(f"DB connection failed: {e}")
         logger.debug(traceback.format_exc())
         return None
 
 
-def update_table(data):
-    cur = None # Initialize cur to None
-    conn = establish_connection()
+# ------------------ QUERY HELPERS ------------------
+def fetch_existing_record(conn, file_name: str) -> bool:
+    """Check if a file_name already exists in the table."""
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT COUNT(*) AS cnt FROM holy_sheet WHERE file_name = %s", (file_name,))
+    exists = cur.fetchone()["cnt"] > 0
+    cur.close()
+    return exists
+
+
+def update_existing(conn, data: dict):
+    """Update the row for an existing file_name."""
+    cur = conn.cursor()
+    query = """
+        UPDATE holy_sheet
+        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s
+        WHERE file_name=%s
+    """
+    cur.execute(
+        query,
+        (
+            data.get("start_time"),
+            data.get("end_time"),
+            data.get("json_path"),
+            data.get("status"),
+            data.get("error"),
+            data.get("file_name"),
+        ),
+    )
+    conn.commit()
+    cur.close()
+
+
+def insert_new(conn, data: dict):
+    """Insert a new record for a file_name that doesn't exist."""
+    cur = conn.cursor()
+    query = """
+        INSERT INTO holy_sheet (start_time, end_time, file_name, json_path, status, error)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """
+    cur.execute(
+        query,
+        (
+            data.get("start_time"),
+            data.get("end_time"),
+            data.get("file_name"),
+            data.get("json_path"),
+            data.get("status"),
+            data.get("error"),
+        ),
+    )
+    conn.commit()
+    cur.close()
+
+
+# ------------------ MAIN HANDLER ------------------
+def update_table(data: dict):
+    """
+    Insert or update a record in holy_sheet.
+    Handles connection, check, and upsert logic.
+    """
     logger = get_global_logger()
+    conn = establish_connection()
+    if not conn:
+        logger.error("❌ Cannot connect to database.")
+        return False
+
     try:
-        keys = ["start_time", "end_time", "file_name", "json_path", "status", "error"]
-        columns = ", ".join(keys)  # Convert list to comma-separated string
+        file_name = data.get("file_name")
+        if not file_name:
+            logger.warning("No file_name provided — skipping update.")
+            return False
 
-        query = f"""
-            INSERT INTO holy_sheet ({columns})
-            VALUES (%s, %s, %s, %s, %s, %s)
-            ON DUPLICATE KEY UPDATE
-                status = VALUES(status),
-                end_time = VALUES(end_time),
-                error = VALUES(error),
-                json_path = VALUES(json_path)
-        """
+        if fetch_existing_record(conn, file_name):
+            update_existing(conn, data)
+            logger.info(f"🟢 Updated existing record for {file_name}")
+        else:
+            insert_new(conn, data)
+            logger.info(f"🆕 Inserted new record for {file_name}")
+        return True
 
-        values = [data.get(i, None) for i in keys]
-
-        cur = conn.cursor()
-        cur.execute(query, values)
-        conn.commit()
-        logger.info("✅ Entry updated successfully!")
     except Error as e:
-        logger.error(f"❌ Error: {e}")
-        # Optionally, roll back the transaction in case of error
-        if conn and conn.is_connected():
+        logger.error(f"❌ Database operation failed: {e}")
+        logger.debug(traceback.format_exc())
+        if conn.is_connected():
             conn.rollback()
+        return False
 
-            
-def update_holy_sheet_standard(conn, data):
-    pass
-
-
-
+    finally:
+        if conn and conn.is_connected():
+            conn.close()

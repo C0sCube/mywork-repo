@@ -139,33 +139,6 @@ def upload_files():
     return redirect('/')
 
 
-# @app.route('/upload', methods=['POST'])
-# def upload_files():
-#     if not session.get("logged_in"):
-#         return redirect(url_for("login"))
-
-#     uploaded_files = request.files.getlist('pdfs')
-#     os.makedirs(INPUT_DIR, exist_ok=True)
-
-#     total_size = 0
-#     saved_files = []
-
-#     for file in uploaded_files:
-#         if file and file.filename.lower().endswith(".pdf"):
-#             file.seek(0, os.SEEK_END)
-#             size = file.tell()
-#             file.seek(0)  # Reset pointer
-
-#             total_size += size
-#             if total_size > 50 * 1024 * 1024:  # 50MB limit
-#                 return render_template("dashboard.html", error="Upload exceeds 50MB limit. Please remove some files.")
-
-#             filename = secure_filename(file.filename)
-#             file.save(os.path.join(INPUT_DIR, filename))
-#             saved_files.append(filename)
-
-#     time.sleep(2)
-
 @app.route('/delete/<filename>')
 def delete_file(filename):
     if not session.get("logged_in"):
@@ -183,16 +156,6 @@ def get_json(filename):
     if not session.get("logged_in"):
         return redirect(url_for("login"))
     return send_from_directory(os.path.join(OUTPUT_DIR, "json"), filename)
-
-
-# @app.route('/logs')
-# def logs():
-#     if not session.get("logged_in"):
-#         return redirect(url_for("login"))
-#     log_dir = os.path.join(app.root_path, 'static', 'logs')
-#     log_files = os.listdir(log_dir) if os.path.exists(log_dir) else []
-#     log_files.sort(reverse=True)
-#     return render_template('logs.html', log_files=log_files)
 
 @app.route('/logs')
 def logs():
@@ -225,6 +188,39 @@ def logs():
         "json_files": json_files
     }
 
+from app.sqlconnect import establish_connection
+
+@app.route('/status_data')
+def status_data():
+    """Return latest entries from holy_sheet as JSON for dashboard polling."""
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+
+    try:
+        conn = establish_connection()
+        cur = conn.cursor(dictionary=True)
+        cur.execute("""
+            SELECT file_name, start_time, end_time, status, json_path, error
+            FROM holy_sheet
+            ORDER BY start_time DESC
+            LIMIT 20
+        """)
+        rows = cur.fetchall()
+        cur.close()
+        conn.close()
+        return {"success": True, "rows": rows}
+    except Exception as e:
+        print("status_data error:", e)
+        return {"success": False, "rows": []}
+
+@app.route('/json_list')
+def json_list():
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+    json_dir = os.path.join(OUTPUT_DIR, "json")
+    os.makedirs(json_dir, exist_ok=True)
+    files = sorted(os.listdir(json_dir), reverse=True)
+    return {"files": files[:20]}
 
 
 # --- run app ---

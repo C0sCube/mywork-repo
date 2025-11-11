@@ -127,35 +127,66 @@
             const logsConsole = document.getElementById("logsConsole");
             const jsonConsole = document.getElementById("jsonConsole");
 
-            logsConsole.innerHTML = "<p>Refreshing logs…</p>";
-            jsonConsole.innerHTML = "<p>Refreshing results…</p>";
+            logsConsole.innerHTML = "<p>Refreshing status…</p>";
+            jsonConsole.innerHTML = "<p>Refreshing outputs…</p>";
 
             try {
-                const resp = await fetch("/logs");
+                // Fetch MySQL table data
+                const resp = await fetch("/status_data");
                 const data = await resp.json();
 
-                // Show logs
-                logsConsole.innerHTML = `<pre style="white-space: pre-wrap; font-family: monospace;">${data.logs || "No logs yet."}</pre>`;
+                if (!data.success || !data.rows.length) {
+                    logsConsole.innerHTML = "<p>No status records yet.</p>";
+                    return;
+                }
 
-                // Show JSON files
-                if (data.json_files && data.json_files.length) {
-                    jsonConsole.innerHTML = "";
-                    data.json_files.forEach(file => {
-                        const row = document.createElement("div");
-                        row.className = "log-item";
-                        row.innerHTML = `
-          <span>${file}</span>
-          <a class="view-btn" href="/json/${file}" target="_blank">View</a>
+                // Build a mini-table for recent processing
+                const table = document.createElement("table");
+                table.className = "status-table";
+                table.innerHTML = `
+            <tr>
+                <th>File Name</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>JSON Path</th>
+                <th>Error</th>
+            </tr>
         `;
-                        jsonConsole.appendChild(row);
+
+                data.rows.forEach(row => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                <td>${row.file_name || "-"}</td>
+                <td>${row.start_time || "-"}</td>
+                <td>${row.end_time || "-"}</td>
+                <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
+                <td>${row.json_path ? `<a href="/json/${row.json_path.split('/').pop()}" target="_blank">View</a>` : "-"}</td>
+                <td>${row.error || ""}</td>
+            `;
+                    table.appendChild(tr);
+                });
+
+                logsConsole.innerHTML = "";
+                logsConsole.appendChild(table);
+
+                // Fetch JSON file list for the second panel
+                const jsonResp = await fetch("/json_list");
+                const jsonData = await jsonResp.json();
+                if (jsonData.files?.length) {
+                    jsonConsole.innerHTML = "";
+                    jsonData.files.forEach(file => {
+                        const item = document.createElement("div");
+                        item.className = "log-item";
+                        item.innerHTML = `<span>${file}</span> <a href="/json/${file}" target="_blank">View</a>`;
+                        jsonConsole.appendChild(item);
                     });
                 } else {
-                    jsonConsole.innerHTML = "<p>No JSON results yet.</p>";
+                    jsonConsole.innerHTML = "<p>No JSON files yet.</p>";
                 }
 
             } catch (err) {
-                logsConsole.innerHTML = "<p>Error loading logs.</p>";
-                jsonConsole.innerHTML = "<p>Error loading JSON list.</p>";
+                logsConsole.innerHTML = "<p>Error fetching status data.</p>";
                 console.error(err);
             }
         }
