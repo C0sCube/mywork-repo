@@ -2,6 +2,8 @@
 REM Navigate to your Flask project directory
 cd "C:\Users\kaustubh.keny\Projects\OFFICE PROJECTS\mywork-repo\web"
 
+title AMC WEB APP CMD
+
 REM Activate the virtual environment
 call "..\.venv\Scripts\activate.bat"
 

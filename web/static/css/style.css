@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: "Inter", Arial, sans-serif;
-    background-color: #f8fafc;
+    background-color: #dadfe7;
     color: #0f172a;
 }
 
@@ -81,7 +81,19 @@ body {
     padding: 30px;
     min-width: 400px;
     /* ✅ Ensure they don't shrink too much */
-    max-width: 550px;
+    max-width: 500px;
+}
+
+.upload-panel {
+    flex: 0 0 28%;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.logs-panel {
+    flex: 0 0 72%;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 /* ✅ Stack only on very small screens */
@@ -109,29 +121,29 @@ body {
 /* ===== UPLOAD SECTION ===== */
 input[type="file"] {
     display: block;
-    margin: 0 auto 20px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 80%;
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow-y: auto;
+    width: 90%;
 }
 
 .upload-grid {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 10px;
 }
 
 #sizeDisplay {
     flex: 1;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
+    padding-left: 5px;
 }
 
 #uploadBtn {
     flex: 1;
-    padding: 10px;
     font-size: 16px;
     background-color: #0f172a;
     color: white;
@@ -139,6 +151,7 @@ input[type="file"] {
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s;
+    padding: 15px;
 }
 
 #uploadBtn:hover {
@@ -152,8 +165,9 @@ input[type="file"] {
     background: #f1f5f9;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
-    max-height: 200px;
+    max-height: 160px;
     overflow-y: auto;
+    width: 90%;
 }
 
 .file-item {
@@ -190,6 +204,17 @@ input[type="file"] {
     color: #334155;
 }
 
+#logsConsole {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 95%;
+}
+
 button.small {
     background-color: #0f172a;
     color: white;
@@ -198,6 +223,7 @@ button.small {
     padding: 6px 12px;
     cursor: pointer;
     font-size: 14px;
+    width: 20%;
     transition: background 0.3s;
 }
 

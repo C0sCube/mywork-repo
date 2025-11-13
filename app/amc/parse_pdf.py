@@ -1,4 +1,4 @@
-import os, re, math,ocrmypdf,time # type: ignore
+import os, re, math,ocrmypdf,time, os # type: ignore
 from app.logger import get_global_logger, log_exceptions
 import fitz # type: ignore
 from collections import defaultdict
@@ -52,6 +52,9 @@ class Reader:
                     self.logger.warning(f"Partial read failed on page {pgn}: {e}")
                     continue
         self.logger.debug(f"📄 {func} complete | {len(title_detected)} pages scanned")
+        
+        if path.endswith("FS_ocr.pdf"): 
+            os.remove(path)
         return title_detected
 
     @log_exceptions()
@@ -77,7 +80,8 @@ class Reader:
             return {}
         except Exception:
             raise  # let decorator log unexpected issues
-
+        
+        os.remove(clipped_pdf)
         self.logger.debug(f"OCR complete — passing to _get_normal_title()")
         return self._get_normal_title(ocr_pdf, title_regex, bbox)
 

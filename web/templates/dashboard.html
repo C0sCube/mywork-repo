@@ -23,12 +23,12 @@
         <div class="main-dashboard">
             <!-- Upload Section -->
             <div class="panel upload-panel">
-                <h2>Upload Factsheet PDFs</h2>
+                <h2>FactSheet PDF</h2>
 
                 <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
                     <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
                     <div class="upload-grid">
-                        <div id="sizeDisplay">Total Size: 0 MB</div>
+                        <div id="sizeDisplay">Size 0 MB</div>
                         <button type="submit" id="uploadBtn">Upload</button>
                     </div>
                 </form>
@@ -46,22 +46,16 @@
 
             <!-- Logs Section -->
             <div class="panel logs-panel">
-                <h2>Processing Status</h2>
-
                 <div class="logs-controls">
                     <button id="refreshLogsBtn" class="small" onclick="loadLogs()">Refresh</button>
+                    <h2>Processing Status</h2>
+                    <!-- <a href="google.com" class="small">View JSON</a> -->
                     <label><input type="checkbox" id="autoRefresh"> Auto-refresh</label>
                 </div>
 
                 <!-- Logs text -->
                 <div class="upload-console" id="logsConsole">
                     <p>Loading logs…</p>
-                </div>
-
-                <!-- JSON result files -->
-                <h3 style="margin-top:20px; text-align:center;">JSON Outputs</h3>
-                <div class="upload-console" id="jsonConsole">
-                    <p>Loading results…</p>
                 </div>
             </div>
 
@@ -98,7 +92,7 @@
 
             if (!selectedFiles.length) consoleDiv.innerHTML = "<p>No files selected.</p>";
 
-            sizeDiv.textContent = `Total Size: ${(totalSize / 1048576).toFixed(2)} MB`;
+            sizeDiv.textContent = `Size ${(totalSize / 1048576).toFixed(2)} MB`;
             sizeDiv.style.color = totalSize > maxSize ? "red" : "green";
             document.getElementById("uploadBtn").disabled = totalSize > maxSize;
         }
@@ -125,10 +119,10 @@
 
         async function loadLogs() {
             const logsConsole = document.getElementById("logsConsole");
-            const jsonConsole = document.getElementById("jsonConsole");
+            // const jsonConsole = document.getElementById("jsonConsole");
 
             logsConsole.innerHTML = "<p>Refreshing status…</p>";
-            jsonConsole.innerHTML = "<p>Refreshing outputs…</p>";
+            // jsonConsole.innerHTML = "<p>Refreshing outputs…</p>";
 
             try {
                 // Fetch MySQL table data
@@ -149,10 +143,11 @@
                 <th>Start</th>
                 <th>End</th>
                 <th>Status</th>
-                <th>JSON Path</th>
                 <th>Error</th>
             </tr>
         `;
+
+            // <th>JSON Path</th>
 
                 data.rows.forEach(row => {
                     const tr = document.createElement("tr");
@@ -161,9 +156,9 @@
                 <td>${row.start_time || "-"}</td>
                 <td>${row.end_time || "-"}</td>
                 <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
-                <td>${row.json_path ? `<a href="/json/${row.json_path.split('/').pop()}" target="_blank">View</a>` : "-"}</td>
                 <td>${row.error || ""}</td>
             `;
+                // <td>${row.json_path ? `<a href="/json/${row.json_path.split('/').pop()}" target="_blank">View</a>` : "-"}</td>
                     table.appendChild(tr);
                 });
 
@@ -171,19 +166,19 @@
                 logsConsole.appendChild(table);
 
                 // Fetch JSON file list for the second panel
-                const jsonResp = await fetch("/json_list");
-                const jsonData = await jsonResp.json();
-                if (jsonData.files?.length) {
-                    jsonConsole.innerHTML = "";
-                    jsonData.files.forEach(file => {
-                        const item = document.createElement("div");
-                        item.className = "log-item";
-                        item.innerHTML = `<span>${file}</span> <a href="/json/${file}" target="_blank">View</a>`;
-                        jsonConsole.appendChild(item);
-                    });
-                } else {
-                    jsonConsole.innerHTML = "<p>No JSON files yet.</p>";
-                }
+                // const jsonResp = await fetch("/json_list");
+                // const jsonData = await jsonResp.json();
+                // if (jsonData.files?.length) {
+                //     jsonConsole.innerHTML = "";
+                //     jsonData.files.forEach(file => {
+                //         const item = document.createElement("div");
+                //         item.className = "log-item";
+                //         item.innerHTML = `<span>${file}</span> <a href="/json/${file}" target="_blank">View</a>`;
+                //         jsonConsole.appendChild(item);
+                //     });
+                // } else {
+                //     jsonConsole.innerHTML = "<p>No JSON files yet.</p>";
+                // }
 
             } catch (err) {
                 logsConsole.innerHTML = "<p>Error fetching status data.</p>";
