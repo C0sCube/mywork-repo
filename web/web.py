@@ -77,6 +77,7 @@ def login():
         remember = "remember" in request.form
 
         if ldap_authenticate(username, password):
+        # if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
