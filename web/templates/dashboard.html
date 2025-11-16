@@ -11,58 +11,69 @@
     <section class="main-bg">
         <div class="header">
             <div class="hero">
-                <img src="{{ url_for('static', filename='img/logo_nse.svg') }}" alt="Logo">
+                <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
                 <h1>FACTSHEET PARSER</h1>
             </div>
             <div class="user-section">
-                <span class="user-name">{{ user|capitalize }}</span>
+                <a href="http://172.22.225.179/adminpanel/parsedjson/" style="text-decoration: none;" target="_blank"
+                    class="user-name input">view json</a>
+                <span class="user-name input">{{ user|capitalize }}</span>
                 <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
             </div>
         </div>
 
         <div class="main-dashboard">
-            <!-- Upload Section -->
-            <div class="panel upload-panel">
-                <h2>FactSheet PDF</h2>
 
-                <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
-                    <div class="upload-grid">
-                        <div id="sizeDisplay">Size 0 MB</div>
-                        <button type="submit" id="uploadBtn">Upload</button>
+
+
+
+            <div id="uploadDrawer" class="upload-drawer">
+                <div class="upload-panel">
+                    <h2>FactSheet PDF</h2>
+
+                    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
+                        <div class="upload-grid">
+                            <div id="sizeDisplay">Size 0 MB</div>
+                            <button type="submit" id="uploadBtn" class="input">Upload</button>
+                        </div>
+                    </form>
+
+                    <div class="upload-console" id="uploadConsole">
+                        <p>No files selected.</p>
                     </div>
-                </form>
 
-                <div class="upload-console" id="uploadConsole">
-                    <p>No files selected.</p>
+                    {% if error %}
+                    <div class="upload-console error">
+                        <p>{{ error }}</p>
+                    </div>
+                    {% endif %}
                 </div>
-
-                {% if error %}
-                <div class="upload-console error">
-                    <p>{{ error }}</p>
-                </div>
-                {% endif %}
             </div>
 
-            <!-- Logs Section -->
-            <div class="panel logs-panel">
-                <div class="logs-controls">
-                    <button id="refreshLogsBtn" class="small" onclick="loadLogs()">Refresh</button>
-                    <h2>Processing Status</h2>
-                    <!-- <a href="google.com" class="small">View JSON</a> -->
-                    <label><input type="checkbox" id="autoRefresh"> Auto-refresh</label>
-                </div>
 
-                <!-- Logs text -->
+            <div class="panel logs-panel">
+                <h3>PROCESSING STATUS</h3>
                 <div class="upload-console" id="logsConsole">
                     <p>Loading logs…</p>
                 </div>
+
+                <div class="logs-controls">
+                    <button id="refreshLogsBtn" class="small input" onclick="loadLogs()">Refresh</button>
+                    <label><input type="checkbox" id="autoRefresh" class="input"> Auto-refresh</label>
+                </div>
             </div>
 
+            <button id="drawerToggle" class="drawer-toggle">➤</button>
         </div>
     </section>
 
     <script>
+
+        document.getElementById("drawerToggle").addEventListener("click", () => {
+            const drawer = document.getElementById("uploadDrawer");
+            drawer.classList.toggle("open");
+        });
         // --- Upload logic ---
         let selectedFiles = [];
 
@@ -147,7 +158,7 @@
             </tr>
         `;
 
-            // <th>JSON Path</th>
+                // <th>JSON Path</th>
 
                 data.rows.forEach(row => {
                     const tr = document.createElement("tr");
@@ -158,44 +169,17 @@
                 <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
                 <td>${row.error || ""}</td>
             `;
-                // <td>${row.json_path ? `<a href="/json/${row.json_path.split('/').pop()}" target="_blank">View</a>` : "-"}</td>
                     table.appendChild(tr);
                 });
 
                 logsConsole.innerHTML = "";
                 logsConsole.appendChild(table);
 
-                // Fetch JSON file list for the second panel
-                // const jsonResp = await fetch("/json_list");
-                // const jsonData = await jsonResp.json();
-                // if (jsonData.files?.length) {
-                //     jsonConsole.innerHTML = "";
-                //     jsonData.files.forEach(file => {
-                //         const item = document.createElement("div");
-                //         item.className = "log-item";
-                //         item.innerHTML = `<span>${file}</span> <a href="/json/${file}" target="_blank">View</a>`;
-                //         jsonConsole.appendChild(item);
-                //     });
-                // } else {
-                //     jsonConsole.innerHTML = "<p>No JSON files yet.</p>";
-                // }
-
             } catch (err) {
                 logsConsole.innerHTML = "<p>Error fetching status data.</p>";
                 console.error(err);
             }
         }
-
-        document.getElementById("autoRefresh").addEventListener("change", (e) => {
-            if (e.target.checked) {
-                logsInterval = setInterval(loadLogs, 10000);
-            } else {
-                clearInterval(logsInterval);
-            }
-        });
-
-        loadLogs();
-
     </script>
 </body>
 

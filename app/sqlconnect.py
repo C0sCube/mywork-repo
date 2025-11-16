@@ -1,12 +1,10 @@
 import traceback
 import mysql.connector
 from mysql.connector import Error
-from app.konstant import DB_CONFIG
 from app.logger import get_global_logger
 
-
 # ------------------ CONNECTION HANDLER ------------------
-def establish_connection(db_config=DB_CONFIG):
+def establish_connection(db_config=None):
     """Create and return a MySQL connection."""
     logger = get_global_logger()
     try:
@@ -74,15 +72,15 @@ def insert_new(conn, data: dict):
 
 
 # ------------------ MAIN HANDLER ------------------
-def update_table(data: dict):
+def update_table(data: dict, db_config = None):
     """
     Insert or update a record in holy_sheet.
     Handles connection, check, and upsert logic.
     """
     logger = get_global_logger()
-    conn = establish_connection()
+    conn = establish_connection(db_config=db_config)
     if not conn:
-        logger.error("❌ Cannot connect to database.")
+        logger.error("Cannot connect to database.")
         return False
 
     try:
@@ -93,14 +91,14 @@ def update_table(data: dict):
 
         if fetch_existing_record(conn, file_name):
             update_existing(conn, data)
-            logger.info(f"🟢 Updated existing record for {file_name}")
+            logger.info(f"Updated existing record for {file_name}")
         else:
             insert_new(conn, data)
-            logger.info(f"🆕 Inserted new record for {file_name}")
+            logger.info(f"Inserted new record for {file_name}")
         return True
 
     except Error as e:
-        logger.error(f"❌ Database operation failed: {e}")
+        logger.error(f"Database operation failed: {e}")
         logger.debug(traceback.format_exc())
         if conn.is_connected():
             conn.rollback()

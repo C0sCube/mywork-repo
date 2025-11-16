@@ -1,24 +1,26 @@
 import os, sys, json, time
-from datetime import timedelta
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
-from werkzeug.utils import secure_filename
-from werkzeug.security import generate_password_hash, check_password_hash
-from ldap3 import Server, Connection, ALL
-
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
 
+
+from datetime import timedelta
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash
+from ldap3 import Server, Connection, ALL #type: ignore
+from app.sqlconnect import establish_connection
 from app.utils import Helper
 
 # --- Flask app setup ---
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # ⚠️ change this in production
+app.secret_key = "supersecretkey" 
 app.permanent_session_lifetime = timedelta(days=7)
 
 # --- paths and config ---
 utils = Helper()
-config = utils.load_json(os.path.join(root_dir, r"paths.json"))
+path = os.path.join(root_dir, r"paths.json")
+config = utils.load_json(path)
 INPUT_DIR = config["amc_path"]
 OUTPUT_DIR = config["output_path"]
 USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
@@ -26,6 +28,8 @@ USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
 LDAP_CONFIG = config.get("ldap")
 LDAP_SERVER = LDAP_CONFIG["path"]
 LDAP_DOMAIN = LDAP_CONFIG["domain"]
+
+DB_CONFIG = config.get("db_config")
 
 def ldap_authenticate(username, password):
     server = Server(LDAP_SERVER, get_info=ALL)
@@ -38,7 +42,6 @@ def ldap_authenticate(username, password):
     except Exception as e:
         print(f"LDAP auth failed: {e}")
         return False
-
 
 
 # --- helper to load/save users ---
@@ -188,8 +191,6 @@ def logs():
         "json_files": json_files
     }
 
-from app.sqlconnect import establish_connection
-
 @app.route('/status_data')
 def status_data():
     """Return latest entries from holy_sheet as JSON for dashboard polling."""
@@ -197,7 +198,7 @@ def status_data():
         return redirect(url_for("login"))
 
     try:
-        conn = establish_connection()
+        conn = establish_connection(db_config=DB_CONFIG)
         cur = conn.cursor(dictionary=True)
         cur.execute("""
             SELECT file_name, start_time, end_time, status, json_path, error
