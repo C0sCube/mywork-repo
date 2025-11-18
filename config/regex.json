@@ -228,7 +228,8 @@
             "investment_objective",
             ".*underlying_index$",
             ".*benchmark$",
-            ".*scheme_benchmark$"
+            ".*scheme_benchmark$",
+            ".*benchmark_underlying_index$"
         ],
         "field_location": [],
         "fund_manager": [
@@ -477,10 +478,12 @@
             "^pb$",
             "^pb_mul_ple",
             "^pb_multiple$",
-            "^pb.+?ple$"
+            "^pb.+?ple$",
+            "^p_b$"
         ],
         "average_pe": [
             ".*_pe",
+            "^p_e$",
             "^pe$",
             "^pe_mul_ple",
             "^pe_multiple$",

@@ -29,7 +29,7 @@ set_global_logger(logger)
 def discover_new_files(known_files):
     current_files = {
         f for f in os.listdir(INPUT_DIR)
-        if os.path.isfile(os.path.join(INPUT_DIR, f))
+        if os.path.isfile(os.path.join(INPUT_DIR, f)) and f.endswith("_FS.pdf")
     }
     return current_files - known_files
 
@@ -83,20 +83,15 @@ def program_runner(path, amc_id, file_name, report):
         report["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         report["json_path"] = None
         report["status"] = "failed"
-        report["error"] = str(e)
+        report["error"] = f"{type(e).__name__}: {e}"
         
     return report
-
 
 def process_file(file_name, report):
     try:
         file_path = os.path.join(INPUT_DIR, file_name)
         file_key = check_amc_file(file_name=file_name)
         report = program_runner(file_path, file_key, file_name, report)
-
-        # report["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        # report["json_path"] = result
-        # report["status"] = "Completed" if result else "Failed"
         
         archive_dir = PROCESSED_DIR if report["status"] == "completed" else FAILED_DIR
         Helper.archive_files(archive_dir, {file_name: file_path})
@@ -108,10 +103,10 @@ def process_file(file_name, report):
             "end_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "json_path": None,
             "status": "Error",
-            "error": str(e)
+            "error": f"{type(e).__name__}: {e}"
         })
 
-    update_table(report)
+    update_table(report, db_config=DB_CONFIG)
     return report["json_path"]
 
 # --- Main Watcher Loop ---

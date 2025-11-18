@@ -8,6 +8,7 @@ def establish_connection(db_config=None):
     """Create and return a MySQL connection."""
     logger = get_global_logger()
     try:
+        # print("DB CONFIG:", db_config, type(db_config))
         conn = mysql.connector.connect(**db_config)
         return conn
     except Error as e:

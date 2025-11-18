@@ -29,7 +29,8 @@ class Reader:
     @log_exceptions()
     def _get_normal_title(self, path: str, title_regex: str, bbox):
         func = inspect.currentframe().f_code.co_name
-        self.logger.info(f"▶ Start {func} | file={self.FILE_NAME}")
+        self.logger.info(f"▶ Start {func} | file={path}")
+        # print(f"▶ Start {func} | file={path}")
 
         title_detected,escape_regex = {},self.PARAM_REGEX.ESCAPE
 
@@ -53,8 +54,8 @@ class Reader:
                     continue
         self.logger.debug(f"📄 {func} complete | {len(title_detected)} pages scanned")
         
-        if path.endswith("FS_ocr.pdf"): 
-            os.remove(path)
+        # if path.endswith("FS_ocr.pdf"): 
+        #     os.remove(path)
         return title_detected
 
     @log_exceptions()
@@ -81,7 +82,7 @@ class Reader:
         except Exception:
             raise  # let decorator log unexpected issues
         
-        os.remove(clipped_pdf)
+        # os.remove(clipped_pdf)
         self.logger.debug(f"OCR complete — passing to _get_normal_title()")
         return self._get_normal_title(ocr_pdf, title_regex, bbox)
 

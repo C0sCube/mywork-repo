@@ -25,23 +25,23 @@ INPUT_DIR = config["amc_path"]
 OUTPUT_DIR = config["output_path"]
 USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
 
-LDAP_CONFIG = config.get("ldap")
-LDAP_SERVER = LDAP_CONFIG["path"]
-LDAP_DOMAIN = LDAP_CONFIG["domain"]
+# LDAP_CONFIG = config.get("ldap")
+# LDAP_SERVER = LDAP_CONFIG["path"]
+# LDAP_DOMAIN = LDAP_CONFIG["domain"]
 
 DB_CONFIG = config.get("db_config")
 
-def ldap_authenticate(username, password):
-    server = Server(LDAP_SERVER, get_info=ALL)
-    user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
-    print(f"Trying LDAP bind with DN: {user_dn}")
-    try:
-        conn = Connection(server, user=user_dn, password=password, auto_bind=True)
-        print("LDAP bind successful.")
-        return conn.bound
-    except Exception as e:
-        print(f"LDAP auth failed: {e}")
-        return False
+# def ldap_authenticate(username, password):
+#     server = Server(LDAP_SERVER, get_info=ALL)
+#     user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
+#     print(f"Trying LDAP bind with DN: {user_dn}")
+#     try:
+#         conn = Connection(server, user=user_dn, password=password, auto_bind=True)
+#         print("LDAP bind successful.")
+#         return conn.bound
+#     except Exception as e:
+#         print(f"LDAP auth failed: {e}")
+#         return False
 
 
 # --- helper to load/save users ---
@@ -76,8 +76,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        if ldap_authenticate(username, password):
-        # if True:
+        # if ldap_authenticate(username, password):
+        if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember

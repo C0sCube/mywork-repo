@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <title>Factsheet Parser Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
@@ -18,12 +19,12 @@
         <div class="user-section">
 
             <!-- SAME BUTTON STYLE -->
-            <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="nav-btn">
+            <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="head-btn">
                 GET JSON
             </a>
 
             <!-- SAME BUTTON STYLE -->
-            <button class="nav-btn" onclick="toggleModal(true)">UPLOAD</button>
+            <button class="head-btn" onclick="toggleModal(true)">UPLOAD</button>
 
             <!-- USERNAME (PLAIN TEXT) -->
             <span style="font-weight:600; color:#e5e7eb;">
@@ -40,19 +41,29 @@
 
         <!-- LOGS PANEL -->
         <div class="panel logs-panel">
-            <h2>PROCESSING STATUS</h2>
+
+            <ul class="logs-bar">
+                <li>
+                    <h3>STATUS REPORT</h3>
+                </li>
+                <div class="right-controls">
+                    <li>
+                        <label>
+                            <input type="checkbox" id="autoRefresh">
+                            Auto-refresh
+                        </label>
+                    </li>
+                    <li><button class="nav-btn" onclick="loadLogs()" title="Refresh">
+                            <span class="material-symbols-outlined">refresh</span>
+                        </button></li>
+                </div>
+            </ul>
 
             <div id="logsConsole">
                 <p>Loading status…</p>
             </div>
 
             <div class="logs-controls">
-                <button class="nav-btn" onclick="loadLogs()">Refresh</button>
-
-                <label>
-                    <input type="checkbox" id="autoRefresh">
-                    Auto-refresh
-                </label>
             </div>
         </div>
     </section>
@@ -60,7 +71,18 @@
     <!-- UPLOAD MODAL -->
     <div id="uploadModal" class="modal">
         <div class="modal-content">
-            <h2 style="margin-top:0;">Upload Factsheet PDFs</h2>
+
+            <ul class="logs-bar">
+                <li>
+                    <h2 style="margin-top:0;">Upload AMC PDF(s)</h2>
+                    <div class="right-controls">
+
+                <li>
+                    <button class="close-btn" onclick="toggleModal(false)">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </li>
+            </ul>
 
             <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
 
@@ -71,12 +93,10 @@
                     <button type="submit" id="uploadBtn">Upload</button>
                 </div>
             </form>
-
             <div class="upload-console" id="uploadConsole">
                 <p>No files selected.</p>
             </div>
 
-            <button class="close-modal" onclick="toggleModal(false)">Close</button>
         </div>
     </div>
 
@@ -148,6 +168,10 @@
             if (resp.redirected) window.location = resp.url;
         });
 
+        function safeText(text) {
+    return (text || "").toString().trim();
+}
+
         /* ---------- STATUS / LOGS ---------- */
         async function loadLogs() {
             const logsConsole = document.getElementById("logsConsole");
@@ -178,11 +202,9 @@
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
                     <td>${row.file_name || "-"}</td>
-                    <td>${row.start_time || "-"}</td>
-                    <td>${row.end_time || "-"}</td>
-                    <td class="${row.status?.toLowerCase() || ''}">
-                        ${row.status || "-"}
-                    </td>
+                    <td>${formatISTDate(row.start_time) || "-"}</td>
+                    <td>${formatISTDate(row.end_time) || "-"}</td>
+                    <td class="${row.status?.toLowerCase()|| ''}">${row.status|| "-"}</td>
                     <td>${row.error || ""}</td>
                     `;
                     table.appendChild(tr);
@@ -201,9 +223,34 @@
             if (document.getElementById("autoRefresh").checked) {
                 loadLogs();
             }
-        }, 4000);
+        }, 15000);
 
         loadLogs();
+
+        function formatISTDate(dateString) {
+            if (!dateString) return "-";
+            const date = new Date(dateString);
+            // Convert to IST
+            const options = {
+                timeZone: "Asia/Kolkata",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            };
+            const parts = new Intl.DateTimeFormat("en-GB", options).formatToParts(date);
+
+            // Build format: YYYY/MM/DD H:M
+            const year = parts.find(p => p.type === "year").value;
+            const month = parts.find(p => p.type === "month").value;
+            const day = parts.find(p => p.type === "day").value;
+            const hour = parts.find(p => p.type === "hour").value;
+            const minute = parts.find(p => p.type === "minute").value;
+
+            return `${year}/${month}/${day} ${hour}:${minute}`;
+        }
     </script>
 
 </body>

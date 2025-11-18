@@ -1,7 +1,7 @@
 
 import json,json5,os
 
-path_path = r"paths.json"
+path_path = r"C:\Users\kaustubh.keny\Projects\OFFICE PROJECTS\mywork-repo\paths.json"
 
 def load_json(path: str):
     with open(path, "r", encoding="utf-8") as f:
