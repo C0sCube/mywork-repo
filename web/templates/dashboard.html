@@ -17,14 +17,20 @@
         </div>
 
         <div class="user-section">
+            {% if user is defined and user|lower == 'kaustubh.keny' %}
+            <a href="http://172.22.225.179/adminpanel/fs_logs/" target="_blank" class="head-btn">
+                Edit Configs
+            </a>
+            {% endif %}
+
 
             <!-- SAME BUTTON STYLE -->
             <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="head-btn">
-                GET JSON
+                Get Json
             </a>
 
             <!-- SAME BUTTON STYLE -->
-            <button class="head-btn" onclick="toggleModal(true)">UPLOAD</button>
+            <button class="head-btn" onclick="toggleModal(true)">Upload</button>
 
             <!-- USERNAME (PLAIN TEXT) -->
             <span style="font-weight:600; color:#e5e7eb;">
@@ -85,9 +91,8 @@
             </ul>
 
             <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-
                 <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
-
+                <input type="hidden" name="uploaded_by" id="uploaded_by" value="{{ user }}">
                 <div class="upload-grid">
                     <div id="sizeDisplay">Size 0 MB</div>
                     <button type="submit" id="uploadBtn">Upload</button>
@@ -169,8 +174,8 @@
         });
 
         function safeText(text) {
-    return (text || "").toString().trim();
-}
+            return (text || "").toString().trim();
+        }
 
         /* ---------- STATUS / LOGS ---------- */
         async function loadLogs() {
@@ -191,23 +196,25 @@
 
                 table.innerHTML = `
                 <tr>
-                    <th>File Name</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>Status</th>
+                    <th style="width:45px; text-align:center;">Sr.</th>
+                    <th style="width:180px">File Name</th>
+                    <th style="width:145px">Start</th>
+                    <th style="width:145px">End</th>
+                    <th style="width:100px">Status</th>
                     <th>Error</th>
                 </tr>`;
 
-                data.rows.forEach(row => {
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `
+                data.rows.forEach((row, index) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${index + 1}</td>
                     <td>${row.file_name || "-"}</td>
                     <td>${formatISTDate(row.start_time) || "-"}</td>
                     <td>${formatISTDate(row.end_time) || "-"}</td>
-                    <td class="${row.status?.toLowerCase()|| ''}">${row.status|| "-"}</td>
+                    <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
                     <td>${row.error || ""}</td>
-                    `;
-                    table.appendChild(tr);
+                `;
+                table.appendChild(tr);
                 });
 
                 logsConsole.innerHTML = "";

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Config Editor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .editor-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem;
+    }
+
+    .editor-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .editor-controls select,
+    .editor-controls button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #jsonInput {
+      width: 100%;
+      height: 400px;
+      font-family: monospace;
+      font-size: 14px;
+      padding: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    #jsonInput.invalid {
+      border-color: red;
+    }
+
+    .error-message {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="hero">
+      <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+      <h2>CONFIG EDITOR</h2>
+      <a href="{{ url_for('index') }}" class="head-btn"> ← </a>
+    </div>
+  </header>
+
+  <section class="editor-container">
+    <div class="editor-controls">
+      <label for="yearSelect">Year:</label>
+      <select id="yearSelect"></select>
+
+      <label for="fileSelect">File:</label>
+      <select id="fileSelect"></select>
+
+      <button onclick="loadConfig()" class="head-btn">Load</button>
+      <button onclick="saveConfig()" class="head-btn">Save</button>
+      <button onclick="backupConfig()" class="head-btn">Backup</button>
+    </div>
+
+    <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
+    <div id="errorDisplay" class="error-message"></div>
+  </section>
+
+  <script>
+    const jsonInput = document.getElementById("jsonInput");
+    const errorDisplay = document.getElementById("errorDisplay");
+
+    const years = [2020, 2021, 2022, 2023];
+    const yearSelect = document.getElementById("yearSelect");
+    const fileSelect = document.getElementById("fileSelect");
+
+    years.forEach(y => {
+      const opt = document.createElement("option");
+      opt.value = y;
+      opt.textContent = y;
+      yearSelect.appendChild(opt);
+    });
+
+    yearSelect.addEventListener("change", async () => {
+      const year = yearSelect.value;
+      const resp = await fetch(`/list-files/${year}`);
+      const data = await resp.json();
+      fileSelect.innerHTML = "";
+      data.files.forEach(f => {
+        const opt = document.createElement("option");
+        opt.value = f;
+        opt.textContent = f;
+        fileSelect.appendChild(opt);
+      });
+    });
+
+    function validateJSON() {
+      try {
+        JSON.parse(jsonInput.value);
+        jsonInput.classList.remove("invalid");
+        errorDisplay.textContent = "";
+        return true;
+      } catch (e) {
+        jsonInput.classList.add("invalid");
+        errorDisplay.textContent = "Invalid JSON: " + e.message;
+        return false;
+      }
+    }
+
+    async function loadConfig() {
+      const year = yearSelect.value;
+      const filename = fileSelect.value;
+      const resp = await fetch("/load-config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year, filename })
+      });
+      const result = await resp.json();
+      if (result.success) {
+        jsonInput.value = JSON.stringify(result.data, null, 2);
+        validateJSON();
+      } else {
+        alert("Error loading config: " + result.error);
+      }
+    }
+
+    async function saveConfig() {
+      if (!validateJSON()) return;
+      const year = yearSelect.value;
+      const filename = fileSelect.value;
+      const content = jsonInput.value;
+      const resp = await fetch("/save-config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year, filename, content })
+      });
+      const result = await resp.json();
+      alert(result.success ? "Saved successfully!" : "Save failed: " + result.error);
+    }
+
+    async function backupConfig() {
+      const year = yearSelect.value;
+      const filename = fileSelect.value;
+      const resp = await fetch("/backup-config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year, filename })
+      });
+      const result = await resp.json();
+      alert(result.success ? "Backup triggered!" : "Backup failed: " + result.message);
+    }
+
+    // Auto-load files for the first year
+    yearSelect.value = years[0];
+    yearSelect.dispatchEvent(new Event("change"));
+  </script>
+</body>
+
+</html>

@@ -213,7 +213,6 @@ body {
     justify-content: center;
     gap: 6px;
 
-    /* FORCE SAME SIZING */
     padding: 8px 16px !important;
     height: 38px;
     /* <—— same height for both */
@@ -257,7 +256,7 @@ body {
     box-sizing: border-box;
 
     /* STYLE */
-    background: #60a5fa;
+    background: #334155;
     color: #fff !important;
     font-weight: 700;
     font-size: 0.95rem;
@@ -304,9 +303,9 @@ body {
 
 /* logs panel narrower */
 .logs-panel {
-    flex: 1 1 85%;
-    max-width: 85%;
-    width: 85%;
+    flex: 1 1 98%;
+    max-width: 98%;
+    width: 98%;
 }
 
 .logs-bar {
@@ -480,18 +479,6 @@ input[type="file"] {
     overflow-wrap: break-word; /* allow wrapping in error column */
 }
 
-/* Compact columns */
-.status-table th.file-name,
-.status-table td.file-name,
-.status-table th.start,
-.status-table td.start,
-.status-table th.end,
-.status-table td.end,
-.status-table th.status,
-.status-table td.status {
-    min-width: 40px;   /* fixed narrow width */
-    white-space: nowrap; /* keep text on one line */
-}
 
 /* Expandable error column */
 .status-table th.error,
@@ -546,7 +533,6 @@ input[type="file"] {
 }
 
 /* ---------- MODAL (NO PRE-BLUR) ---------- */
-/* NOTE: blur/backdrop only appears when modal.show is present */
 .modal {
     position: fixed;
     inset: 0;

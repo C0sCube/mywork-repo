@@ -5,12 +5,13 @@ sys.path.append(root_dir)
 
 
 from datetime import timedelta
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from ldap3 import Server, Connection, ALL #type: ignore
 from app.sqlconnect import establish_connection
 from app.utils import Helper
+from sqlconnect import update_table
 
 # --- Flask app setup ---
 app = Flask(__name__)
@@ -25,23 +26,25 @@ INPUT_DIR = config["amc_path"]
 OUTPUT_DIR = config["output_path"]
 USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
 
-# LDAP_CONFIG = config.get("ldap")
-# LDAP_SERVER = LDAP_CONFIG["path"]
-# LDAP_DOMAIN = LDAP_CONFIG["domain"]
+LDAP_CONFIG = config.get("ldap")
+LDAP_SERVER = LDAP_CONFIG["path"]
+LDAP_DOMAIN = LDAP_CONFIG["domain"]
+ADMIN_USERS = LDAP_CONFIG.get("admin_user", [])
 
+CONFIG_BASE_PATH = config["config_base_path"]
 DB_CONFIG = config.get("db_config")
 
-# def ldap_authenticate(username, password):
-#     server = Server(LDAP_SERVER, get_info=ALL)
-#     user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
-#     print(f"Trying LDAP bind with DN: {user_dn}")
-#     try:
-#         conn = Connection(server, user=user_dn, password=password, auto_bind=True)
-#         print("LDAP bind successful.")
-#         return conn.bound
-#     except Exception as e:
-#         print(f"LDAP auth failed: {e}")
-#         return False
+def ldap_authenticate(username, password):
+    server = Server(LDAP_SERVER, get_info=ALL)
+    user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
+    print(f"Trying LDAP bind with DN: {user_dn}")
+    try:
+        conn = Connection(server, user=user_dn, password=password, auto_bind=True)
+        print("LDAP bind successful.")
+        return conn.bound
+    except Exception as e:
+        print(f"LDAP auth failed: {e}")
+        return False
 
 
 # --- helper to load/save users ---
@@ -58,7 +61,6 @@ def save_users(users):
 
 
 # --- ROUTES ---
-
 @app.route('/')
 def index():
     if not session.get("logged_in"):
@@ -67,7 +69,14 @@ def index():
     json_dir = os.path.join(OUTPUT_DIR, "json")
     os.makedirs(json_dir, exist_ok=True)
     json_files = os.listdir(json_dir)
-    return render_template("dashboard.html", json_files=json_files, user=session.get("user"))
+    user = session.get("user", "")  # Ensure user is passed
+    return render_template("dashboard.html", json_files=json_files, user=user)
+
+@app.route('/dashboard')
+def dashboard():
+    user = session.get("user", "")
+    return render_template('dashboard.html', user=user)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -124,23 +133,33 @@ def upload_files():
     if not session.get("logged_in"):
         return redirect(url_for("login"))
 
+    uploaded_by = request.form.get("uploaded_by", "unknown")
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
-    
-    total_size = 0
 
     for file in uploaded_files:
         if file and file.filename.lower().endswith(".pdf"):
             filename = secure_filename(file.filename)
             file.save(os.path.join(INPUT_DIR, filename))
-            
-            file.seek(0, os.SEEK_END)
-            size = file.tell()
-            file.seek(0)
-            
+
+            # ✅ Log or store the uploader
+            print(f"File '{filename}' uploaded by {uploaded_by}")
+
 
     time.sleep(2)
     return redirect('/')
+
+@app.route('/record-upload', methods=['POST'])
+def record_upload():
+    if not session.get("logged_in"):
+        return jsonify({"success": False, "error": "Not logged in"}), 403
+
+    data = request.get_json()
+    data["json_path"] = ""  # optional: fill later via parser
+    success = update_table(data, db_config=DB_CONFIG)
+
+    return jsonify({"success": success})
+
 
 
 @app.route('/delete/<filename>')
@@ -223,6 +242,67 @@ def json_list():
     os.makedirs(json_dir, exist_ok=True)
     files = sorted(os.listdir(json_dir), reverse=True)
     return {"files": files[:20]}
+
+@app.route('/config-editor')
+def config_editor():
+    if not session.get("logged_in"):
+        return redirect(url_for("login")) 
+
+    user = session.get("user", "").lower()
+    if user != "kaustubh.keny":
+        return redirect(url_for("index"))
+
+    return render_template("config_editor.html", user=user) 
+
+@app.route('/list-files/<int:year>')
+def list_files(year):
+    year_path = os.path.join(CONFIG_BASE_PATH, str(year))
+    try:
+        files = [f for f in os.listdir(year_path) if f.endswith('.json')]
+        return jsonify({"files": files})
+    except Exception as e:
+        return jsonify({"files": [], "error": str(e)})
+    
+@app.route('/load-config', methods=['POST'])
+def load_config():
+    data = request.get_json()
+    year = data.get('year')
+    filename = data.get('filename')
+    path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+
+    try:
+        with open(path, 'r') as f:
+            json_data = json.load(f)
+        return jsonify({"success": True, "data": json_data})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+    
+@app.route('/save-config', methods=['POST'])
+def save_config():
+    data = request.get_json()
+    year = data.get('year')
+    filename = data.get('filename')
+    content = data.get('content')
+    path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+
+    try:
+        parsed = json.loads(content)  # Validate JSON
+        with open(path, 'w') as f:
+            json.dump(parsed, f, indent=2)
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+    
+@app.route('/backup-config', methods=['POST'])
+def backup_config():
+    data = request.get_json()
+    year = data.get('year')
+    filename = data.get('filename')
+
+    # You can later replace this with your actual backup logic
+    print(f"Backup requested for {year}/{filename}")
+    return jsonify({"success": True, "message": "Backup triggered"})
+
 
 
 # --- run app ---
