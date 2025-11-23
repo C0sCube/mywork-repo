@@ -26,6 +26,22 @@ def load_config(): return load_json5(load_paths()["configs"]["params"])
 
 def load_regex(): return load_json5(load_paths()["configs"]["regex"])
 
+
+def get_config(year = "2025", id = ""):
+    base_path = load_paths()["config_base_path"]
+    config_path = os.path.join(base_path, year, f"{id}_AMC.json5")
+    if not os.path.exists(config_path):
+        return None
+    return load_json5(config_path)
+
+def get_regex(year = "2025"):
+    base_path = load_paths()["config_base_path"]
+    config_path = os.path.join(base_path, year, f"regex_{year}.json")
+    if not os.path.exists(config_path):
+        return None
+    return load_json(config_path)
+
+
 def load_sidkimregex():
     return load_json5(
         load_paths()["configs"]["sid_regex"]

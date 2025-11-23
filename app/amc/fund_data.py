@@ -3,7 +3,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import fitz #type:ignore
 from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
-from app.konstant import  load_config
 from app.amc.parse_pdf import Reader
 from app.parse_table import *
 from app.logger import get_global_logger, log_exceptions
@@ -11,11 +10,9 @@ from app.utils import Helper
 
 
 class GrandFundData:
-    def __init__(self, amc_id: str):
-        # config = Config()
-        config = load_config()
-        fund_config = config.get(amc_id, {})
+    def __init__(self, config: str):
 
+        fund_config = config
         self.PARAMS = fund_config.get("PARAMS", {})
         self.REGEX = fund_config.get("REGEX", {})
         self.FUND_NAME = fund_config.get("AMC_NAME", "")
@@ -538,13 +535,9 @@ class GrandFundData:
 
 class BaseAMC(Reader, GrandFundData):
     @log_exceptions()
-    def __init__(self, amc_id: str, path: str):
-        logger = get_global_logger()
-        GrandFundData.__init__(self, amc_id)
-        logger.debug(f"PARAMS after GrandFundData: {self.PARAMS}")
-        Reader.__init__(self, self.PARAMS, path)
-        logger.debug(f" Reader initialized with path: {path}")
-
+    def __init__(self, config: dict, regex: dict, path: str):
+        GrandFundData.__init__(self, config)
+        Reader.__init__(self, self.PARAMS, regex, path)
 
 # -------------- Plain AMC's ---------------
 class ThreeSixtyOne(BaseAMC): pass

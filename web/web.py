@@ -299,7 +299,6 @@ def backup_config():
     year = data.get('year')
     filename = data.get('filename')
 
-    # You can later replace this with your actual backup logic
     print(f"Backup requested for {year}/{filename}")
     return jsonify({"success": True, "message": "Backup triggered"})
 

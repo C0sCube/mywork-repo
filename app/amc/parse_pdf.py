@@ -10,11 +10,11 @@ from app.utils import Helper
 from app.konstant import * #all constants
 
 class Reader:
-    def __init__(self,params:dict,path:str):
+    def __init__(self,params:dict,regex: dict,path:str):
         
         self.logger = get_global_logger()
         self.PARAMS = params #amc specific
-        self.PARAM_REGEX = FundRegex()
+        self.PARAM_REGEX = FundRegex(regex)
         self.UTILS = Helper()
         
         self.FILE_NAME = path.split("\\")[-1] # filename
@@ -816,7 +816,7 @@ class Reader:
         str_limit = { "amc_name": 500, "main_scheme_name": 500, "min_addl_amt": 50, "min_addl_amt_multiple": 50, "min_amt": 50, 
         "min_amt_multiple": 50, "monthly_aaum_date": 50, "monthly_aaum_value": 50,"mutual_fund_name": 500, "scheme_launch_date": 50}
 
-        manager_limit = { "name": 100, "managing_fund_since": 100,  "qualification": 1000, "total_experience": 1000,}
+        manager_limit = { "name": 100, "managing_fund_since": 100,  "qualification": 1000, "total_exp": 1000}
         benchmark_limit = 1000
         metrics_limit = 45
         load_limit = 500
@@ -836,11 +836,13 @@ class Reader:
                     
                 elif key == "fund_manager" and isinstance(value, list):
                     trimmed_managers = []
+                    # print(value)
                     for mgr in value:
                         trimmed = { mk: (mv[:manager_limit[mk]] if isinstance(mv, str) else mv) for mk, mv in mgr.items() if mk in manager_limit }
                         trimmed_managers.append(trimmed)
                     content[key] = trimmed_managers
 
+                    # print(content[key])
                 elif key == "load" and isinstance(value, list):
                     trimmed_loads = []
                     for ld in value:

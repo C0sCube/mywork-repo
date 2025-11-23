@@ -3,7 +3,8 @@ from datetime import datetime
 
 # --- Import your actual modules ---
 from app.konstant import (
-    get_input_path, get_output_path, create_dir,load_db_config,
+    get_input_path, get_output_path, create_dir,
+    load_db_config, get_config, get_regex,
     CHECK_INTERVAL, PAUSE
 )
 from app.logger import setup_logger, rotate_daily_log, set_global_logger
@@ -18,7 +19,6 @@ JSON_DIR = create_dir(OUTPUT_DIR, "json")
 LOG_DIR = create_dir(OUTPUT_DIR, "log")
 PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
 FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
-
 DB_CONFIG = load_db_config()
 
 logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12)
@@ -48,14 +48,19 @@ def initialize_status_reports(new_files):
         update_table(update,db_config=DB_CONFIG)
     return reports
 
-def program_runner(path, amc_id, file_name, report):
+def program_runner(path, amc_id, year, report):
+    file_name = os.path.basename(path)
+    logger.notice(f"Process {amc_id}: {file_name}")
     try:
         if amc_id not in CLASS_REGISTRY:
-            logger.warning(f"Unknown AMC ID: {amc_id}")
             raise ValueError("Unknown AMC ID or File.")
-
-        logger.notice(f"Processing {amc_id}: {file_name}")
-        obj = CLASS_REGISTRY[amc_id](amc_id, path)
+        
+        config  =  get_config(year,amc_id)
+        regex = get_regex(year)
+        if not config or not regex:
+            raise ValueError(f"Unknown {amc_id} not present in Config. or regex")
+        
+        obj = CLASS_REGISTRY[amc_id](config,regex,path)
 
         title, path_pdf = obj.check_and_highlight(path)
         if not (title and path_pdf):
@@ -72,26 +77,32 @@ def program_runner(path, amc_id, file_name, report):
         Helper.save_json(dfs, save_path)
         logger.save(f"Saved JSON File: {save_path}")
         
-        report["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        report["json_path"] = save_path
-        report["status"] = "completed"
+        
+        report.update({
+            "end_time":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "json_path":save_path,
+            "status":"completed"
+        })
 
     except Exception as e:
         logger.error(f"[Pipeline Error] {file_name} | {type(e).__name__}: {e}")
         logger.debug(traceback.format_exc())
         
-        report["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        report["json_path"] = None
-        report["status"] = "failed"
-        report["error"] = f"{type(e).__name__}: {e}"
-        
+        report.update({
+            "end_time":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "json_path":None,
+            "status":"failed",
+            "error":f"{type(e).__name__}: {e}"
+        })
+                
     return report
 
 def process_file(file_name, report):
     try:
         file_path = os.path.join(INPUT_DIR, file_name)
-        file_key = check_amc_file(file_name=file_name)
-        report = program_runner(file_path, file_key, file_name, report)
+        
+        file_key, year = check_amc_file(file_name=file_name)
+        report = program_runner(file_path, file_key, year, report)
         
         archive_dir = PROCESSED_DIR if report["status"] == "completed" else FAILED_DIR
         Helper.archive_files(archive_dir, {file_name: file_path})
@@ -118,7 +129,7 @@ def main():
             new_files = discover_new_files(known_files)
 
             if not new_files:
-                logger.notice("No new files found. Sleeping...")
+                logger.notice("No new files. Sleeping...")
                 time.sleep(CHECK_INTERVAL)
                 rotate_daily_log(logger)
                 continue
@@ -155,6 +166,9 @@ def main():
 if __name__ == "__main__":
     logger.info("Running program FactSheet Parser")
     main()
+
+
+
 
 
 # -------------------- CORE PIPELINE --------------------

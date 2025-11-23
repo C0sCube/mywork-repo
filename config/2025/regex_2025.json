@@ -360,7 +360,8 @@
             ".*monthly_aaum_as$",
             ".*monthly_aaum_as_on$",
             ".*avg_aum$",
-            ".*avg\\.?_\\.?aum$"
+            ".*avg\\.?_\\.?aum$",
+            ".*monthly_avg_assets_under_management$"
         ],
         "mutual_fund_name": [
             "mutual_fund_name"

@@ -1,4 +1,6 @@
 from app.amc.fund_data import *
+import re
+from datetime import datetime
 
 CLASS_REGISTRY = {
     "18_0": ThreeSixtyOne,
@@ -71,16 +73,21 @@ def check_amc_file(file_name:str)->bool:
     from app.logger import get_global_logger
     logger = get_global_logger()
     
-    if file_name.endswith("FS.pdf"):
-        logger.info(f"Detected Pdf File Named {file_name}")
-        parts = file_name.split("_")
-        fund_id = parts[0]
-
-        is_passive = len(parts[-2]) == 1 #determine passive
-        suffix = parts[-2] if is_passive else "0"
-        fund_key = f"{fund_id}_{suffix}"
-        return fund_key
+    get_name = "(\\d{1,3}_\\d{2}-[A-Za-z]{3}-\\d{2}(?:_\\d{1})?)_FS.pdf"
     
+    if file_name.endswith("_FS.pdf"):
+        if matches:= re.findall(get_name, file_name):
+            logger.debug(f"Detected Pdf File Named {file_name}")
+            code,dateval,*rest = matches[0].split("_")
+            date_obj = datetime.strptime(dateval, "%d-%b-%y")
+            final_code = f"{code}_0"
+            if rest:
+                final_code =  f"{code}_1"
+                
+            return final_code, str(date_obj.year)
+        logger.warning(f"Invalid File or File Type {file_name}")
+        return None, None
+
     if file_name.endswith(".xlsx") and file_name == "table_data.xlsx":
         logger.info("Detected Excel File Named 'table_data.xlsx'")
         return True
