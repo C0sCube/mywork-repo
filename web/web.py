@@ -180,6 +180,33 @@ def get_json(filename):
         return redirect(url_for("login"))
     return send_from_directory(os.path.join(OUTPUT_DIR, "json"), filename)
 
+
+# ------------------ PDF VIEW ROUTE ------------------
+@app.route('/viewer/pdf/<filename>')
+def view_pdf(filename):
+    processed_dir = os.path.join(OUTPUT_DIR, "processed")
+    failed_dir = os.path.join(OUTPUT_DIR, "failed")
+
+    processed_path = os.path.join(processed_dir, filename)
+    failed_path = os.path.join(failed_dir, filename)
+
+    if os.path.exists(processed_path):
+        return send_from_directory(processed_dir, filename)
+
+    if os.path.exists(failed_path):
+        return send_from_directory(failed_dir, filename)
+
+    return "PDF not found", 404
+
+
+# ------------------ JSON VIEW ROUTE ------------------
+@app.route('/viewer/json/<filename>')
+def view_json(filename):
+    json_dir = os.path.join(OUTPUT_DIR, "json")
+    return send_from_directory(json_dir, filename)
+
+
+
 @app.route('/logs')
 def logs():
     if not session.get("logged_in"):

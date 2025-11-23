@@ -204,18 +204,57 @@
                     <th>Error</th>
                 </tr>`;
 
+                // data.rows.forEach((row, index) => {
+                // const tr = document.createElement("tr");
+                // tr.innerHTML = `
+                //     <td>${index + 1}</td>
+                //     <td>${row.file_name || "-"}</td>
+                //     <td>${formatISTDate(row.start_time) || "-"}</td>
+                //     <td>${formatISTDate(row.end_time) || "-"}</td>
+                //     <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
+                //     <td>${row.error || ""}</td>
+                // `;
+                // table.appendChild(tr);
+                // });
                 data.rows.forEach((row, index) => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${row.file_name || "-"}</td>
-                    <td>${formatISTDate(row.start_time) || "-"}</td>
-                    <td>${formatISTDate(row.end_time) || "-"}</td>
-                    <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
-                    <td>${row.error || ""}</td>
-                `;
-                table.appendChild(tr);
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>
+                    <a href="/viewer/pdf/${row.file_name}" 
+                    target="_blank" class="link-btn">
+                    ${row.file_name}
+                    </a>
+                </td>
+                <td>${formatISTDate(row.start_time) || "-"}</td>
+                <td>${formatISTDate(row.end_time) || "-"}</td>
+                <td class="${row.status?.toLowerCase() || ''}">
+                    ${row.status || "-"}
+                </td>
+                <td>
+                    ${row.json_path ?
+                            `<button onclick="toggleJson(${index}, '${row.file_name.replace('.pdf', '.json')}')" 
+                                class="json-inline-btn">
+                            View JSON
+                        </button>`
+                            : "-"}
+                </td>`;
+
+                    table.appendChild(tr);
+
+                    // ------- INLINE JSON ROW -------
+                    const jsonRow = document.createElement("tr");
+                    jsonRow.id = "jsonRow_" + index;
+                    jsonRow.style.display = "none";
+                    jsonRow.innerHTML = `
+                        <td colspan="6" class="json-cell">
+                            <div id="jsonContent_${index}" class="json-box"></div>
+                        </td>
+                    `;
+                    table.appendChild(jsonRow);
                 });
+
+
 
                 logsConsole.innerHTML = "";
                 logsConsole.appendChild(table);
@@ -258,6 +297,34 @@
 
             return `${year}/${month}/${day} ${hour}:${minute}`;
         }
+
+        async function toggleJson(index, jsonFilename) {
+            const row = document.getElementById("jsonRow_" + index);
+            const container = document.getElementById("jsonContent_" + index);
+
+            // collapse logic
+            if (row.style.display === "table-row") {
+                row.style.display = "none";
+                container.innerHTML = "";
+                return;
+            }
+
+            // expand
+            row.style.display = "table-row";
+            container.innerHTML = "<p>Loading JSON...</p>";
+
+            try {
+                const resp = await fetch("/viewer/json/" + jsonFilename);
+                const data = await resp.json();
+
+                container.innerHTML = `
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+            } catch (err) {
+                container.innerHTML = "<p style='color:red;'>Error loading JSON.</p>";
+            }
+        }
+
     </script>
 
 </body>
