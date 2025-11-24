@@ -4,7 +4,7 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
 
 
-from datetime import timedelta
+from datetime import timedelta, datetime
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
@@ -128,6 +128,7 @@ def signup():
 
     return render_template("signup.html")
 
+# inside web.py (edit upload_files route)
 @app.route('/upload', methods=['POST'])
 def upload_files():
     if not session.get("logged_in"):
@@ -140,13 +141,41 @@ def upload_files():
     for file in uploaded_files:
         if file and file.filename.lower().endswith(".pdf"):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(INPUT_DIR, filename))
+            file_path = os.path.join(INPUT_DIR, filename)
+            file.save(file_path)
 
-            # ✅ Log or store the uploader
+            # create a small sidecar meta JSON so parser can read who uploaded it
+            meta = {
+                "uploaded_by": uploaded_by,
+                "uploaded_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            try:
+                meta_path = file_path + ".meta.json"
+                with open(meta_path, "w", encoding="utf-8") as mf:
+                    json.dump(meta, mf)
+            except Exception as e:
+                print(f"Failed to write meta for {filename}: {e}")
+
+            # insert initial DB row via update_table (so dashboard shows file immediately)
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            initial = {
+                "start_time": now,
+                "end_time": None,
+                "file_name": filename,
+                "json_path": None,
+                "status": "Pending",
+                "error": None,
+                "uploaded_by": uploaded_by
+            }
+            try:
+                # import update_table at top: from sqlconnect import update_table
+                update_table(initial, db_config=DB_CONFIG)
+            except Exception as e:
+                print(f"Failed to write initial DB row for {filename}: {e}")
+
             print(f"File '{filename}' uploaded by {uploaded_by}")
 
-
-    time.sleep(2)
+    time.sleep(1)
     return redirect('/')
 
 @app.route('/record-upload', methods=['POST'])

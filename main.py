@@ -1,4 +1,8 @@
-import os, time,traceback
+# main.py (REPLACEMENT)
+import os
+import time
+import traceback
+import json
 from datetime import datetime
 
 # --- Import your actual modules ---
@@ -25,27 +29,67 @@ logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12)
 rotate_daily_log(logger)
 set_global_logger(logger)
 
-# --- Helper Functions ---
-def discover_new_files(known_files):
-    current_files = {
-        f for f in os.listdir(INPUT_DIR)
-        if os.path.isfile(os.path.join(INPUT_DIR, f)) and f.endswith("_FS.pdf")
-    }
-    return current_files - known_files
+helper = Helper()
 
-def initialize_status_reports(new_files):
+# --- Helper Functions ---
+def list_input_pdfs():
+    """Return list of valid pdf filenames currently in INPUT_DIR."""
+    try:
+        files = [
+            f for f in os.listdir(INPUT_DIR)
+            if os.path.isfile(os.path.join(INPUT_DIR, f)) and f.endswith("_FS.pdf")
+        ]
+        return sorted(files)
+    except FileNotFoundError:
+        os.makedirs(INPUT_DIR, exist_ok=True)
+        return []
+    except Exception as e:
+        logger.error(f"Error listing input dir: {e}")
+        return []
+
+def read_meta_for_file(file_name):
+    """Read sidecar meta JSON (if present) and return dict."""
+    meta_path = os.path.join(INPUT_DIR, file_name + ".meta.json")
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, "r", encoding="utf-8") as fh:
+                return json.load(fh)
+        except Exception as e:
+            logger.warning(f"Failed to read meta for {file_name}: {e}")
+    return {}
+
+def write_initial_db_row(file_name, uploaded_by="unknown"):
+    """Insert a 'Pending' row immediately so dashboard shows the new file."""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    update = {
+        "start_time": now,
+        "end_time": None,
+        "file_name": file_name,
+        "json_path": None,
+        "status": "Pending",
+        "error": None,
+        "uploaded_by": uploaded_by
+    }
+    update_table(update, db_config=DB_CONFIG)
+    return update
+
+def initialize_status_reports(file_list):
     reports = {}
-    for file_name in new_files:
-        update = {
+    for file_name in file_list:
+        meta = read_meta_for_file(file_name)
+        uploaded_by = meta.get("uploaded_by", meta.get("uploader", "unknown"))
+        report = {
             "start_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "end_time": None,
             "file_name": file_name,
             "json_path": None,
             "status": "Pending",
-            "error": None
+            "error": None,
+            "uploaded_by": uploaded_by
         }
-        reports[file_name] = update
-        update_table(update,db_config=DB_CONFIG)
+        reports[file_name] = report
+        # insert initial DB row so web shows it immediately
+        write_initial_db_row(file_name, uploaded_by=uploaded_by)
     return reports
 
 def program_runner(path, amc_id, year, report):
@@ -107,6 +151,18 @@ def process_file(file_name, report):
         archive_dir = PROCESSED_DIR if report["status"] == "completed" else FAILED_DIR
         Helper.archive_files(archive_dir, {file_name: file_path})
 
+        # remove meta file if exists (archive/cleanup)
+        meta_src = os.path.join(INPUT_DIR, file_name + ".meta.json")
+        if os.path.exists(meta_src):
+            try:
+                Helper.archive_files(archive_dir, {os.path.basename(meta_src): meta_src})
+            except Exception:
+                # if sidecar cannot be archived, attempt remove (best-effort)
+                try:
+                    os.remove(meta_src)
+                except Exception:
+                    pass
+
     except Exception as e:
         logger.error(f"Error in processing {file_name}: {type(e).__name__}: {e}")
         logger.debug(traceback.format_exc())
@@ -117,16 +173,16 @@ def process_file(file_name, report):
             "error": f"{type(e).__name__}: {e}"
         })
 
+    # ensure uploaded_by is preserved if present
     update_table(report, db_config=DB_CONFIG)
     return report["json_path"]
 
 # --- Main Watcher Loop ---
 def main():
-    known_files = set()
-
+    logger.info("Watcher started.")
     while True:
         try:
-            new_files = discover_new_files(known_files)
+            new_files = list_input_pdfs()
 
             if not new_files:
                 logger.notice("No new files. Sleeping...")
@@ -139,20 +195,19 @@ def main():
             time.sleep(PAUSE)
 
             status_reports = initialize_status_reports(new_files)
-            completed, failed = {}, {}
 
             for file_name in new_files:
                 report = status_reports[file_name]
-                result = process_file(file_name, report)
-                if result:
-                    completed[file_name] = result
-                else:
-                    failed[file_name] = report.get("error")
+
+                # if meta exists, ensure report has uploaded_by from it
+                meta = read_meta_for_file(file_name)
+                if meta and meta.get("uploaded_by"):
+                    report["uploaded_by"] = meta["uploaded_by"]
+
+                process_file(file_name, report)
                 time.sleep(1)
 
-            logger.save(f"[{', '.join(completed.keys())}] file(s) done. [{', '.join(failed.keys())}] file(s) failed.")
-            known_files.update(new_files)
-            Helper.delete_files([os.path.join(INPUT_DIR, f) for f in known_files])
+            logger.save(f"[{', '.join(new_files)}] processed/attempted.")
 
         except KeyboardInterrupt:
             logger.warning("Watcher stopped by user. Exiting gracefully.")
@@ -164,41 +219,5 @@ def main():
 
 # --- Entry Point ---
 if __name__ == "__main__":
-    logger.info("Running program FactSheet Parser")
+    logger.info("Running program FactSheet Parser (watcher)")
     main()
-
-
-
-
-
-# -------------------- CORE PIPELINE --------------------
-# if amc_id == "8_0":
-#     try:
-#         filename = file_name.replace(".pdf", ".xlsx")
-#         logger.info("Trying to read tabular data (xlsx)...")
-#         df = utils.get_ext_in_folder(INPUT_DIR,filename,extension=".xlsx")
-#         if df:
-#             page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
-#             logger.notice("Tabular data loaded.")
-#             logger.info(page_content)
-#         else:
-#             raise ValueError("Tabular Data Not Found.")
-    
-#     except Exception as e:
-#         logger.warning(f"Tabular data loading failed: {e}")
-
-# if amc_id == "1_0":
-#     pass
-#     try:
-#         filename = file_name.replace(".pdf", ".json")
-#         logger.info("Trying to read annot data (json)...")
-#         jsn = utils.get_ext_in_folder(INPUT_DIR,filename,extension=".json")
-#         # if df:
-#         #     page_content = dict(zip(df.iloc[:, 0], df.iloc[:, 1]))
-#         #     logger.notice("Tabular data loaded.")
-#         #     logger.info(page_content)
-#         # else:
-#         #     raise ValueError("Tabular Data Not Found.")
-    
-#     except Exception as e:
-#         logger.warning(f"Json loading failed: {e}")

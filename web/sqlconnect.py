@@ -1,3 +1,4 @@
+# sqlconnect.py (REPLACEMENT)
 import traceback
 import mysql.connector
 from mysql.connector import Error
@@ -8,14 +9,12 @@ def establish_connection(db_config=None):
     """Create and return a MySQL connection."""
     logger = get_global_logger()
     try:
-        # print("DB CONFIG:", db_config, type(db_config))
         conn = mysql.connector.connect(**db_config)
         return conn
     except Error as e:
         logger.error(f"DB connection failed: {e}")
         logger.debug(traceback.format_exc())
         return None
-
 
 # ------------------ QUERY HELPERS ------------------
 def fetch_existing_record(conn, file_name: str) -> bool:
@@ -26,13 +25,12 @@ def fetch_existing_record(conn, file_name: str) -> bool:
     cur.close()
     return exists
 
-
 def update_existing(conn, data: dict):
     """Update the row for an existing file_name."""
     cur = conn.cursor()
     query = """
         UPDATE holy_sheet
-        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s
+        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s
         WHERE file_name=%s
     """
     cur.execute(
@@ -43,19 +41,19 @@ def update_existing(conn, data: dict):
             data.get("json_path"),
             data.get("status"),
             data.get("error"),
+            data.get("uploaded_by"),
             data.get("file_name"),
         ),
     )
     conn.commit()
     cur.close()
 
-
 def insert_new(conn, data: dict):
     """Insert a new record for a file_name that doesn't exist."""
     cur = conn.cursor()
     query = """
-        INSERT INTO holy_sheet (start_time, end_time, file_name, json_path, status, error)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        INSERT INTO holy_sheet (start_time, end_time, file_name, json_path, status, error, uploaded_by)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
     cur.execute(
         query,
@@ -66,11 +64,11 @@ def insert_new(conn, data: dict):
             data.get("json_path"),
             data.get("status"),
             data.get("error"),
+            data.get("uploaded_by"),
         ),
     )
     conn.commit()
     cur.close()
-
 
 # ------------------ MAIN HANDLER ------------------
 def update_table(data: dict, db_config = None):
