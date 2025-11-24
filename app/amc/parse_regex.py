@@ -169,10 +169,11 @@ class FundRegex:
         return data
 
     def _format_amt_data(self, fund, data):
-        if re.search(r"\betf\b", str(fund), re.IGNORECASE):
-            for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
-                data.pop(key, None)
-            return data
+        #keep etf min/add
+        # if re.search(r"\betf\b", str(fund), re.IGNORECASE):
+        #     for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
+        #         data.pop(key, None)
+        #     return data
 
         for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
             val = data.get(key, "")

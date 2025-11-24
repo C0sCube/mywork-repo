@@ -196,49 +196,24 @@
 
                 table.innerHTML = `
                 <tr>
-                    <th style="width:45px; text-align:center;">Sr.</th>
-                    <th style="width:180px">File Name</th>
-                    <th style="width:145px">Start</th>
-                    <th style="width:145px">End</th>
-                    <th style="width:100px">Status</th>
-                    <th>Error</th>
+                    <th style="width:45px; text-align:center;">Sr</th>
+                    <th style="width:180px; text-align:center;">File Name</th>
+                    <th style="width:145px; text-align:center;">Start</th>
+                    <th style="width:145px; text-align:center;">End</th>
+                    <th style="width:100px; text-align:center;">Status</th>
+                    <th style="width:70px;">Json</th>
+                    <th style="text-align:center;">Error</th>
                 </tr>`;
 
-                // data.rows.forEach((row, index) => {
-                // const tr = document.createElement("tr");
-                // tr.innerHTML = `
-                //     <td>${index + 1}</td>
-                //     <td>${row.file_name || "-"}</td>
-                //     <td>${formatISTDate(row.start_time) || "-"}</td>
-                //     <td>${formatISTDate(row.end_time) || "-"}</td>
-                //     <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
-                //     <td>${row.error || ""}</td>
-                // `;
-                // table.appendChild(tr);
-                // });
                 data.rows.forEach((row, index) => {
                     const tr = document.createElement("tr");
-                    tr.innerHTML = `
-                <td>${index + 1}</td>
-                <td>
-                    <a href="/viewer/pdf/${row.file_name}" 
-                    target="_blank" class="link-btn">
-                    ${row.file_name}
-                    </a>
-                </td>
-                <td>${formatISTDate(row.start_time) || "-"}</td>
-                <td>${formatISTDate(row.end_time) || "-"}</td>
-                <td class="${row.status?.toLowerCase() || ''}">
-                    ${row.status || "-"}
-                </td>
-                <td>
-                    ${row.json_path ?
-                            `<button onclick="toggleJson(${index}, '${row.file_name.replace('.pdf', '.json')}')" 
-                                class="json-inline-btn">
-                            View JSON
-                        </button>`
-                            : "-"}
-                </td>`;
+                    tr.innerHTML = `<td>${index + 1}</td>
+                    <td><a href="/viewer/pdf/${row.file_name}" target="_blank" class="menu__link">${row.file_name}</a></td>
+                    <td>${formatISTDate(row.start_time) || "-"}</td>
+                    <td>${formatISTDate(row.end_time) || "-"}</td>
+                    <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
+                    <td>${row.json_path ?`<a href="/viewer/json/${row.file_name.replace('.pdf', '.json')}" target="_blank" class="menu__link">JSON</a>`: "-"} </td>
+                    <td>${row.error || "-"}</td> `;
 
                     table.appendChild(tr);
 
@@ -253,8 +228,6 @@
                     `;
                     table.appendChild(jsonRow);
                 });
-
-
 
                 logsConsole.innerHTML = "";
                 logsConsole.appendChild(table);
