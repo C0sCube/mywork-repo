@@ -128,7 +128,6 @@ def signup():
 
     return render_template("signup.html")
 
-# inside web.py (edit upload_files route)
 @app.route('/upload', methods=['POST'])
 def upload_files():
     if not session.get("logged_in"): return redirect(url_for("login"))
@@ -382,7 +381,25 @@ def daily_logs():
     if user != "kaustubh.keny":
         return redirect(url_for("index"))
 
-    return render_template("daily_logs.html", user=user) 
+    return render_template("daily_logs.html", user=user)
+
+@app.route("/load-daily-log", methods=["POST"])
+def load_daily_log():
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+
+    date = request.get_json().get("date")  # format: 2025-10-20
+    log_file = os.path.join(OUTPUT_DIR, "logs", date, "watcher.log")
+
+    if not os.path.exists(log_file):
+        return {"success": False, "content": "No logs for this date."}
+
+    try:
+        with open(log_file, "r", encoding="utf-8", errors="ignore") as f:
+            return {"success": True, "content": f.read()}
+    except:
+        return {"success": False, "content": "Error reading log file."}
+
 
 # --- run app ---
 if __name__ == '__main__':
@@ -390,4 +407,5 @@ if __name__ == '__main__':
     host = "NCOG-LPT-TCH-32.Cogencis.com"
     port = 5000
     
-    app.run(debug=True, host=host, port=port)
+    # app.run(debug=True, host=host, port=port)
+    app.run(debug=True, host="127.0.0.1", port=5055)

@@ -4,11 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>daily_logs</title>
+    <title>Daily Logs</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        /* Single scroll area, synced line numbers */
+        .log-wrapper {
+            display: flex;
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            border-radius: 8px;
+            min-height: 200px;
+            height: 400px;
+            overflow: hidden;
+            /* prevent layout shaking */
+        }
+
+        .line-numbers {
+            background: #e2e8f0;
+            padding: 10px 12px;
+            text-align: right;
+            font-family: monospace;
+            font-size: 0.85rem;
+            width: 50px;
+            border-right: 1px solid #cbd5e1;
+            overflow: hidden;
+            /* NO scroll bar */
+            user-select: none;
+        }
+
+        .log-content {
+            flex-grow: 1;
+            padding: 10px 15px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            overflow-y: scroll;
+            /* ONLY THIS scrolls */
+        }
+    </style>
 </head>
 
 <body>
+
     <header class="header">
         <div class="hero">
             <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
@@ -16,20 +54,83 @@
             <a href="{{ url_for('index') }}" class="head-btn"> ← </a>
         </div>
     </header>
-    <!-- MAIN CONTENT -->
-    <section class="editor-container">
-        <div class="editor-controls">
 
-            <label for="fileSelect">File:</label>
-            <select id="fileSelect"></select>
+    <section class="container" >
 
-            <button onclick="loadConfig()" class="head-btn">Load</button>
+        <!-- Controls -->
+        <div class="editor-controls" style="margin-bottom: 20px; display:flex; align-items:center; gap:1rem;">
+            <label for="dateSelect"><strong>Date:</strong></label>
+            <input type="date" id="dateSelect" class="input" style="padding:6px 10px;">
+            <button onclick="loadLog()" class="btn">Load</button>
+            <button onclick="refreshLog()" class="btn ghost">Refresh</button>
         </div>
 
-        <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
-        <div id="errorDisplay" class="error-message"></div>
+        <!-- Log Viewer -->
+        <div class="log-wrapper">
+            <div id="lineNumbers" class="line-numbers">1</div>
+            <div id="logViewer" class="log-content" onscroll="syncScroll()">Select a date to load logs...</div>
+        </div>
+
     </section>
+
+    <script>
+        let currentDate = null;
+
+        async function loadLog() {
+            const date = document.getElementById("dateSelect").value;
+            if (!date) {
+                alert("Please select a date first.");
+                return;
+            }
+
+            currentDate = date;
+
+            const resp = await fetch("/load-daily-log", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ date })
+            });
+
+            const data = await resp.json();
+            const content = data.content || "No logs available for this date.";
+            updateLogViewer(content);
+        }
+
+        function refreshLog() {
+            if (!currentDate) {
+                alert("Load a log first.");
+                return;
+            }
+            loadLog();
+        }
+
+        function updateLogViewer(text) {
+            const viewer = document.getElementById("logViewer");
+            const lineBox = document.getElementById("lineNumbers");
+
+            viewer.textContent = text;
+
+            // Generate line numbers
+            const lineCount = text.split("\n").length;
+            let nums = "01\n02\n03\n04\n05\n06\n07\n08\n09\n";
+            for (let i = 10; i <= lineCount; i++) nums += i + "\n";
+            lineBox.textContent = nums;
+
+            // Scroll to bottom automatically
+            requestAnimationFrame(() => {
+                viewer.scrollTop = viewer.scrollHeight;
+                lineBox.scrollTop = viewer.scrollTop;
+            });
+        }
+
+        function syncScroll() {
+            // Make line numbers follow the main scroll
+            const viewer = document.getElementById("logViewer");
+            const lineBox = document.getElementById("lineNumbers");
+            lineBox.scrollTop = viewer.scrollTop;
+        }
+    </script>
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/json5@2/dist/index.min.js"></script>
 
 </html>
