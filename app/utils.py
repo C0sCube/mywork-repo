@@ -242,7 +242,43 @@ class Helper:
 
         logger.info(f"Archived {copied} file(s) to {dest_folder}")
 
-    
+
+    @staticmethod
+    def archive_and_delete_files(dest_folder: str, data):
+        """Move one or more files to a destination folder."""
+        logger = get_global_logger()
+
+        if not os.path.exists(dest_folder):
+            os.makedirs(dest_folder, exist_ok=True)
+            logger.info(f"Created destination folder: {dest_folder}")
+
+        if isinstance(data, dict):
+            file_paths = list(data.values())
+        elif isinstance(data, list):
+            file_paths = data
+        elif isinstance(data, str):
+            file_paths = [data]
+        else:
+            logger.error(f"[archive_and_delete_files] Invalid data type: {type(data)}")
+            return
+
+        moved = 0
+        for path in file_paths:
+            if not os.path.isfile(path):
+                logger.warning(f"File not found, skipping: {path}")
+                continue
+            try:
+                file_name = os.path.basename(path)
+                dest_path = os.path.join(dest_folder, file_name)
+                shutil.move(path, dest_path)  # atomic move
+                moved += 1
+                logger.info(f"Moved: {path} → {dest_path}")
+            except Exception as e:
+                logger.error(f"Failed to move '{path}' → {dest_folder}: {e}")
+
+        logger.info(f"Archived {moved} file(s) to {dest_folder}")
+
+
     #JSON UN/LOAD
     @staticmethod
     def create_dir(base_path, *folders):
@@ -269,6 +305,17 @@ class Helper:
     def load_json5(path: str):
         with open(path, "r", encoding="utf-8") as f:
             return json5.load(f)
+        
+    @staticmethod
+    def load_json_as_string(path: str, indent: int = None) -> str:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.dumps(json.load(f), indent=indent, ensure_ascii=False)
+
+    @staticmethod
+    def load_json5_as_string(path: str, indent: int = None) -> str:
+        with open(path, "r", encoding="utf-8") as f:
+            return json5.dumps(json5.load(f), indent=indent)
+
     
     #WRITE TEXT
     @staticmethod

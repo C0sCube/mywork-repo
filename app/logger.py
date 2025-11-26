@@ -41,7 +41,8 @@ def setup_logger(
     base_dir="logs",
     log_level=logging.INFO,
     to_console=True,
-    to_file=True
+    to_file=True,
+    set_global = False
 ):
     """Simple logger that creates a new dated folder each day."""
     today_dir = datetime.now().strftime("%Y-%m-%d")
@@ -87,6 +88,9 @@ def setup_logger(
     logging.Logger.trace = trace
     logging.Logger.save = save
     logging.Logger.notice = notice
+    
+    if set_global:
+        set_global_logger(logger)
 
     return logger
 

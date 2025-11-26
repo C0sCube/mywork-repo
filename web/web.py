@@ -1,4 +1,4 @@
-import os, sys, json, time
+import os, sys, json, time, json5
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
@@ -11,7 +11,7 @@ from werkzeug.security import generate_password_hash
 from ldap3 import Server, Connection, ALL #type: ignore
 from app.sqlconnect import establish_connection
 from app.utils import Helper
-from sqlconnect import update_table
+from sqlconnect import update_report_table
 
 # --- Flask app setup ---
 app = Flask(__name__)
@@ -131,10 +131,9 @@ def signup():
 # inside web.py (edit upload_files route)
 @app.route('/upload', methods=['POST'])
 def upload_files():
-    if not session.get("logged_in"):
-        return redirect(url_for("login"))
+    if not session.get("logged_in"): return redirect(url_for("login"))
 
-    uploaded_by = request.form.get("uploaded_by", "unknown")
+    uploaded_by = session.get("user", "unknown")
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
 
@@ -150,7 +149,8 @@ def upload_files():
                 "uploaded_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             }
             try:
-                meta_path = file_path + ".meta.json"
+                meta_path = os.path.splitext(file_path)[0] + ".meta.json"
+                # print(meta_path)
                 with open(meta_path, "w", encoding="utf-8") as mf:
                     json.dump(meta, mf)
             except Exception as e:
@@ -169,7 +169,7 @@ def upload_files():
             }
             try:
                 # import update_table at top: from sqlconnect import update_table
-                update_table(initial, db_config=DB_CONFIG)
+                update_report_table(initial, db_config=DB_CONFIG)
             except Exception as e:
                 print(f"Failed to write initial DB row for {filename}: {e}")
 
@@ -185,7 +185,7 @@ def record_upload():
 
     data = request.get_json()
     data["json_path"] = ""  # optional: fill later via parser
-    success = update_table(data, db_config=DB_CONFIG)
+    success = update_report_table(data, db_config=DB_CONFIG)
 
     return jsonify({"success": success})
 
@@ -277,14 +277,15 @@ def status_data():
         conn = establish_connection(db_config=DB_CONFIG)
         cur = conn.cursor(dictionary=True)
         cur.execute("""
-            SELECT file_name, start_time, end_time, status, json_path, error
-            FROM holy_sheet
+            SELECT file_name, start_time, end_time, status,json_path, error, uploaded_by
+            FROM mf_status_report
             ORDER BY start_time DESC
-            LIMIT 20
+            LIMIT 30
         """)
         rows = cur.fetchall()
         cur.close()
         conn.close()
+        # print(rows)
         return {"success": True, "rows": rows}
     except Exception as e:
         print("status_data error:", e)
@@ -314,7 +315,7 @@ def config_editor():
 def list_files(year):
     year_path = os.path.join(CONFIG_BASE_PATH, str(year))
     try:
-        files = [f for f in os.listdir(year_path) if f.endswith('.json')]
+        files = [f for f in os.listdir(year_path) if (f.endswith('.json') or  f.endswith('.json5'))]
         return jsonify({"files": files})
     except Exception as e:
         return jsonify({"files": [], "error": str(e)})
@@ -327,12 +328,16 @@ def load_config():
     path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
 
     try:
-        with open(path, 'r') as f:
-            json_data = json.load(f)
+        with open(path, 'r', encoding='utf-8') as f:
+            if filename.endswith(".json5"):
+                json_data = json5.load(f)   # parse JSON5
+            else:
+                json_data = json.load(f)    # parse strict JSON
+        # pretty print back to client
         return jsonify({"success": True, "data": json_data})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
-    
+
 @app.route('/save-config', methods=['POST'])
 def save_config():
     data = request.get_json()
@@ -342,13 +347,20 @@ def save_config():
     path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
 
     try:
-        parsed = json.loads(content)  # Validate JSON
-        with open(path, 'w') as f:
-            json.dump(parsed, f, indent=2)
+        # parse content depending on extension
+        if filename.endswith(".json5"):
+            parsed = json5.loads(content)
+        else:
+            parsed = json.loads(content)
+
+        # always save as pretty JSON (indent=2)
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(parsed, f, indent=2, ensure_ascii=False)
+
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
-    
+  
 @app.route('/backup-config', methods=['POST'])
 def backup_config():
     data = request.get_json()
@@ -360,6 +372,22 @@ def backup_config():
 
 
 
+#logs
+@app.route('/daily-log')
+def daily_logs():
+    if not session.get("logged_in"):
+        return redirect(url_for("login")) 
+
+    user = session.get("user", "").lower()
+    if user != "kaustubh.keny":
+        return redirect(url_for("index"))
+
+    return render_template("daily_logs.html", user=user) 
+
 # --- run app ---
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+    host = "NCOG-LPT-TCH-32.Cogencis.com"
+    port = 5000
+    
+    app.run(debug=True, host=host, port=port)

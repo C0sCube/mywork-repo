@@ -64,7 +64,7 @@ CLASS_REGISTRY = {
     "38_0": Tata,
     "35_1": SBIPassive, #ocr
     "99_0": CapitalMind,
-    "100_0": WealthCompany
+    "100_0": WealthCompany,
 }
 
 

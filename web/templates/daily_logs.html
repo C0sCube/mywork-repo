@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daily_logs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="hero">
+            <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+            <h2>DAILY LOGS</h2>
+            <a href="{{ url_for('index') }}" class="head-btn"> ← </a>
+        </div>
+    </header>
+    <!-- MAIN CONTENT -->
+    <section class="editor-container">
+        <div class="editor-controls">
+
+            <label for="fileSelect">File:</label>
+            <select id="fileSelect"></select>
+
+            <button onclick="loadConfig()" class="head-btn">Load</button>
+        </div>
+
+        <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
+        <div id="errorDisplay" class="error-message"></div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/json5@2/dist/index.min.js"></script>
+
+</html>

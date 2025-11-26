@@ -5,20 +5,25 @@ from dateutil import parser #type:ignore
 from datetime import datetime
 from app.utils import Helper
 from app.logger import log_exceptions
+from app.konstant import get_registry
 
 class FundRegex:
     def __init__(self, regex):
         data = regex
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
-        self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, data.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
         self.JSON_HEADER = data.get("json_headers", {})
-        self.POPULATE_ALL_INDICE = data.get("add_json_headers", [])
         self.METRIC_HEADER = data.get("metrics_headers", {})
-        self.FINANCIAL_TERMS = data.get("financial_indices", [])
         self.ESCAPE = data.get("escape_regex", "")
-        self.MAIN_SCHEME_NAME = data.get("main_scheme_name", {})
         self.UTILS = Helper()
+        
+        #global_regex
+        registry = get_registry()
+        self.POPULATE_ALL_INDICE = registry.get("add_json_headers", [])
+        self.FINANCIAL_TERMS = [s.strip() for s in registry.get("financial_indices","").split(",")]
+        self.MAIN_SCHEME_NAME = registry.get("main_scheme_name", {})
+        self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, registry.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
+    
 
     @log_exceptions()
     def _header_mapper(self, text: str)->str:

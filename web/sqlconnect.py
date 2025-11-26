@@ -1,26 +1,32 @@
-# sqlconnect.py (REPLACEMENT)
 import traceback
 import mysql.connector
 from mysql.connector import Error
+from app.utils import Helper
 from app.logger import get_global_logger
+
+
+table_report = "mf_status_report"
 
 # ------------------ CONNECTION HANDLER ------------------
 def establish_connection(db_config=None):
     """Create and return a MySQL connection."""
     logger = get_global_logger()
     try:
+        print("DB CONFIG:", db_config, type(db_config))
         conn = mysql.connector.connect(**db_config)
+        logger.info(f"Database - {db_config.get("database","")} is connected.")
         return conn
     except Error as e:
-        logger.error(f"DB connection failed: {e}")
+        logger.error(f"Database connection failed: {e}")
         logger.debug(traceback.format_exc())
         return None
+
 
 # ------------------ QUERY HELPERS ------------------
 def fetch_existing_record(conn, file_name: str) -> bool:
     """Check if a file_name already exists in the table."""
     cur = conn.cursor(dictionary=True)
-    cur.execute("SELECT COUNT(*) AS cnt FROM holy_sheet WHERE file_name = %s", (file_name,))
+    cur.execute(f"SELECT COUNT(*) AS cnt FROM {table_report} WHERE file_name = %s", (file_name,))
     exists = cur.fetchone()["cnt"] > 0
     cur.close()
     return exists
@@ -28,9 +34,9 @@ def fetch_existing_record(conn, file_name: str) -> bool:
 def update_existing(conn, data: dict):
     """Update the row for an existing file_name."""
     cur = conn.cursor()
-    query = """
-        UPDATE holy_sheet
-        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s
+    query = f"""
+        UPDATE {table_report}
+        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s,uploaded_by=%s
         WHERE file_name=%s
     """
     cur.execute(
@@ -51,8 +57,8 @@ def update_existing(conn, data: dict):
 def insert_new(conn, data: dict):
     """Insert a new record for a file_name that doesn't exist."""
     cur = conn.cursor()
-    query = """
-        INSERT INTO holy_sheet (start_time, end_time, file_name, json_path, status, error, uploaded_by)
+    query = f"""
+        INSERT INTO {table_report} (start_time, end_time, file_name, json_path, status, error,uploaded_by)
         VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
     cur.execute(
@@ -70,14 +76,15 @@ def insert_new(conn, data: dict):
     conn.commit()
     cur.close()
 
+
 # ------------------ MAIN HANDLER ------------------
-def update_table(data: dict, db_config = None):
+def update_report_table(data: dict, db_config:dict):
     """
     Insert or update a record in holy_sheet.
     Handles connection, check, and upsert logic.
     """
     logger = get_global_logger()
-    conn = establish_connection(db_config=db_config)
+    conn = establish_connection(db_config)
     if not conn:
         logger.error("Cannot connect to database.")
         return False
@@ -106,3 +113,65 @@ def update_table(data: dict, db_config = None):
     finally:
         if conn and conn.is_connected():
             conn.close()
+
+ 
+def json_to_cog_db(json_path, db_config = None):
+    
+    logger = get_global_logger()
+    sp_list= {
+        "kim": "mf_processjson_kim",
+        "sid": "mf_processjson_sid",
+        "fs": "mf_processjson_factsheet"
+    },
+    
+    file_name = json_path.split("\\")[-1]
+    json_string = Helper.load_json_as_string(json_path)
+    logger.notice(f"File Name: {file_name}, Json String: {json_string[:10]}")    
+    flag = False
+   
+
+    try:
+        sp_name = None
+        if "_kim.json" in file_name.lower(): sp_name = sp_list.get("kim","")
+        elif "_sid.json" in file_name.lower(): sp_name = sp_list.get("sid","")
+        elif "_fs.json" in file_name.lower(): sp_name = sp_list.get("fs","")
+ 
+        # print(sp_name)
+        conn = establish_connection(**db_config)
+        if not conn:
+            logger.error("Cannot connect to database.")
+            return False
+
+        try:
+            cursor = conn.cursor()
+            if "_FS.json" in file_name:
+                cursor.callproc("mf_update_document_details_FS", [file_name])
+                logger.debug("primary sp successfully ran.")
+ 
+            logger.notice(f"SP RUNNING: {sp_name}")
+            cursor.callproc(sp_name, [json_string])
+            conn.commit()
+            logger.debug("secondary sp successfully ran.")
+            flag = True
+            
+        except Error as e:
+            conn.rollback() #rollback -> if error
+            logger.error(f"{type(e).__name__}: {e}")
+            logger.debug(traceback.format_exc())
+
+        finally:
+            cursor.close()
+            conn.close()
+            logger.info("Connection closed.")
+
+    except Exception as e:
+        logger.error("Unknown Error while running Either primary or secondary SP.")
+        logger.error(f"{type(e).__name__}: {e}")
+        logger.debug(traceback.format_exc())
+    
+    return flag
+
+
+
+
+

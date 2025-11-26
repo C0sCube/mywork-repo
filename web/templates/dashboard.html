@@ -18,11 +18,14 @@
 
         <div class="user-section">
             {% if user is defined and user|lower == 'kaustubh.keny' %}
-            <a href="http://172.22.225.179/adminpanel/fs_logs/" target="_blank" class="head-btn">
-                Edit Configs
+            <a href="{{ url_for('config_editor') }}" class="head-btn">
+                Config Editor
             </a>
             {% endif %}
 
+            <a href="{{ url_for('daily_logs') }}" class="head-btn">
+                Daily Log
+            </a>
 
             <!-- SAME BUTTON STYLE -->
             <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="head-btn">
@@ -92,7 +95,6 @@
 
             <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
                 <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
-                <input type="hidden" name="uploaded_by" id="uploaded_by" value="{{ user }}">
                 <div class="upload-grid">
                     <div id="sizeDisplay">Size 0 MB</div>
                     <button type="submit" id="uploadBtn">Upload</button>
@@ -196,12 +198,12 @@
 
                 table.innerHTML = `
                 <tr>
-                    <th style="width:45px; text-align:center;">Sr</th>
+                    <th style="width:45px; text-align:center;">No</th>
                     <th style="width:180px; text-align:center;">File Name</th>
-                    <th style="width:145px; text-align:center;">Start</th>
-                    <th style="width:145px; text-align:center;">End</th>
+                    <th style="width:145px; text-align:center;">ProcessedAt</th>
                     <th style="width:100px; text-align:center;">Status</th>
                     <th style="width:70px;">Json</th>
+                    <th style="width:140px; text-align:center;">UploadedBy</th>
                     <th style="text-align:center;">Error</th>
                 </tr>`;
 
@@ -209,10 +211,10 @@
                     const tr = document.createElement("tr");
                     tr.innerHTML = `<td>${index + 1}</td>
                     <td><a href="/viewer/pdf/${row.file_name}" target="_blank" class="menu__link">${row.file_name}</a></td>
-                    <td>${formatISTDate(row.start_time) || "-"}</td>
                     <td>${formatISTDate(row.end_time) || "-"}</td>
                     <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
-                    <td>${row.json_path ?`<a href="/viewer/json/${row.file_name.replace('.pdf', '.json')}" target="_blank" class="menu__link">JSON</a>`: "-"} </td>
+                    <td>${row.json_path ? `<a href="/viewer/json/${row.file_name.replace('.pdf', '.json')}" target="_blank" class="menu__link">JSON</a>` : "-"} </td>
+                    <td>${row.uploaded_by || "-"}</td>
                     <td>${row.error || "-"}</td> `;
 
                     table.appendChild(tr);

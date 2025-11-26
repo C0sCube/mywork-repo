@@ -26,10 +26,17 @@ def load_config(): return load_json5(load_paths()["configs"]["params"])
 
 def load_regex(): return load_json5(load_paths()["configs"]["regex"])
 
+def get_registry():
+    base_path = load_paths()["config_global_path"]
+    if not os.path.exists(base_path):
+        return None
+    return load_json(base_path)
+    
 
 def get_config(year = "2025", id = ""):
     base_path = load_paths()["config_base_path"]
     config_path = os.path.join(base_path, year, f"{id}_AMC.json5")
+    print(config_path)
     if not os.path.exists(config_path):
         return None
     return load_json5(config_path)
