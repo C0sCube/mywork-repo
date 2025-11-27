@@ -18,7 +18,7 @@ from app.sqlconnect import update_report_table, json_to_cog_db
 OUTPUT_DIR = get_output_path()
 INPUT_DIR = get_input_path()
 JSON_DIR = create_dir(OUTPUT_DIR, "json")
-LOG_DIR = create_dir(OUTPUT_DIR, "log")
+LOG_DIR = create_dir(OUTPUT_DIR, "logs")
 PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
 FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
 

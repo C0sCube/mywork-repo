@@ -1,4 +1,4 @@
-import os, sys, json, time, json5
+import os, sys, json, time, json5,shutil
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
@@ -33,6 +33,8 @@ ADMIN_USERS = LDAP_CONFIG.get("admin_user", [])
 
 CONFIG_BASE_PATH = config["config_base_path"]
 DB_CONFIG = config.get("db_config")
+
+REGISTRY = utils.load_json(config.get("config_global_path",""))
 
 def ldap_authenticate(username, password):
     server = Server(LDAP_SERVER, get_info=ALL)
@@ -289,6 +291,13 @@ def status_data():
     except Exception as e:
         print("status_data error:", e)
         return {"success": False, "rows": []}
+    
+@app.route("/company_registry")
+def get_registry():
+    company_registry = REGISTRY.get("amc_registry",{})
+    # print(company_registry)
+    return jsonify(company_registry)
+
 
 @app.route('/json_list')
 def json_list():
@@ -310,9 +319,10 @@ def config_editor():
 
     return render_template("config_editor.html", user=user) 
 
-@app.route('/list-files/<int:year>')
+@app.route('/list-files/<year>')
 def list_files(year):
     year_path = os.path.join(CONFIG_BASE_PATH, str(year))
+    print(year_path)
     try:
         files = [f for f in os.listdir(year_path) if (f.endswith('.json') or  f.endswith('.json5'))]
         return jsonify({"files": files})
@@ -360,16 +370,59 @@ def save_config():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
   
-@app.route('/backup-config', methods=['POST'])
+@app.route("/backup-config", methods=["POST"])
 def backup_config():
     data = request.get_json()
-    year = data.get('year')
-    filename = data.get('filename')
+    year = data["year"]
+    filename = data["filename"]
 
-    print(f"Backup requested for {year}/{filename}")
-    return jsonify({"success": True, "message": "Backup triggered"})
+    src = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+    if not os.path.exists(src):
+        return jsonify({"success": False, "message": "File not found"})
+
+    backup_dir = os.path.join(CONFIG_BASE_PATH, "0001")
+    os.makedirs(backup_dir, exist_ok=True)
+
+    ts = datetime.now().strftime("%y%m%d_%H%M")
+    ext = ".json" if filename.endswith("json") else ".json5"
+    
+    backup_name = f"{filename.replace(ext, "")}_bkp_{ts}{ext}"
+    dst = os.path.join(backup_dir, backup_name)
+
+    shutil.copy(src, dst)
+    return jsonify({"success": True})
 
 
+@app.route("/create-config", methods=["POST"])
+def create_config():
+    data = request.get_json()
+    year = data["year"]
+    filename = data["filename"]
+
+    year_dir = os.path.join(CONFIG_BASE_PATH, str(year))
+    os.makedirs(year_dir, exist_ok=True)
+
+    file_path = os.path.join(year_dir, filename)
+    if os.path.exists(file_path):
+        return jsonify({"success": False, "error": "File already exists"})
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write("{}")  # start with empty JSON
+
+    return jsonify({"success": True})
+
+@app.route("/delete-config", methods=["POST"])
+def delete_config():
+    data = request.get_json()
+    year = data["year"]
+    filename = data["filename"]
+
+    file_path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+    if not os.path.exists(file_path):
+        return jsonify({"success": False, "error": "File not found"})
+
+    os.remove(file_path)
+    return jsonify({"success": True})
 
 #logs
 @app.route('/daily-log')
@@ -407,5 +460,5 @@ if __name__ == '__main__':
     host = "NCOG-LPT-TCH-32.Cogencis.com"
     port = 5000
     
-    # app.run(debug=True, host=host, port=port)
-    app.run(debug=True, host="127.0.0.1", port=5055)
+    app.run(debug=True, host=host, port=port)
+    # app.run(debug=True, host="127.0.0.1", port=5055)

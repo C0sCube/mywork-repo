@@ -588,6 +588,7 @@ class Edelweiss(BaseAMC): pass
 class HDFC(BaseAMC): pass
 class CapitalMind(BaseAMC):pass
 class WealthCompany(BaseAMC):pass
+class ChoiceMF(BaseAMC):pass
 
 class BajajFinServ(BaseAMC):  
     

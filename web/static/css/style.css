@@ -127,7 +127,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
 }
 
 /* left: logo + title */
@@ -136,10 +136,12 @@ body {
     align-items: center;
     gap: 14px;
     min-height: 60px;
+
 }
 
 .hero img {
     height: 44px;
+    min-width: 50px;
     width: auto;
     object-fit: contain;
 }
@@ -150,6 +152,7 @@ body {
     color: #d1d9e6;
     letter-spacing: 0.6px;
     font-weight: 700;
+    padding-bottom: 12px
 }
 
 /* right: nav / user */
@@ -221,41 +224,6 @@ body {
     box-sizing: border-box;
 
     /* STYLE */
-    background: var(--primary);
-    color: #fff !important;
-    font-weight: 700;
-    font-size: 0.95rem;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none !important;
-    white-space: nowrap;
-
-    /* BUTTON + LINK RESET */
-    border: none !important;
-    outline: none !important;
-    appearance: none !important;
-
-    /* SHADOW */
-    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12);
-}
-
-
-.head-btn {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-
-    /* FORCE SAME SIZING */
-    padding: 8px 16px !important;
-    height: 38px;
-    /* <—— same height for both */
-    line-height: 1 !important;
-    /* fixes anchor text height */
-    box-sizing: border-box;
-
-    /* STYLE */
     background: #334155;
     color: #fff !important;
     font-weight: 700;
@@ -274,6 +242,7 @@ body {
     /* SHADOW */
     box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12);
 }
+
 
 .nav-btn:hover {
     background: var(--primary-2);
@@ -311,32 +280,53 @@ body {
 .logs-bar {
     display: flex;
     justify-content: space-between;
-    /* Left and right alignment */
     align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    padding: 0.5rem 1rem;
+    background: inherit;
 }
 
-.logs-bar li {
+.logs-bar h3 {
     margin: 0;
-    padding: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
 }
 
 .right-controls {
     display: flex;
     align-items: center;
     gap: 1rem;
-    /* spacing between Refresh and Auto-refresh */
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    opacity: 0.7;
+}
+
+.auto-refresh {
+    font-size: 0.9rem;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 /* small headings */
 .panel h2,
 .panel h3 {
-    margin: 0 0 12px 0;
     color: var(--text);
     font-weight: 700;
+    padding-left: 4px;
 }
 
 /* ---------- UPLOAD AREA ---------- */
@@ -389,7 +379,7 @@ input[type="file"] {
 
 /* upload console */
 .upload-console {
-    background: var(--soft);
+    background: inherit;
     border: 1px solid var(--muted);
     border-radius: var(--radius-md);
     padding: 10px;
@@ -443,17 +433,15 @@ input[type="file"] {
 }
 
 
-
 /* ---------- LOGS ---------- */
 #logsConsole {
     min-height: 120px;
     max-height: 380px;
     overflow: auto;
     background: var(--soft);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--muted);
+    /* border-radius: var(--radius-md); */
+    /* border: 1px solid var(--muted); */
     padding: 12px;
-    margin-top: 20px;
     margin-bottom: 20px;
     font-family: var(--mono);
     font-size: 0.9rem;
@@ -464,7 +452,8 @@ input[type="file"] {
 .status-table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;   /* important: enables fixed widths */
+    table-layout: fixed;
+    /* important: enables fixed widths */
     font-family: var(--mono);
     font-size: 0.88rem;
 }
@@ -476,16 +465,20 @@ input[type="file"] {
     text-align: left;
     vertical-align: middle;
     min-height: 30px;
-    overflow-wrap: break-word; /* allow wrapping in error column */
+    overflow-wrap: break-word;
+    /* allow wrapping in error column */
 }
 
 
 /* Expandable error column */
 .status-table th.error,
 .status-table td.error {
-    width: auto;    /* take remaining space */
-    white-space: normal; /* allow wrapping */
+    width: auto;
+    /* take remaining space */
+    white-space: normal;
+    /* allow wrapping */
 }
+
 .status-table th {
     background: #0f172a;
     font-weight: 700;
@@ -774,24 +767,81 @@ input:focus {
 /* Shared style for PDF + JSON links */
 /* <main-style> ============================ */
 .menu__link {
-  color: #0f172a;
-  line-height: 2;
-  position: relative;
+    color: #0f172a;
+    line-height: 2;
+    position: relative;
 }
 
 .menu__link::before {
-  content: '';
-  width: 0;
-  height: 2px;
-  border-radius: 2px;
-  background-color: #fff;
-  position: absolute;
-  bottom: -.25rem;
-  right: 0;
-  transition: right .4s, width .4s, left .4s;
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
 }
 
 .menu__link:hover::before {
-  width: 100%;
-  left: 0;
+    width: 100%;
+    left: 0;
+}
+
+/* conf tab and log */
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem;
+}
+
+.editor-controls {
+    gap: 1rem;
+    align-items: center;
+    display: flex;
+    /* justify-content: space-between; */
+
+}
+
+.editor-controls select,
+.editor-controls button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#jsonInput {
+    width: 100%;
+    height: 400px;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#jsonInput.invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 20
+}
+
+
+.error-line {
+  background-color: #ffdddd !important;
 }

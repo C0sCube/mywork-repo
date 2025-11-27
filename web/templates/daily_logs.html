@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Logs</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=autorenew" />
 
     <style>
         /* Single scroll area, synced line numbers */
@@ -14,14 +16,13 @@
             border: 1px solid #cbd5e1;
             background: #f8fafc;
             border-radius: 8px;
-            min-height: 200px;
             height: 400px;
             overflow: hidden;
             /* prevent layout shaking */
         }
 
         .line-numbers {
-            background: #e2e8f0;
+            /* background: #e2e8f0; */
             padding: 10px 12px;
             text-align: right;
             font-family: monospace;
@@ -50,19 +51,23 @@
     <header class="header">
         <div class="hero">
             <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
-            <h2>DAILY LOGS</h2>
-            <a href="{{ url_for('index') }}" class="head-btn"> ← </a>
+            <h1>DAILY LOGS</h1>
         </div>
+        <a href="{{ url_for('index') }}" class="nav-btn" onclick="goBackToMain(event)"> ← </a>
     </header>
 
-    <section class="container" >
+    <section class="editor-container">
 
         <!-- Controls -->
-        <div class="editor-controls" style="margin-bottom: 20px; display:flex; align-items:center; gap:1rem;">
+        <div class="editor-controls">
             <label for="dateSelect"><strong>Date:</strong></label>
             <input type="date" id="dateSelect" class="input" style="padding:6px 10px;">
-            <button onclick="loadLog()" class="btn">Load</button>
-            <button onclick="refreshLog()" class="btn ghost">Refresh</button>
+            <div class="right-controls">
+                <button onclick="loadLog()" class="nav-btn">Load</button>
+                <button class="icon-btn" onclick="refreshLog()" title="Refresh">
+                    <span class="material-symbols-outlined"> autorenew</span>
+                </button>
+            </div>
         </div>
 
         <!-- Log Viewer -->
@@ -74,6 +79,18 @@
     </section>
 
     <script>
+
+        function goBackToMain(e) {
+            e.preventDefault();
+            if (window.opener) {
+                window.opener.focus(); // bring original tab to front
+                window.close();        // close this tab
+            } else {
+                // fallback if no opener reference
+                window.location.href = "/";
+            }
+        }
+
         let currentDate = null;
 
         async function loadLog() {

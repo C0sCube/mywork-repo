@@ -5,8 +5,9 @@
     <meta charset="UTF-8" />
     <title>Factsheet Parser Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
+
 
 <body>
     <!-- HEADER -->
@@ -18,29 +19,28 @@
 
         <div class="user-section">
             {% if user is defined and user|lower == 'kaustubh.keny' %}
-            <a href="{{ url_for('config_editor') }}" class="head-btn">
-                Config Editor
+            <a href="{{ url_for('config_editor') }}" class="nav-btn" target="_self" , onclick="openInNewTab(event)">
+                configs
+            </a>
+            <a href="{{ url_for('daily_logs') }}" class="nav-btn" target="_self" , onclick="openInNewTab(event)">
+                logs
             </a>
             {% endif %}
 
-            <a href="{{ url_for('daily_logs') }}" class="head-btn">
-                Daily Log
-            </a>
+            <!-- SAME BUTTON STYLE -->
+            <!-- <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="nav-btn">
+                json
+            </a> -->
 
             <!-- SAME BUTTON STYLE -->
-            <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="head-btn">
-                Get Json
-            </a>
-
-            <!-- SAME BUTTON STYLE -->
-            <button class="head-btn" onclick="toggleModal(true)">Upload</button>
+            <button class="nav-btn" onclick="toggleModal(true)">upload</button>
 
             <!-- USERNAME (PLAIN TEXT) -->
             <span style="font-weight:600; color:#e5e7eb;">
                 {{ user|capitalize }}
             </span>
 
-            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">logout</a>
         </div>
     </header>
 
@@ -51,53 +51,43 @@
         <!-- LOGS PANEL -->
         <div class="panel logs-panel">
 
-            <ul class="logs-bar">
-                <li>
-                    <h3>STATUS REPORT</h3>
-                </li>
+            <div class="logs-bar">
+                <h3>Status Report</h3>
                 <div class="right-controls">
-                    <li>
-                        <label>
-                            <input type="checkbox" id="autoRefresh">
-                            Auto-refresh
-                        </label>
-                    </li>
-                    <li><button class="nav-btn" onclick="loadLogs()" title="Refresh">
-                            <span class="material-symbols-outlined">refresh</span>
-                        </button></li>
+                    <label class="auto-refresh">
+                        <input type="checkbox"> <strong>auto-refresh</strong>
+                    </label>
+                    <button class="icon-btn" onclick="loadLogs()" title="Refresh">
+                        <!-- <span class="material-symbols-outlined">refresh</span> -->
+                        <span class="material-symbols-outlined"> autorenew</span>
+                    </button>
                 </div>
-            </ul>
+            </div>
 
             <div id="logsConsole">
                 <p>Loading status…</p>
             </div>
 
-            <div class="logs-controls">
-            </div>
         </div>
     </section>
 
     <!-- UPLOAD MODAL -->
     <div id="uploadModal" class="modal">
         <div class="modal-content">
-
-            <ul class="logs-bar">
-                <li>
-                    <h2 style="margin-top:0;">Upload AMC PDF(s)</h2>
-                    <div class="right-controls">
-
-                <li>
-                    <button class="close-btn" onclick="toggleModal(false)">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </li>
-            </ul>
+            <div class="logs-bar">
+                <h2>FactSheet Upload</h2>
+                <button class="close-btn" onclick="toggleModal(false)">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
 
             <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
                 <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple>
-                <div class="upload-grid">
+                <div class="logs-bar">
                     <div id="sizeDisplay">Size 0 MB</div>
-                    <button type="submit" id="uploadBtn">Upload</button>
+                    <button type="submit" class="nav-btn">Upload</button>
                 </div>
             </form>
             <div class="upload-console" id="uploadConsole">
@@ -109,6 +99,37 @@
 
     <!-- JAVASCRIPT -->
     <script>
+
+        function openInNewTab(e) {
+            e.preventDefault();
+            window.open(e.target.href, "_blank");
+        }
+        function goBackToMain(e) {
+            e.preventDefault();
+            if (window.opener) {
+                window.opener.focus(); // bring original tab to front
+                window.close();        // close this tab
+            } else {
+                // fallback if no opener reference
+                window.location.href = "/";
+            }
+        }
+
+
+        let amcRegistry = {};
+
+        // Load AMC registry once
+        async function loadRegistry() {
+            try {
+                const resp = await fetch("/company_registry");
+                amcRegistry = await resp.json();
+            } catch (err) {
+                console.error("Failed to load AMC registry", err);
+                amcRegistry = {};
+            }
+        }
+
+
         /* ---------- MODAL ---------- */
         function toggleModal(state) {
             const modal = document.getElementById("uploadModal");
@@ -196,10 +217,10 @@
                 const table = document.createElement("table");
                 table.className = "status-table";
 
-                table.innerHTML = `
-                <tr>
+                table.innerHTML =
+                    `<tr>
                     <th style="width:45px; text-align:center;">No</th>
-                    <th style="width:180px; text-align:center;">File Name</th>
+                    <th style="width:200px; text-align:center;">File Name</th>
                     <th style="width:145px; text-align:center;">ProcessedAt</th>
                     <th style="width:100px; text-align:center;">Status</th>
                     <th style="width:70px;">Json</th>
@@ -209,13 +230,21 @@
 
                 data.rows.forEach((row, index) => {
                     const tr = document.createElement("tr");
-                    tr.innerHTML = `<td>${index + 1}</td>
-                    <td><a href="/viewer/pdf/${row.file_name}" target="_blank" class="menu__link">${row.file_name}</a></td>
+
+                    // Extract code as string from filename (before first "_")
+                    const match = row.file_name.match(/^(\d+)_/);
+                    const code = match ? match[1] : null;
+
+                    // Lookup in registry (keys are strings)
+                    const amcName = code && amcRegistry[code] ? amcRegistry[code] : "Unknown AMC";
+                    tr.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td><a href="/viewer/pdf/${row.file_name}"  target="_blank" class="menu__link" title="${amcName}">${row.file_name}</a></td>
                     <td>${formatISTDate(row.end_time) || "-"}</td>
                     <td class="${row.status?.toLowerCase() || ''}">${row.status || "-"}</td>
                     <td>${row.json_path ? `<a href="/viewer/json/${row.file_name.replace('.pdf', '.json')}" target="_blank" class="menu__link">JSON</a>` : "-"} </td>
                     <td>${row.uploaded_by || "-"}</td>
-                    <td>${row.error || "-"}</td> `;
+                    <td>${row.error || "-"}</td>`;
 
                     table.appendChild(tr);
 
@@ -223,14 +252,11 @@
                     const jsonRow = document.createElement("tr");
                     jsonRow.id = "jsonRow_" + index;
                     jsonRow.style.display = "none";
-                    jsonRow.innerHTML = `
-                        <td colspan="6" class="json-cell">
-                            <div id="jsonContent_${index}" class="json-box"></div>
-                        </td>
-                    `;
+                    jsonRow.innerHTML =
+                        `<td colspan="6" class="json-cell">
+                    <div id="jsonContent_${index}" class="json-box"></div></td>`;
                     table.appendChild(jsonRow);
                 });
-
                 logsConsole.innerHTML = "";
                 logsConsole.appendChild(table);
 
@@ -246,7 +272,10 @@
             }
         }, 15000);
 
-        loadLogs();
+        (async () => {
+            await loadRegistry();  // fetch AMC registry first
+            await loadLogs();      // then build logs with tooltips
+        })();
 
         function formatISTDate(dateString) {
             if (!dateString) return "-";
