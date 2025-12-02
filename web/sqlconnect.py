@@ -12,7 +12,7 @@ def establish_connection(db_config=None):
     """Create and return a MySQL connection."""
     logger = get_global_logger()
     try:
-        print("DB CONFIG:", db_config, type(db_config))
+        # print("DB CONFIG:", db_config, type(db_config))
         conn = mysql.connector.connect(**db_config)
         logger.info(f"Database - {db_config.get("database","")} is connected.")
         return conn
@@ -36,7 +36,7 @@ def update_existing(conn, data: dict):
     cur = conn.cursor()
     query = f"""
         UPDATE {table_report}
-        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s,uploaded_by=%s
+        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s
         WHERE file_name=%s
     """
     cur.execute(
@@ -48,7 +48,7 @@ def update_existing(conn, data: dict):
             data.get("status"),
             data.get("error"),
             data.get("uploaded_by"),
-            data.get("file_name"),
+            data.get("file_name")
         ),
     )
     conn.commit()
@@ -70,7 +70,7 @@ def insert_new(conn, data: dict):
             data.get("json_path"),
             data.get("status"),
             data.get("error"),
-            data.get("uploaded_by"),
+            data.get("uploaded_by")
         ),
     )
     conn.commit()
@@ -137,7 +137,7 @@ def json_to_cog_db(json_path, db_config = None):
         elif "_fs.json" in file_name.lower(): sp_name = sp_list.get("fs","")
  
         # print(sp_name)
-        conn = establish_connection(**db_config)
+        conn = establish_connection(db_config)
         if not conn:
             logger.error("Cannot connect to database.")
             return False

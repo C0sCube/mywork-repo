@@ -765,7 +765,6 @@ input:focus {
 
 
 /* Shared style for PDF + JSON links */
-/* <main-style> ============================ */
 .menu__link {
     color: #0f172a;
     line-height: 2;
@@ -790,7 +789,6 @@ input:focus {
 }
 
 /* conf tab and log */
-
 .editor-container {
     display: flex;
     flex-direction: column;
@@ -802,8 +800,6 @@ input:focus {
     gap: 1rem;
     align-items: center;
     display: flex;
-    /* justify-content: space-between; */
-
 }
 
 .editor-controls select,
@@ -832,7 +828,6 @@ input:focus {
     font-weight: bold;
 }
 
-
 .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
@@ -840,7 +835,6 @@ input:focus {
         'GRAD' 0,
         'opsz' 20
 }
-
 
 .error-line {
   background-color: #ffdddd !important;

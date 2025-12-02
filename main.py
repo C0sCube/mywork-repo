@@ -3,6 +3,7 @@ import time
 import traceback
 import json
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from app.konstant import (
     get_input_path, get_output_path, create_dir,
@@ -11,8 +12,11 @@ from app.konstant import (
 )
 from app.logger import setup_logger, rotate_daily_log
 from app.utils import Helper
-from app.amc.registry import CLASS_REGISTRY, check_amc_file
+from app.amc.registry import load_registry, check_amc_file
 from app.sqlconnect import update_report_table, json_to_cog_db
+
+#timezone
+TIME_ZONE = ZoneInfo("Asia/Kolkata")
 
 # dir
 OUTPUT_DIR = get_output_path()
@@ -25,6 +29,11 @@ FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
 #log
 logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12, set_global=True)
 helper = Helper()
+
+
+#sp call
+SP_COG_MF = False
+SP_STATUS = True
 
 # --- Helper Functions ---
 def detect_input_pdf():
@@ -65,7 +74,7 @@ def initialize_status_report(db_config:dict,file_list):
         uploaded_by = meta.get("uploaded_by","unknown")
         # print(uploaded_by)
         report = {
-            "start_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "start_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
             "end_time": None,
             "file_name": file_name,
             "json_path": None,
@@ -80,7 +89,7 @@ def initialize_status_report(db_config:dict,file_list):
 
 def update_status_report(report, status, json_path=None, error=None):
     report.update({
-        "end_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "end_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
         "json_path": json_path,
         "status": status,
         "error": error
@@ -95,16 +104,17 @@ def execute_parser(path, amc_id, year, report):
 
     try:
         
-        if amc_id not in CLASS_REGISTRY:
+        amc_registry = load_registry()
+        if amc_id not in amc_registry:
             raise ValueError("Unknown AMC ID or File.")
 
-        logger.info(f"getting config for {amc_id} - {year}")
+        logger.info(f"Fetchin CONFIG: {amc_id} - {year}")
         config,regex = get_config(year, amc_id),get_regex(year)
         
         if not config or not regex:
-            raise ValueError(f"Config/regex missing for {amc_id}")
+            raise ValueError(f"CONFIG,REGEX missing: {amc_id}")
         
-        obj = CLASS_REGISTRY[amc_id](config, regex, path)
+        obj = amc_registry[amc_id](config, regex, path)
         title, path_pdf = obj.check_and_highlight(path)
         if not (title and path_pdf):
             raise ValueError("check_and_highlight failed.")
@@ -114,8 +124,9 @@ def execute_parser(path, amc_id, year, report):
         final_text = obj.refine_extracted_data(extracted_text)
         dfs = obj.merge_and_select_data(final_text)
         if not dfs:
-            raise ValueError("No final merged data")
-
+            raise ValueError("No final Data.")
+        
+        #save
         save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
         Helper.save_json(dfs, save_path)
         logger.info(f"Saved JSON File: {save_path}")
@@ -129,12 +140,12 @@ def execute_parser(path, amc_id, year, report):
         
 def process_file(file_name, db_config, report):
     file_path = os.path.join(INPUT_DIR, file_name)
-    file_key, year = check_amc_file(file_name=file_name)
+    file_key, year = check_amc_file(file_path,file_name)
 
     report = execute_parser(file_path, file_key, year, report)
     
-    if db_config.get("run_sp_report", True):
-        update_report_table(report, db_config=db_config)
+    if SP_STATUS:
+        update_report_table(report, db_config)
 
     # archive + delete
     archive_dir = PROCESSED_DIR if report["status"] == "completed" else FAILED_DIR
@@ -149,16 +160,16 @@ def process_file(file_name, db_config, report):
             logger.warning("Meta file not removed")
 
     # upload to cog_mf if enabled
-    if report["status"] == "completed" and report["json_path"] and db_config.get("run_sp_cog_mf",False):
+    if report["status"] == "completed" and report["json_path"] and SP_COG_MF:
         try:
-            json_to_cog_db(report["json_path"], db_config=db_config)
+            json_to_cog_db(report["json_path"], db_config)
         except Exception as e:
             logger.error(f"db update failed for {file_name}: {type(e).__name__}: {e}")
             logger.debug(traceback.format_exc())
 
     # update status report if enabled
-    if db_config.get("run_sp_report", True):
-        update_report_table(report, db_config=db_config)
+    if SP_STATUS:
+        update_report_table(report, db_config)
 
     return report["status"]
 
@@ -198,5 +209,5 @@ def main():
 
 # --- Entry Point ---
 if __name__ == "__main__":
-    logger.info("Running program FactSheet Parser (watcher)")
+    logger.info("Running FactSheet Parser (watcher)")
     main()

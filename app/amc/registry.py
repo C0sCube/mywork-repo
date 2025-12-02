@@ -23,6 +23,41 @@ def load_registry():
         
     return registry
 
+# CLASS_REGISTRY = load_registry()
+
+def check_amc_file(path: str, file_name: str) -> tuple[str | None, str | None]:
+    logger = get_global_logger()
+    pattern = r"(\d{1,3}_\d{2}-[A-Za-z]{3}-\d{2}(?:_\d{1})?)_FS\.pdf"
+
+    final_code, dt_year = None, None
+
+    if file_name.endswith("_FS.pdf"):
+        match = re.match(pattern, file_name)
+        if match:
+            logger.debug(f"Detected Pdf File Named {file_name}")
+            code, dateval, *rest = match.group(1).split("_")
+            date_obj = datetime.strptime(dateval, "%d-%b-%y")
+            dt_year = str(date_obj.year)
+            final_code = f"{code}_{1 if rest else 0}"
+        else:
+            logger.warning(f"Invalid File or File Type {file_name}")
+    else:
+        logger.info("Not a PDF!! Deleting file.")
+        logger.debug(path)
+        os.remove(path)
+
+    return final_code, dt_year
+
+    
+    # elif file_name.endswith(".xlsx") and file_name == "table_data.xlsx":
+    #     logger.info("Detected Excel File Named 'table_data.xlsx'")
+    #     return True
+        
+    # else file_name.endswith(".json"):
+    #     logger.info("You have attatched json here !!!")
+    #     pass        
+    
+    
 
 # CLASS_REGISTRY = {
 #     "18_0": ThreeSixtyOne,
@@ -88,32 +123,3 @@ def load_registry():
 #     "99_0": CapitalMind,
 #     "100_0": WealthCompany,
 # }
-
-CLASS_REGISTRY = load_registry()
-
-def check_amc_file(file_name:str)->bool:
-    
-    from app.logger import get_global_logger
-    logger = get_global_logger()
-    
-    get_name = "(\\d{1,3}_\\d{2}-[A-Za-z]{3}-\\d{2}(?:_\\d{1})?)_FS.pdf"
-    
-    if file_name.endswith("_FS.pdf"):
-        if matches:= re.findall(get_name, file_name):
-            logger.debug(f"Detected Pdf File Named {file_name}")
-            code,dateval,*rest = matches[0].split("_")
-            date_obj = datetime.strptime(dateval, "%d-%b-%y")
-            final_code = f"{code}_0"
-            if rest:
-                final_code =  f"{code}_1"
-                
-            return final_code, str(date_obj.year)
-        logger.warning(f"Invalid File or File Type {file_name}")
-        return None, None
-
-    if file_name.endswith(".xlsx") and file_name == "table_data.xlsx":
-        logger.info("Detected Excel File Named 'table_data.xlsx'")
-        return True
-
-    if file_name.endswith(".json"):
-        pass        

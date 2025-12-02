@@ -5,6 +5,7 @@ sys.path.append(root_dir)
 
 
 from datetime import timedelta, datetime
+from zoneinfo import ZoneInfo
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
@@ -17,6 +18,10 @@ from sqlconnect import update_report_table
 app = Flask(__name__)
 app.secret_key = "supersecretkey" 
 app.permanent_session_lifetime = timedelta(days=7)
+
+
+# --- timezone ---
+TIME_ZONE = ZoneInfo("Asia/Kolkata")
 
 # --- paths and config ---
 utils = Helper()
@@ -147,7 +152,7 @@ def upload_files():
             # create a small sidecar meta JSON so parser can read who uploaded it
             meta = {
                 "uploaded_by": uploaded_by,
-                "uploaded_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
             }
             try:
                 meta_path = os.path.splitext(file_path)[0] + ".meta.json"
@@ -158,7 +163,7 @@ def upload_files():
                 print(f"Failed to write meta for {filename}: {e}")
 
             # insert initial DB row via update_table (so dashboard shows file immediately)
-            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
             initial = {
                 "start_time": now,
                 "end_time": None,
@@ -383,10 +388,10 @@ def backup_config():
     backup_dir = os.path.join(CONFIG_BASE_PATH, "0001")
     os.makedirs(backup_dir, exist_ok=True)
 
-    ts = datetime.now().strftime("%y%m%d_%H%M")
+    ts = datetime.now(TIME_ZONE).strftime("%y%m%d_%H%M")
     ext = ".json" if filename.endswith("json") else ".json5"
     
-    backup_name = f"{filename.replace(ext, "")}_bkp_{ts}{ext}"
+    backup_name = f"{filename.replace(ext, "")}_{str(year)}bkp_{ts}{ext}"
     dst = os.path.join(backup_dir, backup_name)
 
     shutil.copy(src, dst)
