@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <title>Config Editor</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
@@ -16,10 +18,14 @@
 <body>
   <header class="header">
     <div class="hero">
-      <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+      <a href="{{ url_for('index') }}" onclick="goBackToMain(event)"><img
+          src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo"></a>
       <h1>CONFIG EDITOR</h1>
     </div>
-    <a href="{{ url_for('index') }}" class="nav-btn" , onclick="goBackToMain(event)"> ← </a>
+    <a href="{{ url_for('index') }}" class="nav-btn" , onclick="goBackToMain(event)"><span
+        class="material-symbols-outlined">
+        arrow_back
+      </span></a>
   </header>
 
   <section class="editor-container">
@@ -29,11 +35,21 @@
 
       <label for="fileSelect"><strong>File:</strong></label>
       <select id="fileSelect" class="input"></select>
-      <button onclick="loadConfig()" class="nav-btn">load</button>
-      <button onclick="saveConfig()" class="nav-btn">save</button>
-      <button onclick="createConfig()" class="nav-btn">create</button>
-      <button onclick="deleteConfig()" class="nav-btn">delete</button>
-      <button onclick="backupConfig()" class="nav-btn">backup</button>
+      <button onclick="loadConfig()" class="nav-btn" title="load"><span class="material-symbols-outlined">
+          cached
+        </span></button>
+      <button onclick="saveConfig()" class="nav-btn" title="save"><span class="material-symbols-outlined">
+          save
+        </span></button>
+      <button onclick="createConfig()" class="nav-btn" title="create"><span class="material-symbols-outlined">
+          add_box
+        </span></button>
+      <button onclick="deleteConfig()" class="nav-btn" title="delete"><span class="material-symbols-outlined">
+          delete
+        </span></button>
+      <button onclick="backupConfig()" class="nav-btn" title="backup"><span class="material-symbols-outlined">
+          backup
+        </span></button>
       <div id="errorDisplay" class="error-message"></div>
     </div>
 
@@ -58,8 +74,8 @@
     const errorDisplay = document.getElementById("errorDisplay");
 
     const years = [
-      "0000", "0001", "2019", "2020", "2021",
-      "2022", "2023", "2024", "2025", "2026", "2027"
+      "2025","2024","2023","2022", "2021", "2020", "2019",
+      "2026", "0000", "0001"
     ];
     const yearSelect = document.getElementById("yearSelect");
     const fileSelect = document.getElementById("fileSelect");
@@ -103,6 +119,13 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ year, filename: fullName })
         });
+
+        if (resp.status === 401) {
+          alert("You are logged out. Please log in again.");
+          window.location = "/login";
+          return;
+        }
+
         const result = await resp.json();
         if (result.success) {
           alert(`Created ${fullName}`);
@@ -133,6 +156,15 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ year, filename })
       });
+
+
+      if (resp.status === 401) {
+        alert("You are logged out. Please log in again.");
+        window.location = "/login";
+        return;
+      }
+
+
       const result = await resp.json();
       alert(result.success ? "Deleted successfully!" : "Delete failed: " + result.error);
 
@@ -149,6 +181,13 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ year, filename })
       });
+
+      if (resp.status === 401) {
+        alert("You are logged out. Please log in again.");
+        window.location = "/login";
+        return;
+      }
+
       const result = await resp.json();
       if (result.success) {
         jsonInput.value = JSON.stringify(result.data, null, 2);
@@ -168,6 +207,13 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ year, filename, content })
       });
+
+      if (resp.status === 401) {
+        alert("You are logged out. Please log in again.");
+        window.location = "/login";
+        return;
+      }
+
       const result = await resp.json();
       alert(result.success ? "Saved successfully!" : "Save failed: " + result.error);
     }
@@ -180,26 +226,33 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ year, filename })
       });
+
+      if (resp.status === 401) {
+        alert("You are logged out. Please log in again.");
+        window.location = "/login";
+        return;
+      }
+
       const result = await resp.json();
       alert(result.success ? "Backup triggered!" : "Backup failed: " + result.message);
     }
 
     function validateJSON() {
       try {
-      
+
         JSON.parse(jsonInput.value);
         jsonInput.classList.remove("invalid");
         errorDisplay.textContent = "";
         return true;
       } catch (jsonError) {
         try {
-        
+
           JSON5.parse(jsonInput.value);
           jsonInput.classList.remove("invalid");
           errorDisplay.textContent = "";
           return true;
         } catch (json5Error) {
-       
+
           jsonInput.classList.add("invalid");
           errorDisplay.textContent = "Invalid JSON/JSON5: " + json5Error.message;
           return false;

@@ -32,7 +32,7 @@ helper = Helper()
 
 
 #sp call
-SP_COG_MF = False
+# SP_COG_MF = False
 SP_STATUS = True
 
 # --- Helper Functions ---
@@ -160,12 +160,12 @@ def process_file(file_name, db_config, report):
             logger.warning("Meta file not removed")
 
     # upload to cog_mf if enabled
-    if report["status"] == "completed" and report["json_path"] and SP_COG_MF:
-        try:
-            json_to_cog_db(report["json_path"], db_config)
-        except Exception as e:
-            logger.error(f"db update failed for {file_name}: {type(e).__name__}: {e}")
-            logger.debug(traceback.format_exc())
+    # if report["status"] == "completed" and report["json_path"] and SP_COG_MF:
+    #     try:
+    #         json_to_cog_db(report["json_path"], db_config)
+    #     except Exception as e:
+    #         logger.error(f"db update failed for {file_name}: {type(e).__name__}: {e}")
+    #         logger.debug(traceback.format_exc())
 
     # update status report if enabled
     if SP_STATUS:

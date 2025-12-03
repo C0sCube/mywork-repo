@@ -485,7 +485,8 @@
             "average_matu?r?i?t?y?$",
             "^average$",
             "^avgmaturityofthefund.*",
-            "^average_maturity$"
+            "^average_maturity$",
+            "^actual_duration$"
         ],
         "beta": [
             "^Portfolio Beta",

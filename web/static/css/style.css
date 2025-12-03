@@ -210,6 +210,7 @@ body {
 }
 
 /* Nav upload button (next to view json) */
+
 .nav-btn {
     display: inline-flex !important;
     align-items: center;
@@ -280,7 +281,7 @@ body {
 .logs-bar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     padding: 0.5rem 1rem;
     background: inherit;
 }
@@ -330,12 +331,30 @@ body {
 }
 
 /* ---------- UPLOAD AREA ---------- */
-.upload-panel {
-    padding: 18px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
+
+/* upload input tab */
+#pdfs {
+  display: none; /* hide native input */
+}
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1976d2; /* nice blue */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.file-btn:hover {
+  background: #1565c0;
+}
+
+.file-btn .material-symbols-outlined {
+  font-size: 20px;
 }
 
 input[type="file"] {
@@ -347,7 +366,14 @@ input[type="file"] {
     background: #fff;
 }
 
-/* upload-grid */
+.upload-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background: inherit;
+}
+
 .upload-grid {
     display: flex;
     gap: 12px;
@@ -361,30 +387,16 @@ input[type="file"] {
     font-weight: 700;
     color: #334155;
 }
-
-#uploadBtn {
-    padding: 12px 16px;
-    background: var(--primary);
-    color: #fff;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-#uploadBtn[disabled] {
-    opacity: .5;
-    cursor: not-allowed;
-}
-
-/* upload console */
 .upload-console {
     background: inherit;
     border: 1px solid var(--muted);
     border-radius: var(--radius-md);
-    padding: 10px;
-    max-height: 320px;
-    min-height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 340px;
+    min-height: 140px;
     overflow: auto;
 }
 
@@ -392,6 +404,8 @@ input[type="file"] {
 .file-item {
     display: flex;
     justify-content: space-between;
+    font-size: small;
+    font-weight: 600;
     align-items: center;
     padding: 8px;
     background: #fff;
@@ -436,12 +450,10 @@ input[type="file"] {
 /* ---------- LOGS ---------- */
 #logsConsole {
     min-height: 120px;
-    max-height: 380px;
+    max-height: 360px;
     overflow: auto;
     background: var(--soft);
-    /* border-radius: var(--radius-md); */
-    /* border: 1px solid var(--muted); */
-    padding: 12px;
+    padding: 0 0 12px 12px;
     margin-bottom: 20px;
     font-family: var(--mono);
     font-size: 0.9rem;
@@ -487,17 +499,6 @@ input[type="file"] {
 
 .status-table tr:nth-child(even) {
     background: #fbfdff;
-}
-
-.status-table td.completed {
-    color: green;
-    font-weight: 700;
-}
-
-.status-table td.failed,
-.status-table td.error {
-    color: red;
-    font-weight: 700;
 }
 
 /* shared micro */
@@ -829,26 +830,110 @@ input:focus {
 }
 
 .material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 20
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+    font-size: 24px;
+    line-height: 1;
+    display: inline-block;
+
+    /* Hide the literal text if the font fails */
+    overflow: hidden;
 }
 
 .error-line {
-  background-color: #ffdddd !important;
-}
-#selectProgress span,
-#uploadProgress span {
-    animation: spin 0.8s linear infinite;
+    background-color: #ffdddd !important;
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 #uploadProgress strong {
     color: var(--primary-2);
+}
+
+/* Pagination container */
+#logpagination {
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* vertically align items */
+    margin-top: 15px;
+}
+
+/* Pagination list */
+#logpagination ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+    /* spacing between items */
+    flex-wrap: wrap;
+    /* adapt if table is narrow */
+}
+
+/* Pagination items */
+#logpagination li {
+    display: flex;
+    align-items: center;
+}
+
+/* Links */
+#logpagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+#logpagination a:hover {
+    background: #f0f0f0;
+}
+
+/* Current page styling */
+#logpagination a.active {
+    background: #0078d4;
+    /* Microsoft blue */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Arrow icons (using Material Symbols or FontAwesome) */
+#logpagination .arrow {
+    font-family: "Material Symbols Outlined";
+    /* or use FontAwesome */
+    font-size: 20px;
+    padding: 6px;
+}
+
+
+/* status colors */
+.status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+.status-failed {
+    color: red;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #555;
+    /* dark grey */
+    font-weight: bold;
 }

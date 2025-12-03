@@ -1,11 +1,11 @@
-import os, sys, json, time, json5,shutil
+import os, sys, json, time, json5,shutil, pytz
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
 
 
 from datetime import timedelta, datetime
-from zoneinfo import ZoneInfo
+# from zoneinfo import ZoneInfo
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
@@ -21,7 +21,9 @@ app.permanent_session_lifetime = timedelta(days=7)
 
 
 # --- timezone ---
-TIME_ZONE = ZoneInfo("Asia/Kolkata")
+
+TIME_ZONE = pytz.timezone("Asia/Kolkata")
+
 
 # --- paths and config ---
 utils = Helper()
@@ -103,7 +105,8 @@ def login():
 
     return render_template("login.html")
 
-
+def not_logged_in_response():
+    return jsonify({"success": False, "error": "Not logged in"}), 401
 
 @app.route('/logout')
 def logout():
@@ -164,6 +167,7 @@ def upload_files():
 
             # insert initial DB row via update_table (so dashboard shows file immediately)
             now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+            print(now)
             initial = {
                 "start_time": now,
                 "end_time": None,
@@ -183,6 +187,55 @@ def upload_files():
 
     time.sleep(1)
     return redirect('/')
+
+@app.route("/reprocess/<filename>", methods=["POST"])
+def reprocess(filename):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+
+    uploaded_by = session.get("user", "unknown")
+
+    # Look for file in processed or failed dirs
+    processed_path = os.path.join(OUTPUT_DIR, "processed", secure_filename(filename))
+    failed_path = os.path.join(OUTPUT_DIR, "failed", secure_filename(filename))
+
+    if os.path.exists(processed_path):
+        file_path = processed_path
+    elif os.path.exists(failed_path):
+        file_path = failed_path
+    else:
+        return {"success": False, "message": f"{filename} not found in output dirs"}
+
+    # Copy/move back into INPUT_DIR so the parser picks it up again
+    os.makedirs(INPUT_DIR, exist_ok=True)
+    new_path = os.path.join(INPUT_DIR, filename)
+    shutil.copy(file_path, new_path)
+
+    # Write fresh meta JSON
+    meta = {
+        "uploaded_by": uploaded_by,
+        "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+    }
+    meta_path = os.path.splitext(new_path)[0] + ".meta.json"
+    with open(meta_path, "w", encoding="utf-8") as mf:
+        json.dump(meta, mf)
+
+    # Insert new DB row so dashboard shows it again
+    now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+    print(now)
+    initial = {
+        "start_time": now,
+        "end_time": None,
+        "file_name": filename,
+        "json_path": None,
+        "status": "Pending",
+        "error": None,
+        "uploaded_by": uploaded_by
+    }
+    update_report_table(initial, db_config=DB_CONFIG)
+
+    print(f"File '{filename}' requeued for processing by {uploaded_by}")
+    return {"success": True, "message": f"{filename} requeued"}
 
 @app.route('/record-upload', methods=['POST'])
 def record_upload():
@@ -208,13 +261,11 @@ def delete_file(filename):
     return redirect('/')
 
 
-
 @app.route('/json/<filename>')
 def get_json(filename):
     if not session.get("logged_in"):
         return redirect(url_for("login"))
     return send_from_directory(os.path.join(OUTPUT_DIR, "json"), filename)
-
 
 # ------------------ PDF VIEW ROUTE ------------------
 @app.route('/viewer/pdf/<filename>')
@@ -233,14 +284,11 @@ def view_pdf(filename):
 
     return "PDF not found", 404
 
-
 # ------------------ JSON VIEW ROUTE ------------------
 @app.route('/viewer/json/<filename>')
 def view_json(filename):
     json_dir = os.path.join(OUTPUT_DIR, "json")
     return send_from_directory(json_dir, filename)
-
-
 
 @app.route('/logs')
 def logs():
@@ -273,26 +321,69 @@ def logs():
         "json_files": json_files
     }
 
+# @app.route('/status_data')
+# def status_data():
+#     """Return latest entries from holy_sheet as JSON for dashboard polling."""
+#     if not session.get("logged_in"):
+#         return redirect(url_for("login"))
+
+#     try:
+#         conn = establish_connection(db_config=DB_CONFIG)
+#         cur = conn.cursor(dictionary=True)
+#         cur.execute("""
+#             SELECT file_name, start_time, end_time, status,json_path, error, uploaded_by
+#             FROM mf_status_report
+#             ORDER BY start_time DESC
+#             LIMIT 30
+#         """)
+#         rows = cur.fetchall()
+#         cur.close()
+#         conn.close()
+#         # print(rows)
+#         return {"success": True, "rows": rows}
+#     except Exception as e:
+#         print("status_data error:", e)
+#         return {"success": False, "rows": []}
+ 
 @app.route('/status_data')
 def status_data():
-    """Return latest entries from holy_sheet as JSON for dashboard polling."""
+    """Return paginated entries from mf_status_report as JSON for dashboard polling."""
     if not session.get("logged_in"):
         return redirect(url_for("login"))
 
     try:
+        # Read query params (defaults: page=1, size=10)
+        page = int(request.args.get("page", 1))
+        size = int(request.args.get("size", 15))
+        offset = (page - 1) * size
+
         conn = establish_connection(db_config=DB_CONFIG)
         cur = conn.cursor(dictionary=True)
+
+        # Get total count for pagination metadata
+        cur.execute("SELECT COUNT(*) AS total FROM mf_status_report")
+        total = cur.fetchone()["total"]
+
+        # Fetch paginated rows
         cur.execute("""
-            SELECT file_name, start_time, end_time, status,json_path, error, uploaded_by
+            SELECT file_name, start_time, end_time, status, json_path, error, uploaded_by
             FROM mf_status_report
             ORDER BY start_time DESC
-            LIMIT 30
-        """)
+            LIMIT %s OFFSET %s
+        """, (size, offset))
         rows = cur.fetchall()
+
         cur.close()
         conn.close()
-        # print(rows)
-        return {"success": True, "rows": rows}
+
+        return {
+            "success": True,
+            "rows": rows,
+            "total": total,
+            "page": page,
+            "size": size,
+            "totalPages": (total + size - 1) // size
+        }
     except Exception as e:
         print("status_data error:", e)
         return {"success": False, "rows": []}
@@ -300,7 +391,7 @@ def status_data():
 @app.route("/company_registry")
 def get_registry():
     company_registry = REGISTRY.get("amc_registry",{})
-    # print(company_registry)
+    # print(company_registry.keys())
     return jsonify(company_registry)
 
 
@@ -326,6 +417,9 @@ def config_editor():
 
 @app.route('/list-files/<year>')
 def list_files(year):
+    if not session.get('logged_in'):
+        return not_logged_in_response()
+    
     year_path = os.path.join(CONFIG_BASE_PATH, str(year))
     print(year_path)
     try:
@@ -336,6 +430,9 @@ def list_files(year):
     
 @app.route('/load-config', methods=['POST'])
 def load_config():
+    
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
     data = request.get_json()
     year = data.get('year')
     filename = data.get('filename')
@@ -354,6 +451,10 @@ def load_config():
 
 @app.route('/save-config', methods=['POST'])
 def save_config():
+    
+    if not session.get('logged_in'):
+        return not_logged_in_response()
+
     data = request.get_json()
     year = data.get('year')
     filename = data.get('filename')
@@ -377,6 +478,10 @@ def save_config():
   
 @app.route("/backup-config", methods=["POST"])
 def backup_config():
+    
+    if not session.get('logged_in'):
+        return not_logged_in_response()
+    
     data = request.get_json()
     year = data["year"]
     filename = data["filename"]
@@ -397,9 +502,12 @@ def backup_config():
     shutil.copy(src, dst)
     return jsonify({"success": True})
 
-
 @app.route("/create-config", methods=["POST"])
 def create_config():
+    
+    if not session.get('logged_in'):
+        return not_logged_in_response()
+    
     data = request.get_json()
     year = data["year"]
     filename = data["filename"]
@@ -418,6 +526,9 @@ def create_config():
 
 @app.route("/delete-config", methods=["POST"])
 def delete_config():
+    
+    if not session.get('logged_in'):
+        return not_logged_in_response()    
     data = request.get_json()
     year = data["year"]
     filename = data["filename"]
@@ -436,9 +547,6 @@ def daily_logs():
         return redirect(url_for("login")) 
 
     user = session.get("user", "").lower()
-    if user != "kaustubh.keny":
-        return redirect(url_for("index"))
-
     return render_template("daily_logs.html", user=user)
 
 @app.route("/load-daily-log", methods=["POST"])
@@ -458,12 +566,11 @@ def load_daily_log():
     except:
         return {"success": False, "content": "Error reading log file."}
 
-
 # --- run app ---
 if __name__ == '__main__':
     
     host = "NCOG-LPT-TCH-32.Cogencis.com"
     port = 5000
     
-    # app.run(debug=True, host=host, port=port)
-    app.run(debug=True, host="127.0.0.1", port=5055)
+    app.run(debug=True, host=host, port=port)
+    # app.run(debug=True, host="127.0.0.1", port=5055)

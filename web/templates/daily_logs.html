@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Logs</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=autorenew" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
     <style>
         /* Single scroll area, synced line numbers */
         .log-wrapper {
@@ -50,10 +49,14 @@
 
     <header class="header">
         <div class="hero">
-            <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+            <a href="{{ url_for('index') }}" onclick="goBackToMain(event)"><img
+                    src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo"></a>
             <h1>DAILY LOGS</h1>
         </div>
-        <a href="{{ url_for('index') }}" class="nav-btn" onclick="goBackToMain(event)"> ← </a>
+        <a href="{{ url_for('index') }}" class="nav-btn" onclick="goBackToMain(event)"><span
+                class="material-symbols-outlined">
+                arrow_back
+            </span></a>
     </header>
 
     <section class="editor-container">
@@ -79,6 +82,21 @@
     </section>
 
     <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const logDate = document.getElementById("dateSelect");
+
+            // Format today as dd-mm-yyyy
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, "0");
+            const mm = String(today.getMonth() + 1).padStart(2, "0"); // months are 0-based
+            const yyyy = today.getFullYear();
+            const formatted = `${dd}-${mm}-${yyyy}`;
+
+            // If you're using a plain text field:
+            logDate.value = formatted;
+            logDate.value = `${yyyy}-${mm}-${dd}`;
+            loadLog()
+        });
 
         function goBackToMain(e) {
             e.preventDefault();
