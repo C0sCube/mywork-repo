@@ -65,11 +65,13 @@
     "98": "Jio BlackRock AMC",
     "99": "CapitalMind AMC",
     "100": "WealthCompany AMC",
-    "101": "Choice AMC"
+    "101": "Choice AMC",
+    "102": "Abakkus AMC"
   },
   "class_registry": {
     "100_0": "WealthCompany",
     "101_0": "ChoiceMF",
+    "102_0": "Abakkus",
     "10_0": "QuantMF",
     "11_0": "FranklinTempleton",
     "12_0": "HDFC",
@@ -179,7 +181,57 @@
     "95_0": "Old Bridge Mutual Fund",
     "96_0": "Angel One Mutual Fund",
     "97_0": "Unifi Mutual Fund",
-    "9_0": "Edelweiss Mutual Fund"
+    "9_0": "Edelweiss Mutual Fund",
+    "102_0": "Abbakus Mutual Fund"
+  },
+  "field_keys": {
+    "load_keys": [
+      "entry_load",
+      "exit_load"
+    ],
+    "manager_keys": [
+      "name",
+      "managing_fund_since",
+      "total_exp",
+      "qualification"
+    ],
+    "metric_keys": [
+      "alpha",
+      "arithmetic_mean_ratio",
+      "average_div_yield",
+      "average_pb",
+      "average_pe",
+      "avg_maturity",
+      "beta",
+      "correlation_ratio",
+      "downside_deviation",
+      "information_ratio",
+      "macaulay",
+      "mod_duration",
+      "port_turnover_ratio",
+      "r_squared_ratio",
+      "roe_ratio",
+      "sharpe",
+      "sortino_ratio",
+      "std_dev",
+      "tracking_error",
+      "treynor_ratio",
+      "upside_deviation",
+      "ytm"
+    ],
+    "static_keys": [
+      "amc_name",
+      "main_scheme_name",
+      "mutual_fund_name",
+      "benchmark_index",
+      "monthly_aaum_date",
+      "monthly_aaum_value",
+      "scheme_launch_date",
+      "min_addl_amt",
+      "min_addl_amt_multiple",
+      "min_amt",
+      "min_amt_multiple"
+    ]
   },
   "financial_indices": "aaum, about the fund, add. amt, add. mult., additional amount, additional multiple, additional multiples, additional purchase, Additional investment amount, addl. amount, addl. multiple, alpha, alpha coefficient, alpha ratio, assets under management, average asset under management, average aum, average div yield, average dividend yield, average maturity, average maturity of bonds, average p/b, average p/e, average price to book ratio, average price to earnings ratio, avg asset under management, avg p/b ratio, avg p/e ratio, avg. aum, avg. dividend yield, avg. maturity, benchmark, benchmark index, benchmark risk level, benchmark riskometer, beta of portfolio, creation unit size, date of allotment, date of inception, downside deviation, downside risk measure, downside risk ratio, downside variability, duration (macaulay), duration (modified), entry load, equity returns, etf creation size, exit load, face value, fund goals, fund manager, fund name, fund scheme, fund start date, inception date, index benchmark, indexes, info ratio, information ratio, investment objective, investment risk indicator, investment scheme, ir, jenson, load, entry load, exit load, Macaulay Duraon, macaulay duration, macaulay's duration, managed by, management experience, managing scheme, maturity yield, min invest, min multiple, min.application, Minimum application amount, minimum invest amount, minimum investment amount, minimum multiple, mod duration, Modified Duraon, modified duration, month end aum, monthly avg aum, nav, nominal value, objective, other parameter, p/b, p/e, par value, pb, pb ratio, pe, pe ratio, performance deviation, Porolio Turnover, portfolio beta, portfolio manager, portfolio turnover, portfolio turnover rate, portfolio turnover ratio, Portfolio Turnover Ratio, Portfolio Turn Over Ratio, portfolio's beta, positive deviation, price to book, price to earnings, quantitative data, qualitative data, r squared, r squared ratio - fund, r-squared for fund, r^2, return on equity, risk adjusted measure, risk adjusted return ratio, risk level, riskometer for benchmark, roe, rsquared, scheme management, scheme name, scheme objective, scheme riskometer, sharpe, sharpe ratio, sharpe's ratio, sortino ratio, sortino's ratio, Standard Deviaon, standard deviation, std dev, std. dev, std deviation, total experience, track error, tracking error, treynor, treynor ratio, treynor's ratio, turnover ratio, unit size of creation, upside deviation, upside risk, volatility measure, years of experience, yield to maturity, ytm",
   "main_scheme_name": {
@@ -1564,9 +1616,11 @@
     "59": "BajajFinServSIDKIM",
     "60": "HeliosSIDKIM",
     "71": "ZerodhaSIDKIM",
+    "92": "AbbakusSIDKIM",
     "95": "OldBridgeSIDKIM",
     "96": "AngelOneSIDKIM",
     "97": "UnifiSIDKIM",
-    "98": "JioBlackRockSIDKIM"
+    "98": "JioBlackRockSIDKIM",
+    "102": "AbakkusSIDKIM"
   }
 }

@@ -244,7 +244,6 @@ body {
     box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12);
 }
 
-
 .nav-btn:hover {
     background: var(--primary-2);
     transform: translateY(-1px);
@@ -334,27 +333,30 @@ body {
 
 /* upload input tab */
 #pdfs {
-  display: none; /* hide native input */
+    display: none;
+    /* hide native input */
 }
+
 .file-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #1976d2; /* nice blue */
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1976d2;
+    /* nice blue */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
 }
 
 .file-btn:hover {
-  background: #1565c0;
+    background: #1565c0;
 }
 
 .file-btn .material-symbols-outlined {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 input[type="file"] {
@@ -387,6 +389,7 @@ input[type="file"] {
     font-weight: 700;
     color: #334155;
 }
+
 .upload-console {
     background: inherit;
     border: 1px solid var(--muted);
@@ -449,8 +452,6 @@ input[type="file"] {
 
 /* ---------- LOGS ---------- */
 #logsConsole {
-    min-height: 120px;
-    max-height: 360px;
     overflow: auto;
     background: var(--soft);
     padding: 0 0 12px 12px;
@@ -458,6 +459,7 @@ input[type="file"] {
     font-family: var(--mono);
     font-size: 0.9rem;
     white-space: pre-wrap;
+    height: calc(100vh - 15rem);
 }
 
 /* status table */
@@ -811,7 +813,7 @@ input:focus {
 
 #jsonInput {
     width: 100%;
-    height: 400px;
+    height: calc(100vh - 10.5rem);
     font-family: monospace;
     font-size: 14px;
     padding: 1rem;

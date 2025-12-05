@@ -50,14 +50,14 @@ def get_regex(year = "2025"):
 
 
 def load_sidkimregex():
-    return load_json5(
-        load_paths()["configs"]["sid_regex"]
-    )
+    base_path = load_paths()["config_base_path"]
+    sid_path = os.path.join(base_path,"sidkim","sid_regex.json")
+    return load_json(sid_path)
 
 def load_sidkimparams():
-    return load_json5(
-        load_paths()["configs"]["sid_params"]
-    )
+    base_path = load_paths()["config_base_path"]
+    sid_path = os.path.join(base_path,"sidkim","sid_params.json5")
+    return load_json5(sid_path)
 
 CHECK_INTERVAL = 10
 PROGRAM_NAME = "FS_JSON_PARSE"

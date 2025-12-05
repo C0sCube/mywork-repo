@@ -238,7 +238,7 @@ class FundRegex:
 
                 if self.UTILS.is_numeric(value):
                     num = float(value)
-                    value = str(round(num / divide, 4))
+                    value = str(round(num / divide, 2))
 
             metric_data[metric] = value
             

@@ -5335,4 +5335,128 @@
     SPECIAL_FUNCTIONS: {},
     DELETEKEYS: [],
   },
+  "102": {
+    AMC: "Abakkus Mutual Fund",
+    PARAMS: {
+      page_zero: { bbox: [[0, 0, 220, 800]], ocr: false },
+      table_data: {
+        threshold: 3,
+        keywords: [
+          "Name of the [Ss]cheme",
+          "Category of the [Ss]cheme",
+          "Scheme\\s*[Cc]ode",
+          "Investment\\s*[Oo]bjective",
+          "Plans\\s*and\\s*Options",
+          "Load\\s*Structure",
+          "Benchmark",
+          "Minimum\\s*Application\\s*Amount",
+        ],
+      },
+      manager_data: {
+        row_count: 6,
+        threshold: 2,
+        keywords: [
+          "Name\\s*of\\s*the",
+          "Qualification",
+          "Experience",
+          "Tenure\\s*as\\s*Fund",
+        ],
+        order: { name: 0, experience: 4, qualification: 2 },
+      },
+      kim: {
+        bbox: [[0, 0, 524, 400]],
+        initial_page: "0,1",
+        row_match_threshold: 1,
+        row_keywords: ["minimum", "maximum", "Indicative\\s*allocations"],
+      },
+    },
+    REGEX: {
+      //kim
+      main_scheme: "(Abakkus.+?(?:Funds?|Path|saver|Index|ETF|Plan|FUNDS?)\\s*(?:of Funds?|Fund of funds?|F[Oo]F|Funds?|OF\\s*FUNDS?)?)",
+      asset: {
+        pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
+        order: "instr|min|max",
+      },
+      //sid
+      benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty).+?(?:Index|TRI|Gold|Silver))",
+      load: "(?:E?ntry\\s*Load)?(.*?)E?xit\\s*Load(.+?)$",
+      scheme: [
+        // "Name of the Scheme",
+        // "Category of Scheme",
+        "Offer of Units",
+        "New\\s*Fund\\s*Offer\\s*Opens",
+        "New Fund Offer Closes",
+        "Scheme Re-?Opens?",
+        "EOL",
+      ],
+      scheme2: [
+        // "[Ii]nvestment\\s*[Oo]bjective",
+        "who\\s*are\\s*seeking",
+        "[Ii]nvestors\\s*[Ss]hould\\s*[Cc]onsult",
+        "EOL",
+      ],
+      manager: {
+        name: "((?:Mr|Ms|Mrs)\\.?\\s*[A-Za-z]+\\s*[A-Za-z]+)",
+        experience: "((?:Around|than|about|of|over)\\s*\\d+[Yy]ears?)$",
+        qualification: "(.+)$",
+      },
+      min_amt: "(\\d+\\.?\\d*)\\D+?(\\d+\\.?\\d*|any)",
+      nfo: "Rs\\.?\\s*\\d+",
+      escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
+    },
+    IMP_DATA: {
+      amc_name: "Abakkus Asset Management Holdings Private Limited",
+      mutual_fund_name: "Abakkus Mutual Fund",
+      face_value: "Rs.10",
+      offer_price: "Rs.10",
+      open_date: "",
+      close_date: "",
+    },
+    PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+      "^benchmark": ["_extract_generic_data", "benchmark"],
+      "^new_fund_offer_price.*": ["_extract_generic_data", "nfo"],
+      "^other_text": ["_extract_scheme_data", "scheme"],
+      "^risk_bbox": ["_extract_scheme_data", "scheme2"],
+      fund_manager: ["_extract_manager_data", "manager"],
+
+      //kim
+      main_scheme_name: ["_extract_generic_data", "main_scheme"],
+      asset_allocation_pattern: ["_extract_asset_data", "asset"],
+    },
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^load_structure": ["_extract_load_data", "load"],
+      "^(?:minimum_)?(additional_purchase_amount|application_amount.*)": [
+        "_extract_amt_data",
+        "min_amt",
+      ],
+    },
+    TERTIARY_PATTERN_TO_FUNCTION: {},
+    SELECTKEYS: [
+      ".*who_are_seeking",
+      ".*(new_fund_offer_opens|new_fund_offer_closes)",
+      ".*(category_of_scheme|benchmark.*|scheme_type|scheme_code|name_of_the_scheme|investment_objective)",
+      "^load",
+      "^(?:minimum_)?(application_amount|additional_purchase).*$",
+      "fund_manager",
+      "amc_name",
+      "offer_price",
+      "face_value",
+
+      //kim
+      "main_scheme_name",
+      "asset_allocation_pattern",
+    ],
+    MERGEKEYS: {
+      load: ["^load_structure.*"],
+    },
+    CLONEKEYS: {},
+    COMBINEKEYS: {},
+    PROMOTEKEYS: {},
+    SPECIAL_FUNCTIONS: {},
+    DELETEKEYS: [],
+  },
 }

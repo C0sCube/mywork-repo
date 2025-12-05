@@ -34,9 +34,10 @@ def fetch_existing_record(conn, file_name: str) -> bool:
 def update_existing(conn, data: dict):
     """Update the row for an existing file_name."""
     cur = conn.cursor()
+    print(data)
     query = f"""
         UPDATE {table_report}
-        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s
+        SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s, to_admin_panel=%s
         WHERE file_name=%s
     """
     cur.execute(
@@ -48,7 +49,8 @@ def update_existing(conn, data: dict):
             data.get("status"),
             data.get("error"),
             data.get("uploaded_by"),
-            data.get("file_name")
+            data.get("file_name"),
+            data.get("to_admin_panel", 0)
         ),
     )
     conn.commit()
@@ -58,8 +60,8 @@ def insert_new(conn, data: dict):
     """Insert a new record for a file_name that doesn't exist."""
     cur = conn.cursor()
     query = f"""
-        INSERT INTO {table_report} (start_time, end_time, file_name, json_path, status, error,uploaded_by)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO {table_report} (start_time, end_time, file_name, json_path, status, error,uploaded_by,to_admin_panel)
+        VALUES (%s, %s, %s, %s, %s, %s, %s,%s)
     """
     cur.execute(
         query,
@@ -70,7 +72,8 @@ def insert_new(conn, data: dict):
             data.get("json_path"),
             data.get("status"),
             data.get("error"),
-            data.get("uploaded_by")
+            data.get("uploaded_by"),
+            data.get("to_admin_panel")
         ),
     )
     conn.commit()

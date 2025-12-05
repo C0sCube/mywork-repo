@@ -506,3 +506,4 @@ class UnifiSIDKIM(BaseSIDKIM): pass
 class JioBlackRockSIDKIM(BaseSIDKIM): pass
 class WealthCompanySIDKIM(BaseSIDKIM): pass
 class CapitalMindSIDKIM(BaseSIDKIM): pass
+class AbbakusSIDKIM(BaseSIDKIM):pass

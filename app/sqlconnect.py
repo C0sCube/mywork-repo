@@ -58,8 +58,8 @@ def insert_new(conn, data: dict):
     """Insert a new record for a file_name that doesn't exist."""
     cur = conn.cursor()
     query = f"""
-        INSERT INTO {table_report} (start_time, end_time, file_name, json_path, status, error,uploaded_by)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO {table_report} (start_time, end_time, file_name, json_path, status, error,uploaded_by,to_admin_panel)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """
     cur.execute(
         query,
@@ -70,7 +70,8 @@ def insert_new(conn, data: dict):
             data.get("json_path"),
             data.get("status"),
             data.get("error"),
-            data.get("uploaded_by")
+            data.get("uploaded_by"),
+            data.get("to_admin_panel")
         ),
     )
     conn.commit()

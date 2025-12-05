@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amc_data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="hero">
+            <a href="{{ url_for('index') }}" onclick="goBackToMain(event)"><img
+                    src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo"></a>
+            <h1>Mutual Fund Data</h1>
+        </div>
+        <a href="{{ url_for('index') }}" class="nav-btn" onclick="goBackToMain(event)"><span
+                class="material-symbols-outlined">
+                arrow_back
+            </span></a>
+    </header>
+</body>
+<script>
+
+    //auth check
+    (async function enforceAuth() {
+        try {
+            const r = await fetch("/auth-check");
+            const data = await r.json();
+            if (!data.logged_in) {
+                alert("Session Expired. Log in Again.")
+                window.location = "/login";
+            }
+
+        } catch (err) {
+            alert("Unable to verify. Redirecting to login.");
+            window.location = "/login";
+        }
+    })();
+
+
+    function goBackToMain(e) {
+        e.preventDefault();
+        if (window.opener) {
+            window.opener.focus(); // bring original tab to front
+            window.close();        // close this tab
+        } else {
+            // fallback if no opener reference
+            window.location.href = "/";
+        }
+    }
+</script>
+
+</html>

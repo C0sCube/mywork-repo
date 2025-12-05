@@ -6,10 +6,12 @@ sys.path.append(root_dir)
 
 from datetime import timedelta, datetime
 # from zoneinfo import ZoneInfo
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify, send_file
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from ldap3 import Server, Connection, ALL #type: ignore
+import pandas as pd
+
 from app.sqlconnect import establish_connection
 from app.utils import Helper
 from sqlconnect import update_report_table
@@ -31,12 +33,11 @@ path = os.path.join(root_dir, r"paths.json")
 config = utils.load_json(path)
 INPUT_DIR = config["amc_path"]
 OUTPUT_DIR = config["output_path"]
-USERS_FILE = os.path.join(root_dir, "web", "config", "users.json")
 
 LDAP_CONFIG = config.get("ldap")
 LDAP_SERVER = LDAP_CONFIG["path"]
 LDAP_DOMAIN = LDAP_CONFIG["domain"]
-ADMIN_USERS = LDAP_CONFIG.get("admin_user", [])
+ADMIN_USERS = [val.lower() for val in LDAP_CONFIG.get("admin_user", [])]
 
 CONFIG_BASE_PATH = config["config_base_path"]
 DB_CONFIG = config.get("db_config")
@@ -56,19 +57,6 @@ def ldap_authenticate(username, password):
         return False
 
 
-# --- helper to load/save users ---
-def load_users():
-    if not os.path.exists(USERS_FILE):
-        return {}
-    with open(USERS_FILE, "r") as f:
-        return json.load(f)
-
-def save_users(users):
-    os.makedirs(os.path.dirname(USERS_FILE), exist_ok=True)
-    with open(USERS_FILE, "w") as f:
-        json.dump(users, f, indent=2)
-
-
 # --- ROUTES ---
 @app.route('/')
 def index():
@@ -79,13 +67,14 @@ def index():
     os.makedirs(json_dir, exist_ok=True)
     json_files = os.listdir(json_dir)
     user = session.get("user", "")  # Ensure user is passed
-    return render_template("dashboard.html", json_files=json_files, user=user)
+    role = session.get("role", "user")
+    return render_template("dashboard.html", json_files=json_files, user=user, role = role)
 
 @app.route('/dashboard')
 def dashboard():
-    user = session.get("user", "")
-    return render_template('dashboard.html', user=user)
-
+    user = session.get("user","")
+    role = session.get("role", "user")
+    return render_template("dashboard.html", user=user, role=role)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -99,14 +88,19 @@ def login():
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
+            session["role"] = "admin" if username in ADMIN_USERS else "user"
             return redirect(url_for("index"))
         else:
             return render_template("login.html", error="Invalid LDAP credentials.")
 
     return render_template("login.html")
 
-def not_logged_in_response():
-    return jsonify({"success": False, "error": "Not logged in"}), 401
+
+@app.route('/auth-check')
+def auth_check():
+    return {"logged_in":
+        bool(session.get("logged_in"))
+    }
 
 @app.route('/logout')
 def logout():
@@ -114,29 +108,29 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == "POST":
-        username = request.form["username"].strip().lower()
-        password = request.form["password"]
-        confirm = request.form["confirm"]
+# @app.route('/signup', methods=['GET', 'POST'])
+# def signup():
+#     if request.method == "POST":
+#         username = request.form["username"].strip().lower()
+#         password = request.form["password"]
+#         confirm = request.form["confirm"]
 
-        if not username or not password:
-            return render_template("signup.html", error="All fields are required.")
-        if password != confirm:
-            return render_template("signup.html", error="Passwords do not match.")
+#         if not username or not password:
+#             return render_template("signup.html", error="All fields are required.")
+#         if password != confirm:
+#             return render_template("signup.html", error="Passwords do not match.")
 
-        users = load_users()
+#         users = load_users()
 
-        if username in users:
-            return render_template("signup.html", error="User already exists.")
+#         if username in users:
+#             return render_template("signup.html", error="User already exists.")
 
-        users[username] = {"password": generate_password_hash(password)}
-        save_users(users)
+#         users[username] = {"password": generate_password_hash(password)}
+#         save_users(users)
 
-        return redirect(url_for("login"))
+#         return redirect(url_for("login"))
 
-    return render_template("signup.html")
+#     return render_template("signup.html")
 
 @app.route('/upload', methods=['POST'])
 def upload_files():
@@ -145,17 +139,21 @@ def upload_files():
     uploaded_by = session.get("user", "unknown")
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
+    to_cog_mf = request.form.get("to_cog_mf") is not None
+    print(to_cog_mf)
+
 
     for file in uploaded_files:
         if file and file.filename.lower().endswith(".pdf"):
             filename = secure_filename(file.filename)
             file_path = os.path.join(INPUT_DIR, filename)
             file.save(file_path)
-
+            now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
             # create a small sidecar meta JSON so parser can read who uploaded it
             meta = {
                 "uploaded_by": uploaded_by,
-                "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+                "uploaded_at": now,
+                "to_admin_panel": 1 if bool(to_cog_mf) else 0
             }
             try:
                 meta_path = os.path.splitext(file_path)[0] + ".meta.json"
@@ -166,8 +164,7 @@ def upload_files():
                 print(f"Failed to write meta for {filename}: {e}")
 
             # insert initial DB row via update_table (so dashboard shows file immediately)
-            now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
-            print(now)
+            # print(now)
             initial = {
                 "start_time": now,
                 "end_time": None,
@@ -175,7 +172,7 @@ def upload_files():
                 "json_path": None,
                 "status": "Pending",
                 "error": None,
-                "uploaded_by": uploaded_by
+                "uploaded_by": uploaded_by,
             }
             try:
                 # import update_table at top: from sqlconnect import update_table
@@ -194,11 +191,14 @@ def reprocess(filename):
         return redirect(url_for("login"))
 
     uploaded_by = session.get("user", "unknown")
+    
+    #get payload
+    payload = request.get_json(silent=True) or {}
+    to_admin_panel = int(payload.get("to_admin_panel", 0))
 
     # Look for file in processed or failed dirs
     processed_path = os.path.join(OUTPUT_DIR, "processed", secure_filename(filename))
     failed_path = os.path.join(OUTPUT_DIR, "failed", secure_filename(filename))
-
     if os.path.exists(processed_path):
         file_path = processed_path
     elif os.path.exists(failed_path):
@@ -214,7 +214,8 @@ def reprocess(filename):
     # Write fresh meta JSON
     meta = {
         "uploaded_by": uploaded_by,
-        "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+        "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
+        "to_admin_panel": to_admin_panel
     }
     meta_path = os.path.splitext(new_path)[0] + ".meta.json"
     with open(meta_path, "w", encoding="utf-8") as mf:
@@ -248,8 +249,6 @@ def record_upload():
 
     return jsonify({"success": success})
 
-
-
 @app.route('/delete/<filename>')
 def delete_file(filename):
     if not session.get("logged_in"):
@@ -260,7 +259,6 @@ def delete_file(filename):
         os.remove(file_path)
     return redirect('/')
 
-
 @app.route('/json/<filename>')
 def get_json(filename):
     if not session.get("logged_in"):
@@ -270,6 +268,13 @@ def get_json(filename):
 # ------------------ PDF VIEW ROUTE ------------------
 @app.route('/viewer/pdf/<filename>')
 def view_pdf(filename):
+    
+    sub_dir = "fs"
+    if filename.endswith("_SID.pdf"):
+        sub_dir = "sid"
+    elif filename.endswith("_KIM.pdf"):
+        sub_dir = "kim"
+    
     processed_dir = os.path.join(OUTPUT_DIR, "processed")
     failed_dir = os.path.join(OUTPUT_DIR, "failed")
 
@@ -283,6 +288,95 @@ def view_pdf(filename):
         return send_from_directory(failed_dir, filename)
 
     return "PDF not found", 404
+
+
+# ------------------ CSV/XLS VIEW ROUTE ------------------
+def json_to_csv(json_path, output_dir="."):
+    keys = REGISTRY.get(
+            "field_keys",
+            {
+            "static_keys": [
+                "amc_name", "main_scheme_name", "mutual_fund_name", "benchmark_index",
+                "monthly_aaum_date", "monthly_aaum_value", "scheme_launch_date",
+                "min_addl_amt", "min_addl_amt_multiple", "min_amt", "min_amt_multiple"
+            ],
+            "load_keys": ["entry_load", "exit_load"],
+            "metric_keys": [
+                "alpha", "arithmetic_mean_ratio", "average_div_yield", "average_pb", "average_pe",
+                "avg_maturity", "beta", "correlation_ratio", "downside_deviation", "information_ratio",
+                "macaulay", "mod_duration", "port_turnover_ratio", "r_squared_ratio", "roe_ratio",
+                "sharpe", "sortino_ratio", "std_dev", "tracking_error", "treynor_ratio",
+                "upside_deviation", "ytm"
+            ],
+            "manager_keys": ["name", "managing_fund_since", "total_exp", "qualification"]
+        }
+    )
+    static_keys, load_keys, metric_keys, manager_keys = (
+        keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"]
+    )
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        doc = json.load(f)
+
+    records = doc.get("records", [])
+    max_manager = max((len(r["value"].get("fund_manager", [])) for r in records), default=1)
+
+    # Build headers
+    headers = static_keys + load_keys + metric_keys
+    for i in range(1, max_manager + 1):
+        headers.extend([f"{k}_{i}" for k in manager_keys])
+
+    def flatten_to_row(value):
+        row = []
+        # static
+        for k in static_keys:
+            v = value.get(k, "")
+            if isinstance(v, list):
+                v = ", ".join(v)
+            row.append(v)
+        # loads
+        entry, exit_ = "", ""
+        for l in value.get("load", []):
+            if l.get("type") == "entry_load": entry = l.get("comment", "")
+            elif l.get("type") == "exit_load": exit_ = l.get("comment", "")
+        row.extend([entry, exit_])
+        # metrics
+        metric_map = {m.get("name"): m.get("value") for m in value.get("metrics", [])}
+        row.extend([metric_map.get(k, "") for k in metric_keys])
+        # fund managers
+        managers = value.get("fund_manager", [])
+        for i in range(max_manager):
+            if i < len(managers):
+                fm = managers[i]
+                row.extend([fm.get(k, "") for k in manager_keys])
+            else:
+                row.extend([""] * len(manager_keys))
+        return row
+
+    rows = [flatten_to_row(r["value"]) for r in records]
+
+    # Timestamped filename
+    base = os.path.splitext(os.path.basename(json_path))[0]
+    csv_path = os.path.join(output_dir, f"{base}.csv")
+    pd.DataFrame(rows, columns=headers).to_csv(csv_path, index=False, encoding="utf-8")
+    return csv_path
+
+@app.route("/download_csv", methods=["GET"])
+def download_csv():
+    # Get JSON path from query parameter
+    json_path = request.args.get("path")
+    if not json_path:
+        return {"success": False, "message": "Missing ?path=... parameter"}, 400
+
+  
+    csv_path = json_to_csv(json_path)
+   
+    return send_file(
+        csv_path,
+        as_attachment=True,
+        download_name=os.path.basename(csv_path),
+        mimetype="text/csv"
+    )
 
 # ------------------ JSON VIEW ROUTE ------------------
 @app.route('/viewer/json/<filename>')
@@ -321,30 +415,6 @@ def logs():
         "json_files": json_files
     }
 
-# @app.route('/status_data')
-# def status_data():
-#     """Return latest entries from holy_sheet as JSON for dashboard polling."""
-#     if not session.get("logged_in"):
-#         return redirect(url_for("login"))
-
-#     try:
-#         conn = establish_connection(db_config=DB_CONFIG)
-#         cur = conn.cursor(dictionary=True)
-#         cur.execute("""
-#             SELECT file_name, start_time, end_time, status,json_path, error, uploaded_by
-#             FROM mf_status_report
-#             ORDER BY start_time DESC
-#             LIMIT 30
-#         """)
-#         rows = cur.fetchall()
-#         cur.close()
-#         conn.close()
-#         # print(rows)
-#         return {"success": True, "rows": rows}
-#     except Exception as e:
-#         print("status_data error:", e)
-#         return {"success": False, "rows": []}
- 
 @app.route('/status_data')
 def status_data():
     """Return paginated entries from mf_status_report as JSON for dashboard polling."""
@@ -366,7 +436,7 @@ def status_data():
 
         # Fetch paginated rows
         cur.execute("""
-            SELECT file_name, start_time, end_time, status, json_path, error, uploaded_by
+            SELECT file_name, start_time, end_time, status, json_path, error, uploaded_by, to_admin_panel
             FROM mf_status_report
             ORDER BY start_time DESC
             LIMIT %s OFFSET %s
@@ -394,7 +464,6 @@ def get_registry():
     # print(company_registry.keys())
     return jsonify(company_registry)
 
-
 @app.route('/json_list')
 def json_list():
     if not session.get("logged_in"):
@@ -404,22 +473,21 @@ def json_list():
     files = sorted(os.listdir(json_dir), reverse=True)
     return {"files": files[:20]}
 
+
+#config editor
 @app.route('/config-editor')
 def config_editor():
     if not session.get("logged_in"):
         return redirect(url_for("login")) 
 
     user = session.get("user", "").lower()
-    if user != "kaustubh.keny":
+    if user not in ADMIN_USERS:
         return redirect(url_for("index"))
 
     return render_template("config_editor.html", user=user) 
 
 @app.route('/list-files/<year>')
 def list_files(year):
-    if not session.get('logged_in'):
-        return not_logged_in_response()
-    
     year_path = os.path.join(CONFIG_BASE_PATH, str(year))
     print(year_path)
     try:
@@ -452,8 +520,7 @@ def load_config():
 @app.route('/save-config', methods=['POST'])
 def save_config():
     
-    if not session.get('logged_in'):
-        return not_logged_in_response()
+
 
     data = request.get_json()
     year = data.get('year')
@@ -479,8 +546,7 @@ def save_config():
 @app.route("/backup-config", methods=["POST"])
 def backup_config():
     
-    if not session.get('logged_in'):
-        return not_logged_in_response()
+
     
     data = request.get_json()
     year = data["year"]
@@ -505,8 +571,7 @@ def backup_config():
 @app.route("/create-config", methods=["POST"])
 def create_config():
     
-    if not session.get('logged_in'):
-        return not_logged_in_response()
+
     
     data = request.get_json()
     year = data["year"]
@@ -526,9 +591,7 @@ def create_config():
 
 @app.route("/delete-config", methods=["POST"])
 def delete_config():
-    
-    if not session.get('logged_in'):
-        return not_logged_in_response()    
+        
     data = request.get_json()
     year = data["year"]
     filename = data["filename"]
@@ -539,6 +602,19 @@ def delete_config():
 
     os.remove(file_path)
     return jsonify({"success": True})
+
+#check amc data
+@app.route('/amc-data')
+def amc_data():
+    if not session.get("logged_in"):
+        return redirect(url_for("login")) 
+
+    user = session.get("user", "").lower()
+    if user not in ADMIN_USERS:
+        return redirect(url_for("index"))
+
+    return render_template("amc_data.html", user=user) 
+
 
 #logs
 @app.route('/daily-log')

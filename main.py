@@ -32,7 +32,6 @@ helper = Helper()
 
 
 #sp call
-# SP_COG_MF = False
 SP_STATUS = True
 
 # --- Helper Functions ---
@@ -72,6 +71,7 @@ def initialize_status_report(db_config:dict,file_list):
     for file_name in file_list:
         meta = read_meta_content(INPUT_DIR,file_name)
         uploaded_by = meta.get("uploaded_by","unknown")
+        adm_pnl = meta.get("to_admin_panel", 0)
         # print(uploaded_by)
         report = {
             "start_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
@@ -80,7 +80,8 @@ def initialize_status_report(db_config:dict,file_list):
             "json_path": None,
             "status": "Pending",
             "error": None,
-            "uploaded_by": uploaded_by
+            "uploaded_by": uploaded_by,
+            "to_admin_panel":adm_pnl
         }
         reports[file_name] = report
        
@@ -142,13 +143,13 @@ def process_file(file_name, db_config, report):
     file_path = os.path.join(INPUT_DIR, file_name)
     file_key, year = check_amc_file(file_path,file_name)
 
-    report = execute_parser(file_path, file_key, year, report)
+    latest_report = execute_parser(file_path, file_key, year, report)
     
     if SP_STATUS:
-        update_report_table(report, db_config)
+        update_report_table(latest_report, db_config)
 
     # archive + delete
-    archive_dir = PROCESSED_DIR if report["status"] == "completed" else FAILED_DIR
+    archive_dir = PROCESSED_DIR if latest_report["status"] == "completed" else FAILED_DIR
     Helper.archive_and_delete_files(archive_dir, {file_name: file_path})
 
     meta_file_name = file_name.replace(".pdf", ".meta.json")
@@ -159,19 +160,23 @@ def process_file(file_name, db_config, report):
         except Exception:
             logger.warning("Meta file not removed")
 
-    # upload to cog_mf if enabled
-    # if report["status"] == "completed" and report["json_path"] and SP_COG_MF:
-    #     try:
-    #         json_to_cog_db(report["json_path"], db_config)
-    #     except Exception as e:
-    #         logger.error(f"db update failed for {file_name}: {type(e).__name__}: {e}")
-    #         logger.debug(traceback.format_exc())
-
+    #cog_mf sp call
+    logger.info("Checking if cog_mf SP to call.")
+    if latest_report.get("to_admin_panel", 0) == 1 and latest_report["status"] == "completed":
+        json_to_cog_db(
+            latest_report.get("json_path",""),
+            db_config
+        )
+    else:
+        logger.info("Not to call SP. Skipped.")
+        latest_report.update({"to_admin_panel": 0 })
+        
+    
     # update status report if enabled
     if SP_STATUS:
-        update_report_table(report, db_config)
+        update_report_table(latest_report, db_config)
 
-    return report["status"]
+    return latest_report["status"]
 
 def main():
     logger.info("Watcher started.")
