@@ -1,1 +1,98 @@
-{AMC_NAME: "Uti Mutual Fund Passive", MAIN_MAP: {select: true, map: true, special: true}, IMP_DATA: {amc_name: "UTI Asset Management Company Limited", mutual_fund_name: "UTI Mutual Fund"}, PARAMS: {title: {ocr: false, pattern: "(UTI.*?(?:FUND(?:\\s*OF FUND|.+?DURATION)?|PLAN|ETF|FTF|FOF|Fund|ETF(?: FUND OF FUND)?)(?:\\s*\\(\\s*Erst.+?\\))?)", bbox: [0, 0, 460, 35]}, clip_bbox: [[0, 65, 200, 812], [380, 65, 580, 812], [205, 65, 450, 812]], line_x: 200.0, data: {size: [7, 10], color: [-65794, -1], update_size: 30.0, font: ["Calibri-Bold"]}, content_size: [30.0, 8.0], method: "clip", line_side: "left", max_financial_index_highlight: 5, pdf_ocr: false, sanitize_fund: false, stop_words: []}, DUPLICATE_MUTUAL_FUNDS: {}, PRE_DATA_SELECT: [], REGEX: {aum: "(.+Average|.+AUM)\\s*([\\d,.]+)", ter: "^(Regular|Direct)[\\s:?]+([\\d]+\\.\\d+)", load: "Entry Load(.*)Exit Load(.*)$", min_amt: "(?:Growth)?\\s*([\\d,]+\\.?\\d+)\\-?\\D*\\s*((?:[\\d,.]+)?)", manager: {pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+).*?Managing (?:the|this) scheme since\\s*([A-Za-z]+\\s*[0-9]+|Inception|[0-9]+-[A-Za-z]+-[0-9]+)", fields: ["name", "since"]}, metrics: "(Yield to Maturity|Weighted Average Maturity|Modied Duraon|Macaulay Durat?i?on|Standard Deviat?i?on|Beta|Sharpe Rat?i?o|Port?f?olio Turnover|Tracking Error|PE|ROE|PB)\\s*([\\d,.]+\\s*(ye?a?rs?|days?|months?)?)", escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+"}, PATTERN_TO_FUNCTION: {"^(date|benchmark|scheme_launch|additional)": ["_extract_str_data", null], "^aum": ["_extract_generic_data", "aum"], fund_manager: ["_extract_manager_data", "manager"]}, SECONDARY_PATTERN_TO_FUNCTION: {load: ["_extract_load_data", "load"], "^(metrics|market_capital).*": ["_extract_generic_data", "metrics"], "^minimum_investment": ["_extract_amt_data", "min_amt"]}, TERTIARY_PATTERN_TO_FUNCTION: {}, SELECTKEYS: ["date_of_incepti.*", "benchmark_index", "fund_manager", ".*monthly_average", "load", "minimum_investment", "amc_name", "main_scheme_name", "monthly_aaum_date", "page_number", "mutual_fund_name", "metrics"], MERGEKEYS: {metrics: ["^metrics$", "^metrics_.*", "^market_capital"]}, CLONEKEYS: {}, PROMOTE_KEYS: {}, SPECIAL_FUNCTIONS: {}}
+{
+  AMC_NAME: "Uti Mutual Fund",
+  MAIN_MAP: { select: true, map: true, special: true },
+  IMP_DATA: {
+    amc_name: "UTI Asset Management Company Limited",
+    mutual_fund_name: "UTI Mutual Fund",
+  },
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(UTI.*?(?:FUND|PLAN|ETF|FTF|FOF|Fund|ETF)\\s*(?:FUND OF FUND|\\s*OF FUND|.+?DURATION)?)",
+      bbox: [0, 0, 460, 35],
+    },
+    clip_bbox: [
+      [0, 65, 200, 812],
+      [380, 65, 580, 812],
+      [205, 65, 450, 812],
+    ],
+    line_x: 200.0,
+    data: {
+      size: [7, 15],
+      color: [-666], //[-65794, -1
+      update_size: 30.0,
+      font: ["Calibri-Bold"],
+    },
+    content_size: [30.0, 9.0],
+    method: "clip",
+    line_side: "left",
+    max_financial_index_highlight: 5,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+  },
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    load: "Entry Load(.*)Exit Load(.*)$",
+    scheme: [
+      "Investment\\s*Objective",
+      "Date\\s*[Oo]f\\s*[iI]nception",
+      "Benchmark\\s*[Ii]ndex",
+      "Fund\\s*Manager",
+      "Plan.+?Option",
+      "Load Structure",
+      "Fund AUM.+?Folio",
+      "Fund Size Monthly Average",
+      "Closing AUM",
+      "Minimum Investment Amount",
+      "NAV per unit",
+      "Port.+?meters",
+      "EOL",
+    ],
+    scheme2: ["Quan.*?ta.*?ve Indicators", "EOL","Po.+?olio\\s*Parameters","EOL"],
+    min_amt: "(?:Growth)?\\s*([\\d,]+\\.?\\d+)\\-?\\D*\\s*((?:[\\d,.]+)?)",
+    manager: {
+      pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+).*?Managing (?:the|this) scheme since\\s*([A-Za-z]+\\s*\\-?\\s*[0-9]+|Inception|[0-9]+-[A-Za-z]+-[0-9]+)",
+      fields: ["name", "since"],
+    },
+    metrics: "(Yield to Maturity|Weighted Average Maturity|Modi.+?Dura.*?on|Macaulay\\s*Dur.+?on|Standard\\s*Devia.+?on|Beta|Sharpe Ra.+?o|Por.+?olio Turnover|Tracking Error|P\\s*E|ROE|P\\s*B)\\s*([\\d,.]+\\s*([Yy]e?a?rs?|[Dd]ays?|[Mm]onths?|%)?)",
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
+    date:"(\\w+\\s*\\d{2}.+$)"
+  },
+  PATTERN_TO_FUNCTION: {
+    before: ["_extract_scheme_non_esc_data", "scheme"],
+    "^dummy.*": ["_extract_scheme_data", "scheme2"],
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    // ".*monthly_average": ["_extract_generic_data", "aum"],
+    ".*date_of_inception": ["_extract_generic_data", "date"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    // ".*(load_structure|nav_per_unit)": ["_extract_load_data", "load"],
+    ".*(metrics|market_capital|quan.+?dicators|por.+?_parameter).*": [
+      "_extract_generic_data",
+      "metrics",
+    ],
+    ".*minimum_investment": ["_extract_amt_data", "min_amt"],
+  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
+    ".*(benchmark_index|date_of_inception)",
+    ".*fund_manager",
+    ".*monthly_average",
+    "load", //after merge
+    ".*minimum_investment",
+    "amc_name",
+    "main_scheme_name",
+    "monthly_aaum_date",
+    "page_number",
+    "mutual_fund_name",
+    "metrics",
+  ],
+  MERGEKEYS: { 
+    metrics: ["^metrics$", "^metrics_.*", ".*market_capital",".*quan.+?dicators",".*por.+?_parameter"],
+  load:[".*(nav_per_unit|load_structure)"] },
+  CLONEKEYS: {},
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+}

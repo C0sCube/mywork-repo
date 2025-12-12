@@ -17,56 +17,206 @@
     "scheme_launch_date": null
   },
   "amc_registry": {
-    "1": "AXIS AMC",
-    "2": "Baroda BNP Paribas AMC",
-    "3": "AdityaBirla AMC",
-    "5": "BoI AMC",
-    "6": "Canara AMC",
-    "7": "PGIM AMC",
-    "8": "DSP AMC",
-    "9": "Edelweiss AMC",
-    "10": "Quant AMC",
-    "11": "Franklin Templeton AMC",
-    "12": "HDFC AMC",
-    "13": "HSBC AMC",
-    "14": "ICICI AMC",
-    "16": "Bandhan AMC",
-    "18": "360 AMC",
-    "20": "GROWW AMC",
-    "21": "Invesco AMC",
-    "22": "JMMF AMC",
-    "23": "Kotak AMC",
-    "25": "LIC AMC",
-    "26": "Mahindra ManuLife AMC",
-    "27": "MIRAE AMC",
-    "28": "MotilalOswal AMC",
-    "30": "PPFAS AMC",
-    "32": "Quantum AMC",
-    "33": "Nippon AMC",
-    "35": "SBI AMC",
-    "36": "Shriram AMC",
-    "37": "Sundaram AMC",
-    "38": "Tata AMC",
-    "39": "Taurus AMC",
-    "40": "Union AMC",
-    "41": "UTI AMC",
-    "42": "WhiteOak AMC",
-    "51": "ITI AMC",
-    "55": "Trust AMC",
-    "56": "NAVI AMC",
-    "57": "NJMF AMC",
-    "58": "Samco AMC",
-    "59": "BajajFinServ AMC",
-    "60": "Helios AMC",
-    "71": "Zerodha AMC",
-    "95": "OldBridge AMC",
-    "96": "AngelOne AMC",
-    "97": "Unifi AMC",
-    "98": "Jio BlackRock AMC",
-    "99": "CapitalMind AMC",
-    "100": "WealthCompany AMC",
-    "101": "Choice AMC",
-    "102": "Abakkus AMC"
+    "1": {
+      "amc_name": "AXIS",
+      "amc_website": "https://www.axismf.com"
+    },
+    "2": {
+      "amc_name": "Baroda BNP",
+      "amc_website": "https://www.barodabnpparibasmf.in"
+    },
+    "3": {
+      "amc_name": "AdityaBirla",
+      "amc_website": "https://mutualfund.adityabirlacapital.com"
+    },
+    "5": {
+      "amc_name": "Bank of India",
+      "amc_website": "https://www.boimf.in"
+    },
+    "6": {
+      "amc_name": "Canara",
+      "amc_website": "https://www.canararobeco.com"
+    },
+    "7": {
+      "amc_name": "PGIM",
+      "amc_website": "https://www.pgimindiamf.com"
+    },
+    "8": {
+      "amc_name": "DSP",
+      "amc_website": "https://www.dspim.com"
+    },
+    "9": {
+      "amc_name": "Edelweiss",
+      "amc_website": "https://www.edelweissmf.com"
+    },
+    "10": {
+      "amc_name": "Quant",
+      "amc_website": "https://quantmutual.com"
+    },
+    "11": {
+      "amc_name": "Franklin Templeton",
+      "amc_website": "https://www.franklintempletonindia.com"
+    },
+    "12": {
+      "amc_name": "HDFC",
+      "amc_website": "https://www.hdfcfund.com"
+    },
+    "13": {
+      "amc_name": "HSBC",
+      "amc_website": "https://www.assetmanagement.hsbc.co.in/en/mutual-funds"
+    },
+    "14": {
+      "amc_name": "ICICI",
+      "amc_website": "https://www.icicipruamc.com"
+    },
+    "16": {
+      "amc_name": "Bandhan",
+      "amc_website": "https://www.bandhanmutual.com"
+    },
+    "18": {
+      "amc_name": "360",
+      "amc_website": "https://www.360.one"
+    },
+    "20": {
+      "amc_name": "GROWW",
+      "amc_website": "https://www.growwmf.in"
+    },
+    "21": {
+      "amc_name": "Invesco",
+      "amc_website": "https://www.invescomutualfund.com"
+    },
+    "22": {
+      "amc_name": "JMMF",
+      "amc_website": "https://www.jmfinancialmf.com"
+    },
+    "23": {
+      "amc_name": "Kotak",
+      "amc_website": "https://www.kotakmf.com"
+    },
+    "25": {
+      "amc_name": "LIC",
+      "amc_website": "https://www.licmf.com"
+    },
+    "26": {
+      "amc_name": "Mahindra Manulife",
+      "amc_website": "https://www.mahindramanulife.com"
+    },
+    "27": {
+      "amc_name": "MIRAE",
+      "amc_website": "https://www.miraeassetmf.co.in"
+    },
+    "28": {
+      "amc_name": "MotilalOswal",
+      "amc_website": "https://www.motilaloswalmf.com"
+    },
+    "30": {
+      "amc_name": "PPFAS",
+      "amc_website": "https://MF.ppfas.com"
+    },
+    "32": {
+      "amc_name": "Quantum",
+      "amc_website": "https://www.quantumamc.com"
+    },
+    "33": {
+      "amc_name": "Nippon",
+      "amc_website": "https://mf.nipponindiaim.com"
+    },
+    "35": {
+      "amc_name": "SBI",
+      "amc_website": "https://www.sbimf.com"
+    },
+    "36": {
+      "amc_name": "Shriram",
+      "amc_website": "https://www.shriramamc.in"
+    },
+    "37": {
+      "amc_name": "Sundaram",
+      "amc_website": "https://www.sundarammutual.com"
+    },
+    "38": {
+      "amc_name": "Tata",
+      "amc_website": "https://www.tatamutualfund.com"
+    },
+    "39": {
+      "amc_name": "Taurus",
+      "amc_website": "https://www.taurusmutualfund.com"
+    },
+    "40": {
+      "amc_name": "Union",
+      "amc_website": "https://www.unionmf.com"
+    },
+    "41": {
+      "amc_name": "UTI",
+      "amc_website": "https://www.utimf.com"
+    },
+    "42": {
+      "amc_name": "WhiteOak",
+      "amc_website": "https://mf.whiteoakamc.com"
+    },
+    "51": {
+      "amc_name": "ITI",
+      "amc_website": "https://www.itiamc.com"
+    },
+    "55": {
+      "amc_name": "Trust",
+      "amc_website": "https://www.trustmf.com"
+    },
+    "56": {
+      "amc_name": "NAVI",
+      "amc_website": "https://navi.com/mutual-fund"
+    },
+    "57": {
+      "amc_name": "NJMF",
+      "amc_website": "https://www.njmutualfund.com"
+    },
+    "58": {
+      "amc_name": "Samco",
+      "amc_website": "https://www.samcomf.com"
+    },
+    "59": {
+      "amc_name": "BajajFinServ",
+      "amc_website": "https://www.bajajamc.com"
+    },
+    "60": {
+      "amc_name": "Helios",
+      "amc_website": "https://www.heliosmf.in"
+    },
+    "71": {
+      "amc_name": "Zerodha",
+      "amc_website": "https://www.zerodhafundhouse.com"
+    },
+    "95": {
+      "amc_name": "OldBridge",
+      "amc_website": "https://oldbridgemf.com"
+    },
+    "96": {
+      "amc_name": "AngelOne",
+      "amc_website": "https://www.angelonemf.com"
+    },
+    "97": {
+      "amc_name": "Unifi",
+      "amc_website": "https://unifimf.com"
+    },
+    "98": {
+      "amc_name": "JioBlackRock",
+      "amc_website": "https://www.jioblackrockamc.com"
+    },
+    "99": {
+      "amc_name": "CapitalMind",
+      "amc_website": "https://capitalmindmf.com"
+    },
+    "100": {
+      "amc_name": "Wealth Company",
+      "amc_website": "https://www.wealthcompanyamc.in"
+    },
+    "101": {
+      "amc_name": "Choice",
+      "amc_website": "https://choiceindia.com/mutual-funds"
+    },
+    "102": {
+      "amc_name": "Abakkus",
+      "amc_website": "https://www.abakkusmf.com/"
+    }
   },
   "class_registry": {
     "100_0": "WealthCompany",
@@ -127,62 +277,6 @@
     "98_0": "JioBlackRock",
     "99_0": "CapitalMind",
     "9_0": "Edelweiss"
-  },
-  "config_mapper": {
-    "10_0": "Quant Mutual Fund",
-    "11_0": "Franklin Templeton Mutual Fund",
-    "12_0": "Hdfc Mutual Fund",
-    "12_1": "Hdfc Mutual Fund Passive",
-    "13_0": "Hsbc Mutual Fund",
-    "14_0": "Icici Prudential Mutual Fund",
-    "14_1": "Icici Prudential Mutual Fund Passive",
-    "16_0": "Bandhan Mutual Fund",
-    "18_0": "360 One Mutual Fund",
-    "1_0": "Axis Mutual Fund",
-    "1_1": "Axis Mutual Fund Passive",
-    "20_0": "Groww Mutual Fund",
-    "21_0": "Invesco Mutual Fund",
-    "22_0": "Jm Financial Mutual Fund",
-    "23_0": "Kotak Mahindra Mutual Fund",
-    "25_0": "Lic Mutual Fund",
-    "26_0": "Mahindra Manulife Mutual Fund",
-    "27_0": "Mirae Asset Mutual Fund",
-    "27_1": "Mirae Asset Mutual Fund Passive",
-    "28_0": "Motilal Oswal Mutual Fund",
-    "28_1": "Motilal Oswal Mutual Fund Passive",
-    "2_0": "Baroda Bnp Paribas Mutual Fund",
-    "30_0": "Ppfas Mutual Fund",
-    "32_0": "Quantum Mutual Fund",
-    "33_0": "Nippon India Mutual Fund",
-    "35_0": "Sbi Mutual Fund",
-    "35_1": "Sbi Mutual Fund Passive",
-    "36_0": "Shriram Mutual Fund",
-    "37_0": "Sundaram Mutual Fund",
-    "38_0": "Tata Mutual Fund",
-    "39_0": "Taurus Mutual Fund",
-    "3_0": "Aditya Birla Sun Life Mutual Fund",
-    "40_0": "Union Mutual Fund",
-    "41_0": "Uti Mutual Fund",
-    "41_1": "Uti Mutual Fund Passive",
-    "42_0": "Whiteoak Mutual Fund",
-    "51_0": "Iti Mutual Fund",
-    "55_0": "Trust Mutual Fund",
-    "56_0": "Navi Mutual Fund",
-    "56_1": "Navi Mutual Fund Passive",
-    "57_0": "Nj Mutual Fund",
-    "58_0": "Samco Mutual Fund",
-    "59_0": "Bajaj Finserv Mutual Fund",
-    "5_0": "Bank Of India Mutual Fund",
-    "60_0": "Helios Mutual Fund",
-    "6_0": "Canara Robeco Mutual Fund",
-    "71_0": "Zerodha Mutual Fund",
-    "7_0": "Pgim India Mutual Fund",
-    "8_0": "Dsp Mutual Fund",
-    "95_0": "Old Bridge Mutual Fund",
-    "96_0": "Angel One Mutual Fund",
-    "97_0": "Unifi Mutual Fund",
-    "9_0": "Edelweiss Mutual Fund",
-    "102_0": "Abbakus Mutual Fund"
   },
   "field_keys": {
     "load_keys": [
@@ -447,6 +541,7 @@
       "Bajaj Finserv Flexi Cap Fund": "Flexi Cap",
       "Bajaj Finserv Gilt Fund": "Gilt",
       "Bajaj Finserv Healthcare Fund": "Healthcare",
+      "Bajaj Finserv Small Cap Fund":"Finserv\\s*[sS]mall\\s+[cC]ap\\s*Fund",
       "Bajaj Finserv Large Cap Fund": "Large Cap",
       "Bajaj Finserv Large and Mid Cap Fund": "Large.+?Mid Cap",
       "Bajaj Finserv Liquid Fund": "Liquid\\s*Fund",
@@ -456,7 +551,10 @@
       "Bajaj Finserv Nifty 1D Rate Liquid ETF - Growth": "Nifty 1D Rate Liquid ETF",
       "Bajaj Finserv Nifty 50 ETF": "Nifty 50 ETF",
       "Bajaj Finserv Nifty Bank ETF": "Nifty Bank ETF",
-      "Bajaj Finserv Overnight Fund": "Overnight\\s*Fund"
+      "Bajaj Finserv Overnight Fund": "Overnight\\s*Fund",
+      "Bajaj Finserv Equity Savings Fund":"Equity\\s*Savings\\s*Fund", 
+      "Bajaj Finserv Nifty 50 Index Fund":"Nifty\\s*50\\s*[iI]ndex\\s*Fund$", 
+      "Bajaj Finserv Nifty Next 50 Index Fund":"Nifty\\s*Next\\s*50\\s*[iI]ndex\\s*Fund$"
     },
     "Bandhan Mutual Fund": {
       "Bandhan Aggressive Hybrid Fund": "Aggressive Hybrid Fund",
@@ -1622,5 +1720,57 @@
     "97": "UnifiSIDKIM",
     "98": "JioBlackRockSIDKIM",
     "102": "AbakkusSIDKIM"
+  },
+  "website_amc": {
+    "360 MF": "https://www.360.one",
+    "AXIS MF": "https://www.axismf.com",
+    "Abakkus MF": "https://www.abakkusmf.com/",
+    "AdityaBirla MF": "https://mutualfund.adityabirlacapital.com",
+    "AngelOne MF": "https://www.angelonemf.com",
+    "BajajFinServ MF": "https://www.bajajamc.com",
+    "Bandhan MF": "https://www.bandhanmutual.com",
+    "Baroda BNP Paribas MF": "https://www.barodabnpparibasmf.in",
+    "BoI MF": "https://www.boimf.in",
+    "Canara MF": "https://www.canararobeco.com",
+    "CapitalMind MF": "https://capitalmindmf.com",
+    "Choice MF": "https://choiceindia.com/mutual-funds",
+    "DSP MF": "https://www.dspim.com",
+    "Edelweiss MF": "https://www.edelweissmf.com",
+    "Franklin Templeton MF": "https://www.franklintempletonindia.com",
+    "GROWW MF": "https://www.growwmf.in",
+    "HDFC MF": "https://www.hdfcfund.com",
+    "HSBC MF": "https://www.assetmanagement.hsbc.co.in/en/mutual-funds",
+    "Helios MF": "https://www.heliosmf.in",
+    "ICICI MF": "https://www.icicipruamc.com",
+    "ITI MF": "https://www.itiamc.com",
+    "Invesco MF": "https://www.invescomutualfund.com",
+    "JMMF MF": "https://www.jmfinancialmf.com",
+    "Jio BlackRock MF": "https://www.jioblackrockamc.com",
+    "Kotak MF": "https://www.kotakmf.com",
+    "LIC MF": "https://www.licmf.com",
+    "MIRAE MF": "https://www.miraeassetmf.co.in",
+    "Mahindra ManuLife MF": "https://www.mahindramanulife.com",
+    "MotilalOswal MF": "https://www.motilaloswalmf.com",
+    "NAVI MF": "https://navi.com/mutual-fund",
+    "NJMF MF": "https://www.njmutualfund.com",
+    "Nippon MF": "https://mf.nipponindiaim.com",
+    "OldBridge MF": "https://oldbridgemf.com",
+    "PGIM MF": "https://www.pgimindiamf.com",
+    "PPFAS MF": "https://MF.ppfas.com",
+    "Quant MF": "https://quantmutual.com",
+    "Quantum MF": "https://www.quantumamc.com",
+    "SBI MF": "https://www.sbimf.com",
+    "Samco MF": "https://www.samcomf.com",
+    "Shriram MF": "https://www.shriramamc.in",
+    "Sundaram MF": "https://www.sundarammutual.com",
+    "Tata MF": "https://www.tatamutualfund.com",
+    "Taurus MF": "https://www.taurusmutualfund.com",
+    "Trust MF": "https://www.trustmf.com",
+    "UTI MF": "https://www.utimf.com",
+    "Unifi MF": "https://unifimf.com",
+    "Union MF": "https://www.unionmf.com",
+    "WealthCompany MF": "https://www.wealthcompanyamc.in",
+    "WhiteOak MF": "https://mf.whiteoakamc.com",
+    "Zerodha MF": "https://www.zerodhafundhouse.com"
   }
 }

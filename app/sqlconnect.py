@@ -123,11 +123,11 @@ def json_to_cog_db(json_path, db_config = None):
         "kim": "mf_processjson_kim",
         "sid": "mf_processjson_sid",
         "fs": "mf_processjson_factsheet"
-    },
+    }
     
     file_name = json_path.split("\\")[-1]
     json_string = Helper.load_json_as_string(json_path)
-    logger.notice(f"File Name: {file_name}, Json String: {json_string[:10]}")    
+    logger.info(f"File Name: {file_name}, Json String: {json_string[:10]}")    
     flag = False
    
 
@@ -147,9 +147,12 @@ def json_to_cog_db(json_path, db_config = None):
             cursor = conn.cursor()
             if "_FS.json" in file_name:
                 cursor.callproc("mf_update_document_details_FS", [file_name])
+                print("FS_doc running")
                 logger.debug("primary sp successfully ran.")
+
  
-            logger.notice(f"SP RUNNING: {sp_name}")
+            logger.info(f"SP RUNNING: {sp_name}")
+            print(f"SP RUNNING: {sp_name}")
             cursor.callproc(sp_name, [json_string])
             conn.commit()
             logger.debug("secondary sp successfully ran.")

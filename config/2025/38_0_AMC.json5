@@ -33,9 +33,9 @@
     nav: "((?:Regular|Direct|Reg)\\s*(?:Growth|IDCW))\\s*([\\d,.]+)",
     aum: "([\\d,]+\\.\\d+)",
     ter: "(Regular|Direct)\\s*([\\d,.]+)",
-    metric: "(PE|PB|Average Maturity|Macaul[ea]y Duration|Modified Duration|Modif?i?ed Duration|Yield to Maturity\\D+?|Std\\.?\\s*Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson|Turnover\\s*Ratio)\\s*(?:\\:)?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%)?|NA)",
+    metric: "(PE|PB|Average Maturity|Macaul[ea]y\\s*(?:Duration)?|Modified Duration|Modi.+?ed Duration|Yield to Maturity\\D+?|Std\\.?\\s*Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson|Portfolio Turnover\\D*)\\s*(?:\\:)?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%)?|NA)",
     manager: {
-      pattern: "([A-Za-z\\s]+)\\s*\\(Managing Since\\s*([A-Za-z0-9\\s\\-]+) and overall experience of ([a-z0-9\\s]+)\\)",
+      pattern:"([A-Za-z\\s]+)\\s*(?:\\([A-Za-z\\s]+\\))?\\s*\\(Managing Since\\s*([A-Za-z0-9\\s\\-]+) and overall? experience\\s*of\\s*(\\d{1,2}\\s+[Yy]ears?)\\)",
       fields: ["name", "since", "exp"],
     },
     scheme: [
@@ -46,7 +46,7 @@
       "NAV\\s*\\(\\s*in Rs",
       "MONTHLY AVERAGE AUM",
       "TURN OVER",
-      "VOLATILITY\\s*MEASURES",
+      "VOLATILITY\\s*(?:MEASURES)?",
       "MINIMUM INVESTMENT",
       "ADDITIONAL INVESTMENT",
       "Entry Load",
@@ -63,7 +63,7 @@
   SECONDARY_PATTERN_TO_FUNCTION: {
     ".*monthly_average": ["_extract_generic_data", "aum"],
     ".*fund_manager": ["_extract_manager_data", "manager"],
-    ".*(turn_over|volatility_measure)": ["_extract_generic_data", "metric"],
+    ".*(turn_over|volatility)": ["_extract_generic_data", "metric"],
     ".*(minimum_investment|additional_investment)": ["_extract_amt_data", "min_amt"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
@@ -87,7 +87,8 @@
       "metrics",
       ".*portfolio_turnover_ratio",
       ".*expense_ratio",
-      ".*volatility_measure",
+      ".*volatility.*$",
+      ".*turn_over"
     ],
   },
   CLONEKEYS: {},

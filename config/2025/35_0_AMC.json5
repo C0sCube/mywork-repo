@@ -8,8 +8,8 @@
   PARAMS: {
     title: {
       ocr: false,
-      pattern: "((?:SBI|i\\s*_|S35).*?(?:Fund\\s*(?:of funds?|.*?Plan)?|ETF|FTF|FOF))",
-      bbox: [160, 640, 550, 812],
+      pattern: "((?:SBI|i\\s*_|S35).*?(?:Fund\\s*|Index|Saver|ETF|FTF|F[oO]F)\\s*(?:of [Ff]unds?|.*?Aggressive\\s*Plan|.*?Hybrid\\s*Plan|.*?Conservative\\s*Plan)?)",
+      bbox: [160, 640, 600, 812],
     },
     clip_bbox: [[0, 120, 165, 812]],
     line_x: 165.0,

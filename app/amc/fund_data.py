@@ -196,6 +196,52 @@ class GrandFundData:
         # print(final_dict)
         return{main_key:final_dict}
     
+    def _extract_offset_data(self, main_key: str, data, pattern: str):
+        """
+        Extracts key-value pairs from text using regex patterns for keys and values,
+        then offsets the mapping so that values are reassigned based on (N+1)/2 logic.
+        Handles cases where values > keys by trimming or padding.
+
+        Args:
+            main_key (str): The top-level key for the returned dictionary.
+            data (list | str): Text or list of strings to search.
+            pattern (str): The regex key containing 'key' and 'value' sub-patterns.
+
+        Returns:
+            dict: A dictionary with the format {main_key: {key: value}} extracted
+                and offset-mapped from the input text.
+        """
+        final_dict = {}
+        metric_data = " ".join(data) if isinstance(data, list) else data
+        metric_data = re.sub(self.REGEX["escape"], "", metric_data).strip()
+
+        values = re.findall(self.REGEX[pattern]["value"], metric_data, re.IGNORECASE)
+        keys = re.findall(self.REGEX[pattern]["key"], metric_data, re.IGNORECASE)
+
+        n = len(keys)
+        m = len(values)
+
+        if n == 0 or m == 0:
+            return {main_key: final_dict}
+
+        # normalize lengths: trim or pad values to match keys
+        if m > n:
+            values = values[:n]  # trim extra values
+        elif m < n:
+            # pad with None if fewer values
+            values.extend([None] * (n - m))
+
+        offset = (n + 1) // 2
+
+        for i, key in enumerate(keys):
+            key = key.strip()
+            target_index = (i + offset) % n
+            val = values[target_index].strip() if values[target_index] else None
+            if key not in final_dict:
+                final_dict[key] = val
+
+        return {main_key: final_dict}
+    
     def _extract_iter_data(self, main_key: str, data, pattern: str):
         """
         Extracts key-value pairs by aligning regex 'key' and 'value' matches by order and position.
@@ -486,26 +532,26 @@ class GrandFundData:
                 return True
         return False
     
-    def _update_duplicate_fund_data(self, data: dict):
-        final_data = data.copy()
-        remove_fund = []
-        for fund, content in data.items():
-            clean_fund = self.UTILS._normalize_alphanumeric(fund)
-            for regex, mutual_funds in self.DUPLICATE_FUNDS.items():
-                matches = re.findall(regex, clean_fund, re.IGNORECASE)
-                if matches:
-                    print(f"match found: {regex} -> {fund}")
-                    remove_fund.append(fund)
-                    for dup_fund in mutual_funds:
-                        if dup_fund not in final_data:
-                            content["main_scheme_name"] = dup_fund
-                            final_data[dup_fund] = content
-                    break
+    # def _update_duplicate_fund_data(self, data: dict):
+    #     final_data = data.copy()
+    #     remove_fund = []
+    #     for fund, content in data.items():
+    #         clean_fund = self.UTILS._normalize_alphanumeric(fund)
+    #         for regex, mutual_funds in self.DUPLICATE_FUNDS.items():
+    #             matches = re.findall(regex, clean_fund, re.IGNORECASE)
+    #             if matches:
+    #                 print(f"match found: {regex} -> {fund}")
+    #                 remove_fund.append(fund)
+    #                 for dup_fund in mutual_funds:
+    #                     if dup_fund not in final_data:
+    #                         content["main_scheme_name"] = dup_fund
+    #                         final_data[dup_fund] = content
+    #                 break
         
-        for fund in remove_fund:
-            final_data.pop(fund, None)
+    #     for fund in remove_fund:
+    #         final_data.pop(fund, None)
             
-        return final_data
+    #     return final_data
 
     # clean + other
     def _select_by_regex(self, data:dict):
@@ -530,7 +576,6 @@ class GrandFundData:
             "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%Y%m%d"),
             "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
-            "file_name":""
         })
 
 class BaseAMC(Reader, GrandFundData):
@@ -575,7 +620,7 @@ class PGIM(BaseAMC): pass
 class JioBlackRock(BaseAMC): pass
 class MIRAE(BaseAMC): pass
 class MIRAEPassive(BaseAMC): pass
-class MotilalOswal(BaseAMC): pass
+# class MotilalOswal(BaseAMC): pass
 class MotilalOswalPassive(BaseAMC): pass
 class Nippon(BaseAMC): pass
 class Kotak(BaseAMC): pass
@@ -596,13 +641,14 @@ class BajajFinServ(BaseAMC):
         table_parser = TableParser()
         tables = camelot.read_pdf(path,flavor="lattice",pages=pages)
         dfs = pd.concat([table.df for table in tables], ignore_index=True)
-        sc1 = table_parser.get_matching_col_indices(dfs,["Bajaj.+?Fund","SCHEME\\s*NAME"],thresh=20)
-        sc2 = table_parser.get_matching_col_indices(dfs,["Jensen","Standard\\s*Deviation","Information\\s*ratio","Portfolio\\s*Quants","Tracking Error","YTM","Average\\s*Maturity","Sharpe"],thresh=10)
+        sc1 = table_parser.get_matching_col_indices(dfs,["Bajaj\\s*Finserv.+?Fund","SCHEME\\s*NAME"],thresh=10)
+        sc2 = table_parser.get_matching_col_indices(dfs,["Jensen","Standard\\s*Deviation","Information\\s*ratio","Portfolio\\s*Quants","Tracking Error","YTM","Average\\s*Maturity","Sharpe","Beta"],thresh=10)
+        print(f"Col 1: {sc1}, Col 2: {sc2}")
         all_cols = sorted(set(sc1)) + list(range(sc2[0], dfs.shape[1]))
         fdf = dfs.iloc[:, all_cols]
         fdf.columns = ["MUTUAL_FUND"] + [f"METRICS_{i}" for i in range(1, fdf.shape[1])]
         hdfc_pattern = re.compile(
-            r"(Baj.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN|.+?GROWTH)?)",
+            r"(Baj.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER|Fund|Etf|Saver|Path|Index)\s*(?:[oO]f\\s*[Ff]unds?|F[Oo]F|Of\\s*[Ff]unds?|.+?Growth|OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN|.+?GROWTH)?)",
             re.IGNORECASE
         )
         fdf.MUTUAL_FUND = table_parser.clean_series(fdf.MUTUAL_FUND,["normalize_alphanumeric"])
@@ -616,6 +662,7 @@ class BajajFinServ(BaseAMC):
 
         for idx, rows in fdf.iterrows():
             values = list(rows)
+            print(values)
             main_scheme_name = str(values[0]).strip() if not pd.isna(values[0]) else ""
             if main_scheme_name:
                 temp = main_scheme_name
@@ -697,13 +744,14 @@ class DSP(BaseAMC):
         dfs = pd.concat([table.df for table in tables], ignore_index=True)
         sc1 = table_parser.get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=20)
         sc2 = table_parser.get_matching_col_indices(dfs,["REGULAR\\s+PLAN","DIRECT\\s+PLAN"], thresh=10)
-        sc3 = table_parser.get_matching_col_indices(dfs,["Managing this scheme","total work experience"],thresh=10)
-        print("Matched columns:", sc1,sc2,sc3)
-        all_cols = list(set(sc1 + sc2 + sc3))
+        # sc3 = table_parser.get_matching_col_indices(dfs,["Managing this scheme","total work experience"],thresh=10)
+        print("Matched columns:", sc1,sc2) #sc3
+        all_cols = list(set(sc1 + sc2)) #+ sc3
         fdf = dfs.iloc[:, all_cols]
+        # fdf.to_csv("check.csv")
         fdf["LOAD_STRUCTURE"] = fdf.iloc[:, -1]
-        fdf.columns = ["MUTUAL_FUND","FUND_MANAGER","MIN_ADD","LOAD_STRUCTURE"]
-
+        fdf.columns = ["MUTUAL_FUND","MIN_ADD","LOAD_STRUCTURE"] #"FUND_MANAGER", "LOAD_STRUCTURE"
+ 
         dsp_pattern = re.compile(
             r"(DSP.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN)?)",
             re.IGNORECASE
@@ -720,18 +768,18 @@ class DSP(BaseAMC):
             values = list(rows)
             main_scheme_name = values[0]
             
-            fund_manager = str(values[1]).strip()
-            min_add = str(values[2]).strip()
-            load_structure = str(values[3]).strip()
+            # fund_manager = str(values[1]).strip()
+            min_add = str(values[1]).strip()
+            load_structure = str(values[2]).strip()
 
             if main_scheme_name not in data:
                 data[main_scheme_name] = {
-                    "fund_manager": fund_manager,
+                    # "fund_manager": fund_manager,
                     "min_add": min_add,
                     "load_structure": load_structure
                 }
             else:
-                data[main_scheme_name]["fund_manager"] += f"; {fund_manager}"
+                # data[main_scheme_name]["fund_manager"] += f"; {fund_manager}"
                 data[main_scheme_name]["min_add"] += f"; {min_add}"
                 data[main_scheme_name]["load_structure"] += f"; {load_structure}"
 
@@ -854,6 +902,7 @@ class NJMF(BaseAMC):
     def _update_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         value = " ".join(manager_data) if isinstance(manager_data,list) else manager_data
+        # print(value)
         nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
         esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
         msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
@@ -981,6 +1030,22 @@ class JioBlackRock(BaseAMC):
         e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
         s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
        
+        # print(n,s,e) 
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n,s = adjust(n,e),adjust(s,e)
+        for name,since,exp in zip(n,s,e):
+            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        return {main_key: final_list} 
+
+class MotilalOswal(BaseAMC):
+    def _update_manager_data(self, main_key: str, data):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
+        
         # print(n,s,e) 
         adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
         n,s = adjust(n,e),adjust(s,e)

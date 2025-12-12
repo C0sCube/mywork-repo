@@ -56,10 +56,12 @@
       "Fund\\s*Managers",
       "EOL",
     ],
-    metrics: "(YTM|Macaulay Duration|Yield\\s*to|average maturity|Modified Duration|Tracking\\s*Error|Portfolio\\s*Turnover\\s*Ratio)\\s*\\-?\\:?\\s*(-?\\d+\\.?\\d*\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
+    metrics: "(YTM|Macaulay Duration|Yield\\s*to|average maturity|Modified Duration|Tracking\\s*Error|Portfolio\\s*Turnover)\\s*\\-?\\:?\\s*(-?\\d+\\.?\\d*\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
     min_amt: "([\\d,]+).*?(\\d+|any)",
     load: "Entry Load(.*)Exit Load(.*)$",
     manager: {
+      pattern:"(?:Mr|Mrs|Ms)\\.?\\s*([\\w\\s]+)\\s*(?:\\([A-Za-z\\s]+\\))?\\s*\\(\\s*[Mm]anaging.+?since([A-Za-z0-9\\s]+)\\s*overal.+?of\\s*(\\d{1,2}\\+? [Yy]ears?)\\)",
+      fields:["name","since","exp"],
       name: "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s*[A-Za-z]+)",
       exp: "Total\\s*Experience\\s*([0-9]+\\s*[Yy]ears?)",
       since: "fund\\s*since\\s*([A-Za-z]+\\s+\\d{4})",
@@ -75,13 +77,14 @@
       "min_amt",
     ],
     ".*quantitative_measures": ["_extract_generic_data", "metrics"],
+    ".*fund_managers":["_extract_manager_data","manager"]
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
     "load",
     "metrics",
     ".*(minimum_application_amount|minimum_additional)",
-    ".*fund_manager",
+    ".*fund_managers?",
     ".*date_of_allotment",
     ".*benchmark",
     ".*aaum$",
@@ -93,7 +96,7 @@
   ],
   MERGEKEYS: {
     minimum_application_amount: [".*minimum_investment_lumpsum"],
-    metrics: [".*quantitative_indicators", ".*quantitative_data"],
+    metrics: [".*quantitative_indicators", ".*quantitative_data",".*quantitative_measures?"],
     load: [".*(entry_load|exit_load)"],
   },
   CLONEKEYS: {},

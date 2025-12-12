@@ -410,6 +410,7 @@ class Reader:
             for block in blocks:
                 size,text, *open = block
                 if size == header_size:
+                # if  abs(size - header_size) <= 1:
                     base_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
                     
                     # Protect reserved key "before"
@@ -724,9 +725,9 @@ class Reader:
             for load_key, load_value in load_data.items():
                 value = load_value if isinstance(load_value, str) else " ".join(map(str, load_value))
                 if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
-                    new_load.append({"comment": value, "type": "entry_load"})
+                    new_load.append({"comment": value, "type": "entry"})
                 elif re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
-                    new_load.append({"comment": value, "type": "exit_load"})
+                    new_load.append({"comment": value, "type": "exit"})
             df["load"] = new_load
         except Exception as e:
             self.logger.error(f"__load_ops → {fund} Load Error: {e}", exc_info=True)
@@ -748,6 +749,10 @@ class Reader:
         return df
 
     def __min_add_ops(self, fund: str, df: dict):
+        
+        if self.DUPLICATE_FUNDS:
+            print(self.DUPLICATE_FUNDS)
+        
         try:
             new_values = {}
             for key in ["min_amt", "min_addl_amt"]:
@@ -757,8 +762,7 @@ class Reader:
                 elif not isinstance(val, dict):
                     val = {"amt": "", "thraftr": ""}
                 new_values[key] = val.get("amt", "")
-                new_values[f"{key}_multiple"] = val.get("thraftr", "")
-
+                new_values[f"{key}_multiple"] = val.get("thraftr", "")          
             df.update(new_values)
         except Exception as e:
             self.logger.error(f"__min_add_ops → {fund} Min/Add Error: {e}", exc_info=True)
@@ -801,6 +805,7 @@ class Reader:
             temp = regex._remove_rupee_symbol(temp)
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
+            
             temp = regex._format_amt_data(fund,temp) #min/add formatter
             temp = regex._format_metric_data(fund,temp) #metric
             

@@ -48,7 +48,7 @@
       "QUANTITATIVE\\s*DATA",
       "EOL",
     ],
-    metrics: "(YTM|Macaulay Duration|Yield\\s*to|average maturity|Modified Duration|Tracking\\s*Error|Portfolio\\s*Turnover\\s*Ratio)\\s*\\-?\\:?\\s*(-?\\d+\\.?\\d*\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
+    metrics: "(YTM|Macaulay Duration|Yield\\s*to|average maturity|Modified Duration|Tracking\\s*Error|Portfolio\\s*Turnover\\s*(?:Ratio)?)\\s*\\-?\\:?\\s*(-?\\d+\\.?\\d*\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
     min_amt: "([\\d,]+).*?(\\d+|any)",
     load: "Entry Load(.*)Exit Load(.*)$",
     manager: {

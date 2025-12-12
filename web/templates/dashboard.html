@@ -351,14 +351,14 @@
                 <tr>
                     <th style="width:40px;">@</th>
                     <th style="width:200px;">File Name</th>
-                    <th style="width:120px;">ProcessedAt</th>
+                    <th style="width:140px;">ProcessedAt</th>
                     <th style="width:100px;">Status</th>
-                    <th style="width:70px;">JSN</th>
+                    <th style="width:70px;">JSON</th>
                     <th style="width:50px;">XLS</th>
                     <th style="width:180px;">UploadedBy</th>
-                    <th style="width:50px;">Pnl</th>
+                    <th style="width:65px;">AdmPnl</th>
                     <th>Error</th>
-                    <th style="width:50px;">Act</th>
+                    <th style="width:50px;">ReUpl</th>
                 </tr>`;
 
                 data.rows.forEach((row, index) => {
@@ -378,7 +378,7 @@
                     <td>${row.json_path ? `<a href="/viewer/json/${isJson}" target="_blank" class="menu__link">JSON</a>` : "-"}</td>
                     <td>${row.json_path ? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" target="_blank" class="menu__link" title="Download CSV"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
                     <td>${row.uploaded_by}</td>
-                    <td>${row.to_admin_panel === 1 ? "✅" : "-"}</td>
+                    <td>${row.to_admin_panel === 1 ? "Sent" : "Unsent"}</td>
                     <td>${row.error || "-"}</td>
                     <td><a href="#" onclick="confirmReprocess('${row.file_name}')"  class="icon-btn" title="Reprocess"><span class="material-symbols-outlined">autorenew</span></a></td>`;
                     table.appendChild(tr);
@@ -388,24 +388,46 @@
                 logsConsole.appendChild(table);
 
                 // Pagination
+                // Pagination
                 const pagination = document.getElementById("logpagination");
                 pagination.innerHTML = "";
                 const ul = document.createElement("ul");
 
-                for (let i = 1; i <= data.totalPages; i++) {
-                    const li = document.createElement("li");
-                    const a = document.createElement("a");
-                    a.href = "#";
-                    a.textContent = i;
-                    if (i === currentPage) a.style.fontWeight = "bold";
-                    a.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        currentPage = i;
+                // Prev button
+                const prevLi = document.createElement("li");
+                const prevA = document.createElement("a");
+                prevA.href = "#";
+                prevA.textContent = "<-";   // left arrow
+                prevA.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (currentPage > 1) {
+                        currentPage--;
                         loadLogs();
-                    });
-                    li.appendChild(a);
-                    ul.appendChild(li);
-                }
+                    }
+                });
+                prevLi.appendChild(prevA);
+                ul.appendChild(prevLi);
+
+                // Current page
+                const pageLi = document.createElement("li");
+                pageLi.textContent = `pgn:${currentPage}`;
+                ul.appendChild(pageLi);
+
+                // Next button
+                const nextLi = document.createElement("li");
+                const nextA = document.createElement("a");
+                nextA.href = "#";
+                nextA.textContent = "->";   // right arrow
+                nextA.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (currentPage < data.totalPages) {
+                        currentPage++;
+                        loadLogs();
+                    }
+                });
+                nextLi.appendChild(nextA);
+                ul.appendChild(nextLi);
+
                 pagination.appendChild(ul);
 
             } catch (err) {

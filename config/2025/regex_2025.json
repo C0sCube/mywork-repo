@@ -461,7 +461,8 @@
             "^pb_mul_ple",
             "^pb_multiple$",
             "^pb.+?ple$",
-            "^p_b$"
+            "^p_b$",
+            "^average_p_b$"
         ],
         "average_pe": [
             ".*_pe",
@@ -469,7 +470,8 @@
             "^pe$",
             "^pe_mul_ple",
             "^pe_multiple$",
-            "^pe.+?ple$"
+            "^pe.+?ple$",
+            "^average_p_e$"
         ],
         "avg_maturity": [
             "^avg_maturity",
@@ -501,7 +503,8 @@
         ],
         "information_ratio": [
             "information_ratio",
-            "^information_ratio$"
+            "^information_ratio$",
+            "^information$"
         ],
         "macaulay": [
             "^macaulay_duration",
@@ -527,7 +530,9 @@
             "^modified_dura?t?i?o?n?$",
             "^modifiedduration.+$",
             "modied.+?on$",
-            "^modied_duration$"
+            "^modied_duration$",
+            "^modi.+?on$",
+            "^modi_ed$"
         ],
         "port_turnover_ratio": [
             "^portfolio_turnover_ratio$",
@@ -552,7 +557,9 @@
             "^equity$",
             "^portfolio_turnover_ratio.+equity.*$",
             "^aggregate$",
-            "^turnover$"
+            "^turnover$",
+            "^por_olio_turnover$",
+            "^portfolio_turnover_equity.*$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -571,7 +578,9 @@
             "^sharpe_ratio",
             "^sharpe_rao$",
             "^sharperatio$",
-            "^sharpe_ratio$"
+            "^sharpe_ratio$",
+            "^sharpe_ra.*$",
+            "^sharpe$"
         ],
         "sortino_ratio": [],
         "std_dev": [
@@ -586,7 +595,8 @@
             "^standarddeviation$",
             "^std\\.?_dev\\.?$",
             "^standard_deviation$",
-            "^\\(?annualised\\)?$"
+            "^standard_devia.*$",
+            "^std\\.?$"
         ],
         "tracking_error": [
             "^tracking_error$",
@@ -597,7 +607,8 @@
             "^tracking_error\\s*.+?yrs?\\)?",
             ".*tracking_error$",
             "^tracking_error.+?period.+?$",
-            "^tracking_error_regular_plan$"
+            "^tracking_error_regular_plan$",
+            "^direct$"
         ],
         "treynor_ratio": [
             "^Treynor",
@@ -627,7 +638,8 @@
             "^yieldtomaturity$",
             "^yield_to$",
             "^yield_to_maturity.*$",
-            "^annual.+?ytm$"
+            "^annual.+?ytm$",
+            "^annualised$"
         ]
     }
 }

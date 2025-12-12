@@ -1,1 +1,91 @@
-{AMC_NAME: "Aditya Birla Sun Life Mutual Fund", MAIN_MAP: {select: true, map: true, special: true}, IMP_DATA: {amc_name: "Aditya Birla Sun Life Asset Management Company Limited", mutual_fund_name: "Aditya Birla Sun Life Mutual Fund"}, PARAMS: {title: {ocr: false, pattern: "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|F[Oo]F\\*?|Scheme|Funds\\*?|Yojna)?)$", bbox: [0, 0, 470, 25]}, clip_bbox: [[0, 50, 200, 330], [200, 50, 380, 330], [380, 90, 580, 330]], line_x: 210.0, data: {size: [4, 10], color: [-1, 0], update_size: 30.0, font: ["AnekLatin-Bold"]}, content_size: [30.0, 10.0], method: "clip", line_side: "", max_financial_index_highlight: 9, pdf_ocr: false, sanitize_fund: false, stop_words: []}, DUPLICATE_MUTUAL_FUNDS: {}, PRE_DATA_SELECT: [], REGEX: {aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores", load: "Entry Load(.*?)\\s*Exit Load(.*)$", manager: {name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)", exp: "\\d+\\.\\d+\\s*Years?", since: "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}"}, tracking: "regular\\s*(-?[\\d.]+)", min_amt: "([\\d,]+).*?([\\d,]+)", metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)", escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+"}, PATTERN_TO_FUNCTION: {"^(date_of_allotment|benchmark_index|fund_manager|managing_fund_since|experience_in_managing)": ["_extract_str_data", null], "^aum": ["_extract_generic_data", "aum"]}, SECONDARY_PATTERN_TO_FUNCTION: {"^(application_amount|minimum_investment).*": ["_extract_amt_data", "min_amt"], metrics: ["_extract_generic_data", "metric"], tracking_error: ["_extract_generic_data", "tracking"], load: ["_extract_load_data", "load"]}, TERTIARY_PATTERN_TO_FUNCTION: {}, SELECTKEYS: ["main_scheme_name", "amc_name", "monthly_aaum_date", "page_number", "mutual_fund_name", "metrics", "load", "aum.monthly_average_aum", "^(date_of|benchmark).*", "^(application_amount|minimum_investment).*", "^(fund_manager|managing_fund|experience_in).*", "tracking_error"], MERGEKEYS: {fund_manager: ["fund_manager", "experience_in_managing_the_fund", "managing_fund_since"], metrics: ["metrics", "tracking_error"]}, CLONEKEYS: {}, PROMOTE_KEYS: {}, SPECIAL_FUNCTIONS: {fund_manager: "_update_manager_data"}}
+{
+  AMC_NAME: "Aditya Birla Sun Life Mutual Fund",
+  MAIN_MAP: { select: true, map: true, special: true },
+  IMP_DATA: {
+    amc_name: "Aditya Birla Sun Life Asset Management Company Limited",
+    mutual_fund_name: "Aditya Birla Sun Life Mutual Fund",
+  },
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|F[Oo]F\\*?|Scheme|Funds\\*?|Yojna)?)$",
+      bbox: [0, 0, 470, 25],
+    },
+    clip_bbox: [
+      [0, 50, 200, 330],
+      [200, 50, 380, 330],
+      [380, 90, 580, 330],
+    ],
+    line_x: 210.0,
+    data: {
+      size: [4, 10],
+      color: [-1, 0],
+      update_size: 30.0,
+      font: ["AnekLatin-Bold"],
+    },
+    content_size: [30.0, 10.0],
+    method: "clip",
+    line_side: "",
+    max_financial_index_highlight: 9,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+  },
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
+    load: "Entry Load(.*?)\\s*Exit Load(.*)$",
+    manager: {
+      name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
+      exp: "\\d+\\.\\d+\\s*Years?",
+      since: "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}",
+    },
+    tracking: "regular\\s*(-?[\\d.]+)",
+    min_amt: "([\\d,]+).*?([\\d,]+)",
+    metric: "(Macaulay Duration|Modif?i?ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average PE|Average PBV|Average Dividend Yield)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)",
+    escape: "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%]+",
+  },
+  PATTERN_TO_FUNCTION: {
+    "^(date_of_allotment|benchmark_index|fund_manager|managing_fund_since|experience_in_managing)": [
+      "_extract_str_data",
+      null,
+    ],
+    "^aum": ["_extract_generic_data", "aum"],
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    "^(application_amount|minimum_investment).*": [
+      "_extract_amt_data",
+      "min_amt",
+    ],
+    metrics: ["_extract_generic_data", "metric"],
+    tracking_error: ["_extract_generic_data", "tracking"],
+    load: ["_extract_load_data", "load"],
+  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
+    "main_scheme_name",
+    "amc_name",
+    "monthly_aaum_date",
+    "page_number",
+    "mutual_fund_name",
+    "metrics",
+    "load",
+    "aum.monthly_average_aum",
+    "^(date_of|benchmark).*",
+    "^(application_amount|minimum_investment).*",
+    "^(fund_manager|managing_fund|experience_in).*",
+    "tracking_error",
+  ],
+  MERGEKEYS: {
+    fund_manager: [
+      "fund_manager",
+      "experience_in_managing_the_fund",
+      "managing_fund_since",
+    ],
+    metrics: ["metrics", "tracking_error"],
+  },
+  CLONEKEYS: {},
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: { fund_manager: "_update_manager_data" },
+}

@@ -44,6 +44,8 @@ DB_CONFIG = config.get("db_config")
 
 REGISTRY = utils.load_json(config.get("config_global_path",""))
 
+SP_RUN = False
+
 def ldap_authenticate(username, password):
     server = Server(LDAP_SERVER, get_info=ALL)
     user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
@@ -140,7 +142,7 @@ def upload_files():
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
     to_cog_mf = request.form.get("to_cog_mf") is not None
-    print(to_cog_mf)
+    # print(to_cog_mf)
 
 
     for file in uploaded_files:
@@ -152,6 +154,7 @@ def upload_files():
             # create a small sidecar meta JSON so parser can read who uploaded it
             meta = {
                 "uploaded_by": uploaded_by,
+                "created_by":uploaded_by,
                 "uploaded_at": now,
                 "to_admin_panel": 1 if bool(to_cog_mf) else 0
             }
@@ -172,11 +175,13 @@ def upload_files():
                 "json_path": None,
                 "status": "Pending",
                 "error": None,
+                "created_by": uploaded_by,
                 "uploaded_by": uploaded_by,
             }
             try:
+                if SP_RUN:
                 # import update_table at top: from sqlconnect import update_table
-                update_report_table(initial, db_config=DB_CONFIG)
+                    update_report_table(initial, db_config=DB_CONFIG)
             except Exception as e:
                 print(f"Failed to write initial DB row for {filename}: {e}")
 
@@ -233,7 +238,8 @@ def reprocess(filename):
         "error": None,
         "uploaded_by": uploaded_by
     }
-    update_report_table(initial, db_config=DB_CONFIG)
+    if SP_RUN:
+        update_report_table(initial, db_config=DB_CONFIG)
 
     print(f"File '{filename}' requeued for processing by {uploaded_by}")
     return {"success": True, "message": f"{filename} requeued"}
@@ -245,7 +251,9 @@ def record_upload():
 
     data = request.get_json()
     data["json_path"] = ""  # optional: fill later via parser
-    success = update_report_table(data, db_config=DB_CONFIG)
+    success = False
+    if SP_RUN:
+        success = update_report_table(data, db_config=DB_CONFIG)
 
     return jsonify({"success": success})
 
@@ -269,13 +277,15 @@ def get_json(filename):
 @app.route('/viewer/pdf/<filename>')
 def view_pdf(filename):
     
-    sub_dir = "fs"
+    sub_dir = ""
     if filename.endswith("_SID.pdf"):
         sub_dir = "sid"
     elif filename.endswith("_KIM.pdf"):
         sub_dir = "kim"
+    elif filename.endswith("_FS.pdf"):
+        sub_dir = "fs"
     
-    processed_dir = os.path.join(OUTPUT_DIR, "processed")
+    processed_dir = os.path.join(OUTPUT_DIR, "processed",sub_dir)
     failed_dir = os.path.join(OUTPUT_DIR, "failed")
 
     processed_path = os.path.join(processed_dir, filename)
@@ -322,9 +332,10 @@ def json_to_csv(json_path, output_dir="."):
     max_manager = max((len(r["value"].get("fund_manager", [])) for r in records), default=1)
 
     # Build headers
-    headers = static_keys + load_keys + metric_keys
+    headers = static_keys + metric_keys
     for i in range(1, max_manager + 1):
         headers.extend([f"{k}_{i}" for k in manager_keys])
+    headers.extend(load_keys)
 
     def flatten_to_row(value):
         row = []
@@ -334,12 +345,6 @@ def json_to_csv(json_path, output_dir="."):
             if isinstance(v, list):
                 v = ", ".join(v)
             row.append(v)
-        # loads
-        entry, exit_ = "", ""
-        for l in value.get("load", []):
-            if l.get("type") == "entry_load": entry = l.get("comment", "")
-            elif l.get("type") == "exit_load": exit_ = l.get("comment", "")
-        row.extend([entry, exit_])
         # metrics
         metric_map = {m.get("name"): m.get("value") for m in value.get("metrics", [])}
         row.extend([metric_map.get(k, "") for k in metric_keys])
@@ -351,6 +356,14 @@ def json_to_csv(json_path, output_dir="."):
                 row.extend([fm.get(k, "") for k in manager_keys])
             else:
                 row.extend([""] * len(manager_keys))
+        
+        # loads
+        entry, exit_ = "", ""
+        for l in value.get("load", []):
+            if l.get("type") == "entry_load": entry = l.get("comment", "")
+            elif l.get("type") == "exit_load": exit_ = l.get("comment", "")
+        row.extend([entry, exit_])
+        
         return row
 
     rows = [flatten_to_row(r["value"]) for r in records]
@@ -461,8 +474,15 @@ def status_data():
 @app.route("/company_registry")
 def get_registry():
     company_registry = REGISTRY.get("amc_registry",{})
-    # print(company_registry.keys())
+    
+    company_name = {k:v.get("amc_name","") for k,v in company_registry.items()}
+    return jsonify(company_name)
+
+@app.route("/amc_data")
+def get_amc_data():
+    company_registry = REGISTRY.get("amc_registry",{})
     return jsonify(company_registry)
+
 
 @app.route('/json_list')
 def json_list():

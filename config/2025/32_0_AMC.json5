@@ -1,1 +1,114 @@
-{AMC_NAME: "Quantum Mutual Fund", MAIN_MAP: {select: true, map: true, special: true}, IMP_DATA: {amc_name: "Quantum Asset Management Company Private Limited", mutual_fund_name: "Quantum Mutual Fund"}, PARAMS: {title: {ocr: false, pattern: "(Quantum.+?(?:FUNDS?|ETF|PATH|.+?PLAN|SAVER|Fund|Path)\\s*(?:FUND\\s+OF\\s+FUNDS?|FUNDS?|OF\\s+FUNDS?|F[oO]F|[Ff]und\\s*[Oo]f\\s*[Ff]unds?)?)", bbox: [0, 0, 450, 50]}, clip_bbox: [[380, 45, 585, 835], [0, 405, 390, 700]], line_x: 180.0, data: {size: [6, 11], color: [-23], update_size: 30.0, font: ["Prompt-SemiBold"]}, content_size: [30.0, 8.0], method: "clip", line_side: "", max_financial_index_highlight: 6, pdf_ocr: false, sanitize_fund: false, stop_words: []}, DUPLICATE_MUTUAL_FUNDS: {}, PRE_DATA_SELECT: [], REGEX: {aum: "(Average AUM|Absolute AUM)\\s*([\\d,.]+)", load: "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$", scheme: ["Inception Date", "Benchmark Index", "Fund\\s*Managers\\s*Details", "Average AUM", "Absolute AUM", "NAV", "Minimum Investment Amount", "Additional Purchase", "Exit Load", "Entry Load", "Total Expense Ratio", "Additional Purchase", "Portfolio Turnover Ratio", "Redemption Proceeds", "EOL"], ptr: "([\\d\\.]+\\s*(?:%)?|NA)", manager: {pattern: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s\\-]+)\\s*([0-9]+\\s*[Yy]ears?)\\s*([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{4})", fields: ["name", "exp", "since"]}, min_amt: "([\\d,]+)\\s*-?\\D+?([\\d]+)\\s*-?", metric: "(Residual Maturity\\D*|Average Maturity.+?of the Month|Annualised Portfolio YTM|Modified Duration|Macaulays? Duration|Standard Deviation|Beta\\D*|Sharpe Ratio\\D*|Tracking Error|Alpha)\\s*(-?[\\d.]+\\s*(?:days|months|years|%)?)", escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualised\\)|\\(\\s*Date\\s*of\\s*Allotment\\s*\\)"}, PATTERN_TO_FUNCTION: {"^(before|dummy.*)": ["_extract_scheme_data", "scheme"]}, SECONDARY_PATTERN_TO_FUNCTION: {".*(minimum_investment_amount|minimum_application_amount|additional_purchase)": ["_extract_amt_data", "min_amt"], ".*fund_manager": ["_extract_manager_data", "manager"], ".*(key_statistics|portfolio_information|metric)$": ["_extract_generic_data", "metric"], ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"]}, TERTIARY_PATTERN_TO_FUNCTION: {}, SELECTKEYS: [".*(inception_date|benchmark_index)", "load", "amc_name", ".*average_aum", ".*fund_managers_details", "main_scheme_name", "monthly_aaum_date", "page_number", "mutual_fund_name", "metrics", ".*(minimum_investment_amount|minimum_application_amount|additional_purchase)"], MERGEKEYS: {load: [".*entry_load", ".*exit_load"], metrics: [".*key_statistics$", "metrics", ".*portfolio_turnover_ratio", ".*portfolio_information$"]}, CLONEKEYS: {}, PROMOTE_KEYS: {}, SPECIAL_FUNCTIONS: {}}
+{
+  AMC_NAME: "Quantum Mutual Fund",
+  MAIN_MAP: { select: true, map: true, special: true },
+  IMP_DATA: {
+    amc_name: "Quantum Asset Management Company Private Limited",
+    mutual_fund_name: "Quantum Mutual Fund",
+  },
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(Quantum.+?(?:FUNDS?|ETF|PATH|.+?PLAN|SAVER|Fund|Path)\\s*(?:FUND\\s+OF\\s+FUNDS?|FUNDS?|OF\\s+FUNDS?|F[oO]F|[Ff]und\\s*[Oo]f\\s*[Ff]unds?)?)",
+      bbox: [0, 0, 450, 50],
+    },
+    clip_bbox: [
+      [380, 45, 585, 835],
+      [0, 405, 390, 700],
+      // [5, 90, 385, 850]
+    ],
+    line_x: 180.0,
+    data: {
+      size: [6, 11],
+      color: [-23],
+      update_size: 30.0,
+      font: ["Prompt-SemiBold"],
+    },
+    content_size: [30.0, 8.0],
+    method: "clip",
+    line_side: "",
+    max_financial_index_highlight: 6,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+  },
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: "(Average AUM|Absolute AUM)\\s*([\\d,.]+)",
+    load: "Entry Load\\s*(.*?)\\s*Exit Load\\s*(.*?)$",
+    scheme: [
+      "Inception Date",
+      "Benchmark Index",
+      "Fund\\s*Managers\\s*Details",
+      "Average AUM",
+      "Absolute AUM",
+      "NAV",
+      "Minimum Investment Amount",
+      "Additional Purchase",
+      "Exit Load",
+      "Entry Load",
+      "Total Expense Ratios?",
+      "Additional Purchase",
+      "Portfolio Turnover Ratio",
+      "Redemption Proceeds",
+      "EOL",
+    ],
+    scheme2: [
+      "Scheme\\s*[pP]ortfolio [Aa]s [Oo]n",
+      "Quantitative [iI]ndicators [Aa]s [Oo]n",
+      "Fund\\s*[pP]erformance [Aa]s [oO]n",
+      "EOL",
+    ],
+    ptr: "([\\d\\.]+\\s*(?:%)?|NA)",
+    manager: {
+      pattern: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s\\-]+)\\s*([0-9]+\\s*[Yy]ears?)\\s*([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{4})",
+      fields: ["name", "exp", "since"],
+    },
+    min_amt: "([\\d,]+)\\s*-?\\D+?([\\d]+)\\s*-?",
+    metric: {
+      key: "(Portfolio Turnover\\s*(Ratio)?|Residual Maturity|Annualised|Modified Duration|Macaul[ea]ys? Duration|Standard\\s*(?:Deviation)?|ESG [Ss]core of the|Weighted Average|Beta|Sharpe Ratio|Tracking Error|Alpha)",
+      value: "(\\d+\\.\\d+(?:%|[Da]ays?|[Mm]onths?|[Yy]ears?|[Tt]imes?)?)"
+    },
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualised\\)|\\(\\s*Date\\s*of\\s*Allotment\\s*\\)"
+  },
+  PATTERN_TO_FUNCTION: {
+    "^(before)": ["_extract_scheme_data", "scheme"],
+    "^(dummy.*one)": ["_extract_scheme_data", "scheme2"],
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    ".*(minimum_investment_amount|minimum_application_amount|additional_purchase)": [
+      "_extract_amt_data",
+      "min_amt",
+    ],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    ".*quantitative_indicator": ["_extract_offset_data", "metric"],
+    // ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
+  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
+    ".*(inception_date|benchmark_index)",
+    "load",
+    "amc_name",
+    ".*average_aum",
+    ".*fund_managers_details",
+    "main_scheme_name",
+    "monthly_aaum_date",
+    "page_number",
+    "mutual_fund_name",
+    "metrics",
+    ".*(minimum_investment_amount|minimum_application_amount|additional_purchase)",
+  ],
+  MERGEKEYS: {
+    load: [".*entry_load", ".*exit_load"],
+    metrics: [
+      ".*key_statistics$",
+      "metrics",
+      ".*portfolio_turnover_ratio",
+      ".*portfolio_information$",
+      ".*quantitative_indicator?",
+    ],
+  },
+  CLONEKEYS: {},
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+}

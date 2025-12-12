@@ -1,1 +1,105 @@
-{AMC_NAME: "Union Mutual Fund", MAIN_MAP: {select: true, map: true, special: true}, IMP_DATA: {amc_name: "Union Asset Management Company Private Limited", mutual_fund_name: "Union Mutual Fund"}, PARAMS: {title: {ocr: false, pattern: "(Union\\s*[A-Z&\\s]+(?:FUND|PATH|ETF|FOF|PLAN|SAVER)\\s*(?:FUND\\s*OF\\s*FUNDS?|F[Oo]F|OF\\s*FUNDS?)?)", bbox: [0, 0, 180, 150]}, clip_bbox: [[0, 140, 180, 812], [360, 140, 580, 812]], line_x: 180.0, data: {size: [8, 14], color: [-65794, -1], update_size: 30.0, font: ["Swiss721BT-Bold"]}, content_size: [30.0, 10.0], method: "clip", line_side: "", max_financial_index_highlight: 7, pdf_ocr: false, sanitize_fund: false, stop_words: []}, DUPLICATE_MUTUAL_FUNDS: {}, PRE_DATA_SELECT: [], REGEX: {aum: ".*average for\\s*[A-Za-z\\s]+\\.?\\s*[0-9]+\\s*([\\d,.]+\\s*crore)", scheme: ["Investment Objective", "Co\\-?Fund Managers", "Indicative Investment Horizon", "Date of allotment", "Assets Under Management", "Benchmark Index", "Expense Ratio as on", "Load Structure", "Active Stock Position in Scheme", "EOL"], ptr: "(Portfolio Turnover Ratio\\D*?)\\s*([\\d.]+\\s*times)", metrics: {key: "(Std|Sharpe|Beta|Turnover Ratio|Macaulay\\s*(?:Annualised)?|Modified|Yield\\s*(?:Maturity)?|Residual|Average)", value: "(-?\\d+\\.?\\d+\\s*(?:days?|months?|years?)?)"}, load: "Entry Load(.*)Exit Load(.*)$", manager: {pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?(?:field of|in the|in)\\s*([A-Za-z\\s]+?)\\.?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)", fields: ["name", "exp", "desig", "since"]}, escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)"}, PATTERN_TO_FUNCTION: {scheme_details: ["_extract_scheme_data", "scheme"]}, SECONDARY_PATTERN_TO_FUNCTION: {".*load_structure": ["_extract_load_data", "load"], "^metrics.*": ["_extract_metric_data", "metrics"], ".*assets_under.*": ["_extract_generic_data", "aum"], ".*fund_managers": ["_extract_manager_data", "manager"], ".*market_cap": ["_extract_generic_data", "ptr"]}, TERTIARY_PATTERN_TO_FUNCTION: {}, SELECTKEYS: [".*load_structure", "^metrics.*", ".*(benchmark_index|date_of_allotment|fund_managers|assets_under_management)", "amc_name", "main_scheme_name", "page_number", "monthly_aaum_date", "mutual_fund_name"], MERGEKEYS: {metrics: ["^metrics.*", ".*market_cap"]}, CLONEKEYS: {}, PROMOTE_KEYS: {}, SPECIAL_FUNCTIONS: {}}
+{
+  AMC_NAME: "Union Mutual Fund",
+  MAIN_MAP: { select: true, map: true, special: true },
+  IMP_DATA: {
+    amc_name: "Union Asset Management Company Private Limited",
+    mutual_fund_name: "Union Mutual Fund",
+  },
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(Union\\s*[A-Z&\\s]+(?:FUND|PATH|ETF|FOF|PLAN|SAVER)\\s*(?:FUND\\s*OF\\s*FUNDS?|F[Oo]F|OF\\s*FUNDS?)?)",
+      bbox: [0, 0, 180, 150],
+    },
+    clip_bbox: [
+      [0, 140, 180, 812],
+      [370, 145, 600, 850],
+    ],
+    line_x: 180.0,
+    data: {
+      size: [6, 11],
+      color: [696969], //-65794, -1
+      update_size: 30.0,
+      font: ["Swiss721BT-Bold"],
+    },
+    content_size: [30.0, 12.0],
+    method: "clip",
+    line_side: "",
+    max_financial_index_highlight: 6,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+  },
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: ".*average for\\s*[A-Za-z\\s]+\\.?\\s*[0-9]+\\s*([\\d,.]+\\s*crore)",
+    scheme: [
+      "Investment Objective",
+      "Co\\-?Fund Managers?",
+      "Indicative Investment Horizon",
+      "Date of\\s*[Aa]llotment",
+      "Assets Under Management",
+      "Benchmark Index",
+      "Expense\\s*[rR]atio",
+      "Load\\s*Structure",
+      "Active\\s*Stock\\s*Position",
+      "EOL",
+      "Market\\s*[cC]ap\\s*as",
+      "Quantitative\\s*[iI]ndicators?",
+    ],
+    scheme2: [
+      "Market\\s*[cC]ap\\s*as",
+      "Quantitative\\s*[iI]ndicators?",
+      "Risk\\s*Free\\s*Rate\\s*based",
+      "Fixed\\s*[iI]ncome\\s*[pP]ortion",
+      "EOL",
+    ],
+    ptr: "(Portfolio Turnover Ratio\\D*?)\\s*([\\d.]+\\s*times)",
+    metrics: {
+      key: "(Std|Sharpe|Beta|Turnover Ratio|Macaulay|Annualised|Modified|Yield\\s*(?:Maturity)?|Average)",
+      value: "(-?\\d+\\.\\d+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Tt]imes?|[Tt]imes?)?)",
+    },
+    load: "Entry Load(.*)Exit Load(.*)$",
+    manager: {
+      pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
+      fields: ["name", "exp", "desig", "since"],
+    },
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
+  },
+  PATTERN_TO_FUNCTION: {
+    "^(before)": ["_extract_scheme_data", "scheme"],
+    "^dummy.*one": ["_extract_scheme_data", "scheme2"],
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    ".*load_structure": ["_extract_load_data", "load"],
+    ".*(quantitative_indicators|market_cap|fixed_income_portion)": [
+      "_extract_metric_data",
+      "metrics",
+    ],
+    ".*assets_under.*": ["_extract_generic_data", "aum"],
+    ".*fund_managers?": ["_extract_manager_data", "manager"],
+    ".*market_cap": ["_extract_generic_data", "ptr"],
+  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
+    ".*load_structure",
+    "metrics",
+    ".*(benchmark_index|date_of_allotment|fund_managers|assets_under_management)",
+    "amc_name",
+    "main_scheme_name",
+    "page_number",
+    "monthly_aaum_date",
+    "mutual_fund_name",
+  ],
+  MERGEKEYS: {
+    metrics: [
+      ".*quantitative_indicators?",
+      ".*market_cap",
+      ".*fixed_income_portion",
+    ],
+  },
+  CLONEKEYS: {},
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+}

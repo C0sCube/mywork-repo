@@ -3726,17 +3726,6 @@
       stop_words: [],
     },
     DUPLICATE_MUTUAL_FUNDS: {
-      "long\\s*term\\s*tax\\s*advantage": [
-        "Sundaram Long Term Tax Advantage Fund Series III",
-        "Sundaram Long Term Tax Advantage Fund Series IV",
-        "Sundaram Long Term Tax Advantage Fund Series II",
-      ],
-      "long\\s*term\\s*micro\\s*cap\\s*tax\\s*advantage": [
-        "Sundaram Long Term Micro Cap Tax Advantage Fund Series III",
-        "Sundaram Long Term Micro Cap Tax Advantage Fund Series IV",
-        "Sundaram Long Term Micro Cap Tax Advantage Fund Series V",
-        "Sundaram Long Term Micro Cap Tax Advantage Fund Series VI",
-      ],
     },
     PRE_DATA_SELECT: [],
     REGEX: {

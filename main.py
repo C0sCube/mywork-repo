@@ -24,6 +24,9 @@ INPUT_DIR = get_input_path()
 JSON_DIR = create_dir(OUTPUT_DIR, "json")
 LOG_DIR = create_dir(OUTPUT_DIR, "logs")
 PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
+PRS_FS_DIR = create_dir(PROCESSED_DIR,"fs")
+PRS_SID_DIR = create_dir(PROCESSED_DIR,"sid")
+PRS_KIM_DIR = create_dir(PROCESSED_DIR,"kim")
 FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
 
 #log
@@ -32,7 +35,7 @@ helper = Helper()
 
 
 #sp call
-SP_STATUS = True
+SP_STATUS = False
 
 # --- Helper Functions ---
 def detect_input_pdf():
@@ -149,7 +152,20 @@ def process_file(file_name, db_config, report):
         update_report_table(latest_report, db_config)
 
     # archive + delete
-    archive_dir = PROCESSED_DIR if latest_report["status"] == "completed" else FAILED_DIR
+    archive_dir = ""
+    print(file_path)
+    if latest_report["status"] == "completed":
+        if file_name.endswith("_FS.pdf"):
+            archive_dir = PRS_FS_DIR
+        elif file_name.endswith("_SID.pdf"):
+            archive_dir = PRS_SID_DIR
+        elif file_name.endswith("_KIM.pdf"):
+            archive_dir = PRS_KIM_DIR
+        else:
+            archive_dir = PROCESSED_DIR
+    else:
+      archive_dir = FAILED_DIR
+
     Helper.archive_and_delete_files(archive_dir, {file_name: file_path})
 
     meta_file_name = file_name.replace(".pdf", ".meta.json")
