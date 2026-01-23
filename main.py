@@ -15,27 +15,7 @@ from app.utils import Helper
 from app.amc.registry import load_registry, check_amc_file
 from app.sqlconnect import update_report_table, json_to_cog_db
 
-#timezone
-TIME_ZONE = ZoneInfo("Asia/Kolkata")
 
-# dir
-OUTPUT_DIR = get_output_path()
-INPUT_DIR = get_input_path()
-JSON_DIR = create_dir(OUTPUT_DIR, "json")
-LOG_DIR = create_dir(OUTPUT_DIR, "logs")
-PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
-PRS_FS_DIR = create_dir(PROCESSED_DIR,"fs")
-PRS_SID_DIR = create_dir(PROCESSED_DIR,"sid")
-PRS_KIM_DIR = create_dir(PROCESSED_DIR,"kim")
-FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
-
-#log
-logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12, set_global=True)
-helper = Helper()
-
-
-#sp call
-SP_STATUS = False
 
 # --- Helper Functions ---
 def detect_input_pdf():
@@ -77,18 +57,18 @@ def initialize_status_report(db_config:dict,file_list):
         adm_pnl = meta.get("to_admin_panel", 0)
         # print(uploaded_by)
         report = {
-            "start_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
+            # "start_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
             "end_time": None,
             "file_name": file_name,
             "json_path": None,
-            "status": "Pending",
+            "status": "pending",
             "error": None,
-            "uploaded_by": uploaded_by,
+            # "uploaded_by": uploaded_by,
             "to_admin_panel":adm_pnl
         }
         reports[file_name] = report
        
-        update_report_table(report, db_config=db_config)
+        # update_report_table(report, db_config=db_config)
     return reports
 
 def update_status_report(report, status, json_path=None, error=None):
@@ -230,5 +210,27 @@ def main():
 
 # --- Entry Point ---
 if __name__ == "__main__":
+    
+    #timezone
+    TIME_ZONE = ZoneInfo("Asia/Kolkata")
+
+    # dir
+    OUTPUT_DIR = get_output_path()
+    INPUT_DIR = get_input_path()
+    JSON_DIR = create_dir(OUTPUT_DIR, "json")
+    LOG_DIR = create_dir(OUTPUT_DIR, "logs")
+    PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
+    PRS_FS_DIR = create_dir(PROCESSED_DIR,"fs")
+    PRS_SID_DIR = create_dir(PROCESSED_DIR,"sid")
+    PRS_KIM_DIR = create_dir(PROCESSED_DIR,"kim")
+    FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
+    
+    #log
+    logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12, set_global=True)
+    helper = Helper()
+    
+    #sp call
+    SP_STATUS = False
+        
     logger.info("Running FactSheet Parser (watcher)")
     main()

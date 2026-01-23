@@ -209,14 +209,12 @@
         "minimum_investment_for_sip": "^minimum_investment_for_sip$",
         "minimum_investment": "^(minimum_investment$|min._addl.|min.)",
         "minimum_additional_application_amount": "^minimum_additional_application_amount",
-        "sip": "systematic_investment_plan_",
-        "sharpe": "^sharpe.*",
         "scheme_name": "^scheme_name.*",
         "exit_load": "^exit_load",
         "plans_options": "^(plansoption)",
         "minimum_application_amount": "^(minimum_application|minimum_applicaon_amount)"
     },
-    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+",
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)]+|\\xa0",
     "json_headers": {
         "amc_name": [
             "amc_name"
@@ -294,10 +292,12 @@
             ".*minimum_additional$",
             ".*min.addl.investment$",
             "^min_addl_amt$",
-            ".*min\\.?_addl\\.?_investment$"
+            ".*min\\.?_addl\\.?_investment$",
+            "^minimum_?additional_?purchase_?amount$"
         ],
         "min_addl_multiple": [],
         "min_amt": [
+            "minimum_?amount",
             "multiples_for_new_investment",
             ".*minimum_application_amount",
             "^min_amt",
@@ -326,7 +326,8 @@
             ".*application_amount_for_fresh$",
             ".*min.application$",
             ".*min._application$",
-            ".*min_.application$"
+            ".*min_.application$",
+            ".*application_amount_for_fresh.*$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [
@@ -446,7 +447,8 @@
             "^jensens_alpha",
             "^jensons_alpha$",
             "^jenson$",
-            "^jensens_alpha$"
+            "^jensens_alpha$",
+            "^jensen.+?alpha$"
         ],
         "arithmetic_mean_ratio": [],
         "average_div_yield": [
@@ -462,7 +464,10 @@
             "^pb_multiple$",
             "^pb.+?ple$",
             "^p_b$",
-            "^average_p_b$"
+            "^average_p_b$",
+            "^fund_p_b$",
+            "^average_p_bv$",
+            "^p_bv$"
         ],
         "average_pe": [
             ".*_pe",
@@ -471,7 +476,9 @@
             "^pe_mul_ple",
             "^pe_multiple$",
             "^pe.+?ple$",
-            "^average_p_e$"
+            "^average_p_e$",
+            "^^fund_p_e.*",
+            "^fund_p_e_fy.*?$"
         ],
         "avg_maturity": [
             "^avg_maturity",
@@ -535,6 +542,7 @@
             "^modi_ed$"
         ],
         "port_turnover_ratio": [
+            "^portfolioturnoverratio$",
             "^portfolio_turnover_ratio$",
             "^portfolio_turnover_ratio(?!\\.?tracking_error).*",
             "^port_turnover.*aggregate",
@@ -559,7 +567,8 @@
             "^aggregate$",
             "^turnover$",
             "^por_olio_turnover$",
-            "^portfolio_turnover_equity.*$"
+            "^portfolio_turnover_equity.*$",
+            "^portfolio_turnover_1_year$"
         ],
         "r_squared_ratio": [
             "R Squared",
@@ -608,7 +617,10 @@
             ".*tracking_error$",
             "^tracking_error.+?period.+?$",
             "^tracking_error_regular_plan$",
-            "^direct$"
+            "^direct$",
+            ".*tracking_error_as_on.*$",
+            "^tracking_error.+?last_12_months?",
+            "^trackingerror_direct$"
         ],
         "treynor_ratio": [
             "^Treynor",

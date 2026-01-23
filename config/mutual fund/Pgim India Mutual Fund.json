@@ -1,0 +1,132 @@
+{
+    "PGIM INDIA ARBITRAGE FUND": {
+        "regex": "ARBITRAGE",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA BALANCED ADVANTAGE FUND": {
+        "regex": "BALANCED ADVANTAGE",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA CORPORATE BOND FUND": {
+        "regex": "CORPORATE BOND",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA CRISIL IBX GILT INDEX - APR 2028 FUND": {
+        "regex": "CRISIL IBX GILT INDEX.+?APR 2028",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA DYNAMIC BOND FUND": {
+        "regex": "DYNAMIC BOND",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA ELSS TAX SAVER FUND": {
+        "regex": "ELSS TAX SAVER",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA EMERGING MARKETS EQUITY FUND": {
+        "regex": "EMERGING MARKETS",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA EQUITY SAVINGS FUND": {
+        "regex": "EQUITY SAVINGS",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA FLEXI CAP FUND": {
+        "regex": "FLEXI CAP",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA GILT FUND": {
+        "regex": "GILT",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA GLOBAL EQUITY OPPORTUNITIES FUND": {
+        "regex": "GLOBAL EQUITY OPPORTUNITIES",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA GLOBAL SELECT REAL ESTATE SECURITIES FUND OF FUND": {
+        "regex": "REAL ESTATE SECURITIES",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA HEALTHCARE FUND": {
+        "regex": "HEALTHCARE",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA HYBRID EQUITY FUND": {
+        "regex": "HYBRID EQUITY",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA LARGE AND MID CAP FUND": {
+        "regex": "LARGE.*?MID CAP",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA LARGE CAP FUND": {
+        "regex": "LARGE CAP",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA LIQUID FUND": {
+        "regex": "LIQUID",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA LOW ARBITRAGE FUND": {
+        "regex": "ARBITRAGE",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA LOW EQUITY SAVINGS FUND": {
+        "regex": "EQUITY SAVINGS",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA MIDCAP OPPORTUNITIES FUND": {
+        "regex": "OPPORTUNITIES",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA MONEY MARKET FUND": {
+        "regex": "MONEY MARKET",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA MULTICAP FUND": {
+        "regex": "MULTICAP",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA OVERNIGHT FUND": {
+        "regex": "OVERNIGHT",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA RETIREMENT FUND": {
+        "regex": "RETIREMENT",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA SMALL CAP FUND": {
+        "regex": "SMALL CAP",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    },
+    "PGIM INDIA ULTRA SHORT DURATION FUND": {
+        "regex": "ULTRA SHORT",
+        "min_add": "5000,1,1000,1",
+        "risk": ""
+    }
+}

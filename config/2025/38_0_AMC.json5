@@ -15,7 +15,7 @@
     line_x: 160.0,
     data: {
       size: [5, 8],
-      color: [666], //-15570765
+      color: [666],
       update_size: 30.0,
       font: ["Swiss721BT-BoldCondensed", "DMSans-Bold"],
     },
@@ -26,6 +26,7 @@
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
+    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -35,7 +36,7 @@
     ter: "(Regular|Direct)\\s*([\\d,.]+)",
     metric: "(PE|PB|Average Maturity|Macaul[ea]y\\s*(?:Duration)?|Modified Duration|Modi.+?ed Duration|Yield to Maturity\\D+?|Std\\.?\\s*Dev|Sharpe Ratio|Portfolio Beta|R Squared|Treynor|Jenson|Portfolio Turnover\\D*)\\s*(?:\\:)?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%)?|NA)",
     manager: {
-      pattern:"([A-Za-z\\s]+)\\s*(?:\\([A-Za-z\\s]+\\))?\\s*\\(Managing Since\\s*([A-Za-z0-9\\s\\-]+) and overall? experience\\s*of\\s*(\\d{1,2}\\s+[Yy]ears?)\\)",
+      pattern: "([A-Za-z\\s]+)\\s*(?:\\([A-Za-z\\s]+\\))?\\s*\\(Managing Since\\s*([A-Za-z0-9\\s\\-]+) and overall? experience\\s*of\\s*(\\d{1,2}\\s+[Yy]ears?)\\)",
       fields: ["name", "since", "exp"],
     },
     scheme: [
@@ -57,14 +58,15 @@
     min_amt: "([\\d,]+).*?([\\d,]+)",
     escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\&]+|\\(Annualised\\)",
   },
-  PATTERN_TO_FUNCTION: {
-    "^before.*": ["_extract_scheme_data", "scheme"],
-  },
+  PATTERN_TO_FUNCTION: { "^before.*": ["_extract_scheme_data", "scheme"] },
   SECONDARY_PATTERN_TO_FUNCTION: {
     ".*monthly_average": ["_extract_generic_data", "aum"],
     ".*fund_manager": ["_extract_manager_data", "manager"],
     ".*(turn_over|volatility)": ["_extract_generic_data", "metric"],
-    ".*(minimum_investment|additional_investment)": ["_extract_amt_data", "min_amt"],
+    ".*(minimum_investment|additional_investment)": [
+      "_extract_amt_data",
+      "min_amt",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -76,9 +78,9 @@
     "mutual_fund_name",
     "amc_name",
     "main_scheme_name",
-    "metrics", //after merge
+    "metrics",
     ".*(minimum_investment|additional_investment)",
-    "load", //after merge
+    "load",
     "page_number",
   ],
   MERGEKEYS: {
@@ -88,10 +90,11 @@
       ".*portfolio_turnover_ratio",
       ".*expense_ratio",
       ".*volatility.*$",
-      ".*turn_over"
+      ".*turn_over",
     ],
   },
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

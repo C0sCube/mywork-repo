@@ -8,13 +8,12 @@ from datetime import timedelta, datetime
 # from zoneinfo import ZoneInfo
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify, send_file
 from werkzeug.utils import secure_filename
-from werkzeug.security import generate_password_hash
+# from werkzeug.security import generate_password_hash
 from ldap3 import Server, Connection, ALL #type: ignore
 import pandas as pd
 
-from app.sqlconnect import establish_connection
 from app.utils import Helper
-from sqlconnect import update_report_table
+from app.sqlconnect import update_report_table, establish_connection
 
 # --- Flask app setup ---
 app = Flask(__name__)
@@ -25,7 +24,6 @@ app.permanent_session_lifetime = timedelta(days=7)
 # --- timezone ---
 
 TIME_ZONE = pytz.timezone("Asia/Kolkata")
-
 
 # --- paths and config ---
 utils = Helper()
@@ -41,10 +39,12 @@ ADMIN_USERS = [val.lower() for val in LDAP_CONFIG.get("admin_user", [])]
 
 CONFIG_BASE_PATH = config["config_base_path"]
 DB_CONFIG = config.get("db_config")
+WEB_CONFIG = config.get("web_host",{})
 
 REGISTRY = utils.load_json(config.get("config_global_path",""))
 
-SP_RUN = False
+SP_REPORT_RUN = True
+
 
 def ldap_authenticate(username, password):
     server = Server(LDAP_SERVER, get_info=ALL)
@@ -57,7 +57,6 @@ def ldap_authenticate(username, password):
     except Exception as e:
         print(f"LDAP auth failed: {e}")
         return False
-
 
 # --- ROUTES ---
 @app.route('/')
@@ -85,8 +84,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        # if ldap_authenticate(username, password):
-        if True:
+        if ldap_authenticate(username, password):
+        # if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -137,13 +136,12 @@ def logout():
 @app.route('/upload', methods=['POST'])
 def upload_files():
     if not session.get("logged_in"): return redirect(url_for("login"))
-
-    uploaded_by = session.get("user", "unknown")
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
+    
+    uploaded_by = session.get("user", "unknown")
+    created_by = session.get("user", "unknown")
     to_cog_mf = request.form.get("to_cog_mf") is not None
-    # print(to_cog_mf)
-
 
     for file in uploaded_files:
         if file and file.filename.lower().endswith(".pdf"):
@@ -153,10 +151,11 @@ def upload_files():
             now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
             # create a small sidecar meta JSON so parser can read who uploaded it
             meta = {
-                "uploaded_by": uploaded_by,
-                "created_by":uploaded_by,
+                # "uploaded_by": uploaded_by,
+                "created_by": created_by,
                 "uploaded_at": now,
-                "to_admin_panel": 1 if bool(to_cog_mf) else 0
+                "to_admin_panel": 1 if bool(to_cog_mf) else 0,
+                "adm_pnl_by": created_by if bool(to_cog_mf) else None
             }
             try:
                 meta_path = os.path.splitext(file_path)[0] + ".meta.json"
@@ -175,17 +174,16 @@ def upload_files():
                 "json_path": None,
                 "status": "Pending",
                 "error": None,
-                "created_by": uploaded_by,
+                "created_by": created_by,
                 "uploaded_by": uploaded_by,
             }
             try:
-                if SP_RUN:
-                # import update_table at top: from sqlconnect import update_table
+                if SP_REPORT_RUN:
                     update_report_table(initial, db_config=DB_CONFIG)
             except Exception as e:
                 print(f"Failed to write initial DB row for {filename}: {e}")
 
-            print(f"File '{filename}' uploaded by {uploaded_by}")
+            print(f"File '{filename}' uploaded by {created_by}")
 
     time.sleep(1)
     return redirect('/')
@@ -202,7 +200,15 @@ def reprocess(filename):
     to_admin_panel = int(payload.get("to_admin_panel", 0))
 
     # Look for file in processed or failed dirs
-    processed_path = os.path.join(OUTPUT_DIR, "processed", secure_filename(filename))
+
+    sub_dir = ""
+    if filename.endswith("_SID.pdf"):
+        sub_dir = "sid"
+    elif filename.endswith("_KIM.pdf"):
+        sub_dir = "kim"
+    elif filename.endswith("_FS.pdf"):
+        sub_dir = "fs"
+    processed_path = os.path.join(OUTPUT_DIR, "processed",sub_dir, secure_filename(filename))
     failed_path = os.path.join(OUTPUT_DIR, "failed", secure_filename(filename))
     if os.path.exists(processed_path):
         file_path = processed_path
@@ -219,7 +225,8 @@ def reprocess(filename):
     # Write fresh meta JSON
     meta = {
         "uploaded_by": uploaded_by,
-        "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
+        # "created_by": uploaded_by,
+        # "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
         "to_admin_panel": to_admin_panel
     }
     meta_path = os.path.splitext(new_path)[0] + ".meta.json"
@@ -238,7 +245,7 @@ def reprocess(filename):
         "error": None,
         "uploaded_by": uploaded_by
     }
-    if SP_RUN:
+    if SP_REPORT_RUN:
         update_report_table(initial, db_config=DB_CONFIG)
 
     print(f"File '{filename}' requeued for processing by {uploaded_by}")
@@ -252,7 +259,7 @@ def record_upload():
     data = request.get_json()
     data["json_path"] = ""  # optional: fill later via parser
     success = False
-    if SP_RUN:
+    if SP_REPORT_RUN:
         success = update_report_table(data, db_config=DB_CONFIG)
 
     return jsonify({"success": success})
@@ -301,16 +308,16 @@ def view_pdf(filename):
 
 
 # ------------------ CSV/XLS VIEW ROUTE ------------------
-def json_to_csv(json_path, output_dir="."):
+def json_to_csv(json_path, output_dir=".csv_folder"):
     keys = REGISTRY.get(
-            "field_keys",
-            {
+        "field_keys",
+        {
             "static_keys": [
                 "amc_name", "main_scheme_name", "mutual_fund_name", "benchmark_index",
                 "monthly_aaum_date", "monthly_aaum_value", "scheme_launch_date",
                 "min_addl_amt", "min_addl_amt_multiple", "min_amt", "min_amt_multiple"
             ],
-            "load_keys": ["entry_load", "exit_load"],
+            "load_keys": ["entry", "exit"],
             "metric_keys": [
                 "alpha", "arithmetic_mean_ratio", "average_div_yield", "average_pb", "average_pe",
                 "avg_maturity", "beta", "correlation_ratio", "downside_deviation", "information_ratio",
@@ -325,6 +332,9 @@ def json_to_csv(json_path, output_dir="."):
         keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"]
     )
 
+    # Keys to exclude
+    EXCLUDE_KEYS = {"Riskometer", "Riskometer_benchmark", "Riskometer_scheme"}
+
     with open(json_path, "r", encoding="utf-8") as f:
         doc = json.load(f)
 
@@ -332,22 +342,38 @@ def json_to_csv(json_path, output_dir="."):
     max_manager = max((len(r["value"].get("fund_manager", [])) for r in records), default=1)
 
     # Build headers
-    headers = static_keys + metric_keys
+    headers = [k for k in static_keys if k not in EXCLUDE_KEYS] + load_keys + metric_keys
     for i in range(1, max_manager + 1):
         headers.extend([f"{k}_{i}" for k in manager_keys])
-    headers.extend(load_keys)
 
     def flatten_to_row(value):
+        # Remove unwanted keys
+        for bad_key in EXCLUDE_KEYS:
+            value.pop(bad_key, None)
+
         row = []
         # static
         for k in static_keys:
+            if k in EXCLUDE_KEYS:
+                continue
             v = value.get(k, "")
             if isinstance(v, list):
                 v = ", ".join(v)
             row.append(v)
-        # metrics
+
+        # loads FIRST (to match header order)
+        entry, exit_ = "", ""
+        for l in value.get("load", []):
+            if l.get("type") == "entry":
+                entry = l.get("comment", "")
+            elif l.get("type") == "exit":
+                exit_ = l.get("comment", "")
+        row.extend([entry, exit_])
+
+        # metrics AFTER loads
         metric_map = {m.get("name"): m.get("value") for m in value.get("metrics", [])}
         row.extend([metric_map.get(k, "") for k in metric_keys])
+
         # fund managers
         managers = value.get("fund_manager", [])
         for i in range(max_manager):
@@ -356,23 +382,23 @@ def json_to_csv(json_path, output_dir="."):
                 row.extend([fm.get(k, "") for k in manager_keys])
             else:
                 row.extend([""] * len(manager_keys))
-        
-        # loads
-        entry, exit_ = "", ""
-        for l in value.get("load", []):
-            if l.get("type") == "entry_load": entry = l.get("comment", "")
-            elif l.get("type") == "exit_load": exit_ = l.get("comment", "")
-        row.extend([entry, exit_])
-        
+
         return row
 
+    # Build rows
     rows = [flatten_to_row(r["value"]) for r in records]
 
-    # Timestamped filename
+    # Sanity check: ensure row length matches headers
+    for i, row in enumerate(rows[:5]):  # check first few rows
+        if len(row) != len(headers):
+            raise ValueError(f"Row {i} length mismatch: {len(row)} vs {len(headers)}")
+
+    # Save CSV
     base = os.path.splitext(os.path.basename(json_path))[0]
     csv_path = os.path.join(output_dir, f"{base}.csv")
     pd.DataFrame(rows, columns=headers).to_csv(csv_path, index=False, encoding="utf-8")
     return csv_path
+
 
 @app.route("/download_csv", methods=["GET"])
 def download_csv():
@@ -449,7 +475,7 @@ def status_data():
 
         # Fetch paginated rows
         cur.execute("""
-            SELECT file_name, start_time, end_time, status, json_path, error, uploaded_by, to_admin_panel
+            SELECT file_name, start_time, end_time, status, json_path, error, created_by, uploaded_by, to_admin_panel
             FROM mf_status_report
             ORDER BY start_time DESC
             LIMIT %s OFFSET %s
@@ -480,7 +506,8 @@ def get_registry():
 
 @app.route("/amc_data")
 def get_amc_data():
-    company_registry = REGISTRY.get("amc_registry",{})
+    company_registry = REGISTRY.get("amc_registry", {})
+    # print(company_registry.keys())
     return jsonify(company_registry)
 
 
@@ -539,15 +566,11 @@ def load_config():
 
 @app.route('/save-config', methods=['POST'])
 def save_config():
-    
-
-
     data = request.get_json()
     year = data.get('year')
     filename = data.get('filename')
     content = data.get('content')
     path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
-
     try:
         # parse content depending on extension
         if filename.endswith(".json5"):
@@ -565,9 +588,6 @@ def save_config():
   
 @app.route("/backup-config", methods=["POST"])
 def backup_config():
-    
-
-    
     data = request.get_json()
     year = data["year"]
     filename = data["filename"]
@@ -590,9 +610,6 @@ def backup_config():
 
 @app.route("/create-config", methods=["POST"])
 def create_config():
-    
-
-    
     data = request.get_json()
     year = data["year"]
     filename = data["filename"]
@@ -630,8 +647,8 @@ def amc_data():
         return redirect(url_for("login")) 
 
     user = session.get("user", "").lower()
-    if user not in ADMIN_USERS:
-        return redirect(url_for("index"))
+    # if user not in ADMIN_USERS:
+    #     return redirect(url_for("index"))
 
     return render_template("amc_data.html", user=user) 
 
@@ -662,11 +679,15 @@ def load_daily_log():
     except:
         return {"success": False, "content": "Error reading log file."}
 
+
+
 # --- run app ---
 if __name__ == '__main__':
     
     host = "NCOG-LPT-TCH-32.Cogencis.com"
     port = 5000
-    
+    # host = WEB_CONFIG.get("host")
+    # port = WEB_CONFIG.get("port") 
     app.run(debug=True, host=host, port=port)
+
     # app.run(debug=True, host="127.0.0.1", port=5055)

@@ -31,6 +31,9 @@ class GrandFundData:
         }
         self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
+        #mutual fund data
+        self.MUTUAL_FUND_DATA = fund_config.get("Z_MUTUAL_FUND_DATA",{})
+        
         self.LOGGER = get_global_logger()
         self.UTILS = Helper()
         
@@ -371,6 +374,21 @@ class GrandFundData:
         matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
         return {main_key:matches[0] if matches else ""}
     
+    def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
+        bench_data = f"{main_key} {data}"
+        bench_data = re.sub(self.REGEX["escape"],"",bench_data).strip()
+        if matches:=re.findall(self.REGEX[pattern],bench_data, re.IGNORECASE):
+            return {"benchmark_index":matches[0]}
+        return{"benchmark_index":f"{main_key} {data}"}
+    
+    def _extract_date_data(self,main_key:str,data:str,pattern:str):
+        date_data = f"{main_key} {data}"
+        date_data = re.sub(self.REGEX["escape"],"",date_data).strip()
+        if matches:=re.findall(self.REGEX[pattern],date_data, re.IGNORECASE):
+            return {"scheme_launch_date":matches[0]}
+        return{"scheme_launch_date":f"{main_key} {data}"}
+    
+    
     def _extract_non_esc_data(self,main_key:str,data,pattern:str):
         benchmark_data = " ".join(data) if isinstance(data,list) else data
         matches = re.findall(self.REGEX[pattern],benchmark_data, re.IGNORECASE)
@@ -381,6 +399,60 @@ class GrandFundData:
         matches = re.findall(self.REGEX[pattern],date_data, re.IGNORECASE)
         return {"inception_date": " ".join(matches)}
     
+    def _update_benchmark_data(self,main_key:str,bench_data):
+        bench_data = " ".join(bench_data) if isinstance(bench_data,list) else bench_data
+        bench_data = re.sub(self.REGEX["escape"],"",bench_data,re.IGNORECASE)
+        if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
+            return {"benchmark_index":match[0]}
+        return {main_key:bench_data}
+   
+    def _update_date_data(self,main_key:str,data):
+        date_data = " ".join(data) if isinstance(data, list) else data
+        date_data = re.sub(self.REGEX["escape"],"",date_data,re.IGNORECASE)
+        if match := re.findall(self.REGEX["date"],date_data,re.IGNORECASE):
+            return {"scheme_launch_date":match[0]}
+        return {main_key:date_data}
+    
+    def _update_bench_sub_data(self,main_key:str,bench_data):
+        bench_data = " ".join(bench_data) if isinstance(bench_data,list) else bench_data
+        bench_data = re.sub(self.REGEX["escape"],"",bench_data,re.IGNORECASE)
+        bench_data = re.sub(self.REGEX["sub"],"",bench_data,re.IGNORECASE)
+        # if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
+        #     return {"benchmark_index":match[0]}
+        return {main_key:bench_data}
+
+    
+    # def _update_manager_data(self, main_key: str, data):
+    #     final_list = []
+    #     manager_data = " ".join(data) if isinstance(data, list) else data
+    #     manager_data = re.sub(self.REGEX["escape"], "", manager_data).strip()
+    
+    #     names = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+    #     # optional fields
+    #     exps  = re.findall(self.REGEX['manager'].get('exp', ""), manager_data, re.IGNORECASE) if 'exp' in self.REGEX['manager'] else []
+    #     sinces = re.findall(self.REGEX['manager'].get('since', ""), manager_data, re.IGNORECASE) if 'since' in self.REGEX['manager'] else []
+    #     max_len = len(names)
+    #     exps   += [""] * (max_len - len(exps))
+    #     sinces += [""] * (max_len - len(sinces))
+
+    #     for name, since, exp in zip(names, sinces, exps):
+    #         final_list.append(self._return_manager_data(name=name, since=since, exp=exp))
+
+    #     return {main_key: final_list}
+    
+    def _update_manager_data(self, main_key: str, data):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
+        
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        n,s = adjust(n,e),adjust(s,e)
+        for name,since,exp in zip(n,s,e):
+            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
+        return {main_key: final_list}
     
     # dynamic function match
     # def _match_with_patterns(self, string: str, data: list, level:str):
@@ -620,7 +692,7 @@ class PGIM(BaseAMC): pass
 class JioBlackRock(BaseAMC): pass
 class MIRAE(BaseAMC): pass
 class MIRAEPassive(BaseAMC): pass
-# class MotilalOswal(BaseAMC): pass
+class MotilalOswal(BaseAMC): pass
 class MotilalOswalPassive(BaseAMC): pass
 class Nippon(BaseAMC): pass
 class Kotak(BaseAMC): pass
@@ -634,6 +706,51 @@ class HDFC(BaseAMC): pass
 class CapitalMind(BaseAMC):pass
 class WealthCompany(BaseAMC):pass
 class ChoiceMF(BaseAMC):pass
+class NAVI(BaseAMC): pass
+class NAVIPassive(BaseAMC): pass
+class ICICI(BaseAMC):pass
+class ICICIPassive(BaseAMC): pass
+class Shriram(BaseAMC):pass
+class Canara(BaseAMC): pass
+class LIC(BaseAMC): pass
+class JioBlackRock(BaseAMC): pass
+class Abakkus(BaseAMC): pass
+
+class Canara(BaseAMC):
+    
+    def _update_manager_data(self,main_key:str,manager_data):
+        nsample, msample, esample = [], [], []
+        nlength = 0
+        value = " ".join(manager_data.values()) if isinstance(manager_data,dict) else manager_data
+        nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
+        esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
+        msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
+        
+        nlength = len(nsample)
+        msample += [""] * abs(nlength - len(msample))
+        esample += [""] * abs(nlength - len(esample))
+        
+        # print(value)
+        # print(nsample,esample,msample)
+        
+        final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
+        return {main_key:final_list}
+
+class LIC(BaseAMC):
+    
+    def _update_manager_data(self, main_key: str, data):
+        final_list = []
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
+        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
+        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
+        # s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
+        
+        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
+        e = adjust(e,n)
+        for name,exp in zip(n,e):
+            final_list.append(self._return_manager_data(name=name,exp=exp))
+        return {main_key: final_list}
 
 class BajajFinServ(BaseAMC):  
     
@@ -675,16 +792,6 @@ class BajajFinServ(BaseAMC):
 
         return data
     
-    def _update_bench_data(self,main_key:str,data):
-        data = " ".join(data) if isinstance(data, list) else data
-        matches = re.findall(self.REGEX["benchmark"],data,re.IGNORECASE)
-        return {"benchmark_index":matches[0] if matches else ""}
-    
-    def _update_date_data(self,main_key:str,data):
-        data = " ".join(data) if isinstance(data, list) else data
-        matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
-        return {"scheme_launch_date":matches[0] if matches else ""}
-
 class Bandhan(BaseAMC):  
     
     def _extract_manager_data(self, main_key: str, manager_data, pattern: str):
@@ -709,40 +816,13 @@ class Bandhan(BaseAMC):
         final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
         return {main_key: final_list}
 
-class Canara(BaseAMC):
-    
-    def _update_manager_data(self,main_key:str,manager_data):
-        nsample, msample, esample = [], [], []
-        nlength = 0
-        value = " ".join(manager_data.values()) if isinstance(manager_data,dict) else manager_data
-        nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
-        esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
-        msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
-        
-        nlength = len(nsample)
-        msample += [""] * abs(nlength - len(msample))
-        esample += [""] * abs(nlength - len(esample))
-        
-        # print(value)
-        # print(nsample,esample,msample)
-        
-        final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
-        return {main_key:final_list}
-
-    def _update_benchmark_data(self,main_key:str,bench_data):
-        bench_data = " ".join(bench_data) if isinstance(bench_data,list) else bench_data
-        bench_data = re.sub(self.REGEX["escape"],"",bench_data,re.IGNORECASE)
-        if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
-            return {main_key:match[0]}
-        return {main_key:bench_data}
-
 class DSP(BaseAMC):
         
     def _generate_table_data(self,path,pages):
         table_parser = TableParser()
         tables = camelot.read_pdf(path,flavor="lattice",pages=pages) 
         dfs = pd.concat([table.df for table in tables], ignore_index=True)
-        sc1 = table_parser.get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=20)
+        sc1 = table_parser.get_matching_col_indices(dfs,["DSP.+?Fund"],thresh=10)
         sc2 = table_parser.get_matching_col_indices(dfs,["REGULAR\\s+PLAN","DIRECT\\s+PLAN"], thresh=10)
         # sc3 = table_parser.get_matching_col_indices(dfs,["Managing this scheme","total work experience"],thresh=10)
         print("Matched columns:", sc1,sc2) #sc3
@@ -750,7 +830,7 @@ class DSP(BaseAMC):
         fdf = dfs.iloc[:, all_cols]
         # fdf.to_csv("check.csv")
         fdf["LOAD_STRUCTURE"] = fdf.iloc[:, -1]
-        fdf.columns = ["MUTUAL_FUND","MIN_ADD","LOAD_STRUCTURE"] #"FUND_MANAGER", "LOAD_STRUCTURE"
+        fdf.columns = ["MUTUAL_FUND","MIN_ADD" ,"LOAD_STRUCTURE"] #"FUND_MANAGER", "LOAD_STRUCTURE"
  
         dsp_pattern = re.compile(
             r"(DSP.+?(?:FUNDS?|ETF|PATH|INDEX|SAVER)\s*(?:OF FUNDS?|FUNDs?|FUND OF FUNDS|FOF|.+?PLAN)?)",
@@ -785,24 +865,12 @@ class DSP(BaseAMC):
 
         return data
 
-    def _update_benchmark_data(self,main_key:str,bench_data):
-        bench_data = " ".join(bench_data) if isinstance(bench_data,list) else bench_data
-        bench_data = re.sub(self.REGEX["escape"],"",bench_data,re.IGNORECASE)
-        if match:=re.match(self.REGEX["benchmark"],bench_data,re.IGNORECASE):
-            return {main_key:match[0]}
-        return {main_key:bench_data}
-    
-    def _update_date_data(self,main_key:str,data):
-        data = " ".join(data) if isinstance(data, list) else data
-        matches = re.findall(self.REGEX["date"],data,re.IGNORECASE)
-        return {"scheme_launch_date":matches[0] if matches else ""}
-
 class HDFC(BaseAMC):
     
     def _update_manager_data(self, main_key: str, data):
         DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
         NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
-        EXP_PATTERN = r"over (\d+)"
+        EXP_PATTERN = r"over (\d{1,2})"
         YEAR_PATTERN = r"(\d{4})"
 
         manager_data = " ".join(data) if isinstance(data,list) else data
@@ -823,130 +891,29 @@ class HDFC(BaseAMC):
         
         return {main_key:final_list}    
 
-    def _update_benchmark_data(self,main_key:str,data):
-        return {"benchmark_index":" ".join(data.values())}
+class HSBC(BaseAMC): pass
+class NJMF(BaseAMC): pass
+class SBI(BaseAMC): pass #OCR
 
-class HSBC(BaseAMC):
+class SBIPassive(BaseAMC):  pass
+    # def _update_manager_data(self,main_key:str,data):
+    #     final_list = []
+    #     manager_data = " ".join(data) if isinstance(data, list) else data
+    #     manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
+    #     pattern_info = self.REGEX["manager"]
+    #     regex_pattern = pattern_info['pattern']
+    #     field_names = pattern_info['fields']
+    #     if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
+    #         for match in matches:
+    #             if isinstance(match, str):
+    #                 match = (match,)
+    #             record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
+    #             final_list.append(self._return_manager_data(**record))
 
-    def _update_date_data(self,main_key:str,data):
-        if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
-            return {main_key:matches[0]}
-    def _update_benchmark_data(self,main_key:str,data):
-        data=re.sub(self.REGEX["benchmark"],"", data, re.IGNORECASE).strip()
-        if matches:= re.findall(self.REGEX["benchmark2"],data,re.IGNORECASE):
-            return {main_key:matches[0]}
-        return {main_key:data}
-
-class ICICI(BaseAMC):
-
-    def _update_metric_data(self,main_key:str,data):
-        # if isinstance(data["beta"],str) and isinstance(data["sharpe"],str) and isinstance(data["std_dev"],str):
-        #     data["std_dev"],data["sharpe"],data["beta"] = data["sharpe"], data["beta"],data["std_dev"]
-        return {main_key:data}   
-
-class ICICIPassive(BaseAMC):
-
-    def _update_metric_data(self,main_key:str,data):
-        # if isinstance(data["std_dev"],str) and isinstance(data["port_turnover_ratio"],str):
-        #     data["std_dev"], data["port_turnover_ratio"] = data["port_turnover_ratio"], data["std_dev"]
-        return {main_key:data}   
-
-class LIC(BaseAMC): 
-
-    def _update_manager_data(self, main_key: str, data):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
-        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
-        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
-        # print(n,e)
-        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
-        n = adjust(n,e)
-        for name,exp in zip(n,e):
-            final_list.append(self._return_manager_data(name=name,exp=exp))
-        return {main_key: final_list}
-    
-    def _extract_manager_data(self, main_key: str, data,pattern:str):
-        # print("hi")
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
-        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
-        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
-        # print(n,e)
-        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
-        n = adjust(n,e)
-        for name,exp in zip(n,e):
-            final_list.append(self._return_manager_data(name=name,exp=exp))
-        return {main_key: final_list}
-
-class NAVI(BaseAMC): 
-
-    def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
-        bench_data = f"{main_key} {data}"
-        bench_data = re.sub(self.REGEX["escape"],"",bench_data).strip()
-        if matches:=re.findall(self.REGEX[pattern],bench_data, re.IGNORECASE):
-            return {"benchmark_index":matches[0]}
-        return{"benchmark_index":f"{main_key} {data}"}
-    
-class NAVIPassive(BaseAMC): 
-    
-    def _extract_benchmark_data(self,main_key:str,data:str,pattern:str):
-        bench_data = f"{main_key} {data}"
-        bench_data = re.sub(self.REGEX["escape"],"",bench_data).strip()
-        if matches:=re.findall(self.REGEX[pattern],bench_data, re.IGNORECASE):
-            return {"benchmark_index":matches[0]}
-        return{"benchmark_index":f"{main_key} {data}"}
-
-class NJMF(BaseAMC):
-    def _update_manager_data(self,main_key:str,manager_data):
-        nsample, msample, esample = [], [], []
-        value = " ".join(manager_data) if isinstance(manager_data,list) else manager_data
-        # print(value)
-        nsample = re.findall(self.REGEX['manager']['name'], value, re.IGNORECASE)
-        esample = re.findall(self.REGEX['manager']['exp'], value, re.IGNORECASE)
-        msample = re.findall(self.REGEX['manager']['since'], value, re.IGNORECASE)
-        final_list = [self._return_manager_data(since=m,name=n,exp=e)for n, m, e in zip(nsample, msample, esample)]
-        return {main_key:final_list}
-    
-    def _update_benchmark_data(self,main_key:str,data):
-        return {"benchmark_index":" ".join(data.values())}
-
-class SBI(BaseAMC): #OCR
-
-    def _update_manager_data(self, main_key: str, data):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
-        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
-        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
-        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
-        
-        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
-        n,s = adjust(n,e),adjust(s,e)
-        for name,since,exp in zip(n,s,e):
-            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        return {main_key: final_list}
-
-class SBIPassive(BaseAMC):  
-    def _update_manager_data(self,main_key:str,data):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data, list) else data
-        manager_data = re.sub(self.REGEX['escape'], "", manager_data).strip()
-        pattern_info = self.REGEX["manager"]
-        regex_pattern = pattern_info['pattern']
-        field_names = pattern_info['fields']
-        if matches := re.findall(regex_pattern, manager_data, re.IGNORECASE):
-            for match in matches:
-                if isinstance(match, str):
-                    match = (match,)
-                record = {field_names[i]: match[i] if i < len(match) else "" for i in range(len(field_names))} #kwargs
-                final_list.append(self._return_manager_data(**record))
-
-        return {main_key: final_list}
+    #     return {main_key: final_list}
     
 class AdityaBirla(BaseAMC):
-    def _update_manager_data(self,main_key:str,manager_data):
+    def _fetch_manager_data(self,main_key:str,manager_data):
         nsample, msample, esample = [], [], []
         nlength = 0
         for key, value in manager_data.items():
@@ -994,16 +961,11 @@ class AXISMFPassive(BaseAMC):
         data = re.sub(r"Ni\s*y","Nifty",data, re.IGNORECASE)
         return {main_key:data}
         
-class Shriram(BaseAMC):
-    def _update_date_data(self,main_key:str,data):
-        if matches:=re.findall(self.REGEX["date"],data, re.IGNORECASE):
-            return {main_key:matches[0]}
-
 class Unifi(BaseAMC):   
-    def _update_date_data(self, main_key:str,data):  # GROWW & Edelweiss
-        date_data = " ".join(data) if isinstance(data,list) else data
-        matches = re.findall(self.REGEX["date"],date_data, re.IGNORECASE)
-        return {"scheme_launch_date": " ".join(matches)}
+    # def _update_date_data(self, main_key:str,data):  # GROWW & Edelweiss
+    #     date_data = " ".join(data) if isinstance(data,list) else data
+    #     matches = re.findall(self.REGEX["date"],date_data, re.IGNORECASE)
+    #     return {"scheme_launch_date": " ".join(matches)}
     
     def _update_manager_data(self,main_key:str,data):
         final_list = []
@@ -1021,34 +983,5 @@ class Unifi(BaseAMC):
 
         return {main_key: final_list}
 
-class JioBlackRock(BaseAMC):   
-    def _update_manager_data(self, main_key: str, data):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
-        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
-        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
-        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
-       
-        # print(n,s,e) 
-        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
-        n,s = adjust(n,e),adjust(s,e)
-        for name,since,exp in zip(n,s,e):
-            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        return {main_key: final_list} 
-
-class MotilalOswal(BaseAMC):
-    def _update_manager_data(self, main_key: str, data):
-        final_list = []
-        manager_data = " ".join(data) if isinstance(data,list) else data
-        manager_data =re.sub(self.REGEX["escape"], "", manager_data).strip()
-        n = re.findall(self.REGEX['manager']['name'], manager_data, re.IGNORECASE)
-        e = re.findall(self.REGEX['manager']['exp'], manager_data, re.IGNORECASE)
-        s = re.findall(self.REGEX['manager']['since'], manager_data, re.IGNORECASE)
-        
-        # print(n,s,e) 
-        adjust = lambda target, lst: target[:len(lst)] + ([target[-1]] * abs(len(target) - len(lst)) if lst else [""])
-        n,s = adjust(n,e),adjust(s,e)
-        for name,since,exp in zip(n,s,e):
-            final_list.append(self._return_manager_data(name=name,since=since,exp=exp))
-        return {main_key: final_list}  
+# class Edelweiss(BaseAMC): 
+    

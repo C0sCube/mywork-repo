@@ -37,7 +37,10 @@ class Reader:
         with fitz.open(path) as doc:
             for pgn, page in enumerate(doc):
                 try:
-                    title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
+                    if path.endswith("_ocr.pdf"):
+                        title_text = " ".join(page.get_text("text").split("\n"))
+                    else:
+                        title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
                     title_text = re.sub(escape_regex, "", title_text).strip()
                     title_match = re.findall(title_regex, title_text, re.DOTALL)
                     title = (
@@ -84,6 +87,7 @@ class Reader:
         
         # os.remove(clipped_pdf)
         self.logger.debug(f"OCR complete — passing to _get_normal_title()")
+        print(ocr_pdf)
         return self._get_normal_title(ocr_pdf, title_regex, bbox)
 
     @log_exceptions()  
@@ -750,8 +754,17 @@ class Reader:
 
     def __min_add_ops(self, fund: str, df: dict):
         
-        if self.DUPLICATE_FUNDS:
-            print(self.DUPLICATE_FUNDS)
+        if "update_min_add" in self.PARAMS and self.PARAMS.get("update_min_add",False):
+            for key, value in self.MUTUAL_FUND_DATA.items():
+                regex = value.get("regex","")
+                # print(regex)
+                if regex:
+                    if re.findall(regex,fund, re.IGNORECASE):
+                        a,b,c,d = value.get("min_add","1000,1,1000,1").split(",")
+                        df.update({"min_amt":a, "min_amt_multiple":b, "min_addl_amt":c, "min_addl_amt_multiple":d})
+                        break
+        
+            return df
         
         try:
             new_values = {}
@@ -789,7 +802,7 @@ class Reader:
             
             if self.MAIN_MAP['map']:
                 temp = self.__map_json_ops(temp) #map proper keys
-                
+            
             temp = self.__min_add_ops(fund,temp)
             temp = regex._populate_all_indices_in_json(temp) #populate all keys
             temp = regex._transform_keys(temp) #lowercase
@@ -800,16 +813,19 @@ class Reader:
                 temp = self._apply_special_handling(temp)
                 
             temp = self._promote_key_from_dict(temp)
-            
+                        
             #format/type convert
             temp = regex._remove_rupee_symbol(temp)
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
             
+            
+            
             temp = regex._format_amt_data(fund,temp) #min/add formatter
             temp = regex._format_metric_data(fund,temp) #metric
             
             # temp = regex._format_benchmark_data(temp) #str to list
+            # print(temp.keys())
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
@@ -832,6 +848,7 @@ class Reader:
             content = record.get("value", {})
 
             for key, value in content.items():
+                # print(f"Key: {key}")
 
                 if isinstance(value, str) and key in str_limit:
                     limit = str_limit[key]
@@ -867,5 +884,10 @@ class Reader:
                             else: trimmed[mk] = mv
                         trimmed_metrics.append(trimmed)
                     content[key] = trimmed_metrics
+                    
+                else:
+                    content[key] = value
+            
+            # print(content.keys())
 
         return data

@@ -30,6 +30,7 @@
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
+    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: ["^dummy.*"],
@@ -58,7 +59,7 @@
     manager: { pattern: "([A-Za-z\\s]{2,}),?", fields: ["name"] },
     min_amt: "([\\d,]+).*?([\\d,]+)",
     date: "([0-9]+\\s*[A-Za-z]+\\s*[0-9]+)",
-    metrics: "(Sharpe\\s*Ratio|Sortino\\s*Ratio|Jensens\\s*Alpha|R-?\\s*Squared|Downside\\s*Deviation|Upside\\s*Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|%|[Tt]imes?)?)",
+    metrics: "(Sharpe\\s*Ratio|Sortino\\s*Ratio|Jensen\\s*s?\\s*Alpha|R-?\\s*Squared|Downside\\s*Deviation|Upside\\s*Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|%|[Tt]imes?)?)",
     escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
   },
   PATTERN_TO_FUNCTION: {
@@ -93,4 +94,5 @@
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

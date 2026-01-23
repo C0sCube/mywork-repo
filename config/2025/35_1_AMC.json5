@@ -32,6 +32,7 @@
     pdf_ocr: false,
     sanitize_fund: true,
     stop_words: [],
+    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -110,4 +111,5 @@
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

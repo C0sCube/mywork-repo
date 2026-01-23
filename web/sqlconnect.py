@@ -23,22 +23,58 @@ def establish_connection(db_config=None):
 
 
 # ------------------ QUERY HELPERS ------------------
-def fetch_existing_record(conn, file_name: str) -> bool:
-    """Check if a file_name already exists in the table."""
+# def fetch_existing_record(conn, file_name: str) -> bool:
+#     """Check if a file_name already exists in the table."""
+#     cur = conn.cursor(dictionary=True)
+#     cur.execute(f"SELECT COUNT(*) AS cnt FROM {table_report} WHERE file_name = %s", (file_name,))
+#     exists = cur.fetchone()["cnt"] > 0
+#     cur.close()
+#     return exists
+def fetch_existing_record(conn, file_name: str, user_name: str) -> bool:
+    """Check if a file_name already exists in the table for a given user."""
     cur = conn.cursor(dictionary=True)
-    cur.execute(f"SELECT COUNT(*) AS cnt FROM {table_report} WHERE file_name = %s", (file_name,))
+    query = f"""
+        SELECT COUNT(*) AS cnt
+        FROM {table_report}
+        WHERE file_name = %s AND uploaded_by = %s
+    """
+    cur.execute(query, (file_name, user_name))
     exists = cur.fetchone()["cnt"] > 0
     cur.close()
     return exists
 
+# def update_existing(conn, data: dict):
+#     """Update the row for an existing file_name."""
+#     cur = conn.cursor()
+#     print(data)
+#     query = f"""
+#         UPDATE {table_report}
+#         SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s, to_admin_panel=%s
+#         WHERE file_name=%s
+#     """
+#     cur.execute(
+#         query,
+#         (
+#             data.get("start_time"),
+#             data.get("end_time"),
+#             data.get("json_path"),
+#             data.get("status"),
+#             data.get("error"),
+#             data.get("uploaded_by"),
+#             data.get("file_name"),
+#             data.get("to_admin_panel", 0)
+#         ),
+#     )
+#     conn.commit()
+#     cur.close()
+
 def update_existing(conn, data: dict):
-    """Update the row for an existing file_name."""
+    """Update the row for an existing file_name and user."""
     cur = conn.cursor()
-    print(data)
     query = f"""
         UPDATE {table_report}
         SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s, to_admin_panel=%s
-        WHERE file_name=%s
+        WHERE file_name=%s AND uploaded_by=%s
     """
     cur.execute(
         query,
@@ -48,9 +84,10 @@ def update_existing(conn, data: dict):
             data.get("json_path"),
             data.get("status"),
             data.get("error"),
-            data.get("uploaded_by",""),
+            data.get("uploaded_by", ""),
+            data.get("to_admin_panel", 0),
             data.get("file_name"),
-            data.get("to_admin_panel", 0)
+            data.get("uploaded_by", ""),
         ),
     )
     conn.commit()
@@ -95,11 +132,12 @@ def update_report_table(data: dict, db_config:dict):
 
     try:
         file_name = data.get("file_name")
+        user_name = data.get("uploaded_by")
         if not file_name:
             logger.warning("No file_name provided — skipping update.")
             return False
 
-        if fetch_existing_record(conn, file_name):
+        if fetch_existing_record(conn, file_name,user_name):
             update_existing(conn, data)
             logger.info(f"Updated existing record for {file_name}")
         else:

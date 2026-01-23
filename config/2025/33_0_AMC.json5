@@ -34,6 +34,7 @@
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
+    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -80,7 +81,7 @@
     "monthly_aaum_date",
     "page_number",
     "mutual_fund_name",
-    "^metrics$", //after merge
+    "^metrics$",
     "^measures$",
   ],
   MERGEKEYS: {
@@ -95,4 +96,5 @@
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

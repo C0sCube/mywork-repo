@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Logs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+    <style>
+        .log-wrapper {
+            display: flex;
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: calc(100vh - 11rem);
+            /* prevent layout shaking */
+        }
+
+        .line-numbers {
+            padding: 10px 12px;
+            text-align: right;
+            font-family: monospace;
+            font-size: 0.85rem;
+            width: 50px;
+            border-right: 1px solid #cbd5e1;
+            overflow: hidden;
+            /* NO scroll bar */
+            user-select: none;
+        }
+
+        .log-content {
+            flex-grow: 1;
+            padding: 10px 15px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            overflow-y: scroll;
+            /* height: calc(100vh - 11rem); */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="hero">
+            <a href="{{ url_for('index') }}" onclick="goBackToMain(event)"><img
+                    src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo"></a>
+            <h1>DAILY LOGS</h1>
+        </div>
+        <div class="editor-controls">
+            <label for="dateSelect"><strong>Date:</strong></label>
+            <input type="date" id="dateSelect" class="input" style="padding:6px 10px;">
+            <div class="right-controls">
+                <button onclick="loadLog()" class="nav-btn">Load</button>
+                <button class="nav-btn" onclick="refreshLog()" title="Refresh">
+                    <span class="material-symbols-outlined"> autorenew</span>
+                </button>
+            </div>
+            <a href="{{ url_for('index') }}" class="nav-btn" onclick="goBackToMain(event)"><span
+                    class="material-symbols-outlined">
+                    arrow_back
+                </span></a>
+        </div>
+    </header>
+
+    <section class="editor-container">
+
+        <!-- Controls -->
+        <!-- <div class="editor-controls">
+            <label for="dateSelect"><strong>Date:</strong></label>
+            <input type="date" id="dateSelect" class="input" style="padding:6px 10px;">
+            <div class="right-controls">
+                <button onclick="loadLog()" class="nav-btn">Load</button>
+                <button class="icon-btn" onclick="refreshLog()" title="Refresh">
+                    <span class="material-symbols-outlined"> autorenew</span>
+                </button>
+            </div>
+        </div> -->
+
+        <!-- Log Viewer -->
+        <div class="log-wrapper">
+            <div id="lineNumbers" class="line-numbers">1</div>
+            <div id="logViewer" class="log-content" onscroll="syncScroll()">Select a date to load logs...</div>
+        </div>
+
+    </section>
+
+    <script>
+
+        //auth check
+        (async function enforceAuth() {
+            try {
+                const r = await fetch("/auth-check");
+                const data = await r.json();
+                if (!data.logged_in) {
+                    alert("Session Expired. Log in Again.")
+                    window.location = "/login";
+                }
+
+            } catch (err) {
+                alert("Unable to verify. Redirecting to login.");
+                window.location = "/login";
+            }
+        })();
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const logDate = document.getElementById("dateSelect");
+
+            // Format today as dd-mm-yyyy
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, "0");
+            const mm = String(today.getMonth() + 1).padStart(2, "0"); // months are 0-based
+            const yyyy = today.getFullYear();
+            const formatted = `${dd}-${mm}-${yyyy}`;
+
+            // If you're using a plain text field:
+            logDate.value = formatted;
+            logDate.value = `${yyyy}-${mm}-${dd}`;
+            loadLog()
+        });
+
+        function goBackToMain(e) {
+            e.preventDefault();
+            if (window.opener) {
+                window.opener.focus(); // bring original tab to front
+                window.close();        // close this tab
+            } else {
+                // fallback if no opener reference
+                window.location.href = "/";
+            }
+        }
+
+        let currentDate = null;
+
+        async function loadLog() {
+            const date = document.getElementById("dateSelect").value;
+            if (!date) {
+                alert("Please select a date first.");
+                return;
+            }
+
+            currentDate = date;
+
+            const resp = await fetch("/load-daily-log", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ date })
+            });
+
+            const data = await resp.json();
+            const content = data.content || "No logs available for this date.";
+            updateLogViewer(content);
+        }
+
+        function refreshLog() {
+            if (!currentDate) {
+                alert("Load a log first.");
+                return;
+            }
+            loadLog();
+        }
+
+        function updateLogViewer(text) {
+            const viewer = document.getElementById("logViewer");
+            const lineBox = document.getElementById("lineNumbers");
+
+            viewer.textContent = text;
+
+            // Generate line numbers
+            const lineCount = text.split("\n").length;
+            let nums = "01\n02\n03\n04\n05\n06\n07\n08\n09\n";
+            for (let i = 10; i <= lineCount; i++) nums += i + "\n";
+            lineBox.textContent = nums;
+
+            // Scroll to bottom automatically
+            requestAnimationFrame(() => {
+                viewer.scrollTop = viewer.scrollHeight;
+                lineBox.scrollTop = viewer.scrollTop;
+            });
+        }
+
+        function syncScroll() {
+            // Make line numbers follow the main scroll
+            const viewer = document.getElementById("logViewer");
+            const lineBox = document.getElementById("lineNumbers");
+            lineBox.scrollTop = viewer.scrollTop;
+        }
+    </script>
+
+</body>
+
+</html>

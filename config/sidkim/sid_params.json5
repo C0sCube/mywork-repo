@@ -1785,9 +1785,14 @@
         keywords: [
           "Name of the scheme",
           "Category of the Scheme",
+          "Name of the Investment Strategy",
+          "Category of the Investment Strategy",
           "Scheme type",
           "Scheme code",
           "Investment objective",
+          "Type of Investment Strategy",
+          "Investment strategy code",
+          "Investment objective"
         ],
       },
       manager_data: {
@@ -1810,7 +1815,7 @@
     },
     REGEX: {
       //kim
-      main_scheme: "(ICICI.+?(?:Funds?|Plan|Path|Index|Saver|Index)\\s*(?:F[Oo]F|Fund of Funds?)?)",
+      main_scheme: "((?:ICICI|[Ii]SIF).+?(?:Funds?|Plan|Path|Index|Saver|Index)\\s*(?:F[Oo]F|Fund of Funds?)?)",
       asset: {
         pattern: "(.+?)\\s*(\\d+\\%?)\\s*(\\d+\\%?)\\s*$",
         order: "instr|min|max",
@@ -1819,10 +1824,10 @@
       benchmark: "((?:BSE|NSE|CRISIL|Domestic|Price|Nifty|NYSE).+?(?:Index|TRI|Gold|Silver))",
       load: "()E?xit\\s*Load(.+?)$",
       scheme: [
-        "Offer for Sale",
-        "New\\s*Fund\\s*Offer\\s*opens\\s*on",
-        "New\\s*Fund\\s*Offer\\s*closes\\s*on",
-        "Scheme\\s*re.+?opens?",
+        // "Offer for Sale",
+        "New\\s*Fund\\s*Offer\\s*[Oo]pens\\s*on",
+        "New\\s*Fund\\s*Offer\\s*[Cc]loses\\s*on",
+        "Strategy\\s*re.+?opens?",
         "EOL",
       ],
       scheme2: [
@@ -1848,7 +1853,7 @@
       close_date: "",
     },
     PATTERN_TO_FUNCTION: {
-      "^(name_of|benchmark|category_of|scheme_type|.*scheme_code|investment_objective)": [
+      "^(name_of|benchmark|category_of|scheme_type|.*strategy_code|.*scheme_code|investment_objective)": [
         "_extract_str_data",
         null,
       ],

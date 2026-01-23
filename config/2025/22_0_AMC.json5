@@ -30,6 +30,7 @@
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
+    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: ["^before", "^dummy.*"],
@@ -81,7 +82,7 @@
     ".*risk_ratios": ["_extract_metric_data", "metric2"],
     ".*(additional_purchase|amount_purchase)": ["_extract_amt_data", "min_amt"],
     ".*portfolio_turnover_ratio": ["_extract_generic_data", "ptr"],
-    ".*fund_manager_details":["_extract_manager_data","manager"]
+    ".*fund_manager_details": ["_extract_manager_data", "manager"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -109,4 +110,5 @@
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

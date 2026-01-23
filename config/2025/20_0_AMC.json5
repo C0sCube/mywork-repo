@@ -26,6 +26,7 @@
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
+    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -41,15 +42,13 @@
       "Load Structure",
       "Monthly\\s*[aA]verage\\s*[aA]UM",
       "Month\\s*[eE]nd\\s*AUM",
-      "Total\\s*Expense\\s*Ratio",
-      "Portfolio Details",
       "EOL",
     ],
     scheme2: ["Volatility\\s*Measures?", "EOL"],
     min_amt: "([\\d,]+).*?([\\d,]+)",
     metrics: {
       key: "(Standard|Sharpe|Portfolio|Beta|R\\s*Square|Modi?\\s*(?:fi)?ed|Average|Macaulay|Annualized|Direct)",
-      value: "(-?\\d+\\.?\\d+\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|%)?)",
+      value: "(-?\\d+\\.?\\d+\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|%|[Tt]imes?)?)",
     },
     manager: {
       pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<name>[A-Za-z\\s]+)(?:\\s*\\(.+?\\))?\\s*\\(Managing\\s*(?:Fund)?\\s*(?:Since)?\\s*(?P<managing_since>[\\w\\d\\s,]+)\\)?\\s*Total experience\\s*-\\s*over\\s*(?P<experience>\\d+\\s+years)",
@@ -69,8 +68,10 @@
     ],
     ".*load_structure": ["_extract_load_data", "load"],
     ".*fund_manager": ["_extract_manager_data", "manager"],
-    ".*(volatility_measures|portfolio_details|total_expense_ratio)$": ["_extract_iter_data", "metrics"],
-
+    ".*(month_end_aum|volatility_measures|portfolio_details|total_expense_ratio)$": [
+      "_extract_iter_data",
+      "metrics",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -86,9 +87,12 @@
     "metrics",
   ],
   MERGEKEYS: {
-    metrics: [".*(volatility_measures?|portfolio_details?|total_expense_ratio)"],
+    metrics: [
+      ".*(volatility_measures?|portfolio_details?|total_expense_ratio|month_end_aum)",
+    ],
   },
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

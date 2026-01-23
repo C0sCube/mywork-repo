@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Factsheet Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="../static/img/logo_nse.png">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Factsheet Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="login-page">
+    <section class="main-bg dotted">
+        <div class="login-header">
+            <div class="hero">
+                <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+                <h1>FACTSHEET PARSER</h1>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="login-wrapper">
+            <div class="form-container">
+                <h2>LOG IN</h2>
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
+
+                <form method="POST">
+                    <input type="text" name="username" class="input" placeholder="Username" required>
+                    <input type="password" name="password" class="input" placeholder="Password" required>
+                    <button type="submit" class="input">Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+</html>

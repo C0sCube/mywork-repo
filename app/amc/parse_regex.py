@@ -183,7 +183,7 @@ class FundRegex:
         for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
             val = data.get(key, "")
             if isinstance(val, str):
-                cleaned = re.sub(r"[,\s.]+", "", val, flags=re.IGNORECASE)
+                cleaned = re.sub(r"(any|[,\s.]+)", "", val, flags=re.IGNORECASE)
                 if cleaned:
                     data[key] = cleaned
 
@@ -221,7 +221,7 @@ class FundRegex:
                     num = float(value)
                     value = str(int(num * 100))
             
-            if metric == "std_dev" or metric == "ytm" or metric == "tracking_error":
+            if metric == "std_dev" or metric == "ytm" or metric == "tracking_error" or metric == "r_squared_ratio":
                 if value.endswith("%"):
                     value = value.rstrip("%").strip()
             if metric in ["avg_maturity", "macaulay", "mod_duration"]:
@@ -276,25 +276,9 @@ class FundRegex:
         helper = Helper()
 
         for key, data_value in data.items():
-            
-            # if key == "benchmark_index":
-                # if isinstance(data_value,str):
-                #     _value = FundRegex()._clean_leading_noise(data_value)
-                #     _value = FundRegex()._normalize_whitespace(_value)
-                #     record_value[key] = [_value]
-                
-                # elif isinstance(data_value,list):
-                #     temp = []
-                #     for _value in data_value:
-                #         _value = FundRegex()._clean_leading_noise(data_value)
-                #         _value = FundRegex()._normalize_whitespace(_value)
-                #         temp.append(_value)
-                #     record_value[key] = temp
-                # record_value[key] = [data_value]
-                # print(data_value)
-                # field_location_keys.append(key)
+            # print(f"key: {key}")
                     
-            if isinstance(data_value, str):
+            if isinstance(data_value, str) or key in ["riskometer","riskometer_benchmark"]:
                 insert_value = data_value
                 if key == "benchmark_index":
                     data_value = helper._clean_leading_noise(data_value)

@@ -1,0 +1,397 @@
+{
+    "AXIS INCOME PLUS ARBITRAGE ACTIVE FOF": {
+        "regex": "(income\\s*plus\\s*arbitrage\\s*active\\s*fof|Income\\s*Advantage\\s*Fund\\s*of\\s*Funds)",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Aggressive Hybrid Fund": {
+        "regex": "Axis\\s+Aggressive\\s+Hybrid\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Arbitrage Fund": {
+        "regex": "Axis\\s+Arbitrage\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis BSE Sensex ETF": {
+        "regex": "Axis\\s+BSE\\s+Sensex\\s+ETF",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis BSE Sensex Index Fund": {
+        "regex": "Axis\\s+BSE\\s+Sensex\\s+Index\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Balanced Advantage Fund": {
+        "regex": "Axis\\s+Balanced\\s+Advantage\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Banking & PSU Debt Fund": {
+        "regex": "Axis\\s+Banking\\s*(?:&|and)?\\s*PSU\\s+Debt\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Business Cycles Fund": {
+        "regex": "Axis\\s+Business\\s+Cycles\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL IBX 50:50 Gilt Plus SDL June 2028 Index Fund": {
+        "regex": "Axis\\s+CRISIL\\s+IBX.+?Gilt\\s+Plus\\s+SDL\\s+June",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL IBX 50:50 Gilt Plus SDL September 2027 Index Fund": {
+        "regex": "Axis\\s+CRISIL\\s*IBX.+?Gilt\\s+Plus\\s+SDL\\s+Sep(?:tember)?\\s*2027",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL IBX SDL June 2034 Debt Index Fund": {
+        "regex": "Axis\\s+CRIS.+?IBX\\s+SDL\\s+June\\s+2034\\s+Debt\\s+Index\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL IBX SDL May 2027 Index Fund": {
+        "regex": "Axis\\s+CRISIL\\s+IBX\\s+SDL\\s+May\\s+2027\\s+Index\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL-IBX AAA Bond Financial Services - Sep 2027 Index Fund": {
+        "regex": "Axis\\s+CRIS.+?IBX\\s+AAA\\s+Bond\\s+Financial\\s+Services(?:.+?Sep\\s+2027)?",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL-IBX AAA Bond NBFC - Jun 2027 Index Fund": {
+        "regex": "Axis\\s+CRIS.+?IBX\\s+AAA\\s+Bond\\s+NBFC.+?Jun\\s+2027",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund": {
+        "regex": "Axis\\s+CRIS.+?IBX\\s+AAA\\s+Bond\\s+NBFC.*?HFC",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Childrens Fund": {
+        "regex": "Axis\\s+Children\\s*s\\s*Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Conservative Hybrid Fund": {
+        "regex": "Axis\\s+Conservative\\s+Hybrid\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Consumption Fund": {
+        "regex": "Axis\\s+Consumption\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Corporate Bond Fund": {
+        "regex": "Axis\\s+Corporate\\s+Bond\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Credit Risk Fund": {
+        "regex": "Axis\\s+Credit\\s+Risk\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Dynamic Bond Fund": {
+        "regex": "Axis\\s+Dynamic\\s+Bond\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis ELSS Tax Saver Fund": {
+        "regex": "Axis\\s+ELSS\\s+Tax\\s+Saver\\s+Fund",
+        "min_add": "500,500,500,500",
+        "risk": ""
+    },
+    "Axis ESG Integration Strategy Fund": {
+        "regex": "Axis\\s+ESG\\s+Integration\\s+Strategy\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Equity ETFs FOF": {
+        "regex": "Axis\\s+Equity\\s+ETFs\\s+FOF",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Equity Savings Fund": {
+        "regex": "Axis\\s+Equity\\s+Savings\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Flexi Cap Fund": {
+        "regex": "Axis\\s+Flexi\\s+Cap\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Floater Fund": {
+        "regex": "Axis\\s+Floater\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Focused Fund": {
+        "regex": "Axis\\s+Focused\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Gilt Fund": {
+        "regex": "Axis\\s+Gilt\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Global Equity Alpha Fund of Fund": {
+        "regex": "Axis\\s+Global\\s+Equity\\s+Alpha\\s+Fund\\s+of\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Global Innovation Fund of Fund": {
+        "regex": "Axis\\s+Global\\s+Innovation\\s+Fund\\s+of\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Gold ETF": {
+        "regex": "Axis\\s+Gold\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Gold Fund": {
+        "regex": "Axis\\s+Gold\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Greater China Equity Fund of Fund": {
+        "regex": "Axis\\s+Greater\\s+China\\s+Equity\\s+Fund\\s+of\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis India Manufacturing Fund": {
+        "regex": "Axis\\s+India\\s+Manufacturing\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Innovation Fund": {
+        "regex": "Axis\\s+Innovation\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Large & Mid Cap Fund": {
+        "regex": "(Axis\\s+Large\\s*(?:&|and)?\\s*Mid\\s*Cap\\s*Fund|Axis\\s*Growth\\s*Opportunities\\s*Fund)",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Large Cap Fund": {
+        "regex": "(Axis\\s+Large\\s+Cap\\s+Fund|Axis\\s*Bluechip\\s*fund)",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Liquid Fund": {
+        "regex": "Axis\\s+Liquid\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Long Duration Fund": {
+        "regex": "Axis\\s+Long\\s+Duration\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Midcap Fund": {
+        "regex": "Axis\\s+Mid\\s*cap\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Momentum Fund": {
+        "regex": "Axis\\s+Momentum\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Money Market Fund": {
+        "regex": "Axis\\s+Money\\s+Market\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Multi Asset Allocation Fund": {
+        "regex": "Axis\\s+Multi\\s+Asset\\s+Allocation\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Multicap Fund": {
+        "regex": "Axis\\s+Multi\\s*cap\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nasdaq 100 Fund of Fund": {
+        "regex": "Axis\\s+Nasdaq\\s+100\\s+Fund\\s+of\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Nifty 100 Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+100\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty 50 ETF": {
+        "regex": "Axis\\s+Nifty\\s+50\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Nifty 50 Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+50\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty 500 Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+500\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty AAA Bond Plus SDL Apr 2026 50:50 ETF": {
+        "regex": "Axis\\s+Nifty\\s+AAA\\s+Bond\\s+Plus\\s+SDL\\s+Apr\\s+2026\\s+50:?50\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Nifty AAA Bond Plus SDL Apr 2026 50:50 ETF FOF": {
+        "regex": "Axis\\s+Nifty\\s+AAA\\s+Bond\\s+Plus\\s+S[DO]L\\s+Apr\\s+2026\\s+50:?50\\s+ETF\\s+FOF",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Nifty Bank ETF": {
+        "regex": "Axis\\s+Nifty\\s+Bank\\s+ETF",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Nifty Bank Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+Bank\\s+Index\\s+Fund",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Nifty Healthcare ETF": {
+        "regex": "Axis\\s+Nifty\\s+Healthcare\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Nifty IT ETF": {
+        "regex": "Axis\\s+Nifty\\s+IT\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Nifty IT Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+IT\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty India Consumption ETF": {
+        "regex": "Axis\\s+Nifty\\s+India\\s+Consumption\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Nifty Midcap 50 Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+Midcap\\s+50\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty Next 50 Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+Next\\s+50\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty SDL September 2026 Debt Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+SDL\\s+September\\s+2026\\s+Debt",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Nifty Smallcap 50 Index Fund": {
+        "regex": "Axis\\s+Nifty\\s+Smallcap\\s+50\\s+Index\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Nifty500 Momentum 50 Index Fund": {
+        "regex": "Axis\\s+Nifty500\\s+Momentum\\s+50\\s+Index\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Nifty500 Value 50 ETF": {
+        "regex": "Axis\\s+Nifty500\\s+Value\\s+50\\s+ETF",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Nifty500 Value 50 Index Fund": {
+        "regex": "Axis\\s+Nifty500\\s+Value\\s+50\\s+Index\\s+Fund",
+        "min_add": "500,1,500,1",
+        "risk": ""
+    },
+    "Axis Overnight Fund": {
+        "regex": "Axis\\s+Overnight\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Quant Fund": {
+        "regex": "Axis\\s+Quant\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Retirement Fund - Aggressive Plan": {
+        "regex": "Axis\\s+Retirement\\s+Fund.+?Aggressive\\s+Plan",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Retirement Fund - Conservative Plan": {
+        "regex": "Axis\\s+Retirement\\s+Fund.+?Conservative\\s+Plan",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Retirement Fund - Dynamic Plan": {
+        "regex": "Axis\\s+Retirement\\s+Fund.+?Dynamic\\s+Plan",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Short Duration Fund": {
+        "regex": "Axis\\s+Short\\s+Duration\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Silver ETF": {
+        "regex": "Axis\\s+Silver\\s+ETF",
+        "min_add": ",,,",
+        "risk": ""
+    },
+    "Axis Silver Fund of Fund": {
+        "regex": "Axis\\s+Silver\\s+Fund\\s+of\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Small Cap Fund": {
+        "regex": "Axis\\s+Small\\s+Cap\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Strategic Bond Fund": {
+        "regex": "Axis\\s+Strategic\\s+Bond\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    },
+    "Axis Treasury Advantage Fund": {
+        "regex": "Axis\\s+Treasury\\s+Advantage\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis US Treasury Dynamic Bond ETF Fund": {
+        "regex": "Axis\\s+US\\s+Treasury\\s+Dynamic\\s+Bond\\s+ETF\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Ultra Short Duration Fund": {
+        "regex": "Axis\\s+Ultra\\s+Short\\s+Duration\\s+Fund",
+        "min_add": "5000,1,5000,1",
+        "risk": ""
+    },
+    "Axis Value Fund": {
+        "regex": "Axis\\s+Value\\s+Fund",
+        "min_add": "100,1,100,1",
+        "risk": ""
+    }
+}
