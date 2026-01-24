@@ -43,31 +43,6 @@ def fetch_existing_record(conn, file_name: str, user_name: str) -> bool:
     cur.close()
     return exists
 
-# def update_existing(conn, data: dict):
-#     """Update the row for an existing file_name."""
-#     cur = conn.cursor()
-#     print(data)
-#     query = f"""
-#         UPDATE {table_report}
-#         SET start_time=%s, end_time=%s, json_path=%s, status=%s, error=%s, uploaded_by=%s, to_admin_panel=%s
-#         WHERE file_name=%s
-#     """
-#     cur.execute(
-#         query,
-#         (
-#             data.get("start_time"),
-#             data.get("end_time"),
-#             data.get("json_path"),
-#             data.get("status"),
-#             data.get("error"),
-#             data.get("uploaded_by"),
-#             data.get("file_name"),
-#             data.get("to_admin_panel", 0)
-#         ),
-#     )
-#     conn.commit()
-#     cur.close()
-
 def update_existing(conn, data: dict):
     """Update the row for an existing file_name and user."""
     cur = conn.cursor()
@@ -216,4 +191,133 @@ def json_to_cog_db(json_path, db_config = None):
 
 
 
+class JobState:
+    UPLOADED = "UPLOADED"
+    PARSED = "PARSED"
+    PARSE_FAILED = "PARSE_FAILED"
+    APPROVED = "APPROVED"
+    PUSHED = "PUSHED"
+    PUSH_FAILED = "PUSH_FAILED"
 
+
+ALLOWED_TRANSITIONS = {
+    JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED},
+    JobState.PARSED: {JobState.UPLOADED, JobState.APPROVED},
+    JobState.PARSE_FAILED: {JobState.UPLOADED},
+    JobState.APPROVED: {JobState.PUSHED, JobState.PUSH_FAILED},
+    JobState.PUSH_FAILED: {JobState.APPROVED},
+}
+
+
+def transition_job(conn, job_id, from_state, to_state, extra=None):
+    if to_state not in ALLOWED_TRANSITIONS.get(from_state, set()):
+        raise ValueError(f"Illegal transition {from_state} → {to_state}")
+
+    cur = conn.cursor()
+    cur.execute("""
+        UPDATE mf_status_report
+        SET status=%s,
+            end_time = IF(%s IN ('PARSED','PARSE_FAILED','PUSHED','PUSH_FAILED'), NOW(), end_time),
+            error = %s
+        WHERE id=%s AND status=%s
+    """, (
+        to_state,
+        to_state,
+        (extra or {}).get("error"),
+        job_id,
+        from_state
+    ))
+
+    if cur.rowcount != 1:
+        raise RuntimeError("Transition failed (stale state or invalid job_id)")
+
+    conn.commit()
+    cur.close()
+
+def create_job(data: dict, db_config: dict) -> int:
+    """
+    Insert a new job with state=UPLOADED.
+    Returns job_id.
+    """
+    conn = establish_connection(db_config)
+    cur = conn.cursor()
+
+    cur.execute("""
+        INSERT INTO mf_status_report
+        (file_name, status, start_time, created_by, uploaded_by)
+        VALUES (%s, %s, %s, %s, %s)
+    """, (
+        data["file_name"],
+        JobState.UPLOADED,
+        data["start_time"],
+        data.get("created_by", ""),
+        data.get("uploaded_by", "")
+    ))
+
+    job_id = cur.lastrowid
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    return job_id
+
+def fetch_latest_uploaded_job(file_name: str, db_config: dict) -> dict | None:
+    """
+    Fetch the most recent UPLOADED job for a file.
+    """
+    conn = establish_connection(db_config)
+    cur = conn.cursor(dictionary=True)
+
+    cur.execute("""
+        SELECT id, status
+        FROM mf_status_report
+        WHERE file_name=%s AND status=%s
+        ORDER BY start_time DESC
+        LIMIT 1
+    """, (file_name, JobState.UPLOADED))
+
+    row = cur.fetchone()
+    cur.close()
+    conn.close()
+
+    return row
+
+def transition_job_state(job_id: int, from_state: str, to_state: str, *,
+    json_path: str | None = None,
+    error: str | None = None,
+    db_config: dict
+) -> None:
+    """
+    Perform a guarded job state transition.
+    """
+
+    if to_state not in ALLOWED_TRANSITIONS.get(from_state, set()):
+        raise ValueError(f"Illegal transition {from_state} → {to_state}")
+
+    conn = establish_connection(db_config)
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE mf_status_report
+        SET status=%s,
+            json_path = COALESCE(%s, json_path),
+            error = %s,
+            end_time = NOW()
+        WHERE id=%s AND status=%s
+    """, (
+        to_state,
+        json_path,
+        error,
+        job_id,
+        from_state
+    ))
+
+    if cur.rowcount != 1:
+        conn.rollback()
+        raise RuntimeError(
+            f"Job transition failed (job_id={job_id}, expected={from_state})"
+        )
+
+    conn.commit()
+    cur.close()
+    conn.close()

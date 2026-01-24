@@ -13,7 +13,12 @@ from app.konstant import (
 from app.logger import setup_logger, rotate_daily_log
 from app.utils import Helper
 from app.amc.registry import load_registry, check_amc_file
-from app.sqlconnect import update_report_table, json_to_cog_db
+
+from app.sqlconnect import (
+    fetch_latest_uploaded_job,
+    transition_job_state,
+    JobState
+)
 
 
 
@@ -33,180 +38,163 @@ def detect_input_pdf():
         logger.error(f"Error listing input dir: {e}")
         return []
 
-def read_meta_content(root_dir,file_name):
-    """Read sidecar meta JSON (if present) and return dict."""
-    file_name = file_name.replace(".pdf", ".meta.json")
-    meta_path = os.path.join(root_dir, file_name)
-    # print(meta_path)
+def read_meta_content(root_dir, file_name):
+    """
+    Read sidecar meta JSON.
+    Meta is for parser hints ONLY, never job state.
+    """
+    meta_path = os.path.join(
+        root_dir,
+        file_name.replace(".pdf", ".meta.json")
+    )
+
     if not os.path.exists(meta_path):
-        logger.warning("meta file doesnt exist.")
         return {}
-    
+
     try:
         with open(meta_path, "r", encoding="utf-8") as fh:
             return json.load(fh)
     except Exception as e:
         logger.warning(f"Failed to read meta for {file_name}: {e}")
-    return {}
-
-def initialize_status_report(db_config:dict,file_list):
-    reports = {}
-    for file_name in file_list:
-        meta = read_meta_content(INPUT_DIR,file_name)
-        uploaded_by = meta.get("uploaded_by","unknown")
-        adm_pnl = meta.get("to_admin_panel", 0)
-        # print(uploaded_by)
-        report = {
-            # "start_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
-            "end_time": None,
-            "file_name": file_name,
-            "json_path": None,
-            "status": "pending",
-            "error": None,
-            # "uploaded_by": uploaded_by,
-            "to_admin_panel":adm_pnl
-        }
-        reports[file_name] = report
-       
-        # update_report_table(report, db_config=db_config)
-    return reports
-
-def update_status_report(report, status, json_path=None, error=None):
-    report.update({
-        "end_time": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
-        "json_path": json_path,
-        "status": status,
-        "error": error
-    })
-    return report
+        return {}
 
 
 # --- Main Watcher Loop ---
-def execute_parser(path, amc_id, year, report):
+
+def execute_parser(path, amc_id, year):
     file_name = os.path.basename(path)
-    logger.info(f"Process {amc_id}: {file_name}")
+    logger.info(f"Parsing: {file_name}")
 
     try:
-        
         amc_registry = load_registry()
         if amc_id not in amc_registry:
-            raise ValueError("Unknown AMC ID or File.")
+            raise ValueError("Unknown AMC ID")
 
-        logger.info(f"Fetchin CONFIG: {amc_id} - {year}")
-        config,regex = get_config(year, amc_id),get_regex(year)
-        
+        config, regex = get_config(year, amc_id), get_regex(year)
         if not config or not regex:
-            raise ValueError(f"CONFIG,REGEX missing: {amc_id}")
-        
+            raise ValueError("Missing config or regex")
+
         obj = amc_registry[amc_id](config, regex, path)
+
         title, path_pdf = obj.check_and_highlight(path)
-        if not (title and path_pdf):
-            raise ValueError("check_and_highlight failed.")
+        if not title:
+            raise ValueError("check_and_highlight failed")
 
         data = obj.get_data(path_pdf, title)
-        extracted_text = obj.get_generated_content(data)
-        final_text = obj.refine_extracted_data(extracted_text)
-        dfs = obj.merge_and_select_data(final_text)
-        if not dfs:
-            raise ValueError("No final Data.")
-        
-        #save
-        save_path = os.path.join(JSON_DIR, file_name.replace(".pdf", ".json"))
-        Helper.save_json(dfs, save_path)
-        logger.info(f"Saved JSON File: {save_path}")
+        extracted = obj.get_generated_content(data)
+        refined = obj.refine_extracted_data(extracted)
+        dfs = obj.merge_and_select_data(refined)
 
-        return update_status_report(report, "completed", json_path=save_path)
+        if not dfs:
+            raise ValueError("No parsed data")
+
+        save_path = os.path.join(
+            JSON_DIR,
+            file_name.replace(".pdf", ".json")
+        )
+        Helper.save_json(dfs, save_path)
+
+        return {"json_path": save_path}
 
     except Exception as e:
-        logger.error(f"[Pipeline Error] {file_name} | {type(e).__name__}: {e}")
+        logger.error(f"[PARSE ERROR] {file_name}: {e}")
         logger.debug(traceback.format_exc())
-        return update_status_report(report, "failed", error=f"{type(e).__name__}: {e}")
-        
-def process_file(file_name, db_config, report):
+        return {"error": f"{type(e).__name__}: {e}"}
+
+def process_file(file_name, db_config):
     file_path = os.path.join(INPUT_DIR, file_name)
-    file_key, year = check_amc_file(file_path,file_name)
 
-    latest_report = execute_parser(file_path, file_key, year, report)
-    
-    if SP_STATUS:
-        update_report_table(latest_report, db_config)
+    # 1. Find latest UPLOADED job
+    job = fetch_latest_uploaded_job(file_name, db_config)
+    if not job:
+        logger.warning(f"No UPLOADED job found for {file_name}")
+        return
 
-    # archive + delete
-    archive_dir = ""
-    print(file_path)
-    if latest_report["status"] == "completed":
-        if file_name.endswith("_FS.pdf"):
-            archive_dir = PRS_FS_DIR
-        elif file_name.endswith("_SID.pdf"):
-            archive_dir = PRS_SID_DIR
-        elif file_name.endswith("_KIM.pdf"):
-            archive_dir = PRS_KIM_DIR
-        else:
-            archive_dir = PROCESSED_DIR
-    else:
-      archive_dir = FAILED_DIR
+    job_id = job["id"]
 
-    Helper.archive_and_delete_files(archive_dir, {file_name: file_path})
+    # 2. Identify AMC + year
+    file_key, year = check_amc_file(file_path, file_name)
 
-    meta_file_name = file_name.replace(".pdf", ".meta.json")
-    meta_src = os.path.join(INPUT_DIR, meta_file_name)
-    if os.path.exists(meta_src):
-        try:
-            os.remove(meta_src)
-        except Exception:
-            logger.warning("Meta file not removed")
+    # 3. Parse
+    result = execute_parser(file_path, file_key, year)
 
-    #cog_mf sp call
-    logger.info("Checking if cog_mf SP to call.")
-    if latest_report.get("to_admin_panel", 0) == 1 and latest_report["status"] == "completed":
-        json_to_cog_db(
-            latest_report.get("json_path",""),
-            db_config
+    # 4. Transition state
+    if "json_path" in result:
+        transition_job_state(
+            job_id=job_id,
+            from_state=JobState.UPLOADED,
+            to_state=JobState.PARSED,
+            json_path=result["json_path"],
+            db_config=db_config
         )
-    else:
-        logger.info("Not to call SP. Skipped.")
-        latest_report.update({"to_admin_panel": 0 })
-        
-    
-    # update status report if enabled
-    if SP_STATUS:
-        update_report_table(latest_report, db_config)
 
-    return latest_report["status"]
+        archive_dir = (
+            PRS_FS_DIR if file_name.endswith("_FS.pdf")
+            else PRS_SID_DIR if file_name.endswith("_SID.pdf")
+            else PRS_KIM_DIR if file_name.endswith("_KIM.pdf")
+            else PROCESSED_DIR
+        )
+
+        logger.info(f"[PARSED] {file_name}")
+
+    else:
+        transition_job_state(
+            job_id=job_id,
+            from_state=JobState.UPLOADED,
+            to_state=JobState.PARSE_FAILED,
+            error=result["error"],
+            db_config=db_config
+        )
+
+        archive_dir = FAILED_DIR
+        logger.error(f"[FAILED] {file_name}")
+
+    # 5. Archive PDF
+    Helper.archive_and_delete_files(
+        archive_dir,
+        {file_name: file_path}
+    )
+
+    # 6. Cleanup meta file
+    meta_path = os.path.join(
+        INPUT_DIR,
+        file_name.replace(".pdf", ".meta.json")
+    )
+    if os.path.exists(meta_path):
+        os.remove(meta_path)
 
 def main():
     logger.info("Watcher started.")
+
     while True:
         try:
             new_files = detect_input_pdf()
 
             if not new_files:
-                # logger.notice("No new files. Sleeping...")
                 time.sleep(CHECK_INTERVAL)
                 rotate_daily_log(logger)
                 continue
-            
-            logger.info(f"Files Detected: {'|'.join(sorted(new_files))}")
-            logger.notice("Mandatory pause for file save.")
-            time.sleep(PAUSE)        
+
+            logger.info(f"Files detected: {', '.join(new_files)}")
+            time.sleep(PAUSE)
 
             db_config = load_db_config()
-            status_reports = initialize_status_report(db_config,new_files)
 
             for file_name in new_files:
-                report = status_reports[file_name]
-                process_file(file_name,db_config, report)
+                process_file(file_name, db_config)
                 time.sleep(1)
 
-            logger.save(f"[{', '.join(new_files)}] processed/attempted.")
+            logger.save(f"Processed: {', '.join(new_files)}")
 
         except KeyboardInterrupt:
-            logger.warning("Watcher stopped by user. Exiting gracefully.")
+            logger.warning("Watcher stopped.")
             break
+
         except Exception as e:
-            logger.critical(f"Unhandled error: {type(e).__name__}: {e}")
+            logger.critical(f"Unhandled error: {e}")
             logger.debug(traceback.format_exc())
             time.sleep(5)
+
 
 # --- Entry Point ---
 if __name__ == "__main__":

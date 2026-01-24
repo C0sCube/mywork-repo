@@ -135,57 +135,45 @@ def logout():
 
 @app.route('/upload', methods=['POST'])
 def upload_files():
-    if not session.get("logged_in"): return redirect(url_for("login"))
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+
     uploaded_files = request.files.getlist('pdfs')
     os.makedirs(INPUT_DIR, exist_ok=True)
-    
-    uploaded_by = session.get("user", "unknown")
-    created_by = session.get("user", "unknown")
-    to_cog_mf = request.form.get("to_cog_mf") is not None
+
+    user = session.get("user", "unknown")
+    now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
 
     for file in uploaded_files:
-        if file and file.filename.lower().endswith(".pdf"):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(INPUT_DIR, filename)
-            file.save(file_path)
-            now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
-            # create a small sidecar meta JSON so parser can read who uploaded it
-            meta = {
-                # "uploaded_by": uploaded_by,
-                "created_by": created_by,
-                "uploaded_at": now,
-                "to_admin_panel": 1 if bool(to_cog_mf) else 0,
-                "adm_pnl_by": created_by if bool(to_cog_mf) else None
-            }
-            try:
-                meta_path = os.path.splitext(file_path)[0] + ".meta.json"
-                # print(meta_path)
-                with open(meta_path, "w", encoding="utf-8") as mf:
-                    json.dump(meta, mf)
-            except Exception as e:
-                print(f"Failed to write meta for {filename}: {e}")
+        if not file or not file.filename.lower().endswith(".pdf"):
+            continue
 
-            # insert initial DB row via update_table (so dashboard shows file immediately)
-            # print(now)
-            initial = {
-                "start_time": now,
-                "end_time": None,
-                "file_name": filename,
-                "json_path": None,
-                "status": "Pending",
-                "error": None,
-                "created_by": created_by,
-                "uploaded_by": uploaded_by,
-            }
-            try:
-                if SP_REPORT_RUN:
-                    update_report_table(initial, db_config=DB_CONFIG)
-            except Exception as e:
-                print(f"Failed to write initial DB row for {filename}: {e}")
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(INPUT_DIR, filename)
+        file.save(file_path)
 
-            print(f"File '{filename}' uploaded by {created_by}")
+        # Optional: keep meta ONLY for parser hints (not business state)
+        # meta_path = os.path.splitext(file_path)[0] + ".meta.json"
+        # with open(meta_path, "w", encoding="utf-8") as mf:
+        #     json.dump({
+        #         "uploaded_by": user,
+        #         "uploaded_at": now
+        #     }, mf)
 
-    time.sleep(1)
+        # Create job (NO outcome fields)
+        job = {
+            "file_name": filename,
+            "status": "UPLOADED",
+            "start_time": now,
+            "created_by": user,
+            "uploaded_by": user,
+        }
+
+        if SP_REPORT_RUN:
+            update_report_table(job, db_config=DB_CONFIG)
+
+        print(f"[JOB CREATED] {filename} by {user}")
+
     return redirect('/')
 
 @app.route("/reprocess/<filename>", methods=["POST"])
@@ -193,14 +181,10 @@ def reprocess(filename):
     if not session.get("logged_in"):
         return redirect(url_for("login"))
 
-    uploaded_by = session.get("user", "unknown")
-    
-    #get payload
-    payload = request.get_json(silent=True) or {}
-    to_admin_panel = int(payload.get("to_admin_panel", 0))
+    user = session.get("user", "unknown")
+    now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
 
-    # Look for file in processed or failed dirs
-
+    # locate archived file
     sub_dir = ""
     if filename.endswith("_SID.pdf"):
         sub_dir = "sid"
@@ -208,48 +192,45 @@ def reprocess(filename):
         sub_dir = "kim"
     elif filename.endswith("_FS.pdf"):
         sub_dir = "fs"
-    processed_path = os.path.join(OUTPUT_DIR, "processed",sub_dir, secure_filename(filename))
-    failed_path = os.path.join(OUTPUT_DIR, "failed", secure_filename(filename))
+
+    processed_path = os.path.join(OUTPUT_DIR, "processed", sub_dir, filename)
+    failed_path = os.path.join(OUTPUT_DIR, "failed", filename)
+
     if os.path.exists(processed_path):
-        file_path = processed_path
+        src = processed_path
     elif os.path.exists(failed_path):
-        file_path = failed_path
+        src = failed_path
     else:
-        return {"success": False, "message": f"{filename} not found in output dirs"}
+        return {"success": False, "message": "File not found"}
 
-    # Copy/move back into INPUT_DIR so the parser picks it up again
+    # copy back to input for watcher
     os.makedirs(INPUT_DIR, exist_ok=True)
-    new_path = os.path.join(INPUT_DIR, filename)
-    shutil.copy(file_path, new_path)
+    dst = os.path.join(INPUT_DIR, filename)
+    shutil.copy(src, dst)
 
-    # Write fresh meta JSON
-    meta = {
-        "uploaded_by": uploaded_by,
-        # "created_by": uploaded_by,
-        # "uploaded_at": datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S"),
-        "to_admin_panel": to_admin_panel
-    }
-    meta_path = os.path.splitext(new_path)[0] + ".meta.json"
+    # optional parser meta
+    meta_path = os.path.splitext(dst)[0] + ".meta.json"
     with open(meta_path, "w", encoding="utf-8") as mf:
-        json.dump(meta, mf)
+        json.dump({
+            "uploaded_by": user,
+            "reprocess": True
+        }, mf)
 
-    # Insert new DB row so dashboard shows it again
-    now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
-    print(now)
-    initial = {
-        "start_time": now,
-        "end_time": None,
+    # NEW job entry
+    job = {
         "file_name": filename,
-        "json_path": None,
-        "status": "Pending",
-        "error": None,
-        "uploaded_by": uploaded_by
+        "status": "UPLOADED",
+        "start_time": now,
+        "created_by": user,
+        "uploaded_by": user,
     }
-    if SP_REPORT_RUN:
-        update_report_table(initial, db_config=DB_CONFIG)
 
-    print(f"File '{filename}' requeued for processing by {uploaded_by}")
+    if SP_REPORT_RUN:
+        update_report_table(job, db_config=DB_CONFIG)
+
+    print(f"[REPROCESS JOB CREATED] {filename} by {user}")
     return {"success": True, "message": f"{filename} requeued"}
+
 
 @app.route('/record-upload', methods=['POST'])
 def record_upload():
