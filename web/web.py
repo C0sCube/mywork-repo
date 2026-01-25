@@ -151,17 +151,12 @@ def upload_files():
         # Create job (NO outcome fields)
         job = {
             "file_name": filename,
-            "status": "UPLOADED",
             "start_time": now,
             "created_by": user,
             "uploaded_by": user,
         }
-
-        if SP_REPORT_RUN:
-            update_report_table(job, db_config=DB_CONFIG)
-
-        print(f"[JOB CREATED] {filename} by {user}")
-
+        create_job(job, DB_CONFIG)
+        # print(f"[JOB CREATED] {filename} by {user}")
     return redirect('/')
 
 @app.route("/reprocess/<filename>", methods=["POST"])
@@ -207,31 +202,13 @@ def reprocess(filename):
     # NEW job entry
     job = {
         "file_name": filename,
-        "status": "UPLOADED",
         "start_time": now,
         "created_by": user,
         "uploaded_by": user,
     }
-
-    if SP_REPORT_RUN:
-        update_report_table(job, db_config=DB_CONFIG)
-
-    print(f"[REPROCESS JOB CREATED] {filename} by {user}")
+    create_job(job, DB_CONFIG)
+    # print(f"[REPROCESS JOB CREATED] {filename} by {user}")
     return {"success": True, "message": f"{filename} requeued"}
-
-
-@app.route('/record-upload', methods=['POST'])
-def record_upload():
-    if not session.get("logged_in"):
-        return jsonify({"success": False, "error": "Not logged in"}), 403
-
-    data = request.get_json()
-    data["json_path"] = ""  # optional: fill later via parser
-    success = False
-    if SP_REPORT_RUN:
-        success = update_report_table(data, db_config=DB_CONFIG)
-
-    return jsonify({"success": success})
 
 @app.route('/delete/<filename>')
 def delete_file(filename):
@@ -387,7 +364,6 @@ def json_to_csv(json_path, output_dir=".csv_folder"):
     pd.DataFrame(rows, columns=headers).to_csv(csv_path, index=False, encoding="utf-8")
     return csv_path
 
-
 @app.route("/download_csv", methods=["GET"])
 def download_csv():
     # Get JSON path from query parameter
@@ -463,7 +439,8 @@ def status_data():
 
         # Fetch paginated rows
         cur.execute("""
-            SELECT file_name, start_time, end_time, status, json_path, error, created_by, uploaded_by, to_admin_panel
+            SELECT file_name, start_time, end_time, status, json_path, error,
+                created_by, uploaded_by, push_attempts
             FROM mf_status_report
             ORDER BY start_time DESC
             LIMIT %s OFFSET %s
@@ -709,6 +686,69 @@ def apply_csv():
 
     except Exception as e:
         return {"success": False, "error": str(e)}, 500
+
+@app.route("/push_job", methods=["POST"])
+def push_job():
+    if not session.get("logged_in"):
+        return {"success": False, "error": "Not logged in"}, 403
+
+    # optional: restrict to admins only
+    if session.get("role") != "admin":
+        return {"success": False, "error": "Forbidden"}, 403
+
+    data = request.get_json()
+    job_id = data.get("job_id")
+
+    if not job_id:
+        return {"success": False, "error": "Missing job_id"}, 400
+
+    try:
+        # 1. fetch job
+        job = fetch_job_by_id(int(job_id), DB_CONFIG)
+
+        # only allow push from APPROVED or PUSH_FAILED
+        if job["status"] not in (JobState.APPROVED, JobState.PUSH_FAILED):
+            return {
+                "success": False,
+                "error": f"Job not pushable in state {job['status']}"
+            }, 400
+
+        json_path = job["json_path"]
+        if not json_path or not os.path.exists(json_path):
+            return {"success": False, "error": "JSON not found"}, 404
+
+        # 2. increment push_attempts (INTENT expressed)
+        conn = establish_connection(DB_CONFIG)
+        cur = conn.cursor()
+        cur.execute(
+            """
+            UPDATE mf_status_report
+            SET push_attempts = push_attempts + 1
+            WHERE id = %s
+            """,
+            (job_id,)
+        )
+        conn.commit()
+        cur.close()
+        conn.close()
+
+        # 3. call SP
+        success = json_to_cog_db(json_path, DB_CONFIG)
+
+        # 4. transition job state
+        transition_job_state(
+            job_id=int(job_id),
+            from_state=job["status"],
+            to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
+            error=None if success else "Admin panel push failed",
+            db_config=DB_CONFIG
+        )
+
+        return {"success": success}
+
+    except Exception as e:
+        return {"success": False, "error": str(e)}, 500
+
 
 
 # --- run app ---

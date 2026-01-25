@@ -253,6 +253,32 @@ def json_to_cog_db(json_path: str, db_config: dict) -> bool:
         cursor.close()
         conn.close()
 
+def increment_push_attempts(job_id: int, db_config: dict):
+    conn = establish_connection(db_config)
+    if not conn:
+        raise RuntimeError("DB connection failed")
+
+    cur = conn.cursor()
+    cur.execute(
+        """
+        UPDATE mf_status_report
+        SET push_attempts = push_attempts + 1
+        WHERE id = %s
+        """,
+        (job_id,)
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
+
+
+
+
+
+
+
+
+
 
 # =====================================================
 # LEGACY (DEPRECATED — DO NOT USE FOR JOB PIPELINE)
