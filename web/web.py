@@ -16,7 +16,13 @@ from app.utils import Helper
 from app.sqlconnect import *
 
 # --- Flask app setup ---
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+app = Flask(
+    __name__,
+    static_folder=os.path.join(BASE_DIR, "static"),
+    template_folder=os.path.join(BASE_DIR, "templates"),
+)
 app.secret_key = "supersecretkey" 
 app.permanent_session_lifetime = timedelta(days=7)
 
@@ -59,8 +65,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        if ldap_authenticate(username, password):
-        # if True:
+        # if ldap_authenticate(username, password):
+        if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -687,67 +693,77 @@ def apply_csv():
     except Exception as e:
         return {"success": False, "error": str(e)}, 500
 
-@app.route("/push_job", methods=["POST"])
-def push_job():
+# @app.route("/push_job", methods=["POST"])
+# def push_job():
+#     if not session.get("logged_in"):
+#         return {"success": False, "error": "Not logged in"}, 403
+
+#     # optional: restrict to admins only
+#     if session.get("role") != "admin":
+#         return {"success": False, "error": "Forbidden"}, 403
+
+#     data = request.get_json()
+#     job_id = data.get("job_id")
+
+#     if not job_id:
+#         return {"success": False, "error": "Missing job_id"}, 400
+
+#     try:
+#         # 1. fetch job
+#         job = fetch_job_by_id(int(job_id), DB_CONFIG)
+
+#         # only allow push from APPROVED or PUSH_FAILED
+#         if job["status"] not in (JobState.APPROVED, JobState.PUSH_FAILED):
+#             return {
+#                 "success": False,
+#                 "error": f"Job not pushable in state {job['status']}"
+#             }, 400
+
+#         json_path = job["json_path"]
+#         if not json_path or not os.path.exists(json_path):
+#             return {"success": False, "error": "JSON not found"}, 404
+
+#         # 2. increment push_attempts (INTENT expressed)
+#         conn = establish_connection(DB_CONFIG)
+#         cur = conn.cursor()
+#         cur.execute(
+#             """
+#             UPDATE mf_status_report
+#             SET push_attempts = push_attempts + 1
+#             WHERE id = %s
+#             """,
+#             (job_id,)
+#         )
+#         conn.commit()
+#         cur.close()
+#         conn.close()
+
+#         # 3. call SP
+#         success = json_to_cog_db(json_path, DB_CONFIG)
+
+#         # 4. transition job state
+#         transition_job_state(
+#             job_id=int(job_id),
+#             from_state=job["status"],
+#             to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
+#             error=None if success else "Admin panel push failed",
+#             db_config=DB_CONFIG
+#         )
+
+#         return {"success": success}
+
+#     except Exception as e:
+#         return {"success": False, "error": str(e)}, 500
+
+@app.route("/push_job/<int:job_id>", methods=["POST"])
+def push_job(job_id):
     if not session.get("logged_in"):
-        return {"success": False, "error": "Not logged in"}, 403
+        return jsonify({"success": False, "error": "Not logged in"}), 403
 
-    # optional: restrict to admins only
-    if session.get("role") != "admin":
-        return {"success": False, "error": "Forbidden"}, 403
+    # TEMP stub – real logic later
+    print(f"[PUSH REQUEST] job_id={job_id}")
 
-    data = request.get_json()
-    job_id = data.get("job_id")
-
-    if not job_id:
-        return {"success": False, "error": "Missing job_id"}, 400
-
-    try:
-        # 1. fetch job
-        job = fetch_job_by_id(int(job_id), DB_CONFIG)
-
-        # only allow push from APPROVED or PUSH_FAILED
-        if job["status"] not in (JobState.APPROVED, JobState.PUSH_FAILED):
-            return {
-                "success": False,
-                "error": f"Job not pushable in state {job['status']}"
-            }, 400
-
-        json_path = job["json_path"]
-        if not json_path or not os.path.exists(json_path):
-            return {"success": False, "error": "JSON not found"}, 404
-
-        # 2. increment push_attempts (INTENT expressed)
-        conn = establish_connection(DB_CONFIG)
-        cur = conn.cursor()
-        cur.execute(
-            """
-            UPDATE mf_status_report
-            SET push_attempts = push_attempts + 1
-            WHERE id = %s
-            """,
-            (job_id,)
-        )
-        conn.commit()
-        cur.close()
-        conn.close()
-
-        # 3. call SP
-        success = json_to_cog_db(json_path, DB_CONFIG)
-
-        # 4. transition job state
-        transition_job_state(
-            job_id=int(job_id),
-            from_state=job["status"],
-            to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
-            error=None if success else "Admin panel push failed",
-            db_config=DB_CONFIG
-        )
-
-        return {"success": success}
-
-    except Exception as e:
-        return {"success": False, "error": str(e)}, 500
+    return jsonify({"success": True})
 
 
 
@@ -774,10 +790,10 @@ if __name__ == '__main__':
     REGISTRY = utils.load_json(config.get("config_global_path",""))
     SP_REPORT_RUN = True
     
-    host = "NCOG-LPT-TCH-32.Cogencis.com"
-    port = 5000
+    # host = "NCOG-LPT-TCH-32.Cogencis.com"
+    # port = 5000
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    app.run(debug=True, host=host, port=port)
+    # app.run(debug=True, host=host, port=port)
 
-    # app.run(debug=True, host="127.0.0.1", port=5055)
+    app.run(debug=True, host="127.0.0.1", port=5055)

@@ -19,7 +19,9 @@
         </div>
 
         <div class="user-section">
-            <a href="{{ url_for('daily_logs') }}" class="nav-btn" target="_self" , onclick="openInNewTab(event)">
+            <!-- <a href="{{ url_for('daily_logs') }}" class="nav-btn" target="_self" , onclick="openInNewTab(event)"> -->
+            <a href="{{ url_for('daily_logs') }}" data-action="new-tab">
+
                 <!-- logs -->
                 <span class="material-symbols-outlined" title="parser logs">
                     book_2
@@ -27,13 +29,8 @@
             </a>
 
             <!-- SAME BUTTON STYLE -->
-            <!-- <a href="http://172.22.225.179/adminpanel/parsedjson/" target="_blank" class="nav-btn">
-                json
-            </a> -->
-
-            <!-- SAME BUTTON STYLE -->
-            <button class="nav-btn" onclick="toggleModal(true)"><span class="material-symbols-outlined"
-                    title="upload file(s)">
+            <button class="nav-btn" data-action="open-upload">
+                <span class="material-symbols-outlined" title="upload file(s)">
                     upload_file
                 </span></button>
 
@@ -65,8 +62,8 @@
                     <label class="auto-refresh">
                         <input type="checkbox" id="autoRefresh"><strong>auto-reload</strong>
                     </label>
-                    <button class="icon-btn" onclick="loadLogs()" title="Refresh">
-
+                    <!-- <button class="icon-btn" onclick="loadLogs()" title="Refresh"> -->
+                    <button class="icon-btn" data-action="refresh-logs">
                         <span class="material-symbols-outlined"> refresh</span>
                     </button>
                 </div>
@@ -91,7 +88,7 @@
         <div class="modal-content">
             <div class="logs-bar">
                 <h2>Upload Files</h2>
-                <button class="close-btn" onclick="toggleModal(false)">
+                <button class="close-btn" data-action="close-upload">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
@@ -111,10 +108,13 @@
 
                 <!-- Fixed size display + controls BELOW console -->
                 <div class="upload-bar">
-                    <label class="auto-refresh">
-                        <input type="checkbox" id="toAdminPanel" name="to_cog_mf" checked>
-                        <span>AdminPanel</span>
-                    </label>
+                    <div class="upload-bar">
+                        <button type="submit" class="nav-btn" id="uploadBtn">
+                            <span class="material-symbols-outlined">upload</span>
+                            <span>Upload</span>
+                        </button>
+                    </div>
+
                     <button type="submit" class="nav-btn" id="uploadBtn">
                         <span class="material-symbols-outlined">upload</span>
                         <span>Upload</span>
@@ -124,373 +124,9 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        //auth check
-        (async function enforceAuth() {
-            try {
-                const r = await fetch("/auth-check");
-                const data = await r.json();
-                if (!data.logged_in) {
-                    alert("Session Expired. Log in Again.")
-                    window.location = "/login";
-                }
 
-            } catch (err) {
-                alert("Unable to verify. Redirecting to login.");
-                window.location = "/login";
-            }
-        })();
-
-
-        function toggleModal(state) {
-            if (!LOGGED_IN) {
-                window.location = "/login";
-                return;
-            }
-            const modal = document.getElementById("uploadModal");
-            state ? modal.classList.add("show") : modal.classList.remove("show");
-        }
-
-        function openInNewTab(e) {
-            e.preventDefault();
-            window.open(e.currentTarget.href, "_blank"); // use currentTarget, not target
-        }
-
-
-        document.addEventListener("DOMContentLoaded", async () => {
-            await loadRegistry();
-            await loadLogs();
-        });
-
-        (async () => {
-            await loadRegistry();  // fetch AMC registry first
-            await loadLogs();      // then build logs with tooltips
-        })();
-
-        let amcRegistry = {};
-        // Load AMC registry once
-        async function loadRegistry() {
-            try {
-                const resp = await fetch("/company_registry");
-                amcRegistry = await resp.json();
-            } catch (err) {
-                console.error("Failed to load AMC registry", err);
-                amcRegistry = {};
-            }
-        }
-
-        /* ---------- MODAL ---------- */
-        function toggleModal(state) {
-            const modal = document.getElementById("uploadModal");
-            if (state) {
-                modal.classList.add("show");
-            } else {
-                modal.classList.remove("show");
-            }
-        }
-        /* ---------- UPLOAD LOGIC ---------- */
-        let selectedFiles = [];
-        document.getElementById("selectBtn").addEventListener("click", () => {
-            const sizeDiv = document.getElementById("sizeDisplay");
-            sizeDiv.textContent = "Selecting...";
-        });
-
-        // Handle file selection
-        document.getElementById("pdfs").addEventListener("change", (e) => {
-            const sizeDiv = document.getElementById("sizeDisplay");
-            const newFiles = Array.from(e.target.files);
-
-            if (!newFiles.length) {
-                // User cancelled → reset text immediately
-                sizeDiv.textContent = "Size 0 Mb / 50 Mb";
-                return;
-            }
-
-            // Show "Selecting..." while processing
-            sizeDiv.textContent = "Selecting...";
-
-            newFiles.forEach(file => {
-                if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
-                    selectedFiles.push(file);
-                }
-            });
-
-            updateUploadDisplay();
-            e.target.value = "";
-        });
-
-        // Handle upload
-        document.getElementById("uploadForm").addEventListener("submit", async ev => {
-            ev.preventDefault();
-            if (!selectedFiles.length) return alert("No files selected.");
-
-            const uploadBtn = document.getElementById("uploadBtn");
-            uploadBtn.disabled = true;
-            const consoleDiv = document.getElementById("uploadConsole");
-
-            for (let i = 0; i < selectedFiles.length; i++) {
-                const fd = new FormData();
-                fd.append("pdfs", selectedFiles[i], selectedFiles[i].name);
-
-                // include checkbox value
-                const isAdminPanel = document.getElementById("toAdminPanel").checked;
-                if (isAdminPanel) {
-                    fd.append("to_cog_mf", "on");  // matches normal form submission
-                }
-
-                const row = consoleDiv.children[i];
-                row.innerHTML = `<strong>Uploading… (${i + 1}/${selectedFiles.length})</strong>`;
-                try {
-                    await fetch("/upload", { method: "POST", body: fd });
-                    row.innerHTML = `<span>${selectedFiles[i].name}</span> <strong style="color:green;">✔</strong>`;
-                } catch (err) {
-                    row.innerHTML = `<span>${selectedFiles[i].name}</span> <strong style="color:red;">Failed</strong>`;
-                }
-            }
-
-            alert("All uploads submitted to parser queue.");
-            window.location.reload();
-        });
-
-        // Remove file
-        function removeFile(index) {
-            selectedFiles.splice(index, 1);
-            updateUploadDisplay();
-        }
-
-        // Update file list and size display
-        function updateUploadDisplay() {
-            const consoleDiv = document.getElementById("uploadConsole");
-            const sizeDiv = document.getElementById("sizeDisplay");
-
-            let totalSize = 0;
-            consoleDiv.innerHTML = "";
-
-            selectedFiles.forEach((f, i) => {
-                totalSize += f.size;
-                const item = document.createElement("div");
-                item.className = "file-item";
-                item.innerHTML = `
-            <span>${f.name} (${(f.size / 1048576).toFixed(2)} MB)</span>
-            <button class="remove-btn" onclick="removeFile(${i})">✖</button>
-        `;
-                consoleDiv.appendChild(item);
-            });
-
-            if (!selectedFiles.length) {
-                consoleDiv.innerHTML = "<p>No files selected.</p>";
-                sizeDiv.textContent = "Size 0 Mb / 50 Mb";
-                return;
-            }
-
-            sizeDiv.textContent = `Size ${(totalSize / 1048576).toFixed(2)} Mb / 50 Mb`;
-
-            const maxSize = 50 * 1024 * 1024;
-            sizeDiv.style.color = totalSize > maxSize ? "red" : "green";
-            document.getElementById("uploadBtn").disabled = totalSize > maxSize;
-        }
-
-        // Safe text helper
-        function safeText(text) {
-            return (text || "").toString().trim();
-        }
-
-        // Repocess logic
-        function confirmReprocess(fileName) {
-            if (confirm(`Reprocess "${fileName}"?`)) {
-                const choice = confirm("Add to admin panel? Click OK for Yes, Cancel for No");
-                const toAdminPanel = choice ? 1 : 0;
-                reprocessFile(fileName, toAdminPanel);
-            }
-        }
-
-        async function reprocessFile(fileName, toAdminPanel) {
-            try {
-                const resp = await fetch(`/reprocess/${fileName}`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ to_admin_panel: toAdminPanel })
-                });
-
-                const data = await resp.json();
-                if (data.success) {
-                    alert(`Reprocessed: ${fileName}`);
-                    loadLogs(); // refresh table
-                } else {
-                    alert(`Error: ${data.message}`);
-                }
-            } catch (err) {
-                alert("Failed to reprocess file.");
-            }
-        }
-
-        /* ---------- STATUS / LOGS ---------- */
-
-        let currentPage = 1;
-        const pageSize = 15;
-
-        async function loadLogs() {
-            const logsConsole = document.getElementById("logsConsole");
-            logsConsole.innerHTML = "<p>Refreshing…</p>";
-
-            try {
-                const resp = await fetch(`/status_data?page=${currentPage}&size=${pageSize}`);
-                const data = await resp.json();
-
-                if (!data.success || !data.rows.length) {
-                    logsConsole.innerHTML = "<p>No status yet.</p>";
-                    return;
-                }
-
-                const table = document.createElement("table");
-                table.className = "status-table";
-                table.innerHTML = `
-                <tr>
-                    <th style="width:40px;">@</th>
-                    <th style="width:200px;">File Name</th>
-                    <th style="width:140px;">ProcessedAt</th>
-                    <th style="width:90px;">Status</th>
-                    <th style="width:160px;">UploadedBy</th>
-                    <th>Error</th>
-                     <th style="width:65px;">AdmPnl</th>
-                    <th style="width:50px;">JSON</th>
-                    <th style="width:50px;">XLSX</th>
-                    <th style="width:60px;">ReUpl</th>
-                </tr>`;
-
-                data.rows.forEach((row, index) => {
-                    const tr = document.createElement("tr");
-
-                    const match = row.file_name.match(/^(\d+)_/);
-                    const code = match ? match[1] : null;
-                    const amcName = code && amcRegistry[code] ? amcRegistry[code] : "Unknown AMC";
-
-                    const isJson = row.file_name.replace('.pdf', '.json')
-
-                    tr.innerHTML = `
-                    <td>${(currentPage - 1) * pageSize + index + 1}</td>
-                    <td><a href="/viewer/pdf/${row.file_name}" target="_blank" class="menu__link" title="${amcName}">${row.file_name}</a></td>
-                    <td>${formatUTCDate(row.end_time) || "-"}</td>
-                    <td class="${statusClass(row.status)}">${row.status || "-"}</td>
-                    <td>${row.uploaded_by}</td>
-                    <td>${row.error || "-"}</td>
-                    <td>${row.to_admin_panel === 1 ? "✔️" : "-"}</td>
-                    <td>${row.json_path ? `<a href="/viewer/json/${isJson}" target="_blank" class="menu__link">JSON</a>` : "-"}</td>
-                    <td>${row.json_path ? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" target="_blank" class="menu__link" title="Download CSV"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
-                    <td><a href="#" onclick="confirmReprocess('${row.file_name}')"  class="icon-btn" title="Reprocess"><span class="material-symbols-outlined">autorenew</span></a></td>`;
-                    table.appendChild(tr);
-                });
-
-                logsConsole.innerHTML = "";
-                logsConsole.appendChild(table);
-
-                const pagination = document.getElementById("logpagination");
-                pagination.innerHTML = "";
-                const ul = document.createElement("ul");
-
-                // Previous icon (only if not on first page)
-                if (currentPage > 1) {
-                    const prevLi = document.createElement("li");
-                    const prevA = document.createElement("a");
-                    prevA.href = "#";
-                    prevA.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
-                    prevA.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        currentPage--;
-                        loadLogs();
-                    });
-                    prevLi.appendChild(prevA);
-                    ul.appendChild(prevLi);
-                }
-
-                // Current page
-                const currentLi = document.createElement("li");
-                const currentA = document.createElement("a");
-                currentA.href = "#";
-                currentA.textContent = currentPage;
-                currentA.style.fontWeight = "bold";
-                currentLi.appendChild(currentA);
-                ul.appendChild(currentLi);
-
-                // Next icon (only if not on last page)
-                if (currentPage < data.totalPages) {
-                    const nextLi = document.createElement("li");
-                    const nextA = document.createElement("a");
-                    nextA.href = "#";
-                    nextA.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
-                    nextA.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        currentPage++;
-                        loadLogs();
-                    });
-                    nextLi.appendChild(nextA);
-                    ul.appendChild(nextLi);
-                }
-                pagination.appendChild(ul);
-
-            } catch (err) {
-                logsConsole.innerHTML = "<p>Error loading logs.</p>";
-            }
-        }
-        // Auto-refresh status
-        setInterval(() => {
-            if (document.getElementById("autoRefresh").checked) {
-                loadLogs();
-            }
-        }, 15000);
-
-        function formatUTCDate(dateString) {
-            if (!dateString) return "-";
-            const date = new Date(dateString);
-            return date.toLocaleString("en-GB", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-                timeZone: "UTC" // force UTC
-            });
-        }
-
-        function statusClass(status) {
-            if (!status) return "";
-            const s = status.toLowerCase();
-            if (s === "completed") return "status-completed";
-            if (s === "failed") return "status-failed";
-            if (s === "pending") return "status-pending";
-            return "";
-        }
-
-        async function toggleJson(index, jsonFilename) {
-            const row = document.getElementById("jsonRow_" + index);
-            const container = document.getElementById("jsonContent_" + index);
-
-            // collapse logic
-            if (row.style.display === "table-row") {
-                row.style.display = "none";
-                container.innerHTML = "";
-                return;
-            }
-            // expand
-            row.style.display = "table-row";
-            container.innerHTML = "<p>Loading JSON...</p>";
-
-            try {
-                const resp = await fetch("/viewer/json/" + jsonFilename);
-                const data = await resp.json();
-
-                container.innerHTML = `
-            <pre>${JSON.stringify(data, null, 2)}</pre>`;
-            } catch (err) {
-                container.innerHTML = "<p style='color:red;'>Error loading JSON.</p>";
-            }
-        }
-    </script>
 
 </body>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 
 </html>
