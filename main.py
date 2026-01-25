@@ -222,3 +222,22 @@ if __name__ == "__main__":
         
     logger.info("Running FactSheet Parser (watcher)")
     main()
+
+
+
+# UPLOAD PDF
+#   ↓
+# PARSE → JSON + CSV
+#   ↓
+# ANALYST DOWNLOADS CSV
+#   ↓
+# ANALYST EDITS CSV (locally or in UI)
+#   ↓
+# UPLOAD CSV → APPLY TO JSON
+#   ↓
+# OLD JSON → BACKUP
+# NEW JSON → ACTIVE
+#   ↓
+# SLIDER CONFIRMATION
+#   ↓
+# PUSH JSON TO ADMIN PANEL

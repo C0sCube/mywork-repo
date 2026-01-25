@@ -13,37 +13,12 @@ from ldap3 import Server, Connection, ALL #type: ignore
 import pandas as pd
 
 from app.utils import Helper
-from app.sqlconnect import update_report_table, establish_connection
+from app.sqlconnect import *
 
 # --- Flask app setup ---
 app = Flask(__name__)
 app.secret_key = "supersecretkey" 
 app.permanent_session_lifetime = timedelta(days=7)
-
-
-# --- timezone ---
-
-TIME_ZONE = pytz.timezone("Asia/Kolkata")
-
-# --- paths and config ---
-utils = Helper()
-path = os.path.join(root_dir, r"paths.json")
-config = utils.load_json(path)
-INPUT_DIR = config["amc_path"]
-OUTPUT_DIR = config["output_path"]
-
-LDAP_CONFIG = config.get("ldap")
-LDAP_SERVER = LDAP_CONFIG["path"]
-LDAP_DOMAIN = LDAP_CONFIG["domain"]
-ADMIN_USERS = [val.lower() for val in LDAP_CONFIG.get("admin_user", [])]
-
-CONFIG_BASE_PATH = config["config_base_path"]
-DB_CONFIG = config.get("db_config")
-WEB_CONFIG = config.get("web_host",{})
-
-REGISTRY = utils.load_json(config.get("config_global_path",""))
-
-SP_REPORT_RUN = True
 
 
 def ldap_authenticate(username, password):
@@ -107,6 +82,19 @@ def auth_check():
 def logout():
     session.clear()
     return redirect(url_for("login"))
+
+def backup_json(json_path, tz):
+    ts = datetime.now(tz).strftime("%Y%m%d_%H%M%S")
+    base = os.path.basename(json_path)
+
+    backup_dir = os.path.join(os.path.dirname(json_path), "backup")
+    os.makedirs(backup_dir, exist_ok=True)
+
+    backup_path = os.path.join(backup_dir, f"{base}.{ts}.bak")
+    shutil.copy(json_path, backup_path)
+
+    return backup_path
+
 
 
 # @app.route('/signup', methods=['GET', 'POST'])
@@ -306,11 +294,12 @@ def json_to_csv(json_path, output_dir=".csv_folder"):
                 "sharpe", "sortino_ratio", "std_dev", "tracking_error", "treynor_ratio",
                 "upside_deviation", "ytm"
             ],
-            "manager_keys": ["name", "managing_fund_since", "total_exp", "qualification"]
+            "manager_keys": ["name", "managing_fund_since", "total_exp", "qualification"],
+            "field_location":"field_location"
         }
     )
-    static_keys, load_keys, metric_keys, manager_keys = (
-        keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"]
+    static_keys, load_keys, metric_keys, manager_keys,field_location = (
+        keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"],keys["field_location"]
     )
 
     # Keys to exclude
@@ -320,12 +309,21 @@ def json_to_csv(json_path, output_dir=".csv_folder"):
         doc = json.load(f)
 
     records = doc.get("records", [])
+    
+    meta_data = doc.get("metadata",{
+        "document_name": "X_DD-MMM-YY_FS.pdf",
+        "file_type": "fs",
+        "process_date": "YYYYMMDD"
+    })
+    
     max_manager = max((len(r["value"].get("fund_manager", [])) for r in records), default=1)
 
     # Build headers
     headers = [k for k in static_keys if k not in EXCLUDE_KEYS] + load_keys + metric_keys
     for i in range(1, max_manager + 1):
         headers.extend([f"{k}_{i}" for k in manager_keys])
+        
+    headers.append(field_location)
 
     def flatten_to_row(value):
         # Remove unwanted keys
@@ -363,6 +361,15 @@ def json_to_csv(json_path, output_dir=".csv_folder"):
                 row.extend([fm.get(k, "") for k in manager_keys])
             else:
                 row.extend([""] * len(manager_keys))
+                
+        #field location
+        fl = value.get("field_location", [{}])
+        if isinstance(fl, list) and fl:
+            fl_val = json.dumps(fl[0], ensure_ascii=False)
+        else:
+            fl_val = ""
+        
+        row.extend([fl_val])
 
         return row
 
@@ -661,9 +668,71 @@ def load_daily_log():
         return {"success": False, "content": "Error reading log file."}
 
 
+#csv-apply
+@app.route("/apply_csv", methods=["POST"])
+def apply_csv():
+    if not session.get("logged_in"):
+        return {"success": False, "error": "Not logged in"}, 403
+
+    job_id = request.form.get("job_id")
+    csv_file = request.files.get("csv")
+
+    if not job_id or not csv_file:
+        return {"success": False, "error": "Missing job_id or csv"}, 400
+
+    try:
+        job = fetch_job_by_id(int(job_id), DB_CONFIG)
+        json_path = job["json_path"]
+
+        if not json_path or not os.path.exists(json_path):
+            return {"success": False, "error": "JSON not found"}, 404
+
+        # save uploaded CSV temporarily
+        tmp_csv = os.path.join("/tmp", secure_filename(csv_file.filename))
+        csv_file.save(tmp_csv)
+
+        # backup existing JSON
+        backup_path = backup_json(json_path, TIME_ZONE)
+
+        # rebuild JSON
+        new_json = rebuild_json_from_csv(tmp_csv)
+
+        # overwrite active JSON
+        with open(json_path, "w", encoding="utf-8") as fh:
+            json.dump(new_json, fh, indent=2, ensure_ascii=False)
+
+        return {
+            "success": True,
+            "backup": backup_path,
+            "json_path": json_path
+        }
+
+    except Exception as e:
+        return {"success": False, "error": str(e)}, 500
+
 
 # --- run app ---
 if __name__ == '__main__':
+
+    TIME_ZONE = pytz.timezone("Asia/Kolkata")
+
+    utils = Helper()
+    path = os.path.join(root_dir, r"paths.json")
+    config = utils.load_json(path)
+    INPUT_DIR = config["amc_path"]
+    OUTPUT_DIR = config["output_path"]
+
+    LDAP_CONFIG = config.get("ldap")
+    LDAP_SERVER = LDAP_CONFIG["path"]
+    LDAP_DOMAIN = LDAP_CONFIG["domain"]
+    ADMIN_USERS = [val.lower() for val in LDAP_CONFIG.get("admin_user", [])]
+
+    CONFIG_BASE_PATH = config["config_base_path"]
+    DB_CONFIG = config.get("db_config")
+    WEB_CONFIG = config.get("web_host",{})
+
+    REGISTRY = utils.load_json(config.get("config_global_path",""))
+    SP_REPORT_RUN = True
     
     host = "NCOG-LPT-TCH-32.Cogencis.com"
     port = 5000
