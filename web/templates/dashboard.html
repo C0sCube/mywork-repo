@@ -20,12 +20,11 @@
 
         <div class="user-section">
             <!-- <a href="{{ url_for('daily_logs') }}" class="nav-btn" target="_self" , onclick="openInNewTab(event)"> -->
-            <a href="{{ url_for('daily_logs') }}" data-action="new-tab">
-
-                <!-- logs -->
-                <span class="material-symbols-outlined" title="parser logs">
-                    book_2
-                </span>
+            <a href="{{ url_for('csv_to_json') }}" class="nav-btn" data-action="new-tab">
+                <span class="material-symbols-outlined" title="parser logs">convert_to_text</span>
+            </a>
+            <a href="{{ url_for('daily_logs') }}" class="nav-btn" data-action="new-tab">
+                <span class="material-symbols-outlined" title="parser logs">book_2</span>
             </a>
 
             <!-- SAME BUTTON STYLE -->
@@ -108,16 +107,9 @@
 
                 <!-- Fixed size display + controls BELOW console -->
                 <div class="upload-bar">
-                    <div class="upload-bar">
-                        <button type="submit" class="nav-btn" id="uploadBtn">
-                            <span class="material-symbols-outlined">upload</span>
-                            <span>Upload</span>
-                        </button>
-                    </div>
-
                     <button type="submit" class="nav-btn" id="uploadBtn">
                         <span class="material-symbols-outlined">upload</span>
-                        <span>Upload</span>
+                        <span>Uplod PDF</span>
                     </button>
                 </div>
             </form>

@@ -20,10 +20,10 @@ class JobState:
 
 ALLOWED_TRANSITIONS = {
     JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED},
-    JobState.PARSED: {JobState.UPLOADED, JobState.APPROVED},
+    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED},
     JobState.PARSE_FAILED: {JobState.UPLOADED},
-    JobState.APPROVED: {JobState.PUSHED, JobState.PUSH_FAILED},
-    JobState.PUSH_FAILED: {JobState.APPROVED},
+    JobState.PUSH_FAILED: {JobState.PARSED},
+    JobState.PUSHED: {JobState.UPLOADED},   # ✅ REQUIRED for reprocess
 }
 
 
@@ -40,6 +40,7 @@ def establish_connection(db_config=None):
     try:
         conn = mysql.connector.connect(**db_config)
         logger.info(f"Database connected: {db_config.get('database','')}")
+        # print(db_config)
         return conn
     except Error as e:
         logger.error(f"Database connection failed: {e}")
@@ -91,6 +92,7 @@ def create_job(data: dict, db_config: dict) -> int:
 def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
     """Fetch a job row by ID."""
     conn = establish_connection(db_config)
+    # print(job_id)
     if not conn:
         raise RuntimeError("DB connection failed")
 
@@ -104,6 +106,7 @@ def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
         """,
         (job_id,)
     )
+    print(f"{job_id} is called.")
 
     row = cur.fetchone()
     cur.close()

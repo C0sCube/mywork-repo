@@ -146,15 +146,6 @@ def upload_files():
         file_path = os.path.join(INPUT_DIR, filename)
         file.save(file_path)
 
-        # Optional: keep meta ONLY for parser hints (not business state)
-        # meta_path = os.path.splitext(file_path)[0] + ".meta.json"
-        # with open(meta_path, "w", encoding="utf-8") as mf:
-        #     json.dump({
-        #         "uploaded_by": user,
-        #         "uploaded_at": now
-        #     }, mf)
-
-        # Create job (NO outcome fields)
         job = {
             "file_name": filename,
             "start_time": now,
@@ -165,15 +156,38 @@ def upload_files():
         # print(f"[JOB CREATED] {filename} by {user}")
     return redirect('/')
 
-@app.route("/reprocess/<filename>", methods=["POST"])
-def reprocess(filename):
+@app.route("/reprocess/<int:job_id>", methods=["POST"])
+def reprocess(job_id):
     if not session.get("logged_in"):
-        return redirect(url_for("login"))
+        return {"success": False, "message": "Not logged in"}, 401
+    
+    REPROCESS_TARGET = {
+        JobState.UPLOADED: JobState.UPLOADED,
+        JobState.PARSED: JobState.UPLOADED,
+        JobState.PARSE_FAILED: JobState.UPLOADED,
+        JobState.PUSH_FAILED: JobState.UPLOADED,
+        JobState.PUSHED: JobState.UPLOADED,   # ✅ THIS IS THE KEY ADDITION
+    }
 
     user = session.get("user", "unknown")
     now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
 
-    # locate archived file
+    # 1) Fetch existing job
+    job = fetch_job_by_id(job_id, DB_CONFIG)
+    filename = job["file_name"]
+    status = job["status"]
+
+    # 2) Decide retry target state
+    
+    if status not in REPROCESS_TARGET:
+        return {
+            "success": False,
+            "message": f"Job cannot be reprocessed from state {status}"
+        }, 400
+
+    target_state = REPROCESS_TARGET[status]
+
+    # 3) Locate archived file
     sub_dir = ""
     if filename.endswith("_SID.pdf"):
         sub_dir = "sid"
@@ -185,37 +199,39 @@ def reprocess(filename):
     processed_path = os.path.join(OUTPUT_DIR, "processed", sub_dir, filename)
     failed_path = os.path.join(OUTPUT_DIR, "failed", filename)
 
-    if os.path.exists(processed_path):
-        src = processed_path
-    elif os.path.exists(failed_path):
-        src = failed_path
-    else:
-        return {"success": False, "message": "File not found"}
+    src = processed_path if os.path.exists(processed_path) \
+        else failed_path if os.path.exists(failed_path) \
+        else None
 
-    # copy back to input for watcher
+    if not src:
+        return {"success": False, "message": "Source file not found"}, 404
+
+    # 4) Copy back to input for watcher
     os.makedirs(INPUT_DIR, exist_ok=True)
     dst = os.path.join(INPUT_DIR, filename)
     shutil.copy(src, dst)
 
-    # optional parser meta
-    meta_path = os.path.splitext(dst)[0] + ".meta.json"
-    with open(meta_path, "w", encoding="utf-8") as mf:
-        json.dump({
-            "uploaded_by": user,
-            "reprocess": True
-        }, mf)
+    # 5) Reset job state (THIS IS THE KEY FIX)
+    transition_job_state(
+        job_id=job_id,
+        from_state=status,
+        to_state=target_state,
+        error=None,
+        db_config=DB_CONFIG
+    )
 
-    # NEW job entry
-    job = {
-        "file_name": filename,
-        "start_time": now,
-        "created_by": user,
-        "uploaded_by": user,
+    # 6) Optional: update meta
+    # update_job_reprocess_meta(
+    #     job_id=job_id,
+    #     user=user,
+    #     ts=now,
+    #     db_config=DB_CONFIG
+    # )
+
+    return {
+        "success": True,
+        "message": f"{filename} requeued for reprocessing"
     }
-    create_job(job, DB_CONFIG)
-    # print(f"[REPROCESS JOB CREATED] {filename} by {user}")
-    return {"success": True, "message": f"{filename} requeued"}
-
 @app.route('/delete/<filename>')
 def delete_file(filename):
     if not session.get("logged_in"):
@@ -260,7 +276,7 @@ def view_pdf(filename):
 
 
 # ------------------ CSV/XLS VIEW ROUTE ------------------
-def json_to_csv(json_path, output_dir=".csv_folder"):
+def json_to_csv(json_path, output_dir="csv_folder"):
     keys = REGISTRY.get(
         "field_keys",
         {
@@ -445,7 +461,7 @@ def status_data():
 
         # Fetch paginated rows
         cur.execute("""
-            SELECT file_name, start_time, end_time, status, json_path, error,
+            SELECT id, file_name, start_time, end_time, status, json_path, error,
                 created_by, uploaded_by, push_attempts
             FROM mf_status_report
             ORDER BY start_time DESC
@@ -623,6 +639,15 @@ def amc_data():
 
     return render_template("amc_data.html", user=user) 
 
+#csv_to_json
+#logs
+@app.route('/csv-to-json')
+def csv_to_json():
+    if not session.get("logged_in"):
+        return redirect(url_for("login")) 
+
+    user = session.get("user", "").lower()
+    return render_template("csv_to_json.html", user=user)
 
 #logs
 @app.route('/daily-log')
@@ -693,78 +718,61 @@ def apply_csv():
     except Exception as e:
         return {"success": False, "error": str(e)}, 500
 
-# @app.route("/push_job", methods=["POST"])
-# def push_job():
-#     if not session.get("logged_in"):
-#         return {"success": False, "error": "Not logged in"}, 403
-
-#     # optional: restrict to admins only
-#     if session.get("role") != "admin":
-#         return {"success": False, "error": "Forbidden"}, 403
-
-#     data = request.get_json()
-#     job_id = data.get("job_id")
-
-#     if not job_id:
-#         return {"success": False, "error": "Missing job_id"}, 400
-
-#     try:
-#         # 1. fetch job
-#         job = fetch_job_by_id(int(job_id), DB_CONFIG)
-
-#         # only allow push from APPROVED or PUSH_FAILED
-#         if job["status"] not in (JobState.APPROVED, JobState.PUSH_FAILED):
-#             return {
-#                 "success": False,
-#                 "error": f"Job not pushable in state {job['status']}"
-#             }, 400
-
-#         json_path = job["json_path"]
-#         if not json_path or not os.path.exists(json_path):
-#             return {"success": False, "error": "JSON not found"}, 404
-
-#         # 2. increment push_attempts (INTENT expressed)
-#         conn = establish_connection(DB_CONFIG)
-#         cur = conn.cursor()
-#         cur.execute(
-#             """
-#             UPDATE mf_status_report
-#             SET push_attempts = push_attempts + 1
-#             WHERE id = %s
-#             """,
-#             (job_id,)
-#         )
-#         conn.commit()
-#         cur.close()
-#         conn.close()
-
-#         # 3. call SP
-#         success = json_to_cog_db(json_path, DB_CONFIG)
-
-#         # 4. transition job state
-#         transition_job_state(
-#             job_id=int(job_id),
-#             from_state=job["status"],
-#             to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
-#             error=None if success else "Admin panel push failed",
-#             db_config=DB_CONFIG
-#         )
-
-#         return {"success": success}
-
-#     except Exception as e:
-#         return {"success": False, "error": str(e)}, 500
-
 @app.route("/push_job/<int:job_id>", methods=["POST"])
 def push_job(job_id):
+    # --- auth guards ---
     if not session.get("logged_in"):
-        return jsonify({"success": False, "error": "Not logged in"}), 403
+        return {"success": False, "error": "Not logged in"}, 403
 
-    # TEMP stub – real logic later
-    print(f"[PUSH REQUEST] job_id={job_id}")
+    if session.get("role") != "admin":
+        return {"success": False, "error": "Forbidden"}, 403
 
-    return jsonify({"success": True})
+    try:
+        # 1) Fetch job
+        job = fetch_job_by_id(job_id, DB_CONFIG)
+        status = job["status"]
 
+        # 2) State guard
+        if status not in (JobState.PARSED, JobState.PUSH_FAILED):
+            return {
+                "success": False,
+                "error": f"Job not pushable in state {status}"
+            }, 400
+
+        # 3) Validate JSON
+        json_path = job.get("json_path")
+        if not json_path or not os.path.exists(json_path):
+            return {"success": False, "error": "JSON not found"}, 404
+
+        # 4) Express intent (increment push attempts)
+        conn = establish_connection(DB_CONFIG)
+        cur = conn.cursor()
+        cur.execute("""
+            UPDATE mf_status_report
+               SET push_attempts = push_attempts + 1
+             WHERE id = %s
+               AND status IN ('PARSED', 'PUSH_FAILED')
+        """, (job_id,))
+        conn.commit()
+        cur.close()
+        conn.close()
+
+        # 5) Push JSON to Admin Panel
+        success = json_to_cog_db(json_path, DB_CONFIG)
+
+        # 6) Final state transition
+        transition_job_state(
+            job_id=job_id,
+            from_state=status,
+            to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
+            error=None if success else "Admin panel push failed",
+            db_config=DB_CONFIG
+        )
+
+        return {"success": success}
+
+    except Exception as e:
+        return {"success": False, "error": str(e)}, 500
 
 
 # --- run app ---
@@ -775,6 +783,7 @@ if __name__ == '__main__':
     utils = Helper()
     path = os.path.join(root_dir, r"paths.json")
     config = utils.load_json(path)
+    print(path)
     INPUT_DIR = config["amc_path"]
     OUTPUT_DIR = config["output_path"]
 
@@ -790,10 +799,10 @@ if __name__ == '__main__':
     REGISTRY = utils.load_json(config.get("config_global_path",""))
     SP_REPORT_RUN = True
     
-    # host = "NCOG-LPT-TCH-32.Cogencis.com"
-    # port = 5000
+    host = "NCOG-LPT-TCH-32.Cogencis.com"
+    port = 5000
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    # app.run(debug=True, host=host, port=port)
+    app.run(debug=True, host=host, port=port)
 
-    app.run(debug=True, host="127.0.0.1", port=5055)
+    # app.run(debug=True, host="127.0.0.1", port=5055)

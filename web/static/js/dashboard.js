@@ -164,69 +164,150 @@ async function loadLogs() {
         const table = document.createElement("table");
         table.className = "status-table";
 
+        //statusClass()
         table.innerHTML = `
       <tr>
-        <th>#</th><th>File</th><th>Processed</th>
-        <th>Status</th><th>User</th><th>Error</th>
-        <th>JSON</th><th>CSV</th><th>Reprocess</th><th>Push</th>
+        <th style = "width:40px;">#</th><th style = "width:200px;">File</th><th style = "width:140px;">Processed</th>
+        <th style = "width:90px;">Status</th><th style = "width:160px;">User</th><th>Error</th>
+        <th style = "width:50px;">JSON</th><th style = "width:50px;">CSV</th><th style = "width:80px;">Push</th><th style = "width:50px;">RePr</th>
       </tr>`;
 
         data.rows.forEach((row, i) => {
             const tr = document.createElement("tr");
-            const jsonName = row.file_name.replace(".pdf", ".json");
-            const canPush = !!row.json_path;
+            // const jsonName = row.file_name.replace(".pdf", ".json");
+            // const canPush = !!row.json_path;
+
+            const isPushed = row.status === "PUSHED";
+            const pushCell = row.json_path
+                ? `<label class="icon-btn switch"><span class="slider"><input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}></span> </label>`: "-";
+
+            
             tr.innerHTML = `
-                <td>${(currentPage - 1) * pageSize + index + 1}</td>
+                <td>${(currentPage - 1) * pageSize + i + 1}</td>
                 <td> <a href="/viewer/pdf/${row.file_name}" target="_blank" class="menu__link">${row.file_name}</a></td>
                 <td>${formatUTCDate(row.end_time) || "-"}</td>
-                <td class="${statusClass(row.status)}">${row.status || "-"}</td>
+                <td class="${row.status}">${row.status || "-"}</td>
                 <td>${row.uploaded_by}</td>
                 <td>${row.error || "-"}</td>
-                <td>${row.json_path? `<a href="/viewer/json/${row.file_name.replace(".pdf", ".json")}" target="_blank">JSON</a>` : "-"} </td>
-                <td> ${row.json_path? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" target="_blank"><span class="material-symbols-outlined">docs</span> </a>` : "-" } </td>
-                <td> ${canPush? `<button class="icon-btn" data-action="push" data-job="${row.id}"> <span class="material-symbols-outlined">publish</span> </button>`: "-" } </td>
-                <td><button class="icon-btn" onclick="confirmReprocess('${row.file_name}')" title="Reprocess"><span class="material-symbols-outlined">autorenew</span> </button> </td>
+                <td>${row.json_path ? `<a href="/viewer/json/${row.file_name.replace(".pdf", ".json")}" class ="menu__link" target="_blank" text-decoration: none>JSON</a>` : "-"} </td>
+                <td> ${row.json_path ? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" class ="menu__link" text-decoration: none><span class="material-symbols-outlined">docs</span> </a>` : ""} </td>
+                <td>${pushCell}</td>
+                <td><button class="icon-btn" onclick="confirmReprocess(${row.id})" title="Reprocess"><span class="material-symbols-outlined">autorenew</span></button></td>
                 `;
             table.appendChild(tr);
         });
 
         logsConsole.innerHTML = "";
         logsConsole.appendChild(table);
-    } catch {
+    } catch (error) {
+        console.log('errorrr>>>>>>>>>', error)
         logsConsole.innerHTML = "<p>Error loading logs.</p>";
     }
 }
 
 
+function formatUTCDate(dateString) {
+    if (!dateString) return "-";
+    const date = new Date(dateString);
+    return date.toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "UTC" // force UTC
+    });
+}
+
+function statusClass(status) {
+    if (!status) return "";
+    const s = status.toLowerCase();
+    if (s === "completed") return "status-completed";
+    if (s === "failed") return "status-failed";
+    if (s === "pending") return "status-pending";
+    return "";
+} 
+
 // ================ PUSH ACTIONS ======================
 
-document.addEventListener("click", async (e) => {
-  const btn = e.target.closest("[data-action='push']");
-  if (!btn) return;
+document.addEventListener("change", async (e) => {
+    const checkbox = e.target;
 
-  const jobId = btn.dataset.job;
-  if (!jobId) return;
+    if (!checkbox.matches("[data-action='push-slider']")) return;
 
-  if (!confirm("Push this JSON to Admin Panel?")) return;
+    const jobId = checkbox.dataset.jobId;
 
-  btn.disabled = true;
+    /* only care about turning ON */
+    if (!checkbox.checked) return;
 
-  try {
-    const resp = await fetch(`/push_job/${jobId}`, {
-      method: "POST"
-    });
+    const ok = confirm(
+        "This will push the JSON to Admin Panel.\n\nDo you want to continue?"
+    );
 
-    const data = await resp.json();
-
-    if (data.success) {
-      alert("Pushed to Admin Panel successfully.");
-      loadLogs();
-    } else {
-      alert(data.error || "Push failed.");
+    if (!ok) {
+        checkbox.checked = false; // revert
+        return;
     }
-  } catch (err) {
-    alert("Failed to push job.");
-  } finally {
-    btn.disabled = false;
-  }
+
+    checkbox.disabled = true;
+
+    try {
+        const resp = await fetch(`/push_job/${jobId}`, {
+            method: "POST"
+        });
+
+        const data = await resp.json();
+
+        if (!data.success) {
+            alert(data.error || "Push failed.");
+            checkbox.checked = false;
+            checkbox.disabled = false;
+            return;
+        }
+
+        // SUCCESS
+        checkbox.checked = true;   // green
+        checkbox.disabled = true;  // lock
+        alert("Pushed to Admin Panel successfully.");
+        await loadLogs(); 
+
+    } catch (err) {
+        alert("Network error while pushing.");
+        // console.log(err);
+        checkbox.checked = false;
+        checkbox.disabled = false;
+    }
 });
+
+// =========== reprocess ===========
+
+async function confirmReprocess(filename) {
+    const ok = confirm(
+        `Reprocess this file?\n\n${filename}`
+    );
+    if (!ok) return;
+
+    try {
+        const resp = await fetch(
+            `/reprocess/${encodeURIComponent(filename)}`,
+            { method: "POST" }
+        );
+
+        const data = await resp.json();
+
+        if (!data.success) {
+            alert(data.message || "Reprocess failed.");
+            return;
+        }
+
+        alert(data.message || "Reprocess queued.");
+
+        // refresh the table so new job appears
+        await loadLogs();
+
+    } catch (err) {
+        console.error(err);
+        alert("Network error while reprocessing.");
+    }
+}
