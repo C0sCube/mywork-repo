@@ -43,7 +43,7 @@ function loadAMCData() {
                         <div class="text">
                             <a href="${amc.amc_website}" target="_blank"
                                style="text-decoration:none; color:#fff">
-                                <span>${amc.amc_name}</span>
+                                <span><strong>${amc.amc_name}</strong></span>
                             </a>
                             <p class="subtitle">AMC ID: ${id}</p>
                         </div>

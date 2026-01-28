@@ -283,7 +283,7 @@ def json_to_csv(json_path, output_dir="csv_folder"):
             "static_keys": [
                 "amc_name", "main_scheme_name", "mutual_fund_name", "benchmark_index",
                 "monthly_aaum_date", "monthly_aaum_value", "scheme_launch_date",
-                "min_addl_amt", "min_addl_amt_multiple", "min_amt", "min_amt_multiple"
+                "min_addl_amt", "min_addl_amt_multiple", "min_amt", "min_amt_multiple" #min/add
             ],
             "load_keys": ["entry", "exit"],
             "metric_keys": [
@@ -294,7 +294,7 @@ def json_to_csv(json_path, output_dir="csv_folder"):
                 "upside_deviation", "ytm"
             ],
             "manager_keys": ["name", "managing_fund_since", "total_exp", "qualification"],
-            "field_location":"field_location"
+            "field_location":["field_location"]
         }
     )
     static_keys, load_keys, metric_keys, manager_keys,field_location = (
@@ -386,6 +386,81 @@ def json_to_csv(json_path, output_dir="csv_folder"):
     pd.DataFrame(rows, columns=headers).to_csv(csv_path, index=False, encoding="utf-8")
     return csv_path
 
+def rebuild_json_from_csv(csv_path):
+    df = pd.read_csv(csv_path, dtype=str)
+    df = df.dropna(axis=1, how="all")
+    df = df.loc[:, ~(df == "").all()]
+    df = df.fillna("")
+
+    keys = REGISTRY.get("field_keys", {})
+    static_keys = keys.get("static_keys", [])
+    load_keys = keys.get("load_keys", [])
+    metric_keys = keys.get("metric_keys", [])
+    manager_keys = keys.get("manager_keys", [])
+    field_location_key = keys.get("field_location", "field_location")
+
+    records = []
+
+    for _, row in df.iterrows():
+        value = {}
+
+        for k in static_keys:
+            if k in df.columns and row[k] != "":
+                value[k] = row[k]
+
+        loads = []
+        if "entry" in df.columns and row["entry"] != "":
+            loads.append({"type": "entry", "comment": row["entry"]})
+        if "exit" in df.columns and row["exit"] != "":
+            loads.append({"type": "exit", "comment": row["exit"]})
+        if loads:
+            value["load"] = loads
+
+        metrics = []
+        for m in metric_keys:
+            if m in df.columns and row[m] != "":
+                metrics.append({"name": m, "value": row[m]})
+        if metrics:
+            value["metrics"] = metrics
+
+        managers = []
+        i = 1
+        while True:
+            if f"name_{i}" not in df.columns:
+                break
+
+            fm = {}
+            for k in manager_keys:
+                col = f"{k}_{i}"
+                if col in df.columns and row[col] != "":
+                    fm[k] = row[col]
+
+            if fm:
+                managers.append(fm)
+            i += 1
+
+        if managers:
+            value["fund_manager"] = managers
+
+        if field_location_key in df.columns and row[field_location_key]:
+            try:
+                value["field_location"] = [json.loads(row[field_location_key])]
+            except Exception:
+                pass
+
+        records.append({"value": value})
+
+    base = os.path.splitext(os.path.basename(csv_path))[0]
+
+    return {
+        "metadata": {
+            "document_name": f"{base}.json",
+            "file_type": "fs",
+            "process_date": datetime.now().strftime("%Y%m%d")
+        },
+        "records": records
+    }
+
 @app.route("/download_csv", methods=["GET"])
 def download_csv():
     # Get JSON path from query parameter
@@ -402,6 +477,36 @@ def download_csv():
         download_name=os.path.basename(csv_path),
         mimetype="text/csv"
     )
+    
+@app.route("/convert_csv", methods=["POST"])
+def convert_csv():
+    if not session.get("logged_in"):
+        return jsonify({"success": False, "error": "Not logged in"}), 403
+
+    csv_file = request.files.get("csv")
+    if not csv_file:
+        return jsonify({"success": False, "error": "No CSV uploaded"}), 400
+
+    try:
+        # save temp
+        csv_path = os.path.join("/tmp", csv_file.filename)
+        csv_file.save(csv_path)
+
+        # convert
+        json_data = rebuild_json_from_csv(csv_path)
+
+        json_path = csv_path.replace(".csv", ".json")
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(json_data, f, indent=2)
+
+        return jsonify({
+            "success": True,
+            "json_path": json_path
+        })
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
 
 # ------------------ JSON VIEW ROUTE ------------------
 @app.route('/viewer/json/<filename>')
@@ -639,7 +744,16 @@ def amc_data():
 
     return render_template("amc_data.html", user=user) 
 
-#csv_to_json
+@app.route('/sid-data')
+def sid_data():
+    if not session.get("logged_in"):
+        return redirect(url_for("login")) 
+
+    user = session.get("user", "").lower()
+    # if user not in ADMIN_USERS:
+    #     return redirect(url_for("index"))
+
+    return render_template("sid_data.html", user=user) 
 #logs
 @app.route('/csv-to-json')
 def csv_to_json():
@@ -799,10 +913,10 @@ if __name__ == '__main__':
     REGISTRY = utils.load_json(config.get("config_global_path",""))
     SP_REPORT_RUN = True
     
-    host = "NCOG-LPT-TCH-32.Cogencis.com"
-    port = 5000
+    # host = "NCOG-LPT-TCH-32.Cogencis.com"
+    # port = 5000
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    app.run(debug=True, host=host, port=port)
+    # app.run(debug=True, host=host, port=port)
 
-    # app.run(debug=True, host="127.0.0.1", port=5055)
+    app.run(debug=True, host="127.0.0.1", port=5055)

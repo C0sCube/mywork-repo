@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <title>Factsheet Parser Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+
+    <link rel="icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
-
 <body>
-    <!-- HEADER -->
+
+    <!-- ================= HEADER ================= -->
     <header class="header">
         <div class="hero">
             <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
@@ -19,106 +20,112 @@
         </div>
 
         <div class="user-section">
-            <!-- <a href="{{ url_for('daily_logs') }}" class="nav-btn" target="_self" , onclick="openInNewTab(event)"> -->
             <a href="{{ url_for('csv_to_json') }}" class="nav-btn" data-action="new-tab">
-                <span class="material-symbols-outlined" title="parser logs">convert_to_text</span>
-            </a>
-            <a href="{{ url_for('daily_logs') }}" class="nav-btn" data-action="new-tab">
-                <span class="material-symbols-outlined" title="parser logs">book_2</span>
+                <span class="material-symbols-outlined">convert_to_text</span>
             </a>
 
-            <!-- SAME BUTTON STYLE -->
+            <a href="{{ url_for('daily_logs') }}" class="nav-btn" data-action="new-tab">
+                <span class="material-symbols-outlined">book_2</span>
+            </a>
+
             <button class="nav-btn" data-action="open-upload">
-                <span class="material-symbols-outlined" title="upload file(s)">
-                    upload_file
-                </span></button>
+                <span class="material-symbols-outlined">upload_file</span>
+            </button>
 
             {% if role == 'admin' %}
-            <a href="{{ url_for('config_editor') }}" class="nav-btn" target="_self" onclick="openInNewTab(event)">
-                <span class="material-symbols-outlined" title="edit config">handyman</span>
+            <a href="{{ url_for('config_editor') }}" class="nav-btn" data-action="new-tab">
+                <span class="material-symbols-outlined">handyman</span>
             </a>
             {% endif %}
-            <a href="{{ url_for('amc_data') }}" class="nav-btn" target="_self" onclick="openInNewTab(event)">
-                <p>AMC</p>
-            </a>
-            <!-- USERNAME (PLAIN TEXT) -->
-            <span style="font-weight:600; color:#e5e7eb;">
-                {{ user|capitalize }}
-            </span>
 
-            <a href="{{ url_for('logout') }}" class="logout-btn"><span
-                    class="material-symbols-outlined">logout</span></a>
+            <a href="{{ url_for('amc_data') }}" class="nav-btn" data-action="new-tab">
+                AMC
+            </a>
+
+            <a href="{{ url_for('sid_data') }}" class="nav-btn" data-action="new-tab">
+                SID
+            </a>
+
+            <span class="user-name">{{ user|capitalize }}</span>
+
+            <a href="{{ url_for('logout') }}" class="logout-btn">
+                <span class="material-symbols-outlined">logout</span>
+            </a>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <section class="main-dashboard">
-        <!-- LOGS PANEL -->
-        <div class="panel logs-panel">
+    <!-- ================= PAGE ================= -->
+    <div class="page page-dashboard">
+
+        <div class="panel">
             <div class="logs-bar">
                 <h3>Status Report</h3>
+
                 <div class="right-controls">
                     <label class="auto-refresh">
-                        <input type="checkbox" id="autoRefresh"><strong>auto-reload</strong>
+                        <input type="checkbox" id="autoRefresh">
+                        <strong>auto-reload</strong>
                     </label>
-                    <!-- <button class="icon-btn" onclick="loadLogs()" title="Refresh"> -->
+
                     <button class="icon-btn" data-action="refresh-logs">
-                        <span class="material-symbols-outlined"> refresh</span>
+                        <span class="material-symbols-outlined">refresh</span>
                     </button>
                 </div>
             </div>
 
-            <div id="logsConsole">
+            <div id="logsConsole" class="mono">
                 <p>Loading status…</p>
             </div>
-            <div id="logpagination">
-                <ul>
-                    <li><a href="#" class="arrow">chevron_left</a></li>
-                    <li><a href="#" class="active">1</a></li>
-                    <li><a href="#" class="arrow">chevron_right</a></li>
-                </ul>
+
+            <!-- <div id="logpagination"></div> -->
+            <div id="logpagination" class="pagination">
+                <a href="#" class="arrow">‹</a>
+                <a href="#" class="active">1</a>
+                <a href="#" class="arrow">›</a>
             </div>
 
         </div>
-    </section>
 
-    <!-- UPLOAD MODAL -->
+    </div>
+
+    <!-- ================= UPLOAD MODAL ================= -->
     <div id="uploadModal" class="modal">
         <div class="modal-content">
-            <div class="logs-bar">
-                <h2>Upload Files</h2>
-                <button class="close-btn" data-action="close-upload">
+
+            <div class="flex-between">
+                <h3>Upload Files</h3>
+                <button class="icon-btn" data-action="close-upload">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
+
             <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-                <div class="upload-bar">
-                    <!-- Custom file button -->
-                    <label for="pdfs" class="nav-btn" id="selectBtn">
+
+                <div class="flex-between" style="margin-top:12px">
+                    <label for="pdfs" class="nav-btn">
                         <span class="material-symbols-outlined">upload_file</span>
-                        <span>Select PDF</span>
+                        Select PDF
                     </label>
-                    <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple style="display:none;">
-                    <div id="sizeDisplay"> <strong>Size 0 Mb / 50 Mb</strong></div>
+
+                    <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple hidden>
+
+                    <div id="sizeDisplay"><strong>Size 0 Mb / 50 Mb</strong></div>
                 </div>
 
-                <!-- File list -->
                 <div class="upload-console" id="uploadConsole"></div>
 
-                <!-- Fixed size display + controls BELOW console -->
-                <div class="upload-bar">
-                    <button type="submit" class="nav-btn" id="uploadBtn">
+                <div class="center" style="margin-top:12px">
+                    <button type="submit" class="nav-btn">
                         <span class="material-symbols-outlined">upload</span>
-                        <span>Uplod PDF</span>
+                        Upload PDF
                     </button>
                 </div>
+
             </form>
         </div>
     </div>
 
-
-
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
-<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 
 </html>

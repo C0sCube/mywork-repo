@@ -4,41 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV -> JSON -> ADMIN PANEL</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>to Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
-<header class="header">
-    <div class="hero">
-        <a href="{{ url_for('index') }}" data-action="back">
-            <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
-        </a>
-        <h1>CSV -> JSON -> ADMIN PANEL</h1>
+    <header class="header">
+        <div class="hero">
+            <a href="{{ url_for('index') }}" data-action="back">
+                <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+            </a>
+            <h1>SP-Call/CSV/JSON</h1>
+        </div>
+
+        <div class="editor-controls">
+            <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="page csvtojson">
+        <div class="csv-container">
+
+            <!-- CARD 1: CSV UPLOAD -->
+            <div class="csv-card">
+                <h3 class="title">Upload CSV</h3>
+
+                <input type="file" class="card-console" id="csvInput" accept=".csv">
+
+                <div class="card-actions">
+                    <button class="nav-btn" id="csvConvertBtn" disabled>
+                        Convert
+                    </button>
+
+                    <button class="nav-btn secondary" id="csvDownloadBtn" disabled>
+                        Download
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 2: JSON UPLOAD -->
+            <div class="csv-card">
+                <h3 class="title">Upload JSON</h3>
+
+                <input type="file" class="card-console" id="inputJson" accept=".json">
+
+                <div class="card-actions">
+                    <button class="nav-btn" id="jsonPushBtn" disabled>
+                        PushtoA
+                    </button>
+
+                    <button class="nav-btn secondary" id="jsonViewBtn" disabled>
+                        View
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 3: STATUS -->
+            <div class="csv-card">
+                <h3 class="title">Admin Panel</h3>
+                <span class="material-symbols-outlined">
+                    database
+                </span>
+                <pre id="statusConsole" class="mono"> Waiting for input… </pre>
+
+            </div>
+
+        </div>
+
+        <div class="loader">
+            <div class="bar"></div>
+
+            <div class="check-bar-container">
+                <div></div>
+
+                <div class="check">
+                    <svg stroke="white" stroke-width="2" viewBox="0 0 24 24" fill="none">
+                        <path d="m4.5 12.75 6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                </div>
+
+                <div class="check">
+                    <svg stroke="white" stroke-width="2" viewBox="0 0 24 24" fill="none">
+                        <path d="m4.5 12.75 6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
-    <div class="editor-controls">
-        <!-- <label for="dateSelect"><strong>Date:</strong></label>
-        <input type="date" id="dateSelect" class="input" style="padding:6px 10px;">
-
-        <div class="right-controls">
-            <button class="nav-btn" data-action="load">Load</button>
-            <button class="nav-btn" data-action="refresh" title="Refresh">
-                <span class="material-symbols-outlined">autorenew</span>
-            </button>
-        </div> -->
-
-        <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
-            <span class="material-symbols-outlined">arrow_back</span>
-        </a>
-    </div>
-</header>
-
-<section>
-    
-</section>
 </body>
-
+<script src="{{ url_for('static', filename='js/csv_flow.js') }}"></script>
 </html>

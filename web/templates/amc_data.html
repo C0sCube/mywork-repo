@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMC Data</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMC Data</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
-    <header class="header">
-        <div class="hero">
-            <a href="{{ url_for('index') }}" data-action="back">
-                <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
-            </a>
-            <h1>Mutual Fund Data</h1>
-        </div>
 
-        <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
-            <span class="material-symbols-outlined">arrow_back</span>
-        </a>
-    </header>
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="hero">
+    <a href="{{ url_for('index') }}" data-action="back">
+      <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+    </a>
+    <h1>Mutual Fund Data</h1>
+  </div>
 
-    <section>
-        <div class="card-container"></div>
-    </section>
+  <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+</header>
 
-    <!-- JS loaded last -->
+<!-- ================= PAGE ================= -->
+<div class="page page-amc">
+  <div class="card-container"></div>
+</div>
+
 <script src="{{ url_for('static', filename='js/amc_data.js') }}"></script>
-
 </body>
 </html>

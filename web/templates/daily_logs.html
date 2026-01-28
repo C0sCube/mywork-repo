@@ -1,84 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Logs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Logs</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
-
-    <style>
-        .log-wrapper {
-            display: flex;
-            border: 1px solid #cbd5e1;
-            background: #f8fafc;
-            border-radius: 8px;
-            overflow: hidden;
-            height: calc(100vh - 11rem);
-        }
-
-        .line-numbers {
-            padding: 10px 12px;
-            text-align: right;
-            font-family: monospace;
-            font-size: 0.85rem;
-            width: 50px;
-            border-right: 1px solid #cbd5e1;
-            overflow: hidden;
-            user-select: none;
-        }
-
-        .log-content {
-            flex-grow: 1;
-            padding: 10px 15px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            white-space: pre-wrap;
-            overflow-y: scroll;
-        }
-    </style>
+  <link rel="icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="header">
-    <div class="hero">
-        <a href="{{ url_for('index') }}" data-action="back">
-            <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
-        </a>
-        <h1>DAILY LOGS</h1>
-    </div>
+  <div class="hero">
+    <a href="{{ url_for('index') }}" data-action="back">
+      <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+    </a>
+    <h1>DAILY LOGS</h1>
+  </div>
 
-    <div class="editor-controls">
-        <label for="dateSelect"><strong>Date:</strong></label>
-        <input type="date" id="dateSelect" class="input" style="padding:6px 10px;">
+  <div class="user-section">
+    <label><strong>Date:</strong></label>
+    <input type="date" id="dateSelect" class="input">
 
-        <div class="right-controls">
-            <button class="nav-btn" data-action="load">Load</button>
-            <button class="nav-btn" data-action="refresh" title="Refresh">
-                <span class="material-symbols-outlined">autorenew</span>
-            </button>
-        </div>
+    <button class="nav-btn" data-action="load">Load</button>
 
-        <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
-            <span class="material-symbols-outlined">arrow_back</span>
-        </a>
-    </div>
+    <button class="nav-btn" data-action="refresh" title="Refresh">
+      <span class="material-symbols-outlined">autorenew</span>
+    </button>
+
+    <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+  </div>
 </header>
 
-<section class="editor-container">
+<!-- ================= PAGE ================= -->
+<div class="page page-logs">
+
+  <div class="panel">
     <div class="log-wrapper">
-        <div id="lineNumbers" class="line-numbers">1</div>
-        <div id="logViewer" class="log-content">
-            Select a date to load logs...
-        </div>
+      <div id="lineNumbers" class="line-numbers">1</div>
+
+      <div id="logViewer" class="log-content">
+        Select a date to load logs…
+      </div>
     </div>
-</section>
+  </div>
+
+</div>
 
 <script src="{{ url_for('static', filename='js/daily_logs.js') }}"></script>
-
 </body>
 </html>

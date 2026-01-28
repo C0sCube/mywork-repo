@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <title>Config Editor</title>
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
+  <!-- CodeMirror -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
@@ -16,6 +18,8 @@
 </head>
 
 <body>
+
+<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="hero">
     <a href="{{ url_for('index') }}" data-action="back">
@@ -24,7 +28,7 @@
     <h1>CONFIG EDITOR</h1>
   </div>
 
-  <div class="editor-controls">
+  <div class="user-section editor-controls">
     <div id="errorDisplay" class="error-message"></div>
 
     <label><strong>Year:</strong></label>
@@ -59,11 +63,15 @@
   </div>
 </header>
 
-<section class="editor-container">
-  <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
-</section>
+<!-- ================= PAGE ================= -->
+<div class="page page-editor">
 
-<!-- ✅ correct static loading -->
+  <div class="editor-panel">
+    <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
+  </div>
+
+</div>
+
 <script src="{{ url_for('static', filename='js/config_editor.js') }}"></script>
 </body>
 </html>
