@@ -686,6 +686,52 @@ a.logout-btn:focus-visible {
     justify-content: center;
 }
 
+/* Make cards overlay-capable */
+.csv-card {
+  position: relative;
+}
+
+/* Overlay (progress / lock) */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  border-radius: inherit;
+}
+
+.card-overlay.hidden {
+  display: none;
+}
+
+/* Spinner */
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: #4ade80;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Soft locked state */
+.csv-card[data-state="locked"] {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+
+
 .csv-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -693,11 +739,13 @@ a.logout-btn:focus-visible {
 
     max-width: 900px;
     margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .csv-card {
-    height: 250px;
-    width: 250px;
+    height: 280px;
+    width: 280px;
     background-color: var(--dark-2);
     border-radius: 15px;
 
@@ -708,25 +756,24 @@ a.logout-btn:focus-visible {
 
 .csv-card .title {
     color: #cbd5e1;
-    margin-left: 25px;
+    margin-left: 10px;
 }
 
 .card-console {
     margin: 18px;
     height: 150px;
-    /* 👈 fixed reserved space */
+ 
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 8px;
     overflow-y: auto;
-    /* background: #f8fafc; */
     background: #ffffff;
     font-family: var(--mono);
     font-size: 13px;
 }
 
 .card-actions {
-    /* margin-left: 18px; */
+    margin-left: 8px;
     align-items: center;
 }
 
@@ -735,18 +782,29 @@ a.logout-btn:focus-visible {
     border: 2px dashed #334155;
     border-radius: 12px;
 
-    width: 70%;
+    width: 80%;
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #cbd5f5;
 }
 
 
 .csv-upload span {
     font-size: 48px;
+}
+
+#statusConsole {
+  white-space: pre-wrap;      /* preserve formatting + wrap */
+  word-break: break-word;     /* break long words if needed */
+  overflow-wrap: anywhere;    /* modern fallback */
+  max-width: 100%;
+  font-size: 15px;
+  color: #cbd5f5;
+  margin: 0 6px 0 6px;
+
 }
 
 /* ================= SID LAYOUT ================= */

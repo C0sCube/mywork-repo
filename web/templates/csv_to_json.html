@@ -29,58 +29,72 @@
     <div class="page csvtojson">
         <div class="csv-container">
 
-            <!-- CARD 1: CSV UPLOAD -->
-            <div class="csv-card">
-                <h3 class="title">UPLOAD</h3>
+            <!-- CARD 1: CSV -->
+            <div class="csv-card" data-card="csv" data-state="idle">
+                <h3 class="title" id="csvTitle">UPLOAD CSV</h3>
+
                 <label class="csv-upload">
                     <span class="material-symbols-outlined">csv</span>
                     <input type="file" id="csvInput" accept=".csv" hidden>
                 </label>
+
                 <div class="card-actions">
                     <button class="nav-btn" id="csvConvertBtn" disabled>
                         Convert
                     </button>
+                </div>
 
-                    <!-- <button class="nav-btn secondary" id="csvDownloadBtn" disabled>
-                        Download
-                    </button> -->
+                <!-- overlay -->
+                <div class="card-overlay hidden">
+                    <span class="spinner"></span>
+                    <span class="overlay-text">Uploading CSV…</span>
                 </div>
             </div>
 
-            <!-- CARD 2: JSON UPLOAD -->
-            <div class="csv-card">
-                <h3 class="title">UPLOAD</h3>
+            <!-- CARD 2: JSON -->
+            <div class="csv-card" data-card="json" data-state="waiting">
+                <h3 class="title" id="jsonTitle">UPLOAD JSON</h3>
 
                 <label class="csv-upload">
                     <span class="material-symbols-outlined">file_json</span>
-
                     <input type="file" id="inputJson" accept=".json" hidden>
                 </label>
 
                 <div class="card-actions">
-                    <button class="nav-btn" id="jsonPushBtn" disabled>
-                        Admin Panel
+
+                    <button class="nav-btn secondary" id="jsonDldBtn" disabled>
+                        Download
                     </button>
 
                     <button class="nav-btn secondary" id="jsonViewBtn" disabled>
                         View
                     </button>
                 </div>
+
+                <div class="card-overlay hidden">
+                    <span class="spinner"></span>
+                    <span class="overlay-text">Processing JSON…</span>
+                </div>
             </div>
 
             <!-- CARD 3: STATUS -->
-            <div class="csv-card">
-                <h3 class="title">Admin Panel</h3>
+            <div class="csv-card" data-card="status" data-state="waiting">
+                <h3 class="title">ADMIN PANEL</h3>
 
                 <label class="csv-upload">
-                    <span class="material-symbols-outlined">database</span>
+                    <!-- <span class="material-symbols-outlined">database</span> -->
+                    <pre id="statusConsole" class="mono"> Waiting for input…</pre>
                 </label>
-                <pre id="statusConsole" class="mono"> Waiting for input… </pre>
+
+                <div class="card-actions">
+                    <button class="nav-btn" id="jsonPushBtn" disabled>
+                        Admin Panel
+                    </button>
+                </div>
+
             </div>
 
         </div>
-
-
     </div>
 
 </body>

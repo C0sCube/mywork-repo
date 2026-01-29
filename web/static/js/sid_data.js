@@ -1,14 +1,14 @@
 /* =========================================================
-   SID / KIM DATA PAGE — FULL JS
+   SID / KIM DATA PAGE — FINAL REFACTOR
    ========================================================= */
 
 /* ================= DOM ================= */
 
-const pdfInput     = document.getElementById("sidPdfInput");
-const uploadBox    = document.getElementById("uploadBox");
-const pdfViewer    = document.getElementById("pdfViewer");
-const processBtn   = document.getElementById("sidProcessBtn");
-const grid         = document.querySelector(".sid-input-grid");
+const pdfInput   = document.getElementById("sidPdfInput");
+const uploadBox  = document.getElementById("uploadBox");
+const pdfViewer  = document.getElementById("pdfViewer");
+const processBtn = document.getElementById("sidProcessBtn");
+const grid       = document.querySelector(".sid-input-grid");
 
 // fields
 const field1 = document.getElementById("field-1");
@@ -34,40 +34,41 @@ processBtn.disabled = true;
 
 /* ================= PDF UPLOAD ================= */
 
+uploadBox.addEventListener("click", () => pdfInput.click());
+
 pdfInput.addEventListener("change", () => {
   const file = pdfInput.files?.[0];
   if (!file) return;
 
   currentFile = file;
 
-  // swap UI
+  // UI swap
   uploadBox.hidden = true;
   pdfViewer.hidden = false;
   pdfViewer.src = URL.createObjectURL(file);
 
-  // configure inputs based on filename
-  configureInputsFromFilename(file.name);
+  configureFromFilename(file.name);
 });
 
 /* ================= MODE CONFIG ================= */
 
-function configureInputsFromFilename(filename) {
+function configureFromFilename(filename) {
   const name = filename.toUpperCase();
 
   resetInputs();
-  grid.classList.remove("sid-mode", "kim-mode");
+  hideAllFields();
+  currentMode = null;
 
   if (name.endsWith("_SID.PDF")) {
     currentMode = "SID";
-    configureSID();
-
-  } else if (name.endsWith("_KIM.PDF")) {
+    setupSID();
+  } 
+  else if (name.endsWith("_KIM.PDF")) {
     currentMode = "KIM";
-    configureKIM();
-
-  } else {
-    currentMode = null;
-    configureFallback();
+    setupKIM();
+  } 
+  else {
+    setupFallback();
   }
 
   validateInputs();
@@ -75,26 +76,22 @@ function configureInputsFromFilename(filename) {
 
 /* ---------- SID MODE ---------- */
 
-function configureSID() {
-  grid.classList.add("sid-mode");
+function setupSID() {
+  show(field1);
+  show(field2);
+  show(field3);
 
-  field1.classList.remove("hidden");
-  field2.classList.remove("hidden");
-  field3.classList.remove("hidden");
-
-  label1.textContent = "First Page";
-  label2.textContent = "Table Data";
+  label1.textContent = "Front Page";
+  label2.textContent = "Data Page";
   label3.textContent = "Manager Page";
 }
 
 /* ---------- KIM MODE ---------- */
 
-function configureKIM() {
-  grid.classList.add("kim-mode");
-
-  field1.classList.remove("hidden");
-  field2.classList.remove("hidden");
-  field3.classList.add("hidden"); // 🚫 no third input
+function setupKIM() {
+  show(field1);
+  show(field2);
+  hide(field3);
 
   label1.textContent = "Instrument Page";
   label2.textContent = "Instrument Count";
@@ -102,31 +99,41 @@ function configureKIM() {
 
 /* ---------- FALLBACK ---------- */
 
-function configureFallback() {
-  grid.classList.add("kim-mode");
-
-  field1.classList.remove("hidden");
-  field2.classList.remove("hidden");
-  field3.classList.add("hidden");
+function setupFallback() {
+  show(field1);
+  show(field2);
+  hide(field3);
 
   label1.textContent = "Field 1";
   label2.textContent = "Field 2";
 }
 
-/* ================= INPUT RESET ================= */
+/* ================= HELPERS ================= */
+
+function show(el) {
+  el.classList.remove("hidden");
+}
+
+function hide(el) {
+  el.classList.add("hidden");
+}
+
+function hideAllFields() {
+  hide(field1);
+  hide(field2);
+  hide(field3);
+}
 
 function resetInputs() {
-  [input1, input2, input3].forEach(i => {
-    i.value = "";
-  });
-
-  field3.classList.remove("hidden");
+  input1.value = "";
+  input2.value = "";
+  input3.value = "";
 }
 
 /* ================= VALIDATION ================= */
 
 function validateInputs() {
-  if (!currentFile || pdfViewer.hidden) {
+  if (!currentFile || pdfViewer.hidden || !currentMode) {
     processBtn.disabled = true;
     return;
   }
@@ -148,20 +155,40 @@ document
 
 /* ================= PROCESS ================= */
 
-processBtn.addEventListener("click", () => {
+processBtn.addEventListener("click", async () => {
   if (processBtn.disabled) return;
 
-  const payload = buildPayload();
+  const meta = buildPayload();
 
-  console.log("SID/KIM PROCESS PAYLOAD", payload);
+  const fd = new FormData();
+  fd.append("pdf", currentFile);
+  fd.append("meta", JSON.stringify(meta));
 
-  alert(
-    `${currentMode} processing triggered.\n\n` +
-    JSON.stringify(payload, null, 2)
-  );
+  processBtn.disabled = true;
+  processBtn.textContent = "Uploading...";
 
-  // 🔌 Next step: POST this payload to backend
+  try {
+    const res = await fetch("/upload-sid-kim", {
+      method: "POST",
+      body: fd
+    });
+
+    const data = await res.json();
+
+    if (!data.success) {
+      throw new Error(data.error || "Upload failed");
+    }
+
+    alert("PDF queued successfully for processing");
+    window.location.href = "/";
+
+  } catch (err) {
+    alert(err.message);
+    processBtn.disabled = false;
+    processBtn.textContent = "Process";
+  }
 });
+
 
 /* ================= PAYLOAD BUILDER ================= */
 
@@ -174,57 +201,56 @@ function buildPayload() {
   if (currentMode === "SID") {
     return {
       ...base,
-      scheme_front_name: input1.value.trim(),
-      sid_data: input2.value.trim(),
-      manager: input3.value.trim()
+      front_page: input1.value.trim(),
+      data_page: input2.value.trim(),
+      manager_page: input3.value.trim()
     };
   }
 
   if (currentMode === "KIM") {
     return {
       ...base,
-      page: input1.value.trim(),
-      instrument_count: input2.value.trim()
+      instr_page: input1.value.trim(),
+      instr_count: input2.value.trim()
     };
   }
 
   return base;
 }
 
+/* ================= AUTH + NAV ================= */
 
-// ---------------- NAVIGATION ----------------
 async function enforceAuth() {
-    try {
-        const r = await fetch("/auth-check");
-        const data = await r.json();
+  try {
+    const r = await fetch("/auth-check");
+    const data = await r.json();
 
-        if (!data.logged_in) {
-            alert("Session expired. Please log in again.");
-            window.location = "/login";
-        }
-    } catch (err) {
-        alert("Unable to verify session. Redirecting to login.");
-        window.location = "/login";
+    if (!data.logged_in) {
+      alert("Session expired. Please log in again.");
+      window.location = "/login";
     }
+  } catch {
+    window.location = "/login";
+  }
 }
 
-
 function goBackToMain(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (window.opener) {
-        window.opener.focus();
-        window.close();
-    } else {
-        window.location.href = "/";
-    }
+  if (window.opener) {
+    window.opener.focus();
+    window.close();
+  } else {
+    window.location.href = "/";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    enforceAuth();
+  enforceAuth();
 
-
-    document.querySelectorAll("[data-action='back']").forEach(el => {
-        el.addEventListener("click", goBackToMain);
-    });
+  document
+    .querySelectorAll("[data-action='back']")
+    .forEach(el => el.addEventListener("click", goBackToMain));
 });
+
+

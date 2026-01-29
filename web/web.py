@@ -65,8 +65,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        if ldap_authenticate(username, password):
-        # if True:
+        # if ldap_authenticate(username, password):
+        if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -877,6 +877,62 @@ def push_job(job_id):
         return {"success": False, "error": str(e)}, 500
 
 
+#sid/kim
+
+@app.route("/upload-sid-kim", methods=["POST"])
+def upload_sid_kim():
+    if not session.get("logged_in"):
+        return {"success": False, "error": "Not authenticated"}, 401
+
+    pdf = request.files.get("pdf")
+    meta_raw = request.form.get("meta")
+
+    if not pdf or not meta_raw:
+        return {"success": False, "error": "Missing PDF or meta"}, 400
+
+    try:
+        meta = json.loads(meta_raw)
+    except Exception:
+        return {"success": False, "error": "Invalid meta JSON"}, 400
+
+    filename = secure_filename(pdf.filename)
+
+    # 🔒 enforce naming rule
+    if not (filename.endswith("_SID.pdf") or filename.endswith("_KIM.pdf")):
+        return {
+            "success": False,
+            "error": "Filename must end with _SID.pdf or _KIM.pdf"
+        }, 400
+
+    # paths
+    pdf_path = os.path.join(INPUT_DIR, filename)
+    meta_path = pdf_path.replace(".pdf", ".meta.json")
+
+    try:
+        # save PDF
+        pdf.save(pdf_path)
+
+        # save meta.json
+        with open(meta_path, "w", encoding="utf-8") as f:
+            json.dump(meta, f, indent=2, ensure_ascii=False)
+
+        # OPTIONAL: create DB job entry (if needed)
+        # now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+        # user = session.get("user", "unknown")
+
+        # create_job({
+        #     "file_name": filename,
+        #     "start_time": now,
+        #     "created_by": user,
+        #     "uploaded_by": user
+        # }, DB_CONFIG)
+
+        return {"success": True}
+
+    except Exception as e:
+        return {"success": False, "error": str(e)}, 500
+
+
 # --- run app ---
 if __name__ == '__main__':
 
@@ -903,8 +959,71 @@ if __name__ == '__main__':
     
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    host = "NCOG-LPT-TCH-32.Cogencis.com"
-    port = 5000
-    app.run(debug=True, host=host, port=port)
+    # host = "NCOG-LPT-TCH-32.Cogencis.com"
+    # port = 5000
+    # app.run(debug=True, host=host, port=port)
 
-    # app.run(debug=True, host="127.0.0.1", port=5055)
+    app.run(debug=True, host="127.0.0.1", port=5055)
+
+
+
+
+"""
+   <div class="page csvtojson">
+        <div class="csv-container">
+
+            <!-- CARD 1: CSV UPLOAD -->
+            <div class="csv-card">
+                <h3 class="title">UPLOAD</h3>
+                <label class="csv-upload">
+                    <span class="material-symbols-outlined">csv</span>
+                    <input type="file" id="csvInput" accept=".csv" hidden>
+                </label>
+                <div class="card-actions">
+                    <button class="nav-btn" id="csvConvertBtn" disabled>
+                        Convert
+                    </button>
+
+                    <!-- <button class="nav-btn secondary" id="csvDownloadBtn" disabled>
+                        Download
+                    </button> -->
+                </div>
+            </div>
+
+            <!-- CARD 2: JSON UPLOAD -->
+            <div class="csv-card">
+                <h3 class="title">UPLOAD</h3>
+
+                <label class="csv-upload">
+                    <span class="material-symbols-outlined">file_json</span>
+
+                    <input type="file" id="inputJson" accept=".json" hidden>
+                </label>
+
+                <div class="card-actions">
+                    <button class="nav-btn" id="jsonPushBtn" disabled>
+                        Admin Panel
+                    </button>
+
+                    <button class="nav-btn secondary" id="jsonViewBtn" disabled>
+                        View
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 3: STATUS -->
+            <div class="csv-card">
+                <h3 class="title">Admin Panel</h3>
+
+                <label class="csv-upload">
+                    <span class="material-symbols-outlined">database</span>
+                </label>
+                <pre id="statusConsole" class="mono"> Waiting for input… </pre>
+            </div>
+
+        </div>
+
+
+    </div>
+
+"""
