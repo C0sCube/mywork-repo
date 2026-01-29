@@ -31,26 +31,31 @@
 
             <!-- CARD 1: CSV UPLOAD -->
             <div class="csv-card">
-                <h3 class="title">Upload CSV</h3>
-
-                <input type="file" class="card-console" id="csvInput" accept=".csv">
-
+                <h3 class="title">UPLOAD</h3>
+                <label class="csv-upload">
+                    <span class="material-symbols-outlined">csv</span>
+                    <input type="file" id="csvInput" accept=".csv" hidden>
+                </label>
                 <div class="card-actions">
                     <button class="nav-btn" id="csvConvertBtn" disabled>
                         Convert
                     </button>
 
-                    <button class="nav-btn secondary" id="csvDownloadBtn" disabled>
+                    <!-- <button class="nav-btn secondary" id="csvDownloadBtn" disabled>
                         Download
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
             <!-- CARD 2: JSON UPLOAD -->
             <div class="csv-card">
-                <h3 class="title">Upload JSON</h3>
+                <h3 class="title">UPLOAD</h3>
 
-                <input type="file" class="card-console" id="inputJson" accept=".json">
+                <label class="csv-upload">
+                    <span class="material-symbols-outlined">file_json</span>
+
+                    <input type="file" id="inputJson" accept=".json" hidden>
+                </label>
 
                 <div class="card-actions">
                     <button class="nav-btn" id="jsonPushBtn" disabled>
@@ -66,11 +71,11 @@
             <!-- CARD 3: STATUS -->
             <div class="csv-card">
                 <h3 class="title">Admin Panel</h3>
-                <span class="material-symbols-outlined">
-                    database
-                </span>
-                <pre id="statusConsole" class="mono"> Waiting for input… </pre>
 
+                <label class="csv-upload">
+                    <span class="material-symbols-outlined">database</span>
+                </label>
+                <pre id="statusConsole" class="mono"> Waiting for input… </pre>
             </div>
 
         </div>
@@ -94,10 +99,9 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
 </body>
 <script src="{{ url_for('static', filename='js/csv_flow.js') }}"></script>
+
 </html>

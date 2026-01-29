@@ -27,6 +27,8 @@ function reachCheckpoint(step) {
 const csvInput = document.getElementById("csvInput");
 const convertBtn = document.getElementById("csvConvertBtn");
 
+let generatedJsonFile = null;
+
 csvInput.addEventListener("change", () => {
   convertBtn.disabled = !csvInput.files.length;
 });
@@ -51,6 +53,8 @@ convertBtn.addEventListener("click", async () => {
     return;
   }
 
+  generatedJsonFile = data.json_file;
+
   // ✅ checkpoint 1 reached
   reachCheckpoint(1);
 
@@ -65,7 +69,11 @@ convertBtn.addEventListener("click", async () => {
 
 
 document.getElementById("jsonViewBtn").addEventListener("click", () => {
-  window.open("/viewer/json/generated.json", "_blank");
+  if (!generatedJsonFile) {
+    alert("No JSON available yet");
+    return;
+  }
+  window.open(`/viewer/json/csv/${generatedJsonFile}`, "_blank");
 });
 
 

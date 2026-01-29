@@ -206,7 +206,7 @@ function renderTable(rows) {
         <td>${row.status || "-"}</td>
         <td>${row.uploaded_by}</td>
         <td>${row.error || "-"}</td>
-        <td> ${row.json_path ? `<a href="/viewer/json/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : "-"}</td>
+        <td> ${row.json_path ? `<a href="/viewer/json/dashboard/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : "-"}</td>
         <td> ${row.json_path ? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
         <td>${pushCell}</td>
         <td><button class="icon-btn" onclick="confirmReprocess(${row.id})"><span class="material-symbols-outlined">autorenew</span></button></td> `;

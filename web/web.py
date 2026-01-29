@@ -65,8 +65,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        # if ldap_authenticate(username, password):
-        if True:
+        if ldap_authenticate(username, password):
+        # if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -156,10 +156,13 @@ def upload_files():
         # print(f"[JOB CREATED] {filename} by {user}")
     return redirect('/')
 
+
 @app.route("/reprocess/<int:job_id>", methods=["POST"])
 def reprocess(job_id):
+    
+    #error : Unexpected token '<', "<!doctype "... is not valid JSON
     if not session.get("logged_in"):
-        return {"success": False, "message": "Not logged in"}, 401
+        return jsonify(success=False, message="Not logged in"), 401
     
     REPROCESS_TARGET = {
         JobState.UPLOADED: JobState.UPLOADED,
@@ -206,12 +209,10 @@ def reprocess(job_id):
     if not src:
         return {"success": False, "message": "Source file not found"}, 404
 
-    # 4) Copy back to input for watcher
     os.makedirs(INPUT_DIR, exist_ok=True)
     dst = os.path.join(INPUT_DIR, filename)
     shutil.copy(src, dst)
 
-    # 5) Reset job state (THIS IS THE KEY FIX)
     transition_job_state(
         job_id=job_id,
         from_state=status,
@@ -220,18 +221,11 @@ def reprocess(job_id):
         db_config=DB_CONFIG
     )
 
-    # 6) Optional: update meta
-    # update_job_reprocess_meta(
-    #     job_id=job_id,
-    #     user=user,
-    #     ts=now,
-    #     db_config=DB_CONFIG
-    # )
-
     return {
         "success": True,
         "message": f"{filename} requeued for reprocessing"
     }
+
 @app.route('/delete/<filename>')
 def delete_file(filename):
     if not session.get("logged_in"):
@@ -277,26 +271,7 @@ def view_pdf(filename):
 
 # ------------------ CSV/XLS VIEW ROUTE ------------------
 def json_to_csv(json_path, output_dir="csv_folder"):
-    keys = REGISTRY.get(
-        "field_keys",
-        {
-            "static_keys": [
-                "amc_name", "main_scheme_name", "mutual_fund_name", "benchmark_index",
-                "monthly_aaum_date", "monthly_aaum_value", "scheme_launch_date",
-                "min_addl_amt", "min_addl_amt_multiple", "min_amt", "min_amt_multiple" #min/add
-            ],
-            "load_keys": ["entry", "exit"],
-            "metric_keys": [
-                "alpha", "arithmetic_mean_ratio", "average_div_yield", "average_pb", "average_pe",
-                "avg_maturity", "beta", "correlation_ratio", "downside_deviation", "information_ratio",
-                "macaulay", "mod_duration", "port_turnover_ratio", "r_squared_ratio", "roe_ratio",
-                "sharpe", "sortino_ratio", "std_dev", "tracking_error", "treynor_ratio",
-                "upside_deviation", "ytm"
-            ],
-            "manager_keys": ["name", "managing_fund_since", "total_exp", "qualification"],
-            "field_location":["field_location"]
-        }
-    )
+    keys = REGISTRY.get("field_keys")
     static_keys, load_keys, metric_keys, manager_keys,field_location = (
         keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"],keys["field_location"]
     )
@@ -308,13 +283,7 @@ def json_to_csv(json_path, output_dir="csv_folder"):
         doc = json.load(f)
 
     records = doc.get("records", [])
-    
-    meta_data = doc.get("metadata",{
-        "document_name": "X_DD-MMM-YY_FS.pdf",
-        "file_type": "fs",
-        "process_date": "YYYYMMDD"
-    })
-    
+        
     max_manager = max((len(r["value"].get("fund_manager", [])) for r in records), default=1)
 
     # Build headers
@@ -399,15 +368,18 @@ def rebuild_json_from_csv(csv_path):
     manager_keys = keys.get("manager_keys", [])
     field_location_key = keys.get("field_location", "field_location")
 
+
     records = []
 
     for _, row in df.iterrows():
+        # print(row)
         value = {}
 
         for k in static_keys:
             if k in df.columns and row[k] != "":
                 value[k] = row[k]
 
+    
         loads = []
         if "entry" in df.columns and row["entry"] != "":
             loads.append({"type": "entry", "comment": row["entry"]})
@@ -415,6 +387,9 @@ def rebuild_json_from_csv(csv_path):
             loads.append({"type": "exit", "comment": row["exit"]})
         if loads:
             value["load"] = loads
+        
+        # print(loads)
+        # print(value)
 
         metrics = []
         for m in metric_keys:
@@ -438,6 +413,9 @@ def rebuild_json_from_csv(csv_path):
             if fm:
                 managers.append(fm)
             i += 1
+            
+        # print(metrics)
+        # print(managers)
 
         if managers:
             value["fund_manager"] = managers
@@ -447,10 +425,13 @@ def rebuild_json_from_csv(csv_path):
                 value["field_location"] = [json.loads(row[field_location_key])]
             except Exception:
                 pass
-
+        
+        value = dict(sorted(value.items()))
         records.append({"value": value})
+        
 
     base = os.path.splitext(os.path.basename(csv_path))[0]
+ 
 
     return {
         "metadata": {
@@ -481,37 +462,45 @@ def download_csv():
 @app.route("/convert_csv", methods=["POST"])
 def convert_csv():
     if not session.get("logged_in"):
-        return jsonify({"success": False, "error": "Not logged in"}), 403
+        return jsonify(success=False, error="Not logged in"), 403
 
     csv_file = request.files.get("csv")
     if not csv_file:
-        return jsonify({"success": False, "error": "No CSV uploaded"}), 400
+        return jsonify(success=False, error="No CSV uploaded"), 400
 
     try:
-        # save temp
-        csv_path = os.path.join("/tmp", csv_file.filename)
+        os.makedirs("tmp", exist_ok=True)
+
+        csv_path = os.path.join("tmp", csv_file.filename)
         csv_file.save(csv_path)
 
-        # convert
         json_data = rebuild_json_from_csv(csv_path)
 
-        json_path = csv_path.replace(".csv", ".json")
+        json_filename = csv_file.filename.replace(".csv", ".json")
+        json_path = os.path.join("tmp", json_filename)
+
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=2)
 
-        return jsonify({
-            "success": True,
-            "json_path": json_path
-        })
+        return jsonify(
+            success=True,
+            json_file=json_filename   # ✅ IMPORTANT
+        )
 
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        return jsonify(success=False, error=str(e)), 500
 
 
 # ------------------ JSON VIEW ROUTE ------------------
-@app.route('/viewer/json/<filename>')
-def view_json(filename):
-    json_dir = os.path.join(OUTPUT_DIR, "json")
+@app.route('/viewer/json/<source>/<filename>')
+def view_json(source, filename):
+    if source == "dashboard":
+        json_dir = os.path.join(OUTPUT_DIR, "json")
+    
+    elif source == "csv":
+        json_dir = "tmp"
+
+    # print(json_dir)
     return send_from_directory(json_dir, filename)
 
 @app.route('/logs')
@@ -913,10 +902,10 @@ if __name__ == '__main__':
     REGISTRY = utils.load_json(config.get("config_global_path",""))
     SP_REPORT_RUN = True
     
-    # host = "NCOG-LPT-TCH-32.Cogencis.com"
-    # port = 5000
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    # app.run(debug=True, host=host, port=port)
+    host = "NCOG-LPT-TCH-32.Cogencis.com"
+    port = 5000
+    app.run(debug=True, host=host, port=port)
 
-    app.run(debug=True, host="127.0.0.1", port=5055)
+    # app.run(debug=True, host="127.0.0.1", port=5055)

@@ -82,9 +82,9 @@ function configureSID() {
   field2.classList.remove("hidden");
   field3.classList.remove("hidden");
 
-  label1.textContent = "Scheme Front Name";
-  label2.textContent = "SID Data";
-  label3.textContent = "Manager";
+  label1.textContent = "First Page";
+  label2.textContent = "Table Data";
+  label3.textContent = "Manager Page";
 }
 
 /* ---------- KIM MODE ---------- */
@@ -96,7 +96,7 @@ function configureKIM() {
   field2.classList.remove("hidden");
   field3.classList.add("hidden"); // 🚫 no third input
 
-  label1.textContent = "Page";
+  label1.textContent = "Instrument Page";
   label2.textContent = "Instrument Count";
 }
 
