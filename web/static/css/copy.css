@@ -683,7 +683,7 @@ a.logout-btn:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    /* space between cards and loader */
+    justify-content: center;
 }
 
 .csv-container {
@@ -692,9 +692,7 @@ a.logout-btn:focus-visible {
     gap: 16px;
 
     max-width: 900px;
-    /* ✅ controls total card row width */
     margin: 0 auto;
-    /* ✅ centers the grid */
 }
 
 .csv-card {
@@ -738,10 +736,7 @@ a.logout-btn:focus-visible {
     border-radius: 12px;
 
     width: 70%;
-    /* optional – looks better */
     height: 50%;
-    /* ✅ 60% of outer div */
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -752,87 +747,6 @@ a.logout-btn:focus-visible {
 
 .csv-upload span {
     font-size: 48px;
-}
-
-/* progress barrrrrrr */
-
-
-@keyframes loadingBar {
-    0% {
-        width: 0%;
-    }
-
-    45% {
-        width: 50%;
-    }
-
-    90% {
-        width: 100%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
-
-@keyframes checkScale1 {
-    0% {
-        transform: scale(0.75);
-        background-color: #535353;
-    }
-
-    44% {
-        transform: scale(0.75);
-        background-color: #535353;
-    }
-
-    45% {
-        transform: scale(1);
-        background-color: rgb(0, 205, 0);
-    }
-
-    100% {
-        transform: scale(1);
-        background-color: rgb(0, 205, 0);
-    }
-}
-
-@keyframes checkScale2 {
-    0% {
-        transform: scale(0.75);
-        background-color: #535353;
-    }
-
-    89% {
-        transform: scale(0.75);
-        background-color: #535353;
-    }
-
-    90% {
-        transform: scale(1);
-        background-color: rgb(0, 205, 0);
-    }
-
-    100% {
-        transform: scale(1);
-        background-color: rgb(0, 205, 0);
-    }
-}
-
-
-.loader {
-    position: relative;
-    background-color: #535353;
-    border-radius: 1em;
-    height: 1em;
-    width: inherit;
-    margin: 0 400px 0 400px;
-}
-
-.bar {
-    width: 0%;
-    transition: width 0.6s ease;
 }
 
 /* ================= SID LAYOUT ================= */

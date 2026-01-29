@@ -490,7 +490,6 @@ def convert_csv():
     except Exception as e:
         return jsonify(success=False, error=str(e)), 500
 
-
 # ------------------ JSON VIEW ROUTE ------------------
 @app.route('/viewer/json/<source>/<filename>')
 def view_json(source, filename):

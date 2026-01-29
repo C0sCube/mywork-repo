@@ -190,3 +190,41 @@ function buildPayload() {
 
   return base;
 }
+
+
+// ---------------- NAVIGATION ----------------
+async function enforceAuth() {
+    try {
+        const r = await fetch("/auth-check");
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            alert("Session expired. Please log in again.");
+            window.location = "/login";
+        }
+    } catch (err) {
+        alert("Unable to verify session. Redirecting to login.");
+        window.location = "/login";
+    }
+}
+
+
+function goBackToMain(e) {
+    e.preventDefault();
+
+    if (window.opener) {
+        window.opener.focus();
+        window.close();
+    } else {
+        window.location.href = "/";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    enforceAuth();
+
+
+    document.querySelectorAll("[data-action='back']").forEach(el => {
+        el.addEventListener("click", goBackToMain);
+    });
+});

@@ -29,12 +29,15 @@ const convertBtn = document.getElementById("csvConvertBtn");
 
 let generatedJsonFile = null;
 
+
 csvInput.addEventListener("change", () => {
   convertBtn.disabled = !csvInput.files.length;
 });
 
 convertBtn.addEventListener("click", async () => {
   resetLoader();
+
+
 
   const fd = new FormData();
   fd.append("csv", csvInput.files[0]);
@@ -90,4 +93,41 @@ jsonPushBtn.addEventListener("click", async () => {
   } else {
     document.getElementById("statusConsole").textContent = data.error;
   }
+});
+
+// ---------------- NAVIGATION ----------------
+async function enforceAuth() {
+    try {
+        const r = await fetch("/auth-check");
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            alert("Session expired. Please log in again.");
+            window.location = "/login";
+        }
+    } catch (err) {
+        alert("Unable to verify session. Redirecting to login.");
+        window.location = "/login";
+    }
+}
+
+
+function goBackToMain(e) {
+    e.preventDefault();
+
+    if (window.opener) {
+        window.opener.focus();
+        window.close();
+    } else {
+        window.location.href = "/";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    enforceAuth();
+
+
+    document.querySelectorAll("[data-action='back']").forEach(el => {
+        el.addEventListener("click", goBackToMain);
+    });
 });
