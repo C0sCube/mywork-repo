@@ -1,6 +1,6 @@
 import traceback
-import mysql.connector
-from mysql.connector import Error
+import mysql.connector #type: ignore
+from mysql.connector import Error #type: ignore
 from app.utils import Helper
 from app.logger import get_global_logger
 

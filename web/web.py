@@ -1,16 +1,20 @@
-import os, sys, json, time, json5,shutil, pytz
+import os, sys, json, json5,shutil, pytz #type: ignore
+import pandas as pd
+from datetime import timedelta, datetime
+
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
 
+from flask import ( #type: ignore
+    Flask, render_template, request, 
+    redirect, url_for, session, 
+    send_from_directory, jsonify, send_file
+)
 
-from datetime import timedelta, datetime
-# from zoneinfo import ZoneInfo
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, jsonify, send_file
-from werkzeug.utils import secure_filename
-# from werkzeug.security import generate_password_hash
 from ldap3 import Server, Connection, ALL #type: ignore
-import pandas as pd
+from werkzeug.utils import secure_filename #type: ignore
+# from werkzeug.security import generate_password_hash
 
 from app.utils import Helper
 from app.sqlconnect import *
@@ -65,8 +69,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        # if ldap_authenticate(username, password):
-        if True:
+        if ldap_authenticate(username, password):
+        # if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -441,6 +445,21 @@ def rebuild_json_from_csv(csv_path):
         },
         "records": records
     }
+    
+@app.route("/download_json", methods=["GET"])
+def download_json():
+    # Get JSON path from query parameter
+    json_path = request.args.get("path")
+    if not json_path:
+        return {"success": False, "message": "Missing ?path=... parameter"}, 400
+    
+    return send_file(
+        json_path,
+        as_attachment=True,
+        download_name=os.path.basename(json_path),
+        mimetype="text/json"
+    )
+    
 
 @app.route("/download_csv", methods=["GET"])
 def download_csv():
@@ -917,15 +936,15 @@ def upload_sid_kim():
             json.dump(meta, f, indent=2, ensure_ascii=False)
 
         # OPTIONAL: create DB job entry (if needed)
-        # now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
-        # user = session.get("user", "unknown")
+        now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+        user = session.get("user", "unknown")
 
-        # create_job({
-        #     "file_name": filename,
-        #     "start_time": now,
-        #     "created_by": user,
-        #     "uploaded_by": user
-        # }, DB_CONFIG)
+        create_job({
+            "file_name": filename,
+            "start_time": now,
+            "created_by": user,
+            "uploaded_by": user
+        }, DB_CONFIG)
 
         return {"success": True}
 
@@ -959,11 +978,11 @@ if __name__ == '__main__':
     
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    # host = "NCOG-LPT-TCH-32.Cogencis.com"
-    # port = 5000
-    # app.run(debug=True, host=host, port=port)
+    host = "NCOG-LPT-TCH-32.Cogencis.com"
+    port = 5000
+    app.run(debug=True, host=host, port=port)
 
-    app.run(debug=True, host="127.0.0.1", port=5055)
+    # app.run(debug=True, host="127.0.0.1", port=5055)
 
 
 

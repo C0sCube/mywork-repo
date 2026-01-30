@@ -41,14 +41,15 @@ def get_config(year = "2025", id = ""):
         return None
     return load_json5(config_path)
 
-def get_sidkim_config(folder = "sidkim", id = ""):
+def get_sidkim_config(folder = "sidkim"):
     base_path = load_paths()["config_base_path"]
     config_path = os.path.join(base_path, folder, f"sid_params.json5")
     print(config_path)
     if not os.path.exists(config_path):
         return None
     config =  load_json5(config_path)
-    return config.get(id,None)
+    return config
+    # return config.get(id,None)
 
 def get_regex(year = "2025"):
     base_path = load_paths()["config_base_path"]

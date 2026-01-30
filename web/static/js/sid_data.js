@@ -34,8 +34,6 @@ processBtn.disabled = true;
 
 /* ================= PDF UPLOAD ================= */
 
-uploadBox.addEventListener("click", () => pdfInput.click());
-
 pdfInput.addEventListener("change", () => {
   const file = pdfInput.files?.[0];
   if (!file) return;
@@ -180,7 +178,8 @@ processBtn.addEventListener("click", async () => {
     }
 
     alert("PDF queued successfully for processing");
-    window.location.href = "/";
+    location.reload();
+
 
   } catch (err) {
     alert(err.message);

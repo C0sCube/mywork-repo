@@ -1,54 +1,21 @@
 from app.sidkim.fund_data import *
 from app.konstant import get_registry
+import importlib
 
-
-reg = get_registry()
-SID_CLASS_REGISTRY = reg.get("sid_class_registry",{})
-# SID_CLASS_REGISTRY = {
-#  '18': ThreeSixtyOneSIDKIM,
-#  '3': AdityaBirlaSIDKIM,
-#  '96': AngelOneSIDKIM,
-#  '1': AXISMFSIDKIM,
-#  '59': BajajFinServSIDKIM,
-#  '16': BandhanSIDKIM,
-#  '5': BankOfIndiaSIDKIM,
-#  '2': BarodaBNPSIDKIM,
-#  '6': CanaraSIDKIM,
-#  '8': DSPSIDKIM,
-#  '9': EdelweissSIDKIM,
-#  '11': FranklinTempletonSIDKIM,
-#  '20': GROWWSIDKIM,
-#  '12': HDFCSIDKIM,
-#  '60': HeliosSIDKIM,
-#  '13': HSBCSIDKIM,
-#  '14': ICICISIDKIM,
-#  '21': InvescoSIDKIM,
-#  '51': ITISIDKIM,
-#  '22': JMMFSIDKIM,
-#  '23': KotakSIDKIM,
-#  '25': LICSIDKIM,
-#  '26': MahindraManuSIDKIM,
-#  '27': MIRAESIDKIM,
-#  '28': MotilalOswalSIDKIM,
-#  '56': NAVISIDKIM,
-#  '33': NipponSIDKIM,
-#  '57': NJMFSIDKIM,
-#  '95': OldBridgeSIDKIM,
-#  '7': PGIMSIDKIM,
-#  '30': PPFASSIDKIM,
-#  '10': QuantMFSIDKIM,
-#  '32': QuantumSIDKIM,
-#  '58': SamcoSIDKIM,
-#  '35': SBISIDKIM,
-#  '36': ShriramSIDKIM,
-#  '37': SundaramSIDKIM,
-#  '38': TataSIDKIM,
-#  '39': TaurusSIDKIM,
-#  '55': TrustSIDKIM,
-#  '41': UTISIDKIM,
-#  '40': UnionSIDKIM,
-#  '97': UnifiSIDKIM,
-#  '42': WhiteOakSIDKIM,
-#  '71': ZerodhaSIDKIM,
-#  '98': JioBlackRockSIDKIM
-# }
+def load_sidkim_registry():
+    from app.logger import get_global_logger
+    logger = get_global_logger()
+    
+    reg = get_registry()
+    registry_list = reg.get("sid_class_registry",{})
+    
+    module = importlib.import_module("app.sidkim.fund_data")
+    registry = {}
+    for code, class_name in registry_list.items():
+        cls = getattr(module, class_name, None)
+        if not cls:
+            logger.warning(f"{class_name} not found. Defaulting to BaseAMC.")
+            cls = BaseSIDKIM
+        registry[code] = cls
+        
+    return registry

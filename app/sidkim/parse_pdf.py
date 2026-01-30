@@ -157,7 +157,7 @@ class ReaderSIDKIM:
       
     # =================== KIM ===================
     
-    def parse_KIM_data(self,pages:str, instrument_count = 2)->dict:
+    def parse_KIM_data(self,pages:str, instrument_count = "2")->dict:
         # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
         self.FIELD_LOCATION["kim"] = int(pages[0])
         kim_params = self.PARAMS["kim"]
@@ -169,7 +169,7 @@ class ReaderSIDKIM:
         print(f"[ROW START]: {row_match}" )
         
         #range/offset
-        row_s,row_e = row_match[0]+1, row_match[0]+ 3 + instrument_count
+        row_s,row_e = row_match[0]+1, row_match[0]+ 3 + int(instrument_count)
         
         dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_s, re=row_e)
         dfs = self._table_parser.clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])

@@ -327,7 +327,8 @@
             ".*min.application$",
             ".*min._application$",
             ".*min_.application$",
-            ".*application_amount_for_fresh.*$"
+            ".*application_amount_for_fresh.*$",
+            ".*min\\.?_investment$"
         ],
         "min_amt_multiple": [],
         "monthly_aaum_date": [

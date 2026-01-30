@@ -457,7 +457,7 @@ class BaseSIDKIM(ReaderSIDKIM, GrandSidData):
         GrandSidData.__init__(self, amc_id)
         ReaderSIDKIM.__init__(self, self.PARAMS, path)
         
-# One-liner subclasses for readability / registry keys
+# One-liner subclasses
 class ThreeSixtyOneSIDKIM(BaseSIDKIM): pass
 class AdityaBirlaSIDKIM(BaseSIDKIM): pass
 class AngelOneSIDKIM(BaseSIDKIM): pass
@@ -506,4 +506,4 @@ class UnifiSIDKIM(BaseSIDKIM): pass
 class JioBlackRockSIDKIM(BaseSIDKIM): pass
 class WealthCompanySIDKIM(BaseSIDKIM): pass
 class CapitalMindSIDKIM(BaseSIDKIM): pass
-class AbbakusSIDKIM(BaseSIDKIM):pass
+class AbakkusSIDKIM(BaseSIDKIM):pass

@@ -16,7 +16,7 @@
             <a href="{{ url_for('index') }}" data-action="back">
                 <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
             </a>
-            <h1>SP-Call/CSV/JSON</h1>
+            <h1>  CSV  <span class="material-symbols-outlined">swap_horiz</span>  JSON  <span class="material-symbols-outlined">line_end_arrow</span>  ADMIN  </h1>
         </div>
 
         <div class="editor-controls">
@@ -39,8 +39,11 @@
                 </label>
 
                 <div class="card-actions">
+                    <button class="nav-btn secondary" id="csvDldBtn" disabled>
+                        <span class="material-symbols-outlined">download_2</span>
+                    </button>
                     <button class="nav-btn" id="csvConvertBtn" disabled>
-                        Convert
+                       <span class="material-symbols-outlined" title = "convert to json">convert_to_text</span>
                     </button>
                 </div>
 
@@ -50,6 +53,9 @@
                     <span class="overlay-text">Uploading CSV…</span>
                 </div>
             </div>
+
+                <!-- <span class="material-symbols-outlined">swap_horiz</span> -->
+ 
 
             <!-- CARD 2: JSON -->
             <div class="csv-card" data-card="json" data-state="waiting">
@@ -61,13 +67,16 @@
                 </label>
 
                 <div class="card-actions">
+                    <button class="nav-btn" id="jsnConvertBtn" disabled>
+                       <span class="material-symbols-outlined" title = "convert to csv">table_convert</span>
+                    </button>
 
                     <button class="nav-btn secondary" id="jsonDldBtn" disabled>
-                        Download
+                        <span class="material-symbols-outlined">download_2</span>
                     </button>
 
                     <button class="nav-btn secondary" id="jsonViewBtn" disabled>
-                        View
+                       <span class="material-symbols-outlined">open_in_new</span>
                     </button>
                 </div>
 
@@ -82,7 +91,6 @@
                 <h3 class="title">ADMIN PANEL</h3>
 
                 <label class="csv-upload">
-                    <!-- <span class="material-symbols-outlined">database</span> -->
                     <pre id="statusConsole" class="mono"> Waiting for input…</pre>
                 </label>
 
