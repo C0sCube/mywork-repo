@@ -1,7 +1,10 @@
 
-import json,json5,os
+import json,json5,os, sys
 
-path_path = r"C:\Users\kaustubh.keny\Projects\OFFICE PROJECTS\mywork-repo\paths.json"
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_dir)
+
+path_path = os.path.join(root_dir, r"paths.json")
 
 def load_json(path: str):
     with open(path, "r", encoding="utf-8") as f:
@@ -76,7 +79,6 @@ def load_sidkimparams():
     return load_json5(sid_path)
 
 CHECK_INTERVAL = 10
-PROGRAM_NAME = "FS_JSON_PARSE"
 PAUSE = 5
 
 

@@ -193,7 +193,6 @@ a.logout-btn:focus-visible {
 
 .page-dashboard {
     height: calc(100vh - 120px);
-    /* header height */
     padding: 12px;
 }
 
@@ -204,13 +203,14 @@ a.logout-btn:focus-visible {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #e6e9f1;
 }
 
 /* ===============================
    TABLES (DASHBOARD)
    =============================== */
 .status-table {
-    width: 100%;
+    width: 99%;
     border-collapse: collapse;
     table-layout: fixed;
     font-size: 13px;
@@ -229,6 +229,33 @@ a.logout-btn:focus-visible {
     background: var(--dark);
     color: #fff;
 }
+
+.status-table a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+  text-underline-offset: 2px;
+}
+
+.status-table a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* status in table fail/success */
+.status-green {
+  color: #2e7d32;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.status-red {
+  color: #c62828;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
 
 /* ===============================
    MODALS

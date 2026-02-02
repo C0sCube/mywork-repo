@@ -9,109 +9,6 @@ from app.logger import get_global_logger
 class Helper:
     def __init__(self):
         self.logger = get_global_logger()
-
-        pass
-    #PARSING UTILS
-    def get_pdf_with_id(self,path: str) -> dict:
-        pdf_paths = defaultdict(list)
-
-        for root, _ , files in os.walk(path):
-            for file_name in files:
-                if file_name.endswith("FS.pdf"):
-                    self.logger.info(f"Factsheet Found: {file_name}")
-                    full_path = os.path.join(root, file_name)
-                    parts = file_name.split("_")
-                    fund_id = parts[0]
-
-                    is_passive = len(parts[-2]) == 1 #determine passive
-                    suffix = parts[-2] if is_passive else "0"
-                    fund_key = f"{fund_id}_{suffix}"
-                    
-                    # print(fund_key)
-                    pdf_paths[fund_key].append((file_name, full_path))
-                elif file_name.endswith("KIM.pdf") or file_name.endswith("SID.pdf"):
-                    full_path = os.path.join(root, file_name)
-                    # folder_name = os.path.basename(root).title()
-
-                    parts = file_name.split("_")
-                    fund_id = parts[0]
-                    typez = parts[-1].replace(".pdf","").upper()
-                    pdf_paths[fund_id].append((typez,file_name, full_path))
-                else:
-                    self.logger.info(f"File: {file_name} is neither a factsheet nor a SID/KIM document.")
-        return pdf_paths
-    
-    @staticmethod
-    def get_pdf_paths(base_path: str) -> dict:
-        pdf_paths = {}
-        suffix_map = {}
-        for root, _, files in os.walk(base_path):
-            folder_name = os.path.basename(root).title()
-
-            for file_name in files:
-                if file_name.lower().endswith(".pdf"):
-                    full_path = os.path.join(root, file_name)
-                    key = folder_name
-
-                    if key in pdf_paths:
-                        suffix = string.ascii_uppercase[suffix_map[key]]
-                        key = f"{folder_name}_{suffix}"
-                        suffix_map[folder_name] += 1
-                    else:
-                        suffix_map[folder_name] = 1
-
-                    pdf_paths[key] = full_path
-        return pdf_paths
-
-    @staticmethod
-    def get_amc_paths(base_path: str) -> dict:
-        """Returns a mapping of fund keys to (fund name, file path) for all FS.pdf files in a directory."""
-        fund_paths = {}
-        # logger = get_logger()
-        # logger.info(f"AMC At: {base_path}")
-        for root, _, files in os.walk(base_path):
-            # print(files)
-            for file_name in files:
-                if file_name.endswith("FS.pdf"):
-                    # print(file_name)
-                    full_path = os.path.join(root, file_name)
-                    folder_name = os.path.basename(root).title()
-
-                    parts = file_name.split("_")
-                    fund_id = parts[0]
-
-                    is_passive = len(parts[-2]) == 1 #determine passive
-                    suffix = parts[-2] if is_passive else "0"
-                    fund_key = f"{fund_id}_{suffix}"
-                    fund_name = f"{folder_name} Passive" if is_passive else folder_name
-
-                    # print(fund_name)
-                    fund_paths[fund_key] = (fund_name, full_path)
-
-                elif file_name.endswith("KIM.pdf") or file_name.endswith("SID.pdf"):
-                    full_path = os.path.join(root, file_name)
-                    folder_name = os.path.basename(root).title()
-
-                    parts = file_name.split("_")
-                    fund_id = parts[0]
-                    fund_paths[fund_id] = (folder_name, full_path)
-                     
-        return fund_paths
-
-    @staticmethod
-    def get_fund_paths(path:str):
-        mutual_fund_paths = {}
-        for root, dirs, files in os.walk(path):
-            file_found = False
-            for name in files:
-                if name.endswith((".pdf")) and not file_found:
-                    tmp = root.split("\\")
-                    key = tmp[-1].title()
-                    value = rf'{root}\{name}'
-                    mutual_fund_paths[key] = value
-                    file_found = True
-        
-        return mutual_fund_paths
     
     @staticmethod
     def delete_file_by_suffix(base_folder: str, suffixes=[ "_clipped.pdf","_ocr.pdf","_all_ocr.pdf","_hltd.pdf"]):
@@ -138,29 +35,7 @@ class Helper:
                 except Exception as e:
                     print(f"Failed to delete {file_path}: {e}")
 
-    @staticmethod
-    def copy_pdfs_to_folder(dest_folder: str, data):
 
-        if isinstance(data, dict):
-            file_paths = list(data.values())
-        elif isinstance(data, list):
-            file_paths = data
-        elif isinstance(data, str):
-            file_paths = [data]
-        else:
-            raise ValueError("Data must be a list of paths or a dict with path values")
-
-        for path in file_paths:
-            if not os.path.isfile(path):
-                continue
-            try:
-                file_name = os.path.basename(path)
-                dest_path = os.path.join(dest_folder, file_name)
-                shutil.copy2(path, dest_path)
-            except Exception as e:
-                # logger = get_logger()
-                # logger.error(f"Failed to copy '{path}' → {dest_folder}: {e}")
-                pass
     
     @staticmethod
     def clear_folder(folder_path):
@@ -242,7 +117,6 @@ class Helper:
 
         logger.info(f"Archived {copied} file(s) to {dest_folder}")
 
-
     @staticmethod
     def archive_and_delete_files(dest_folder: str, data):
         """Move one or more files to a destination folder."""
@@ -292,9 +166,10 @@ class Helper:
             json.dump(data, f, indent=indent)
 
     @staticmethod
-    def load_json(path: str):
-        # print(path)
-        with open(path, "r", encoding="utf-8") as f:
+    def load_json(file_path: str):
+        if not os.path.exists(file_path):
+            return
+        with open(file_path, "r", encoding="utf-8") as f:
             return json.load(f)
         
     @staticmethod
@@ -303,8 +178,10 @@ class Helper:
             json5.dump(data, f, indent=indent)
 
     @staticmethod
-    def load_json5(path: str):
-        with open(path, "r", encoding="utf-8") as f:
+    def load_json5(file_path: str):
+        if not os.path.exists(file_path):
+            return
+        with open(file_path, "r", encoding="utf-8") as f:
             return json5.load(f)
         
     @staticmethod

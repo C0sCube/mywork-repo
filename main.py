@@ -7,9 +7,7 @@ from zoneinfo import ZoneInfo
 
 from app.konstant import (
     get_input_path, get_output_path, create_dir,
-    load_db_config,
-    get_config, get_regex,
-    CHECK_INTERVAL, PAUSE
+    load_db_config,get_config, get_regex
 )
 
 from app.logger import setup_logger, rotate_daily_log
@@ -32,20 +30,7 @@ from app.sqlconnect import (
 # --------------------------------------------------
 # Helpers
 # --------------------------------------------------
-
-def detect_input_pdf():
-    try:
-        return sorted([
-            f for f in os.listdir(INPUT_DIR)
-            if os.path.isfile(os.path.join(INPUT_DIR, f))
-            and (f.endswith("_FS.pdf") or f.endswith("_SID.pdf") or f.endswith("_KIM.pdf"))
-        ])
-    except FileNotFoundError:
-        os.makedirs(INPUT_DIR, exist_ok=True)
-        return []
-
-
-def read_meta_content(root_dir, file_name):
+def read_meta(root_dir, file_name):
     meta_path = os.path.join(
         root_dir,
         file_name.replace(".pdf", ".meta.json")
@@ -60,12 +45,11 @@ def read_meta_content(root_dir, file_name):
     except Exception as e:
         logger.warning(f"Failed to read meta for {file_name}: {e}")
         return {}
-
+    
 # --------------------------------------------------
 # FS PARSER
 # --------------------------------------------------
-
-def execute_fs_parser(path, amc_id, year):
+def execute_fs(path, amc_id, year):
     file_name = os.path.basename(path)
     logger.info(f"Parsing FS: {file_name}")
 
@@ -100,12 +84,11 @@ def execute_fs_parser(path, amc_id, year):
         logger.error(f"[FS ERROR] {file_name}: {e}")
         logger.debug(traceback.format_exc())
         return {"error": str(e)}
-
+    
 # --------------------------------------------------
 # SID / KIM PARSER
 # --------------------------------------------------
-
-def execute_sidkim_parser(path, amc_id, sid_or_kim):
+def execute_sidkim(path, amc_id, sid_or_kim):
     file_name = os.path.basename(path)
     logger.info(f"Parsing {sid_or_kim}: {file_name}")
 
@@ -114,7 +97,7 @@ def execute_sidkim_parser(path, amc_id, sid_or_kim):
         if amc_id not in registry:
             raise ValueError("Unknown AMC ID")
 
-        meta = read_meta_content(INPUT_DIR, file_name)   
+        meta = read_meta(INPUT_DIR, file_name)   
         obj = registry[amc_id](amc_id, path)
 
         temp = {}
@@ -154,24 +137,42 @@ def execute_sidkim_parser(path, amc_id, sid_or_kim):
 
 def process_file(file_name, db_config):
     file_path = os.path.join(INPUT_DIR, file_name)
+    meta_path = file_path.replace(".pdf", ".meta.json")
+    archive_dir = FAILED_DIR  # default
 
     job = fetch_latest_uploaded_job(file_name, db_config)
     if not job:
-        logger.warning(f"No UPLOADED job found for {file_name}")
+        logger.warning(f"Illegal Upload. No UPLOADED job found: {file_name}")
+
+        Helper.archive_and_delete_files(archive_dir,{file_name: file_path})
+        os.path.exists(meta_path) and os.remove(meta_path)
         return
 
     job_id = job["id"]
+    logger.notice(f"START job={job_id} file={file_name}")
 
     amc_code, tag, file_type = check_amc_file(file_path, file_name)
 
     if not file_type:
+        logger.warning("File neither FS nor SID/KIM. Aborting.")
+
+        transition_job_state(
+            job_id,
+            JobState.UPLOADED,
+            JobState.INVALID_TYPE,
+            error="Unsupported file type",
+            db_config=db_config
+        )
+
+        Helper.archive_and_delete_files( archive_dir,{file_name: file_path})
+        os.path.exists(meta_path) and os.remove(meta_path)
         return
 
+    # ---------- Parse ----------
     if file_type == "FS":
-        result = execute_fs_parser(file_path, amc_code, tag)
-
-    else:  # SIDKIM
-        result = execute_sidkim_parser(file_path, amc_code, tag)
+        result = execute_fs(file_path, amc_code, tag)
+    else:  # SID / KIM
+        result = execute_sidkim(file_path, amc_code, tag)
 
     # ---------- State transition ----------
     if "json_path" in result:
@@ -184,56 +185,50 @@ def process_file(file_name, db_config):
         )
 
         archive_dir = (
-            PRS_FS_DIR if file_name.endswith("_FS.pdf")
-            else PRS_SID_DIR if file_name.endswith("_SID.pdf")
-            else PRS_KIM_DIR
+            FST_DIR if file_name.endswith("_FS.pdf")
+            else SID_DIR if file_name.endswith("_SID.pdf")
+            else KIM_DIR
         )
-
     else:
         transition_job_state(
             job_id,
             JobState.UPLOADED,
             JobState.PARSE_FAILED,
-            error=result["error"],
+            error=result.get("error", "Unknown parse error"),
             db_config=db_config
         )
 
-        archive_dir = FAILED_DIR
+    # ---------- Archive + Cleanup ----------
+    Helper.archive_and_delete_files( archive_dir, {file_name: file_path})
+    os.path.exists(meta_path) and os.remove(meta_path)
+    logger.notice(f"END job={job_id}")
 
-    # ---------- Archive ----------
-    Helper.archive_and_delete_files(
-        archive_dir,
-        {file_name: file_path}
-    )
 
-    # ---------- Cleanup meta ----------
-    meta_path = file_path.replace(".pdf", ".meta.json")
-    if os.path.exists(meta_path):
-        os.remove(meta_path)
 
 # --------------------------------------------------
 # MAIN LOOP
 # --------------------------------------------------
 
 def main():
-    logger.info("Watcher started")
-
+   
     while True:
         try:
-            files = detect_input_pdf()
+            files = [ f for f in os.listdir(INPUT_DIR) if f.lower().endswith(".pdf") ]
 
             if not files:
                 time.sleep(CHECK_INTERVAL)
-                rotate_daily_log(logger)
                 continue
 
             db_config = load_db_config()
-
+            rotate_daily_log(logger)
+            
+            processed = []
             for f in files:
                 process_file(f, db_config)
+                processed.append(f)
                 time.sleep(1)
 
-            logger.save(f"Processed: {', '.join(files)}")
+            logger.save(f"Processed File(s): {processed}")
 
         except KeyboardInterrupt:
             logger.warning("Watcher stopped")
@@ -253,15 +248,18 @@ if __name__ == "__main__":
 
     OUTPUT_DIR = get_output_path()
     INPUT_DIR = get_input_path()
+    CHECK_INTERVAL = 20
 
     JSON_DIR = create_dir(OUTPUT_DIR, "json")
     LOG_DIR = create_dir(OUTPUT_DIR, "logs")
+    
     PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
-
-    PRS_FS_DIR = create_dir(PROCESSED_DIR, "fs")
-    PRS_SID_DIR = create_dir(PROCESSED_DIR, "sid")
-    PRS_KIM_DIR = create_dir(PROCESSED_DIR, "kim")
     FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
+
+    FST_DIR = create_dir(PROCESSED_DIR, "fs")
+    SID_DIR = create_dir(PROCESSED_DIR, "sid")
+    KIM_DIR = create_dir(PROCESSED_DIR, "kim")
+    
 
     logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12, set_global=True)
 

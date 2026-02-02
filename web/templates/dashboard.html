@@ -20,13 +20,6 @@
         </div>
 
         <div class="user-section">
-            <a href="{{ url_for('csv_to_json') }}" class="nav-btn" data-action="new-tab">
-                <span class="material-symbols-outlined" title="csv-json-sp">convert_to_text</span>
-            </a>
-
-            <a href="{{ url_for('daily_logs') }}" class="nav-btn" data-action="new-tab">
-                <span class="material-symbols-outlined" title="log-book">book_2</span>
-            </a>
 
             <button class="nav-btn" data-action="open-upload">
                 <span class="material-symbols-outlined" title="upload-factsheet">upload_file</span>
@@ -34,6 +27,16 @@
 
             <a href="{{ url_for('sid_data') }}" class="nav-btn" data-action="new-tab" title="upload-sid/kim">
                 <strong>SIID</strong>
+            </a>
+
+            <div class="space">     |     </div>
+
+            <a href="{{ url_for('csv_to_json') }}" class="nav-btn" data-action="new-tab">
+                <span class="material-symbols-outlined" title="csv-json-sp">convert_to_text</span>
+            </a>
+
+            <a href="{{ url_for('daily_logs') }}" class="nav-btn" data-action="new-tab">
+                <span class="material-symbols-outlined" title="log-book">book_2</span>
             </a>
 
             {% if role == 'admin' %}
@@ -48,7 +51,7 @@
             <span class="user-name">{{ user|capitalize }}</span>
 
             <a href="{{ url_for('logout') }}" class="logout-btn">
-                <span class="material-symbols-outlined">logout</span>
+                <span class="material-symbols-outlined">exit_to_app</span>
             </a>
         </div>
     </header>

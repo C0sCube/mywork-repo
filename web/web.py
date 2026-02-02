@@ -178,7 +178,7 @@ def reprocess(job_id):
         JobState.PARSED: JobState.UPLOADED,
         JobState.PARSE_FAILED: JobState.UPLOADED,
         JobState.PUSH_FAILED: JobState.UPLOADED,
-        JobState.PUSHED: JobState.UPLOADED,   # ✅ THIS IS THE KEY ADDITION
+        JobState.PUSHED: JobState.UPLOADED, 
     }
 
     user = session.get("user", "unknown")
@@ -1279,71 +1279,8 @@ if __name__ == '__main__':
     
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    host = "NCOG-LPT-TCH-32.Cogencis.com"
-    port = 5000
-    app.run(debug=True, host=host, port=port)
+    # host = "NCOG-LPT-TCH-32.Cogencis.com"
+    # port = 5000
+    # app.run(debug=True, host=host, port=port)
 
-    # app.run(debug=True, host="127.0.0.1", port=5055)
-
-
-
-
-"""
-   <div class="page csvtojson">
-        <div class="csv-container">
-
-            <!-- CARD 1: CSV UPLOAD -->
-            <div class="csv-card">
-                <h3 class="title">UPLOAD</h3>
-                <label class="csv-upload">
-                    <span class="material-symbols-outlined">csv</span>
-                    <input type="file" id="csvInput" accept=".csv" hidden>
-                </label>
-                <div class="card-actions">
-                    <button class="nav-btn" id="csvConvertBtn" disabled>
-                        Convert
-                    </button>
-
-                    <!-- <button class="nav-btn secondary" id="csvDownloadBtn" disabled>
-                        Download
-                    </button> -->
-                </div>
-            </div>
-
-            <!-- CARD 2: JSON UPLOAD -->
-            <div class="csv-card">
-                <h3 class="title">UPLOAD</h3>
-
-                <label class="csv-upload">
-                    <span class="material-symbols-outlined">file_json</span>
-
-                    <input type="file" id="inputJson" accept=".json" hidden>
-                </label>
-
-                <div class="card-actions">
-                    <button class="nav-btn" id="jsonPushBtn" disabled>
-                        Admin Panel
-                    </button>
-
-                    <button class="nav-btn secondary" id="jsonViewBtn" disabled>
-                        View
-                    </button>
-                </div>
-            </div>
-
-            <!-- CARD 3: STATUS -->
-            <div class="csv-card">
-                <h3 class="title">Admin Panel</h3>
-
-                <label class="csv-upload">
-                    <span class="material-symbols-outlined">database</span>
-                </label>
-                <pre id="statusConsole" class="mono"> Waiting for input… </pre>
-            </div>
-
-        </div>
-
-
-    </div>
-
-"""
+    app.run(debug=True, host="127.0.0.1", port=5055)

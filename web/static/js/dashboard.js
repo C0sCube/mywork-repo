@@ -167,15 +167,15 @@ function renderTable(rows) {
     table.innerHTML = `
     <tr>
       <th style = "width:40px">#</th>
-      <th style = "width:285px" >File</th>
-      <th style = "width:130px" >Processed</th>
-      <th style = "width:110px" >Status</th>
+      <th style = "width:270px" >File</th>
       <th style = "width:150px" >User</th>
+      <th style = "width:120px" >Start Time</th>
+      <th style = "width:110px" >Status</th>
       <th style = "width:fill">Error</th>
       <th style = "width:75px" >JSON</th>
       <th style = "width:45px" >CSV</th>
       <th style = "width:65px" >Push</th>
-      <th style = "width:50px" >RePr</th>
+      <th style = "width:40px" >Rpr</th>
     </tr>`;
 
 
@@ -200,14 +200,14 @@ function renderTable(rows) {
         tr.innerHTML = `
         <td>${(currentPage - 1) * pageSize + i + 1}</td>
         <td><a href="/viewer/pdf/${row.file_name}" target="_blank">${row.file_name}</a></td>
+        <td>${formatUser(row.uploaded_by)}</td>
         <td>${formatUTCDate(row.end_time)}</td>
-        <td>${row.status || "-"}</td>
-        <td>${row.uploaded_by}</td>
+        <td class="${getStatusClass(row.status)}">${row.status|| "-"}</td>
         <td>${row.error || "-"}</td>
         <td>${row.json_path ? `<a href="/viewer/json/dashboard/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""} ${row.json_path ? `<a href="/download_json?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}</td>
         <td>${row.json_path ? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
         <td>${pushCell}</td>
-        <td><button class="icon-btn" onclick="confirmReprocess(${row.id})"><span class="material-symbols-outlined">autorenew</span></button></td>`;
+        <td><span class="material-symbols-outlined icon-action" title="Reprocess" onclick="confirmReprocess(${row.id})">autorenew</span></td>`;
         table.appendChild(tr);
     });
 
@@ -263,7 +263,30 @@ function formatUTCDate(dateString) {
         minute: "2-digit",
         hour12: false,
         timeZone: "UTC"
-    });
+    }).replace(",", "");
+}
+
+function getStatusClass(status) {
+  if (status === "PUSHED" || status === "PARSED") {
+    return "status-green";
+  }
+
+  if (status === "PARSE_FAILED" || status === "PUSH_FAILED" || status === "INVALID_TYPE") {
+    return "status-red";
+  }
+
+  return "";
+}
+
+function formatUser(u) {
+  if (!u) return "-";
+
+  const parts = u.split(".");
+  if (parts.length !== 2) return u;
+
+  const cap = s => s[0].toUpperCase() + s.slice(1).toLowerCase();
+
+  return `${cap(parts[0])}.${cap(parts[1])}`;
 }
 
 

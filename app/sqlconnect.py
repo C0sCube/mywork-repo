@@ -16,14 +16,16 @@ class JobState:
     APPROVED = "APPROVED"
     PUSHED = "PUSHED"
     PUSH_FAILED = "PUSH_FAILED"
+    INVALID_TYPE = "INVALID_TYPE"
 
 
 ALLOWED_TRANSITIONS = {
-    JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED},
-    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED,JobState.UPLOADED},
+    JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED,JobState.INVALID_TYPE},
+    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED},
     JobState.PARSE_FAILED: {JobState.UPLOADED},
     JobState.PUSH_FAILED: {JobState.PARSED},
-    JobState.PUSHED: {JobState.UPLOADED},   # ✅ REQUIRED for reprocess
+    JobState.INVALID_TYPE:{JobState.UPLOADED},
+    JobState.PUSHED: {JobState.UPLOADED},   #  REQUIRED for reprocess
 }
 
 # REPROCESS_TARGET = {
@@ -282,20 +284,3 @@ def increment_push_attempts(job_id: int, db_config: dict):
     conn.close()
 
 
-
-
-
-
-
-
-
-
-# =====================================================
-# LEGACY (DEPRECATED — DO NOT USE FOR JOB PIPELINE)
-# =====================================================
-
-# These functions exist only to support old code paths.
-# ❌ DO NOT use them in new code.
-
-def update_report_table(*args, **kwargs):
-    raise RuntimeError("update_report_table is deprecated. Use job-based APIs.")
