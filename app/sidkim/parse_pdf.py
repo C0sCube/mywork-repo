@@ -158,8 +158,9 @@ class ReaderSIDKIM:
     # =================== KIM ===================
     
     def parse_KIM_data(self,pages:str, instrument_count = "2")->dict:
-        # print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["kim"] = int(pages[0])
+
+        self.FIELD_LOCATION["kim"] = int(pages) if pages else 0
+
         kim_params = self.PARAMS["kim"]
         
         dfs = self._table_parser.extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
@@ -185,9 +186,9 @@ class ReaderSIDKIM:
             values = self._regex._normalize_alphanumeric_and_symbol(values,"%&")
             asset_list.append(values)
         final_data["asset_allocation_pattern"] = asset_list
+    
             
         return final_data
-        # return dfs
     
     def _refine_extracted_data(self,extracted_text:dict,level:str)->dict:
         refine = {}
@@ -290,6 +291,15 @@ class ReaderSIDKIM:
         if sid_or_kim == "kim":
             temp = self._map_json_ops(temp,typez=sid_or_kim)
             temp = self._asset_ops(temp)
+            
+            temp.update({
+                "field_location":[{
+                    "asset_allocation_pattern": self.FIELD_LOCATION["kim"],
+                    "main_scheme_name": 1,
+                    "mutual_fund_name": 1
+
+                }]
+            })
             temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
         
         if special_func:

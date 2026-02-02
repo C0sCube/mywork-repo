@@ -1,2 +1,13 @@
-amc_name,main_scheme_name,mutual_fund_name,benchmark_index,monthly_aaum_date,monthly_aaum_value,scheme_launch_date,min_addl_amt,min_addl_amt_multiple,min_amt,min_amt_multiple,entry,exit,alpha,arithmetic_mean_ratio,average_div_yield,average_pb,average_pe,avg_maturity,beta,correlation_ratio,downside_deviation,information_ratio,macaulay,mod_duration,port_turnover_ratio,r_squared_ratio,roe_ratio,sharpe,sortino_ratio,std_dev,tracking_error,treynor_ratio,upside_deviation,ytm,field_location
-Wealth Company Asset Management Holdings Private Limited,THE WEALTH COMPANY BALANCED ADVANTAGE FUND,The Wealth Company Mutual Fund,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{}
+key,value
+amc_name,Wealth Company Asset Management Holdings Private Limited
+main_scheme_name,THE WEALTH COMPANY BALANCED ADVANTAGE FUND
+mutual_fund_name,The Wealth Company Mutual Fund
+description,
+field_location,[{}]
+
+
+instrument_type,min,max,total,risk_profile
+Equity & Equity Related Instruments,65,100,,
+Debt Securities And Money Market Instruments And Government Securities,10,35,,
+
+

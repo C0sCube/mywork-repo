@@ -1,10 +1,10 @@
 {
-  "AMC_NAME": "Choice Mutual Fund",
+  "AMC_NAME": "Abakkus Mutual Fund",
   "CLONEKEYS": {},
   "DUPLICATE_MUTUAL_FUNDS": {},
   "IMP_DATA": {
-    "amc_name": "Choice AMC Private Limited",
-    "mutual_fund_name": "Choice Mutual Fund"
+    "amc_name": "Abakkus Asset Management Private Limited",
+    "mutual_fund_name": "Abakkus Mutual Fund"
   },
   "MAIN_MAP": {
     "map": true,
@@ -12,26 +12,27 @@
     "special": true
   },
   "MERGEKEYS": {
-    "metrics": [
-      ".*tracking_error",
-      ".*portfolio_turnover"
-    ],
     "load": [
-      ".*load_structure"
+      ".*(entry_load|exit_load)"
+    ],
+    "metrics": [
+      ".*quantitative_indicators",
+      ".*quantitative_data",
+      ".*total_expense_ratio"
     ]
   },
   "PARAMS": {
     "clip_bbox": [
       [
         0,
-        150,
-        300,
+        85,
+        250,
         850
       ],
       [
-        240,
-        90,
-        590,
+        245,
+        80,
+        580,
         850
       ]
     ],
@@ -63,11 +64,11 @@
       "bbox": [
         0,
         0,
-        515,
-        190
+        430,
+        80
       ],
       "ocr": false,
-      "pattern": "((?:Choice|CHOICE).+?(?:Fund|ETF|F[Oo]F|Index|Path|Duration|Index|Plan)\\s*(?:.+?Growth|F[Oo]F|Fund of Funds?|of Funds?|Fund?)?)"
+      "pattern": "(Abakkus.+?(?:Fund|ETF|F[Oo]F|Index|Path|Duration|Index|Plan)\\s*(?:.+?Growth|F[Oo]F|Fund of Funds?|of Funds?|Fund?)?)"
     },
     "update_min_add": false
   },
@@ -75,10 +76,6 @@
     "^before.*": [
       "_extract_scheme_data",
       "scheme"
-    ],
-    "^dummy.*": [
-      "_extract_scheme_data",
-      "scheme2"
     ]
   },
   "PRE_DATA_SELECT": [],
@@ -86,67 +83,65 @@
   "REGEX": {
     "aum": "[\\d,.]+\\s*crores?\\s*([\\d,.]+\\s*crores?)",
     "date": "([A-Za-z]+\\s*\\d{2}\\,\\s*\\d{4})",
-    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
-    "load": "Entry Load (.*?)Exit load (.*)$",
+    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
+    "load": "Entry Load(.*)Exit Load(.*)$",
     "manager": {
-      "fields": [
-        "name",
-        "since",
-        "exp"
-      ],
-      "pattern": "([A-Za-z]+\\s+[A-Za-z]+)\\s*\\(.+?since([A-Za-z0-9\\s\\,]+)\\).+?more than (\\d+ [Yy]ears?)"
+      "name": "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s+[A-Za-z]+)",
+      "exp": "(\\d{1,2}\\s+[Yy]ears?)",
+      "since": "([iI]nception|\\d{1,2}\\-[A-Za-z]{3\\-\\d{2})"
     },
     "metrics": "(Yield to Maturity|Actual Duration|Macaulay Duration|Yield\\s*to|average maturity|Modified Duration|Tracking\\s*Error|Portfolio\\s*Turnover\\s*Ratio)(?:\\(.+?\\))?\\s*\\-?\\:?\\s*((?:\\([Dd]ays?\\)|\\([Mm]onths?\\)|\\([Yy]ears?\\)|%)?\\s*-?\\d+\\.?\\d*\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Cc]rores?|%)?)",
     "min_amt": "([\\d,]+).*?(\\d+|any)",
     "scheme": [
-      "Type of Scheme",
-      "Investment Objective",
-      "Date of Allotment",
-      "Fund Manager",
-      "Average AUM",
-      "AUM as on",
-      "NAV as on",
-      "Load Structure",
-      "Benchmark",
-      "Total Expense Ratio",
+      "INVESTMENT OBJECTIVE",
+      "Benchmark:?",
+      "Plans\\s*(?:&|and)\\s*Options",
+      "(?:Inception\\s*Date|Date of Allotment)",
+      "Allotment Date:?",
+      "Minimum Investment",
+      "Minimum Additional Purchase",
+      "Fund Manager:?",
+      "Entry Load:?",
+      "Exit Load:?",
+      "Face Value per",
+      "Monthly\\s*[aA]vg\\s*AUM",
+      "Month\\s*[Ee]nd\\s*AUM",
+      "Total Expense Ratio|TOTAL EXPENSE RATIO",
       "EOL"
     ],
     "scheme2": [
-      "Portfolio Turnover",
-      "Dividend History",
-      "Tracking Error as on",
-      "Exchange Listed",
+      "Top 10 Portfolio",
+      "Quantitative\\s*Data",
       "EOL"
-    ],
-    "decimal": "(\\d+\\.\\d+)"
+    ]
   },
   "SECONDARY_PATTERN_TO_FUNCTION": {
-    ".*(tracking_error|portfolio_turnover)": [
+    ".*(minimum_additional|minimum_investment)": [
+      "_extract_amt_data",
+      "min_amt"
+    ],
+    ".*(quantitative_data|total_expense_ratio)": [
       "_extract_generic_data",
-      "decimal"
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
-    ".*load_structure": [
-      "_extract_load_data",
-      "load"
+      "metrics"
     ]
   },
   "SELECTKEYS": [
     "load",
     "metrics",
+    ".*(minimum_investment|minimum_additional)",
     ".*fund_manager",
-    ".*(inception_date|date_of_allotment)$",
+    ".*(allotment_date|inception_date|date_of_allotment)$",
     ".*benchmark",
-    ".*average_aum$",
+    ".*monthly_avg_aum$",
     "amc_name",
     "main_scheme_name",
     "page_number",
     "monthly_aaum_date",
     "mutual_fund_name"
   ],
-  "SPECIAL_FUNCTIONS": {},
-  "TERTIARY_PATTERN_TO_FUNCTION": {}
+  "SPECIAL_FUNCTIONS": {
+    "fund_manager": "_update_manager_data"
+  },
+  "TERTIARY_PATTERN_TO_FUNCTION": {},
+  "Z_MUTUAL_FUND_DATA": {}
 }

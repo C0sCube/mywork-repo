@@ -20,12 +20,19 @@ class JobState:
 
 ALLOWED_TRANSITIONS = {
     JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED},
-    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED},
+    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED,JobState.UPLOADED},
     JobState.PARSE_FAILED: {JobState.UPLOADED},
     JobState.PUSH_FAILED: {JobState.PARSED},
     JobState.PUSHED: {JobState.UPLOADED},   # ✅ REQUIRED for reprocess
 }
 
+# REPROCESS_TARGET = {
+#     JobState.UPLOADED: JobState.UPLOADED,
+#     JobState.PARSED: JobState.UPLOADED,
+#     JobState.PARSE_FAILED: JobState.UPLOADED,
+#     JobState.PUSH_FAILED: JobState.UPLOADED,
+#     JobState.PUSHED: JobState.UPLOADED,
+# }
 
 TABLE_REPORT = "mf_status_report"
 

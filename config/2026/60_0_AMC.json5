@@ -1,1 +1,148 @@
-{AMC_NAME: "Helios Mutual Fund", MAIN_MAP: {select: true, map: true, special: true}, IMP_DATA: {amc_name: "Helios Capital Asset Management Limited", mutual_fund_name: "Helios Mutual Fund"}, PARAMS: {title: {ocr: false, pattern: "(Helios.*)", bbox: [0, 0, 600, 40]}, clip_bbox: [[0, 5, 245, 812]], line_x: 245.0, data: {size: [7, 10], color: [-30], update_size: 30.0, font: ["Poppins-SemiBold"]}, content_size: [30.0, 10.0], method: "line", line_side: "left", max_financial_index_highlight: 6, sanitize_fund: false, pdf_ocr: false, stop_words: [], update_min_add: false}, DUPLICATE_MUTUAL_FUNDS: {}, PRE_DATA_SELECT: [], REGEX: {date: "([0-9a-z]+\\s*[A-Za-z]+\\s*\\d{3,4})", benchmark: "((?:Nifty|BSE|CRISIL|Domestic|NYSE).+$)", metric: "(Equity Turnover|Total Turnover|Sharpe Ratio|Standard Deviation|Beta|Annualised|Average Maturity|Modi?f?ied Duration|Macaulay Duration|Yield to Maturity)\\s*(-?\\d+\\,?\\.?\\d*\\s*(?:days?|months?|years?|times?)?)", scheme: ["Scheme Category", "Benchmark\\s*\\:?", "Plans and Options", "Inception Date\\s*\\:?", "Minimum Investment Amount\\s*\\:?", "Additional Investment Amount\\s*\\:?", "Fund Manager\\s*\\:?", "Entry Load\\s*\\:?", "Exit Load\\s*\\:?", "Face Value per Unit", "Monthly Avg AUM\\s*\\:?", "Month end AUM\\s*\\:?", "Total Expense Ratio\\s*\\:?", "EOL"], min_amt: "([\\d,]+).*?([\\d,]+)", ptr: "(Equity Turnover|Total Turnover)\\s*([\\d,.\\-]+)", manager: {pattern: "(?:Mr\\.?|Ms\\.?|Mrs\\.?)?\\s*([\\w\\s]+)(?:\\([^)]+\\))?\\s*\\(Since ([^)]+)\\s*Overall\\s*(\\d+ years)", fields: ["name", "since", "exp"]}, escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualised\\)"}, PATTERN_TO_FUNCTION: {"^(before|dummy)": ["_extract_scheme_non_esc_data", "scheme"]}, SECONDARY_PATTERN_TO_FUNCTION: {".*fund_manager$": ["_extract_manager_data", "manager"], ".*investment_amount$": ["_extract_amt_data", "min_amt"], ".*total_expense_ratio$": ["_extract_generic_data", "metric"], ".*benchmark": ["_extract_generic_data", "benchmark"], ".*inception_date": ["_extract_generic_data", "date"]}, TERTIARY_PATTERN_TO_FUNCTION: {}, SELECTKEYS: [".*(benchmark|inception_date|fund_manager)$", ".*(investment_amount)$", "load", "main_scheme_name", "monthly_aaum_date", "amc_name", "pgn", ".*monthly_avg_aum", "metrics", "mutual_fund_name", "^page_number"], MERGEKEYS: {load: [".*entry_load", ".*exit_load"], metrics: ["metrics", "portfolio_turnover_times.total_turnover", ".*total_expense_ratio"]}, CLONEKEYS: {}, PROMOTE_KEYS: {}, SPECIAL_FUNCTIONS: {}, Z_MUTUAL_FUND_DATA: {}}
+{
+  "AMC_NAME": "Helios Mutual Fund",
+  "CLONEKEYS": {},
+  "DUPLICATE_MUTUAL_FUNDS": {},
+  "IMP_DATA": {
+    "amc_name": "Helios Capital Asset Management Limited",
+    "mutual_fund_name": "Helios Mutual Fund"
+  },
+  "MAIN_MAP": {
+    "map": true,
+    "select": true,
+    "special": true
+  },
+  "MERGEKEYS": {
+    "load": [
+      ".*entry_load",
+      ".*exit_load"
+    ],
+    "metrics": [
+      "metrics",
+      "portfolio_turnover_times.total_turnover",
+      ".*total_expense_ratio"
+    ]
+  },
+  "PARAMS": {
+    "clip_bbox": [
+      [
+        0,
+        5,
+        245,
+        812
+      ]
+    ],
+    "content_size": [
+      30,
+      10
+    ],
+    "data": {
+      "color": [
+        -30
+      ],
+      "font": [
+        "Poppins-SemiBold"
+      ],
+      "size": [
+        7,
+        10
+      ],
+      "update_size": 30
+    },
+    "line_side": "left",
+    "line_x": 245,
+    "max_financial_index_highlight": 6,
+    "method": "line",
+    "pdf_ocr": false,
+    "sanitize_fund": false,
+    "stop_words": [],
+    "title": {
+      "bbox": [
+        0,
+        0,
+        600,
+        40
+      ],
+      "ocr": false,
+      "pattern": "(Helios.*)"
+    },
+    "update_min_add": false
+  },
+  "PATTERN_TO_FUNCTION": {
+    "^(before|dummy)": [
+      "_extract_scheme_non_esc_data",
+      "scheme"
+    ]
+  },
+  "PRE_DATA_SELECT": [],
+  "PROMOTE_KEYS": {},
+  "REGEX": {
+    "benchmark": "((?:Nifty|BSE|CRISIL|Domestic|NYSE).+$)",
+    "date": "([0-9a-z]+\\s*[A-Za-z]+\\s*\\d{3,4})",
+    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(Annualised\\)",
+    "manager": {
+      "fields": [
+        "name",
+        "since",
+        "exp"
+      ],
+      "pattern": "(?:Mr\\.?|Ms\\.?|Mrs\\.?)?\\s*([\\w\\s]+)(?:\\([^)]+\\))?\\s*\\(Since ([^)]+)\\s*Overall\\s*(\\d+ years)"
+    },
+    "metric": "(Equity Turnover|Total Turnover|Sharpe Ratio|Standard Deviation|Beta|Annualised|Average Maturity|Modi?f?ied Duration|Macaulay Duration|Yield to Maturity)\\s*(-?\\d+\\,?\\.?\\d*\\s*(?:days?|months?|years?|times?)?)",
+    "min_amt": "([\\d,]+).*?([\\d,]+)",
+    "ptr": "(Equity Turnover|Total Turnover)\\s*([\\d,.\\-]+)",
+    "scheme": [
+      "Scheme Category",
+      "Benchmark\\s*\\:?",
+      "Plans and Options",
+      "Inception Date\\s*\\:?",
+      "Minimum Investment Amount\\s*\\:?",
+      "Additional Investment Amount\\s*\\:?",
+      "Fund Manager\\s*\\:?",
+      "Entry Load\\s*\\:?",
+      "Exit Load\\s*\\:?",
+      "Face Value per Unit",
+      "Monthly Avg AUM\\s*\\:?",
+      "Month end AUM\\s*\\:?",
+      "Total Expense Ratio\\s*\\:?",
+      "EOL"
+    ]
+  },
+  "SECONDARY_PATTERN_TO_FUNCTION": {
+    ".*benchmark": [
+      "_extract_generic_data",
+      "benchmark"
+    ],
+    ".*fund_manager$": [
+      "_extract_manager_data",
+      "manager"
+    ],
+    ".*inception_date": [
+      "_extract_generic_data",
+      "date"
+    ],
+    ".*investment_amount$": [
+      "_extract_amt_data",
+      "min_amt"
+    ],
+    ".*total_expense_ratio$": [
+      "_extract_generic_data",
+      "metric"
+    ]
+  },
+  "SELECTKEYS": [
+    ".*(benchmark|inception_date|fund_manager)$",
+    ".*(investment_amount)$",
+    "load",
+    "main_scheme_name",
+    "monthly_aaum_date",
+    "amc_name",
+    "pgn",
+    ".*monthly_avg_aum",
+    "metrics",
+    "mutual_fund_name",
+    "^page_number"
+  ],
+  "SPECIAL_FUNCTIONS": {},
+  "TERTIARY_PATTERN_TO_FUNCTION": {},
+  "Z_MUTUAL_FUND_DATA": {}
+}

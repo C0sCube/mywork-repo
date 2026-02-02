@@ -1,19 +1,26 @@
 {
   "metadata": {
-    "document_name": "100_17921_Jan-2026_1767758295_KIM.csv",
+    "document_name": "27_18016_Jan-2026_1769757893_KIM.csv",
     "file_type": "kim",
     "process_date": "20260202"
   },
   "records": [
     {
       "value": {
-        "amc_name": "Wealth Company Asset Management Holdings Private Limited",
-        "main_scheme_name": "THE WEALTH COMPANY GOLD ETF FOF",
-        "mutual_fund_name": "The Wealth Company Mutual Fund",
+        "amc_name": "Mirae Asset Asset Management Limited",
+        "main_scheme_name": "Mirae Asset BSE India Defence ETF FOF",
+        "mutual_fund_name": "Mirae Asset Mutual Fund",
         "description": "",
+        "field_location": [
+          {
+            "asset_allocation_pattern": 3,
+            "main_scheme_name": 1,
+            "mutual_fund_name": 1
+          }
+        ],
         "asset_allocation_pattern": [
           {
-            "instrument_type": "Units Of The Wealth Company Gold Etf",
+            "instrument_type": "Units Of Mirae Asset Bse India Defence Etf",
             "risk_profile": "",
             "allocation": [
               {
@@ -31,7 +38,7 @@
             ]
           },
           {
-            "instrument_type": "Debt Securities And Money Market Instruments And Government Securities",
+            "instrument_type": "Money Market Instruments Debt Securities Instruments And Or Units Of Debt Liquid Schemes Of Domestic Mutual Funds",
             "risk_profile": "",
             "allocation": [
               {

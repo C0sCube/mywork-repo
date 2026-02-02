@@ -1,4 +1,4 @@
-import inspect, datetime, os,sys,re
+import inspect, datetime, os,sys,re, unicodedata
 from dateutil import parser #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -80,6 +80,29 @@ class SidKimRegex():
         text = re.sub(r"[^A-Za-z0-9\%\s]+","",text,re.IGNORECASE)
         text = re.sub(r"\s+"," ",text)
         return text.strip().lower()
+    
+    def _normalize_unicode(self,val):
+        CONTROL_CHARS = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]")
+        if val is None:
+            return ""
+        s = str(val)
+        s = unicodedata.normalize("NFKC", s)
+        s = CONTROL_CHARS.sub("", s)
+        replacements = {
+            "\u2022": "-",   # bullet
+            "\u2013": "-",   # en-dash
+            "\u2014": "-",   # em-dash
+            "\u2019": "'",   # right quote
+            "\u2018": "'",   # left quote
+            "\u201C": '"',   # left double quote
+            "\u201D": '"',   # right double quote
+            "\uFEFF": "",    # BOM
+        }
+
+        for k, v in replacements.items():
+            s = s.replace(k, v)
+
+        return " ".join(s.split())
 
     def _transform_keys(self, data:dict)->dict: #lowercase
         if isinstance(data, dict):
@@ -127,7 +150,10 @@ class SidKimRegex():
         return {k:data[k] for k in sorted(data)} #sorted
                 
     def _field_locations(self, data: dict, field_location: dict, typez: str) -> dict:
-        FIELD_LOC = self.SID_FIELD_LOC if typez == "sid" else self.KIM_FIELD_LOC
+        
+        if typez == "kim":
+            return data
+        FIELD_LOC = self.SID_FIELD_LOC
         final_dict = {}
 
         for key, value in FIELD_LOC.items():
@@ -140,13 +166,11 @@ class SidKimRegex():
                     final_dict[index] = page_number
 
         data["field_location"] = [{k:v for k,v in sorted(final_dict.items())}]
-        # print(field_location)
-        # print(FIELD_LOC)
         return dict(sorted(data.items()))
 
     def _final_json_construct(self,data:dict,doc_name:str, typez="")->dict:
         
-        data = {k:self._clean_leading_specials(self._normalize_whitespace(v)) if isinstance(v,str) else v for k,v in data.items()}
+        data = {k:self._clean_leading_specials(self._normalize_unicode(v)) if isinstance(v,str) else v for k,v in data.items()}
         if typez == "SID" or typez == "sid": 
             file_type = typez
             return {

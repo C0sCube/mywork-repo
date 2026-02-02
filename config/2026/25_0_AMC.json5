@@ -61,7 +61,7 @@
     ".*nav$": ["_extract_generic_data", "metric"],
     ".*minimum_investment": ["_extract_amt_data", "min_amt"],
     ".*average_aum": ["_extract_generic_data", "aum"],
-    ".*fund_manager": ["_update_manager_data", null],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

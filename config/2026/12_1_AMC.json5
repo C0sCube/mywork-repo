@@ -1,44 +1,94 @@
 {
-  AMC_NAME: "Hdfc Mutual Fund Passive",
-  MAIN_MAP: { select: true, map: true, special: true },
-  IMP_DATA: {
-    amc_name: "HDFC Asset Management Company Limited",
-    mutual_fund_name: "HDFC Mutual Fund",
+  "AMC_NAME": "Hdfc Mutual Fund Passive",
+  "CLONEKEYS": {},
+  "DUPLICATE_MUTUAL_FUNDS": {},
+  "IMP_DATA": {
+    "amc_name": "HDFC Asset Management Company Limited",
+    "mutual_fund_name": "HDFC Mutual Fund"
   },
-  PARAMS: {
-    title: {
-      ocr: false,
-      pattern: "(HDFC.*?(?:FUND|Fund|ETF|FO?o?F|Index|Active)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
-      bbox: [0, 0, 400, 60],
-    },
-    clip_bbox: [
-      [0, 70, 190, 812],
-      [370, 100, 570, 812],
+  "MAIN_MAP": {
+    "map": true,
+    "select": true,
+    "special": true
+  },
+  "MERGEKEYS": {
+    "load": [
+      "exit_load"
     ],
-    line_x: 200.0,
-    data: {
-      size: [5, 13],
-      color: [666],
-      update_size: 30.0,
-      font: ["Taz-SemiBold", "Cambria-Bold"],
-    },
-    content_size: [30.0, 10.0],
-    method: "clip",
-    line_side: "",
-    max_financial_index_highlight: 7,
-    pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    table: "",
-    update_min_add: true,
+    "metrics": [
+      "metrics",
+      ".*(assets_under_management|quantitative_data)"
+    ]
   },
-  DUPLICATE_MUTUAL_FUNDS: {},
-  PRE_DATA_SELECT: [],
-  REGEX: {
-    aum: "([\\d,.]+\\s*Cr)",
-    track: ".+?months\\s*(?:regular)?\\s*([\\d.]+)",
-    escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\&\\:]+",
-    scheme: [
+  "PARAMS": {
+    "clip_bbox": [
+      [
+        0,
+        70,
+        190,
+        812
+      ],
+      [
+        370,
+        100,
+        570,
+        812
+      ]
+    ],
+    "content_size": [
+      30,
+      10
+    ],
+    "data": {
+      "color": [
+        666
+      ],
+      "font": [
+        "Taz-SemiBold",
+        "Cambria-Bold"
+      ],
+      "size": [
+        5,
+        13
+      ],
+      "update_size": 30
+    },
+    "line_side": "",
+    "line_x": 200,
+    "max_financial_index_highlight": 7,
+    "method": "clip",
+    "pdf_ocr": false,
+    "sanitize_fund": false,
+    "stop_words": [],
+    "table": "",
+    "title": {
+      "bbox": [
+        0,
+        0,
+        400,
+        60
+      ],
+      "ocr": false,
+      "pattern": "(HDFC.*?(?:[Ss]aver|FUND|Fund|ETF|F[Oo]F|Index)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)"
+    },
+    "update_min_add": true
+  },
+  "PATTERN_TO_FUNCTION": {
+    "(before|dummy.*)": [
+      "_extract_scheme_non_esc_data",
+      "scheme"
+    ]
+  },
+  "PRE_DATA_SELECT": [],
+  "PROMOTE_KEYS": {},
+  "REGEX": {
+    "aum": "([\\d,.]+\\s*Cr)",
+    "benchmark": "(.+?(?:[Ii]ndex|[Gg]old|[Ss]ilver)).*$",
+    "escape": "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\&\\:]+",
+    "load": "",
+    "manager": "",
+    "metric": "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaul[ea]y Duration|Modified Duration|Annualized Portfolio YTM|Regular|tracking error.+?last 12 [Mm]onths?)\\s*\\:?\\s*(\\-?[\\d,.]+\\s*(?:[Y]ears?|[Dd]ays?|[Mm]onths?|[Tt]imes?|%)?)",
+    "scheme": [
       "INVESTMENT OBJECTIVE",
       "FUND MANAGER",
       "DATE\\s*OF\\s*ALLOTMENT.+?INCEPTION DATE",
@@ -51,23 +101,25 @@
       "BENCHMARK INDEX",
       "TRACKING ERROR",
       "EXIT LOAD",
-      "EOL",
+      "EOL"
     ],
-    load: "",
-    manager: "",
-    benchmark: "(.+?(?:[Ii]ndex|[Gg]old|[Ss]ilver)).*$",
-    metric: "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaul[ea]y Duration|Modified Duration|Annualized Portfolio YTM|Regular|tracking error.+?last 12 [Mm]onths?)\\s*\\:?\\s*(\\-?[\\d,.]+\\s*(?:[Y]ears?|[Dd]ays?|[Mm]onths?|[Tt]imes?|%)?)",
+    "track": ".+?months\\s*(?:regular)?\\s*([\\d.]+)"
   },
-  PATTERN_TO_FUNCTION: {
-    "(before|dummy.*)": ["_extract_scheme_non_esc_data", "scheme"],
+  "SECONDARY_PATTERN_TO_FUNCTION": {
+    ".*assets_under_management": [
+      "_extract_generic_data",
+      "metric"
+    ],
+    ".*average_for_month": [
+      "_extract_generic_data",
+      "aum"
+    ],
+    ".*benchmark_index": [
+      "_extract_generic_data",
+      "benchmark"
+    ]
   },
-  SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*assets_under_management": ["_extract_generic_data", "metric"],
-    ".*average_for_month": ["_extract_generic_data", "aum"],
-    ".*benchmark_index": ["_extract_generic_data", "benchmark"],
-  },
-  TERTIARY_PATTERN_TO_FUNCTION: {},
-  SELECTKEYS: [
+  "SELECTKEYS": [
     ".*fund_manager",
     ".*average_for_month$",
     "metrics",
@@ -80,255 +132,252 @@
     "page_number",
     "mutual_fund_name",
     "tracking_error",
-    "load",
+    "load"
   ],
-  MERGEKEYS: {
-    load: ["exit_load"],
-    metrics: ["metrics", ".*(assets_under_management|quantitative_data)"], //"tracking_error",
+  "SPECIAL_FUNCTIONS": {
+    "fund_manager": "_update_manager_data"
   },
-  CLONEKEYS: {},
-  PROMOTE_KEYS: {},
-  SPECIAL_FUNCTIONS: { fund_manager: "_update_manager_data" },
-  Z_MUTUAL_FUND_DATA: {
-    "HDFC BSE Sensex Index Fund": {
-      regex: "(?i)hdfc\\s+bse\\s+sensex\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty 50 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+50\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY Next 50 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+next\\s+50\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY Midcap 150 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+midcap\\s+150\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY Smallcap 250 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+smallcap\\s+250\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
+  "TERTIARY_PATTERN_TO_FUNCTION": {},
+  "Z_MUTUAL_FUND_DATA": {
+    "HDFC BSE 500 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+bse\\s+500\\s+etf",
+      "risk": ""
     },
     "HDFC BSE 500 Index Fund": {
-      regex: "(?i)hdfc\\s+bse\\s+500\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY200 Momentum 30 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty200\\s+momentum\\s+30\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY Realty Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+realty\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY 100 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+100\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY50 Equal Weight Index Fund": {
-      regex: "(?i)hdfc\\s+nifty50\\s+equal\\s+weight\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY 100 Equal Weight Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+100\\s+equal\\s+weight\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY100 Low Volatility 30 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty100\\s+low\\s+volatility\\s+30\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty Top 20 Equal Weight Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+top\\s+20\\s+equal\\s+weight\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty G-Sec Dec 2026 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+dec\\s+2026\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty G-Sec Jul 2031 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+jul\\s+2031\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty G-Sec Jun 2027 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+jun\\s+2027\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty G-Sec Sep 2032 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+sep\\s+2032\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY G-Sec Apr 2029 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+apr\\s+2029\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY G-sec Jun 2036 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+jun\\s+2036\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY SDL Plus G-Sec Jun 2027 40:60 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+sdl\\s+plus\\s+g[-\\s]?sec\\s+jun\\s+2027\\s+40:60\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty SDL Oct 2026 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+sdl\\s+oct\\s+2026\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC NIFTY500 MULTICAP 50:25:25 INDEX FUND": {
-      regex: "(?i)hdfc\\s+nifty500\\s+multicap\\s+50\\:?\\s*25\\:?\\s*25\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty LargeMidcap 250 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+largemidcap\\s+250\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty India Digital Index Fund": {
-      regex: "(?i)hdfc\\s+nifty\\s+india\\s+digital\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Nifty100 Quality 30 Index Fund": {
-      regex: "(?i)hdfc\\s+nifty100\\s+quality\\s+30\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC CRISIL-IBX Financial Services 3-6 Months Debt Index Fund": {
-      regex: "(?i)hdfc\\s+crisil[-\\s]?ibx\\s+financial\\s+services\\s+3-6\\s+months\\s+debt\\s+index\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+bse\\s+500\\s+index\\s+fund",
+      "risk": ""
     },
     "HDFC BSE SENSEX ETF": {
-      regex: "(?i)hdfc\\s+bse\\s+sensex\\s+etf",
-      min_add: ",,,",
-      risk: "",
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+bse\\s+sensex\\s+etf",
+      "risk": ""
     },
-    "HDFC NIFTY 50 ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+50\\s+etf",
-      min_add: ",,,",
-      risk: "",
+    "HDFC BSE Sensex Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+bse\\s+sensex\\s+index\\s+fund",
+      "risk": ""
     },
-    "HDFC NIFTY Next 50 ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+next\\s+50\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY 100 ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+100\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY Bank ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+bank\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY IT ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+it\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY Private Bank ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+private\\s+bank\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY Midcap 150 ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+midcap\\s+150\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY Smallcap 250 ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+smallcap\\s+250\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY PSU BANK ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+psu\\s+bank\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC BSE 500 ETF": {
-      regex: "(?i)hdfc\\s+bse\\s+500\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY 1D RATE LIQUID ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+1d\\s+rate\\s+liquid\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY100 Quality 30 ETF": {
-      regex: "(?i)hdfc\\s+nifty100\\s+quality\\s+30\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY50 VALUE 20 ETF": {
-      regex: "(?i)hdfc\\s+nifty50\\s+value\\s+20\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY Growth Sectors 15 ETF": {
-      regex: "(?i)hdfc\\s+nifty\\s+growth\\s+sectors\\s+15\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY100 Low Volatility 30 ETF": {
-      regex: "(?i)hdfc\\s+nifty100\\s+low\\s+volatility\\s+30\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC NIFTY200 Momentum 30 ETF": {
-      regex: "(?i)hdfc\\s+nifty200\\s+momentum\\s+30\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC Gold ETF": {
-      regex: "(?i)hdfc\\s+gold\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC Silver ETF": {
-      regex: "(?i)hdfc\\s+silver\\s+etf",
-      min_add: ",,,",
-      risk: "",
-    },
-    "HDFC Gold ETF Fund of Fund": {
-      regex: "(?i)hdfc\\s+gold\\s+etf\\s+fund\\s+of\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
-    },
-    "HDFC Silver ETF Fund of Fund": {
-      regex: "(?i)hdfc\\s+silver\\s+etf\\s+fund\\s+of\\s+fund",
-      min_add: "100,,100,",
-      risk: "",
+    "HDFC CRISIL-IBX Financial Services 3-6 Months Debt Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+crisil[-\\s]?ibx\\s+financial\\s+services\\s+3-6\\s+months\\s+debt\\s+index\\s+fund",
+      "risk": ""
     },
     "HDFC Developed World Overseas Equity Passive FOF": {
-      regex: "(?i)hdfc\\s+developed\\s+world\\s+overseas\\s+equity\\s+passive\\s+fof",
-      min_add: "100,,100,",
-      risk: "",
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+developed\\s+world\\s+overseas\\s+equity\\s+passive\\s+fof",
+      "risk": ""
     },
-  },
+    "HDFC Gold ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+gold\\s+etf",
+      "risk": ""
+    },
+    "HDFC Gold ETF Fund of Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+gold\\s+etf\\s+fund\\s+of\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY 100 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+100\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY 100 Equal Weight Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+100\\s+equal\\s+weight\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY 100 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+100\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY 1D RATE LIQUID ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+1d\\s+rate\\s+liquid\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY 50 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+50\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Bank ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+bank\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY G-Sec Apr 2029 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+apr\\s+2029\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY G-sec Jun 2036 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+jun\\s+2036\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY Growth Sectors 15 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+growth\\s+sectors\\s+15\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY IT ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+it\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Midcap 150 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+midcap\\s+150\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Midcap 150 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+midcap\\s+150\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY Next 50 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+next\\s+50\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Next 50 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+next\\s+50\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY PSU BANK ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+psu\\s+bank\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Private Bank ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+private\\s+bank\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Realty Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+realty\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY SDL Plus G-Sec Jun 2027 40:60 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+sdl\\s+plus\\s+g[-\\s]?sec\\s+jun\\s+2027\\s+40:60\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY Smallcap 250 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty\\s+smallcap\\s+250\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY Smallcap 250 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+smallcap\\s+250\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY100 Low Volatility 30 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty100\\s+low\\s+volatility\\s+30\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY100 Low Volatility 30 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty100\\s+low\\s+volatility\\s+30\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY100 Quality 30 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty100\\s+quality\\s+30\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY200 Momentum 30 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty200\\s+momentum\\s+30\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY200 Momentum 30 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty200\\s+momentum\\s+30\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY50 Equal Weight Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty50\\s+equal\\s+weight\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC NIFTY50 VALUE 20 ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+nifty50\\s+value\\s+20\\s+etf",
+      "risk": ""
+    },
+    "HDFC NIFTY500 MULTICAP 50:25:25 INDEX FUND": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty500\\s+multicap\\s+50\\:?\\s*25\\:?\\s*25\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty 50 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+50\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty G-Sec Dec 2026 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+dec\\s+2026\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty G-Sec Jul 2031 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+jul\\s+2031\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty G-Sec Jun 2027 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+jun\\s+2027\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty G-Sec Sep 2032 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+g[-\\s]?sec\\s+sep\\s+2032\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty India Digital Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+india\\s+digital\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty LargeMidcap 250 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+largemidcap\\s+250\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty SDL Oct 2026 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+sdl\\s+oct\\s+2026\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty Top 20 Equal Weight Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty\\s+top\\s+20\\s+equal\\s+weight\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Nifty100 Quality 30 Index Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+nifty100\\s+quality\\s+30\\s+index\\s+fund",
+      "risk": ""
+    },
+    "HDFC Silver ETF": {
+      "min_add": ",,,",
+      "regex": "(?i)hdfc\\s+silver\\s+etf",
+      "risk": ""
+    },
+    "HDFC Silver ETF Fund of Fund": {
+      "min_add": "100,,100,",
+      "regex": "(?i)hdfc\\s+silver\\s+etf\\s+fund\\s+of\\s+fund",
+      "risk": ""
+    }
+  }
 }

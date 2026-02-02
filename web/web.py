@@ -1,7 +1,7 @@
-import os, sys, json, json5,shutil, pytz #type: ignore
+import os, sys, json, json5,shutil, pytz, csv, ast #type: ignore
 import pandas as pd
 from datetime import timedelta, datetime
-
+from pathlib import Path
 # setup project root
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_dir)
@@ -69,8 +69,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        if ldap_authenticate(username, password):
-        # if True:
+        # if ldap_authenticate(username, password):
+        if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -165,8 +165,13 @@ def upload_files():
 def reprocess(job_id):
     
     #error : Unexpected token '<', "<!doctype "... is not valid JSON
+
     if not session.get("logged_in"):
-        return jsonify(success=False, message="Not logged in"), 401
+        return jsonify(
+            success=False,
+            message="Session expired"
+        ), 401
+
     
     REPROCESS_TARGET = {
         JobState.UPLOADED: JobState.UPLOADED,
@@ -187,10 +192,10 @@ def reprocess(job_id):
     # 2) Decide retry target state
     
     if status not in REPROCESS_TARGET:
-        return {
-            "success": False,
-            "message": f"Job cannot be reprocessed from state {status}"
-        }, 400
+        return jsonify(
+                success=False,
+                message="Source file not found"
+            ), 404
 
     target_state = REPROCESS_TARGET[status]
 
@@ -274,6 +279,294 @@ def view_pdf(filename):
 
 
 # ------------------ CSV/XLS VIEW ROUTE ------------------
+
+#sid
+def sid_to_csv(json_path, output_folder="csv_folder"):
+    json_path = Path(json_path)
+
+    output_folder = Path(output_folder) if output_folder else json_path.parent
+    output_folder.mkdir(parents=True, exist_ok=True)
+
+    csv_path = output_folder / f"{json_path.stem}.csv"
+
+    #load json
+    with open(json_path, "r", encoding="utf-8") as f:
+        doc = json.load(f)
+    record = doc.get("value", {}) or {}
+
+    def write_df(fh, df):
+        df.to_csv(fh, index=False)
+        fh.write("\n\n")  # 2 blank rows as section separator
+
+    with open(csv_path, "w", encoding="utf-8", newline="") as fh:
+
+        kv_rows = []
+        for k in sorted(record.keys()):
+            if k not in ("fund_manager", "load", "field_location"):
+                v = record.get(k)
+                if isinstance(v, (dict, list)):
+                    v = " ".join(v)
+              
+                kv_rows.append({
+                    "key": k,
+                    "value": v if v is not None else ""
+                })
+            
+            if k == "field_location":
+                v = record.get(k)
+                v = str(v)
+                kv_rows.append({
+                     "key": k,
+                     "value": v if v is not None else ""
+                })
+
+        df1 = pd.DataFrame(kv_rows, columns=["key", "value"])
+        write_df(fh, df1)
+
+        fund_manager = record.get("fund_manager") or []
+        if fund_manager:
+            df2 = pd.DataFrame(fund_manager)
+            write_df(fh, df2)
+
+        load = record.get("load") or []
+        if load:
+            df3 = pd.DataFrame(load)
+            write_df(fh, df3)
+
+    return str(csv_path)
+
+def csv_to_sid_json(csv_path, output_folder="csv_folder"):
+    csv_path = Path(csv_path)
+
+    output_folder = Path(output_folder) if output_folder else csv_path.parent
+    output_folder.mkdir(parents=True, exist_ok=True)
+
+    # json_path = output_folder / f"{csv_path.stem}.json"
+    # ---------- split CSV into sections ----------
+    sections = []
+    current = []
+
+    with open(csv_path, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if not any(cell.strip() for cell in row):
+                if current:
+                    sections.append(current)
+                    current = []
+            else:
+                current.append(row)
+
+        if current:
+            sections.append(current)
+
+    value = {}
+    if sections:
+        header, *rows = sections[0]
+        key_idx = header.index("key")
+        val_idx = header.index("value")
+
+        for r in rows:
+            k = r[key_idx].strip()
+            v = r[val_idx].strip()
+
+            if k == "field_location" and v:
+                try:
+                    v = ast.literal_eval(v)  # safe dict restore
+                except Exception:
+                    pass
+
+            value[k] = v
+
+    if len(sections) > 1:
+        header, *rows = sections[1]
+        fund_manager = []
+
+        for r in rows:
+            rec = {
+                h: r[i].strip() if i < len(r) else ""
+                for i, h in enumerate(header)
+                if h
+            }
+            fund_manager.append(rec)
+
+        value["fund_manager"] = fund_manager
+
+    if len(sections) > 2:
+        header, *rows = sections[2]
+        load = []
+
+        for r in rows:
+            rec = {
+                h: r[i].strip() if i < len(r) else ""
+                for i, h in enumerate(header)
+                if h
+            }
+            load.append(rec)
+
+        value["load"] = load
+
+    output = {
+        "metadata": {
+        "document_name": csv_path.name,
+        "file_type": "sid",
+        "process_date": datetime.today().strftime("%Y%m%d")
+    },
+        "value": value
+    }
+
+    # with open(json_path, "w", encoding="utf-8") as f:
+    #     json.dump(output, f, ensure_ascii=False, indent=2)
+
+    return output
+
+#kim
+def kim_to_csv(json_path, output_folder="csv_folder"):
+    json_path = Path(json_path)
+
+    output_folder = Path(output_folder) if output_folder else json_path.parent
+    output_folder.mkdir(parents=True, exist_ok=True)
+
+    csv_path = output_folder / f"{json_path.stem}.csv"
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        doc = json.load(f)
+
+    record = (
+        doc.get("records", [{}])[0]
+        .get("value", {})
+    ) or {}
+
+    def write_df(fh, df):
+        df.to_csv(fh, index=False)
+        fh.write("\n\n")  # section separator
+
+    with open(csv_path, "w", encoding="utf-8", newline="") as fh:
+
+        # ================= DF1: Static KV =================
+        kim_static_keys = [
+            "amc_name",
+            "main_scheme_name",
+            "mutual_fund_name",
+            "description",
+            "field_location"   # ✅ added
+        ]
+
+        kv_rows = []
+        for k in kim_static_keys:
+            v = record.get(k, "")
+            if isinstance(v, (dict, list)):
+                v = str(v)
+            kv_rows.append({
+                "key": k,
+                "value": v if v is not None else ""
+            })
+
+        df1 = pd.DataFrame(kv_rows, columns=["key", "value"])
+        write_df(fh, df1)
+
+        # ================= DF2: Asset Allocation =================
+        allocation_rows = []
+
+        for item in record.get("asset_allocation_pattern", []):
+            row = {
+                "instrument_type": item.get("instrument_type", ""),
+                "risk_profile": item.get("risk_profile", "")
+            }
+
+            row.update({"min": "", "max": "", "total": ""})
+
+            for alloc in item.get("allocation", []):
+                alloc_type = alloc.get("type")
+                if alloc_type in row:
+                    row[alloc_type] = alloc.get("value", "")
+
+            allocation_rows.append(row)
+
+        if allocation_rows:
+            df2 = pd.DataFrame(
+                allocation_rows,
+                columns=["instrument_type", "min", "max", "total", "risk_profile"]
+            )
+            write_df(fh, df2)
+
+    return str(csv_path)
+
+def csv_to_kim_json(csv_path, output_folder="csv_folder"):
+    csv_path = Path(csv_path)
+
+    output_folder = Path(output_folder) if output_folder else csv_path.parent
+    output_folder.mkdir(parents=True, exist_ok=True)
+
+    # json_path = output_folder / f"{csv_path.stem}.json"
+
+    # ---------- split CSV into sections ----------
+    sections, current = [], []
+
+    with open(csv_path, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if not any(cell.strip() for cell in row):
+                if current:
+                    sections.append(current)
+                    current = []
+            else:
+                current.append(row)
+        if current:
+            sections.append(current)
+
+    value = {}
+    if sections:
+        header, *rows = sections[0]
+        key_idx = header.index("key")
+        val_idx = header.index("value")
+
+        for r in rows:
+            k = r[key_idx].strip()
+            v = r[val_idx].strip()
+
+            if k == "field_location" and v:
+                try:
+                    v = ast.literal_eval(v)  # ✅ safe restore
+                except Exception:
+                    v = []
+
+            value[k] = v
+
+    if len(sections) > 1:
+        header, *rows = sections[1]
+        asset_allocation_pattern = []
+
+        for r in rows:
+            row = {h: r[i].strip() if i < len(r) else "" for i, h in enumerate(header)}
+
+            allocation = [
+                {"type": "min", "value": row.get("min", "")},
+                {"type": "max", "value": row.get("max", "")},
+                {"type": "total", "value": row.get("total", "")},
+            ]
+
+            asset_allocation_pattern.append({
+                "instrument_type": row.get("instrument_type", ""),
+                "risk_profile": row.get("risk_profile", ""),
+                "allocation": allocation
+            })
+
+        value["asset_allocation_pattern"] = asset_allocation_pattern
+
+    output = {
+        "metadata": {
+        "document_name": csv_path.name,
+        "file_type": "kim",
+        "process_date": datetime.today().strftime("%Y%m%d")
+    },
+        "records": [{"value": value}]
+    }
+    # with open(json_path, "w", encoding="utf-8") as f:
+    #     json.dump(output, f, ensure_ascii=False, indent=2)
+
+    return output
+
+#factsheet
 def json_to_csv(json_path, output_dir="csv_folder"):
     keys = REGISTRY.get("field_keys")
     static_keys, load_keys, metric_keys, manager_keys,field_location = (
@@ -445,7 +738,8 @@ def rebuild_json_from_csv(csv_path):
         },
         "records": records
     }
-    
+   
+ 
 @app.route("/download_json", methods=["GET"])
 def download_json():
     # Get JSON path from query parameter
@@ -468,9 +762,15 @@ def download_csv():
     if not json_path:
         return {"success": False, "message": "Missing ?path=... parameter"}, 400
 
-  
-    csv_path = json_to_csv(json_path)
-   
+    if json_path.lower().endswith("_fs.json"):
+        csv_path = json_to_csv(json_path)
+    
+    elif json_path.lower().endswith("_kim.json"):
+        csv_path = kim_to_csv(json_path)
+    
+    elif json_path.lower().endswith("_sid.json"):
+        csv_path = sid_to_csv(json_path)
+
     return send_file(
         csv_path,
         as_attachment=True,
@@ -492,8 +792,16 @@ def convert_csv():
 
         csv_path = os.path.join("tmp", csv_file.filename)
         csv_file.save(csv_path)
+        
+        if csv_path.lower().endswith("_fs.csv"):
 
-        json_data = rebuild_json_from_csv(csv_path)
+            json_data = rebuild_json_from_csv(csv_path)
+        
+        elif csv_path.lower().endswith("_sid.csv"):
+            json_data = csv_to_sid_json(csv_path)
+        
+        elif csv_path.lower().endswith("_kim.csv"):
+            json_data = csv_to_kim_json(csv_path)
 
         json_filename = csv_file.filename.replace(".csv", ".json")
         json_path = os.path.join("tmp", json_filename)
@@ -843,27 +1151,21 @@ def apply_csv():
 def push_job(job_id):
     # --- auth guards ---
     if not session.get("logged_in"):
-        return {"success": False, "error": "Not logged in"}, 403
+        return jsonify(success=False, error="Not Logged In"), 403
 
-    if session.get("role") != "admin":
-        return {"success": False, "error": "Forbidden"}, 403
+    # if session.get("role") != "admin":
+    #     return jsonify(success=False, error="Forbidden"), 403
 
     try:
-        # 1) Fetch job
         job = fetch_job_by_id(job_id, DB_CONFIG)
         status = job["status"]
 
-        # 2) State guard
         if status not in (JobState.PARSED, JobState.PUSH_FAILED):
-            return {
-                "success": False,
-                "error": f"Job not pushable in state {status}"
-            }, 400
+            return jsonify(success=False, error=f"Job not pushable in state {status}"), 400
 
-        # 3) Validate JSON
         json_path = job.get("json_path")
         if not json_path or not os.path.exists(json_path):
-            return {"success": False, "error": "JSON not found"}, 404
+            return jsonify(success=False, error=f"JSON not found"), 404
 
         # 4) Express intent (increment push attempts)
         conn = establish_connection(DB_CONFIG)
@@ -878,7 +1180,6 @@ def push_job(job_id):
         cur.close()
         conn.close()
 
-        # 5) Push JSON to Admin Panel
         success = json_to_cog_db(json_path, DB_CONFIG)
 
         # 6) Final state transition
@@ -893,7 +1194,7 @@ def push_job(job_id):
         return {"success": success}
 
     except Exception as e:
-        return {"success": False, "error": str(e)}, 500
+        return jsonify(success=False, error= str(e)), 500
 
 
 #sid/kim

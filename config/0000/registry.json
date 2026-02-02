@@ -330,7 +330,44 @@
       "Riskometer_benchmark",
       "Riskometer"
     ],
-    "field_location": "field_location"
+    "field_location": "field_location",
+    "sid_keys": {
+      "static_keys": [
+        "amc_name",
+        "main_scheme_name",
+        "mutual_fund_name",
+        "benchmark_index",
+        "scheme_launch_date",
+        "min_addl_amt",
+        "min_addl_amt_multiple",
+        "min_amt",
+        "min_amt_multiple",
+        "close_date",
+        "open_date",
+        "face_value",
+        "scheme_code",
+        "scheme_objective",
+        "suitable_for_investors",
+        "type_of_scheme"
+      ],
+      "manager_keys": [
+        "name",
+        "experience",
+        "qualification"
+      ],
+      "load_keys": [
+        "comment",
+        "type",
+        "value"
+      ],
+      "field_location": "field_location"
+    },
+    "kim_static_keys": [
+      "amc_name",
+      "main_scheme_name",
+      "mutual_fund_name",
+      "description"
+    ]
   },
   "financial_indices": "aaum, about the fund, add. amt, add. mult., additional amount, additional multiple, additional multiples, additional purchase, Additional investment amount, addl. amount, addl. multiple, alpha, alpha coefficient, alpha ratio, assets under management, average asset under management, average aum, average div yield, average dividend yield, average maturity, average maturity of bonds, average p/b, average p/e, average price to book ratio, average price to earnings ratio, avg asset under management, avg p/b ratio, avg p/e ratio, avg. aum, avg. dividend yield, avg. maturity, benchmark, benchmark index, benchmark risk level, benchmark riskometer, beta of portfolio, creation unit size, date of allotment, date of inception, downside deviation, downside risk measure, downside risk ratio, downside variability, duration (macaulay), duration (modified), entry load, equity returns, etf creation size, exit load, face value, fund goals, fund manager, fund name, fund scheme, fund start date, inception date, index benchmark, indexes, info ratio, information ratio, investment objective, investment risk indicator, investment scheme, ir, jenson, load, entry load, exit load, Macaulay Duraon, macaulay duration, macaulay's duration, managed by, management experience, managing scheme, maturity yield, min invest, min multiple, min.application, Minimum application amount, minimum invest amount, minimum investment amount, minimum multiple, mod duration, Modified Duraon, modified duration, month end aum, monthly avg aum, nav, nominal value, objective, other parameter, p/b, p/e, par value, pb, pb ratio, pe, pe ratio, performance deviation, Porolio Turnover, portfolio beta, portfolio manager, portfolio turnover, portfolio turnover rate, portfolio turnover ratio, Portfolio Turnover Ratio, Portfolio Turn Over Ratio, portfolio's beta, positive deviation, price to book, price to earnings, quantitative data, qualitative data, r squared, r squared ratio - fund, r-squared for fund, r^2, return on equity, risk adjusted measure, risk adjusted return ratio, risk level, riskometer for benchmark, roe, rsquared, scheme management, scheme name, scheme objective, scheme riskometer, sharpe, sharpe ratio, sharpe's ratio, sortino ratio, sortino's ratio, Standard Deviaon, standard deviation, std dev, std. dev, std deviation, total experience, track error, tracking error, treynor, treynor ratio, treynor's ratio, turnover ratio, unit size of creation, upside deviation, upside risk, volatility measure, years of experience, yield to maturity, ytm",
   "main_scheme_name": {
@@ -1838,8 +1875,8 @@
     "96": "AngelOneSIDKIM",
     "97": "UnifiSIDKIM",
     "98": "JioBlackRockSIDKIM",
-    "99":"CapitalMindSIDKIM",
-    "100":"WealthCompanySIDKIM",
+    "99": "CapitalMindSIDKIM",
+    "100": "WealthCompanySIDKIM",
     "102": "AbakkusSIDKIM"
   },
   "website_amc": {

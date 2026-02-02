@@ -318,8 +318,18 @@ async function confirmReprocess(jobId) {
   try {
     const resp = await fetch(`/reprocess/${jobId}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" }
+      credentials: "same-origin",   // ✅ ensure session cookie
+      headers: {
+        "Accept": "application/json" // ✅ expect JSON
+      }
     });
+
+    const contentType = resp.headers.get("content-type");
+
+    if (!contentType || !contentType.includes("application/json")) {
+      const text = await resp.text();
+      throw new Error("Server returned non-JSON: " + text.slice(0, 120));
+    }
 
     const result = await resp.json();
 
@@ -328,11 +338,10 @@ async function confirmReprocess(jobId) {
     }
 
     alert("Reprocess triggered successfully.");
-
-    // 🔥 IMPORTANT: refresh table so slider resets
     loadLogs();
 
   } catch (err) {
+    console.error(err);
     alert("Reprocess error: " + err.message);
   }
 }

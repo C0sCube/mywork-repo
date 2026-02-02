@@ -163,35 +163,48 @@ jsonViewBtn.addEventListener("click", () => {
 });
 
 // Push JSON to Admin Panel
+// Push JSON to Admin Panel
 jsonPushBtn.addEventListener("click", async () => {
   if (!pipeline.json.ready) return;
 
   showOverlay(jsonOverlay, "Pushing to Admin Panel…");
   logStatus("Pushing JSON to Admin Panel…");
 
-  let response;
   try {
-    const res = await fetch("/push_job/123", { method: "POST" });
-    response = await res.json();
+    const res = await fetch(`/push_job/${jobId}`, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    const contentType = res.headers.get("content-type");
+
+    // ✅ CRITICAL SAFETY CHECK
+    if (!contentType || !contentType.includes("application/json")) {
+      const text = await res.text();
+      throw new Error(
+        `Server returned non‑JSON (${res.status}): ${text.slice(0, 200)}`
+      );
+    }
+
+    const response = await res.json();
+
+    if (!res.ok || !response.success) {
+      throw new Error(response.error || "Push failed.");
+    }
+
+    logStatus("JSON pushed successfully.");
+    reachCheckpoint(2);
+
+    setTimeout(() => location.reload(), 1500);
+
   } catch (err) {
+    console.error(err);
     hideOverlay(jsonOverlay);
-    logStatus("Network error during push.");
-    return;
+    logStatus("Push error: " + err.message);
   }
-
-  hideOverlay(jsonOverlay);
-
-  if (!response.success) {
-    logStatus(response.error || "Push failed.");
-    return;
-  }
-
-  // ✅ Final checkpoint
-  reachCheckpoint(2);
-  logStatus("JSON pushed successfully.");
-
-  // Reset UI after short delay
-  setTimeout(() => location.reload(), 1500);
 });
 
 jsonInput.addEventListener("change", () => {
