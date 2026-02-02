@@ -675,9 +675,7 @@ a.logout-btn:focus-visible {
     inset: 0;
     cursor: pointer;
     background-color: #dc2626;
-    /* 🔴 not pushed */
     transition: .3s;
-    /* border-radius: 20px; */
 }
 
 /* knob */
@@ -688,13 +686,11 @@ a.logout-btn:focus-visible {
     height: 20px;
     background-color: #e0d9d9;
     transition: .3s;
-    /* border-radius: 50%; */
 }
 
 /* checked state */
 .switch input:checked+span {
     background-color: #2af58f;
-    /* 🟢 pushed */
 }
 
 .switch input:checked+span::before {
@@ -752,10 +748,15 @@ a.logout-btn:focus-visible {
 }
 
 /* Soft locked state */
-.csv-card[data-state="locked"] {
+/* .csv-card[data-state="locked"] {
   pointer-events: none;
   opacity: 0.8;
+} */
+ .csv-card[data-state="locked"] {
+  opacity: 0.45;
+  filter: grayscale(1);
 }
+
 
 
 

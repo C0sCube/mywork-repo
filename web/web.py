@@ -281,13 +281,11 @@ def view_pdf(filename):
 # ------------------ CSV/XLS VIEW ROUTE ------------------
 
 #sid
-def sid_to_csv(json_path, output_folder="csv_folder"):
+def sid_to_csv(json_path, output_folder="DOWNLOAD_DASH"):
     json_path = Path(json_path)
 
     output_folder = Path(output_folder) if output_folder else json_path.parent
     output_folder.mkdir(parents=True, exist_ok=True)
-
-    csv_path = output_folder / f"{json_path.stem}.csv"
 
     #load json
     with open(json_path, "r", encoding="utf-8") as f:
@@ -298,6 +296,7 @@ def sid_to_csv(json_path, output_folder="csv_folder"):
         df.to_csv(fh, index=False)
         fh.write("\n\n")  # 2 blank rows as section separator
 
+    csv_path = output_folder / f"{json_path.stem}.csv"
     with open(csv_path, "w", encoding="utf-8", newline="") as fh:
 
         kv_rows = []
@@ -335,7 +334,7 @@ def sid_to_csv(json_path, output_folder="csv_folder"):
 
     return str(csv_path)
 
-def csv_to_sid_json(csv_path, output_folder="csv_folder"):
+def csv_to_sid_json(csv_path, output_folder="DOWNLOAD_DASH"):
     csv_path = Path(csv_path)
 
     output_folder = Path(output_folder) if output_folder else csv_path.parent
@@ -420,13 +419,11 @@ def csv_to_sid_json(csv_path, output_folder="csv_folder"):
     return output
 
 #kim
-def kim_to_csv(json_path, output_folder="csv_folder"):
+def kim_to_csv(json_path, output_folder="DOWNLOAD_DASH"):
     json_path = Path(json_path)
 
     output_folder = Path(output_folder) if output_folder else json_path.parent
     output_folder.mkdir(parents=True, exist_ok=True)
-
-    csv_path = output_folder / f"{json_path.stem}.csv"
 
     with open(json_path, "r", encoding="utf-8") as f:
         doc = json.load(f)
@@ -440,6 +437,7 @@ def kim_to_csv(json_path, output_folder="csv_folder"):
         df.to_csv(fh, index=False)
         fh.write("\n\n")  # section separator
 
+    csv_path = output_folder / f"{json_path.stem}.csv"
     with open(csv_path, "w", encoding="utf-8", newline="") as fh:
 
         # ================= DF1: Static KV =================
@@ -491,7 +489,7 @@ def kim_to_csv(json_path, output_folder="csv_folder"):
 
     return str(csv_path)
 
-def csv_to_kim_json(csv_path, output_folder="csv_folder"):
+def csv_to_kim_json(csv_path, output_folder="DOWNLOAD_DASH"):
     csv_path = Path(csv_path)
 
     output_folder = Path(output_folder) if output_folder else csv_path.parent
@@ -567,7 +565,7 @@ def csv_to_kim_json(csv_path, output_folder="csv_folder"):
     return output
 
 #factsheet
-def json_to_csv(json_path, output_dir="csv_folder"):
+def json_to_csv(json_path, output_dir="DOWNLOAD_DASH"):
     keys = REGISTRY.get("field_keys")
     static_keys, load_keys, metric_keys, manager_keys,field_location = (
         keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"],keys["field_location"]
@@ -684,9 +682,6 @@ def rebuild_json_from_csv(csv_path):
             loads.append({"type": "exit", "comment": row["exit"]})
         if loads:
             value["load"] = loads
-        
-        # print(loads)
-        # print(value)
 
         metrics = []
         for m in metric_keys:
@@ -710,9 +705,6 @@ def rebuild_json_from_csv(csv_path):
             if fm:
                 managers.append(fm)
             i += 1
-            
-        # print(metrics)
-        # print(managers)
 
         if managers:
             value["fund_manager"] = managers
@@ -739,7 +731,52 @@ def rebuild_json_from_csv(csv_path):
         "records": records
     }
    
- 
+
+#route(s)
+@app.route("/convert_json", methods=["POST"])
+def convert_json():
+    if not session.get("logged_in"):
+        return jsonify(success=False, error="Not logged in"), 403
+
+    json_file = request.files.get("json")
+    if not json_file:
+        return jsonify(success=False, error="No JSON uploaded"), 400
+
+    try:
+
+        json_path = os.path.join(DOWNLOAD_TEMP, json_file.filename)
+        json_file.save(json_path)
+
+        # ---------------- detect type ----------------
+        lower = json_path.lower()
+
+        if lower.endswith("_fs.json"):
+            csv_path = json_to_csv(json_path)
+
+        elif lower.endswith("_sid.json"):
+            csv_path = sid_to_csv(json_path)
+
+        elif lower.endswith("_kim.json"):
+            csv_path = kim_to_csv(json_path)
+
+        else:
+            return jsonify(
+                success=False,
+                error="Unsupported JSON type"
+            ), 400
+
+        csv_filename = os.path.basename(csv_path)
+
+        return jsonify(
+            success=True,
+            csv_file=csv_filename
+        )
+
+    except Exception as e:
+        # CRITICAL: never allow Flask HTML error page
+        return jsonify(success=False, error=str(e)), 500
+
+
 @app.route("/download_json", methods=["GET"])
 def download_json():
     # Get JSON path from query parameter
@@ -759,17 +796,23 @@ def download_json():
 def download_csv():
     # Get JSON path from query parameter
     json_path = request.args.get("path")
+    
+    # print(json_path)
+    # csv_path = ""
     if not json_path:
         return {"success": False, "message": "Missing ?path=... parameter"}, 400
 
-    if json_path.lower().endswith("_fs.json"):
-        csv_path = json_to_csv(json_path)
+    if json_path.lower().endswith("_fs.csv"):
+        print("FS ran the program")
+        csv_path = json_to_csv(json_path, DOWNLOAD_TEMP)
     
-    elif json_path.lower().endswith("_kim.json"):
-        csv_path = kim_to_csv(json_path)
+    elif json_path.lower().endswith("_kim.csv"):
+        csv_path = kim_to_csv(json_path, DOWNLOAD_TEMP)
     
-    elif json_path.lower().endswith("_sid.json"):
-        csv_path = sid_to_csv(json_path)
+    elif json_path.lower().endswith("_sid.csv"):
+        csv_path = sid_to_csv(json_path, DOWNLOAD_TEMP)
+        
+    print(f"the csv path: {csv_path}")
 
     return send_file(
         csv_path,
@@ -788,9 +831,8 @@ def convert_csv():
         return jsonify(success=False, error="No CSV uploaded"), 400
 
     try:
-        os.makedirs("tmp", exist_ok=True)
 
-        csv_path = os.path.join("tmp", csv_file.filename)
+        csv_path = os.path.join(DOWNLOAD_TEMP, csv_file.filename)
         csv_file.save(csv_path)
         
         if csv_path.lower().endswith("_fs.csv"):
@@ -804,7 +846,7 @@ def convert_csv():
             json_data = csv_to_kim_json(csv_path)
 
         json_filename = csv_file.filename.replace(".csv", ".json")
-        json_path = os.path.join("tmp", json_filename)
+        json_path = os.path.join(DOWNLOAD_TEMP, json_filename)
 
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=2)
@@ -824,7 +866,7 @@ def view_json(source, filename):
         json_dir = os.path.join(OUTPUT_DIR, "json")
     
     elif source == "csv":
-        json_dir = "tmp"
+        json_dir = DOWNLOAD_TEMP
 
     # print(json_dir)
     return send_from_directory(json_dir, filename)
@@ -1124,17 +1166,15 @@ def apply_csv():
         if not json_path or not os.path.exists(json_path):
             return {"success": False, "error": "JSON not found"}, 404
 
-        # save uploaded CSV temporarily
+
         tmp_csv = os.path.join("/tmp", secure_filename(csv_file.filename))
         csv_file.save(tmp_csv)
 
-        # backup existing JSON
+      
         backup_path = backup_json(json_path, TIME_ZONE)
 
-        # rebuild JSON
         new_json = rebuild_json_from_csv(tmp_csv)
 
-        # overwrite active JSON
         with open(json_path, "w", encoding="utf-8") as fh:
             json.dump(new_json, fh, indent=2, ensure_ascii=False)
 
@@ -1167,7 +1207,7 @@ def push_job(job_id):
         if not json_path or not os.path.exists(json_path):
             return jsonify(success=False, error=f"JSON not found"), 404
 
-        # 4) Express intent (increment push attempts)
+
         conn = establish_connection(DB_CONFIG)
         cur = conn.cursor()
         cur.execute("""
@@ -1182,7 +1222,6 @@ def push_job(job_id):
 
         success = json_to_cog_db(json_path, DB_CONFIG)
 
-        # 6) Final state transition
         transition_job_state(
             job_id=job_id,
             from_state=status,
@@ -1195,6 +1234,234 @@ def push_job(job_id):
 
     except Exception as e:
         return jsonify(success=False, error= str(e)), 500
+
+# ================== testing ==================
+# def push_json_internal(*, json_path: str, user: str, db_config: dict) -> dict:
+#     if not json_path or not os.path.exists(json_path):
+#         raise ValueError("JSON file not found")
+
+#     job = ensure_job_for_json(
+#         json_path=json_path,
+#         user=user,
+#         db_config=db_config
+#     )
+
+#     job_id = job["id"]
+
+#     transition_job_state(
+#         job_id=job_id,
+#         from_state=job["status"],
+#         to_state=JobState.SP_IN_PROGRESS,
+#         error=None,
+#         db_config=db_config
+#     )
+
+#     success = json_to_cog_db(json_path, db_config)
+
+#     transition_job_state(
+#         job_id=job_id,
+#         from_state=JobState.SP_IN_PROGRESS,
+#         to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
+#         error=None if success else "Admin panel push failed",
+#         db_config=db_config
+#     )
+
+#     return {"success": success, "job_id": job_id}
+
+# @app.route("/push_job/<int:job_id>", methods=["POST"])
+# def push_job(job_id):
+#     if not session.get("logged_in"):
+#         return jsonify(success=False, error="Not Logged In"), 403
+
+#     try:
+#         job = fetch_job_by_id(job_id, DB_CONFIG)
+#         json_path = job.get("json_path")
+
+#         if not json_path:
+#             return jsonify(success=False, error="No JSON associated"), 404
+
+#         return jsonify(
+#             push_json_internal(
+#                 json_path=json_path,
+#                 user=session.get("user"),
+#                 db_config=DB_CONFIG
+#             )
+#         )
+
+#     except Exception as e:
+#         return jsonify(success=False, error=str(e)), 500
+
+# @app.route("/push_json", methods=["POST"])
+# def push_json():
+#     if not session.get("logged_in"):
+#         return jsonify(success=False, error="Not Logged In"), 403
+
+#     try:
+#         data = request.get_json() or {}
+#         json_name = data.get("json_name")
+
+#         if not json_name:
+#             return jsonify(success=False, error="Missing json_name"), 400
+
+#         json_path = os.path.join(DOWNLOAD_TEMP, json_name)
+
+#         return jsonify(
+#             push_json_internal(
+#                 json_path=json_path,
+#                 user=session.get("user"),
+#                 db_config=DB_CONFIG
+#             )
+#         )
+
+#     except Exception as e:
+#         return jsonify(success=False, error=str(e)), 500
+
+# ================== testing ==================
+
+def ensure_job_for_json(json_path: str, user: str, db_config: dict) -> dict:
+    """
+    Guarantee a job exists for a JSON and is safe to push.
+    Returns job row.
+    """
+
+    if not os.path.exists(json_path):
+        raise ValueError("JSON file does not exist")
+
+    json_name = os.path.basename(json_path)
+    file_name = json_name.replace(".json", ".pdf")
+
+    conn = establish_connection(db_config)
+    cur = conn.cursor(dictionary=True)
+
+    cur.execute("""
+        SELECT id, status, json_path
+        FROM mf_status_report
+        WHERE file_name = %s
+        ORDER BY start_time DESC
+        LIMIT 1
+    """, (file_name,))
+
+    job = cur.fetchone()
+    cur.close()
+    conn.close()
+
+    # ─────────────────────────────
+    # Case 1: No job exists → create
+    # ─────────────────────────────
+    if not job:
+        now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
+
+        job_id = create_job({
+            "file_name": file_name,
+            "start_time": now,
+            "created_by": user,
+            "uploaded_by": user
+        }, db_config)
+
+        transition_job_state(
+            job_id=job_id,
+            from_state=JobState.UPLOADED,
+            to_state=JobState.PARSED,
+            json_path=json_path,
+            error=None,
+            db_config=db_config
+        )
+
+        return fetch_job_by_id(job_id, db_config)
+
+    # ─────────────────────────────
+    # Case 2: Job exists → validate
+    # ─────────────────────────────
+    status = job["status"]
+
+    if status in (JobState.PARSED, JobState.PUSH_FAILED):
+        return job
+
+    if status == JobState.PUSHED:
+        raise ValueError("JSON already pushed. Reprocess required.")
+
+    raise ValueError(f"Job not pushable in state {status}")
+
+def push_json_sp_internal(*, json_path: str, user: str, db_config: dict) -> dict:
+    if not json_path or not os.path.exists(json_path):
+        raise ValueError("JSON file not found")
+
+    job = ensure_job_for_json(
+        json_path=json_path,
+        user=user,
+        db_config=db_config
+    )
+
+    job_id = job["id"]
+
+    transition_job_state(
+        job_id=job_id,
+        from_state=job["status"],
+        to_state=JobState.SP_IN_PROGRESS,
+        error=None,
+        db_config=db_config
+    )
+
+    success = json_to_cog_db(json_path, db_config)
+
+    transition_job_state(
+        job_id=job_id,
+        from_state=JobState.SP_IN_PROGRESS,
+        to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
+        error=None if success else "Admin panel push failed",
+        db_config=db_config
+    )
+
+    return {"success": success, "job_id": job_id}
+
+@app.route("/push_json_sp", methods=["POST"])
+def push_json_sp():
+    if not session.get("logged_in"):
+        return jsonify(success=False, error="Not Logged In"), 403
+
+    try:
+        data = request.get_json() or {}
+        json_name = data.get("json_name")
+        print("Running push_json_sp")
+        if not json_name:
+            return jsonify(success=False, error="Missing json_name"), 400
+
+        json_path = os.path.join(DOWNLOAD_TEMP, json_name)
+
+        return jsonify(
+            push_json_sp_internal(
+                json_path=json_path,
+                user=session.get("user"),
+                db_config=DB_CONFIG
+            )
+        )
+
+    except Exception as e:
+        return jsonify(success=False, error=str(e)), 500
+    
+# @app.route("/push_json_sp", methods=["POST"])
+# def push_json_sp():
+#     if not session.get("logged_in"):
+#         return jsonify(success=False, error="Not Logged In"), 403
+
+#     try:
+#         data = request.get_json() or {}
+#         json_name = data.get("json_name")
+
+#         if not json_name:
+#             return jsonify(success=False, error="Missing json_name"), 400
+
+#         json_path = os.path.join(DOWNLOAD_TEMP, json_name)
+
+#         if not os.path.exists(json_path):
+#             return jsonify(success=False, error="JSON not found"), 404
+
+#         success = json_to_cog_db(json_path, DB_CONFIG)
+
+#         return jsonify({"success": success})
+
+#     except Exception as e:
+#         return jsonify(success=False, error=str(e)), 500
 
 
 #sid/kim
@@ -1276,6 +1543,10 @@ if __name__ == '__main__':
 
     REGISTRY = utils.load_json(config.get("config_global_path",""))
     SP_REPORT_RUN = True
+    
+    DOWNLOAD_DASH = "csv_folder"
+    DOWNLOAD_TEMP = "tmp"
+    os.makedirs(DOWNLOAD_TEMP, exist_ok=True)
     
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 

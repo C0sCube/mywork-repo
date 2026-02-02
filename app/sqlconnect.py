@@ -1,8 +1,9 @@
-import traceback
+import traceback, os
 import mysql.connector #type: ignore
 from mysql.connector import Error #type: ignore
 from app.utils import Helper
 from app.logger import get_global_logger
+from datetime import datetime
 
 
 # =====================================================
@@ -17,11 +18,13 @@ class JobState:
     PUSHED = "PUSHED"
     PUSH_FAILED = "PUSH_FAILED"
     INVALID_TYPE = "INVALID_TYPE"
+    SP_IN_PROGRESS = "SP_IN_PROGRESS"
 
 
 ALLOWED_TRANSITIONS = {
     JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED,JobState.INVALID_TYPE},
-    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED},
+    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED, JobState.SP_IN_PROGRESS},
+    JobState.SP_IN_PROGRESS: {JobState.PUSHED, JobState.PUSH_FAILED},
     JobState.PARSE_FAILED: {JobState.UPLOADED},
     JobState.PUSH_FAILED: {JobState.PARSED},
     JobState.INVALID_TYPE:{JobState.UPLOADED},

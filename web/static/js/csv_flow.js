@@ -1,5 +1,5 @@
 // =====================================================
-// PIPELINE UI CONTROLLER (CSV → JSON → PANEL)
+// PIPELINE UI CONTROLLER (CSV ↔ JSON ↔ ADMIN)
 // =====================================================
 
 // ---------------- DOM REFERENCES ----------------
@@ -10,9 +10,12 @@ const statusCard = document.querySelector('[data-card="status"]');
 const csvInput   = document.getElementById("csvInput");
 const jsonInput  = document.getElementById("inputJson");
 
-const csvBtn     = document.getElementById("csvConvertBtn");
-const jsonPushBtn = document.getElementById("jsonPushBtn");
-const jsonViewBtn = document.getElementById("jsonViewBtn");
+const csvConvertBtn  = document.getElementById("csvConvertBtn");
+const jsonConvertBtn = document.getElementById("jsnConvertBtn");
+const csvDldBtn      = document.getElementById("csvDldBtn");
+const jsonDldBtn     = document.getElementById("jsonDldBtn");
+const jsonViewBtn    = document.getElementById("jsonViewBtn");
+const jsonPushBtn    = document.getElementById("jsonPushBtn");
 
 const csvTitle  = document.getElementById("csvTitle");
 const jsonTitle = document.getElementById("jsonTitle");
@@ -22,42 +25,15 @@ const statusConsole = document.getElementById("statusConsole");
 const csvOverlay  = csvCard.querySelector(".card-overlay");
 const jsonOverlay = jsonCard.querySelector(".card-overlay");
 
-// ---------------- LOADER (KEPT + CLEANED) ----------------
-const bar = document.querySelector(".bar");
-const checks = document.querySelectorAll(".check");
-
-function resetLoader() {
-  if (!bar) return;
-  bar.style.width = "0%";
-  checks.forEach(c => {
-    c.style.transform = "scale(0.75)";
-    c.style.backgroundColor = "#535353";
-  });
-}
-
-function reachCheckpoint(step) {
-  if (!bar) return;
-
-  if (step === 1) {
-    bar.style.width = "50%";
-    checks[0]?.style.setProperty("transform", "scale(1)");
-    checks[0]?.style.setProperty("backgroundColor", "rgb(0,205,0)");
-  }
-
-  if (step === 2) {
-    bar.style.width = "100%";
-    checks[1]?.style.setProperty("transform", "scale(1)");
-    checks[1]?.style.setProperty("backgroundColor", "rgb(0,205,0)");
-  }
-}
-
 // ---------------- UI HELPERS ----------------
 function lockCard(card) {
   card.dataset.state = "locked";
+  card.querySelectorAll("button,input").forEach(el => el.disabled = true);
 }
 
 function unlockCard(card) {
   card.dataset.state = "active";
+  card.querySelectorAll("button,input").forEach(el => el.disabled = false);
 }
 
 function showOverlay(overlay, text) {
@@ -69,196 +45,241 @@ function hideOverlay(overlay) {
   overlay.classList.add("hidden");
 }
 
-function logStatus(text) {
-  statusConsole.textContent = text;
+function logStatus(msg) {
+  statusConsole.textContent = msg;
 }
 
 // ---------------- PIPELINE STATE ----------------
 const pipeline = {
-  csv: {
-    file: null,
-    uploaded: false
-  },
-  json: {
-    file: null,
-    ready: false
-  }
+  csv: null,       // File
+  json: null,      // File
+  csvName: null,   // string
+  jsonName: null   // string
 };
 
 // =====================================================
-// CSV → JSON FLOW
+// CSV → JSON
 // =====================================================
 
-// CSV selected
+// CSV upload
 csvInput.addEventListener("change", () => {
   if (!csvInput.files.length) return;
 
-  pipeline.csv.file = csvInput.files[0];
-  csvTitle.textContent = pipeline.csv.file.name;
-  csvBtn.disabled = false;
+  pipeline.csv = csvInput.files[0];
+  csvTitle.textContent = pipeline.csv.name;
+  csvConvertBtn.disabled = false;
 
-  logStatus("CSV selected. Ready to convert.");
+  logStatus("CSV uploaded. Ready to convert.");
 });
 
-// Convert CSV → JSON
-csvBtn.addEventListener("click", async () => {
-  if (!pipeline.csv.file) return;
+// CSV → JSON convert
+csvConvertBtn.addEventListener("click", async () => {
+  if (!pipeline.csv) return;
 
-  resetLoader();
   lockCard(csvCard);
+  lockCard(jsonCard);
   showOverlay(csvOverlay, "Converting CSV…");
-
   logStatus("Converting CSV → JSON…");
 
   const fd = new FormData();
-  fd.append("csv", pipeline.csv.file);
+  fd.append("csv", pipeline.csv);
 
-  let response;
   try {
     const res = await fetch("/convert_csv", {
       method: "POST",
       body: fd
     });
-    response = await res.json();
+
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
+
+    pipeline.jsonName = data.json_file;
+    jsonTitle.textContent = data.json_file;
+
+    // JSON exists on server only
+    jsonViewBtn.disabled = false;
+    jsonPushBtn.disabled = false;
+
+    // 🚫 JSON → CSV is NOT allowed here
+    jsonConvertBtn.disabled = true;
+    jsonInput.disabled = true;
+    jsonDldBtn.disabled = true;
+
+    unlockCard(jsonCard);
+    logStatus("CSV → JSON done. Ready for Admin push.");
+
   } catch (err) {
+    logStatus("Error: " + err.message);
+  } finally {
     hideOverlay(csvOverlay);
-    logStatus("Network error during conversion.");
-    return;
   }
-
-  hideOverlay(csvOverlay);
-
-  if (!response.success) {
-    logStatus(response.error || "Conversion failed.");
-    return;
-  }
-
-  // ✅ CSV → JSON checkpoint
-  reachCheckpoint(1);
-
-  pipeline.json.file = response.json_file;
-  pipeline.json.ready = true;
-
-  jsonTitle.textContent = pipeline.json.file;
-  unlockCard(jsonCard);
-
-  jsonViewBtn.disabled = false;
-  jsonPushBtn.disabled = false;
-
-  logStatus("CSV converted successfully. JSON ready.");
 });
 
 // =====================================================
-// JSON ACTIONS
+// JSON ACTIONS (from CSV → JSON)
 // =====================================================
 
 // View JSON
 jsonViewBtn.addEventListener("click", () => {
-  if (!pipeline.json.file) {
-    alert("No JSON available yet.");
-    return;
-  }
-
-  window.open(`/viewer/json/csv/${pipeline.json.file}`, "_blank");
+  if (!pipeline.jsonName) return;
+  window.open(`/viewer/json/csv/${pipeline.jsonName}`, "_blank");
 });
 
-// Push JSON to Admin Panel
-// Push JSON to Admin Panel
-jsonPushBtn.addEventListener("click", async () => {
-  if (!pipeline.json.ready) return;
-
-  showOverlay(jsonOverlay, "Pushing to Admin Panel…");
-  logStatus("Pushing JSON to Admin Panel…");
-
-  try {
-    const res = await fetch(`/push_job/${jobId}`, {
-      method: "POST",
-      credentials: "same-origin",
-      headers: {
-        "Accept": "application/json"
-      }
-    });
-
-    const contentType = res.headers.get("content-type");
-
-    // ✅ CRITICAL SAFETY CHECK
-    if (!contentType || !contentType.includes("application/json")) {
-      const text = await res.text();
-      throw new Error(
-        `Server returned non‑JSON (${res.status}): ${text.slice(0, 200)}`
-      );
-    }
-
-    const response = await res.json();
-
-    if (!res.ok || !response.success) {
-      throw new Error(response.error || "Push failed.");
-    }
-
-    logStatus("JSON pushed successfully.");
-    reachCheckpoint(2);
-
-    setTimeout(() => location.reload(), 1500);
-
-  } catch (err) {
-    console.error(err);
-    hideOverlay(jsonOverlay);
-    logStatus("Push error: " + err.message);
-  }
+// Download JSON
+jsonDldBtn.addEventListener("click", () => {
+  if (!pipeline.jsonName) return;
+  const path = `tmp/${pipeline.jsonName}`;
+  window.location.href = `/download_json?path=${encodeURIComponent(path)}`;
 });
 
+// =====================================================
+// JSON UPLOAD → JSON → CSV
+// =====================================================
+
+// JSON upload
 jsonInput.addEventListener("change", () => {
   if (!jsonInput.files.length) return;
 
-  const file = jsonInput.files[0];
+  pipeline.json = jsonInput.files[0];
+  pipeline.jsonName = pipeline.json.name;
+  jsonTitle.textContent = pipeline.json.name;
 
-  // update pipeline
-  pipeline.json.file = file.name;
-  pipeline.json.ready = true;
-
-  // UI updates
-  jsonTitle.textContent = file.name;
+  lockCard(csvCard);           // CSV disabled
   unlockCard(jsonCard);
 
-  jsonViewBtn.disabled = false;
+  jsonConvertBtn.disabled = false;
   jsonPushBtn.disabled = false;
+  jsonViewBtn.disabled = false;
 
-  logStatus("JSON uploaded. Ready to push.");
+  logStatus("JSON uploaded. You can convert to CSV or push.");
+});
+
+// JSON → CSV
+jsonConvertBtn.addEventListener("click", async () => {
+  if (!pipeline.json) return;
+
+  lockCard(jsonCard);
+  showOverlay(jsonOverlay, "Converting JSON…");
+  logStatus("Converting JSON → CSV…");
+
+  const fd = new FormData();
+  fd.append("json", pipeline.json);
+
+  try {
+    const res = await fetch("/convert_json", {
+      method: "POST",
+      body: fd
+    });
+
+    const ct = res.headers.get("content-type");
+    if (!ct || !ct.includes("application/json")) {
+      const text = await res.text();
+      throw new Error(text.slice(0, 200));
+    }
+
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
+
+    pipeline.csvName = data.csv_file;
+    csvTitle.textContent = data.csv_file;
+
+    unlockCard(csvCard);
+    csvDldBtn.disabled = false;
+    csvConvertBtn.disabled = true;
+
+    logStatus("JSON → CSV completed.");
+
+  } catch (err) {
+    logStatus("Error: " + err.message);
+  } finally {
+    hideOverlay(jsonOverlay);
+  }
+});
+
+// CSV download
+csvDldBtn.addEventListener("click", () => {
+  if (!pipeline.csvName) return;
+  const path = `tmp/${pipeline.csvName}`;
+  window.location.href = `/download_csv?path=${encodeURIComponent(path)}`;
+});
+
+// =====================================================
+// JSON → ADMIN PANEL
+// =====================================================
+jsonPushBtn.addEventListener("click", async () => {
+  if (!pipeline.jsonName) return;
+
+  lockCard(jsonCard);
+  showOverlay(jsonOverlay, "Pushing to Admin…");
+  logStatus("Pushing JSON to Admin Panel…");
+
+  try {
+    const res = await fetch("/push_json_sp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        json_name: pipeline.jsonName
+      })
+    });
+
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
+
+    logStatus("JSON pushed successfully.");
+
+    // ✅ hide push button after success
+    jsonPushBtn.disabled = true;
+    jsonPushBtn.style.display = "none";
+
+  } catch (err) {
+    logStatus("Push error: " + err.message);
+  } finally {
+    hideOverlay(jsonOverlay);
+  }
 });
 
 
-// =====================================================
-// AUTH + NAVIGATION (UNCHANGED, CLEANED)
-// =====================================================
 
+// =====================================================
+// AUTH + NAV
+// =====================================================
 async function enforceAuth() {
   try {
     const r = await fetch("/auth-check");
-    const data = await r.json();
-    if (!data.logged_in) {
-      alert("Session expired. Please log in again.");
+    const d = await r.json();
+    if (!d.logged_in) {
+      alert("Session expired.");
       window.location = "/login";
     }
   } catch {
-    alert("Unable to verify session. Redirecting to login.");
     window.location = "/login";
   }
 }
 
-function goBackToMain(e) {
+function goBack(e) {
   e.preventDefault();
-  if (window.opener) {
-    window.opener.focus();
-    window.close();
-  } else {
-    window.location.href = "/";
-  }
+  window.location.href = "/";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   enforceAuth();
 
+  // DEFAULT STATE
+  unlockCard(csvCard);
+  unlockCard(jsonCard);
+
+  csvConvertBtn.disabled = true;
+  jsonConvertBtn.disabled = true;
+  csvDldBtn.disabled = true;
+  jsonDldBtn.disabled = true;
+  jsonPushBtn.disabled = true;
+  jsonViewBtn.disabled = true;
+
   document
     .querySelectorAll("[data-action='back']")
-    .forEach(el => el.addEventListener("click", goBackToMain));
+    .forEach(el => el.addEventListener("click", goBack));
 });
+
