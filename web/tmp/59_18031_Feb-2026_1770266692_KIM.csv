@@ -1,0 +1,12 @@
+key,value
+amc_name,Bajaj Finserv Asset Management Limited
+main_scheme_name,Bajaj Finserv Low Duration Fund
+mutual_fund_name,Bajaj Finserv Mutual Fund
+description,
+field_location,"[{'asset_allocation_pattern': 4, 'main_scheme_name': 1, 'mutual_fund_name': 1}]"
+
+
+instrument_type,min,max,total,risk_profile
+Debt And Money Market Instruments Including Triparty Repos On Government Securities Or Treasury Bill & Repo Units Of Mutual Funds Such That The Macaulay Duration Of The Portfolio Is Between 6 Months And 12 Months,0%,100%,,
+
+

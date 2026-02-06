@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "document_name": "41_18028_Feb-2026_1770266544_SID.csv",
+    "file_type": "sid",
+    "process_date": "20260205"
+  },
+  "value": {
+    "amc_name": "Uti Asset Management Limited",
+    "benchmark_index": "Nifty500 Shariah TRI",
+    "close_date": "",
+    "face_value": "Rs.10",
+    "field_location": [
+      {
+        "benchmark_index": 4,
+        "fund_manager": 0,
+        "load": 4,
+        "main_scheme_name": 4,
+        "min_addl_amt": 4,
+        "min_addl_amt_multiple": 4,
+        "min_amt": 4,
+        "min_amt_multiple": 4,
+        "offer_price": 4,
+        "scheme_code": 4,
+        "scheme_objective": 4,
+        "suitable_for_investors": 1,
+        "type_of_scheme": 4
+      }
+    ],
+    "main_scheme_name": "UTI Nifty500 Shariah Index Fund",
+    "min_addl_amt": "1000",
+    "min_addl_amt_multiple": "1",
+    "min_amt": "1000",
+    "min_amt_multiple": "1",
+    "mutual_fund_name": "Uti Mutual Fund",
+    "offer_price": "Rs.10",
+    "open_date": "",
+    "riskometer_benchmark": "",
+    "riskometer_scheme": "",
+    "scheme_code": "UTIM/O/E/EIN/25/09/0131",
+    "scheme_objective": "The Investment Objective of the Scheme is to provide returns that, before expenses, corresponds to the total return of the securities as represented by the underlying index, subject to tracking error. However, there can be no assurance that the investment objective of the scheme will be achieved.",
+    "suitable_for_investors": "Returns that are commensuratewith the performance of theNifty500 Shariah Index over longterm, subject to tracking error.-Investments in securities coveredby the Nifty500 Shariah Index Product labelling assigned during the Ncharacteristics or model portfolio and th# Based on the Index Composition as on *",
+    "type_of_scheme": "An open-ended scheme replicating/tracking Nifty500 Shariah TRI",
+    "fund_manager": [
+      {
+        "name": "Sharwan Kumar Goyal",
+        "qualification": "B.Com, MMS, CFA"
+      },
+      {
+        "name": "Ayush Jain",
+        "qualification": "CA, B.Com (Tax)"
+      }
+    ],
+    "load": [
+      {
+        "comment": "In terms of provision no. 10.4.1 a. of para 10.4 under Chapter 10 of SEBI Master Circular for Mutual Funds, no entry load will be charged by the Scheme to the investor effective August 1, 2009.",
+        "type": "entry_load",
+        "value": ""
+      },
+      {
+        "comment": "Nil",
+        "type": "exit_load",
+        "value": ""
+      }
+    ]
+  }
+}

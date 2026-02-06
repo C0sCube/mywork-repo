@@ -160,7 +160,6 @@ def upload_files():
         # print(f"[JOB CREATED] {filename} by {user}")
     return redirect('/')
 
-
 @app.route("/reprocess/<int:job_id>", methods=["POST"])
 def reprocess(job_id):
     
@@ -281,7 +280,7 @@ def view_pdf(filename):
 # ------------------ CSV/XLS VIEW ROUTE ------------------
 
 #sid
-def sid_to_csv(json_path, output_folder="DOWNLOAD_DASH"):
+def sid_to_csv(json_path, output_folder="tmp"):
     json_path = Path(json_path)
 
     output_folder = Path(output_folder) if output_folder else json_path.parent
@@ -334,7 +333,7 @@ def sid_to_csv(json_path, output_folder="DOWNLOAD_DASH"):
 
     return str(csv_path)
 
-def csv_to_sid_json(csv_path, output_folder="DOWNLOAD_DASH"):
+def csv_to_sid_json(csv_path, output_folder="tmp"):
     csv_path = Path(csv_path)
 
     output_folder = Path(output_folder) if output_folder else csv_path.parent
@@ -419,7 +418,7 @@ def csv_to_sid_json(csv_path, output_folder="DOWNLOAD_DASH"):
     return output
 
 #kim
-def kim_to_csv(json_path, output_folder="DOWNLOAD_DASH"):
+def kim_to_csv(json_path, output_folder="tmp"):
     json_path = Path(json_path)
 
     output_folder = Path(output_folder) if output_folder else json_path.parent
@@ -489,7 +488,7 @@ def kim_to_csv(json_path, output_folder="DOWNLOAD_DASH"):
 
     return str(csv_path)
 
-def csv_to_kim_json(csv_path, output_folder="DOWNLOAD_DASH"):
+def csv_to_kim_json(csv_path, output_folder="tmp"):
     csv_path = Path(csv_path)
 
     output_folder = Path(output_folder) if output_folder else csv_path.parent
@@ -565,7 +564,7 @@ def csv_to_kim_json(csv_path, output_folder="DOWNLOAD_DASH"):
     return output
 
 #factsheet
-def json_to_csv(json_path, output_dir="DOWNLOAD_DASH"):
+def json_to_csv(json_path, output_dir= "csv_folder"):
     keys = REGISTRY.get("field_keys")
     static_keys, load_keys, metric_keys, manager_keys,field_location = (
         keys["static_keys"], keys["load_keys"], keys["metric_keys"], keys["manager_keys"],keys["field_location"]
@@ -739,25 +738,29 @@ def convert_json():
         return jsonify(success=False, error="Not logged in"), 403
 
     json_file = request.files.get("json")
+    print(json_file)
     if not json_file:
         return jsonify(success=False, error="No JSON uploaded"), 400
 
     try:
-
-        json_path = os.path.join(DOWNLOAD_TEMP, json_file.filename)
+        os.makedirs("tmp", exist_ok=True)
+        json_path = os.path.join("tmp", json_file.filename)
         json_file.save(json_path)
 
         # ---------------- detect type ----------------
         lower = json_path.lower()
 
         if lower.endswith("_fs.json"):
-            csv_path = json_to_csv(json_path)
+            print(json_path)
+            csv_path = json_to_csv(json_path, output_dir="tmp")
 
         elif lower.endswith("_sid.json"):
-            csv_path = sid_to_csv(json_path)
+            print(json_path)
+            csv_path = sid_to_csv(json_path, output_folder="tmp")
 
         elif lower.endswith("_kim.json"):
-            csv_path = kim_to_csv(json_path)
+            print(json_path)
+            csv_path = kim_to_csv(json_path, output_folder="tmp")
 
         else:
             return jsonify(
@@ -790,37 +793,54 @@ def download_json():
         download_name=os.path.basename(json_path),
         mimetype="text/json"
     )
-    
 
-@app.route("/download_csv", methods=["GET"])
-def download_csv():
+
+@app.route("/dash_csv", methods=["GET"])
+def dash_csv():
     # Get JSON path from query parameter
     json_path = request.args.get("path")
-    
-    # print(json_path)
-    # csv_path = ""
+    print(json_path)
     if not json_path:
-        return {"success": False, "message": "Missing ?path=... parameter"}, 400
-
-    if json_path.lower().endswith("_fs.csv"):
-        print("FS ran the program")
-        csv_path = json_to_csv(json_path, DOWNLOAD_TEMP)
+        return jsonify({"success": False, "message": "Missing ?path=... parameter"}),400
     
-    elif json_path.lower().endswith("_kim.csv"):
-        csv_path = kim_to_csv(json_path, DOWNLOAD_TEMP)
-    
-    elif json_path.lower().endswith("_sid.csv"):
-        csv_path = sid_to_csv(json_path, DOWNLOAD_TEMP)
+    if json_path.lower().endswith("_fs.json"):
+        csv_path = json_to_csv(json_path)
+    elif json_path.lower().endswith("_sid.json"):
         
-    print(f"the csv path: {csv_path}")
-
+        csv_path = sid_to_csv(json_path)
+    elif json_path.lower().endswith("_kim.json"):
+        csv_path  = kim_to_csv(json_path)
+    else:
+        return jsonify({"success": False, "message": "Wrong JSON name or name format"}),400
+    
     return send_file(
         csv_path,
         as_attachment=True,
         download_name=os.path.basename(csv_path),
         mimetype="text/csv"
     )
-    
+
+
+  
+@app.route("/download_csv/<filename>", methods=["GET"])
+def download_csv(filename):
+
+    if not session.get("logged_in"):
+        return "Not logged in", 403
+
+    filename = secure_filename(filename)
+    csv_path = os.path.join("tmp", filename)
+
+    if not os.path.isfile(csv_path):
+        return "File not found", 404
+
+    return send_file(
+        csv_path,
+        as_attachment=True,
+        download_name=filename,
+        mimetype="text/csv"
+    )
+  
 @app.route("/convert_csv", methods=["POST"])
 def convert_csv():
     if not session.get("logged_in"):
@@ -1111,6 +1131,7 @@ def sid_data():
     #     return redirect(url_for("index"))
 
     return render_template("sid_data.html", user=user) 
+
 #logs
 @app.route('/csv-to-json')
 def csv_to_json():
@@ -1235,234 +1256,105 @@ def push_job(job_id):
     except Exception as e:
         return jsonify(success=False, error= str(e)), 500
 
-# ================== testing ==================
-# def push_json_internal(*, json_path: str, user: str, db_config: dict) -> dict:
-#     if not json_path or not os.path.exists(json_path):
-#         raise ValueError("JSON file not found")
-
-#     job = ensure_job_for_json(
-#         json_path=json_path,
-#         user=user,
-#         db_config=db_config
-#     )
-
-#     job_id = job["id"]
-
-#     transition_job_state(
-#         job_id=job_id,
-#         from_state=job["status"],
-#         to_state=JobState.SP_IN_PROGRESS,
-#         error=None,
-#         db_config=db_config
-#     )
-
-#     success = json_to_cog_db(json_path, db_config)
-
-#     transition_job_state(
-#         job_id=job_id,
-#         from_state=JobState.SP_IN_PROGRESS,
-#         to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
-#         error=None if success else "Admin panel push failed",
-#         db_config=db_config
-#     )
-
-#     return {"success": success, "job_id": job_id}
-
-# @app.route("/push_job/<int:job_id>", methods=["POST"])
-# def push_job(job_id):
-#     if not session.get("logged_in"):
-#         return jsonify(success=False, error="Not Logged In"), 403
-
-#     try:
-#         job = fetch_job_by_id(job_id, DB_CONFIG)
-#         json_path = job.get("json_path")
-
-#         if not json_path:
-#             return jsonify(success=False, error="No JSON associated"), 404
-
-#         return jsonify(
-#             push_json_internal(
-#                 json_path=json_path,
-#                 user=session.get("user"),
-#                 db_config=DB_CONFIG
-#             )
-#         )
-
-#     except Exception as e:
-#         return jsonify(success=False, error=str(e)), 500
-
-# @app.route("/push_json", methods=["POST"])
-# def push_json():
-#     if not session.get("logged_in"):
-#         return jsonify(success=False, error="Not Logged In"), 403
-
-#     try:
-#         data = request.get_json() or {}
-#         json_name = data.get("json_name")
-
-#         if not json_name:
-#             return jsonify(success=False, error="Missing json_name"), 400
-
-#         json_path = os.path.join(DOWNLOAD_TEMP, json_name)
-
-#         return jsonify(
-#             push_json_internal(
-#                 json_path=json_path,
-#                 user=session.get("user"),
-#                 db_config=DB_CONFIG
-#             )
-#         )
-
-#     except Exception as e:
-#         return jsonify(success=False, error=str(e)), 500
-
-# ================== testing ==================
-
-def ensure_job_for_json(json_path: str, user: str, db_config: dict) -> dict:
+def ensure_job_for_json(pdf_name: str) -> tuple[int, JobState]:
     """
-    Guarantee a job exists for a JSON and is safe to push.
-    Returns job row.
+    Returns (job_id, current_status)
+    Creates job if it does not exist yet.
     """
+    row = fetch_job_by_name(pdf_name, db_config=DB_CONFIG)
 
-    if not os.path.exists(json_path):
-        raise ValueError("JSON file does not exist")
+    if row:
+        return row["id"], row["status"]
 
-    json_name = os.path.basename(json_path)
-    file_name = json_name.replace(".json", ".pdf")
+    user = session.get("user", "unknown")
+    now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
 
-    conn = establish_connection(db_config)
-    cur = conn.cursor(dictionary=True)
-
-    cur.execute("""
-        SELECT id, status, json_path
-        FROM mf_status_report
-        WHERE file_name = %s
-        ORDER BY start_time DESC
-        LIMIT 1
-    """, (file_name,))
-
-    job = cur.fetchone()
-    cur.close()
-    conn.close()
-
-    # ─────────────────────────────
-    # Case 1: No job exists → create
-    # ─────────────────────────────
-    if not job:
-        now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
-
-        job_id = create_job({
-            "file_name": file_name,
+    job_id = create_job(
+        {
+            "file_name": pdf_name,
             "start_time": now,
             "created_by": user,
-            "uploaded_by": user
-        }, db_config)
+            "uploaded_by": user,
+        },
+        db_config=DB_CONFIG
+    )
+
+    return job_id, JobState.SP_CALL
+
+def push_json_and_record(job_id: int, from_state: JobState, json_path: str):
+    try:
+        json_to_cog_db(json_path, DB_CONFIG)
 
         transition_job_state(
             job_id=job_id,
-            from_state=JobState.UPLOADED,
-            to_state=JobState.PARSED,
-            json_path=json_path,
+            from_state=from_state,
+            to_state=JobState.PUSHED,
             error=None,
-            db_config=db_config
+            db_config=DB_CONFIG,
         )
 
-        return fetch_job_by_id(job_id, db_config)
-
-    # ─────────────────────────────
-    # Case 2: Job exists → validate
-    # ─────────────────────────────
-    status = job["status"]
-
-    if status in (JobState.PARSED, JobState.PUSH_FAILED):
-        return job
-
-    if status == JobState.PUSHED:
-        raise ValueError("JSON already pushed. Reprocess required.")
-
-    raise ValueError(f"Job not pushable in state {status}")
-
-def push_json_sp_internal(*, json_path: str, user: str, db_config: dict) -> dict:
-    if not json_path or not os.path.exists(json_path):
-        raise ValueError("JSON file not found")
-
-    job = ensure_job_for_json(
-        json_path=json_path,
-        user=user,
-        db_config=db_config
-    )
-
-    job_id = job["id"]
-
-    transition_job_state(
-        job_id=job_id,
-        from_state=job["status"],
-        to_state=JobState.SP_IN_PROGRESS,
-        error=None,
-        db_config=db_config
-    )
-
-    success = json_to_cog_db(json_path, db_config)
-
-    transition_job_state(
-        job_id=job_id,
-        from_state=JobState.SP_IN_PROGRESS,
-        to_state=JobState.PUSHED if success else JobState.PUSH_FAILED,
-        error=None if success else "Admin panel push failed",
-        db_config=db_config
-    )
-
-    return {"success": success, "job_id": job_id}
+    except Exception as e:
+        transition_job_state(
+            job_id=job_id,
+            from_state=from_state,
+            to_state=JobState.PUSH_FAILED,
+            error=str(e),
+            db_config=DB_CONFIG,
+        )
+        raise  # propagate so API still reflects failure
 
 @app.route("/push_json_sp", methods=["POST"])
 def push_json_sp():
     if not session.get("logged_in"):
         return jsonify(success=False, error="Not Logged In"), 403
 
+    json_file = request.files.get("json")
+    if not json_file or not json_file.filename:
+        return jsonify(success=False, error="Missing JSON file"), 400
+
     try:
-        data = request.get_json() or {}
-        json_name = data.get("json_name")
-        print("Running push_json_sp")
-        if not json_name:
-            return jsonify(success=False, error="Missing json_name"), 400
+        os.makedirs("tmp", exist_ok=True)
+        filename = secure_filename(json_file.filename)
+        json_path = os.path.join("tmp", filename)
+        json_file.save(json_path)
+        
+        
+        check_name = filename.replace(".json",".pdf")
+        job_id, status = ensure_job_for_json(check_name)
+        push_json_and_record(job_id, status, json_path)
 
-        json_path = os.path.join(DOWNLOAD_TEMP, json_name)
-
-        return jsonify(
-            push_json_sp_internal(
-                json_path=json_path,
-                user=session.get("user"),
-                db_config=DB_CONFIG
-            )
-        )
+        return jsonify(success=True)
 
     except Exception as e:
         return jsonify(success=False, error=str(e)), 500
-    
+
+
+# working example
 # @app.route("/push_json_sp", methods=["POST"])
 # def push_json_sp():
 #     if not session.get("logged_in"):
 #         return jsonify(success=False, error="Not Logged In"), 403
 
+#     json_file = request.files.get("json")
+#     if not json_file or json_file.filename == "":
+#         return jsonify(success=False, error="Missing JSON file"), 400
 #     try:
-#         data = request.get_json() or {}
-#         json_name = data.get("json_name")
+#         os.makedirs("tmp", exist_ok=True)
 
-#         if not json_name:
-#             return jsonify(success=False, error="Missing json_name"), 400
+#         filename = secure_filename(json_file.filename)
+#         json_path = os.path.join("tmp", filename)
+#         # print(filename)
+#         json_file.save(json_path)
 
-#         json_path = os.path.join(DOWNLOAD_TEMP, json_name)
-
-#         if not os.path.exists(json_path):
-#             return jsonify(success=False, error="JSON not found"), 404
-
-#         success = json_to_cog_db(json_path, DB_CONFIG)
-
-#         return jsonify({"success": success})
+#         if not json_to_cog_db(json_path, DB_CONFIG):
+            
+#             return jsonify(success=False, error="Push to COG DB failed"), 500
+    
+            
+#         return jsonify(success=True)
 
 #     except Exception as e:
 #         return jsonify(success=False, error=str(e)), 500
-
 
 #sid/kim
 
@@ -1550,8 +1442,8 @@ if __name__ == '__main__':
     
     # host = WEB_CONFIG.get("host")
     # port = WEB_CONFIG.get("port") 
-    # host = "NCOG-LPT-TCH-32.Cogencis.com"
-    # port = 5000
-    # app.run(debug=True, host=host, port=port)
+    host = "NCOG-LPT-TCH-32.Cogencis.com"
+    port = 5000
+    app.run(debug=True, host=host, port=port)
 
-    app.run(debug=True, host="127.0.0.1", port=5055)
+    # app.run(debug=True, host="127.0.0.1", port=5055)

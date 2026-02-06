@@ -1,13 +1,2 @@
-key,value
-amc_name,Mirae Asset Asset Management Limited
-main_scheme_name,Mirae Asset BSE India Defence ETF FOF
-mutual_fund_name,Mirae Asset Mutual Fund
-description,
-field_location,"[{'asset_allocation_pattern': 3, 'main_scheme_name': 1, 'mutual_fund_name': 1}]"
-
-
-instrument_type,min,max,total,risk_profile
-Units Of Mirae Asset Bse India Defence Etf,95,100,,
-Money Market Instruments Debt Securities Instruments And Or Units Of Debt Liquid Schemes Of Domestic Mutual Funds,0,5,,
-
-
+amc_name,main_scheme_name,mutual_fund_name,benchmark_index,monthly_aaum_date,monthly_aaum_value,scheme_launch_date,min_addl_amt,min_addl_amt_multiple,min_amt,min_amt_multiple,entry,exit,alpha,arithmetic_mean_ratio,average_div_yield,average_pb,average_pe,avg_maturity,beta,correlation_ratio,downside_deviation,information_ratio,macaulay,mod_duration,port_turnover_ratio,r_squared_ratio,roe_ratio,sharpe,sortino_ratio,std_dev,tracking_error,treynor_ratio,upside_deviation,ytm,field_location
+Mirae Asset Asset Management Limited,Mirae Asset BSE India Defence ETF FOF,Mirae Asset Mutual Fund,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"{""asset_allocation_pattern"": 3, ""main_scheme_name"": 1, ""mutual_fund_name"": 1}"

@@ -825,7 +825,6 @@ class Reader:
             temp = regex._format_metric_data(fund,temp) #metric
             
             # temp = regex._format_benchmark_data(temp) #str to list
-            # print(temp.keys())
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct

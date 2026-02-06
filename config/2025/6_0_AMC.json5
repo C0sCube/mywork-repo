@@ -56,7 +56,7 @@
       pattern: "(?:Mr|Mrs|Ms)\\.\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:\\(.+\\))?\\s*\\(Managing.+?(\\d{1,2}\\s*-\\s*[A-Za-z\\.]+\\s*-\\s*\\d{1,2}).+?([0-9]+\\s*[Yy]ears?)\\)",
     },
     metric: "(Modified Duration|Annualised Portfolio YTM|Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor|Information\\s+Ratio)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|[Tt]imes|%)?)",
-    min_amt: "([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
+    min_amt: "([\\d,]+)(?:\\.\\d+)?.*?([\\d,]+)(?:\\.\\d+)?",
     scheme: [
       "SCHEME OBJECTIVE",
       "DAT.+?ALLOTMENT",

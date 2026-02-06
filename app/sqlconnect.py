@@ -18,17 +18,17 @@ class JobState:
     PUSHED = "PUSHED"
     PUSH_FAILED = "PUSH_FAILED"
     INVALID_TYPE = "INVALID_TYPE"
-    SP_IN_PROGRESS = "SP_IN_PROGRESS"
+    SP_CALL = "SP_CALL"
 
 
 ALLOWED_TRANSITIONS = {
     JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED,JobState.INVALID_TYPE},
-    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED, JobState.SP_IN_PROGRESS},
-    JobState.SP_IN_PROGRESS: {JobState.PUSHED, JobState.PUSH_FAILED},
+    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED,JobState.UPLOADED},
+    JobState.SP_CALL: {JobState.PUSHED, JobState.PUSH_FAILED},
     JobState.PARSE_FAILED: {JobState.UPLOADED},
-    JobState.PUSH_FAILED: {JobState.PARSED},
-    JobState.INVALID_TYPE:{JobState.UPLOADED},
-    JobState.PUSHED: {JobState.UPLOADED},   #  REQUIRED for reprocess
+    JobState.PUSH_FAILED: {JobState.PARSED,JobState.PUSHED},
+    JobState.INVALID_TYPE:{JobState.UPLOADED}, 
+    JobState.PUSHED: {JobState.UPLOADED, JobState.PUSHED},   #  REQUIRED for reprocess & repush
 }
 
 # REPROCESS_TARGET = {
@@ -129,6 +129,34 @@ def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
 
     return row
 
+
+def fetch_job_by_name(file_name: str, db_config: dict) -> dict:
+    """Fetch a job row by file_name."""
+    conn = establish_connection(db_config)
+    # print(job_id)
+    if not conn:
+        raise RuntimeError("DB connection failed")
+
+    cur = conn.cursor(dictionary=True)
+    cur.execute(
+        f"""
+        SELECT id, file_name, status, json_path, error,
+               created_by, uploaded_by, start_time, end_time
+        FROM {TABLE_REPORT}
+        WHERE file_name = %s
+        """,
+        (file_name,)
+    )
+    # print(f"{job_id} is called.")
+
+    row = cur.fetchone()
+    cur.close()
+    conn.close()
+
+    if not row:
+        raise ValueError(f"Job {file_name} not found")
+
+    return row
 
 def fetch_latest_uploaded_job(file_name: str, db_config: dict) -> dict | None:
     """Fetch the most recent UPLOADED job for a given file."""

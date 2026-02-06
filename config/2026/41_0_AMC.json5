@@ -1,109 +1,70 @@
 {
-  "AMC_NAME": "Uti Mutual Fund",
-  "CLONEKEYS": {},
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "IMP_DATA": {
-    "amc_name": "UTI Asset Management Company Limited",
-    "mutual_fund_name": "UTI Mutual Fund"
+  AMC_NAME: "Uti Mutual Fund",
+  CLONEKEYS: {},
+  DUPLICATE_MUTUAL_FUNDS: {},
+  IMP_DATA: {
+    amc_name: "UTI Asset Management Company Limited",
+    mutual_fund_name: "UTI Mutual Fund",
   },
-  "MAIN_MAP": {
-    "map": true,
-    "select": true,
-    "special": true
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
   },
-  "MERGEKEYS": {
-    "metrics": [
+  MERGEKEYS: {
+    metrics: [
       "^metrics$",
       "^metrics_.*",
       ".*market_capital",
       ".*quan.+?dicators",
       ".*por.+?_parameter",
-      ".*nav_per_unit"
-    ]
-  },
-  "PARAMS": {
-    "clip_bbox": [
-      [
-        0,
-        65,
-        200,
-        812
-      ],
-      [
-        380,
-        65,
-        580,
-        812
-      ],
-      [
-        205,
-        65,
-        450,
-        812
-      ]
+      ".*nav_per_unit",
     ],
-    "content_size": [
-      30,
-      8
-    ],
-    "data": {
-      "color": [
-        666
-      ],
-      "font": [
-        "Calibri-Bold"
-      ],
-      "size": [
-        7,
-        10
-      ],
-      "update_size": 30
-    },
-    "line_side": "left",
-    "line_x": 200,
-    "max_financial_index_highlight": 5,
-    "method": "clip",
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "title": {
-      "bbox": [
-        0,
-        0,
-        460,
-        35
-      ],
-      "ocr": false,
-      "pattern": "(UTI.*?(?:FUND|PLAN|ETF|FTF|FOF|Fund|ETF)\\s*(?:FUND OF FUND|\\s*OF FUND|.+?DURATION)?)"
-    },
-    "update_min_add": false
   },
-  "PATTERN_TO_FUNCTION": {
-    "^dummy.*": [
-      "_extract_scheme_data",
-      "scheme2"
+  PARAMS: {
+    clip_bbox: [
+      [0, 65, 200, 812],
+      [380, 65, 580, 812],
+      [205, 65, 450, 812],
     ],
-    "before": [
-      "_extract_scheme_non_esc_data",
-      "scheme"
-    ]
-  },
-  "PRE_DATA_SELECT": [],
-  "PROMOTE_KEYS": {},
-  "REGEX": {
-    "date": "(\\d{2}.+$)",
-    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
-    "load": "Entry Load(.*)Exit Load(.*)$",
-    "manager": {
-      "fields": [
-        "name",
-        "since"
-      ],
-      "pattern": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+).*?Managing (?:the|this) scheme since\\s*([A-Za-z]+\\s*[0-9]+|Inception|[0-9]+-[A-Za-z]+-[0-9]+)"
+    content_size: [30, 8],
+    data: {
+      color: [666],
+      font: ["Calibri-Bold"],
+      size: [7, 10],
+      update_size: 30,
     },
-    "metrics": "(Yield to Maturity|Weighted Average Maturity|Modi.+?Dura.*?on|Macaulay\\s*Dur.+?on|Standard\\s*Devia.+?on|Beta|Sharpe Ra.+?o|Por.+?olio Turnover|Tracking Error|P\\s*E|ROE|P\\s*B)\\s*([\\d,.]+\\s*([Yy]e?a?rs?|[Dd]ays?|[Mm]onths?|%)?)",
-    "min_amt": "(?:Growth)?\\s*([\\d,]+\\.?\\d+)\\-?\\D*\\s*((?:[\\d,.]+)?)",
-    "scheme": [
+    line_side: "left",
+    line_x: 200,
+    max_financial_index_highlight: 5,
+    method: "clip",
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    title: {
+      bbox: [0, 0, 460, 35],
+      ocr: false,
+      pattern: "(UTI.*?(?:FUND|PLAN|ETF|FTF|FOF|Fund|ETF)\\s*(?:FUND OF FUND|\\s*OF FUND|.+?DURATION)?)",
+    },
+    update_min_add: false,
+  },
+  PATTERN_TO_FUNCTION: {
+    "^dummy.*": ["_extract_scheme_data", "scheme2"],
+    before: ["_extract_scheme_non_esc_data", "scheme"],
+  },
+  PRE_DATA_SELECT: [],
+  PROMOTE_KEYS: {},
+  REGEX: {
+    date: "(\\d{2}.+$)",
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+",
+    load: "Entry Load(.*)Exit Load(.*)$",
+    manager: {
+      fields: ["name", "since"],
+      pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z]+\\s*[A-Za-z]+\\s*(?:Patil|Goyal)?).*?Managing (?:the|this) scheme since\\s*([A-Za-z]+\\s*[0-9]+|Inception|[0-9]+-[A-Za-z]+-[0-9]+)",
+    },
+    metrics: "(Yield to Maturity|Weighted Average Maturity|Modi.+?Dura.*?on|Macaulay\\s*Dur.+?on|Standard\\s*Devia.+?on|Beta|Sharpe Ra.+?o|Por.+?olio Turnover|Tracking Error|P\\s*E|ROE|P\\s*B)\\s*([\\d,.]+\\s*([Yy]e?a?rs?|[Dd]ays?|[Mm]onths?|%)?)",
+    min_amt: "(?:Growth)?\\s*([\\d,]+\\.?\\d+)\\-?\\D*\\s*((?:[\\d,.]+)?)",
+    scheme: [
       "Investment Objective",
       "Date\\s*[Oo]f\\s*[iI]nception",
       "Benchmark\\s*[Ii]ndex",
@@ -115,38 +76,26 @@
       "Closing AUM",
       "Minimum Investment Amount",
       "NAV per unit",
-      "EOL"
+      "EOL",
     ],
-    "scheme2": [
+    scheme2: [
       "Quan.*?ta.*?ve Indicators",
       "EOL",
       "Po.+?olio\\s*Parameters",
-      "EOL"
-    ]
+      "EOL",
+    ],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
+  SECONDARY_PATTERN_TO_FUNCTION: {
     ".*(metrics|market_capital|quan.+?dicators|por.+?_parameter|nav_per_unit).*": [
       "_extract_generic_data",
-      "metrics"
+      "metrics",
     ],
-    ".*date_of_inception": [
-      "_extract_generic_data",
-      "date"
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
-    ".*load_structure": [
-      "_extract_load_data",
-      "load"
-    ],
-    ".*minimum_investment": [
-      "_extract_amt_data",
-      "min_amt"
-    ]
+    ".*date_of_inception": ["_extract_generic_data", "date"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    ".*load_structure": ["_extract_load_data", "load"],
+    ".*minimum_investment": ["_extract_amt_data", "min_amt"],
   },
-  "SELECTKEYS": [
+  SELECTKEYS: [
     ".*(benchmark_index|date_of_inception)",
     ".*fund_manager",
     ".*monthly_average",
@@ -157,9 +106,9 @@
     "monthly_aaum_date",
     "page_number",
     "mutual_fund_name",
-    "metrics"
+    "metrics",
   ],
-  "SPECIAL_FUNCTIONS": {},
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  SPECIAL_FUNCTIONS: {},
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

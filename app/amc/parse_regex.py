@@ -15,6 +15,8 @@ class FundRegex:
         self.JSON_HEADER = data.get("json_headers", {})
         self.METRIC_HEADER = data.get("metrics_headers", {})
         self.ESCAPE = data.get("escape_regex", "")
+        
+        self.METRICS_CONF = data.get("metric_normalization_map", {})
         self.UTILS = Helper()
         
         #global_regex
@@ -166,6 +168,13 @@ class FundRegex:
             cleaned_name = self.MANAGER_STOP_WORDS.sub(' ', name)
             cleaned_name = self.UTILS._normalize_alpha(cleaned_name)
             cleaned_name = self.UTILS._remove_duplicates(cleaned_name)
+            
+            exp = manager.get("total_exp","")
+            if exp:
+                clean_exp = self.UTILS._normalize_alphanumeric(exp)
+                clean_exp = re.sub(r"(years?|yrs?)","",clean_exp, re.IGNORECASE)
+                manager["total_exp"] = clean_exp.strip()
+            
             if cleaned_name and len(cleaned_name) >= 3:
                 manager["name"] = cleaned_name.title()
                 clean_fund_managers.append(manager)
@@ -180,7 +189,7 @@ class FundRegex:
         #         data.pop(key, None)
         #     return data
 
-        for key in ["min_amt", "min_addl_amt", "min_amt_multiple", "min_addl_amt_multiple"]:
+        for key in self.METRICS_CONF["minadd"]:
             val = data.get(key, "")
             if isinstance(val, str):
                 cleaned = re.sub(r"(any|[,\s.]+)", "", val, flags=re.IGNORECASE)
@@ -221,10 +230,10 @@ class FundRegex:
                     num = float(value)
                     value = str(int(num * 100))
             
-            if metric == "std_dev" or metric == "ytm" or metric == "tracking_error" or metric == "r_squared_ratio" or metric == "alpha" or metric == "downside_deviation" or metric == "upside_deviation":
-                if value.endswith("%"):
-                    value = value.rstrip("%").strip()
-            if metric in ["avg_maturity", "macaulay", "mod_duration"]:
+            if metric in self.METRICS_CONF["percent"] and isinstance(value, str) and value.endswith("%"):
+                value = value.rstrip("%").strip()
+                    
+            if metric in self.METRICS_CONF["time"]:
                 divide = 1
                 val_lower = value.lower()
                 if "day" in val_lower:

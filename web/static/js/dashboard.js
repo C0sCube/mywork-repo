@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadRegistry();
     await loadLogs();
 
-    setInterval(() => {
-        const auto = document.getElementById("autoRefresh");
-        if (auto?.checked) loadLogs();
-    }, 15000);
+    // setInterval(() => {
+    //     const auto = document.getElementById("autoRefresh");
+    //     if (auto?.checked) loadLogs();
+    // }, 15000);
 });
 
 /* ================= ACTION BINDINGS ================= */
@@ -167,7 +167,7 @@ function renderTable(rows) {
     table.innerHTML = `
     <tr>
       <th style = "width:40px">#</th>
-      <th style = "width:270px" >File</th>
+      <th style = "width:285px" >File</th>
       <th style = "width:150px" >User</th>
       <th style = "width:120px" >Start Time</th>
       <th style = "width:110px" >Status</th>
@@ -183,19 +183,13 @@ function renderTable(rows) {
         const tr = document.createElement("tr");
         const isPushed = row.status === "PUSHED";
 
-        const pushCell = row.json_path
-            ? `
-    <label class="switch">
-      <input
-        type="checkbox"
-        data-action="push-slider"
-        data-job-id="${row.id}"
-        ${isPushed ? "checked disabled" : ""}
-      >
-      <span></span>
-    </label>
-  `
-            : "-";
+        const pushCell = row.json_path ? `<label class="switch">
+            <input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}><span></span>
+            </label>`: "-";
+
+        
+        const isNonReprocessable = row.file_name?.endsWith("_SID.pdf") || row.file_name?.endsWith("_KIM.pdf");
+
 
         tr.innerHTML = `
         <td>${(currentPage - 1) * pageSize + i + 1}</td>
@@ -205,10 +199,11 @@ function renderTable(rows) {
         <td class="${getStatusClass(row.status)}">${row.status|| "-"}</td>
         <td>${row.error || "-"}</td>
         <td>${row.json_path ? `<a href="/viewer/json/dashboard/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""} ${row.json_path ? `<a href="/download_json?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}</td>
-        <td>${row.json_path ? `<a href="/download_csv?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
+        <td>${row.json_path ? `<a href="/dash_csv?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
         <td>${pushCell}</td>
-        <td><span class="material-symbols-outlined icon-action" title="Reprocess" onclick="confirmReprocess(${row.id})">autorenew</span></td>`;
+        <td><span class="material-symbols-outlined icon-action ${isNonReprocessable ? "repr-disabled" : ""}" ${isNonReprocessable ? "" : `onclick="confirmReprocess(${row.id})"`}>autorenew</span></td>`;
         table.appendChild(tr);
+        //<span class="material-symbols-outlined icon-action" title="Reprocess" onclick="confirmReprocess(${row.id})">autorenew</span>
     });
 
     logsConsole.innerHTML = "";

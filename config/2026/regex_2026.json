@@ -653,5 +653,28 @@
       "^annual.+?ytm$",
       "^annualised$"
     ]
+  },
+  "metric_normalization_map": {
+    "percent": [
+      "std_dev",
+      "ytm",
+      "tracking_error",
+      "r_squared_ratio",
+      "alpha",
+      "downside_deviation",
+      "upside_deviation",
+      "sharpe"
+    ],
+    "time": [
+      "avg_maturity",
+      "macaulay",
+      "mod_duration"
+    ],
+    "minadd": [
+      "min_amt",
+      "min_addl_amt",
+      "min_amt_multiple",
+      "min_addl_amt_multiple"
+    ]
   }
 }

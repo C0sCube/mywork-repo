@@ -257,6 +257,18 @@ a.logout-btn:focus-visible {
 }
 
 
+@media (min-width: 1024px){
+
+}
+
+
+.repr-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+
 /* ===============================
    MODALS
    =============================== */

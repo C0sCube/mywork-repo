@@ -199,50 +199,42 @@ jsonConvertBtn.addEventListener("click", async () => {
 // CSV download
 csvDldBtn.addEventListener("click", () => {
   if (!pipeline.csvName) return;
-  const path = `tmp/${pipeline.csvName}`;
-  window.location.href = `/download_csv?path=${encodeURIComponent(path)}`;
+  window.location.href = `/download_csv/${encodeURIComponent(pipeline.csvName)}`;
 });
+``
 
 // =====================================================
 // JSON → ADMIN PANEL
 // =====================================================
 jsonPushBtn.addEventListener("click", async () => {
-  if (!pipeline.jsonName) return;
+  if (!pipeline.json) return;
 
   lockCard(jsonCard);
   showOverlay(jsonOverlay, "Pushing to Admin…");
   logStatus("Pushing JSON to Admin Panel…");
 
+  const fd = new FormData();
+  fd.append("json", pipeline.json);
+
   try {
     const res = await fetch("/push_json_sp", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        json_name: pipeline.jsonName
-      })
+      body: fd
     });
 
     const data = await res.json();
     if (!data.success) throw new Error(data.error);
 
-    logStatus("JSON pushed successfully.");
-
-    // ✅ hide push button after success
+    logStatus("✅ JSON pushed successfully.");
     jsonPushBtn.disabled = true;
     jsonPushBtn.style.display = "none";
 
   } catch (err) {
-    logStatus("Push error: " + err.message);
+    logStatus("❌ Push error: " + err.message);
   } finally {
     hideOverlay(jsonOverlay);
   }
 });
-
-
-
 // =====================================================
 // AUTH + NAV
 // =====================================================
