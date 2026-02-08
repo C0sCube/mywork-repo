@@ -1,5 +1,6 @@
 import os, re,sys, camelot # type: ignore
 import pandas as pd
+import fitz #type:ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -47,18 +48,41 @@ class TableParser:
             series = series.apply(self.pipeline[step])
         return series
     
-    def extract_tables_from_pdf(self,path, pages, flavor='lattice',stack= True, padding = 1):
-        """Extract tables from a PDF file using Camelot and return combined DataFrame.
-        Args:   path (str): Path to the PDF file.
-                pages (str): Pages to extract (e.g., '1,2' or '1-3').
-                flavor (str): Camelot flavor to use ('lattice' or 'stream').
-                stack (bool): Whether to stack all tables vertically.
-                padding (int): Number of empty rows to add between stacked tables.
-        Returns:pd.DataFrame: Combined DataFrame of extracted tables."""
+    # def extract_tables_from_pdf(self,path, pages, flavor='lattice',stack= True, padding = 1):
+    #     """Extract tables from a PDF file using Camelot and return combined DataFrame.
+    #     Args:   path (str): Path to the PDF file.
+    #             pages (str): Pages to extract (e.g., '1,2' or '1-3').
+    #             flavor (str): Camelot flavor to use ('lattice' or 'stream').
+    #             stack (bool): Whether to stack all tables vertically.
+    #             padding (int): Number of empty rows to add between stacked tables.
+    #     Returns:pd.DataFrame: Combined DataFrame of extracted tables."""
         
-        tables = camelot.read_pdf(path, pages=pages, flavor=flavor)
-        dfs = [t.df for t in tables]
-        return self._concat_padding_vertical(*dfs,padding_rows=padding) if stack else self._concat_padding_horizontal(*dfs,padding_rows=padding)
+    #     tables = camelot.read_pdf(path, pages=pages, flavor=flavor)
+    #     dfs = [t.df for t in tables]
+    #     return self._concat_padding_vertical(*dfs,padding_rows=padding) if stack else self._concat_padding_horizontal(*dfs,padding_rows=padding)
+    
+    def extract_tables_from_pdf(self, path, pages,flavour = "lines", stack=True, padding=1):
+
+        dfs = []
+        pages = [int(p) - 1 for p in pages.split(",") if p.strip()]
+
+        with fitz.open(path) as doc:
+            for p in pages:
+                page = doc[p]
+                tables = page.find_tables(strategy=flavour)
+                for table in tables:
+                    df = pd.DataFrame(table.extract())
+                    dfs.append(df)
+
+        if not dfs:
+            return pd.DataFrame()
+
+        return (
+            self._concat_padding_vertical(*dfs, padding_rows=padding)
+            if stack
+            else self._concat_padding_horizontal(*dfs)
+        )
+
     
     def get_matching_row_indices(self, df, keywords, thresh):
         """Find row indices in a DataFrame that match a set of keywords in at least 'thresh' cells.

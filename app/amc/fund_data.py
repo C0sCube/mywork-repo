@@ -714,7 +714,7 @@ class Shriram(BaseAMC):pass
 class Canara(BaseAMC): pass
 class LIC(BaseAMC): pass
 class JioBlackRock(BaseAMC): pass
-class Abakkus(BaseAMC): pass
+class Abbakkus(BaseAMC): pass
 
 class Canara(BaseAMC):
     
@@ -890,6 +890,32 @@ class HDFC(BaseAMC):
         ]
         
         return {main_key:final_list}    
+    
+class HDFCPassive(BaseAMC):
+    
+    def _update_manager_data(self, main_key: str, data):
+        DATE_PATTERN = r"([A-Za-z]+\s*\d+),"
+        NAME_PATTERN = r"([A-Za-z]+\s[A-Za-z]+)"
+        EXP_PATTERN = r"over (\d{1,2})"
+        YEAR_PATTERN = r"(\d{4})"
+
+        manager_data = " ".join(data) if isinstance(data,list) else data
+        manager_data = re.sub(self.REGEX["escape"],"",manager_data).strip()
+        manager_data = re.sub(r"[^A-Za-z0-9\s\-\(\).,]+|Name|Since|Total|Exp|years", "", manager_data).strip()
+
+        experience_years = re.findall(EXP_PATTERN, manager_data, re.IGNORECASE)
+        dates = re.findall(DATE_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        years = re.findall(YEAR_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        names = re.findall(NAME_PATTERN, manager_data, re.IGNORECASE)[:len(experience_years)]
+        
+        managing_since = [f"{date}, {year}" for date, year in zip(dates, years)]
+        experience_list = [f"{exp} years" for exp in experience_years]
+        final_list = [
+            self._return_manager_data(name=name,since=since,exp=exp)
+            for since, exp, name in zip(managing_since, experience_list, names)
+        ]
+        
+        return {main_key:final_list}    
 
 class HSBC(BaseAMC): pass
 class NJMF(BaseAMC): pass
@@ -962,11 +988,7 @@ class AXISMFPassive(BaseAMC):
         return {main_key:data}
         
 class Unifi(BaseAMC):   
-    # def _update_date_data(self, main_key:str,data):  # GROWW & Edelweiss
-    #     date_data = " ".join(data) if isinstance(data,list) else data
-    #     matches = re.findall(self.REGEX["date"],date_data, re.IGNORECASE)
-    #     return {"scheme_launch_date": " ".join(matches)}
-    
+
     def _update_manager_data(self,main_key:str,data):
         final_list = []
         manager_data = " ".join(data) if isinstance(data, list) else data
@@ -983,5 +1005,5 @@ class Unifi(BaseAMC):
 
         return {main_key: final_list}
 
-# class Edelweiss(BaseAMC): 
+
     

@@ -17,226 +17,233 @@ const jsonDldBtn     = document.getElementById("jsonDldBtn");
 const jsonViewBtn    = document.getElementById("jsonViewBtn");
 const jsonPushBtn    = document.getElementById("jsonPushBtn");
 
+const exitBtn = document.getElementById("exitBtn");
+
 const csvTitle  = document.getElementById("csvTitle");
 const jsonTitle = document.getElementById("jsonTitle");
 
 const statusConsole = document.getElementById("statusConsole");
 
-const csvOverlay  = csvCard.querySelector(".card-overlay");
-const jsonOverlay = jsonCard.querySelector(".card-overlay");
+const csvOverlay  = csvCard ? csvCard.querySelector(".card-overlay") : null;
+const jsonOverlay = jsonCard ? jsonCard.querySelector(".card-overlay") : null;
 
 // ---------------- UI HELPERS ----------------
+function logStatus(msg) {
+  if (statusConsole) statusConsole.textContent = msg;
+}
+
 function lockCard(card) {
+  if (!card) return;
   card.dataset.state = "locked";
   card.querySelectorAll("button,input").forEach(el => el.disabled = true);
 }
 
 function unlockCard(card) {
+  if (!card) return;
   card.dataset.state = "active";
   card.querySelectorAll("button,input").forEach(el => el.disabled = false);
 }
 
 function showOverlay(overlay, text) {
+  if (!overlay) return;
   overlay.classList.remove("hidden");
   if (text) overlay.querySelector(".overlay-text").textContent = text;
 }
 
 function hideOverlay(overlay) {
+  if (!overlay) return;
   overlay.classList.add("hidden");
 }
 
-function logStatus(msg) {
-  statusConsole.textContent = msg;
+function disable(el, val = true) {
+  if (el) el.disabled = val;
 }
 
 // ---------------- PIPELINE STATE ----------------
 const pipeline = {
-  csv: null,       // File
-  json: null,      // File
-  csvName: null,   // string
-  jsonName: null   // string
+  csvFile: null,     // File
+  jsonFile: null,    // File (only when uploaded directly)
+  csvName: null,     // server-side CSV name
+  jsonName: null,    // server-side JSON name
+  jsonSource: null   // "upload" | "csv"
 };
 
 // =====================================================
 // CSV → JSON
 // =====================================================
+if (csvInput) {
+  csvInput.addEventListener("change", () => {
+    if (!csvInput.files.length) return;
 
-// CSV upload
-csvInput.addEventListener("change", () => {
-  if (!csvInput.files.length) return;
+    pipeline.csvFile = csvInput.files[0];
+    csvTitle && (csvTitle.textContent = pipeline.csvFile.name);
+    disable(csvConvertBtn, false);
 
-  pipeline.csv = csvInput.files[0];
-  csvTitle.textContent = pipeline.csv.name;
-  csvConvertBtn.disabled = false;
+    logStatus("CSV uploaded. Ready to convert.");
+  });
+}
 
-  logStatus("CSV uploaded. Ready to convert.");
-});
+if (csvConvertBtn) {
+  csvConvertBtn.addEventListener("click", async () => {
+    if (!pipeline.csvFile) return;
 
-// CSV → JSON convert
-csvConvertBtn.addEventListener("click", async () => {
-  if (!pipeline.csv) return;
+    lockCard(csvCard);
+    lockCard(jsonCard);
+    showOverlay(csvOverlay, "Converting CSV…");
+    logStatus("Converting CSV → JSON…");
 
-  lockCard(csvCard);
-  lockCard(jsonCard);
-  showOverlay(csvOverlay, "Converting CSV…");
-  logStatus("Converting CSV → JSON…");
+    const fd = new FormData();
+    fd.append("csv", pipeline.csvFile);
 
-  const fd = new FormData();
-  fd.append("csv", pipeline.csv);
+    try {
+      const res = await fetch("/convert_csv", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
 
-  try {
-    const res = await fetch("/convert_csv", {
-      method: "POST",
-      body: fd
-    });
+      pipeline.jsonName   = data.json_file;
+      pipeline.jsonSource = "csv";
+      pipeline.jsonFile   = null;
 
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error);
+      jsonTitle && (jsonTitle.textContent = pipeline.jsonName);
 
-    pipeline.jsonName = data.json_file;
-    jsonTitle.textContent = data.json_file;
+      disable(jsonViewBtn, false);
+      disable(jsonPushBtn, false);
+      disable(jsonConvertBtn, true);
+      disable(jsonInput, true);
+      disable(jsonDldBtn, false);
 
-    // JSON exists on server only
-    jsonViewBtn.disabled = false;
-    jsonPushBtn.disabled = false;
+      unlockCard(jsonCard);
+      logStatus("CSV → JSON done. Ready for Admin push.");
 
-    // 🚫 JSON → CSV is NOT allowed here
-    jsonConvertBtn.disabled = true;
-    jsonInput.disabled = true;
-    jsonDldBtn.disabled = true;
-
-    unlockCard(jsonCard);
-    logStatus("CSV → JSON done. Ready for Admin push.");
-
-  } catch (err) {
-    logStatus("Error: " + err.message);
-  } finally {
-    hideOverlay(csvOverlay);
-  }
-});
+    } catch (err) {
+      logStatus("❌ " + err.message);
+    } finally {
+      hideOverlay(csvOverlay);
+    }
+  });
+}
 
 // =====================================================
-// JSON ACTIONS (from CSV → JSON)
+// JSON VIEW
 // =====================================================
+if (jsonViewBtn) {
+  jsonViewBtn.addEventListener("click", () => {
+    if (!pipeline.jsonName) return;
+    window.open(`/viewer/json/csv/${pipeline.jsonName}`, "_blank");
+  });
+}
 
-// View JSON
-jsonViewBtn.addEventListener("click", () => {
-  if (!pipeline.jsonName) return;
-  window.open(`/viewer/json/csv/${pipeline.jsonName}`, "_blank");
-});
+if (jsonDldBtn) {
+  jsonDldBtn.addEventListener("click", () => {
+    if (!pipeline.jsonName) return;
 
-// Download JSON
-jsonDldBtn.addEventListener("click", () => {
-  if (!pipeline.jsonName) return;
-  const path = `tmp/${pipeline.jsonName}`;
-  window.location.href = `/download_json?path=${encodeURIComponent(path)}`;
-});
+    window.location.href =
+      `/download_pipeline_json/${encodeURIComponent(pipeline.jsonName)}`;
+  });
+}
+
+
 
 // =====================================================
 // JSON UPLOAD → JSON → CSV
 // =====================================================
+if (jsonInput) {
+  jsonInput.addEventListener("change", () => {
+    if (!jsonInput.files.length) return;
 
-// JSON upload
-jsonInput.addEventListener("change", () => {
-  if (!jsonInput.files.length) return;
+    pipeline.jsonFile   = jsonInput.files[0];
+    pipeline.jsonName   = pipeline.jsonFile.name;
+    pipeline.jsonSource = "upload";
 
-  pipeline.json = jsonInput.files[0];
-  pipeline.jsonName = pipeline.json.name;
-  jsonTitle.textContent = pipeline.json.name;
+    jsonTitle && (jsonTitle.textContent = pipeline.jsonName);
 
-  lockCard(csvCard);           // CSV disabled
-  unlockCard(jsonCard);
+    lockCard(csvCard);
+    unlockCard(jsonCard);
 
-  jsonConvertBtn.disabled = false;
-  jsonPushBtn.disabled = false;
-  jsonViewBtn.disabled = false;
+    disable(jsonConvertBtn, false);
+    disable(jsonPushBtn, false);
+    disable(jsonViewBtn, false);
 
-  logStatus("JSON uploaded. You can convert to CSV or push.");
-});
+    logStatus("JSON uploaded. You can convert to CSV or push.");
+  });
+}
 
-// JSON → CSV
-jsonConvertBtn.addEventListener("click", async () => {
-  if (!pipeline.json) return;
+if (jsonConvertBtn) {
+  jsonConvertBtn.addEventListener("click", async () => {
+    if (!pipeline.jsonFile) return;
 
-  lockCard(jsonCard);
-  showOverlay(jsonOverlay, "Converting JSON…");
-  logStatus("Converting JSON → CSV…");
+    lockCard(jsonCard);
+    showOverlay(jsonOverlay, "Converting JSON…");
+    logStatus("Converting JSON → CSV…");
 
-  const fd = new FormData();
-  fd.append("json", pipeline.json);
+    const fd = new FormData();
+    fd.append("json", pipeline.jsonFile);
 
-  try {
-    const res = await fetch("/convert_json", {
-      method: "POST",
-      body: fd
-    });
+    try {
+      const res = await fetch("/convert_json", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
 
-    const ct = res.headers.get("content-type");
-    if (!ct || !ct.includes("application/json")) {
-      const text = await res.text();
-      throw new Error(text.slice(0, 200));
+      pipeline.csvName = data.csv_file;
+      csvTitle && (csvTitle.textContent = pipeline.csvName);
+
+      unlockCard(csvCard);
+      disable(csvDldBtn, false);
+      disable(csvConvertBtn, true);
+
+      logStatus("JSON → CSV completed.");
+
+    } catch (err) {
+      logStatus("❌ " + err.message);
+    } finally {
+      hideOverlay(jsonOverlay);
     }
+  });
+}
 
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error);
-
-    pipeline.csvName = data.csv_file;
-    csvTitle.textContent = data.csv_file;
-
-    unlockCard(csvCard);
-    csvDldBtn.disabled = false;
-    csvConvertBtn.disabled = true;
-
-    logStatus("JSON → CSV completed.");
-
-  } catch (err) {
-    logStatus("Error: " + err.message);
-  } finally {
-    hideOverlay(jsonOverlay);
-  }
-});
-
-// CSV download
-csvDldBtn.addEventListener("click", () => {
-  if (!pipeline.csvName) return;
-  window.location.href = `/download_csv/${encodeURIComponent(pipeline.csvName)}`;
-});
-``
+if (csvDldBtn) {
+  csvDldBtn.addEventListener("click", () => {
+    if (!pipeline.csvName) return;
+    window.location.href = `/download_csv/${encodeURIComponent(pipeline.csvName)}`;
+  });
+}
 
 // =====================================================
 // JSON → ADMIN PANEL
 // =====================================================
-jsonPushBtn.addEventListener("click", async () => {
-  if (!pipeline.json) return;
+if (jsonPushBtn) {
+  jsonPushBtn.addEventListener("click", async () => {
+    lockCard(jsonCard);
+    showOverlay(jsonOverlay, "Pushing to Admin…");
+    logStatus("Pushing JSON to Admin Panel…");
 
-  lockCard(jsonCard);
-  showOverlay(jsonOverlay, "Pushing to Admin…");
-  logStatus("Pushing JSON to Admin Panel…");
+    try {
+      const fd = new FormData();
 
-  const fd = new FormData();
-  fd.append("json", pipeline.json);
+      if (pipeline.jsonSource === "csv") {
+        fd.append("json_name", pipeline.jsonName);
+      } else {
+        fd.append("json", pipeline.jsonFile);
+      }
 
-  try {
-    const res = await fetch("/push_json_sp", {
-      method: "POST",
-      body: fd
-    });
+      const res  = await fetch("/push_json_sp", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
 
-    const data = await res.json();
-    if (!data.success) throw new Error(data.error);
+      logStatus("✅ JSON pushed successfully.");
+      disable(jsonPushBtn, true);
+      jsonPushBtn.style.display = "none";
 
-    logStatus("✅ JSON pushed successfully.");
-    jsonPushBtn.disabled = true;
-    jsonPushBtn.style.display = "none";
+    } catch (err) {
+      logStatus("❌ Push error: " + err.message);
+    } finally {
+      hideOverlay(jsonOverlay);
+    }
+  });
+}
 
-  } catch (err) {
-    logStatus("❌ Push error: " + err.message);
-  } finally {
-    hideOverlay(jsonOverlay);
-  }
-});
 // =====================================================
-// AUTH + NAV
+// AUTH
 // =====================================================
 async function enforceAuth() {
   try {
@@ -251,27 +258,24 @@ async function enforceAuth() {
   }
 }
 
-function goBack(e) {
-  e.preventDefault();
-  window.location.href = "/";
-}
+// exitBtn.addEventListener("click", async () => {
+//   await fetch("/cleanup_pipeline", { method: "POST" });
+//   window.location.href = "/dashboard";
+// });
+
+
+// window.location.href =`/download_pipeline_json/${encodeURIComponent(pipeline.jsonName)}`;
+
 
 document.addEventListener("DOMContentLoaded", () => {
   enforceAuth();
 
-  // DEFAULT STATE
   unlockCard(csvCard);
   unlockCard(jsonCard);
 
-  csvConvertBtn.disabled = true;
-  jsonConvertBtn.disabled = true;
-  csvDldBtn.disabled = true;
-  jsonDldBtn.disabled = true;
-  jsonPushBtn.disabled = true;
-  jsonViewBtn.disabled = true;
-
-  document
-    .querySelectorAll("[data-action='back']")
-    .forEach(el => el.addEventListener("click", goBack));
+  disable(csvConvertBtn, true);
+  disable(jsonConvertBtn, true);
+  disable(csvDldBtn, true);
+  disable(jsonPushBtn, true);
+  disable(jsonViewBtn, true);
 });
-

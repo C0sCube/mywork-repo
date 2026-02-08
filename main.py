@@ -63,7 +63,7 @@ def execute_fs(path, amc_id, year):
 
         obj = registry[amc_id](config, regex, path)
 
-        title, path_pdf = obj.check_and_highlight(path)
+        title, path_pdf = obj.check_and_highlight(path, save_report=True) #False ??
         data = obj.get_data(path_pdf, title)
         extracted = obj.get_generated_content(data)
         refined = obj.refine_extracted_data(extracted)
@@ -202,8 +202,6 @@ def process_file(file_name, db_config):
     Helper.archive_and_delete_files( archive_dir, {file_name: file_path})
     os.path.exists(meta_path) and os.remove(meta_path)
     logger.notice(f"END job={job_id}")
-
-
 
 # --------------------------------------------------
 # MAIN LOOP

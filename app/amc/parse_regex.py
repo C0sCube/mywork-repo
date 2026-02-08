@@ -5,7 +5,7 @@ from dateutil import parser #type:ignore
 from datetime import datetime
 from app.utils import Helper
 from app.logger import log_exceptions
-from app.konstant import get_registry
+from app.konstant import get_registry, save_registry
 
 class FundRegex:
     def __init__(self, regex):
@@ -15,16 +15,17 @@ class FundRegex:
         self.JSON_HEADER = data.get("json_headers", {})
         self.METRIC_HEADER = data.get("metrics_headers", {})
         self.ESCAPE = data.get("escape_regex", "")
-        
-        self.METRICS_CONF = data.get("metric_normalization_map", {})
         self.UTILS = Helper()
         
         #global_regex
         registry = get_registry()
-        self.POPULATE_ALL_INDICE = registry.get("add_json_headers", [])
+        self.POPULATE_ALL_INDICE = registry.get("default_fs_headers", {})
         self.FINANCIAL_TERMS = [s.strip() for s in registry.get("financial_indices","").split(",")]
         self.MAIN_SCHEME_NAME = registry.get("main_scheme_name", {})
         self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, registry.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
+        self.TRIM_LIMIT =  registry.get("trim_config", {})
+        self.METRICS_CONF = registry.get("norm_config", {})
+        self.MANAGER_CATCH =  registry.get("clean_manager", [])
     
 
     @log_exceptions()
@@ -169,6 +170,9 @@ class FundRegex:
             cleaned_name = self.UTILS._normalize_alpha(cleaned_name)
             cleaned_name = self.UTILS._remove_duplicates(cleaned_name)
             
+            if cleaned_name not in self.MANAGER_CATCH:
+                self.MANAGER_CATCH.append(cleaned_name)
+            
             exp = manager.get("total_exp","")
             if exp:
                 clean_exp = self.UTILS._normalize_alphanumeric(exp)
@@ -260,12 +264,12 @@ class FundRegex:
         return data
 
     #MAPPER FINSTINCT
-    def _format_to_finstinct(self,data,filename):
+    def _format_to_finstinct(self,data,filename,file_type = "fs"):
         scheme_count = len(data)
         final_container = {
             "metadata":{
                 "document_name":filename,
-                "file_type":"fs",
+                "file_type":file_type,
                 "process_date": f"{datetime.now().strftime('%Y%m%d')}"
             },
             "records":[]
@@ -355,3 +359,70 @@ class FundRegex:
                 ],
             }
     
+    #TRIM DATA
+    @log_exceptions()
+    def trim_data(self, data: dict):
+
+        #get limit
+        str_limit = self.TRIM_LIMIT["str_limit"]
+        manager_limit = self.TRIM_LIMIT["manager_limit"]
+        benchmark_limit = self.TRIM_LIMIT["benchmark_limit"]
+        metrics_limit = self.TRIM_LIMIT["metrics_limit"]
+        load_limit = self.TRIM_LIMIT["load_limit"]
+
+        records = data.get("records", [])
+
+        for record in records:
+            content = record.get("value", {})
+
+            for key, value in content.items():
+                # print(f"Key: {key}")
+
+                if isinstance(value, str) and key in str_limit:
+                    limit = str_limit[key]
+                    content[key] = value[:limit]
+
+                elif key == "benchmark_index" and isinstance(value, list): content[key] = [v[:benchmark_limit] if isinstance(v, str) else v for v in value]
+                    
+                elif key == "fund_manager" and isinstance(value, list):
+                    trimmed_managers = []
+                    # print(value)
+                    for mgr in value:
+                        trimmed = { mk: (mv[:manager_limit[mk]] if isinstance(mv, str) else mv) for mk, mv in mgr.items() if mk in manager_limit }
+                        trimmed_managers.append(trimmed)
+                    content[key] = trimmed_managers
+
+                    # print(content[key])
+                elif key == "load" and isinstance(value, list):
+                    trimmed_loads = []
+                    for ld in value:
+                        trimmed = {}
+                        for lk, lv in ld.items():
+                            if isinstance(lv, str): trimmed[lk] = lv[:load_limit]
+                            else: trimmed[lk] = lv
+                        trimmed_loads.append(trimmed)
+                    content[key] = trimmed_loads
+
+                elif key == "metrics" and isinstance(value, list):
+                    trimmed_metrics = []
+                    for m in value:
+                        trimmed = {}
+                        for mk, mv in m.items():
+                            if isinstance(mv, str): trimmed[mk] = mv[:metrics_limit]
+                            else: trimmed[mk] = mv
+                        trimmed_metrics.append(trimmed)
+                    content[key] = trimmed_metrics
+                    
+                else:
+                    content[key] = value
+            
+            # print(content.keys())
+
+        return data
+
+    #SAVE META DATA
+    @log_exceptions()
+    def save_meta_to_registry(self):
+        
+        save_registry("clean_manager",self.MANAGER_CATCH)
+        pass

@@ -1,4 +1,4 @@
-from app.sidkim.fund_data import *
+from app.sidkim.fund_data import BaseSIDKIM
 from app.konstant import get_registry
 import importlib
 
@@ -7,15 +7,16 @@ def load_sidkim_registry():
     logger = get_global_logger()
     
     reg = get_registry()
-    registry_list = reg.get("sid_class_registry",{})
+    registry_list = reg.get("amc_registry",{})
     
     module = importlib.import_module("app.sidkim.fund_data")
     registry = {}
-    for code, class_name in registry_list.items():
+    for code, amc_data in registry_list.items():
+        class_name = amc_data["sid_class"]
         cls = getattr(module, class_name, None)
         if not cls:
             logger.warning(f"{class_name} not found. Defaulting to BaseAMC.")
             cls = BaseSIDKIM
-        registry[code] = cls
+        registry[str(code)] = cls
         
     return registry

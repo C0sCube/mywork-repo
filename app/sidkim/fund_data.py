@@ -7,7 +7,7 @@ from app.sidkim.parse_pdf import ReaderSIDKIM
 
 class GrandSidData:
     def __init__(self, amc_id: str):
-        config = load_sidkimparams()
+        config = get_sidkim_config()
         fund_config = config.get(amc_id, {})
 
         self.PARAMS = fund_config.get("PARAMS", {})
@@ -506,4 +506,5 @@ class UnifiSIDKIM(BaseSIDKIM): pass
 class JioBlackRockSIDKIM(BaseSIDKIM): pass
 class WealthCompanySIDKIM(BaseSIDKIM): pass
 class CapitalMindSIDKIM(BaseSIDKIM): pass
-class AbakkusSIDKIM(BaseSIDKIM):pass
+class AbbakkusSIDKIM(BaseSIDKIM):pass
+class ChoiceSIDKIM(BaseSIDKIM):pass

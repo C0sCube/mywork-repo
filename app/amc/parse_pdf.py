@@ -139,6 +139,9 @@ class Reader:
                                         highlight_count += 1
                                     page.add_highlight_annot(fitz.Rect(span["bbox"]))
                                     break
+                
+                # self.logger.info("|".join(found_indices))
+                
                 data.append({
                     "page": pgn,
                     "title": detected_titles.get(pgn, ""),
@@ -169,8 +172,8 @@ class Reader:
 
     @staticmethod
     def __pdf_report(data, path: str, sheet_name:str):
-        file_name = f"amc_report_{datetime.now().strftime('%Y%m%d%H%M')}.xlsx"
-        excel_path = os.path.join(path,file_name)
+
+        excel_path = os.path.join(path, f"{sheet_name.replace(".pdf","")}.xlsx")
         df = pd.DataFrame(data)
 
         if 'indices' in df.columns:
@@ -185,12 +188,14 @@ class Reader:
         else:
             df_final = df
 
-        if os.path.exists(excel_path):
-            with pd.ExcelWriter(excel_path, engine="openpyxl", mode='a', if_sheet_exists='replace') as writer:
-                df_final.to_excel(writer, sheet_name=sheet_name, index=False)
-        else:
-            with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
-                df_final.to_excel(writer, sheet_name=sheet_name, index=False)
+        # if os.path.exists(excel_path):
+        #     with pd.ExcelWriter(excel_path, engine="openpyxl", mode='a', if_sheet_exists='replace') as writer:
+        #         df_final.to_excel(writer, sheet_name=sheet_name, index=False)
+        # else:
+        #     with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
+        #         df_final.to_excel(writer, sheet_name=sheet_name, index=False)
+        with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
+            df_final.to_excel(writer, sheet_name=sheet_name, index=False)
 
         return df_final
     
@@ -828,65 +833,7 @@ class Reader:
             finalData[fund] = temp
   
         final_data = regex._format_to_finstinct(finalData,self.FILE_NAME) #mapper to FinStinct
-        return_data = self.trim_data(final_data)
-        return return_data
+        trim_data = regex.trim_data(final_data)
+        return trim_data
 
 
-    def trim_data(self, data: dict):
-        str_limit = { "amc_name": 500, "main_scheme_name": 500, "min_addl_amt": 50, "min_addl_amt_multiple": 50, "min_amt": 50, 
-        "min_amt_multiple": 50, "monthly_aaum_date": 50, "monthly_aaum_value": 50,"mutual_fund_name": 500, "scheme_launch_date": 50}
-
-        manager_limit = { "name": 100, "managing_fund_since": 100,  "qualification": 1000, "total_exp": 1000}
-        benchmark_limit = 1000
-        metrics_limit = 45
-        load_limit = 500
-
-        records = data.get("records", [])
-
-        for record in records:
-            content = record.get("value", {})
-
-            for key, value in content.items():
-                # print(f"Key: {key}")
-
-                if isinstance(value, str) and key in str_limit:
-                    limit = str_limit[key]
-                    content[key] = value[:limit]
-
-                elif key == "benchmark_index" and isinstance(value, list): content[key] = [v[:benchmark_limit] if isinstance(v, str) else v for v in value]
-                    
-                elif key == "fund_manager" and isinstance(value, list):
-                    trimmed_managers = []
-                    # print(value)
-                    for mgr in value:
-                        trimmed = { mk: (mv[:manager_limit[mk]] if isinstance(mv, str) else mv) for mk, mv in mgr.items() if mk in manager_limit }
-                        trimmed_managers.append(trimmed)
-                    content[key] = trimmed_managers
-
-                    # print(content[key])
-                elif key == "load" and isinstance(value, list):
-                    trimmed_loads = []
-                    for ld in value:
-                        trimmed = {}
-                        for lk, lv in ld.items():
-                            if isinstance(lv, str): trimmed[lk] = lv[:load_limit]
-                            else: trimmed[lk] = lv
-                        trimmed_loads.append(trimmed)
-                    content[key] = trimmed_loads
-
-                elif key == "metrics" and isinstance(value, list):
-                    trimmed_metrics = []
-                    for m in value:
-                        trimmed = {}
-                        for mk, mv in m.items():
-                            if isinstance(mv, str): trimmed[mk] = mv[:metrics_limit]
-                            else: trimmed[mk] = mv
-                        trimmed_metrics.append(trimmed)
-                    content[key] = trimmed_metrics
-                    
-                else:
-                    content[key] = value
-            
-            # print(content.keys())
-
-        return data

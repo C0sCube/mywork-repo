@@ -1,58 +1,75 @@
-import traceback, os
-import mysql.connector #type: ignore
-from mysql.connector import Error #type: ignore
-from app.utils import Helper
-from app.logger import get_global_logger
+import os
+import traceback
 from datetime import datetime
+import mysql.connector  # type: ignore
+from mysql.connector import Error  # type: ignore
+
+from app.logger import get_global_logger
+from app.konstant import get_registry, load_json_as_string
 
 
 # =====================================================
-# Job State Machine
+# Job State Machine (CONFIG-DRIVEN)
 # =====================================================
+
+def _load_job_config() -> dict:
+    registry = get_registry()
+    if "job_config" not in registry:
+        raise RuntimeError("job_config missing from registry")
+    return registry["job_config"]
+
+
+JOB_CONFIG = _load_job_config()
+
+JOB_STATES = set(JOB_CONFIG.get("states", []))
+ALLOWED_TRANSITIONS = {
+    k: set(v) for k, v in JOB_CONFIG.get("transitions", {}).items()
+}
+INITIAL_STATE = JOB_CONFIG.get("initial_state", "UPLOADED")
+PUSHABLE_STATES = set(JOB_CONFIG.get("pushable_states", []))
+
+
+# ---------- CONFIG SANITY CHECKS (FAIL FAST) ----------
+
+if not JOB_STATES:
+    raise RuntimeError("job_config.states cannot be empty")
+
+if INITIAL_STATE not in JOB_STATES:
+    raise RuntimeError(
+        f"Invalid job_config: initial_state '{INITIAL_STATE}' not in states"
+    )
+
+unknown_transition_states = set(ALLOWED_TRANSITIONS.keys()) - JOB_STATES
+if unknown_transition_states:
+    raise RuntimeError(
+        f"Invalid job_config: transitions defined for unknown states "
+        f"{unknown_transition_states}"
+    )
+
+
+# ---------- Backward-compatible state namespace ----------
 
 class JobState:
-    UPLOADED = "UPLOADED"
-    PARSED = "PARSED"
-    PARSE_FAILED = "PARSE_FAILED"
-    APPROVED = "APPROVED"
-    PUSHED = "PUSHED"
-    PUSH_FAILED = "PUSH_FAILED"
-    INVALID_TYPE = "INVALID_TYPE"
-    SP_CALL = "SP_CALL"
+    """Dynamic namespace for job states (JobState.PARSED, etc.)"""
+    pass
 
 
-ALLOWED_TRANSITIONS = {
-    JobState.UPLOADED: {JobState.PARSED, JobState.PARSE_FAILED,JobState.INVALID_TYPE},
-    JobState.PARSED: {JobState.PUSHED, JobState.PUSH_FAILED,JobState.UPLOADED},
-    JobState.SP_CALL: {JobState.PUSHED, JobState.PUSH_FAILED},
-    JobState.PARSE_FAILED: {JobState.UPLOADED},
-    JobState.PUSH_FAILED: {JobState.PARSED,JobState.PUSHED},
-    JobState.INVALID_TYPE:{JobState.UPLOADED}, 
-    JobState.PUSHED: {JobState.UPLOADED, JobState.PUSHED},   #  REQUIRED for reprocess & repush
-}
+for state in JOB_STATES:
+    setattr(JobState, state, state)
 
-# REPROCESS_TARGET = {
-#     JobState.UPLOADED: JobState.UPLOADED,
-#     JobState.PARSED: JobState.UPLOADED,
-#     JobState.PARSE_FAILED: JobState.UPLOADED,
-#     JobState.PUSH_FAILED: JobState.UPLOADED,
-#     JobState.PUSHED: JobState.UPLOADED,
-# }
 
 TABLE_REPORT = "mf_status_report"
 
 
 # =====================================================
-# Connection Handler
+# DB CONNECTION
 # =====================================================
 
-def establish_connection(db_config=None):
-    """Create and return a MySQL connection."""
+def establish_connection(db_config: dict | None = None):
     logger = get_global_logger()
     try:
         conn = mysql.connector.connect(**db_config)
-        logger.info(f"Database connected: {db_config.get('database','')}")
-        # print(db_config)
+        logger.info(f"Database connected: {db_config.get('database', '')}")
         return conn
     except Error as e:
         logger.error(f"Database connection failed: {e}")
@@ -61,12 +78,12 @@ def establish_connection(db_config=None):
 
 
 # =====================================================
-# Job Creation
+# JOB CREATION
 # =====================================================
 
 def create_job(data: dict, db_config: dict) -> int:
     """
-    Create a new job in UPLOADED state.
+    Create a new job using configured initial state.
     Returns job_id.
     """
     conn = establish_connection(db_config)
@@ -77,15 +94,15 @@ def create_job(data: dict, db_config: dict) -> int:
     cur.execute(
         f"""
         INSERT INTO {TABLE_REPORT}
-        (file_name, status, start_time, created_by, uploaded_by)
+            (file_name, status, start_time, created_by, uploaded_by)
         VALUES (%s, %s, %s, %s, %s)
         """,
         (
             data["file_name"],
-            JobState.UPLOADED,
+            INITIAL_STATE,
             data["start_time"],
             data.get("created_by", ""),
-            data.get("uploaded_by", "")
+            data.get("uploaded_by", ""),
         )
     )
 
@@ -93,18 +110,15 @@ def create_job(data: dict, db_config: dict) -> int:
     conn.commit()
     cur.close()
     conn.close()
-
     return job_id
 
 
 # =====================================================
-# Job Fetching
+# JOB FETCHING
 # =====================================================
 
 def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
-    """Fetch a job row by ID."""
     conn = establish_connection(db_config)
-    # print(job_id)
     if not conn:
         raise RuntimeError("DB connection failed")
 
@@ -116,9 +130,8 @@ def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
         FROM {TABLE_REPORT}
         WHERE id = %s
         """,
-        (job_id,)
+        (job_id,),
     )
-    print(f"{job_id} is called.")
 
     row = cur.fetchone()
     cur.close()
@@ -131,9 +144,7 @@ def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
 
 
 def fetch_job_by_name(file_name: str, db_config: dict) -> dict:
-    """Fetch a job row by file_name."""
     conn = establish_connection(db_config)
-    # print(job_id)
     if not conn:
         raise RuntimeError("DB connection failed")
 
@@ -145,9 +156,8 @@ def fetch_job_by_name(file_name: str, db_config: dict) -> dict:
         FROM {TABLE_REPORT}
         WHERE file_name = %s
         """,
-        (file_name,)
+        (file_name,),
     )
-    # print(f"{job_id} is called.")
 
     row = cur.fetchone()
     cur.close()
@@ -158,8 +168,8 @@ def fetch_job_by_name(file_name: str, db_config: dict) -> dict:
 
     return row
 
+
 def fetch_latest_uploaded_job(file_name: str, db_config: dict) -> dict | None:
-    """Fetch the most recent UPLOADED job for a given file."""
     conn = establish_connection(db_config)
     if not conn:
         return None
@@ -169,22 +179,22 @@ def fetch_latest_uploaded_job(file_name: str, db_config: dict) -> dict | None:
         f"""
         SELECT id, status
         FROM {TABLE_REPORT}
-        WHERE file_name = %s AND status = %s
+        WHERE file_name = %s
+          AND status = %s
         ORDER BY start_time DESC
         LIMIT 1
         """,
-        (file_name, JobState.UPLOADED)
+        (file_name, JobState.UPLOADED),
     )
 
     row = cur.fetchone()
     cur.close()
     conn.close()
-
     return row
 
 
 # =====================================================
-# Job State Transition (SINGLE SOURCE OF TRUTH)
+# STATE TRANSITION (SINGLE SOURCE OF TRUTH)
 # =====================================================
 
 def transition_job_state(
@@ -194,12 +204,8 @@ def transition_job_state(
     *,
     json_path: str | None = None,
     error: str | None = None,
-    db_config: dict
+    db_config: dict,
 ) -> None:
-    """
-    Perform a guarded job state transition.
-    """
-
     if to_state not in ALLOWED_TRANSITIONS.get(from_state, set()):
         raise ValueError(f"Illegal transition {from_state} → {to_state}")
 
@@ -218,13 +224,7 @@ def transition_job_state(
         WHERE id = %s
           AND status = %s
         """,
-        (
-            to_state,
-            json_path,
-            error,
-            job_id,
-            from_state
-        )
+        (to_state, json_path, error, job_id, from_state),
     )
 
     if cur.rowcount != 1:
@@ -241,14 +241,26 @@ def transition_job_state(
 
 
 # =====================================================
-# Publishing (Admin Panel Push)
+# STATE HELPERS (FOR WEB / UI LAYERS)
+# =====================================================
+
+def is_valid_state(state: str) -> bool:
+    return state in JOB_STATES
+
+
+def can_transition(from_state: str, to_state: str) -> bool:
+    return to_state in ALLOWED_TRANSITIONS.get(from_state, set())
+
+
+def is_pushable_state(state: str) -> bool:
+    return state in PUSHABLE_STATES
+
+
+# =====================================================
+# ADMIN PANEL PUBLISHING
 # =====================================================
 
 def json_to_cog_db(json_path: str, db_config: dict) -> bool:
-    """
-    Explicitly push JSON to admin panel via stored procedure.
-    MUST be called only from /push_job endpoint.
-    """
     logger = get_global_logger()
 
     sp_map = {
@@ -257,19 +269,20 @@ def json_to_cog_db(json_path: str, db_config: dict) -> bool:
         "fs": "mf_processjson_factsheet",
     }
 
-    file_name = json_path.split("\\")[-1]
-    json_string = Helper.load_json_as_string(json_path)
+    file_name = os.path.basename(json_path)
+    json_string = load_json_as_string(json_path)
 
     sp_name = None
-    if "_kim.json" in file_name.lower():
+    lower = file_name.lower()
+    if "_kim.json" in lower:
         sp_name = sp_map["kim"]
-    elif "_sid.json" in file_name.lower():
+    elif "_sid.json" in lower:
         sp_name = sp_map["sid"]
-    elif "_fs.json" in file_name.lower():
+    elif "_fs.json" in lower:
         sp_name = sp_map["fs"]
 
     if not sp_name:
-        logger.error("No matching SP for JSON file")
+        logger.error(f"No matching SP for JSON file: {file_name}")
         return False
 
     conn = establish_connection(db_config)
@@ -277,12 +290,12 @@ def json_to_cog_db(json_path: str, db_config: dict) -> bool:
         return False
 
     try:
-        cursor = conn.cursor()
+        cur = conn.cursor()
 
-        if "_fs.json" in file_name.lower():
-            cursor.callproc("mf_update_document_details_FS", [file_name])
+        if "_fs.json" in lower:
+            cur.callproc("mf_update_document_details_FS", [file_name])
 
-        cursor.callproc(sp_name, [json_string])
+        cur.callproc(sp_name, [json_string])
         conn.commit()
         return True
 
@@ -293,8 +306,9 @@ def json_to_cog_db(json_path: str, db_config: dict) -> bool:
         return False
 
     finally:
-        cursor.close()
+        cur.close()
         conn.close()
+
 
 def increment_push_attempts(job_id: int, db_config: dict):
     conn = establish_connection(db_config)
@@ -308,10 +322,8 @@ def increment_push_attempts(job_id: int, db_config: dict):
         SET push_attempts = push_attempts + 1
         WHERE id = %s
         """,
-        (job_id,)
+        (job_id,),
     )
     conn.commit()
     cur.close()
     conn.close()
-
-

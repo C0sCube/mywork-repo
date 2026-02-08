@@ -16,11 +16,12 @@
             <a href="{{ url_for('index') }}" data-action="back">
                 <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
             </a>
-            <h1>  CSV  <span class="material-symbols-outlined">swap_horiz</span>  JSON  <span class="material-symbols-outlined">line_end_arrow</span>  ADMIN  </h1>
+            <h1> CSV <span class="material-symbols-outlined">swap_horiz</span> JSON <span
+                    class="material-symbols-outlined">line_end_arrow</span> ADMIN </h1>
         </div>
 
         <div class="editor-controls">
-            <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
+            <a href="{{ url_for('index') }}" class="nav-btn" data-action="back" id="exitBtn">
                 <span class="material-symbols-outlined">arrow_back</span>
             </a>
         </div>
@@ -42,8 +43,10 @@
                     <button class="nav-btn secondary" id="csvDldBtn" disabled>
                         <span class="material-symbols-outlined">download_2</span>
                     </button>
-                    <button class="nav-btn" id="csvConvertBtn" disabled>CSV to JSON</button>
-                       <!-- <span class="material-symbols-outlined" title = "convert to json">convert_to_text</span> -->
+                    <button class="nav-btn" id="csvConvertBtn" disabled><span class="material-symbols-outlined">
+                            g_translate
+                        </span></button>
+                    <!-- <span class="material-symbols-outlined" title = "convert to json">convert_to_text</span> -->
                 </div>
 
                 <!-- overlay -->
@@ -53,8 +56,8 @@
                 </div>
             </div>
 
-                <!-- <span class="material-symbols-outlined">swap_horiz</span> -->
- 
+            <!-- <span class="material-symbols-outlined">swap_horiz</span> -->
+
 
             <!-- CARD 2: JSON -->
             <div class="csv-card" data-card="json" data-state="waiting">
@@ -66,16 +69,18 @@
                 </label>
 
                 <div class="card-actions">
-                    <button class="nav-btn" id="jsnConvertBtn" disabled>JSON to CSV</button>
-                       <!-- <span class="material-symbols-outlined" title = "convert to csv">table_convert</span> -->
-    
+                    <button class="nav-btn" id="jsnConvertBtn" disabled><span class="material-symbols-outlined">
+                            g_translate
+                        </span></button>
+                    <!-- <span class="material-symbols-outlined" title = "convert to csv">table_convert</span> -->
+
 
                     <button class="nav-btn secondary" id="jsonDldBtn" disabled>
                         <span class="material-symbols-outlined">download_2</span>
                     </button>
 
                     <button class="nav-btn secondary" id="jsonViewBtn" disabled>
-                       <span class="material-symbols-outlined">open_in_new</span>
+                        <span class="material-symbols-outlined">open_in_new</span>
                     </button>
                 </div>
 
@@ -95,7 +100,7 @@
 
                 <div class="card-actions">
                     <button class="nav-btn" id="jsonPushBtn" disabled>
-                       to Admin Panel
+                        to Admin Panel
                     </button>
                 </div>
 

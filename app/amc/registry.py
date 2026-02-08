@@ -1,38 +1,35 @@
 from app.amc.fund_data import *
-import re, importlib
+import re, importlib, os
 from datetime import datetime
 from app.konstant import get_registry
-
+from app.logger import get_global_logger
 
 
 def load_registry():
-    from app.logger import get_global_logger
-    logger = get_global_logger()
     
+    logger = get_global_logger()
     reg = get_registry()
-    registry_list = reg.get("class_registry",{})
+    registry_list = reg.get("amc_registry",{})
     
     module = importlib.import_module("app.amc.fund_data")
     registry = {}
-    for code, class_name in registry_list.items():
-        cls = getattr(module, class_name, None)
-        if not cls:
-            logger.warning(f"{class_name} not found. Defaulting to BaseAMC.")
-            cls = BaseAMC
-        registry[code] = cls
+    for code, amc_data in registry_list.items():
+        
+        class_data = amc_data["fs_class"]
+        for k,class_name in class_data.items():
+            cls = getattr(module, class_name, None)
+            if not cls:
+                logger.warning(f"{class_name} not found. Defaulting to BaseAMC.")
+                cls = BaseAMC
+            registry[f"{code}_{k}"] = cls
         
     return registry
 
 def check_amc_file(path: str, file_name: str) -> tuple[str | None, str | None, str | None]:
     logger = get_global_logger()
 
-    fs_pattern = re.compile(
-        r"^(?P<code>\d{1,3})_(?P<date>\d{2}-[A-Za-z]{3}-\d{2})(?:_(?P<rev>\d))?_FS\.pdf$"
-    )
-
-    sidkim_pattern = re.compile(
-        r"^(?P<code>\d{1,3})_.*?_(?P<type>SID|KIM)\.pdf$"
-    )
+    fs_pattern = re.compile(r"^(?P<code>\d{1,3})_(?P<date>\d{2}-[A-Za-z]{3}-\d{2})(?:_(?P<rev>\d))?_FS\.pdf$")
+    sidkim_pattern = re.compile(r"^(?P<code>\d{1,3})_.*?_(?P<type>SID|KIM)\.pdf$")
 
     # ---------- FACTSHEET ----------
     m = fs_pattern.match(file_name)

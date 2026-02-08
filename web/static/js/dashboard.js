@@ -154,6 +154,7 @@ async function loadLogs() {
 
     } catch (err) {
         console.error(err);
+        console.log(err);
         logsConsole.innerHTML = "<p>Error loading logs.</p>";
     }
 }
@@ -182,6 +183,7 @@ function renderTable(rows) {
     rows.forEach((row, i) => {
         const tr = document.createElement("tr");
         const isPushed = row.status === "PUSHED";
+        const jsonName = row.file_name.replace(".pdf", ".json");
 
         const pushCell = row.json_path ? `<label class="switch">
             <input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}><span></span>
@@ -198,12 +200,11 @@ function renderTable(rows) {
         <td>${formatUTCDate(row.end_time)}</td>
         <td class="${getStatusClass(row.status)}">${row.status|| "-"}</td>
         <td>${row.error || "-"}</td>
-        <td>${row.json_path ? `<a href="/viewer/json/dashboard/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""} ${row.json_path ? `<a href="/download_json?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}</td>
+        <td>${row.json_path ? `<a href="/viewer/json/dashboard/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""} ${row.json_path ? `<a href="/download_dashboard_json/${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}</td>
         <td>${row.json_path ? `<a href="/dash_csv?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
         <td>${pushCell}</td>
         <td><span class="material-symbols-outlined icon-action ${isNonReprocessable ? "repr-disabled" : ""}" ${isNonReprocessable ? "" : `onclick="confirmReprocess(${row.id})"`}>autorenew</span></td>`;
         table.appendChild(tr);
-        //<span class="material-symbols-outlined icon-action" title="Reprocess" onclick="confirmReprocess(${row.id})">autorenew</span>
     });
 
     logsConsole.innerHTML = "";
