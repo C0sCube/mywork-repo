@@ -428,7 +428,7 @@
         "Riskometer": null,
         "Riskometer_benchmark": null
     },
-    "trim_config": {
+    "config_trim": {
         "str_limit": {
             "amc_name": 500,
             "main_scheme_name": 500,
@@ -451,7 +451,7 @@
         "metrics_limit": 45,
         "load_limit": 500
     },
-    "norm_config": {
+    "config_norm": {
         "percent": [
             "std_dev",
             "ytm",
@@ -474,7 +474,7 @@
             "min_addl_amt_multiple"
         ]
     },
-    "job_config": {
+    "config_job": {
         "states": [
             "UPLOADED",
             "PARSED",
@@ -511,6 +511,25 @@
             "PARSED",
             "PUSH_FAILED"
         ]
+    },
+    "config_pdf": {
+        "TITLE_FONT_SIZE": 24,
+        "TITLE_POSITION": 72,
+        "TITLE_COLOR": [
+            0,
+            0,
+            1
+        ],
+        "DEFAULT_FONT_NAME": "helv",
+        "DEFAULT_FONT_SIZE": 10,
+        "DEFAULT_FONT_COLOR": [
+            0,
+            0,
+            0
+        ],
+        "LEFT_MARGIN": 32,
+        "MIN_LINE_SPACING": 2,
+        "Y_SNAP_THRESHOLD": 3
     },
     "field_keys": {
         "load_keys": [
@@ -600,6 +619,16 @@
             "mutual_fund_name",
             "description"
         ]
+    },
+    "field_regex": {
+        "monthly_aaum_value": "",
+        "min_add": "",
+        "port_turnover_ratio": "",
+        "scheme_launch_date_format": "",
+        "total_exp": "",
+        "rupee_symbol": "",
+        "search_entry_load": "",
+        "search_exit_load": ""
     },
     "financial_indices": "aaum, about the fund, add. amt, add. mult., additional amount, additional multiple, additional multiples, additional purchase, Additional investment amount, addl. amount, addl. multiple, alpha, alpha coefficient, alpha ratio, assets under management, average asset under management, average aum, average div yield, average dividend yield, average maturity, average maturity of bonds, average p/b, average p/e, average price to book ratio, average price to earnings ratio, avg asset under management, avg p/b ratio, avg p/e ratio, avg. aum, avg. dividend yield, avg. maturity, benchmark, benchmark index, benchmark risk level, benchmark riskometer, beta of portfolio, creation unit size, date of allotment, date of inception, downside deviation, downside risk measure, downside risk ratio, downside variability, duration (macaulay), duration (modified), entry load, equity returns, etf creation size, exit load, face value, fund goals, fund manager, fund name, fund scheme, fund start date, inception date, index benchmark, indexes, info ratio, information ratio, investment objective, investment risk indicator, investment scheme, ir, jenson, load, entry load, exit load, Macaulay Duraon, macaulay duration, macaulay's duration, managed by, management experience, managing scheme, maturity yield, min invest, min multiple, min.application, Minimum application amount, minimum invest amount, minimum investment amount, minimum multiple, mod duration, Modified Duraon, modified duration, month end aum, monthly avg aum, nav, nominal value, objective, other parameter, p/b, p/e, par value, pb, pb ratio, pe, pe ratio, performance deviation, Porolio Turnover, portfolio beta, portfolio manager, portfolio turnover, portfolio turnover rate, portfolio turnover ratio, Portfolio Turnover Ratio, Portfolio Turn Over Ratio, portfolio's beta, positive deviation, price to book, price to earnings, quantitative data, qualitative data, r squared, r squared ratio - fund, r-squared for fund, r^2, return on equity, risk adjusted measure, risk adjusted return ratio, risk level, riskometer for benchmark, roe, rsquared, scheme management, scheme name, scheme objective, scheme riskometer, sharpe, sharpe ratio, sharpe's ratio, sortino ratio, sortino's ratio, Standard Deviaon, standard deviation, std dev, std. dev, std deviation, total experience, track error, tracking error, treynor, treynor ratio, treynor's ratio, turnover ratio, unit size of creation, upside deviation, upside risk, volatility measure, years of experience, yield to maturity, ytm",
     "main_scheme_name": {

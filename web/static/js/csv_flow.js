@@ -3,28 +3,28 @@
 // =====================================================
 
 // ---------------- DOM REFERENCES ----------------
-const csvCard    = document.querySelector('[data-card="csv"]');
-const jsonCard   = document.querySelector('[data-card="json"]');
+const csvCard = document.querySelector('[data-card="csv"]');
+const jsonCard = document.querySelector('[data-card="json"]');
 const statusCard = document.querySelector('[data-card="status"]');
 
-const csvInput   = document.getElementById("csvInput");
-const jsonInput  = document.getElementById("inputJson");
+const csvInput = document.getElementById("csvInput");
+const jsonInput = document.getElementById("inputJson");
 
-const csvConvertBtn  = document.getElementById("csvConvertBtn");
+const csvConvertBtn = document.getElementById("csvConvertBtn");
 const jsonConvertBtn = document.getElementById("jsnConvertBtn");
-const csvDldBtn      = document.getElementById("csvDldBtn");
-const jsonDldBtn     = document.getElementById("jsonDldBtn");
-const jsonViewBtn    = document.getElementById("jsonViewBtn");
-const jsonPushBtn    = document.getElementById("jsonPushBtn");
+const csvDldBtn = document.getElementById("csvDldBtn");
+const jsonDldBtn = document.getElementById("jsonDldBtn");
+const jsonViewBtn = document.getElementById("jsonViewBtn");
+const jsonPushBtn = document.getElementById("jsonPushBtn");
 
 const exitBtn = document.getElementById("exitBtn");
 
-const csvTitle  = document.getElementById("csvTitle");
+const csvTitle = document.getElementById("csvTitle");
 const jsonTitle = document.getElementById("jsonTitle");
 
 const statusConsole = document.getElementById("statusConsole");
 
-const csvOverlay  = csvCard ? csvCard.querySelector(".card-overlay") : null;
+const csvOverlay = csvCard ? csvCard.querySelector(".card-overlay") : null;
 const jsonOverlay = jsonCard ? jsonCard.querySelector(".card-overlay") : null;
 
 // ---------------- UI HELPERS ----------------
@@ -100,9 +100,9 @@ if (csvConvertBtn) {
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
 
-      pipeline.jsonName   = data.json_file;
+      pipeline.jsonName = data.json_file;
       pipeline.jsonSource = "csv";
-      pipeline.jsonFile   = null;
+      pipeline.jsonFile = null;
 
       jsonTitle && (jsonTitle.textContent = pipeline.jsonName);
 
@@ -151,8 +151,8 @@ if (jsonInput) {
   jsonInput.addEventListener("change", () => {
     if (!jsonInput.files.length) return;
 
-    pipeline.jsonFile   = jsonInput.files[0];
-    pipeline.jsonName   = pipeline.jsonFile.name;
+    pipeline.jsonFile = jsonInput.files[0];
+    pipeline.jsonName = pipeline.jsonFile.name;
     pipeline.jsonSource = "upload";
 
     jsonTitle && (jsonTitle.textContent = pipeline.jsonName);
@@ -215,8 +215,8 @@ if (jsonPushBtn) {
   jsonPushBtn.addEventListener("click", async () => {
     lockCard(jsonCard);
     showOverlay(jsonOverlay, "Pushing to Admin…");
-    logStatus("Pushing JSON to Admin Panel…");
-
+    // logStatus("Pushing JSON to Admin Panel…");
+    console.log("Pushing JSON to Admin Panel…");
     try {
       const fd = new FormData();
 
@@ -226,16 +226,18 @@ if (jsonPushBtn) {
         fd.append("json", pipeline.jsonFile);
       }
 
-      const res  = await fetch("/push_json_sp", { method: "POST", body: fd });
+      const res = await fetch("/push_json_sp", { method: "POST", body: fd });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
 
-      logStatus("✅ JSON pushed successfully.");
+      // logStatus("✅ JSON pushed successfully.");
+      console.log("✅ JSON pushed successfully.");
       disable(jsonPushBtn, true);
       jsonPushBtn.style.display = "none";
 
     } catch (err) {
       logStatus("❌ Push error: " + err.message);
+      console.log(err);
     } finally {
       hideOverlay(jsonOverlay);
     }
@@ -246,27 +248,30 @@ if (jsonPushBtn) {
 // AUTH
 // =====================================================
 async function enforceAuth() {
-  try {
-    const r = await fetch("/auth-check");
-    const d = await r.json();
-    if (!d.logged_in) {
-      alert("Session expired.");
-      window.location = "/login";
+    try {
+        const r = await fetch("/auth-check");
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            alert("Session expired. Please log in again.");
+            window.location = "/login";
+        }
+    } catch (err) {
+        alert("Unable to verify session. Redirecting to login.");
+        window.location = "/login";
     }
-  } catch {
-    window.location = "/login";
-  }
 }
 
-// exitBtn.addEventListener("click", async () => {
-//   await fetch("/cleanup_pipeline", { method: "POST" });
-//   window.location.href = "/dashboard";
-// });
+function goBackToMain(e) {
+  if (e) e.preventDefault();
 
-
-// window.location.href =`/download_pipeline_json/${encodeURIComponent(pipeline.jsonName)}`;
-
-
+  if (window.opener && !window.opener.closed) {
+    window.opener.focus();
+    window.close();
+  } else {
+    window.location.replace("/");
+  }
+}
 document.addEventListener("DOMContentLoaded", () => {
   enforceAuth();
 
@@ -278,4 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
   disable(csvDldBtn, true);
   disable(jsonPushBtn, true);
   disable(jsonViewBtn, true);
+
+  document.querySelectorAll("[data-action='back']").forEach(el => {
+    el.addEventListener("click", async () => {
+      await fetch("/cleanup_pipeline", { method: "POST" });
+      goBackToMain();
+    });
+  });
 });

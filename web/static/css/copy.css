@@ -216,6 +216,24 @@ a.logout-btn:focus-visible {
     font-size: 13px;
 }
 
+.error-tab {
+    width: 300px;
+}
+
+.file-tab {
+    width: 285px;
+}
+
+@media (max-width: 1120px) {
+    .error-tab {
+        width: 65px;
+    }
+
+    .file-tab {
+        width: 140px;
+    }
+}
+
 .status-table th,
 .status-table td {
     border: 1px solid #cbd5e1;
@@ -231,36 +249,30 @@ a.logout-btn:focus-visible {
 }
 
 .status-table a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.25);
-  text-underline-offset: 2px;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.25);
+    text-underline-offset: 2px;
 }
 
 .status-table a:hover {
-  text-decoration-color: currentColor;
+    text-decoration-color: currentColor;
 }
 
 /* status in table fail/success */
 .status-green {
-  color: #2e7d32;
-  font-weight: 600;
-  border-radius: 4px;
-  padding: 2px 6px;
+    color: #2e7d32;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 2px 6px;
 }
 
 .status-red {
-  color: #c62828;
-  font-weight: 600;
-  border-radius: 4px;
-  padding: 2px 6px;
+    color: #c62828;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 2px 6px;
 }
-
-
-@media (min-width: 1024px){
-
-}
-
 
 .repr-disabled {
     opacity: 0.4;
@@ -606,9 +618,6 @@ a.logout-btn:focus-visible {
 }
 
 
-
-/* table scroll area only */
-
 .table-wrapper {
     max-height: calc(100vh - 240px);
     /* header + panel + pagination */
@@ -624,10 +633,7 @@ a.logout-btn:focus-visible {
     padding-right: 12px;
 }
 
-
-
 /* dashboard pagination */
-
 .pagination {
     display: flex;
     justify-content: center;
@@ -660,9 +666,6 @@ a.logout-btn:focus-visible {
     background: var(--dark);
     color: #fff;
 }
-
-
-
 
 /* ===============================
    FULL-WIDTH TOOL PAGES
@@ -723,40 +726,42 @@ a.logout-btn:focus-visible {
 
 /* Make cards overlay-capable */
 .csv-card {
-  position: relative;
+    position: relative;
 }
 
 /* Overlay (progress / lock) */
 .card-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  border-radius: inherit;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    border-radius: inherit;
 }
 
 .card-overlay.hidden {
-  display: none;
+    display: none;
 }
 
 /* Spinner */
 .spinner {
-  width: 22px;
-  height: 22px;
-  border: 3px solid rgba(255,255,255,0.3);
-  border-top-color: #4ade80;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+    width: 22px;
+    height: 22px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #4ade80;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Soft locked state */
@@ -764,9 +769,9 @@ a.logout-btn:focus-visible {
   pointer-events: none;
   opacity: 0.8;
 } */
- .csv-card[data-state="locked"] {
-  opacity: 0.45;
-  filter: grayscale(1);
+.csv-card[data-state="locked"] {
+    opacity: 0.45;
+    filter: grayscale(1);
 }
 
 
@@ -802,7 +807,7 @@ a.logout-btn:focus-visible {
 .card-console {
     margin: 18px;
     height: 150px;
- 
+
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 8px;
@@ -837,13 +842,16 @@ a.logout-btn:focus-visible {
 }
 
 #statusConsole {
-  white-space: pre-wrap;      /* preserve formatting + wrap */
-  word-break: break-word;     /* break long words if needed */
-  overflow-wrap: anywhere;    /* modern fallback */
-  max-width: 100%;
-  font-size: 15px;
-  color: #cbd5f5;
-  margin: 0 6px 0 6px;
+    white-space: pre-wrap;
+    /* preserve formatting + wrap */
+    word-break: break-word;
+    /* break long words if needed */
+    overflow-wrap: anywhere;
+    /* modern fallback */
+    max-width: 100%;
+    font-size: 15px;
+    color: #cbd5f5;
+    margin: 0 6px 0 6px;
 
 }
 

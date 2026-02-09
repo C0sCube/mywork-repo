@@ -15,7 +15,8 @@ sys.path.append(root_dir)
 from flask import (
     Flask, render_template, request,
     redirect, url_for, session,
-    send_from_directory, jsonify, send_file
+    send_from_directory, jsonify, send_file,
+    render_template_string,  abort
 )
 
 from ldap3 import Server, Connection, ALL
@@ -119,9 +120,9 @@ def ws_path(kind):
 # Authentication
 # =====================================================
 
-def ldap_authenticate(username, password):
-    server = Server(LDAP_SERVER, get_info=ALL)
-    user_dn = f"{username}@{LDAP_DOMAIN}"  # Try UPN format first
+def ldap_authenticate(ldap_conf,username, password):
+    server = Server(ldap_conf["server"], get_info=ALL)
+    user_dn = f"{username}@{ldap_conf["domain"]}"  # Try UPN format first
     print(f"Trying LDAP bind with DN: {user_dn}")
     try:
         conn = Connection(server, user=user_dn, password=password, auto_bind=True)
@@ -138,8 +139,8 @@ def login():
         password = request.form["password"]
         remember = "remember" in request.form
 
-        # if ldap_authenticate(username, password):
-        if True:
+        if ldap_authenticate(LDAP_CONFIG,username, password):
+        # if True:
             session["logged_in"] = True
             session["user"] = username
             session.permanent = remember
@@ -156,13 +157,18 @@ def login():
 @app.route("/logout")
 def logout():
     
-    # cleanup_session_workspace()
+    cleanup_session_workspace()
     session.clear()
     return redirect(url_for("login"))
 
 @app.route("/auth-check")
 def auth_check():
     return jsonify(logged_in=bool(session.get("logged_in")))
+
+# def require_admin():
+#     if not session.get("logged_in") or session.get("role") != "admin":
+#         abort(403)
+
 
 # =====================================================
 # Dashboard
@@ -481,7 +487,7 @@ def config_editor():
 
 @app.route('/list-files/<year>')
 def list_files(year):
-    year_path = os.path.join(CONFIG_BASE_PATH, str(year))
+    year_path = os.path.join(CONFIG_PATH, str(year))
     print(year_path)
     try:
         files = [f for f in os.listdir(year_path) if (f.endswith('.json') or  f.endswith('.json5'))]
@@ -497,7 +503,7 @@ def load_config():
     data = request.get_json()
     year = data.get('year')
     filename = data.get('filename')
-    path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+    path = os.path.join(CONFIG_PATH, str(year), filename)
 
     try:
         with open(path, 'r', encoding='utf-8') as f:
@@ -516,7 +522,7 @@ def save_config():
     year = data.get('year')
     filename = data.get('filename')
     content = data.get('content')
-    path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+    path = os.path.join(CONFIG_PATH, str(year), filename)
     try:
         # parse content depending on extension
         if filename.endswith(".json5"):
@@ -538,11 +544,11 @@ def backup_config():
     year = data["year"]
     filename = data["filename"]
 
-    src = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+    src = os.path.join(CONFIG_PATH, str(year), filename)
     if not os.path.exists(src):
         return jsonify({"success": False, "message": "File not found"})
 
-    backup_dir = os.path.join(CONFIG_BASE_PATH, "0001")
+    backup_dir = os.path.join(CONFIG_PATH, "0001")
     os.makedirs(backup_dir, exist_ok=True)
 
     ts = datetime.now(TIME_ZONE).strftime("%y%m%d_%H%M")
@@ -560,7 +566,7 @@ def create_config():
     year = data["year"]
     filename = data["filename"]
 
-    year_dir = os.path.join(CONFIG_BASE_PATH, str(year))
+    year_dir = os.path.join(CONFIG_PATH, str(year))
     os.makedirs(year_dir, exist_ok=True)
 
     file_path = os.path.join(year_dir, filename)
@@ -579,7 +585,7 @@ def delete_config():
     year = data["year"]
     filename = data["filename"]
 
-    file_path = os.path.join(CONFIG_BASE_PATH, str(year), filename)
+    file_path = os.path.join(CONFIG_PATH, str(year), filename)
     if not os.path.exists(file_path):
         return jsonify({"success": False, "error": "File not found"})
 
@@ -844,6 +850,8 @@ def csv_to_fs_json(csv_path):
         value = {}
         for k in keys["static_keys"]:
             if k in row and row[k]:
+                if k == "benchmark_index":
+                    print(row[k])
                 value[k] = row[k]
 
         loads = []
@@ -974,14 +982,14 @@ def download_pipeline_json(filename):
         mimetype="application/json"
     )
 
-# @app.route("/cleanup_pipeline", methods=["POST"])
-# def cleanup_pipeline():
-#     if not session.get("logged_in"):
-#         return jsonify(success=False), 403
-    # cleanup_session_workspace()
-    # init_session_workspace() 
+@app.route("/cleanup_pipeline", methods=["POST"])
+def cleanup_pipeline():
+    if not session.get("logged_in"):
+        return jsonify(success=False), 403
+    cleanup_session_workspace()
+    init_session_workspace() 
 
-#     return jsonify(success=True)
+    return jsonify(success=True)
 
 
 @app.route("/viewer/json/<source>/<filename>")
@@ -1043,15 +1051,25 @@ def push_json_sp():
     if not session.get("logged_in"):
         return jsonify(success=False, error="Not logged in"), 403
 
-    f = request.files.get("json")
-    if not f:
-        return jsonify(success=False, error="Missing JSON"), 400
+    # Case 1: File uploaded
+    if "json" in request.files:
+        f = request.files["json"]
+        file_name = secure_filename(f.filename)
 
-    name = secure_filename(f.filename)
-    json_path = os.path.join(ws_path("staging"), name)
-    f.save(json_path)
+        json_path = os.path.join(ws_path("staging"), file_name)
+        f.save(json_path)
 
-    pdf_name = name.replace(".json", ".pdf")
+    # Case 2: Only JSON name sent
+    elif "json_name" in request.form:
+        file_name = secure_filename(request.form["json_name"])
+        json_path = os.path.join(ws_path("staging"), file_name)
+
+    else:
+        return jsonify(success=False, error="No JSON data provided"), 400
+
+    # print(f"File Name: {file_name}")
+
+    pdf_name = file_name.replace(".json", ".pdf")
     job_id, status = ensure_job_for_json(pdf_name)
     push_json_and_record(job_id, status, json_path)
 
@@ -1132,7 +1150,9 @@ def daily_logs():
         return redirect(url_for("login")) 
 
     user = session.get("user", "").lower()
-    return render_template("daily_logs.html", user=user)
+    if user in ADMIN_USERS:
+        user = "admin"
+    return render_template("daily_logs.html", user=user, role = user)
 
 @app.route("/load-daily-log", methods=["POST"])
 def load_daily_log():
@@ -1155,7 +1175,65 @@ def load_daily_log():
             return jsonify(success=True,content=f.read())
     except Exception:
         return jsonify(success=False, content="Error reading log file."), 500
+    
 
+@app.route("/files/json/")
+def list_json_files():
+    if not session.get("logged_in"):
+        abort(403)
+
+    folder = os.path.join(OUTPUT_DIR,"json")
+    files = os.listdir(folder)
+
+    html = """
+    <h3>JSON Files</h3>
+    <ul>
+      {% for f in files %}
+        <li><a href="/files/json/{{ f }}">{{ f }}</a></li>
+      {% endfor %}
+    </ul>
+    """
+    return render_template_string(html, files=files)
+
+@app.route("/files/xlsx/")
+def list_csv_files():
+    if not session.get("logged_in"):
+        abort(403)
+
+    folder = os.path.join(OUTPUT_DIR,"reports")
+    files = sorted(os.listdir(folder))
+
+    html = """
+    <h3>CSV Files</h3>
+    <ul>
+      {% for f in files %}
+        <li><a href="/files/xlsx/{{ f }}">{{ f }}</a></li>
+      {% endfor %}
+    </ul>
+    """
+    return render_template_string(html, files=files)
+
+@app.route("/files/xlsx/<path:filename>")
+def serve_csv_files(filename):
+    if not session.get("logged_in"):
+        abort(403)
+
+    return send_from_directory(
+         os.path.join(OUTPUT_DIR,"reports"),
+        filename,
+        as_attachment=False
+    )
+    
+@app.route("/files/json/<path:filename>")
+def serve_json_files(filename):
+    if not session.get("logged_in"):
+        abort(403)
+
+    return send_from_directory(
+         os.path.join(OUTPUT_DIR,"json"),
+        filename,
+        as_attachment=False
+    )
 # =====================================================
 # AMC - DATA
 # =====================================================
@@ -1210,18 +1288,13 @@ if __name__ == "__main__":
     # for p in WEB_PATHS.values():
     #     os.makedirs(p, exist_ok=True)
 
-    ldap = config["ldap"]
-    LDAP_SERVER = ldap["path"]
-    LDAP_DOMAIN = ldap["domain"]
-    ADMIN_USERS = [u.lower() for u in ldap.get("admin_user", [])]
+    LDAP_CONFIG = config["ldap_config"]
+    ADMIN_USERS = [u.lower() for u in LDAP_CONFIG.get("admin_user", [])]
 
     DB_CONFIG = config["db_config"]
 
-    CONFIG_BASE_PATH = config["config_path"]
-    registry_path = os.path.join(CONFIG_BASE_PATH,"0000","registry.json")
-    REGISTRY = utils.load_json(registry_path)
+    CONFIG_PATH = os.path.join(config["base_path"],"config")
+    REGISTRY = utils.load_json(os.path.join(CONFIG_PATH,"0000","registry.json"))
     
-    SP_REPORT_RUN = True
-
-    web = config.get("web_host", {})
+    web = config.get("web_config", {})
     app.run(debug=True, host=web.get("host"), port=web.get("port"))

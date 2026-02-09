@@ -1,33 +1,5 @@
 let currentDate = null;
 
-// ---------------- AUTH ----------------
-async function enforceAuth() {
-    try {
-        const r = await fetch("/auth-check");
-        const data = await r.json();
-
-        if (!data.logged_in) {
-            alert("Session expired. Log in again.");
-            window.location = "/login";
-        }
-    } catch {
-        alert("Unable to verify session. Redirecting to login.");
-        window.location = "/login";
-    }
-}
-
-// ---------------- NAV ----------------
-function goBackToMain(e) {
-    e.preventDefault();
-
-    if (window.opener) {
-        window.opener.focus();
-        window.close();
-    } else {
-        window.location.href = "/";
-    }
-}
-
 // ---------------- LOG LOADING ----------------
 async function loadLog() {
     const date = document.getElementById("dateSelect").value;
@@ -82,29 +54,83 @@ function syncScroll() {
     lineBox.scrollTop = viewer.scrollTop;
 }
 
+
 // ---------------- INIT ----------------
-document.addEventListener("DOMContentLoaded", () => {
-    enforceAuth();
+document.addEventListener("click", async (e) => {
+  const btn = e.target.closest("[data-action]");
+  if (!btn) return;
 
-    // default to today
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const dd = String(today.getDate()).padStart(2, "0");
-    document.getElementById("dateSelect").value = `${yyyy}-${mm}-${dd}`;
+  const action = btn.dataset.action;
 
-    // bind buttons
-    document.querySelector("[data-action='load']")
-        ?.addEventListener("click", loadLog);
+  switch (action) {
+    case "json":
+      window.open("/files/json/", "_blank");
+      break;
 
-    document.querySelector("[data-action='refresh']")
-        ?.addEventListener("click", refreshLog);
+    case "report":
+      window.open("/files/xlsx/", "_blank");
+      break;
 
-    document.querySelectorAll("[data-action='back']")
-        .forEach(el => el.addEventListener("click", goBackToMain));
+    case "load":
+      loadLog();
+      break;
 
-    document.getElementById("logViewer")
-        ?.addEventListener("scroll", syncScroll);
+    case "refresh":
+      refreshLog();
+      break;
 
-    loadLog();
+    case "back":
+      goBackToMain();
+      break;
+  }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  enforceAuth();
+
+  // default to today
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+
+  document.getElementById("dateSelect").value = `${yyyy}-${mm}-${dd}`;
+
+  document.getElementById("logViewer")
+    ?.addEventListener("scroll", syncScroll);
+
+  loadLog();
+
+   document
+    .querySelectorAll("[data-action='back']")
+    .forEach(el => el.addEventListener("click", goBackToMain));
+});
+
+
+// ---------------- AUTH ----------------
+async function enforceAuth() {
+    try {
+        const r = await fetch("/auth-check");
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            alert("Session expired. Please log in again.");
+            window.location = "/login";
+        }
+    } catch (err) {
+        alert("Unable to verify session. Redirecting to login.");
+        window.location = "/login";
+    }
+}
+
+
+function goBackToMain(e) {
+  e.preventDefault();
+
+  if (window.opener) {
+    window.opener.focus();
+    window.close();
+  } else {
+    window.location.href = "/";
+  }
+}

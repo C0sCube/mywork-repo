@@ -173,7 +173,7 @@ class Reader:
     @staticmethod
     def __pdf_report(data, path: str, sheet_name:str):
 
-        excel_path = os.path.join(path, f"{sheet_name.replace(".pdf","")}.xlsx")
+        excel_path = os.path.join(path, f"{sheet_name.replace(".pdf","")}_REPORT.xlsx")
         df = pd.DataFrame(data)
 
         if 'indices' in df.columns:
@@ -819,11 +819,11 @@ class Reader:
                 
             temp = self._promote_key_from_dict(temp)
                         
-            #format/type convert
-            temp = regex._remove_rupee_symbol(temp)
+            #format/type convert keep same format
+            # temp = regex._remove_rupee_symbol(temp)
+            temp = regex._format_aaum_data(temp) #monthly_aaum_data
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
-            
             
             
             temp = regex._format_amt_data(fund,temp) #min/add formatter

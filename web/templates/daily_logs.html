@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,62 @@
 
   <link rel="icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="hero">
-    <a href="{{ url_for('index') }}" data-action="back">
-      <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
-    </a>
-    <h1>DAILY LOGS</h1>
-  </div>
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="hero">
+      <a href="{{ url_for('index') }}" data-action="back">
+        <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+      </a>
+      <h1>DAILY LOGS</h1>
+    </div>
 
-  <div class="user-section">
-    <label><strong>Date:</strong></label>
-    <input type="date" id="dateSelect" class="input">
+    <div class="user-section">
+      {% if role == 'admin' %}
+      <button class="nav-btn" title="JSON FILES" data-action="json">
+        <span class="material-symbols-outlined">file_json</span>
+      </button>
+      <button class="nav-btn" title="CHECK REPORTS" data-action="report">
+        <span class="material-symbols-outlined">monitoring</span>
+      </button>
+       <div class="space"> | </div>
+      {% endif %}
 
-    <button class="nav-btn" data-action="load">Load</button>
+      <label><strong>Date:</strong></label>
+      <input type="date" id="dateSelect" class="input">
 
-    <button class="nav-btn" data-action="refresh" title="Refresh">
-      <span class="material-symbols-outlined">autorenew</span>
-    </button>
+      <button class="nav-btn" data-action="load">Load</button>
 
-    <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
-      <span class="material-symbols-outlined">arrow_back</span>
-    </a>
-  </div>
-</header>
+      <button class="nav-btn" data-action="refresh" title="Refresh">
+        <span class="material-symbols-outlined">autorenew</span>
+      </button>
 
-<!-- ================= PAGE ================= -->
-<div class="page page-logs">
+      <a href="{{ url_for('index') }}" class="nav-btn" data-action="back">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+    </div>
+  </header>
 
-  <div class="panel">
-    <div class="log-wrapper">
-      <div id="lineNumbers" class="line-numbers">1</div>
+  <!-- ================= PAGE ================= -->
+  <div class="page page-logs">
 
-      <div id="logViewer" class="log-content">
-        Select a date to load logs…
+    <div class="panel">
+      <div class="log-wrapper">
+        <div id="lineNumbers" class="line-numbers">1</div>
+
+        <div id="logViewer" class="log-content">
+          Select a date to load logs…
+        </div>
       </div>
     </div>
+
   </div>
 
-</div>
-
-<script src="{{ url_for('static', filename='js/daily_logs.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/daily_logs.js') }}"></script>
 </body>
+
 </html>

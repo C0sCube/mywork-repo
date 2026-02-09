@@ -18,9 +18,9 @@ def save_json(data: dict, path: str, indent: int = 2):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=indent)
 
-def save_json5(data: dict, path: str, indent: int = 2):
-    with open(path, "w", encoding="utf-8") as f:
-        json5.dump(data, f, indent=indent)
+# def save_json5(data: dict, path: str, indent: int = 2):
+#     with open(path, "w", encoding="utf-8") as f:
+#         json5.dump(data, f, indent=indent)
 
 def load_json_as_string(path: str, indent: int = None) -> str:
     with open(path, "r", encoding="utf-8") as f:
@@ -42,15 +42,15 @@ def get_input_path(): return load_paths()["inp_path"]
 
 #global registry
 def get_registry():
-    base_path = load_paths()["config_path"]
-    base_path = os.path.join(base_path,"0000","registry.json")
+    base_path = load_paths()["base_path"]
+    base_path = os.path.join(base_path,"config","0000","registry.json")
     if not os.path.exists(base_path):
         return None
     return load_json(base_path)
 
 def save_registry(key:str, data):
-    base_path = load_paths()["config_path"]
-    base_path = os.path.join(base_path,"0000","registry.json")
+    base_path = load_paths()["base_path"]
+    base_path = os.path.join(base_path,"config","0000","registry.json")
     if not os.path.exists(base_path):
         return None
     
@@ -67,32 +67,32 @@ def save_registry(key:str, data):
     
 # factsheet conf
 def get_config(year = "2025", id = ""):
-    base_path = load_paths()["config_path"]
-    config_path = os.path.join(base_path, year, f"{id}_AMC.json5")
+    base_path = load_paths()["base_path"]
+    config_path = os.path.join(base_path,"config",year, f"{id}_AMC.json5")
     print(config_path)
     if not os.path.exists(config_path):
         return None
     return load_json5(config_path)
 
 def get_regex(year = "2025"):
-    base_path = load_paths()["config_path"]
-    config_path = os.path.join(base_path, year, f"regex_{year}.json")
+    base_path = load_paths()["base_path"]
+    config_path = os.path.join(base_path,"config", year, f"regex_{year}.json")
     if not os.path.exists(config_path):
         return None
     return load_json(config_path)
 
 #sid/kim conf
 def get_sidkim_config(folder = "sidkim"):
-    base_path = load_paths()["config_path"]
-    config_path = os.path.join(base_path, folder, f"sid_params.json5")
+    base_path = load_paths()["base_path"]
+    config_path = os.path.join(base_path, "config", folder, f"sid_params.json5")
     if not os.path.exists(config_path):
         return None
     config =  load_json5(config_path)
     return config
 
 def load_sidkimregex():
-    base_path = load_paths()["config_path"]
-    sid_path = os.path.join(base_path,"sidkim","sid_regex.json")
+    base_path = load_paths()["base_path"]
+    sid_path = os.path.join(base_path,"config", "sidkim","sid_regex.json")
     return load_json(sid_path)
 
 

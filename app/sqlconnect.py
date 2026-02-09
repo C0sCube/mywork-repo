@@ -14,9 +14,9 @@ from app.konstant import get_registry, load_json_as_string
 
 def _load_job_config() -> dict:
     registry = get_registry()
-    if "job_config" not in registry:
+    if "config_job" not in registry:
         raise RuntimeError("job_config missing from registry")
-    return registry["job_config"]
+    return registry["config_job"]
 
 
 JOB_CONFIG = _load_job_config()

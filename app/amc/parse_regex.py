@@ -23,8 +23,8 @@ class FundRegex:
         self.FINANCIAL_TERMS = [s.strip() for s in registry.get("financial_indices","").split(",")]
         self.MAIN_SCHEME_NAME = registry.get("main_scheme_name", {})
         self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, registry.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
-        self.TRIM_LIMIT =  registry.get("trim_config", {})
-        self.METRICS_CONF = registry.get("norm_config", {})
+        self.TRIM_LIMIT =  registry.get("config_trim", {})
+        self.METRICS_CONF = registry.get("config_norm", {})
         self.MANAGER_CATCH =  registry.get("clean_manager", [])
     
 
@@ -120,14 +120,6 @@ class FundRegex:
                 fund = key
                 break
         return fund
-
-    def _remove_rupee_symbol(self,data:dict): 
-        clean_keys = ["monthly_aaum_value"]
-        for k,v in data.items():
-            if k in clean_keys and isinstance(v,str):
-                data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
-        return data
-
     
     def _convert_date_format(self,data, output_format="%Y%m%d"):
         try:
@@ -176,7 +168,7 @@ class FundRegex:
             exp = manager.get("total_exp","")
             if exp:
                 clean_exp = self.UTILS._normalize_alphanumeric(exp)
-                clean_exp = re.sub(r"(years?|yrs?)","",clean_exp, re.IGNORECASE)
+                clean_exp = re.sub(r"(years?|yrs?)\.?","",clean_exp, re.IGNORECASE)
                 manager["total_exp"] = clean_exp.strip()
             
             if cleaned_name and len(cleaned_name) >= 3:
@@ -209,6 +201,27 @@ class FundRegex:
         
         return data
 
+    # def _remove_rupee_symbol(self,data:dict): 
+    #     clean_keys = ["monthly_aaum_value"]
+    #     for k,v in data.items():
+    #         if k in clean_keys and isinstance(v,str):
+    #             data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
+    #     return data
+
+    def _format_aaum_data(self,data):
+        d = data.copy()
+        aaum = d.get("monthly_aaum_value","")
+        aaum = re.sub(r"[^\d.,a-zA-Z ]+", "", aaum)
+        if isinstance(aaum, str) and aaum.strip():
+            cleaned_aaum = self.UTILS._normalize_whitespace(aaum)
+            cleaned_aaum = re.sub(r"(crores?|crs?\.?)","",cleaned_aaum, re.IGNORECASE).strip()
+            d.update({
+                "monthly_aaum_value":cleaned_aaum
+            })
+        
+        return d
+        
+        
     def _format_metric_data(self, fund,data):
         metric_data = data.get("metrics", {})
         if not isinstance(metric_data, dict) or not metric_data:

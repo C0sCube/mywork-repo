@@ -168,11 +168,11 @@ function renderTable(rows) {
     table.innerHTML = `
     <tr>
       <th style = "width:40px">#</th>
-      <th style = "width:285px" >File</th>
+      <th class ="file-tab">File</th>
       <th style = "width:150px" >User</th>
       <th style = "width:120px" >Start Time</th>
       <th style = "width:110px" >Status</th>
-      <th style = "width:fill">Error</th>
+      <th class ="error-tab">Error</th>
       <th style = "width:75px" >JSON</th>
       <th style = "width:45px" >CSV</th>
       <th style = "width:65px" >Push</th>
@@ -199,7 +199,7 @@ function renderTable(rows) {
         <td>${formatUser(row.uploaded_by)}</td>
         <td>${formatUTCDate(row.end_time)}</td>
         <td class="${getStatusClass(row.status)}">${row.status|| "-"}</td>
-        <td>${row.error || "-"}</td>
+        <td lass="error-tab">${row.error || "-"}</td>
         <td>${row.json_path ? `<a href="/viewer/json/dashboard/${row.file_name.replace(".pdf", ".json")}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""} ${row.json_path ? `<a href="/download_dashboard_json/${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}</td>
         <td>${row.json_path ? `<a href="/dash_csv?path=${encodeURIComponent(row.json_path)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
         <td>${pushCell}</td>

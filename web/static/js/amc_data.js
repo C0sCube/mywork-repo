@@ -1,30 +1,3 @@
-// ---------------- AUTH CHECK ----------------
-async function enforceAuth() {
-    try {
-        const r = await fetch("/auth-check");
-        const data = await r.json();
-
-        if (!data.logged_in) {
-            alert("Session expired. Please log in again.");
-            window.location = "/login";
-        }
-    } catch (err) {
-        alert("Unable to verify session. Redirecting to login.");
-        window.location = "/login";
-    }
-}
-
-// ---------------- NAVIGATION ----------------
-function goBackToMain(e) {
-    e.preventDefault();
-
-    if (window.opener) {
-        window.opener.focus();
-        window.close();
-    } else {
-        window.location.href = "/";
-    }
-}
 
 // ---------------- AMC DATA RENDER ----------------
 function loadAMCData() {
@@ -76,3 +49,30 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener("click", goBackToMain);
     });
 });
+
+// ---------------- AUTH CHECK ----------------
+async function enforceAuth() {
+    try {
+        const r = await fetch("/auth-check");
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            alert("Session expired. Please log in again.");
+            window.location = "/login";
+        }
+    } catch (err) {
+        alert("Unable to verify session. Redirecting to login.");
+        window.location = "/login";
+    }
+}
+
+function goBackToMain(e) {
+    e.preventDefault();
+
+    if (window.opener) {
+        window.opener.focus();
+        window.close();
+    } else {
+        window.location.href = "/";
+    }
+}
