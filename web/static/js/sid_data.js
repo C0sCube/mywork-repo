@@ -217,30 +217,35 @@ function buildPayload() {
   return base;
 }
 
-/* ================= AUTH + NAV ================= */
-
+// ---------------- AUTH ----------------
 async function enforceAuth() {
-  try {
-    const r = await fetch("/auth-check");
-    const data = await r.json();
+    try {
+        const r = await fetch("/auth-check");
 
-    if (!data.logged_in) {
-      alert("Session expired. Please log in again.");
-      window.location = "/login";
+        if (!r.ok) {
+            window.location = "/login";
+            return;
+        }
+
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            window.location = "/login";
+        }
+
+    } catch (err) {
+        window.location = "/login";
     }
-  } catch {
-    window.location = "/login";
-  }
 }
 
+// ---------------- NAV ----------------
 function goBackToMain(e) {
   e.preventDefault();
-
   if (window.opener) {
     window.opener.focus();
     window.close();
   } else {
-    window.location.href = "/";
+   window.location.href = "/dashboard";
   }
 }
 

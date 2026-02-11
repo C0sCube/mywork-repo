@@ -9,7 +9,7 @@ from app.konstant import (
     get_input_path, get_output_path, create_dir,
     load_db_config,get_config, get_regex,
     get_processed_dir, get_failed_dir,
-    get_json_dir, get_log_dir
+    get_json_dir, get_log_dir, FINAL_LOG_NAME
 )
 
 from app.logger import setup_logger, rotate_daily_log
@@ -252,7 +252,7 @@ if __name__ == "__main__":
     FAILED_DIR = get_failed_dir()
     
 
-    logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12, set_global=True)
+    logger = setup_logger(FINAL_LOG_NAME, base_dir=LOG_DIR, log_level=12, set_global=True)
 
     logger.info("Running FactSheet / SID / KIM Watcher")
     main()

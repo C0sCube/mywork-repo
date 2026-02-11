@@ -54,14 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
 async function enforceAuth() {
     try {
         const r = await fetch("/auth-check");
+
+        if (!r.ok) {
+            window.location = "/login";
+            return;
+        }
+
         const data = await r.json();
 
         if (!data.logged_in) {
-            alert("Session expired. Please log in again.");
             window.location = "/login";
         }
+
     } catch (err) {
-        alert("Unable to verify session. Redirecting to login.");
         window.location = "/login";
     }
 }
@@ -73,6 +78,6 @@ function goBackToMain(e) {
         window.opener.focus();
         window.close();
     } else {
-        window.location.href = "/";
+        window.location.href = "/dashboard";
     }
 }

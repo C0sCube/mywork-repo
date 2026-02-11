@@ -1,29 +1,3 @@
-// ---------------- AUTH ----------------
-async function enforceAuth() {
-  try {
-    const r = await fetch("/auth-check");
-    const data = await r.json();
-    if (!data.logged_in) {
-      alert("Session expired. Log in again.");
-      window.location = "/login";
-    }
-  } catch {
-    alert("Unable to verify session.");
-    window.location = "/login";
-  }
-}
-
-// ---------------- NAV ----------------
-function goBackToMain(e) {
-  e.preventDefault();
-  if (window.opener) {
-    window.opener.focus();
-    window.close();
-  } else {
-    window.location.href = "/";
-  }
-}
-
 // ---------------- STATE ----------------
 const jsonInput = document.getElementById("jsonInput");
 const errorDisplay = document.getElementById("errorDisplay");
@@ -172,5 +146,39 @@ function validateJSON() {
       errorDisplay.textContent = e.message;
       return false;
     }
+  }
+}
+
+
+// ---------------- AUTH ----------------
+async function enforceAuth() {
+    try {
+        const r = await fetch("/auth-check");
+
+        if (!r.ok) {
+            window.location = "/login";
+            return;
+        }
+
+        const data = await r.json();
+
+        if (!data.logged_in) {
+            window.location = "/login";
+        }
+
+    } catch (err) {
+        window.location = "/login";
+    }
+}
+
+// ---------------- NAV ----------------
+function goBackToMain(e) {
+  e.preventDefault();
+  if (window.opener) {
+    window.opener.focus();
+    window.close();
+  } else {
+    window.location.href = "/dashboard";
+
   }
 }

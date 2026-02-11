@@ -12,12 +12,12 @@
     "special": true
   },
   "MERGEKEYS": {
-    "load": [
-      ".*load_structure"
-    ],
     "metrics": [
       ".*tracking_error",
       ".*portfolio_turnover"
+    ],
+    "load": [
+      ".*load_structure"
     ]
   },
   "PARAMS": {
@@ -86,7 +86,6 @@
   "REGEX": {
     "aum": "[\\d,.]+\\s*crores?\\s*([\\d,.]+\\s*crores?)",
     "date": "([A-Za-z]+\\s*\\d{2}\\,\\s*\\d{4})",
-    "decimal": "(\\d+\\.\\d+)",
     "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
     "load": "Entry Load (.*?)Exit load (.*)$",
     "manager": {
@@ -118,7 +117,8 @@
       "Tracking Error as on",
       "Exchange Listed",
       "EOL"
-    ]
+    ],
+    "decimal": "(\\d+\\.\\d+)"
   },
   "SECONDARY_PATTERN_TO_FUNCTION": {
     ".*(tracking_error|portfolio_turnover)": [

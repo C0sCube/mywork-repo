@@ -1,18 +1,3 @@
-/* ================= AUTH ================= */
-(async function enforceAuth() {
-    try {
-        const r = await fetch("/auth-check");
-        const data = await r.json();
-        if (!data.logged_in) {
-            alert("Session Expired. Log in Again.");
-            window.location = "/login";
-        }
-    } catch {
-        alert("Unable to verify. Redirecting to login.");
-        window.location = "/login";
-    }
-})();
-
 /* ================= STATE ================= */
 let selectedFiles = [];
 let amcRegistry = {};
@@ -364,3 +349,37 @@ async function confirmReprocess(jobId) {
     alert("Reprocess error: " + err.message);
   }
 }
+
+
+// ---------------- AUTH ----------------
+// async function enforceAuth() {
+//     try {
+//         const r = await fetch("/auth-check");
+
+//         if (!r.ok) {
+//             window.location = "/login";
+//             return;
+//         }
+
+//         const data = await r.json();
+
+//         if (!data.logged_in) {
+//             window.location = "/login";
+//         }
+
+//     } catch (err) {
+//         window.location = "/login";
+//     }
+// }
+
+// ---------------- NAV ----------------
+// function goBackToMain(e) {
+//   e.preventDefault();
+//   if (window.opener) {
+//     window.opener.focus();
+//     window.close();
+//   } else {
+//    window.location.href = "/dashboard";
+
+//   }
+// }

@@ -247,31 +247,38 @@ if (jsonPushBtn) {
 // =====================================================
 // AUTH
 // =====================================================
+// ---------------- AUTH ----------------
 async function enforceAuth() {
     try {
         const r = await fetch("/auth-check");
+
+        if (!r.ok) {
+            window.location = "/login";
+            return;
+        }
+
         const data = await r.json();
 
         if (!data.logged_in) {
-            alert("Session expired. Please log in again.");
             window.location = "/login";
         }
+
     } catch (err) {
-        alert("Unable to verify session. Redirecting to login.");
         window.location = "/login";
     }
 }
 
+// ---------------- NAV ----------------
 function goBackToMain(e) {
-  if (e) e.preventDefault();
-
-  if (window.opener && !window.opener.closed) {
+  e.preventDefault();
+  if (window.opener) {
     window.opener.focus();
     window.close();
   } else {
-    window.location.replace("/");
+    window.location.href = "/dashboard";
   }
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   enforceAuth();
 

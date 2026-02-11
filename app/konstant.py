@@ -122,7 +122,7 @@ def get_report_dir():
 
 def get_log_dir():
     out_dir = get_output_path()
-    return create_dir(out_dir,"reports")
+    return create_dir(out_dir,"logs")
 
 
 #pdf generation constants
@@ -135,3 +135,7 @@ def get_log_dir():
 # LEFT_MARGIN = 32        # Left margin for alignment
 # MIN_LINE_SPACING = 2     # Extra space between lines
 # Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
+
+#log data
+
+FINAL_LOG_NAME = "fs_parse_log"

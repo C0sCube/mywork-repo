@@ -7,6 +7,7 @@ import uuid, shutil
 import pandas as pd
 from datetime import datetime, timedelta
 from pathlib import Path
+from functools import wraps
 
 # ---------------- Project Root ----------------
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -26,7 +27,8 @@ from app.utils import Helper
 from app.sqlconnect import *
 from app.konstant import (
     get_processed_dir, get_failed_dir,
-    get_json_dir, get_report_dir
+    get_json_dir, get_report_dir, get_log_dir,
+    FINAL_LOG_NAME
 )
 
 # =====================================================
@@ -48,17 +50,18 @@ app.permanent_session_lifetime = timedelta(days=7)
 # Helpers
 # =====================================================
 
-def doc_subdir(filename: str) -> str:
-    if filename.endswith("_SID.pdf"):
-        return "sid"
-    if filename.endswith("_KIM.pdf"):
-        return "kim"
-    if filename.endswith("_FS.pdf"):
+def detect_doc_type(filename: str) -> str | None:
+    name = filename.lower()
+    if name.endswith("_fs.csv") or name.endswith("_fs.json") or name.endswith("_fs.pdf"):
         return "fs"
-    return ""
+    if name.endswith("_sid.csv") or name.endswith("_sid.json") or name.endswith("_sid.pdf"):
+        return "sid"
+    if name.endswith("_kim.csv") or name.endswith("_kim.json") or name.endswith("_kim.pdf"):
+        return "kim"
+    return None
 
 def resolve_source_file(filename: str) -> str | None:
-    sub = doc_subdir(filename)
+    sub = detect_doc_type(filename)
 
     processed = os.path.join(DIRS["prcs_dir"](sub), filename)
     failed = os.path.join(DIRS["fail_dir"](), filename)
@@ -68,6 +71,25 @@ def resolve_source_file(filename: str) -> str | None:
     if os.path.exists(failed):
         return DIRS["prcs_dir"](sub)
     return None
+
+def validate_json_for_push(json_path: str) -> tuple[bool, str]:
+    if not os.path.exists(json_path):
+        return False, "JSON file not found"
+
+    if os.path.getsize(json_path) == 0:
+        return False, "JSON file is empty"
+
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return False, "Invalid JSON format"
+
+    if not data:
+        return False, "JSON content is empty"
+
+    return True, ""
+
 
 def backup_json(json_path, tz):
     ts = datetime.now(tz).strftime("%Y%m%d_%H%M%S")
@@ -79,6 +101,7 @@ def backup_json(json_path, tz):
     return dst
 
 
+# create session + cleanup session
 def init_session_workspace():
     # reuse if already exists
     if session.get("ws_id"):
@@ -125,31 +148,41 @@ def ldap_authenticate(ldap_conf,username, password):
         print(f"LDAP auth failed: {e}")
         return False
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form["username"].strip().lower()
-        password = request.form["password"]
-        remember = "remember" in request.form
+    if session.get("logged_in"):
+        return redirect(url_for("dashboard"))
 
-        if ldap_authenticate(LDAP_CONFIG,username, password):
-        # if True:
-            session["logged_in"] = True
-            session["user"] = username
-            session.permanent = remember
-            session["role"] = "admin" if username in ADMIN_USERS else "user"
-            
-            init_session_workspace()
-            
-            return redirect(url_for("index"))
-        else:
-            return render_template("login.html", error="Invalid LDAP credentials.")
+    if request.method == "POST":
+        username = request.form.get("username", "").strip().lower()
+        password = request.form.get("password", "")
+
+        if not username or not password:
+            return render_template("login.html", error="Username and password required.")
+
+        # ---- AUTH SECTION ----
+        # Replace this with real LDAP later
+        auth_success = True  # or ldap_authenticate(...)
+
+        if not auth_success:
+            return render_template("login.html", error="Invalid credentials.")
+
+        # ---- SESSION SETUP ----
+        session.clear()
+        session["logged_in"] = True
+        session["user"] = username
+        session["role"] = "admin" if username in ADMIN_USERS else "user"
+        session.permanent = True
+
+        init_session_workspace()
+
+        return redirect(url_for("dashboard"))
 
     return render_template("login.html")
 
+
 @app.route("/logout")
 def logout():
-    
     cleanup_session_workspace()
     session.clear()
     return redirect(url_for("login"))
@@ -158,26 +191,45 @@ def logout():
 def auth_check():
     return jsonify(logged_in=bool(session.get("logged_in")))
 
-# def require_admin():
-#     if not session.get("logged_in") or session.get("role") != "admin":
-#         abort(403)
+
+def login_required(api=False):
+    def decorator(f):
+        @wraps(f)
+        def wrapper(*args, **kwargs):
+            if not session.get("logged_in"):
+                if api:
+                    return jsonify(success=False, error="Unauthorized"), 401
+                return redirect(url_for("login"))
+            return f(*args, **kwargs)
+        return wrapper
+    return decorator
+
+def admin_required(api=False):
+    def decorator(f):
+        @wraps(f)
+        def wrapper(*args, **kwargs):
+            if not session.get("logged_in"):
+                if api:
+                    return jsonify(success=False, error="Unauthorized"), 401
+                return redirect(url_for("login"))
+
+            if session.get("role") != "admin":
+                if api:
+                    return jsonify(success=False, error="Forbidden"), 403
+                return redirect(url_for("index"))
+            return f(*args, **kwargs)
+        return wrapper
+    return decorator
 
 
 # =====================================================
 # Dashboard
 # =====================================================
 
-@app.route('/dashboard')
-def dashboard():
-    user = session.get("user","")
-    role = session.get("role", "user")
-    return render_template("dashboard.html", user=user, role=role)
-
 @app.route("/")
-def index():
-    if not session.get("logged_in"):
-        return redirect(url_for("login"))
-
+@app.route("/dashboard")
+@login_required()
+def dashboard():
     json_dir = DIRS["json_dir"]()
     files = sorted(os.listdir(json_dir), reverse=True) if os.path.exists(json_dir) else []
 
@@ -190,15 +242,14 @@ def index():
 
 
 @app.route('/status_data')
+@login_required(api=True)
 def status_data():
     """Return paginated entries from mf_status_report as JSON for dashboard polling."""
-    if not session.get("logged_in"):
-        return redirect(url_for("login"))
 
     try:
         # Read query params (defaults: page=1, size=10)
         page = int(request.args.get("page", 1))
-        size = int(request.args.get("size", 15))
+        size = int(request.args.get("size", 25))
         offset = (page - 1) * size
 
         conn = establish_connection(db_config=DB_CONFIG)
@@ -234,9 +285,8 @@ def status_data():
         return {"success": False, "rows": []}
     
 @app.route("/viewer/pdf/<filename>")
+@login_required(api=True)
 def view_pdf(filename):
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
     filename = secure_filename(filename)
     pdf_dir = resolve_source_file(filename)
@@ -246,25 +296,34 @@ def view_pdf(filename):
     return jsonify(success=False, error="PDF not found"), 404
 
 @app.route("/dash_csv", methods=["GET"])
+@login_required(api=True)
 def dash_csv():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
-    json_path = request.args.get("path")
-    if not json_path:
-        return jsonify(success=False, error="Missing ?path"), 400
+    filename = request.args.get("file")
+    if not filename:
+        return jsonify(success=False, error="Missing ?file"), 400
+
+    filename = secure_filename(filename)
+
+    json_dir = DIRS["json_dir"]()
+    json_path = os.path.join(json_dir, filename)
 
     if not os.path.exists(json_path):
         return jsonify(success=False, error="JSON not found"), 404
 
-    if json_path.lower().endswith("_fs.json"):
-        csv_path = json_to_csv(json_path, output_folder=ws_path("preview"))
-    elif json_path.lower().endswith("_sid.json"):
-        csv_path = sid_to_csv(json_path, output_folder=ws_path("preview"))
-    elif json_path.lower().endswith("_kim.json"):
-        csv_path = kim_to_csv(json_path, output_folder=ws_path("preview"))
-    else:
+    doc_type = detect_doc_type(filename)
+
+    if not doc_type:
         return jsonify(success=False, error="Unsupported JSON type"), 400
+
+    preview_dir = ws_path("preview")
+
+    if doc_type == "fs":
+        csv_path = json_to_csv(json_path, output_folder=preview_dir)
+    elif doc_type == "sid":
+        csv_path = sid_to_csv(json_path, output_folder=preview_dir)
+    elif doc_type == "kim":
+        csv_path = kim_to_csv(json_path, output_folder=preview_dir)
 
     return send_file(
         csv_path,
@@ -274,9 +333,8 @@ def dash_csv():
     )
 
 @app.route("/apply_csv", methods=["POST"])
+@login_required(api=True)
 def apply_csv():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
     job_id = request.form.get("job_id")
     csv_file = request.files.get("csv")
@@ -317,9 +375,8 @@ def apply_csv():
         return jsonify(success=False, error=str(e)), 500
 
 @app.route("/download_dashboard_json/<filename>")
+@login_required()
 def download_dashboard_json(filename):
-    if not session.get("logged_in"):
-        return redirect(url_for("login"))
 
     filename = secure_filename(filename)
     json_path = os.path.join(DIRS["json_dir"](), filename)
@@ -340,9 +397,8 @@ def download_dashboard_json(filename):
 # =====================================================
 
 @app.route("/upload", methods=["POST"])
+@login_required(api=True)
 def upload_files():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
     files = request.files.getlist("pdfs")
     os.makedirs(INPUT_DIR, exist_ok=True)
@@ -373,12 +429,10 @@ def upload_files():
 # =====================================================
 
 @app.route("/reprocess/<int:job_id>", methods=["POST"])
+@login_required(api=True)
 def reprocess(job_id):
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Session expired"), 401
-    
-    try:
 
+    try:
         job = fetch_job_by_id(job_id, DB_CONFIG)
         status = job["status"]
 
@@ -409,13 +463,11 @@ def reprocess(job_id):
 
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
+    
 
 @app.route("/push_job/<int:job_id>", methods=["POST"])
+@login_required(api=True)
 def push_job(job_id):
-
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
-
     try:
         job = fetch_job_by_id(job_id, DB_CONFIG)
         if not job:
@@ -457,18 +509,19 @@ def push_job(job_id):
 # CONFIG - EDITOR
 # =====================================================
 
+#html-page
 @app.route('/config-editor')
+@admin_required()
 def config_editor():
-    if not session.get("logged_in"):
-        return redirect(url_for("login")) 
-
-    user = session.get("user", "").lower()
-    if user not in ADMIN_USERS:
-        return redirect(url_for("index"))
-
-    return render_template("config_editor.html", user=user) 
+    
+    user=session.get("user", "").lower()
+    return render_template(
+        "config_editor.html",
+        user = user
+    ) 
 
 @app.route('/list-files/<year>')
+@admin_required()
 def list_files(year):
     year_path = os.path.join(CONFIG_PATH, str(year))
     print(year_path)
@@ -477,115 +530,130 @@ def list_files(year):
         return jsonify({"files": files})
     except Exception as e:
         return jsonify({"files": [], "error": str(e)})
-    
-@app.route('/load-config', methods=['POST'])
-def load_config():
-    
-    if not session.get('logged_in'):
-        return redirect(url_for('login'))
-    data = request.get_json()
-    year = data.get('year')
-    filename = data.get('filename')
-    path = os.path.join(CONFIG_PATH, str(year), filename)
 
-    try:
+
+@app.route('/load-config', methods=['POST'])
+@admin_required(api=True)
+def load_config():
+
+    try:    
+        data = request.get_json()
+        year = data.get('year')
+        filename = data.get('filename')
+        path = os.path.join(CONFIG_PATH, str(year), filename)
+        
         with open(path, 'r', encoding='utf-8') as f:
-            if filename.endswith(".json5"):
-                json_data = json5.load(f)   # parse JSON5
-            else:
-                json_data = json.load(f)    # parse strict JSON
-        # pretty print back to client
+            json_data = json5.load(f) if filename.endswith(".json5") else json.load(f) 
+
         return jsonify({"success": True, "data": json_data})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
 
+
 @app.route('/save-config', methods=['POST'])
+@admin_required(api=True)
 def save_config():
-    data = request.get_json()
-    year = data.get('year')
-    filename = data.get('filename')
-    content = data.get('content')
-    path = os.path.join(CONFIG_PATH, str(year), filename)
     try:
-        # parse content depending on extension
-        if filename.endswith(".json5"):
-            parsed = json5.loads(content)
-        else:
-            parsed = json.loads(content)
+        data = request.get_json()
+        year = data.get('year')
+        filename = data.get('filename')
+        content = data.get('content')
+        path = os.path.join(CONFIG_PATH, str(year), filename)
+
+        parsed = json5.loads(content) if filename.endswith(".json5") else json.loads(content)
 
         # always save as pretty JSON (indent=2)
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(parsed, f, indent=2, ensure_ascii=False)
 
         return jsonify({"success": True})
+    
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
-  
+
+
 @app.route("/backup-config", methods=["POST"])
+@admin_required(api=True)
 def backup_config():
-    data = request.get_json()
-    year = data["year"]
-    filename = data["filename"]
-
-    src = os.path.join(CONFIG_PATH, str(year), filename)
-    if not os.path.exists(src):
-        return jsonify({"success": False, "message": "File not found"})
-
-    backup_dir = os.path.join(CONFIG_PATH, "0001")
-    os.makedirs(backup_dir, exist_ok=True)
-
-    ts = datetime.now(TIME_ZONE).strftime("%y%m%d_%H%M")
-    ext = ".json" if filename.endswith("json") else ".json5"
     
-    backup_name = f"{filename.replace(ext, "")}_{str(year)}bkp_{ts}{ext}"
-    dst = os.path.join(backup_dir, backup_name)
+    try:
+        data = request.get_json()
+        year = data["year"]
+        filename = data["filename"]
 
-    shutil.copy(src, dst)
-    return jsonify({"success": True})
+        src = os.path.join(CONFIG_PATH, str(year), filename)
+        if not os.path.exists(src):
+            return jsonify({"success": False, "message": "File not found"})
+
+        ext = ".json" if filename.endswith("json") else ".json5"
+        backup_name = f"{filename.replace(ext, "")}_{str(year)}bkp_{datetime.now(TIME_ZONE).strftime("%y%m%d_%H%M")}{ext}"
+        
+        backup_dir = os.path.join(CONFIG_PATH, "0001")
+        dst = os.path.join(backup_dir, backup_name)
+        shutil.copy(src, dst)
+        return jsonify({"success": True})
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
 
 @app.route("/create-config", methods=["POST"])
+@admin_required(api=True)
 def create_config():
-    data = request.get_json()
-    year = data["year"]
-    filename = data["filename"]
+    try:
+        data = request.get_json()
+        year = data["year"]
+        filename = data["filename"]
 
-    year_dir = os.path.join(CONFIG_PATH, str(year))
-    os.makedirs(year_dir, exist_ok=True)
+        year_dir = os.path.join(CONFIG_PATH, str(year))
+        os.makedirs(year_dir, exist_ok=True)
 
-    file_path = os.path.join(year_dir, filename)
-    if os.path.exists(file_path):
-        return jsonify({"success": False, "error": "File already exists"})
+        file_path = os.path.join(year_dir, filename)
+        if os.path.exists(file_path):
+            return jsonify({"success": False, "error": "File already exists"})
 
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write("{}")  # start with empty JSON
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write("{}") #empty
 
-    return jsonify({"success": True})
+        return jsonify({"success": True})
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
 
 @app.route("/delete-config", methods=["POST"])
+@admin_required(api=True)
 def delete_config():
-        
-    data = request.get_json()
-    year = data["year"]
-    filename = data["filename"]
 
-    file_path = os.path.join(CONFIG_PATH, str(year), filename)
-    if not os.path.exists(file_path):
-        return jsonify({"success": False, "error": "File not found"})
+    try:
+        data = request.get_json()
+        year = data["year"]
+        filename = data["filename"]
 
-    os.remove(file_path)
-    return jsonify({"success": True})
+        file_path = os.path.join(CONFIG_PATH, str(year), filename)
+        if not os.path.exists(file_path):
+            return jsonify({"success": False, "error": "File not found"})
+
+        os.remove(file_path)
+        return jsonify({"success": True})
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
 
 
 # =====================================================
 # CSV ↔ JSON CONVERSION (WEB OWNED)
 # =====================================================
-@app.route('/csv-to-json')
-def csv_to_json():
-    if not session.get("logged_in"):
-        return redirect(url_for("login")) 
 
+#html-code
+@app.route('/csv-to-json')
+@login_required()
+def csv_to_json():
     user = session.get("user", "").lower()
-    return render_template("csv_to_json.html", user=user)
+    return render_template(
+        "csv_to_json.html", 
+        user=user
+    )
 
 # SID
 def sid_to_csv(json_path, output_folder):
@@ -641,40 +709,59 @@ def csv_to_sid_json(csv_path):
     value = {}
     if sections:
         header, *rows = sections[0]
-        k_i, v_i = header.index("key"), header.index("value")
+        key_idx = header.index("key")
+        val_idx = header.index("value")
+
         for r in rows:
-            v = r[v_i].strip()
-            if r[k_i] == "field_location":
+            k = r[key_idx].strip()
+            v = r[val_idx].strip()
+
+            if k == "field_location" and v:
                 try:
-                    v = ast.literal_eval(v)
+                    v = ast.literal_eval(v)  # safe dict restore
                 except Exception:
                     pass
-            value[r[k_i]] = v
+
+            value[k] = v
 
     if len(sections) > 1:
         header, *rows = sections[1]
-        value["fund_manager"] = [
-            {h: r[i] for i, h in enumerate(header) if h}
-            for r in rows
-        ]
+        fund_manager = []
+
+        for r in rows:
+            rec = {
+                h: r[i].strip() if i < len(r) else ""
+                for i, h in enumerate(header)
+                if h
+            }
+            fund_manager.append(rec)
+
+        value["fund_manager"] = fund_manager
 
     if len(sections) > 2:
         header, *rows = sections[2]
-        value["load"] = [
-            {h: r[i] for i, h in enumerate(header) if h}
-            for r in rows
-        ]
+        load = []
 
-    file_name = str(csv_path.name).replace(".csv",".pdf")
-    return {
+        for r in rows:
+            rec = {
+                h: r[i].strip() if i < len(r) else ""
+                for i, h in enumerate(header)
+                if h
+            }
+            load.append(rec)
+
+        value["load"] = load
+
+    output = {
         "metadata": {
-            "document_name": file_name,
-            "file_type": "sid",
-            "process_date": datetime.now().strftime("%Y%m%d"),
-        },
-        "value": sorted(value.items()),
+        "document_name": csv_path.name,
+        "file_type": "sid",
+        "process_date": datetime.today().strftime("%Y%m%d")
+    },
+        "value": dict(sorted(value.items())),
     }
 
+    return output
 
 # KIM
 def kim_to_csv(json_path, output_folder):
@@ -716,56 +803,71 @@ def kim_to_csv(json_path, output_folder):
 
 def csv_to_kim_json(csv_path):
     csv_path = Path(csv_path)
-    sections, cur = [], []
+    sections, current = [], []
 
     with open(csv_path, "r", encoding="utf-8") as f:
-        for row in csv.reader(f):
+        reader = csv.reader(f)
+        for row in reader:
             if not any(cell.strip() for cell in row):
-                if cur:
-                    sections.append(cur)
-                    cur = []
+                if current:
+                    sections.append(current)
+                    current = []
             else:
-                cur.append(row)
-        if cur:
-            sections.append(cur)
+                current.append(row)
+        if current:
+            sections.append(current)
 
     value = {}
     if sections:
         header, *rows = sections[0]
-        k_i, v_i = header.index("key"), header.index("value")
+        key_idx = header.index("key")
+        val_idx = header.index("value")
+
         for r in rows:
-            v = r[v_i]
-            if r[k_i] == "field_location":
+            k = r[key_idx].strip()
+            v = r[val_idx].strip()
+
+            if k == "field_location" and v:
                 try:
-                    v = ast.literal_eval(v)
+                    v = ast.literal_eval(v)  # ✅ safe restore
                 except Exception:
                     v = []
-            value[r[k_i]] = v
+
+            value[k] = v
 
     if len(sections) > 1:
         header, *rows = sections[1]
-        value["asset_allocation_pattern"] = []
+        asset_allocation_pattern = []
+
         for r in rows:
-            row = {h: r[i] for i, h in enumerate(header)}
-            value["asset_allocation_pattern"].append({
+            row = {h: r[i].strip() if i < len(r) else "" for i, h in enumerate(header)}
+
+            allocation = [
+                {"type": "min", "value": row.get("min", "")},
+                {"type": "max", "value": row.get("max", "")},
+                {"type": "total", "value": row.get("total", "")},
+            ]
+
+            asset_allocation_pattern.append({
                 "instrument_type": row.get("instrument_type", ""),
                 "risk_profile": row.get("risk_profile", ""),
-                "allocation": [
-                    {"type": "min", "value": row.get("min", "")},
-                    {"type": "max", "value": row.get("max", "")},
-                    {"type": "total", "value": row.get("total", "")},
-                ],
+                "allocation": allocation
             })
-    file_name = str(csv_path.name).replace(".csv",".pdf")
-    return {
-        "metadata": {
-            "document_name": file_name,
-            "file_type": "kim",
-            "process_date": datetime.now().strftime("%Y%m%d"),
-        },
-        "records": [{"value": sorted(value.items())}],
-    }
 
+        value["asset_allocation_pattern"] = asset_allocation_pattern
+
+    output = {
+        "metadata": {
+        "document_name": csv_path.name,
+        "file_type": "kim",
+        "process_date": datetime.today().strftime("%Y%m%d")
+    },
+        "records": [{"value": dict(sorted(value.items()))}]
+    }
+    # with open(json_path, "w", encoding="utf-8") as f:
+    #     json.dump(output, f, ensure_ascii=False, indent=2)
+
+    return output
 
 # FS
 def json_to_csv(json_path, output_folder):
@@ -885,29 +987,38 @@ def csv_to_fs_json(csv_path):
         "records": records,
     }
 
+
 @app.route("/convert_csv", methods=["POST"])
+@login_required(api=True)
 def convert_csv():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
+
+    init_session_workspace()
 
     f = request.files.get("csv")
     if not f:
         return jsonify(success=False, error="No CSV uploaded"), 400
 
-    csv_path = os.path.join(ws_path("conversion"), secure_filename(f.filename))
-    f.save(csv_path)
+    filename = secure_filename(f.filename)
+    doc_type = detect_doc_type(filename)
 
-    if csv_path.lower().endswith("_fs.csv"):
-        json_data = csv_to_fs_json(csv_path)
-    elif csv_path.lower().endswith("_sid.csv"):
-        json_data = csv_to_sid_json(csv_path)
-    elif csv_path.lower().endswith("_kim.csv"):
-        json_data = csv_to_kim_json(csv_path)
-    else:
+    if not doc_type:
         return jsonify(success=False, error="Unsupported CSV type"), 400
 
-    json_name = f.filename.replace(".csv", ".json")
-    json_path = os.path.join(ws_path("staging"), json_name)
+    conversion_dir = ws_path("conversion")
+    staging_dir = ws_path("staging")
+
+    csv_path = os.path.join(conversion_dir, filename)
+    f.save(csv_path)
+
+    if doc_type == "fs":
+        json_data = csv_to_fs_json(csv_path)
+    elif doc_type == "sid":
+        json_data = csv_to_sid_json(csv_path)
+    elif doc_type == "kim":
+        json_data = csv_to_kim_json(csv_path)
+
+    json_name = os.path.splitext(filename)[0] + ".json"
+    json_path = os.path.join(staging_dir, json_name)
 
     with open(json_path, "w", encoding="utf-8") as fh:
         json.dump(json_data, fh, indent=2, ensure_ascii=False)
@@ -915,50 +1026,59 @@ def convert_csv():
     return jsonify(success=True, json_file=json_name)
 
 @app.route("/convert_json", methods=["POST"])
+@login_required(api=True)
 def convert_json():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
+
+    init_session_workspace()
 
     f = request.files.get("json")
     if not f:
         return jsonify(success=False, error="No JSON uploaded"), 400
 
-    json_path = os.path.join(ws_path("conversion"), secure_filename(f.filename))
+    filename = secure_filename(f.filename)
+    doc_type = detect_doc_type(filename)
+
+    if not doc_type:
+        return jsonify(success=False, error="Unsupported JSON type"), 400
+
+    conversion_dir = ws_path("conversion")
+    preview_dir = ws_path("preview")
+
+    json_path = os.path.join(conversion_dir, filename)
     f.save(json_path)
 
-    lower = json_path.lower()
-    if lower.endswith("_fs.json"):
-        csv_path = json_to_csv(json_path, output_folder=ws_path("preview"))
-    elif lower.endswith("_sid.json"):
-        csv_path = sid_to_csv(json_path, output_folder=ws_path("preview"))
-    elif lower.endswith("_kim.json"):
-        csv_path = kim_to_csv(json_path, output_folder=ws_path("preview"))
-    else:
-        return jsonify(success=False, error="Unsupported JSON type"), 400
+    if doc_type == "fs":
+        csv_path = json_to_csv(json_path, output_folder=preview_dir)
+    elif doc_type == "sid":
+        csv_path = sid_to_csv(json_path, output_folder=preview_dir)
+    elif doc_type == "kim":
+        csv_path = kim_to_csv(json_path, output_folder=preview_dir)
 
     return jsonify(success=True, csv_file=os.path.basename(csv_path))
 
-@app.route("/download_csv/<filename>")
-def download_csv(filename):
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
-    path = os.path.join(ws_path("preview"), secure_filename(filename))
+@app.route("/download_csv/<filename>")
+@login_required()
+def download_csv(filename):
+
+    filename = secure_filename(filename)
+    path = os.path.join(ws_path("preview"), filename)
+
     if not os.path.exists(path):
-        return jsonify(success=False, error="File not found"), 404
+        return "File not found", 404
 
     return send_file(path, as_attachment=True)
 
+
 @app.route("/download_pipeline_json/<filename>")
+@login_required()
 def download_pipeline_json(filename):
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
     filename = secure_filename(filename)
     path = os.path.join(ws_path("staging"), filename)
 
     if not os.path.exists(path):
-        return jsonify(success=False, error="File not found"), 404
+        return "File not found", 404
 
     return send_file(
         path,
@@ -967,17 +1087,20 @@ def download_pipeline_json(filename):
         mimetype="application/json"
     )
 
-@app.route("/cleanup_pipeline", methods=["POST"])
-def cleanup_pipeline():
-    if not session.get("logged_in"):
-        return jsonify(success=False), 403
-    cleanup_session_workspace()
-    init_session_workspace() 
 
+@app.route("/cleanup_pipeline", methods=["POST"])
+@login_required(api=True)
+def cleanup_pipeline():
+
+    cleanup_session_workspace()
+    init_session_workspace()
     return jsonify(success=True)
 
+
 @app.route("/viewer/json/<source>/<filename>")
+@login_required()
 def view_json(source, filename):
+    filename = secure_filename(filename)
     if source == "dashboard":
         base = DIRS["json_dir"]()
     elif source == "csv":
@@ -1030,52 +1153,73 @@ def push_json_and_record(job_id, from_state, json_path):
         )
         raise
 
+
 @app.route("/push_json_sp", methods=["POST"])
+@login_required(api=True)
 def push_json_sp():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
+
+    init_session_workspace()
 
     # Case 1: File uploaded
     if "json" in request.files:
         f = request.files["json"]
         file_name = secure_filename(f.filename)
-
         json_path = os.path.join(ws_path("staging"), file_name)
+
         f.save(json_path)
 
-    # Case 2: Only JSON name sent
+    # Case 2: Existing JSON name
     elif "json_name" in request.form:
         file_name = secure_filename(request.form["json_name"])
         json_path = os.path.join(ws_path("staging"), file_name)
 
+        if not os.path.exists(json_path):
+            return jsonify(success=False, error="JSON file not found"), 404
+
     else:
         return jsonify(success=False, error="No JSON data provided"), 400
 
-    # print(f"File Name: {file_name}")
+    
+    is_valid, msg = validate_json_for_push(json_path)
+    if not is_valid:
+        return jsonify(success=False, error=msg), 400
 
-    pdf_name = file_name.replace(".json", ".pdf")
+    pdf_name = os.path.splitext(file_name)[0] + ".pdf"
+
     job_id, status = ensure_job_for_json(pdf_name)
-    push_json_and_record(job_id, status, json_path)
 
-    return jsonify(success=True)
+    if not is_pushable_state(status):
+        return jsonify(
+            success=False,
+            error=f"Job not pushable in state {status}"
+        ), 400
+
+    try:
+        push_json_and_record(job_id, status, json_path)
+        return jsonify(success=True)
+
+    except Exception as e:
+        return jsonify(success=False, error=str(e)), 500
+
+
 
 # =====================================================
 # SID/KIM UPLOAD
 # =====================================================
 
+#html-code
 @app.route('/sid-data')
+@login_required()
 def sid_data():
-    if not session.get("logged_in"):
-        return redirect(url_for("login")) 
-
     user = session.get("user", "").lower()
-    return render_template("sid_data.html", user=user) 
+    return render_template(
+        "sid_data.html", 
+        user=user
+    ) 
 
 @app.route("/upload-sid-kim", methods=["POST"])
+@login_required(api=True)
 def upload_sid_kim():
-
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not authenticated"), 401
 
     pdf = request.files.get("pdf")
     meta_raw = request.form.get("meta")
@@ -1089,17 +1233,16 @@ def upload_sid_kim():
         return jsonify(success=False, error="Invalid meta JSON"), 400
 
     filename = secure_filename(pdf.filename)
-
-    if not filename.endswith(("_SID.pdf", "_KIM.pdf")):
+    if not (filename.lower().endswith("_sid.pdf") or filename.lower().endswith("_kim.pdf")):
         return jsonify(
             success=False,
             error="Filename must end with _SID.pdf or _KIM.pdf"
         ), 400
 
-    pdf_path = os.path.join(INPUT_DIR, filename)
-    meta_path = pdf_path.replace(".pdf", ".meta.json")
-
     try:
+        os.makedirs(INPUT_DIR, exist_ok=True)
+        pdf_path = os.path.join(INPUT_DIR, filename)
+        meta_path = os.path.splitext(pdf_path)[0] + ".meta.json"
         pdf.save(pdf_path)
         utils.save_json(meta, meta_path)
 
@@ -1121,50 +1264,64 @@ def upload_sid_kim():
     except Exception as e:
         return jsonify(success=False, error=str(e)), 500
 
+
 # =====================================================
 # DAILY LOG
 # =====================================================
 
+#html-function
 @app.route('/daily-log')
+@login_required()
 def daily_logs():
-    if not session.get("logged_in"):
-        return redirect(url_for("login")) 
+    return render_template(
+        "daily_logs.html",
+        user=session.get("user", "").lower(),
+        role=session.get("role", "user")
+    )
 
-    user = session.get("user", "").lower()
-    if user in ADMIN_USERS:
-        user = "admin"
-    return render_template("daily_logs.html", user=user, role = user)
 
 @app.route("/load-daily-log", methods=["POST"])
+@login_required(api=True)
 def load_daily_log():
-    if not session.get("logged_in"):
-        return jsonify(success=False, error="Not logged in"), 403
 
     data = request.get_json(silent=True) or {}
-    date = data.get("date")  # expected format: YYYY-MM-DD
+    date = data.get("date")
 
     if not date:
         return jsonify(success=False, error="Missing date"), 400
 
-    log_file = os.path.join(OUTPUT_DIR, "logs", date, "watcher.log")
+    # Validate format YYYY-MM-DD
+    try:
+        datetime.strptime(date, "%Y-%m-%d")
+    except ValueError:
+        return jsonify(success=False, error="Invalid date format"), 400
+
+    log_file = os.path.join(
+        DIRS["log_dir"](),
+        date,
+        f"{FINAL_LOG_NAME}.log"
+    )
 
     if not os.path.exists(log_file):
-        return jsonify(success=False,content="No logs for this date.")
+        return jsonify(success=False, content="No logs for this date.")
 
     try:
         with open(log_file, "r", encoding="utf-8", errors="ignore") as f:
-            return jsonify(success=True,content=f.read())
+            return jsonify(success=True, content=f.read())
     except Exception:
         return jsonify(success=False, content="Error reading log file."), 500
-    
+
 
 @app.route("/files/json/")
+@login_required()
 def list_json_files():
-    if not session.get("logged_in"):
-        abort(403)
 
     json_dir = DIRS["json_dir"]()
-    files = os.listdir(json_dir)
+
+    if not os.path.exists(json_dir):
+        return "No JSON directory found", 404
+
+    files = sorted(os.listdir(json_dir))
 
     html = """
     <h3>JSON Files</h3>
@@ -1174,14 +1331,19 @@ def list_json_files():
       {% endfor %}
     </ul>
     """
+
     return render_template_string(html, files=files)
 
+
 @app.route("/files/xlsx/")
+@login_required()
 def list_csv_files():
-    if not session.get("logged_in"):
-        abort(403)
 
     rep_dir = DIRS["rept_dir"]()
+
+    if not os.path.exists(rep_dir):
+        return "No reports directory found", 404
+
     files = sorted(os.listdir(rep_dir))
 
     html = """
@@ -1192,70 +1354,87 @@ def list_csv_files():
       {% endfor %}
     </ul>
     """
+
     return render_template_string(html, files=files)
 
+
 @app.route("/files/xlsx/<path:filename>")
+@login_required()
 def serve_csv_files(filename):
-    if not session.get("logged_in"):
-        abort(403)
+
+    filename = secure_filename(filename)
 
     return send_from_directory(
         DIRS["rept_dir"](),
         filename,
         as_attachment=False
     )
-    
+
+
 @app.route("/files/json/<path:filename>")
+@login_required()
 def serve_json_files(filename):
-    if not session.get("logged_in"):
-        abort(403)
+
+    filename = secure_filename(filename)
 
     return send_from_directory(
         DIRS["json_dir"](),
         filename,
         as_attachment=False
     )
+
+
 # =====================================================
 # AMC - DATA
 # =====================================================
 @app.route('/amc-data')
+@login_required()
 def amc_data():
-    if not session.get("logged_in"):
-        return redirect(url_for("login")) 
-
     user = session.get("user", "").lower()
-    return render_template("amc_data.html", user=user) 
+    return render_template(
+        "amc_data.html", 
+        user=user
+    ) 
 
 @app.route("/company_registry")
+@login_required(api=True)
 def get_registry():
-    company_registry = REGISTRY.get("amc_registry",{})
-    company_name = {k:v.get("amc_name","") for k,v in company_registry.items()}
+    company_registry = REGISTRY.get("amc_registry", {})
+    company_name = {
+        k: v.get("amc_name", "")
+        for k, v in company_registry.items()
+    }
     return jsonify(company_name)
 
+
 @app.route("/amc_data")
+@login_required(api=True)
 def get_amc_data():
     company_registry = REGISTRY.get("amc_registry", {})
-    # print(company_registry.keys())
     return jsonify(company_registry)
 
 @app.route('/json_list')
+@login_required(api=True)
 def json_list():
-    if not session.get("logged_in"):
-        return redirect(url_for("login"))
     json_dir = DIRS["json_dir"]()
+
+    if not os.path.exists(json_dir):
+        return jsonify(files=[])
+
     files = sorted(os.listdir(json_dir), reverse=True)
-    return {"files": files[:20]}
+
+    return jsonify(files=files[:20])
+
 
 # =====================================================
 # Run App
 # =====================================================
 
 if __name__ == "__main__":
-    TIME_ZONE = pytz.timezone("Asia/Kolkata")
 
+    TIME_ZONE = pytz.timezone("Asia/Kolkata")
     utils = Helper()
     config = utils.load_json(os.path.join(root_dir, "paths.json"))
-
     INPUT_DIR = config["inp_path"]
     OUTPUT_DIR = config["out_path"]
     WEB_DIR = config["web_path"]
@@ -1264,7 +1443,8 @@ if __name__ == "__main__":
         "prcs_dir": get_processed_dir,
         "fail_dir": get_failed_dir,
         "json_dir":get_json_dir,
-        "rept_dir":get_report_dir
+        "rept_dir":get_report_dir,
+        "log_dir": get_log_dir
     }
 
     LDAP_CONFIG = config["ldap_config"]
@@ -1274,6 +1454,6 @@ if __name__ == "__main__":
 
     CONFIG_PATH = os.path.join(config["base_path"],"config")
     REGISTRY = utils.load_json(os.path.join(CONFIG_PATH,"0000","registry.json"))
-    
+
     web = config.get("web_config", {})
-    app.run(debug=True, host=web.get("host"), port=web.get("port"))
+    app.run(debug=True, host=web.get("host"), port=web.get("port"))   
