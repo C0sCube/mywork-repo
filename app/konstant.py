@@ -18,9 +18,9 @@ def save_json(data: dict, path: str, indent: int = 2):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=indent)
 
-# def save_json5(data: dict, path: str, indent: int = 2):
-#     with open(path, "w", encoding="utf-8") as f:
-#         json5.dump(data, f, indent=indent)
+def save_json5(data: dict, path: str, indent: int = 2):
+    with open(path, "w", encoding="utf-8") as f:
+        json5.dump(data, f, indent=indent)
 
 def load_json_as_string(path: str, indent: int = None) -> str:
     with open(path, "r", encoding="utf-8") as f:
@@ -104,15 +104,34 @@ def load_mail_data():
     f = load_paths()
     return f["mail_data"]
 
+def get_processed_dir(sub):
+    out_dir = get_output_path()
+    return create_dir(out_dir,"processed",sub)
+
+def get_failed_dir():
+    out_dir = get_output_path()
+    return create_dir(out_dir,"failed")
+
+def get_json_dir():
+    out_dir = get_output_path()
+    return create_dir(out_dir,"json")
+
+def get_report_dir():
+    out_dir = get_output_path()
+    return create_dir(out_dir,"reports")
+
+def get_log_dir():
+    out_dir = get_output_path()
+    return create_dir(out_dir,"reports")
 
 
 #pdf generation constants
-TITLE_FONT_SIZE = 24
-TITLE_POSITION = 72
-TITLE_COLOR = (0, 0, 1)
-DEFAULT_FONT_NAME = "helv"
-DEFAULT_FONT_SIZE = 10
-DEFAULT_FONT_COLOR = (0, 0, 0)  # black
-LEFT_MARGIN = 32        # Left margin for alignment
-MIN_LINE_SPACING = 2     # Extra space between lines
-Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y
+# TITLE_FONT_SIZE = 24
+# TITLE_POSITION = 72
+# TITLE_COLOR = (0, 0, 1)
+# DEFAULT_FONT_NAME = "helv"
+# DEFAULT_FONT_SIZE = 10
+# DEFAULT_FONT_COLOR = (0, 0, 0)  # black
+# LEFT_MARGIN = 32        # Left margin for alignment
+# MIN_LINE_SPACING = 2     # Extra space between lines
+# Y_SNAP_THRESHOLD = 3     # If two words are within 3 units, snap to same Y

@@ -7,20 +7,15 @@ from zoneinfo import ZoneInfo
 
 from app.konstant import (
     get_input_path, get_output_path, create_dir,
-    load_db_config,get_config, get_regex
+    load_db_config,get_config, get_regex,
+    get_processed_dir, get_failed_dir,
+    get_json_dir, get_log_dir
 )
 
 from app.logger import setup_logger, rotate_daily_log
 from app.utils import Helper
-from app.amc.registry import (
-    load_registry,
-    check_amc_file
-)
-
-from app.sidkim.registry import (
-    load_sidkim_registry
-)
-
+from app.amc.registry import load_registry,check_amc_file
+from app.sidkim.registry import load_sidkim_registry
 from app.sqlconnect import (
     fetch_latest_uploaded_job,
     transition_job_state,
@@ -248,15 +243,13 @@ if __name__ == "__main__":
     INPUT_DIR = get_input_path()
     CHECK_INTERVAL = 20
 
-    JSON_DIR = create_dir(OUTPUT_DIR, "json")
-    LOG_DIR = create_dir(OUTPUT_DIR, "logs")
+    JSON_DIR = get_json_dir()
+    LOG_DIR = get_log_dir()
     
-    PROCESSED_DIR = create_dir(OUTPUT_DIR, "processed")
-    FAILED_DIR = create_dir(OUTPUT_DIR, "failed")
-
-    FST_DIR = create_dir(PROCESSED_DIR, "fs")
-    SID_DIR = create_dir(PROCESSED_DIR, "sid")
-    KIM_DIR = create_dir(PROCESSED_DIR, "kim")
+    FST_DIR = get_processed_dir("fs")
+    SID_DIR = get_processed_dir("sid")
+    KIM_DIR = get_processed_dir("kim")
+    FAILED_DIR = get_failed_dir()
     
 
     logger = setup_logger("watcher", base_dir=LOG_DIR, log_level=12, set_global=True)

@@ -64,7 +64,7 @@ class TableParser:
     def extract_tables_from_pdf(self, path, pages,flavour = "lines", stack=True, padding=1):
 
         dfs = []
-        pages = [int(p) - 1 for p in pages.split(",") if p.strip()]
+        pages = [int(p) - 1 for p in pages.split("-") if p.strip()]
 
         with fitz.open(path) as doc:
             for p in pages:

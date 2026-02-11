@@ -19,21 +19,14 @@ from flask import (
     render_template_string,  abort
 )
 
-from ldap3 import Server, Connection, ALL
+from ldap3 import Server, Connection, ALL #type:ignore
 from werkzeug.utils import secure_filename
 
 from app.utils import Helper
-from app.sqlconnect import (
-    fetch_job_by_id,
-    fetch_job_by_name,
-    create_job,
-    transition_job_state,
-    json_to_cog_db,
-    increment_push_attempts,
-    JobState,
-    is_pushable_state,
-    can_transition,
-    establish_connection
+from app.sqlconnect import *
+from app.konstant import (
+    get_processed_dir, get_failed_dir,
+    get_json_dir, get_report_dir
 )
 
 # =====================================================
@@ -67,13 +60,13 @@ def doc_subdir(filename: str) -> str:
 def resolve_source_file(filename: str) -> str | None:
     sub = doc_subdir(filename)
 
-    processed = os.path.join(OUTPUT_DIR, "processed", sub, filename)
-    failed = os.path.join(OUTPUT_DIR, "failed", filename)
+    processed = os.path.join(DIRS["prcs_dir"](sub), filename)
+    failed = os.path.join(DIRS["fail_dir"](), filename)
 
     if os.path.exists(processed):
-        return processed
+        return DIRS["prcs_dir"](sub)
     if os.path.exists(failed):
-        return failed
+        return DIRS["prcs_dir"](sub)
     return None
 
 def backup_json(json_path, tz):
@@ -185,7 +178,7 @@ def index():
     if not session.get("logged_in"):
         return redirect(url_for("login"))
 
-    json_dir = os.path.join(OUTPUT_DIR, "json")
+    json_dir = DIRS["json_dir"]()
     files = sorted(os.listdir(json_dir), reverse=True) if os.path.exists(json_dir) else []
 
     return render_template(
@@ -246,25 +239,10 @@ def view_pdf(filename):
         return jsonify(success=False, error="Not logged in"), 403
 
     filename = secure_filename(filename)
-
-    if filename.endswith("_SID.pdf"):
-        sub_dir = "sid"
-    elif filename.endswith("_KIM.pdf"):
-        sub_dir = "kim"
-    elif filename.endswith("_FS.pdf"):
-        sub_dir = "fs"
-    else:
-        return jsonify(success=False, error="Unsupported PDF type"), 400
-
-    processed_dir = os.path.join(OUTPUT_DIR, "processed", sub_dir)
-    failed_dir = os.path.join(OUTPUT_DIR, "failed")
-
-    if os.path.exists(os.path.join(processed_dir, filename)):
-        return send_from_directory(processed_dir, filename)
-
-    if os.path.exists(os.path.join(failed_dir, filename)):
-        return send_from_directory(failed_dir, filename)
-
+    pdf_dir = resolve_source_file(filename)
+    if os.path.exists(pdf_dir):
+        return send_from_directory(pdf_dir, filename)
+    
     return jsonify(success=False, error="PDF not found"), 404
 
 @app.route("/dash_csv", methods=["GET"])
@@ -344,13 +322,13 @@ def download_dashboard_json(filename):
         return redirect(url_for("login"))
 
     filename = secure_filename(filename)
-    path = os.path.join(OUTPUT_DIR, "json", filename)
+    json_path = os.path.join(DIRS["json_dir"](), filename)
 
-    if not os.path.exists(path):
+    if not os.path.exists(json_path):
         return "File not found", 404
 
     return send_file(
-        path,
+        json_path,
         as_attachment=True,
         download_name=filename,
         mimetype="application/json"
@@ -368,7 +346,6 @@ def upload_files():
 
     files = request.files.getlist("pdfs")
     os.makedirs(INPUT_DIR, exist_ok=True)
-
     user = session.get("user", "unknown")
     now = datetime.now(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")
 
@@ -409,10 +386,16 @@ def reprocess(job_id):
             return jsonify(success=False, error=f"Cannot reprocess from {status}"), 400
 
         src = resolve_source_file(job["file_name"])
+        # print(f"SOURCE: {src}")
         if not src:
             return jsonify(success=False, error="Source file not found"), 404
+        
+        file_name = job["file_name"]
+        scr_path =  os.path.join(src, file_name)
+        dest_path = os.path.join(INPUT_DIR, file_name)
+        # print(dest_dir)
 
-        shutil.copy(src, os.path.join(INPUT_DIR, job["file_name"]))
+        shutil.copy(scr_path, dest_path)
 
         transition_job_state(
             job_id=job_id,
@@ -682,9 +665,10 @@ def csv_to_sid_json(csv_path):
             for r in rows
         ]
 
+    file_name = str(csv_path.name).replace(".csv",".pdf")
     return {
         "metadata": {
-            "document_name": csv_path.name,
+            "document_name": file_name,
             "file_type": "sid",
             "process_date": datetime.now().strftime("%Y%m%d"),
         },
@@ -772,10 +756,10 @@ def csv_to_kim_json(csv_path):
                     {"type": "total", "value": row.get("total", "")},
                 ],
             })
-
+    file_name = str(csv_path.name).replace(".csv",".pdf")
     return {
         "metadata": {
-            "document_name": csv_path.name,
+            "document_name": file_name,
             "file_type": "kim",
             "process_date": datetime.now().strftime("%Y%m%d"),
         },
@@ -842,7 +826,7 @@ def json_to_csv(json_path, output_folder):
     return str(csv_path)
 
 def csv_to_fs_json(csv_path):
-    df = pd.read_csv(csv_path, dtype=str).fillna("")
+    df = pd.read_csv(csv_path, dtype=str, encoding="utf-8",encoding_errors="replace").fillna("")
     keys = REGISTRY["field_keys"]
 
     records = []
@@ -850,8 +834,8 @@ def csv_to_fs_json(csv_path):
         value = {}
         for k in keys["static_keys"]:
             if k in row and row[k]:
-                if k == "benchmark_index":
-                    print(row[k])
+                # if k == "benchmark_index":
+                #     print(row[k])
                 value[k] = row[k]
 
         loads = []
@@ -890,15 +874,16 @@ def csv_to_fs_json(csv_path):
 
         records.append({"value": dict(sorted(value.items()))})
 
+    csv_path = Path(csv_path)
+    file_name = str(csv_path.name).replace(".csv",".pdf")
     return {
         "metadata": {
-            "document_name": Path(csv_path).stem + ".json",
+            "document_name": file_name,
             "file_type": "fs",
             "process_date": datetime.now().strftime("%Y%m%d"),
         },
         "records": records,
     }
-
 
 @app.route("/convert_csv", methods=["POST"])
 def convert_csv():
@@ -991,11 +976,10 @@ def cleanup_pipeline():
 
     return jsonify(success=True)
 
-
 @app.route("/viewer/json/<source>/<filename>")
 def view_json(source, filename):
     if source == "dashboard":
-        base = os.path.join(OUTPUT_DIR, "json")
+        base = DIRS["json_dir"]()
     elif source == "csv":
         base = ws_path("staging")
     else:
@@ -1085,9 +1069,6 @@ def sid_data():
         return redirect(url_for("login")) 
 
     user = session.get("user", "").lower()
-    # if user not in ADMIN_USERS:
-    #     return redirect(url_for("index"))
-
     return render_template("sid_data.html", user=user) 
 
 @app.route("/upload-sid-kim", methods=["POST"])
@@ -1182,8 +1163,8 @@ def list_json_files():
     if not session.get("logged_in"):
         abort(403)
 
-    folder = os.path.join(OUTPUT_DIR,"json")
-    files = os.listdir(folder)
+    json_dir = DIRS["json_dir"]()
+    files = os.listdir(json_dir)
 
     html = """
     <h3>JSON Files</h3>
@@ -1200,8 +1181,8 @@ def list_csv_files():
     if not session.get("logged_in"):
         abort(403)
 
-    folder = os.path.join(OUTPUT_DIR,"reports")
-    files = sorted(os.listdir(folder))
+    rep_dir = DIRS["rept_dir"]()
+    files = sorted(os.listdir(rep_dir))
 
     html = """
     <h3>CSV Files</h3>
@@ -1219,7 +1200,7 @@ def serve_csv_files(filename):
         abort(403)
 
     return send_from_directory(
-         os.path.join(OUTPUT_DIR,"reports"),
+        DIRS["rept_dir"](),
         filename,
         as_attachment=False
     )
@@ -1230,7 +1211,7 @@ def serve_json_files(filename):
         abort(403)
 
     return send_from_directory(
-         os.path.join(OUTPUT_DIR,"json"),
+        DIRS["json_dir"](),
         filename,
         as_attachment=False
     )
@@ -1261,8 +1242,7 @@ def get_amc_data():
 def json_list():
     if not session.get("logged_in"):
         return redirect(url_for("login"))
-    json_dir = os.path.join(OUTPUT_DIR, "json")
-    os.makedirs(json_dir, exist_ok=True)
+    json_dir = DIRS["json_dir"]()
     files = sorted(os.listdir(json_dir), reverse=True)
     return {"files": files[:20]}
 
@@ -1278,15 +1258,14 @@ if __name__ == "__main__":
 
     INPUT_DIR = config["inp_path"]
     OUTPUT_DIR = config["out_path"]
-
     WEB_DIR = config["web_path"]
-    # WEB_PATHS = {
-    #     "conversion": os.path.join(WEB_DIR, "web_data", "conversions"),
-    #     "preview":    os.path.join(WEB_DIR, "web_data", "previews"),
-    #     "staging":    os.path.join(WEB_DIR, "web_data", "staging"),
-    # }
-    # for p in WEB_PATHS.values():
-    #     os.makedirs(p, exist_ok=True)
+
+    DIRS = {
+        "prcs_dir": get_processed_dir,
+        "fail_dir": get_failed_dir,
+        "json_dir":get_json_dir,
+        "rept_dir":get_report_dir
+    }
 
     LDAP_CONFIG = config["ldap_config"]
     ADMIN_USERS = [u.lower() for u in LDAP_CONFIG.get("admin_user", [])]

@@ -8,8 +8,7 @@ from app.logger import log_exceptions
 from app.konstant import get_registry, save_registry
 
 class FundRegex:
-    def __init__(self, regex):
-        data = regex
+    def __init__(self, data):
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
         self.JSON_HEADER = data.get("json_headers", {})
@@ -25,6 +24,7 @@ class FundRegex:
         self.MANAGER_STOP_WORDS = re.compile(r'\b(' + '|'.join(map(re.escape, registry.get("manager_stop_words", "").split(","))) + r')\b',flags=re.IGNORECASE)
         self.TRIM_LIMIT =  registry.get("config_trim", {})
         self.METRICS_CONF = registry.get("config_norm", {})
+        self.PDF_CONF = registry.get("config_pdf", {})
         self.MANAGER_CATCH =  registry.get("clean_manager", [])
     
 
@@ -165,11 +165,11 @@ class FundRegex:
             if cleaned_name not in self.MANAGER_CATCH:
                 self.MANAGER_CATCH.append(cleaned_name)
             
-            exp = manager.get("total_exp","")
-            if exp:
-                clean_exp = self.UTILS._normalize_alphanumeric(exp)
-                clean_exp = re.sub(r"(years?|yrs?)\.?","",clean_exp, re.IGNORECASE)
-                manager["total_exp"] = clean_exp.strip()
+            # exp = manager.get("total_exp","")
+            # if exp:
+            #     clean_exp = self.UTILS._normalize_alphanumeric(exp)
+            #     clean_exp = re.sub(r"(years?|yrs?)\.?","",clean_exp, re.IGNORECASE)
+            #     manager["total_exp"] = clean_exp.strip()
             
             if cleaned_name and len(cleaned_name) >= 3:
                 manager["name"] = cleaned_name.title()
@@ -208,18 +208,18 @@ class FundRegex:
     #             data[k] = re.sub(r"[^\d.,a-zA-Z ]+", "", v)
     #     return data
 
-    def _format_aaum_data(self,data):
-        d = data.copy()
-        aaum = d.get("monthly_aaum_value","")
-        aaum = re.sub(r"[^\d.,a-zA-Z ]+", "", aaum)
-        if isinstance(aaum, str) and aaum.strip():
-            cleaned_aaum = self.UTILS._normalize_whitespace(aaum)
-            cleaned_aaum = re.sub(r"(crores?|crs?\.?)","",cleaned_aaum, re.IGNORECASE).strip()
-            d.update({
-                "monthly_aaum_value":cleaned_aaum
-            })
+    # def _format_aaum_data(self,data):
+    #     d = data.copy()
+    #     aaum = d.get("monthly_aaum_value","")
+    #     aaum = re.sub(r"[^\d.,a-zA-Z ]+", "", aaum)
+    #     if isinstance(aaum, str) and aaum.strip():
+    #         cleaned_aaum = self.UTILS._normalize_whitespace(aaum)
+    #         cleaned_aaum = re.sub(r"(crores?|crs?\.?)","",cleaned_aaum, re.IGNORECASE).strip()
+    #         d.update({
+    #             "monthly_aaum_value":cleaned_aaum
+    #         })
         
-        return d
+    #     return d
         
         
     def _format_metric_data(self, fund,data):

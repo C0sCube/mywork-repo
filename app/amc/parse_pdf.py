@@ -3,11 +3,15 @@ from app.logger import get_global_logger, log_exceptions
 import fitz # type: ignore
 from collections import defaultdict
 import pandas as pd
+from pathlib import Path
 
 from app.amc.parse_regex import *
 from app.amc.fund_data import *
 from app.utils import Helper
-from app.konstant import * #all constants
+from app.konstant import (
+    get_output_path, get_report_dir,
+    get_json_dir
+)
 
 class Reader:
     def __init__(self,params:dict,regex: dict,path:str):
@@ -17,12 +21,12 @@ class Reader:
         self.PARAM_REGEX = FundRegex(regex)
         self.UTILS = Helper()
         
-        self.FILE_NAME = path.split("\\")[-1] # filename
+        self.FILE_NAME = Path(path).name
         self.OUTPUTPATH = get_output_path()
         self.PDF_PATH = path
         self.DRYPATH = os.path.join("app","temp","dry.pdf")
-        self.REPORTPATH = create_dir(self.OUTPUTPATH,"reports")
-        self.JSONPATH = create_dir(self.OUTPUTPATH,"json")
+        self.REPORTPATH = get_report_dir()
+        self.JSONPATH = get_json_dir()
         self.TEXT_ONLY = {}
         
     #HIGHLIGHT
@@ -540,8 +544,7 @@ class Reader:
         
     #     return output_path
 
-    @staticmethod
-    def _generate_pdf_from_data(data: dict, output_path: str) -> None:
+    def _generate_pdf_from_data(self, data: dict, output_path: str) -> None:
         """Generate PDF from extracted data, page-wise left normalization + safe font fallback."""
 
         def _to_rgb_tuple(color_int):
@@ -550,6 +553,8 @@ class Reader:
             g = (c >> 8) & 0xFF
             b = c & 0xFF
             return (r / 255.0, g / 255.0, b / 255.0)
+        
+        pdf_conf = self.PARAM_REGEX.PDF_CONF
 
         with fitz.open() as doc:
             for header, content_blocks in data.items():
@@ -560,23 +565,23 @@ class Reader:
 
                 try:
                     page.insert_text(
-                        (LEFT_MARGIN, TITLE_POSITION),
+                        (int(pdf_conf["LEFT_MARGIN"]),int(pdf_conf["TITLE_POSITION"])),
                         header,
-                        fontsize=TITLE_FONT_SIZE,
-                        fontname=DEFAULT_FONT_NAME,
-                        color=TITLE_COLOR,
+                        fontsize=int(pdf_conf["TITLE_FONT_SIZE"]),
+                        fontname=str(pdf_conf["DEFAULT_FONT_NAME"]),
+                        color=tuple(pdf_conf["TITLE_COLOR"]),
                     )
                 except Exception as e:
                     print(f"Error inserting header text: {e}")
 
-                current_y = TITLE_POSITION + TITLE_FONT_SIZE * 2
+                current_y = int(pdf_conf["TITLE_POSITION"]) + int(pdf_conf["TITLE_FONT_SIZE"]) * 2
 
                 # Group words by Y
                 lines_dict = defaultdict(list)
                 for block in content_blocks:
                     size, text, color, (orig_x, orig_y), bbox, fontname = block
                     snapped_y = min(lines_dict.keys(), key=lambda y: abs(y - orig_y), default=orig_y)
-                    if abs(snapped_y - orig_y) <= Y_SNAP_THRESHOLD:
+                    if abs(snapped_y - orig_y) <= int(pdf_conf["Y_SNAP_THRESHOLD"]):
                         orig_y = snapped_y
                     lines_dict[orig_y].append((orig_x, size, text, color, fontname))
 
@@ -587,7 +592,7 @@ class Reader:
                 for line_y, line_blocks in sorted_lines:
                     line_blocks.sort(key=lambda b: b[0])
                     max_font_size = max(b[1] for b in line_blocks)
-                    line_height = max_font_size + MIN_LINE_SPACING
+                    line_height = max_font_size + int(pdf_conf["MIN_LINE_SPACING"])
                     if line_y < last_line_bottom + line_height:
                         line_y = last_line_bottom + line_height
                     adjusted_lines.append((line_y, line_blocks))
@@ -617,7 +622,7 @@ class Reader:
                                 (x, line_y),
                                 text,
                                 fontsize=size,
-                                fontname=DEFAULT_FONT_NAME,
+                                fontname=str(pdf_conf["DEFAULT_FONT_NAME"]),
                                 color=_to_rgb_tuple(color),
                             )
 
@@ -647,7 +652,7 @@ class Reader:
 
         for content in data:
             pgn, fund, blocks = content['page'], content['fundname'], content['block']
-            pdf_path = Reader._generate_pdf_from_data(blocks,self.DRYPATH)
+            pdf_path = self._generate_pdf_from_data(blocks,self.DRYPATH)
             extracted_text[fund] = self._extract_data_from_pdf(pdf_path, fund)
             # extracted_text[fund] = self._extract_data_from_pdf(pdf_bytes, fund)
             
@@ -821,7 +826,7 @@ class Reader:
                         
             #format/type convert keep same format
             # temp = regex._remove_rupee_symbol(temp)
-            temp = regex._format_aaum_data(temp) #monthly_aaum_data
+            #temp = regex._format_aaum_data(temp) #monthly_aaum_data
             temp = regex._convert_date_format(temp) #scheme_launch_date yyyymmdd
             temp = regex._format_fund_manager(temp) #clean fund manager
             

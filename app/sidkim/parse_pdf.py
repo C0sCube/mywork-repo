@@ -1,10 +1,11 @@
 import os, re, inspect,sys, ocrmypdf # type: ignore
 import fitz # type: ignore
-
+from pathlib import Path
 
 from app.sidkim.parse_regex import SidKimRegex
-from app.sidkim.fund_data import *
+from app.konstant import get_output_path, get_json_dir
 from app.parse_table import *
+from app.utils import Helper
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -14,12 +15,13 @@ class ReaderSIDKIM:
     def __init__(self,params:dict,path:str):
         
         self.PARAMS = params #amc specific paramaters
-        self.DOCUMENT_NAME = path.split("\\")[-1] # docname requried later for json
+        self.DOCUMENT_NAME = Path(path).name # docname requried later for json
         self.OUTPUTPATH = get_output_path()
         self.PDF_PATH = path #amc factsheet pdf path
-        self.JSONPATH = create_dir(self.OUTPUTPATH,"json")
+        self.JSONPATH =get_json_dir()
         self.TEXT_ONLY = {}
         self.FIELD_LOCATION = {"page_zero":0,"page_table":0,"page_manager":0,"kim":0}
+        self.UTILS = Helper()
     
         
         #class objs
@@ -41,7 +43,7 @@ class ReaderSIDKIM:
                 for line in block.get("lines", []):
                     for span in line.get("spans", []):
                         text += span.get("text", "")
-                text = re.sub(r"\s+", " ", text).strip()
+                text =self.UTILS._normalize_whitespace(text)
                 if text:
                     text_blocks.append((block["bbox"], text))
 
