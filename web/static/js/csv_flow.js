@@ -215,8 +215,8 @@ if (jsonPushBtn) {
   jsonPushBtn.addEventListener("click", async () => {
     lockCard(jsonCard);
     showOverlay(jsonOverlay, "Pushing to Admin…");
-    // logStatus("Pushing JSON to Admin Panel…");
-    console.log("Pushing JSON to Admin Panel…");
+    logStatus("Pushing JSON to Admin Panel…");
+    // console.log("Pushing JSON to Admin Panel…");
     try {
       const fd = new FormData();
 
@@ -230,8 +230,8 @@ if (jsonPushBtn) {
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
 
-      // logStatus("✅ JSON pushed successfully.");
-      console.log("✅ JSON pushed successfully.");
+      logStatus("✅ JSON pushed successfully.");
+      // console.log("✅ JSON pushed successfully.");
       disable(jsonPushBtn, true);
       jsonPushBtn.style.display = "none";
 

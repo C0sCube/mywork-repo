@@ -410,10 +410,27 @@
         },
         "103": {
             "amc_name": "Quant SIF",
-            "amc_website": "https://www.abakkusmf.com/",
+            "amc_website": "https://www.qsif.com/",
             "sid_class": "QuantMFSIDKIM",
             "fs_class": {
                 "0": "QuantMF"
+            }
+        },
+         "106": {
+            "amc_name": "Diviniti SIF (ITI)",
+            "amc_website": "https://sif.itiamc.com/",
+            "sid_class": "ITISIDKIM",
+            "fs_class": {
+               "0": "ITI"
+            }
+        },
+        
+         "105": {
+            "amc_name": "SBI SIF",
+            "amc_website": "https://www.abakkusmf.com/",
+            "sid_class": "SBISIDKIM",
+            "fs_class": {
+                "0": "SBI"
             }
         }
     },
@@ -512,6 +529,9 @@
                 "PUSHED"
             ],
             "PUSHED": [
+                "UPLOADED"
+            ],
+            "PARSE_FAILED":[
                 "UPLOADED"
             ]
         },

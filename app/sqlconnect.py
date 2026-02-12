@@ -6,8 +6,9 @@ from mysql.connector import Error  # type: ignore
 
 from app.logger import get_global_logger
 from app.konstant import get_registry, load_json_as_string
+from types import SimpleNamespace
 
-
+TABLE_REPORT = "mf_status_report"
 # =====================================================
 # Job State Machine (CONFIG-DRIVEN)
 # =====================================================
@@ -18,49 +19,100 @@ def _load_job_config() -> dict:
         raise RuntimeError("job_config missing from registry")
     return registry["config_job"]
 
+def _job_snapshot():
+    states = _get_job_states()
+    initial = _get_initial_state()
+    allowed = _get_allowed_transitions()
+    if not states:
+        raise RuntimeError("job_config.states cannot be empty")
+    
+    if initial not in states:
+        raise RuntimeError(
+            f"Invalid job_config: initial_state '{initial}' not in states"
+        )
+        
+    unknown_transition_states = set(allowed.keys()) - states
+    if unknown_transition_states:
+        raise RuntimeError(
+            f"Invalid job_config: transitions defined for unknown states "
+            f"{unknown_transition_states}"
+        ) 
 
-JOB_CONFIG = _load_job_config()
-
-JOB_STATES = set(JOB_CONFIG.get("states", []))
-ALLOWED_TRANSITIONS = {
-    k: set(v) for k, v in JOB_CONFIG.get("transitions", {}).items()
-}
-INITIAL_STATE = JOB_CONFIG.get("initial_state", "UPLOADED")
-PUSHABLE_STATES = set(JOB_CONFIG.get("pushable_states", []))
-
-
-# ---------- CONFIG SANITY CHECKS (FAIL FAST) ----------
-
-if not JOB_STATES:
-    raise RuntimeError("job_config.states cannot be empty")
-
-if INITIAL_STATE not in JOB_STATES:
-    raise RuntimeError(
-        f"Invalid job_config: initial_state '{INITIAL_STATE}' not in states"
+def _get_job_states():
+    conf = _load_job_config()
+    return set(
+        conf.get("states", [])
     )
 
-unknown_transition_states = set(ALLOWED_TRANSITIONS.keys()) - JOB_STATES
-if unknown_transition_states:
-    raise RuntimeError(
-        f"Invalid job_config: transitions defined for unknown states "
-        f"{unknown_transition_states}"
+def _get_allowed_transitions():
+    conf = _load_job_config()
+    return{
+         k: set(v) for k, v in conf.get("transitions", {}).items()
+    }
+    
+def _get_initial_state():
+    conf = _load_job_config()
+    return conf.get("initial_state", "UPLOADED")
+
+
+def _get_pushable_states():
+    conf = _load_job_config()
+    return set(
+        conf.get("pushable_states", [])
     )
 
 
-# ---------- Backward-compatible state namespace ----------
-
-class JobState:
-    """Dynamic namespace for job states (JobState.PARSED, etc.)"""
-    pass
+def is_valid_state(state: str) -> bool:
+    states = _get_job_states()
+    return state in states
 
 
-for state in JOB_STATES:
-    setattr(JobState, state, state)
+def can_transition(from_state: str, to_state: str) -> bool:
+    allowed = _get_allowed_transitions()
+    return to_state in allowed.get(from_state, set())
+
+
+def is_pushable_state(state: str) -> bool:
+    pushable = _get_pushable_states()
+    return state in pushable
+
+def get_job_states():
+    """
+    Returns a read-only namespace:
+    JobState.PARSED -> "PARSED"
+    JobState.PARSED_FAILED -> "PARSED_FAILED"
+    """
+    conf = _load_job_config()
+    states = conf.get("states", [])
+
+    if not states:
+        raise RuntimeError("job_config.states cannot be empty")
+
+    ns = SimpleNamespace()
+    for state in states:
+        setattr(ns, state, state)
+    return ns
+
+# =====================================================
+# STATE HELPERS (FOR WEB / UI LAYERS)
+# =====================================================
+
+def is_valid_state(state: str) -> bool:
+    states = _get_job_states()
+    return state in states
+
+
+def can_transition(from_state: str, to_state: str) -> bool:
+    allowed = _get_allowed_transitions()
+    return to_state in allowed.get(from_state, set())
+
+
+def is_pushable_state(state: str) -> bool:
+    pushable = _get_pushable_states()
+    return state in pushable
 
 
 TABLE_REPORT = "mf_status_report"
-
-
 # =====================================================
 # DB CONNECTION
 # =====================================================
@@ -91,6 +143,7 @@ def create_job(data: dict, db_config: dict) -> int:
         raise RuntimeError("DB connection failed")
 
     cur = conn.cursor()
+    JobState = get_job_states()
     cur.execute(
         f"""
         INSERT INTO {TABLE_REPORT}
@@ -99,7 +152,7 @@ def create_job(data: dict, db_config: dict) -> int:
         """,
         (
             data["file_name"],
-            INITIAL_STATE,
+            JobState.UPLOADED,
             data["start_time"],
             data.get("created_by", ""),
             data.get("uploaded_by", ""),
@@ -171,6 +224,7 @@ def fetch_job_by_name(file_name: str, db_config: dict) -> dict:
 
 def fetch_latest_uploaded_job(file_name: str, db_config: dict) -> dict | None:
     conn = establish_connection(db_config)
+    JobState = get_job_states()
     if not conn:
         return None
 
@@ -206,7 +260,9 @@ def transition_job_state(
     error: str | None = None,
     db_config: dict,
 ) -> None:
-    if to_state not in ALLOWED_TRANSITIONS.get(from_state, set()):
+    
+    allowed_transitions = _get_allowed_transitions()
+    if to_state not in allowed_transitions.get(from_state, set()):
         raise ValueError(f"Illegal transition {from_state} → {to_state}")
 
     conn = establish_connection(db_config)
@@ -238,22 +294,6 @@ def transition_job_state(
     conn.commit()
     cur.close()
     conn.close()
-
-
-# =====================================================
-# STATE HELPERS (FOR WEB / UI LAYERS)
-# =====================================================
-
-def is_valid_state(state: str) -> bool:
-    return state in JOB_STATES
-
-
-def can_transition(from_state: str, to_state: str) -> bool:
-    return to_state in ALLOWED_TRANSITIONS.get(from_state, set())
-
-
-def is_pushable_state(state: str) -> bool:
-    return state in PUSHABLE_STATES
 
 
 # =====================================================
@@ -327,3 +367,23 @@ def increment_push_attempts(job_id: int, db_config: dict):
     conn.commit()
     cur.close()
     conn.close()
+
+
+# JOB_CONFIG = _load_job_config()
+# JOB_STATES = set(JOB_CONFIG.get("states", []))
+# ALLOWED_TRANSITIONS = {
+#     k: set(v) for k, v in JOB_CONFIG.get("transitions", {}).items()
+# }
+# INITIAL_STATE = JOB_CONFIG.get("initial_state", "UPLOADED")
+# PUSHABLE_STATES = set(JOB_CONFIG.get("pushable_states", []))
+
+# ---------- Backward-compatible state namespace ----------
+
+# class JobState:
+#     """Dynamic namespace for job states (JobState.PARSED, etc.)"""
+#     pass
+
+
+# for state in JOB_STATES:
+#     setattr(JobState, state, state)
+

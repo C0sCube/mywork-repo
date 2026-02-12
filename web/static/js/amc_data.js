@@ -4,7 +4,7 @@ function loadAMCData() {
     const container = document.querySelector(".card-container");
     if (!container) return;
 
-    fetch("/amc_data")
+    fetch("/amc_data_registry")
         .then(res => res.json())
         .then(data => {
             Object.entries(data).forEach(([id, amc]) => {

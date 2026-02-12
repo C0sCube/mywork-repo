@@ -1,43 +1,77 @@
 {
-  AMC_NAME: "Icici Prudential Mutual Fund Passive",
-  MAIN_MAP: { select: true, map: true, special: true },
-  IMP_DATA: {
-    amc_name: "ICICI Prudential Asset Management Company Limited",
-    mutual_fund_name: "ICICI Prudential Mutual Fund",
+  "AMC_NAME": "Icici Prudential Mutual Fund Passive",
+  "MAIN_MAP": {
+    "select": true,
+    "map": true,
+    "special": true
   },
-  PARAMS: {
-    title: {
-      ocr: false,
-      pattern: "((?:ICICI|BHARAT).*?)\\s*\\(",
-      bbox: [0, 0, 490, 60],
+  "IMP_DATA": {
+    "amc_name": "ICICI Prudential Asset Management Company Limited",
+    "mutual_fund_name": "ICICI Prudential Mutual Fund"
+  },
+  "PARAMS": {
+    "title": {
+      "ocr": false,
+      "pattern": "((?:ICICI|BHARAT).*?)\\s*\\(",
+      "bbox": [
+        0,
+        0,
+        490,
+        60
+      ]
     },
-    clip_bbox: [
-      [0, 115, 200, 700],
-      [200, 135, 380, 700],
-      [380, 135, 570, 700],
+    "clip_bbox": [
+      [
+        0,
+        115,
+        200,
+        700
+      ],
+      [
+        200,
+        135,
+        380,
+        700
+      ],
+      [
+        380,
+        135,
+        570,
+        700
+      ]
     ],
-    line_x: 175.0,
-    data: {
-      size: [5, 9],
-      color: [-65794],
-      update_size: 30.0,
-      font: ["Mulish-Regular"],
+    "line_x": 175.0,
+    "data": {
+      "size": [
+        5,
+        9
+      ],
+      "color": [
+        -65794
+      ],
+      "update_size": 30.0,
+      "font": [
+        "Mulish-Regular"
+      ]
     },
-    content_size: [30.0, 10.0],
-    method: "clip",
-    line_side: "",
-    max_financial_index_highlight: 7,
-    pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    update_min_add: false,
+    "content_size": [
+      30.0,
+      10.0
+    ],
+    "method": "clip",
+    "line_side": "",
+    "max_financial_index_highlight": 7,
+    "pdf_ocr": false,
+    "sanitize_fund": false,
+    "stop_words": [],
+    "update_min_add": false
   },
-  DUPLICATE_MUTUAL_FUNDS: {},
-  PRE_DATA_SELECT: [],
-  REGEX: {
-    aum: "([\\d,.]+\\s*crores)",
-    date: "(\\d{2}\\-(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)?\\-\\d{2})",
-    scheme: [
+  "DUPLICATE_MUTUAL_FUNDS": {},
+  "PRE_DATA_SELECT": [],
+  "REGEX": {
+    "aum": "([\\d,.]+\\s*crores)",
+    "date": "(\\d{2}\\-(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)?\\-\\d{2})",
+    "scheme": [
       "Scheme",
       "NAV.+?Per Unit",
       "Fund Managers",
@@ -51,34 +85,62 @@
       "Min\\.?Addl\\.?Investment",
       "Exit load",
       "[Qq]uantitative\\s*[iI]ndicators?",
-      "EOL",
+      "EOL"
     ],
-    manager: {
-      pattern: "\\s*([\\w\\s]+)\\s\\(Managing this fund since\\s*([A-Za-z]+\\,?\\s*[0-9]+)\\s*overall\\s*([0-9]+ years).+?\\)",
-      fields: ["name", "since", "exp"],
+    "manager": {
+      "pattern": "\\s*([\\w\\s]+)\\s\\(Managing this fund since\\s*([A-Za-z]+\\,?\\s*[0-9]+)\\s*overall\\s*([0-9]+ years).+?\\)",
+      "fields": [
+        "name",
+        "since",
+        "exp"
+      ]
     },
-    metrics: {
-      key: "(\\bP\\s+E\\b|\\bP\\s+B\\b|Portfolio Turnover|\\(Annualised\\)|Dividend Yield|Sharpe Ratio|Portfolio Beta|\\(1yr\\)\\s*\\|\\s*\\(3yr\\)|Average Maturity|Macaulay Duration|Modified Duration|YTM)",
-      value: "\\b(-?\\d+\\.\\d+\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|[Tt]imes?)?)\\b",
+    "metrics": {
+      "key": "(\\bP\\s+E\\b|\\bP\\s+B\\b|Portfolio Turnover|\\(Annualised\\)|Dividend Yield|Sharpe Ratio|Portfolio Beta|\\(1yr\\)\\s*\\|\\s*\\(3yr\\)|Average Maturity|Macaulay Duration|Modified Duration|YTM)",
+      "value": "\\b(-?\\d+\\.\\d+\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|[Tt]imes?)?)\\b"
     },
-    min_amt: "([\\d,]+).+?thereafter()",
-    min_amt2: "([\\d,]+).*?units()",
-    escape: "[^a-zA-Z0-9\\.\\,\\+\\s\\-\\(\\)\\%]+",
+    "min_amt": "([\\d,]+).+?thereafter()",
+    "min_amt2": "([\\d,]+).*?units()",
+    "escape": "[^a-zA-Z0-9\\.\\,\\+\\s\\-\\(\\)\\%]+"
   },
-  PATTERN_TO_FUNCTION: {
-    "^(before|dummy|scheme_Details).*": ["_extract_scheme_data", "scheme"],
-    benchmark_index: ["_extract_str_data", null],
+  "PATTERN_TO_FUNCTION": {
+    "^(before|dummy|scheme_Details).*": [
+      "_extract_scheme_data",
+      "scheme"
+    ],
+    "benchmark_index": [
+      "_extract_str_data",
+      null
+    ]
   },
-  SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*quantitative_indicators": ["_extract_metric_data", "metrics"],
-    ".*indicative_investment_horizon": ["_extract_generic_data", "date"],
-    ".*monthly_aaum_as": ["_extract_generic_data", "aum"],
-    ".*fund_managers": ["_extract_manager_data", "manager"],
-    ".*minaddlinvestment": ["_extract_amt_data", "min_amt"],
-    ".*minimum_application_amount": ["_extract_amt_data", "min_amt2"],
+  "SECONDARY_PATTERN_TO_FUNCTION": {
+    ".*quantitative_indicators": [
+      "_extract_metric_data",
+      "metrics"
+    ],
+    ".*indicative_investment_horizon": [
+      "_extract_generic_data",
+      "date"
+    ],
+    ".*monthly_aaum_as": [
+      "_extract_generic_data",
+      "aum"
+    ],
+    ".*fund_managers": [
+      "_extract_manager_data",
+      "manager"
+    ],
+    ".*minaddlinvestment": [
+      "_extract_amt_data",
+      "min_amt"
+    ],
+    ".*minimum_application_amount": [
+      "_extract_amt_data",
+      "min_amt2"
+    ]
   },
-  TERTIARY_PATTERN_TO_FUNCTION: {},
-  SELECTKEYS: [
+  "TERTIARY_PATTERN_TO_FUNCTION": {},
+  "SELECTKEYS": [
     "amc_name",
     "main_scheme_name",
     "monthly_aaum_date",
@@ -94,17 +156,22 @@
     ".*monthly_aaum_as",
     "benchmark_index$",
     ".*minimum_application_amount",
-    ".*minaddlinvestment",
+    ".*minaddlinvestment"
   ],
-  MERGEKEYS: {
-    load: [".*exit_load"],
-    metrics: [".*exchange_listed_on$", ".*quantitative_indicators$"],
+  "MERGEKEYS": {
+    "load": [
+      ".*exit_load"
+    ],
+    "metrics": [
+      ".*exchange_listed_on$",
+      ".*quantitative_indicators$"
+    ]
   },
-  CLONEKEYS: {
-    inception_date: ".*indicative_investment_horizon",
-    benchmark_index: ".*scheme$",
+  "CLONEKEYS": {
+    "inception_date": ".*indicative_investment_horizon",
+    "benchmark_index": ".*scheme$"
   },
-  PROMOTE_KEYS: {},
-  SPECIAL_FUNCTIONS: { metrics: "_update_metric_data" },
-  Z_MUTUAL_FUND_DATA: {},
+  "PROMOTE_KEYS": {},
+  "SPECIAL_FUNCTIONS": {},
+  "Z_MUTUAL_FUND_DATA": {}
 }

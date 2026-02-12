@@ -17,14 +17,19 @@ from flask import (
     Flask, render_template, request,
     redirect, url_for, session,
     send_from_directory, jsonify, send_file,
-    render_template_string,  abort
+    render_template_string
+    
 )
 
 from ldap3 import Server, Connection, ALL #type:ignore
 from werkzeug.utils import secure_filename
 
 from app.utils import Helper
-from app.sqlconnect import *
+from app.sqlconnect import (
+    create_job, fetch_job_by_name, fetch_job_by_id, establish_connection,
+    can_transition, transition_job_state, is_pushable_state, increment_push_attempts,
+    json_to_cog_db, get_job_states
+)
 from app.konstant import (
     get_processed_dir, get_failed_dir,
     get_json_dir, get_report_dir, get_log_dir,
@@ -69,7 +74,7 @@ def resolve_source_file(filename: str) -> str | None:
     if os.path.exists(processed):
         return DIRS["prcs_dir"](sub)
     if os.path.exists(failed):
-        return DIRS["prcs_dir"](sub)
+        return DIRS["fail_dir"]()
     return None
 
 def validate_json_for_push(json_path: str) -> tuple[bool, str]:
@@ -162,7 +167,8 @@ def login():
 
         # ---- AUTH SECTION ----
         # Replace this with real LDAP later
-        auth_success = True  # or ldap_authenticate(...)
+        # auth_success = True
+        auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
 
         if not auth_success:
             return render_template("login.html", error="Invalid credentials.")
@@ -290,6 +296,7 @@ def view_pdf(filename):
 
     filename = secure_filename(filename)
     pdf_dir = resolve_source_file(filename)
+    print(pdf_dir)
     if os.path.exists(pdf_dir):
         return send_from_directory(pdf_dir, filename)
     
@@ -298,33 +305,30 @@ def view_pdf(filename):
 @app.route("/dash_csv", methods=["GET"])
 @login_required(api=True)
 def dash_csv():
-
+    
     filename = request.args.get("file")
-    if not filename:
-        return jsonify(success=False, error="Missing ?file"), 400
-
     filename = secure_filename(filename)
+    if not filename:
+        return jsonify(success=False, error="Missing File Name."),400
 
-    json_dir = DIRS["json_dir"]()
-    json_path = os.path.join(json_dir, filename)
-
+    json_path = os.path.join( DIRS["json_dir"](), filename)
     if not os.path.exists(json_path):
         return jsonify(success=False, error="JSON not found"), 404
 
     doc_type = detect_doc_type(filename)
-
+    # print(f"The doctype is: {doc_type}")
     if not doc_type:
         return jsonify(success=False, error="Unsupported JSON type"), 400
+    
 
     preview_dir = ws_path("preview")
-
     if doc_type == "fs":
         csv_path = json_to_csv(json_path, output_folder=preview_dir)
     elif doc_type == "sid":
         csv_path = sid_to_csv(json_path, output_folder=preview_dir)
     elif doc_type == "kim":
         csv_path = kim_to_csv(json_path, output_folder=preview_dir)
-
+        
     return send_file(
         csv_path,
         as_attachment=True,
@@ -433,18 +437,21 @@ def upload_files():
 def reprocess(job_id):
 
     try:
+        JobState = get_job_states()
         job = fetch_job_by_id(job_id, DB_CONFIG)
         status = job["status"]
+        file_name = job["file_name"]
+        print(status)
 
         if not can_transition(status, JobState.UPLOADED):
             return jsonify(success=False, error=f"Cannot reprocess from {status}"), 400
 
         src = resolve_source_file(job["file_name"])
-        # print(f"SOURCE: {src}")
+        print(f"SOURCE: {src}")
         if not src:
             return jsonify(success=False, error="Source file not found"), 404
         
-        file_name = job["file_name"]
+
         scr_path =  os.path.join(src, file_name)
         dest_path = os.path.join(INPUT_DIR, file_name)
         # print(dest_dir)
@@ -469,6 +476,7 @@ def reprocess(job_id):
 @login_required(api=True)
 def push_job(job_id):
     try:
+        JobState = get_job_states()
         job = fetch_job_by_id(job_id, DB_CONFIG)
         if not job:
             return jsonify(success=False, error="Job not found"), 404
@@ -798,7 +806,7 @@ def kim_to_csv(json_path, output_folder):
 
         if rows:
             write_df(fh, pd.DataFrame(rows))
-
+    print(f"CSV KIM PATH: {csv_path}")
     return str(csv_path)
 
 def csv_to_kim_json(csv_path):
@@ -1115,6 +1123,8 @@ def view_json(source, filename):
 # =====================================================
 
 def ensure_job_for_json(pdf_name: str):
+    
+    JobState = get_job_states()
     row = fetch_job_by_name(pdf_name, DB_CONFIG)
     if row:
         return row["id"], row["status"]
@@ -1135,6 +1145,7 @@ def ensure_job_for_json(pdf_name: str):
 
 def push_json_and_record(job_id, from_state, json_path):
     try:
+        JobState = get_job_states()
         json_to_cog_db(json_path, DB_CONFIG)
         transition_job_state(
             job_id=job_id,
@@ -1407,7 +1418,7 @@ def get_registry():
     return jsonify(company_name)
 
 
-@app.route("/amc_data")
+@app.route("/amc_data_registry")
 @login_required(api=True)
 def get_amc_data():
     company_registry = REGISTRY.get("amc_registry", {})
