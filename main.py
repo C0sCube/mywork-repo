@@ -19,7 +19,7 @@ from app.sidkim.registry import load_sidkim_registry
 from app.sqlconnect import (
     fetch_latest_uploaded_job,
     transition_job_state,
-    JobState
+    get_job_states
 )
 
 # --------------------------------------------------
@@ -134,6 +134,7 @@ def process_file(file_name, db_config):
     file_path = os.path.join(INPUT_DIR, file_name)
     meta_path = file_path.replace(".pdf", ".meta.json")
     archive_dir = FAILED_DIR  # default
+    JobState = get_job_states()
 
     job = fetch_latest_uploaded_job(file_name, db_config)
     if not job:
@@ -150,7 +151,7 @@ def process_file(file_name, db_config):
 
     if not file_type:
         logger.warning("File neither FS nor SID/KIM. Aborting.")
-
+        
         transition_job_state(
             job_id,
             JobState.UPLOADED,

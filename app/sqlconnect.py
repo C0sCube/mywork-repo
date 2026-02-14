@@ -208,6 +208,8 @@ def fetch_job_by_name(file_name: str, db_config: dict) -> dict:
                created_by, uploaded_by, start_time, end_time
         FROM {TABLE_REPORT}
         WHERE file_name = %s
+        ORDER BY id DESC
+        LIMIT 1
         """,
         (file_name,),
     )

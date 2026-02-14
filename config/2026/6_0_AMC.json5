@@ -1,104 +1,67 @@
 {
-  "AMC_NAME": "Canara Robeco Mutual Fund",
-  "CLONEKEYS": {
-    "additional_investment": ".*subsequent",
-    "benchmark_index": ".*benchmark$",
-    "monthly_aaum_value": ".*monthly_avg_assets_under_management"
+  AMC_NAME: "Canara Robeco Mutual Fund",
+  CLONEKEYS: {
+    additional_investment: ".*subsequent",
+    benchmark_index: ".*benchmark$",
+    monthly_aaum_value: ".*monthly_avg_assets_under_management",
   },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "IMP_DATA": {
-    "amc_name": "Canara Robeco Asset Management Company Limited",
-    "mutual_fund_name": "Canara Robeco Mutual Fund"
+  DUPLICATE_MUTUAL_FUNDS: {},
+  IMP_DATA: {
+    amc_name: "Canara Robeco Asset Management Company Limited",
+    mutual_fund_name: "Canara Robeco Mutual Fund",
   },
-  "MAIN_MAP": {
-    "map": true,
-    "select": true,
-    "special": true
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
   },
-  "MERGEKEYS": {
-    "load": [
-      ".*entry_load",
-      ".*exit_load"
+  MERGEKEYS: {
+    load: [".*entry_load", ".*exit_load"],
+    metrics: [".*quantitative"],
+  },
+  PARAMS: {
+    clip_bbox: [
+      [0, 55, 220, 850],
+      [220, 55, 440, 1050],
     ],
-    "metrics": [
-      ".*quantitative"
-    ]
-  },
-  "PARAMS": {
-    "clip_bbox": [
-      [
-        0,
-        55,
-        220,
-        850
-      ],
-      [
-        220,
-        55,
-        440,
-        1050
-      ]
-    ],
-    "content_size": [
-      30,
-      10
-    ],
-    "data": {
-      "color": [
-        -1
-      ],
-      "font": [
-        "Taz-SemiLight"
-      ],
-      "size": [
-        8,
-        11
-      ],
-      "update_size": 30
+    content_size: [30, 10],
+    data: {
+      color: [-1],
+      font: ["Taz-SemiLight"],
+      size: [8, 11],
+      update_size: 30,
     },
-    "line_side": "",
-    "line_x": 180,
-    "max_financial_index_highlight": 0,
-    "method": "clip",
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "title": {
-      "bbox": [
-        0,
-        0,
-        500,
-        55
-      ],
-      "ocr": false,
-      "pattern": "(CANARA\\s*ROBECO.*?)\\(CR"
+    line_side: "",
+    line_x: 180,
+    max_financial_index_highlight: 0,
+    method: "clip",
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    title: {
+      bbox: [0, 0, 500, 55],
+      ocr: false,
+      pattern: "(CANARA\\s*ROBECO.*?)\\(CR",
     },
-    "update_min_add": false
+    update_min_add: false,
   },
-  "PATTERN_TO_FUNCTION": {
-    "^(scheme|dummy|before).*": [
-      "_extract_scheme_data",
-      "scheme"
-    ]
+  PATTERN_TO_FUNCTION: {
+    "^(scheme|dummy|before).*": ["_extract_scheme_data", "scheme"],
   },
-  "PRE_DATA_SELECT": [],
-  "PROMOTE_KEYS": {},
-  "REGEX": {
-    "aum": "([\\d,.]+)\\s*Crores",
-    "benchmark": "((?:BSE|NIFTY|CRISIL|Physical).+?(?:TRI|Index|Silver|Gold))",
-    "escape": "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+\\%\\:\\&]+",
-    "lumpsum": "(.+?)(?:Subsequent|Additional)\\s*purchases?(.+?)(?:SIP|Systematic)",
-    "manager": {
-      "fields": [
-        "name",
-        "since",
-        "exp"
-      ],
-      "pattern": "(?:Mr|Mrs|Ms)\\.\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:\\(.+\\))?\\s*\\(Managing.+?(\\d{1,2}\\s*-\\s*[A-Za-z\\.]+\\s*-\\s*\\d{1,2}).+?([0-9]+\\s*[Yy]ears?)\\)"
+  PRE_DATA_SELECT: [],
+  PROMOTE_KEYS: {},
+  REGEX: {
+    aum: "([\\d,.]+)\\s*Crores",
+    benchmark: "((?:BSE|NIFTY|CRISIL|Physical).+?(?:TRI|Index|Silver|Gold))",
+    escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+\\%\\:\\&]+",
+    lumpsum: "(.+?)(?:Subsequent|Additional)\\s*purchases?(.+?)(?:SIP|Systematic)",
+    manager: {
+      fields: ["name", "since", "exp"],
+      pattern: "(?:Mr|Mrs|Ms)\\.\\s*([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:\\(.+\\))?\\s*\\(Managing.+?(\\d{1,2}\\s*-\\s*[A-Za-z\\.]+\\s*-\\s*\\d{1,2}).+?([0-9]+\\s*[Yy]ears?)\\)",
     },
-    "metric": "(Modified Duration|Annualised Portfolio YTM|Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor|Information\\s+Ratio)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|[Tt]imes|%)?)",
-    "min_amt": "([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
-    "scheme": [
+    metric: "(Modified Duration|Annualised Portfolio YTM|Yield|Average Maturity|Portfolio Turnover Ratio|Standard Deviation|Residual Maturity|Modified Duration|Annualised Yield|Macaulay Duration|Tracking Error|Sharpe Ratio|Portfolio Beta|R\\s*-?\\s*Squared|Treynor|Information\\s+Ratio)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|[Tt]imes|%)?)",
+    min_amt: "([\\d,]+(?:\\.\\d+)?).*?([\\d,]+(?:\\.\\d+)?)",
+    scheme: [
       "SCHEME OBJECTIVE",
       "DAT.+?ALLOTMENT",
       "BENCHMARK",
@@ -113,27 +76,22 @@
       "NAV",
       "EXPENSE RATIO",
       "QUANTITATIVE\\s*INFORMATION",
-      "EOL"
-    ]
+      "EOL",
+    ],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
+  SECONDARY_PATTERN_TO_FUNCTION: {
     ".*(minimum_investment|subsequent|additional)": [
       "_extract_amt_data",
-      "min_amt"
+      "min_amt",
     ],
-    ".*(quantitative_information)": [
-      "_extract_generic_data",
-      "metric"
-    ],
-    ".*monthly_avg_assets_under_management": [
-      "_extract_generic_data",
-      "aum"
-    ]
+    ".*(quantitative_information)": ["_extract_generic_data", "metric"],
+    ".*monthly_avg_assets_under_management": ["_extract_generic_data", "aum"],
+    ".*fund_manager":["_extract_manager_data","manager"],
   },
-  "SELECTKEYS": [
+  SELECTKEYS: [
     ".*allotment",
     ".*monthly_avg_assets_under_management",
-    "fund_manager",
+    ".*fund_manager",
     "benchmark_index",
     ".*(minimum_investment|subsequent|additional_investment)",
     "metrics",
@@ -143,11 +101,11 @@
     "main_scheme_name",
     "page_number",
     "mutual_fund_name",
-    "monthly_aaum_date"
+    "monthly_aaum_date",
   ],
-  "SPECIAL_FUNCTIONS": {
-    "benchmark_index": "_update_benchmark_data"
+  SPECIAL_FUNCTIONS: {
+    benchmark_index: "_update_benchmark_data",
   },
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }
