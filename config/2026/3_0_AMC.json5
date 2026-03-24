@@ -1,170 +1,170 @@
 {
-  "AMC_NAME": "Aditya Birla Sun Life Mutual Fund",
-  "MAIN_MAP": {
-    "select": true,
-    "map": true,
-    "special": true
-  },
-  "IMP_DATA": {
-    "amc_name": "Aditya Birla Sun Life AMC Limited",
-    "mutual_fund_name": "Aditya Birla Sun Life Mutual Fund"
-  },
-  "PARAMS": {
-    "title": {
-      "ocr": false,
-      "pattern": "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|F[Oo]F\\*?|Scheme|Funds\\*?|Yojna)?)$",
-      "bbox": [
-        0,
-        0,
-        470,
-        25
-      ]
+    "AMC_NAME": "Aditya Birla Sun Life Mutual Fund",
+    "MAIN_MAP": {
+        "select": true,
+        "map": true,
+        "special": true
     },
-    "clip_bbox": [
-      [
-        0,
-        50,
-        200,
-        330
-      ],
-      [
-        200,
-        50,
-        380,
-        330
-      ],
-      [
-        380,
-        50,
-        580,
-        360
-      ]
-    ],
-    "line_x": 210.0,
-    "data": {
-      "size": [
-        4,
-        10
-      ],
-      "color": [
-        696969
-      ],
-      "update_size": 30.0,
-      "font": [
-        "AnekLatin-Bold"
-      ]
+    "IMP_DATA": {
+        "amc_name": "Aditya Birla Sun Life AMC Limited",
+        "mutual_fund_name": "Aditya Birla Sun Life Mutual Fund"
     },
-    "content_size": [
-      30.0,
-      10.0
-    ],
-    "method": "clip",
-    "line_side": "",
-    "max_financial_index_highlight": 7,
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "update_min_add": false
-  },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "PRE_DATA_SELECT": [],
-  "REGEX": {
-    "aum": "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
-    "load": "Entry Load(.*?)\\s*Exit Load(.*)$",
-    "scheme": [
-      "Fund Manager",
-      "Date of [aA]llotment",
-      "Benchmark",
-      "Managing Fund Since",
-      "Experience in Managing the Fund",
-      "SIP",
-      "EOL"
-    ],
-    "scheme2": [
-      "Fund Category",
-      "Load Structure",
-      "Entry Load",
-      "Exit Load",
-      "AUM",
-      "Monthly Average AUM",
-      "AUM as on last day",
-      "Total Expense Ratio",
-      "EOL"
-    ],
-    "scheme3": [
-      "Other Parameters",
-      "EOL",
-      "Application\\s*Amount\\s*for\\s*fresh\\s*[Ss]ubscription",
-      "Min\\.?\\s*[aA]ddl\\.?\\s*[iI]nvestment",
-      "Managing Fund Since",
-      "EOL"
-    ],
-    "manager": {
-      "name": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
-      "exp": "\\d+\\.\\d+\\s*Years?",
-      "since": "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}"
+    "PARAMS": {
+        "title": {
+            "ocr": false,
+            "pattern": "(Aditya Birla.*(?:Plan\\*?\\#?\\'?|Sensex|Fund|Path|ETF|F[Oo]F\\*?|Scheme|Funds\\*?|Yojna)?)$",
+            "bbox": [
+                0,
+                0,
+                470,
+                25
+            ]
+        },
+        "clip_bbox": [
+            [
+                0,
+                50,
+                200,
+                330
+            ],
+            [
+                200,
+                50,
+                380,
+                330
+            ],
+            [
+                380,
+                50,
+                580,
+                360
+            ]
+        ],
+        "line_x": 210.0,
+        "data": {
+            "size": [
+                4,
+                10
+            ],
+            "color": [
+                696969
+            ],
+            "update_size": 30.0,
+            "font": [
+                "AnekLatin-Bold"
+            ]
+        },
+        "content_size": [
+            30.0,
+            10.0
+        ],
+        "method": "clip",
+        "line_side": "",
+        "max_financial_index_highlight": 7,
+        "pdf_ocr": false,
+        "sanitize_fund": false,
+        "stop_words": [],
+        "update_min_add": false
     },
-    "tracking": "regular\\s*(-?[\\d.]+)",
-    "min_amt": "([\\d,]+).*?([\\d,]+)",
-    "metric": "(Tracking [Ee]rror (?:\\(.+?\\))?|Macaulay Duration|Modif?i?\\s*ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average P\\s*E|Average P\\s*BV|Average Dividend Yield)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)",
-    "escape": "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%\\:]+"
-  },
-  "PATTERN_TO_FUNCTION": {
-    "before": [
-      "_extract_scheme_data",
-      "scheme"
+    "DUPLICATE_MUTUAL_FUNDS": {},
+    "PRE_DATA_SELECT": [],
+    "REGEX": {
+        "aum": "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
+        "load": "Entry Load(.*?)\\s*Exit Load(.*)$",
+        "scheme": [
+            "Fund Manager",
+            "Date of [aA]llotment",
+            "Benchmark",
+            "Managing Fund Since",
+            "Experience in Managing the Fund",
+            "SIP",
+            "EOL"
+        ],
+        "scheme2": [
+            "Fund Category",
+            "Load Structure",
+            "Entry Load",
+            "Exit Load",
+            "AUM",
+            "Monthly Average AUM",
+            "AUM as on last day",
+            "Total Expense Ratio",
+            "EOL"
+        ],
+        "scheme3": [
+            "Other Parameters",
+            "EOL",
+            "Application\\s*Amount\\s*for\\s*fresh\\s*[Ss]ubscription",
+            "Min\\.?\\s*[aA]ddl\\.?\\s*[iI]nvestment",
+            "Managing Fund Since",
+            "EOL"
+        ],
+        "manager": {
+            "name": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
+            "exp": "\\d+\\.\\d+\\s*Years?",
+            "since": "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}"
+        },
+        "tracking": "regular\\s*(-?[\\d.]+)",
+        "min_amt": "([\\d,]+).*?([\\d,]+)",
+        "metric": "(Tracking [Ee]rror (?:\\(.+?\\))?|Macaulay Duration|Modif?i?\\s*ed Duration|Average Maturity|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Portfolio Turnover|Treynor Ratio|Average P\\s*E|Average P\\s*BV|Average Dividend Yield)\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths?|%|[Tt]imes?)?)",
+        "escape": "[^A-Za-z0-9\\s\\.,\\-\\(\\)\\+\\%\\:]+"
+    },
+    "PATTERN_TO_FUNCTION": {
+        "before": [
+            "_extract_scheme_data",
+            "scheme"
+        ],
+        "^dummy.*one$": [
+            "_extract_scheme_data",
+            "scheme2"
+        ],
+        "^dummy.*two$": [
+            "_extract_scheme_data",
+            "scheme3"
+        ]
+    },
+    "SECONDARY_PATTERN_TO_FUNCTION": {
+        ".*(application_amount|min.+?addl.+?vestment)": [
+            "_extract_amt_data",
+            "min_amt"
+        ],
+        ".*other_parameters": [
+            "_extract_generic_data",
+            "metric"
+        ]
+    },
+    "TERTIARY_PATTERN_TO_FUNCTION": {},
+    "SELECTKEYS": [
+        "main_scheme_name",
+        "amc_name",
+        "monthly_aaum_date",
+        "page_number",
+        "mutual_fund_name",
+        "metrics",
+        "load",
+        ".*monthly_average_aum",
+        ".*(date_of|benchmark)",
+        ".*(application_amount_for.*|min.+?investment)$",
+        "fund_manager"
     ],
-    "^dummy.*one$": [
-      "_extract_scheme_data",
-      "scheme2"
-    ],
-    "^dummy.*two$": [
-      "_extract_scheme_data",
-      "scheme3"
-    ]
-  },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
-    ".*(application_amount|min.+?addl.+?vestment)": [
-      "_extract_amt_data",
-      "min_amt"
-    ],
-    ".*other_parameters": [
-      "_extract_generic_data",
-      "metric"
-    ]
-  },
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "SELECTKEYS": [
-    "main_scheme_name",
-    "amc_name",
-    "monthly_aaum_date",
-    "page_number",
-    "mutual_fund_name",
-    "metrics",
-    "load",
-    ".*monthly_average_aum",
-    ".*(date_of|benchmark)",
-    ".*(application_amount_for.*|min.+?investment)$",
-    "fund_manager"
-  ],
-  "MERGEKEYS": {
-    "fund_manager": [
-      "fund_manager",
-      "experience_in_managing_the_fund",
-      "managing_fund_since"
-    ],
-    "load": [
-      ".*(entry_load|exit_load)"
-    ],
-    "metrics": [
-      "metrics",
-      ".*(tracking_error|other_parameters)"
-    ]
-  },
-  "CLONEKEYS": {},
-  "PROMOTE_KEYS": {},
-  "SPECIAL_FUNCTIONS": {
-    "fund_manager": "_fetch_manager_data"
-  },
-  "Z_MUTUAL_FUND_DATA": {}
+    "MERGEKEYS": {
+        "fund_manager": [
+            "fund_manager",
+            "experience_in_managing_the_fund",
+            "managing_fund_since"
+        ],
+        "load": [
+            ".*(entry_load|exit_load)"
+        ],
+        "metrics": [
+            "metrics",
+            ".*(tracking_error|other_parameters)"
+        ]
+    },
+    "CLONEKEYS": {},
+    "PROMOTE_KEYS": {},
+    "SPECIAL_FUNCTIONS": {
+        "fund_manager": "_fetch_manager_data"
+    },
+    "Z_MUTUAL_FUND_DATA": {}
 }

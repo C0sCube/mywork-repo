@@ -10,27 +10,20 @@ from app.konstant import load_mail_data
 from app.logger import get_global_logger
 
 class Mailer:
-    def __init__(self, server='172.17.0.126', port=25, 
-                sender='Kaustubh.Keny@cogencis.com', 
-                recipients=['Kaustubh.Keny@cogencis.com'], 
-                dev_recipients = ['Kaustubh.Keny@cogencis.com'],
-                cc=None, bcc=None, logger=None):
+    def __init__(self):
         
-        try:
-            mail_config = load_mail_data()
-            server = mail_config.get("server", server)
-            port = mail_config.get("port", port)
-            sender = mail_config.get("sender", sender)
-            recipients = mail_config.get("recipients", recipients)
-            dev_recipients = mail_config.get("dev_recipients", dev_recipients)
-            cc = mail_config.get("cc", cc)
-            bcc = mail_config.get("bcc", bcc)               
-        except FileNotFoundError:
-            print("paths.json file not found. Using default values.")
         
-        self.SERVER = server
-        self.PORT = port
-        self.FROM = sender or "noreply@example.com"
+        self.mail_config = load_mail_data()            
+        
+        self.SERVER = self.mail_config.get("server")
+        self.PORT = self.mail_config.get("port")
+        self.FROM = self.mail_config.get("sender")
+        
+        recipients = self.mail_config.get("recipients")
+        dev_recipients = self.mail_config.get("dev_recipients")
+        cc = self.mail_config.get("cc")
+        bcc = self.mail_config.get("bcc")   
+        
         self.RECPTS = recipients if isinstance(recipients, list) else [recipients] if recipients else []
         self.DEVRECPTS = dev_recipients if isinstance(dev_recipients, list) else [dev_recipients] if dev_recipients else []
         self.CC = cc if isinstance(cc, list) else [cc] if cc else []

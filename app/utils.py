@@ -293,6 +293,8 @@ class Helper:
         text = re.sub(r"[^0-9\.]+", " ", str(text))
         return re.sub(r"\s+", " ", text).strip().lower()
     
+    #PYMUPDF/FITZ HELPERS
+    
     @staticmethod
     def get_pdf_text(path:str):
     
@@ -399,46 +401,77 @@ class Helper:
         subprocess.Popen([output_path],shell=True)
 
     @staticmethod
-    def draw_boundaries_on_lines(input_pdf_path:str, path:str):
-        """Open the pdf , get all text data and blocks and draw a boundary along each boundary boxes
-        Args:input_pdf_path(str) , output_pdf_path (str)
-        Returns: nothing, a new pdf created"""
-        # Open the PDF file
+    def draw_boundaries_on_lines(input_pdf_path: str):
         doc = fitz.open(input_pdf_path)
+
         for page in doc:
             blocks = page.get_text("dict")["blocks"]
+
             for block in blocks:
-                if "lines" in block:
+                if block.get("lines"):
                     for line in block["lines"]:
-                        
-                        bbox = line["bbox"]  # The bbox is now directly accessible from the line
-                        page.draw_rect(bbox, color=(.4, 0.647, 0.0), width=1.5, overlay=False)
-        
-        
-        output_path = path.replace('.pdf', '_line_highlighted.pdf')
+                        bbox = line["bbox"]
+
+                        page.draw_rect(
+                            bbox,
+                            color=(1, 0, 0),  # red
+                            width=1.5,
+                            overlay=True
+                        )
+
+        output_path = input_pdf_path.replace('.pdf', '_line_highlighted.pdf')
         doc.save(output_path)
         doc.close()
+        return output_path
         
     @staticmethod
-    def draw_boundaries_on_pdf(input_pdf_path:str, path:str):
-        """Open the pdf , get all text data and blocks and draw a boundary along each boundary boxes
-        Args:input_pdf_path(str) , output_pdf_path (str)
-        Returns: nothing, a new pdf created"""
-        # Open the PDF file
+    def draw_boundaries_on_pdf(input_pdf_path: str):
         doc = fitz.open(input_pdf_path)
+
         for page in doc:
-            blocks = page.get_text("blocks")  # Get the blocks of text on the page
+            blocks = page.get_text("dict")["blocks"]
+
             for block in blocks:
-                bbox = block[:4]  # The bbox is the first four elements of the block
-                # Draw a rectangle with an orange border around the bbox
-                page.draw_rect(bbox, color=(1.0, 0.647, 0.0), width=1.5, overlay=False)
-        
-        # Save the modified document to a new file
-        
-        output_path = path.replace('.pdf', '_block_highlighted.pdf')
+                bbox = block.get("bbox")
+
+                if bbox:
+                    page.draw_rect(
+                        bbox,
+                        color=(1.0, 0.647, 0.0),
+                        width=1.5,
+                        overlay=True
+                    )
+
+        output_path = input_pdf_path.replace('.pdf', '_block_highlighted.pdf')
         doc.save(output_path)
         doc.close()
+        return output_path
         
+    @staticmethod
+    def draw_span_boundaries(input_pdf_path: str):
+        doc = fitz.open(input_pdf_path)
+
+        for page in doc:
+            blocks = page.get_text("dict")["blocks"]
+
+            for block in blocks:
+                for line in block.get("lines", []):
+                    for span in line.get("spans", []):
+
+                        bbox = span["bbox"]
+
+                        page.draw_rect(
+                            bbox,
+                            color=(0, 1, 0),  # green
+                            width=1,
+                            overlay=True
+                        )
+
+        output_path = input_pdf_path.replace('.pdf', '_span_highlighted.pdf')
+        doc.save(output_path)
+        doc.close()
+        return output_path
+
     @staticmethod
     def draw_bboxes_on_pdf(input_pdf_path:str, bbox:tuple):
         
@@ -449,4 +482,52 @@ class Helper:
         output_path = input_pdf_path.replace('.pdf', '_bbox_highlighted.pdf')
         doc.save(output_path)
         doc.close()
+        return output_path
     
+ 
+    @staticmethod
+    def mask_outside_bboxes(input_pdf, bboxes):
+        doc = fitz.open(input_pdf)
+
+        for page in doc:
+            page_rect = page.rect
+
+            for bbox in bboxes:
+                x0, y0, x1, y1 = bbox
+
+                # Top
+                if y0 > page_rect.y0:
+                    page.add_redact_annot(
+                        fitz.Rect(page_rect.x0, page_rect.y0, page_rect.x1, y0),
+                        fill=(1, 1, 1)
+                    )
+
+                # Bottom
+                if y1 < page_rect.y1:
+                    page.add_redact_annot(
+                        fitz.Rect(page_rect.x0, y1, page_rect.x1, page_rect.y1),
+                        fill=(1, 1, 1)
+                    )
+
+                # Left
+                if x0 > page_rect.x0:
+                    page.add_redact_annot(
+                        fitz.Rect(page_rect.x0, y0, x0, y1),
+                        fill=(1, 1, 1)
+                    )
+
+                # Right
+                if x1 < page_rect.x1:
+                    page.add_redact_annot(
+                        fitz.Rect(x1, y0, page_rect.x1, y1),
+                        fill=(1, 1, 1)
+                    )
+
+            # Apply AFTER all annots are added
+            page.apply_redactions()
+
+
+        output_path = input_pdf.replace('.pdf', '_bbox_mask.pdf')
+        doc.save(output_path)
+        doc.close()
+        return output_path
