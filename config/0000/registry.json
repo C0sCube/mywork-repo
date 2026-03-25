@@ -416,22 +416,69 @@
                 "0": "QuantMF"
             }
         },
-         "106": {
-            "amc_name": "Diviniti SIF (ITI)",
-            "amc_website": "https://sif.itiamc.com/",
-            "sid_class": "ITISIDKIM",
+        "104": {
+            "amc_name": "Altiva SIF (Edelweiss)",
+            "amc_website": "https://www.edelweissmf.com/",
+            "sid_class": "EdelweissSIDKIM",
             "fs_class": {
-               "0": "ITI"
+                "0": "Edelweiss"
             }
         },
-        
-         "105": {
-            "amc_name": "SBI SIF",
-            "amc_website": "https://www.abakkusmf.com/",
+        "105": {
+            "amc_name": "Magnum SIF (SBI)",
+            "amc_website": "https://www.sbimf.com/",
             "sid_class": "SBISIDKIM",
             "fs_class": {
                 "0": "SBI"
             }
+        },
+        "106": {
+            "amc_name": "Diviniti SIF (ITI)",
+            "amc_website": "https://www.itiamc.com/",
+            "sid_class": "ITISIDKIM",
+            "fs_class": {
+                "0": "ITI"
+            }
+        },
+        "107": {
+            "amc_name": "Titanium SIF (Tata)",
+            "amc_website": "https://www.tatamutualfund.com/",
+            "sid_class": "TataSIDKIM",
+            "fs_class": {
+                "0": "Tata"
+            }
+        },
+        "108": {
+            "amc_name": "iSIF (ICICI)",
+            "amc_website": "https://www.isif.icicipruamc.com/",
+            "sid_class": "ICICISIDKIM",
+            "fs_class": {
+                "0": "ICICI"
+            }
+        },
+        "109": {
+            "amc_name": "Arudha SIF (Bandhan)",
+            "amc_website": "https://arudhasif.com/",
+            "sid_class": "BandhanSIDKIM",
+            "fs_class": {
+                "0": "Bandhan"
+            }
+        },
+        "110": {
+            "amc_name": "Dyna SIF",
+            "amc_website": "https://arudhasif.com/",
+            "fs_class": {
+                "0": "ThreeSixtyOne"
+            },
+            "sid_class": "ThreeSixtyOneSIDKIM"
+        },
+          "122": {
+            "amc_name": "Generali Insurance Fund",
+            "amc_website": "https://arudhasif.com/",
+            "fs_class": {
+                "0": "Generali"
+            },
+            "sid_class": "GeneraliSIDKIM"
         }
     },
     "default_fs_headers": {
@@ -485,7 +532,8 @@
             "alpha",
             "downside_deviation",
             "upside_deviation",
-            "sharpe"
+            "sharpe",
+            "average_div_yield"
         ],
         "time": [
             "avg_maturity",
@@ -526,12 +574,15 @@
             ],
             "PUSH_FAILED": [
                 "PARSED",
-                "PUSHED"
+                "PUSHED",
+                "PUSH_FAILED"
             ],
             "PUSHED": [
-                "UPLOADED"
+                "UPLOADED",
+                "PUSHED",
+                "PUSH_FAILED"
             ],
-            "PARSE_FAILED":[
+            "PARSE_FAILED": [
                 "UPLOADED"
             ]
         },
@@ -658,7 +709,7 @@
         "search_entry_load": "",
         "search_exit_load": ""
     },
-    "financial_indices": "aaum, about the fund, add. amt, add. mult., additional amount, additional multiple, additional multiples, additional purchase, Additional investment amount, addl. amount, addl. multiple, alpha, alpha coefficient, alpha ratio, assets under management, average asset under management, average aum, average div yield, average dividend yield, average maturity, average maturity of bonds, average p/b, average p/e, average price to book ratio, average price to earnings ratio, avg asset under management, avg p/b ratio, avg p/e ratio, avg. aum, avg. dividend yield, avg. maturity, benchmark, benchmark index, benchmark risk level, benchmark riskometer, beta of portfolio, creation unit size, date of allotment, date of inception, downside deviation, downside risk measure, downside risk ratio, downside variability, duration (macaulay), duration (modified), entry load, equity returns, etf creation size, exit load, face value, fund goals, fund manager, fund name, fund scheme, fund start date, inception date, index benchmark, indexes, info ratio, information ratio, investment objective, investment risk indicator, investment scheme, ir, jenson, load, entry load, exit load, Macaulay Duraon, macaulay duration, macaulay's duration, managed by, management experience, managing scheme, maturity yield, min invest, min multiple, min.application, Minimum application amount, minimum invest amount, minimum investment amount, minimum multiple, mod duration, Modified Duraon, modified duration, month end aum, monthly avg aum, nav, nominal value, objective, other parameter, p/b, p/e, par value, pb, pb ratio, pe, pe ratio, performance deviation, Porolio Turnover, portfolio beta, portfolio manager, portfolio turnover, portfolio turnover rate, portfolio turnover ratio, Portfolio Turnover Ratio, Portfolio Turn Over Ratio, portfolio's beta, positive deviation, price to book, price to earnings, quantitative data, qualitative data, r squared, r squared ratio - fund, r-squared for fund, r^2, return on equity, risk adjusted measure, risk adjusted return ratio, risk level, riskometer for benchmark, roe, rsquared, scheme management, scheme name, scheme objective, scheme riskometer, sharpe, sharpe ratio, sharpe's ratio, sortino ratio, sortino's ratio, Standard Deviaon, standard deviation, std dev, std. dev, std deviation, total experience, track error, tracking error, treynor, treynor ratio, treynor's ratio, turnover ratio, unit size of creation, upside deviation, upside risk, volatility measure, years of experience, yield to maturity, ytm",
+    "financial_indices": "net aum,Net AUM,aaum, about the fund, add. amt, add. mult., additional amount, additional multiple, additional multiples, additional purchase, Additional investment amount, addl. amount, addl. multiple, alpha, alpha coefficient, alpha ratio, assets under management, average asset under management, average aum, average div yield, average dividend yield, average maturity, average maturity of bonds, average p/b, average p/e, average price to book ratio, average price to earnings ratio, avg asset under management, avg p/b ratio, avg p/e ratio, avg. aum, avg. dividend yield, avg. maturity, benchmark, benchmark index, benchmark risk level, benchmark riskometer, beta of portfolio, creation unit size, date of allotment, date of inception, downside deviation, downside risk measure, downside risk ratio, downside variability, duration (macaulay), duration (modified), entry load, equity returns, etf creation size, exit load, face value, fund goals, fund manager, fund name, fund scheme, fund start date, inception date, index benchmark, indexes, info ratio, information ratio, investment objective, investment risk indicator, investment scheme, ir, jenson, load, entry load, exit load, Macaulay Duraon, macaulay duration, macaulay's duration, managed by, management experience, managing scheme, maturity yield, min invest, min multiple, min.application, Minimum application amount, minimum invest amount, minimum investment amount, minimum multiple, mod duration, Modified Duraon, modified duration, month end aum, monthly avg aum, nav, nominal value, objective, other parameter, p/b, p/e, par value, pb, pb ratio, pe, pe ratio, performance deviation, Porolio Turnover, portfolio beta, portfolio manager, portfolio turnover, portfolio turnover rate, portfolio turnover ratio, Portfolio Turnover Ratio, Portfolio Turn Over Ratio, portfolio's beta, positive deviation, price to book, price to earnings, quantitative data, qualitative data, r squared, r squared ratio - fund, r-squared for fund, r^2, return on equity, risk adjusted measure, risk adjusted return ratio, risk level, riskometer for benchmark, roe, rsquared, scheme management, scheme name, scheme objective, scheme riskometer, sharpe, sharpe ratio, sharpe's ratio, sortino ratio, sortino's ratio, Standard Deviaon, standard deviation, std dev, std. dev, std deviation, total experience, track error, tracking error, treynor, treynor ratio, treynor's ratio, turnover ratio, unit size of creation, upside deviation, upside risk, volatility measure, years of experience, yield to maturity, ytm",
     "main_scheme_name": {
         "360 One Mutual Fund": {
             "360 ONE BALANCED HYBRID FUND": "BALANCED.*?FUND",

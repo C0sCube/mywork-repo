@@ -10,7 +10,8 @@
             "^benchmark_total_return_index$",
             "^tier_i_benchmark_index$",
             ".*benchmark$",
-            "benchmark_tri$"
+            "benchmark_tri$",
+            ".*benchmark_total_return_index$"
         ],
         "fund_manager": [
             "fund_manager_details"
@@ -24,7 +25,10 @@
             "^name_of_the_scheme$",
             ".*_name_of_the_scheme$",
             "^_name_of_the_scheme$",
-            ".*name_of_the_scheme$"
+            ".*name_of_the_scheme$",
+            ".*name_of_the_investment",
+            "^name_of_the_investment",
+            ".*name_of_the_investment_strategy$"
         ],
         "mutual_fund_name": [],
         "suitable_for_investors": [
@@ -35,20 +39,23 @@
         ],
         "scheme_objective": [
             "^investment_objective$",
-            ".*investment_objective"
+            ".*investment_objective",
+            "^investment_objective$"
         ],
         "scheme_code": [
             "^scheme_code$",
             "^scheme_code.*$",
             "^sebi_scheme_code$",
-            ".*scheme_code"
+            ".*scheme_code",
+            ".*investment_strategy_code$"
         ],
         "type_of_scheme": [
             "^scheme_type$",
             "type_of_the_scheme",
             "type_of_scheme",
             "^_scheme_type",
-            ".*category_of_scheme"
+            ".*category_of_scheme",
+            ".*type_of_investment"
         ],
         "open_date": [
             ".*offer_opens_on$",
@@ -57,7 +64,8 @@
             ".*new_fund_offer_opening_date$",
             ".*nfo_opens_on$",
             ".*new_fund_o\ufb00er_opens_on",
-            ".*nfo_open_date"
+            ".*nfo_open_date",
+            ".*new_fund_offer_opem"
         ],
         "close_date": [
             ".*offer_closes_on$",
@@ -66,7 +74,8 @@
             ".*new_fund_offer_closing_date$",
             ".*nfo_closes_on$",
             ".*new_fund_o\ufb00er_closes_on",
-            ".*nfo_close_date"
+            ".*nfo_close_date",
+            ".*new_fund_offer_close"
         ],
         "face_value": [],
         "riskometer_scheme": [],
@@ -156,6 +165,6 @@
         "description":null
     },
     "kim_field_location":{},
-    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+",
+    "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%\\:]+|\u2022|\u2013",
     "header_patterns": {}
 }

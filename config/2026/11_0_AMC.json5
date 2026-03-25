@@ -29,9 +29,9 @@
     sanitize_fund: false,
     stop_words: [],
     title: {
-      bbox: [0, 0, 470, 80],
+      bbox: [0, 0, 670, 80],
       ocr: false,
-      pattern: "((?:Franklin|Templeton).*?(?:Fund\\s*(?:of Funds)?|Plan))",
+      pattern: "((?:Franklin(?:India)?|Templeton).*?(?:Funds?\\s*(?:[Oo]f\\s*[Ff]unds?)?|ETF\\s*(?:F[oO]F|Fund\\s*[Oo]f\\s*[Ff]unds?)?))",
     },
     update_min_add: false,
   },

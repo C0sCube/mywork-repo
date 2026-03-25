@@ -42,28 +42,23 @@
     aum: "(Monthly Average AUM|AUM as on).+?\\s*([\\d,.]+)\\s*crores",
     load: "Entry Load(.*?)\\s*Exit Load(.*)$",
     scheme: [
-      "Investment Objective",
-      "Date of Allotment",
-      "Benchmark",
       "Fund Manager",
-      // "Managing the Fund Since",
-      // "Experience in Managing the Fund",
+      "Date of [aA]llotment",
+      "Benchmark",
+      "Managing Fund Since",
+      "Experience in Managing the Fund",
       "SIP",
-      "Application Amount for fresh",
-      "Minimum Additional Investment",
+      "EOL",
+    ],
+    scheme2: [
+      "Fund Category",
       "Load Structure",
       "Entry Load",
       "Exit Load",
-      "AUM\\s*[Aa]s\\s*[Oo]n|Count\\s*[Oo]f\\s*Securities",
-      "Month End AUM",
+      "AUM",
       "Monthly Average AUM",
-      "Total Expense Ratio|AUM as on last day",
-      "EOL"
-
-    ],
-    scheme2: [
-      "Investment Performance",
-      "Volatility Measures",
+      "AUM as on last day",
+      "Total Expense Ratio",
       "EOL",
     ],
     scheme3: [
@@ -75,9 +70,9 @@
       "EOL",
     ],
     manager: {
-      name: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z]+\\s*[A-Za-z]+)",
-      exp: "(\\d+\\.?\\d*\\s*[Yy]ears?)",
-      since: "([A-Za-z]+\\s*\\d{1,2}\\,?\\s*\\d{4})",
+      name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)?\\s+([A-Z][a-z]+\\s[A-Z][a-z]+)",
+      exp: "\\d+\\.\\d+\\s*Years?",
+      since: "[A-Za-z]+\\s*\\d{1,2},\\s*\\d{4}",
     },
     tracking: "regular\\s*(-?[\\d.]+)",
     min_amt: "([\\d,]+).*?([\\d,]+)",
@@ -87,15 +82,14 @@
   PATTERN_TO_FUNCTION: {
     before: ["_extract_scheme_data", "scheme"],
     "^dummy.*one$": ["_extract_scheme_data", "scheme2"],
-    "^dummy.*two$": ["_extract_scheme_data", "scheme2"],
+    "^dummy.*two$": ["_extract_scheme_data", "scheme3"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*(application_amount|min.+?addi.+?vestment)": [
+    ".*(application_amount|min.+?addl.+?vestment)": [
       "_extract_amt_data",
       "min_amt",
     ],
-    ".*(total_expense_ratio|volatility_measures|other_parameters|aum_as_on_last_day)": ["_extract_generic_data", "metric"],
-    ".*fund_manager":["_update_manager_data",null]
+    ".*other_parameters": ["_extract_generic_data", "metric"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -109,21 +103,21 @@
     ".*monthly_average_aum",
     ".*(date_of|benchmark)",
     ".*(application_amount_for.*|min.+?investment)$",
-    ".*fund_manager",
+    "fund_manager",
   ],
   MERGEKEYS: {
-    // fund_manager: [
-    //   "fund_manager",
-    //   ".*experience_in_managing_the_fund",
-    //   ".*managing_(?:the_)?fund_since",
-    // ],
+    fund_manager: [
+      "fund_manager",
+      "experience_in_managing_the_fund",
+      "managing_fund_since",
+    ],
     load: [".*(entry_load|exit_load)"],
-    metrics: ["metrics", ".*(tracking_error|other_parameters|total_expense_ratio|volatility_measures|aum_as_on_last_day)"],
+    metrics: ["metrics", ".*(tracking_error|other_parameters)"],
   },
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {
-    // fund_manager: "_fetch_manager_data",
+    fund_manager: "_fetch_manager_data",
   },
   Z_MUTUAL_FUND_DATA: {},
 }

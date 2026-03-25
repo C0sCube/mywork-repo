@@ -1,0 +1,38 @@
+Sub CleanColumnByHeader()
+    Dim ws As Worksheet
+    Dim headerName As String
+    Dim headerRow As Range
+    Dim cell As Range
+    Dim col As Long
+    
+    Set ws = ActiveSheet
+    headerName = "monthly_aaum_value"        ' <-- Change your column name here
+    Set headerRow = ws.Rows(1)
+    
+    ' Find the column number
+    On Error Resume Next
+    col = Application.Match(headerName, headerRow, 0)
+    On Error GoTo 0
+    
+    If col = 0 Then
+        MsgBox "Column '" & headerName & "' not found!", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Clean data from row 2 to last row
+    For Each cell In ws.Range(ws.Cells(2, col), ws.Cells(ws.Rows.Count, col).End(xlDown))
+        If Not IsEmpty(cell.Value) Then
+            cell.Value = Replace(cell.Value, "crores", "")
+            cell.Value = Replace(cell.Value, "crore", "")
+            cell.Value = Replace(cell.Value, "Crs", "")
+            cell.Value = Replace(cell.Value, "Cr", "")
+            cell.Value = Replace(cell.Value, "crs.", "")
+            cell.Value = Replace(cell.Value, "cr", "")
+            cell.Value = Replace(cell.Value, "cr.", "")
+            cell.Value = Replace(cell.Value, "Crores", "")
+            cell.Value = Trim(cell.Value)
+        End If
+    Next cell
+    
+    MsgBox "Cleanup completed for column: " & headerName, vbInformation
+End Sub

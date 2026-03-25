@@ -8,7 +8,7 @@
   PARAMS: {
     title: {
       ocr: true,
-      pattern: "((?:LI?i?C|BSE|BANK|SMALL|HEALTH|MNEY|An\\s*open).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|tax saving scheme|small cap stocks)\\s*(?:FUND\\s*OF\\s*FUND)?)",
+      pattern: "((?:L[iI]C|BSE|BANK|SMALL|HEALTH|MNEY|An\\s*open|(?:LOW|SH.+?T)\\s*DURATION|NIFTY\\s*MIDCAP|A.+?SSIVE\\s*HYBR[Ii]D).*?(?:FUND|Path|ETF|FTF|EOF|FOF|PLAN|SAVER|tax saving scheme|small cap stocks)\\s*(?:FUND\\s*OF\\s*FUND)?)",
       bbox: [0, 0, 400, 100],
     },
     clip_bbox: [[0, 80, 210, 812]],

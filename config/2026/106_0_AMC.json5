@@ -35,8 +35,8 @@
     bench: "(.*TRI|.*Index|.*Arbitrage)",
     metric: "(Average P\\s*E|Average P\\s*B|Standard Deviation|Beta|Sharpe Ratio|Average Maturity|Modified Duration|Yield to Maturity\\D+?|Macaulay Duration|Portfolio Turnover Ratio)\\s*\\:?\\s*([\\-\\d,]+(?:\\.\\d+)?\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|%)?)",
     manager: {
-      pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([^\\(]+)\\s*\\([a-z]*Since\\s*([\\d\\s\\w-]+)\\)\\s*Total\\s*Experience\\s*\\:?\\s*([\\d]+\\s*years)",
-      fields: ["name", "since", "exp"],
+      pattern:  "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z\\s]+)\\s*\\(\\s*Since\\s+([A-Za-z\\-0-9]+)\\)",
+      fields: ["name", "since"],
     },
     scheme: [
       "INVESTMENT\\s+OBJECTIVE",
@@ -63,7 +63,7 @@
       "NAV as on",
       "EOL",
     ],
-    min_amt: "([\\d,]+).*?([\\d,]+)",
+    min_amt: "([\\d,]+\\s*(?:[Ll]akhs?)?)\\s*(\\d*)",
     date: "\\(Date of Allotment\\)\\s*\\:?\\s*(.+)(?:Benchmark)?",
     escape: "[^A-Za-z0-9\\-\\(\\)\\.\\,\\+\\s\\%\\:\\&]+",
   },

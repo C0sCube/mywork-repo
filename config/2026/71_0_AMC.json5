@@ -8,8 +8,8 @@
   PARAMS: {
     title: {
       ocr: false,
-      pattern: "(Zerodha.+?(?:Funds?|ETF|Index|Path)\\s*(?:Fo?O?F|of Funds?)?)",
-      bbox: [0, 60, 500, 180],
+      pattern: "(Zerodha.+?(?:Fund?s?|ETF?|Index|Path)\\s*(?:F[Oo]F?|of Funds?)?)",
+      bbox: [0, 60, 600, 180],
     },
     clip_bbox: [
       [0, 120, 300, 700],
@@ -56,7 +56,7 @@
     metrics: "(Portfolio Turnover Ratio|Average Maturity|Macaulay Duration|Tracking Error)\\s*([\\d,.]+)",
     escape: "[^A-Za-z0-9\\s\\(\\),\\-\\.\\+\\%]+|\u2028",
     manager: {
-      pattern: "(.+?)\\s*Total experience (\\d+ years) (?:Co-)?Managing.+?since ([A-Za-z]+\\s*[0-9]+)",
+      pattern: "(.+?)\\s*Total\\s*[Ee]xperience\\s*(\\d+ years)\\s*(?:Co-)?Managing.+?since\\s*([A-Za-z]+\\s*[0-9]+)",
       fields: ["name", "exp", "since"],
     },
   },

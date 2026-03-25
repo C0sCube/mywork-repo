@@ -1,156 +1,95 @@
 {
-  "AMC_NAME": "Dsp Mutual Fund",
-  "CLONEKEYS": {
-    "min_addl_amt": "minimum_investment"
+  AMC_NAME: "Dsp Mutual Fund",
+  CLONEKEYS: {
+    min_addl_amt: "minimum_investment",
   },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "IMP_DATA": {
-    "amc_name": "DSP Investment Managers Private Limited",
-    "mutual_fund_name": "DSP Mutual Fund"
+  DUPLICATE_MUTUAL_FUNDS: {},
+  IMP_DATA: {
+    amc_name: "DSP Investment Managers Private Limited",
+    mutual_fund_name: "DSP Mutual Fund",
   },
-  "MAIN_MAP": {
-    "map": true,
-    "select": true,
-    "special": true
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
   },
-  "MERGEKEYS": {
-    "load": [
-      ".*(entry_load|exit_load)"
-    ],
-    "metrics": [
-      ".*total_aum"
-    ],
-    "min_amt": [
-      ".*minimum_investment"
-    ]
+  MERGEKEYS: {
+    load: [".*(entry_load|exit_load)"],
+    metrics: [".*total_aum"],
+    min_amt: [".*minimum_investment"],
   },
-  "PARAMS": {
-    "clip_bbox": [
-      [
-        0,
-        5,
-        120,
-        812
-      ],
-      [
-        480,
-        5,
-        624,
-        812
-      ]
+  PARAMS: {
+    clip_bbox: [
+      [0, 5, 120, 812],
+      [480, 5, 624, 812],
     ],
-    "content_size": [
-      30,
-      10
-    ],
-    "data": {
-      "color": [
-        -1
-      ],
-      "font": [
-        "TrebuchetMS-Bold"
-      ],
-      "size": [
-        7,
-        11
-      ],
-      "update_size": 30
+    content_size: [30, 10],
+    data: {
+      color: [-1],
+      font: ["TrebuchetMS-Bold"],
+      size: [7, 11],
+      update_size: 30,
     },
-    "line_side": "",
-    "line_x": 180,
-    "max_financial_index_highlight": 4,
-    "method": "clip",
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [
-      "last_12_months"
-    ],
-    "table": "122-139",
-    "title": {
-      "bbox": [
-        0,
-        0,
-        580,
-        40
-      ],
-      "ocr": false,
-      "pattern": "((?:DSP|Bharat).+?(?:Funds?|FUNDS|ETF|F[Oo]F|Path|Plan)\\s*(?:of [Ff]unds?|Fund of [Ff]unds?|F[Oo]F|Funds?)?)"
+    line_side: "",
+    line_x: 180,
+    max_financial_index_highlight: 4,
+    method: "clip",
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: ["last_12_months"],
+    table: null, //125-143
+    title: {
+      bbox: [0, 0, 580, 40],
+      ocr: false,
+      pattern: "((?:DSP|Bharat).+?(?:Funds?|FUNDS|ETF|F[Oo]F|Path|Plan)\\s*(?:of [Ff]unds?|Fund of [Ff]unds?|F[Oo]F|Funds?)?)",
     },
-    "update_min_add": false
+    update_min_add: false,
   },
-  "PATTERN_TO_FUNCTION": {
-    "^before.*": [
-      "_extract_scheme_data",
-      "scheme2"
-    ],
-    "^dummy.*": [
-      "_extract_scheme_data",
-      "scheme"
-    ],
-    "minimum_investment": [
-      "_extract_generic_data",
-      "lumpsum"
-    ]
+  PATTERN_TO_FUNCTION: {
+    "^before.*": ["_extract_scheme_data", "scheme2"],
+    "^dummy.*": ["_extract_scheme_data", "scheme"],
+    minimum_investment: ["_extract_generic_data", "lumpsum"],
   },
-  "PRE_DATA_SELECT": [
-    "^before.*",
-    "^dummy.*"
-  ],
-  "PROMOTE_KEYS": {
-    "metrics": {
-      "monthly_aaum_value": ".*(monthly_aver?a?g?e?)"
-    }
-  },
-  "REGEX": {
-    "escape": "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+\\%\\:\\&]+|•",
-    "load": "Entry\\s*Load\\s*\\:?(.+?)Exit\\s*Load\\s*\\:?(.+?)$",
-    "lumpsum": "(.+?)\\s*Options available",
-    "manager": {
-      "fields": [
-        "name",
-        "exp",
-        "since"
-      ],
-      "pattern": "(?:Mr|Mrs|Ms)?\\.?\\s*([A-Za-z\\s]+)\\s*(?:\\([A-Za-z\\s]+\\))?\\s*Total Work\\D+(\\d+\\s*years?)\\.?\\s*Managing.+?[Ss]ince\\s*([A-Za-z]+\\s+\\d{1,2},\\s+\\d{4}|[A-Za-z]+\\s+\\d{4})"
+  PRE_DATA_SELECT: ["^before.*", "^dummy.*"],
+  PROMOTE_KEYS: {
+    metrics: {
+      monthly_aaum_value: ".*(monthly_aver?a?g?e?)",
     },
-    "metrics": "(MONTHLY AVER?A?G?E?|MONTHLY AVERAGE AUM|PORTFOLIO YTM|MAC DURATION|AVERAGE MATU|MODIFIED DURA|\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths|Cr|[tT]imes?|%)?)",
-    "min_amt": "[Mm]inimum [Ii]nvestment\\D+(\\d+)\\-?\\s*&\\s*any\\s*[Aa]mount\\s*[Tt]?hereafter(.*)",
-    "scheme": [
+  },
+  REGEX: {
+    escape: "[^a-zA-Z0-9.,\\s\\-\\(\\)\\+\\%\\:\\&]+|•",
+    load: "Entry\\s*Load\\s*\\:?(.+?)Exit\\s*Load\\s*\\:?(.+?)$",
+    lumpsum: "(.+?)\\s*Options available",
+    manager: {
+      fields: ["name", "exp", "since"],
+      pattern: "(?:Mr|Mrs|Ms)?\\.?\\s*([A-Za-z\\s]+)\\s*(?:\\([A-Za-z\\s]+\\))?\\s*Total Work\\D+(\\d+\\s*years?)\\.?\\s*Managing.+?[Ss]ince\\s*([A-Za-z]+\\s+\\d{1,2},\\s+\\d{4}|[A-Za-z]+\\s+\\d{4})",
+    },
+    metrics: "(MONTHLY AVER?A?G?E?|MONTHLY AVERAGE AUM|PORTFOLIO YTM|MAC DURATION|AVERAGE MATU|MODIFIED DURA|\\(Last\\s*[0-9]+\\s*months\\)|YTM|MACAULAY\\s*DURATION|MODIFIED DURATION|AVERAGE MATURITY|Standard Deviation|Beta|R-Squared|Sharpe Ratio|Tracking Error\\s*Regular Plan)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Yy]ears?|[Dd]ays?|[Mm]onths|Cr|[tT]imes?|%)?)",
+    min_amt: "[Mm]inimum [Ii]nvestment\\D+(\\d+)\\-?\\s*&\\s*any\\s*[Aa]mount\\s*[Tt]?hereafter(.*)",
+    scheme: [
       "INCEPTION DATE?",
       "BENCHMARK",
       "FUND\\s*MANAGER",
       "NAV AS ON",
       "TOTAL AUM",
-      "EOL"
+      "EOL",
     ],
-    "scheme2": [
+    scheme2: [
       "INCEPTION DATE",
       "BENCHMARK",
       "FUND\\s*MANAGER",
       "NAV AS ON",
       "TOTAL AUM",
-      "EOL"
-    ]
+      "EOL",
+    ],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
-    ".*total_aum": [
-      "_extract_generic_data",
-      "metrics"
-    ],
-    "load": [
-      "_extract_load_data",
-      "load"
-    ],
-    "minimum_investment": [
-      "_extract_amt_data",
-      "min_amt"
-    ]
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    ".*total_aum": ["_extract_generic_data", "metrics"],
+    load: ["_extract_load_data", "load"],
+    minimum_investment: ["_extract_amt_data", "min_amt"],
   },
-  "SELECTKEYS": [
+  SELECTKEYS: [
     "amc_name",
     "main_scheme_name",
     "page_number",
@@ -162,9 +101,9 @@
     ".*month_end_expense",
     "load",
     ".*fund_manager",
-    ".*(min_amt|min_addl_amt)"
+    ".*(min_amt|min_addl_amt)",
   ],
-  "SPECIAL_FUNCTIONS": {},
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  SPECIAL_FUNCTIONS: {},
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

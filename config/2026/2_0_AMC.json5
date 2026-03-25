@@ -1,80 +1,51 @@
 {
-  "AMC_NAME": "Baroda Bnp Paribas Mutual Fund",
-  "MAIN_MAP": {
-    "select": true,
-    "map": true,
-    "special": true
+  AMC_NAME: "Baroda Bnp Paribas Mutual Fund",
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
   },
-  "IMP_DATA": {
-    "amc_name": "Baroda BNP Paribas Asset Management India Private Limited",
-    "mutual_fund_name": "Baroda BNP Paribas Mutual Fund"
+  IMP_DATA: {
+    amc_name: "Baroda BNP Paribas Asset Management India Private Limited",
+    mutual_fund_name: "Baroda BNP Paribas Mutual Fund",
   },
-  "PARAMS": {
-    "title": {
-      "ocr": false,
-      "pattern": "(Baroda\\s*BNP.*?(?:Fund|Path|ETF|F[Oo]F|Index|Plan)\\s*(?:Funds?|of [Ff]und?|Fund of [Ff]unds?)?)",
-      "bbox": [
-        0,
-        0,
-        220,
-        120
-      ]
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(Baroda\\s*BNP.*?(?:Fund|Path|ETF|F[Oo]F|Index|Plan)\\s*(?:Funds?|of [Ff]und?|Fund of [Ff]unds?)?)",
+      bbox: [0, 0, 220, 120],
     },
-    "clip_bbox": [
-      [
-        0,
-        65,
-        210,
-        700
-      ],
-      [
-        385,
-        180,
-        590,
-        800
-      ]
+    clip_bbox: [
+      [0, 65, 210, 700],
+      [385, 180, 590, 800],
     ],
-    "line_x": 210.0,
-    "data": {
-      "size": [
-        9,
-        10
-      ],
-      "color": [
-        -1
-      ],
-      "update_size": 30.0,
-      "font": [
-        "Unnamed-T3"
-      ]
+    line_x: 210.0,
+    data: {
+      size: [9, 10],
+      color: [-1],
+      update_size: 30.0,
+      font: ["Unnamed-T3"],
     },
-    "content_size": [
-      30.0,
-      8.0
-    ],
-    "method": "line",
-    "line_side": "left",
-    "max_financial_index_highlight": 4,
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "update_min_add": false
+    content_size: [30.0, 8.0],
+    method: "line",
+    line_side: "left",
+    max_financial_index_highlight: 4,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    update_min_add: false,
   },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "PRE_DATA_SELECT": [],
-  "REGEX": {
-    "aum": "([\\d,.]+\\s*crores?)",
-    "metric": "(RoE\\D+|Average\\s*Maturity|Macaulay\\s*Duration|Tracking Error\\s*(?:Regular)?|Modified\\s*Duration|YTM\\D*|Portfolio\\s*Turnover\\s*Ratio|Standard\\s*Deviation|Beta|Sharpe\\s*Ratio|Tracking\\s*Error\\s*Direct)\\s*[\\:\\-]?\\s*(\\(?\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?\\s*\\)?\\s*[\\:\\-]?\\s*-?\\d+\\.?\\d*\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?)",
-    "manager": {
-      "pattern": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s+(\\d{2}-[A-Za-z]{3}-\\d{2})\\s+(\\d+\\s*years?)",
-      "fields": [
-        "name",
-        "since",
-        "exp"
-      ]
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: "([\\d,.]+\\s*crores?)",
+    metric: "(RoE\\D+|Average\\s*Maturity|Macaulay\\s*Duration|Tracking Error\\s*(?:Regular)?|Modified\\s*Duration|YTM\\D*|Portfolio\\s*Turnover\\s*Ratio|Standard\\s*Deviation|Beta|Sharpe\\s*Ratio|Tracking\\s*Error\\s*Direct)\\s*[\\:\\-]?\\s*(\\(?\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?\\s*\\)?\\s*[\\:\\-]?\\s*-?\\d+\\.?\\d*\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?)",
+    manager: {
+      pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s+(\\d{2}-[A-Za-z]{3}-\\d{2})\\s+(\\d+\\s*years?)",
+      fields: ["name", "since", "exp"],
     },
-    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
-    "scheme": [
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
+    scheme: [
       "NAV\\s+Details",
       "Benchmark Index",
       "Date\\s+[Oo]f\\s+[aA]llotment",
@@ -89,38 +60,29 @@
       "EOL",
       "Minimum\\s*Application\\s*Amount",
       "Minimum\\s*Additional\\s*Application\\s*Amount",
-      "EOL"
+      "EOL",
     ],
-    "min_amt": "([\\d,]+)\\s*and\\s*in\\s*multiples\\s*of\\s*([\\d,]+)",
-    "load": "(?:Entry Load)?(.*?)Exit Load\\s*(.*)$",
-    "lumpsum": ".+Lumpsum investment(.+?)Minimum Additional Purchase Amount(.+?)$"
+    min_amt: "([\\d,]+)\\s*and\\s*in\\s*multiples\\s*of\\s*([\\d,]+)",
+    load: "(?:Entry Load)?(.*?)Exit Load\\s*(.*)$",
+    lumpsum: ".+Lumpsum investment(.+?)Minimum Additional Purchase Amount(.+?)$",
   },
-  "PATTERN_TO_FUNCTION": {
-    "before": [
-      "_extract_scheme_non_esc_data",
-      "scheme"
-    ]
+  PATTERN_TO_FUNCTION: {
+    before: ["_extract_scheme_non_esc_data", "scheme"],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
+  SECONDARY_PATTERN_TO_FUNCTION: {
     ".*(minimum_?amount|minimum_?additional_?purchase_?amount|minimum_?application_?amount|minimum_?additional_?application_?amount)": [
       "_extract_amt_data",
-      "min_amt"
+      "min_amt",
     ],
-    ".*monthly_aaum$": [
-      "_extract_generic_data",
-      "aum"
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
+    ".*monthly_aaum$": ["_extract_generic_data", "aum"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
     ".*(quantitative.*|key_statistics|expense_ratio)$": [
       "_extract_generic_data",
-      "metric"
-    ]
+      "metric",
+    ],
   },
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "SELECTKEYS": [
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
     ".*benchmark_index",
     ".*date_of_allotment",
     ".*monthly_?aaum",
@@ -132,20 +94,14 @@
     "monthly_aaum_date",
     "mutual_fund_name",
     "page_number",
-    ".*(minimum_amount|minimum_?additional_?purchase_?amount|minimum_?application_?amount|minimum_?additional_?application_?amount)"
+    ".*(minimum_amount|minimum_?additional_?purchase_?amount|minimum_?application_?amount|minimum_?additional_?application_?amount)",
   ],
-  "MERGEKEYS": {
-    "metrics": [
-      ".*key_statistics$",
-      ".*quantitative.*$",
-      ".*expense_ratio$"
-    ],
-    "load": [
-      ".*(exit_?load|entry_?load)"
-    ]
+  MERGEKEYS: {
+    metrics: [".*key_statistics$", ".*quantitative.*$", ".*expense_ratio$"],
+    load: [".*(exit_?load|entry_?load)"],
   },
-  "CLONEKEYS": {},
-  "PROMOTE_KEYS": {},
-  "SPECIAL_FUNCTIONS": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  CLONEKEYS: {},
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

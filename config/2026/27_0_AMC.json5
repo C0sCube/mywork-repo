@@ -8,8 +8,8 @@
   PARAMS: {
     title: {
       ocr: false,
-      pattern: "(MIRAE.*?(?:ETF|EOF|F[Oo]F|FTF|FUNDS?|PLAN|SAVER)\\s*(?:OF FUNDS?|FUND OF FUNDS?|FUND?|FUNDS?)?)",
-      bbox: [0, 0, 724, 150],
+      pattern: "(MIRAE\\s*(?:ASSET|Asset)?.*?(?:FUNDS?|ETF\\s*(?:F[Oo]F|-?\\s*GROWTH|-?\\s*IDCW|FUND\\s*OF\\s*FUNDS?)?|F[Oo]F|PLAN|SAVER)\\s*(?:OF\\s*FUNDS?|FUND\\s*OF\\s*FUNDS?|FUND?|FUNDS?)?)",
+      bbox: [0, 0, 724, 190],
     },
     clip_bbox: [[0, 190, 270, 812]],
     line_x: 270.0,
@@ -22,7 +22,7 @@
     content_size: [30.0, 10.0],
     method: "clip",
     line_side: "",
-    max_financial_index_highlight: 7,
+    max_financial_index_highlight: 4,
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
@@ -34,10 +34,10 @@
     nav: "(.*?)\\s*(\\d+\\.\\d+)",
     min_amt: "([\\d,]+).*?(\\d+)",
     manager: {
-      pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+([A-Z][a-z]+(?:\\s[A-Z][a-z]+)*)(?:\\s*\\(([^)]+)\\))?",
-      fields: ["name", "desig"],
+      pattern:  "(?:Mrs?|Ms)\\.?\\s+([A-Za-z]+\\s*[A-Za-z]+)",
+      fields: ["name"],
     },
-    metric: "(Volatility|R Squared|Portfolio Turnover\\s*(?:Ratio)?|Information Ratio|Average Maturity|Modified Duration|Macaulay Duration|Annualized Portfolio YTM|Beta|Sharpe Ratio|YTM|Jensons .*|Treynor .*)\\s*(-?[\\d.]+\\s*(?:Days|Years|Months)?)",
+    metric: "(Volatility|R\\s*[sS]quared|Portfolio\\s*[tT]urnover\\s*(?:Ratio)?|Information Ratio|Average Maturity|Modified Duration|Macaulay Duration|Annualized Portfolio YTM|Beta|Sharpe Ratio|YTM|Jensons .*|Treynor .*)\\s*(-?[\\d.]+\\s*(?:Days|Years|Months)?)",
     scheme: [
       "Fund Managers",
       "Allotment Date",
