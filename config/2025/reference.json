@@ -1,0 +1,236 @@
+{
+    "_extract_str_data": {
+        "params": false,
+        "levels": [
+            "primary",
+            "secondary",
+            "tertiary"
+        ],
+        "type": "extract",
+        "description": "Joins list into single string"
+    },
+    "_extract_generic_data": {
+        "params": true,
+        "levels": [
+            "primary",
+            "secondary",
+            "tertiary"
+        ],
+        "type": "extract",
+        "description": "Generic regex extractor"
+    },
+    "_extract_generic_non_escape_data": {
+        "params": true,
+        "levels": [
+            "primary",
+            "secondary"
+        ],
+        "type": "extract",
+        "description": "Regex extraction without escape cleanup"
+    },
+    "_extract_metric_data": {
+        "params": true,
+        "levels": [
+            "primary",
+            "secondary"
+        ],
+        "type": "extract",
+        "description": "Extract key-value metrics using regex"
+    },
+    "_extract_iter_data": {
+        "params": true,
+        "levels": [
+            "primary",
+            "secondary"
+        ],
+        "type": "extract",
+        "description": "Align keys and values by position"
+    },
+    "_extract_scheme_data": {
+        "params": true,
+        "levels": [
+            "primary"
+        ],
+        "type": "extract",
+        "description": "Extract sections between keywords"
+    },
+    "_extract_load_data": {
+        "params": true,
+        "levels": [
+            "primary"
+        ],
+        "type": "extract",
+        "description": "Extract entry and exit load"
+    },
+    "_extract_amt_data": {
+        "params": true,
+        "levels": [
+            "primary"
+        ],
+        "type": "extract",
+        "description": "Extract min and additional investment"
+    },
+    "_extract_manager_data": {
+        "params": true,
+        "levels": [
+            "primary"
+        ],
+        "type": "extract",
+        "description": "Extract fund manager details"
+    },
+    "_extract_lump_data": {
+        "params": true,
+        "levels": [
+            "primary"
+        ],
+        "type": "extract",
+        "description": "Extract lump sum investment values"
+    },
+    "_extract_asset_data": {
+        "params": true,
+        "levels": [
+            "primary"
+        ],
+        "type": "extract",
+        "description": "Extract asset allocation data"
+    },
+    "_extract_dummy_data": {
+        "params": false,
+        "levels": [
+            "fallback"
+        ],
+        "type": "extract",
+        "description": "Fallback when no pattern matches"
+    },
+    "_update_manager_data": {
+        "params": false,
+        "levels": [
+            "secondary",
+            "tertiary",
+            "special"
+        ],
+        "type": "update",
+        "description": "Align name, experience, and tenure"
+    },
+    "_update_benchmark_data": {
+        "params": false,
+        "levels": [
+            "secondary"
+        ],
+        "type": "update",
+        "description": "Clean benchmark string"
+    },
+    "_update_date_data": {
+        "params": false,
+        "levels": [
+            "secondary"
+        ],
+        "type": "update",
+        "description": "Normalize date format"
+    },
+    "_update_bench_sub_data": {
+        "params": false,
+        "levels": [
+            "secondary"
+        ],
+        "type": "update",
+        "description": "Remove unwanted substrings from benchmark"
+    },
+    "_update_imp_data": {
+        "params": false,
+        "levels": [
+            "secondary",
+            "special"
+        ],
+        "type": "update",
+        "description": "Inject default AMC and scheme metadata"
+    },
+    "_format_metric_data": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Normalize metric values (percent, time, etc.)"
+    },
+    "_format_amt_data": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Clean min/add investment values"
+    },
+    "_format_fund_manager": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Clean and normalize fund manager names"
+    },
+    "_format_benchmark_data": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Convert benchmark to list format"
+    },
+    "_convert_date_format": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Convert date to YYYYMMDD"
+    },
+    "_sanitize_fund": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Normalize fund name"
+    },
+    "_remove_duplicates": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Remove duplicate words"
+    },
+    "_populate_all_indices_in_json": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Fill missing keys with defaults"
+    },
+    "_populate_all_metrics_in_json": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Ensure all metric fields exist"
+    },
+    "_format_to_finstinct": {
+        "params": false,
+        "levels": [
+            "final"
+        ],
+        "type": "format",
+        "description": "Convert to final FinStinct JSON"
+    },
+    "trim_data": {
+        "params": false,
+        "levels": [
+            "post"
+        ],
+        "type": "post",
+        "description": "Trim output fields to size limits"
+    }
+}
