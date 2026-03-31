@@ -531,3 +531,207 @@ class Helper:
         doc.save(output_path)
         doc.close()
         return output_path
+    
+    
+    
+    import random
+
+class PDFTableExtractor:
+    def __init__(self, page):
+        self.page = page
+        self.words = page.get_text("words")
+        self.page_width = page.rect.width
+
+    # =========================================================
+    # VERSION 1: SIMPLE (Deterministic)
+    # =========================================================
+    def extract_simple(self, col_ratio=0.66, y_threshold_factor=0.5):
+        """
+        PSEUDOCODE:
+
+        GET words from PDF
+
+        FOR each word:
+            compute x_center, y_center, height
+
+        COMPUTE average text height
+        SET row_threshold = avg_height * factor
+
+        SORT words by y_center
+
+        GROUP words into rows:
+            IF y difference < threshold → same row
+            ELSE → new row
+
+        FOR each row:
+            SPLIT into columns using x threshold
+            SORT left to right
+            JOIN text
+
+        RETURN table
+        """
+
+        items = []
+        for w in self.words:
+            x0, y0, x1, y1, text = w[:5]
+            items.append({
+                "x0": x0,
+                "y0": y0,
+                "x1": x1,
+                "y1": y1,
+                "text": text,
+                "x_center": (x0 + x1) / 2,
+                "y_center": (y0 + y1) / 2,
+                "height": y1 - y0
+            })
+
+        if not items:
+            return []
+
+        # --- Dynamic threshold ---
+        avg_height = sum(i["height"] for i in items) / len(items)
+        y_threshold = avg_height * y_threshold_factor
+
+        # --- Sort by Y ---
+        items.sort(key=lambda x: x["y_center"])
+
+        # --- Group rows ---
+        rows = []
+        current_row = [items[0]]
+
+        for i in range(1, len(items)):
+            if abs(items[i]["y_center"] - current_row[-1]["y_center"]) < y_threshold:
+                current_row.append(items[i])
+            else:
+                rows.append(current_row)
+                current_row = [items[i]]
+
+        rows.append(current_row)
+
+        # --- Column split ---
+        x_threshold = col_ratio * self.page_width
+        table = []
+
+        for row in rows:
+            col1, col2 = [], []
+
+            for item in row:
+                if item["x_center"] < x_threshold:
+                    col1.append(item)
+                else:
+                    col2.append(item)
+
+            col1.sort(key=lambda x: x["x0"])
+            col2.sort(key=lambda x: x["x0"])
+
+            text1 = " ".join(i["text"] for i in col1)
+            text2 = " ".join(i["text"] for i in col2)
+
+            table.append([text1, text2])
+
+        return table
+
+    # =========================================================
+    # VERSION 2: SAMPLING (Your Chaos Idea)
+    # =========================================================
+    def extract_sampling(self, num_samples=50, col_ratio=0.66):
+        """
+        PSEUDOCODE:
+
+        GET words from PDF
+
+        FOR N random vertical lines:
+            FOR each word:
+                IF line intersects word:
+                    collect y_center
+
+        SORT all collected y values
+
+        CLUSTER y values → get row centers
+
+        FOR each word:
+            ASSIGN to nearest row
+
+        FOR each row:
+            SPLIT into columns using x threshold
+            SORT left to right
+            JOIN text
+
+        RETURN table
+        """
+
+        items = []
+        for w in self.words:
+            x0, y0, x1, y1, text = w[:5]
+            items.append({
+                "x0": x0,
+                "y0": y0,
+                "x1": x1,
+                "y1": y1,
+                "text": text,
+                "y_center": (y0 + y1) / 2,
+                "x_center": (x0 + x1) / 2
+            })
+
+        if not items:
+            return []
+
+        # --- Sampling ---
+        y_hits = []
+
+        for _ in range(num_samples):
+            x = random.uniform(0, self.page_width)
+
+            for item in items:
+                if item["x0"] <= x <= item["x1"]:
+                    y_hits.append(item["y_center"])
+
+        if not y_hits:
+            return []
+
+        # --- Cluster Y ---
+        y_hits.sort()
+        rows_y = []
+        current = [y_hits[0]]
+
+        threshold = 5  # yes, still exists, don't panic
+
+        for i in range(1, len(y_hits)):
+            if abs(y_hits[i] - current[-1]) < threshold:
+                current.append(y_hits[i])
+            else:
+                rows_y.append(sum(current) / len(current))
+                current = [y_hits[i]]
+
+        rows_y.append(sum(current) / len(current))
+
+        # --- Assign to rows ---
+        rows = [[] for _ in rows_y]
+
+        for item in items:
+            distances = [abs(item["y_center"] - y) for y in rows_y]
+            idx = distances.index(min(distances))
+            rows[idx].append(item)
+
+        # --- Column split ---
+        x_threshold = col_ratio * self.page_width
+        table = []
+
+        for row in rows:
+            col1, col2 = [], []
+
+            for item in row:
+                if item["x_center"] < x_threshold:
+                    col1.append(item)
+                else:
+                    col2.append(item)
+
+            col1.sort(key=lambda x: x["x0"])
+            col2.sort(key=lambda x: x["x0"])
+
+            text1 = " ".join(i["text"] for i in col1)
+            text2 = " ".join(i["text"] for i in col2)
+
+            table.append([text1, text2])
+
+        return table
