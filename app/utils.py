@@ -4,6 +4,7 @@ from datetime import datetime
 from collections import defaultdict
 import pandas as pd #type:ignore
 from typing import List
+from uuid import uuid4
 from app.logger import get_global_logger
 
 class Helper:
@@ -35,6 +36,11 @@ class Helper:
                 except Exception as e:
                     print(f"Failed to delete {file_path}: {e}")
 
+
+
+    @staticmethod
+    def generate_uid():
+        return uuid4().hex
 
     
     @staticmethod
@@ -344,6 +350,10 @@ class Helper:
             page = doc[pgn]
             
             blocks = page.get_text('dict')['blocks']
+            for line in blocks["lines"]:
+                line.update({
+                    "uid": Helper.generate_uid()
+                })
             images = page.get_images()
             filtered_blocks = [block for block in blocks if block['type']== 0]
             sorted_blocks = sorted(filtered_blocks, key=lambda x: x['bbox'][1])
@@ -364,7 +374,7 @@ class Helper:
     @staticmethod
     def draw_lines_on_pdf(pdf_path: str, lines: list, rects:list, pages:list,output_path: str):
         """Open the pdf , draw lines on the mentioned pages
-        Args:input_pdf_path(str) , output_pdf_path (str)
+        Args:pdf_path(str) , output_pdf_path (str)
         Returns: nothing, a new pdf created"""
         doc = fitz.open(pdf_path)
         for page_number, page in enumerate(doc, start=1):
@@ -401,8 +411,8 @@ class Helper:
         subprocess.Popen([output_path],shell=True)
 
     @staticmethod
-    def draw_boundaries_on_lines(input_pdf_path: str):
-        doc = fitz.open(input_pdf_path)
+    def draw_boundaries_on_lines(pdf_path: str):
+        doc = fitz.open(pdf_path)
 
         for page in doc:
             blocks = page.get_text("dict")["blocks"]
@@ -419,14 +429,48 @@ class Helper:
                             overlay=True
                         )
 
-        output_path = input_pdf_path.replace('.pdf', '_line_highlighted.pdf')
+        output_path = pdf_path.replace('.pdf', '_line_hltd.pdf')
         doc.save(output_path)
         doc.close()
         return output_path
+    
+
+    @staticmethod
+    def fill_boundaries_on_lines(pdf_path: str):
+
+        doc = fitz.open(pdf_path)
+        for page in doc:
+            shape = page.new_shape() 
+            blocks = page.get_text("dict")["blocks"]
+
+            for block in blocks:
+                if block.get("lines"):
+                    for line in block["lines"]:
+                        bbox = fitz.Rect(line["bbox"])
+                        shape.draw_rect(bbox)
+
+            shape.finish(
+                fill=(0.8, 1, 0.2),      # light red fill
+                stroke_opacity=0,        # no border
+                fill_opacity=0.7        # transparency
+            )
+
+            shape.commit(overlay=True)   # MUST
+
+        output_path = pdf_path.replace(
+            '.pdf',
+            '_line_filled.pdf'
+        )
+
+        doc.save(output_path)
+        doc.close()
+
+        return output_path
+
         
     @staticmethod
-    def draw_boundaries_on_pdf(input_pdf_path: str):
-        doc = fitz.open(input_pdf_path)
+    def draw_boundaries_on_pdf(pdf_path: str):
+        doc = fitz.open(pdf_path)
 
         for page in doc:
             blocks = page.get_text("dict")["blocks"]
@@ -442,14 +486,14 @@ class Helper:
                         overlay=True
                     )
 
-        output_path = input_pdf_path.replace('.pdf', '_block_highlighted.pdf')
+        output_path = pdf_path.replace('.pdf', '_block_hltd.pdf')
         doc.save(output_path)
         doc.close()
         return output_path
         
     @staticmethod
-    def draw_span_boundaries(input_pdf_path: str):
-        doc = fitz.open(input_pdf_path)
+    def draw_span_boundaries(pdf_path: str):
+        doc = fitz.open(pdf_path)
 
         for page in doc:
             blocks = page.get_text("dict")["blocks"]
@@ -467,24 +511,56 @@ class Helper:
                             overlay=True
                         )
 
-        output_path = input_pdf_path.replace('.pdf', '_span_highlighted.pdf')
+        output_path = pdf_path.replace('.pdf', '_span_hltd.pdf')
         doc.save(output_path)
         doc.close()
         return output_path
 
     @staticmethod
-    def draw_bboxes_on_pdf(input_pdf_path:str, bbox:tuple):
+    def draw_bboxes_on_pdf(pdf_path:str, bbox:tuple):
         
-        doc = fitz.open(input_pdf_path)
+        doc = fitz.open(pdf_path)
         for page in doc:
             page.draw_rect(bbox, color = (1.0,0,1.0), width = 1.5, overlay = False)
 
-        output_path = input_pdf_path.replace('.pdf', '_bbox_highlighted.pdf')
+        output_path = pdf_path.replace('.pdf', '_bbox_hltd.pdf')
         doc.save(output_path)
         doc.close()
         return output_path
     
- 
+    @staticmethod
+    def draw_pink_lines(pdf_path:str, gap:int=5):
+
+        doc = fitz.open(pdf_path)
+        for page in doc:
+
+            page_width  = page.rect.width
+            page_height = page.rect.height
+
+            shape = page.new_shape()
+
+            y = 0
+            while y <= page_height:
+
+                shape.draw_line(fitz.Point(0, y),fitz.Point(page_width, y))
+
+                y += gap   # EXACT STEP
+
+            shape.finish(
+                color=(1, 0, 0.5),    # pink
+                width=0.2
+            )
+
+            shape.commit(overlay=True)
+
+        
+        output_path = pdf_path.replace('.pdf', '_x_axis_line.pdf')
+        doc.saveIncr()
+        doc.save(output_path)
+        doc.close()
+        return output_path
+
+
     @staticmethod
     def mask_outside_bboxes(input_pdf, bboxes):
         doc = fitz.open(input_pdf)
