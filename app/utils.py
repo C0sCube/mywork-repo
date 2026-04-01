@@ -1,4 +1,4 @@
-import os, re, json, string, shutil, json5
+import os, re, json, string, shutil, json5, random
 import fitz #type:ignore
 from datetime import datetime
 from collections import defaultdict
@@ -536,66 +536,96 @@ class Helper:
     
     import random
 
+import fitz
+import pandas as pd
+import random
+
+
 class PDFTableExtractor:
-    def __init__(self, page):
-        self.page = page
-        self.words = page.get_text("words")
-        self.page_width = page.rect.width
+    def __init__(self, pdf_path):
+        self.doc = fitz.open(pdf_path)
 
-    # =========================================================
-    # VERSION 1: SIMPLE (Deterministic)
-    # =========================================================
-    def extract_simple(self, col_ratio=0.66, y_threshold_factor=0.5):
+    def get_items(self, page, mode="span", bbox=None):
         """
-        PSEUDOCODE:
-
-        GET words from PDF
-
-        FOR each word:
-            compute x_center, y_center, height
-
-        COMPUTE average text height
-        SET row_threshold = avg_height * factor
-
-        SORT words by y_center
-
-        GROUP words into rows:
-            IF y difference < threshold → same row
-            ELSE → new row
-
-        FOR each row:
-            SPLIT into columns using x threshold
-            SORT left to right
-            JOIN text
-
-        RETURN table
+        Extract items from page with optional bbox filtering
         """
 
+        text_dict = page.get_text("dict")
         items = []
-        for w in self.words:
-            x0, y0, x1, y1, text = w[:5]
-            items.append({
-                "x0": x0,
-                "y0": y0,
-                "x1": x1,
-                "y1": y1,
-                "text": text,
-                "x_center": (x0 + x1) / 2,
-                "y_center": (y0 + y1) / 2,
-                "height": y1 - y0
-            })
+
+        for block in text_dict["blocks"]:
+            if "lines" not in block:
+                continue
+
+            for line in block["lines"]:
+
+                if mode == "line":
+                    x0, y0, x1, y1 = line["bbox"]
+
+                    if bbox and not self._in_bbox((x0, y0, x1, y1), bbox):
+                        continue
+
+                    text = " ".join(span["text"] for span in line["spans"])
+
+                    items.append(self._build_item(x0, y0, x1, y1, text))
+
+                elif mode == "span":
+                    for span in line["spans"]:
+                        x0, y0, x1, y1 = span["bbox"]
+                        text = span["text"]
+
+                        if not text.strip():
+                            continue
+
+                        if bbox and not self._in_bbox((x0, y0, x1, y1), bbox):
+                            continue
+
+                        items.append(self._build_item(x0, y0, x1, y1, text))
+
+        return items
+
+    def _build_item(self, x0, y0, x1, y1, text):
+        return {
+            "x0": x0,
+            "y0": y0,
+            "x1": x1,
+            "y1": y1,
+            "text": text,
+            "x_center": (x0 + x1) / 2,
+            "y_center": (y0 + y1) / 2,
+            "height": y1 - y0
+        }
+
+    # def _in_bbox(self, item_bbox, target_bbox):
+    #     ix0, iy0, ix1, iy1 = item_bbox
+    #     tx0, ty0, tx1, ty1 = target_bbox
+
+    #     return not (ix1 < tx0 or ix0 > tx1 or iy1 < ty0 or iy0 > ty1)
+    def _in_bbox(self, item_bbox, target_bbox):
+        ix0, iy0, ix1, iy1 = item_bbox
+        tx0, ty0, tx1, ty1 = target_bbox
+
+        return (
+            ix0 >= tx0 and
+            iy0 >= ty0 and
+            ix1 <= tx1 and
+            iy1 <= ty1
+        )
+
+    # =========================================================
+    # SIMPLE EXTRACTION (PER PAGE)
+    # =========================================================
+    def extract_simple_page(self, page, bbox=None, x_thresh = 0.4):
+        items = self.get_items(page, mode="span", bbox=bbox)
 
         if not items:
             return []
 
-        # --- Dynamic threshold ---
         avg_height = sum(i["height"] for i in items) / len(items)
-        y_threshold = avg_height * y_threshold_factor
+        y_threshold = avg_height * 0.5
 
-        # --- Sort by Y ---
         items.sort(key=lambda x: x["y_center"])
 
-        # --- Group rows ---
         rows = []
         current_row = [items[0]]
 
@@ -608,8 +638,9 @@ class PDFTableExtractor:
 
         rows.append(current_row)
 
-        # --- Column split ---
-        x_threshold = col_ratio * self.page_width
+        page_width = page.rect.width
+        x_threshold = x_thresh * page_width
+
         table = []
 
         for row in rows:
@@ -629,58 +660,24 @@ class PDFTableExtractor:
 
             table.append([text1, text2])
 
-        return table
+        df = pd.DataFrame(table)
+        # return [df]
+        return df
 
     # =========================================================
-    # VERSION 2: SAMPLING (Your Chaos Idea)
+    # SAMPLING EXTRACTION (PER PAGE)
     # =========================================================
-    def extract_sampling(self, num_samples=50, col_ratio=0.66):
-        """
-        PSEUDOCODE:
-
-        GET words from PDF
-
-        FOR N random vertical lines:
-            FOR each word:
-                IF line intersects word:
-                    collect y_center
-
-        SORT all collected y values
-
-        CLUSTER y values → get row centers
-
-        FOR each word:
-            ASSIGN to nearest row
-
-        FOR each row:
-            SPLIT into columns using x threshold
-            SORT left to right
-            JOIN text
-
-        RETURN table
-        """
-
-        items = []
-        for w in self.words:
-            x0, y0, x1, y1, text = w[:5]
-            items.append({
-                "x0": x0,
-                "y0": y0,
-                "x1": x1,
-                "y1": y1,
-                "text": text,
-                "y_center": (y0 + y1) / 2,
-                "x_center": (x0 + x1) / 2
-            })
+    def extract_sampling_page(self, page, bbox=None):
+        items = self.get_items(page, mode="span", bbox=bbox)
 
         if not items:
             return []
 
-        # --- Sampling ---
+        page_width = page.rect.width
         y_hits = []
 
-        for _ in range(num_samples):
-            x = random.uniform(0, self.page_width)
+        for _ in range(50):
+            x = random.uniform(0, page_width)
 
             for item in items:
                 if item["x0"] <= x <= item["x1"]:
@@ -689,12 +686,11 @@ class PDFTableExtractor:
         if not y_hits:
             return []
 
-        # --- Cluster Y ---
         y_hits.sort()
         rows_y = []
         current = [y_hits[0]]
 
-        threshold = 5  # yes, still exists, don't panic
+        threshold = 5
 
         for i in range(1, len(y_hits)):
             if abs(y_hits[i] - current[-1]) < threshold:
@@ -705,7 +701,6 @@ class PDFTableExtractor:
 
         rows_y.append(sum(current) / len(current))
 
-        # --- Assign to rows ---
         rows = [[] for _ in rows_y]
 
         for item in items:
@@ -713,8 +708,7 @@ class PDFTableExtractor:
             idx = distances.index(min(distances))
             rows[idx].append(item)
 
-        # --- Column split ---
-        x_threshold = col_ratio * self.page_width
+        x_threshold = 0.66 * page_width
         table = []
 
         for row in rows:
@@ -734,4 +728,43 @@ class PDFTableExtractor:
 
             table.append([text1, text2])
 
-        return table
+        df = pd.DataFrame(table)
+        # return [df]
+        return df
+
+    # =========================================================
+    # HANDLER (PDF LEVEL)
+    # =========================================================
+    def extract(self, page_numbers=None, bboxes=None, method="simple"):
+        """
+        MAIN HANDLER
+
+        INPUT:
+        - page_numbers: list[int]
+        - bbox: (x0, y0, x1, y1)
+        - method: "simple" or "sampling"
+
+        OUTPUT:
+        {
+            page_no: [df1, df2, ...]
+        }
+        """
+
+        results = {}
+
+        if page_numbers is None:
+            page_numbers = range(len(self.doc))
+            
+        results = {k:[] for k in page_numbers}
+
+        for page_no in page_numbers:
+            page = self.doc[page_no]
+            for bbox in bboxes:
+                if method == "simple":
+                    dfs = self.extract_simple_page(page, bbox)
+                else:
+                    dfs = self.extract_sampling_page(page, bbox)
+
+                results[page_no].append(dfs)
+
+        return results
