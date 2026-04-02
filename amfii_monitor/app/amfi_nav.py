@@ -1,29 +1,30 @@
-
 import os, csv, requests
 from zoneinfo import ZoneInfo
-from datetime import datetime, timedelta, timezone
-from typing import List, Dict
+from datetime import datetime, timezone
+import pandas as pd
 
-from app.konstant import get_raw_dir
-from app.logger import get_global_logger, log_exceptions
+from app.konstant import get_raw_dir, get_output_dir
+from app.logger import get_global_logger
+
 
 AMFI_URL = "https://portal.amfiindia.com/spages/NAVAll.txt"
 
 
 class AmfiNavAggregator:
-    def __init__(self, ):
+
+    def __init__(self):
         self.data_dir = get_raw_dir()
+        self.output_dir = get_output_dir()
         self.logger = get_global_logger()
 
         os.makedirs(self.data_dir, exist_ok=True)
+        os.makedirs(self.output_dir, exist_ok=True)
 
-    # Job 1: Fetcher
+    # ---------------- FETCH ---------------- #
     def run_fetch(self) -> str:
-        """
-        Fetch AMFI NAV data and save as timestamped CSV
-        """
         now = self._now()
         ts = now.strftime("%Y%m%d_%H%M")
+
         filename = f"amfi_nav_{ts}.csv"
         filepath = os.path.join(self.data_dir, filename)
 
@@ -36,6 +37,7 @@ class AmfiNavAggregator:
 
         with open(filepath, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
+
             writer.writerow([
                 "Scheme Code",
                 "ISIN Growth / Div Payout",
@@ -54,87 +56,76 @@ class AmfiNavAggregator:
         self.logger.info(f"Saved NAV CSV: {filename}")
         return filepath
 
+    # ---------------- AGGREGATE ---------------- #
+    def run_aggregate(self, run_time: datetime, lookback_count: int) -> str:
 
-    # Job 2: Aggregator + Mailer
-    def run_aggregate(self, run_time: datetime, lookback_hours: int)->str:
-        """
-        Aggregate NAV CSV files from:
-        [run_time - lookback_hours, run_time)
-        """
-        window_start = run_time - timedelta(hours=lookback_hours)
+        self.logger.info(f"Aggregation using last {lookback_count} files")
 
-        self.logger.info(
-            f"Aggregating files from {window_start} → {run_time}"
-        )
+        files = self._get_all_nav_files()
 
-        selected_files = []
-
-        for file in os.listdir(self.data_dir):
-            if not file.startswith("amfi_nav_") or not file.endswith(".csv"):
-                continue
-
-            file_ts = self._parse_filename_ts(file)
-            full_path = os.path.join(self.data_dir, file)
-
-            if window_start <= file_ts < run_time:
-                selected_files.append(full_path)
-
-        if not selected_files:
-            self.logger.warning("No NAV files found in window")
+        if len(files) < lookback_count:
+            self.logger.warning(
+                f"Not enough files. Found={len(files)}, Required={lookback_count}"
+            )
             return
 
-        self.logger.info(f"Selected files: {selected_files}")
+        selected_files = [p for _, p in files[-lookback_count:]]
 
-        seen = set()
-        aggregated_rows: List[Dict] = []
+        self.logger.info("Selected files:")
+        for f in selected_files:
+            self.logger.info(f" - {os.path.basename(f)}")
 
-        for file in selected_files:
-            for row in self._read_rows(file):
-                key = (row["Scheme Code"], row["Date"])
-                if key not in seen:
-                    seen.add(key)
-                    aggregated_rows.append(row)
+        # -------- pandas aggregation -------- #
+        try:
+            dfs = [pd.read_csv(f) for f in selected_files]
+            df = pd.concat(dfs, ignore_index=True)
+
+            before = len(df)
+            df = df.drop_duplicates(keep="first")
+            after = len(df)
+
+            self.logger.info(f"Rows before: {before}, after: {after}")
+
+        except Exception as e:
+            self.logger.warning(f"Aggregation failed: {e}")
+            return
+
+        if df.empty:
+            self.logger.warning("Empty dataframe after aggregation")
+            return
 
         output_ts = run_time.strftime("%Y%m%d_%H%M")
         output_file = os.path.join(
-            self.data_dir, f"amfi_aggregated_{output_ts}.csv"
+            self.output_dir, f"amfi_aggregated_{output_ts}.csv"
         )
 
-        self._write_rows(output_file, aggregated_rows)
+        df.to_csv(output_file, index=False)
 
+        self.logger.info(f"Aggregation complete: {output_file}")
 
-        return output_file
+        return output_file, selected_files
 
-    # Internal Helpers
+    # ---------------- HELPERS ---------------- #
+    def _get_all_nav_files(self):
+        files = []
+
+        for file in os.listdir(self.data_dir):
+            if file.startswith("amfi_nav_") and file.endswith(".csv"):
+                try:
+                    ts = self._parse_filename_ts(file)
+                    full_path = os.path.join(self.data_dir, file)
+                    files.append((ts, full_path))
+                except Exception:
+                    self.logger.warning(f"Skipping invalid file: {file}")
+
+        files.sort(key=lambda x: x[0])  # ascending
+        return files
 
     def _parse_filename_ts(self, filename: str) -> datetime:
-        """
-        Extract timestamp from filename: amfi_nav_YYYYMMDD_HHMM.csv
-        """
         ts_part = filename.replace("amfi_nav_", "").replace(".csv", "")
         return datetime.strptime(ts_part, "%Y%m%d_%H%M").replace(
             tzinfo=timezone.utc
         )
 
-    def _read_rows(self, filepath: str):
-        with open(filepath, newline="", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                yield row
-
-    def _write_rows(self, filepath: str, rows: List[Dict]):
-        if not rows:
-            return
-
-        with open(filepath, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=rows[0].keys())
-            writer.writeheader()
-            writer.writerows(rows)
-
     def _now(self) -> datetime:
-        """
-        Centralized clock (easy to mock/test)
-        """
         return datetime.now(ZoneInfo("Asia/Kolkata"))
-
-    
