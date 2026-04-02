@@ -811,7 +811,7 @@ class PDFTableExtractor:
     # =========================================================
     # HANDLER (PDF LEVEL)
     # =========================================================
-    def extract(self, page_numbers=None, bboxes=None, method="simple"):
+    def extract(self, page_numbers=None, bboxes=None, method="simple", x_thresh = 0.4):
         """
         MAIN HANDLER
 
@@ -837,7 +837,7 @@ class PDFTableExtractor:
             page = self.doc[page_no]
             for bbox in bboxes:
                 if method == "simple":
-                    dfs = self.extract_simple_page(page, bbox)
+                    dfs = self.extract_simple_page(page, bbox, x_thresh=x_thresh)
                 else:
                     dfs = self.extract_sampling_page(page, bbox)
 
