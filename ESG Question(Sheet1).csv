@@ -1,0 +1,318 @@
+Sector,Que. No.,Question,Helpful Key Point,Type
+Environment,Q307,What is the Scope 1 & Scope 2 emissions intensity for the current year?,Scope 1,Number
+Environment,Q303,What is the Scope 3 emissions intensity for the current year?,Scope 3,Number
+Environment,Q299,What was the Total Scope 1 & 2 intensity (Current Year) (Unit: Metric Tonne) - Physical Output?,Scope 1,Number
+Environment,Q304,What is the intensity of Scope 1 & Scope 2 emissions in terms of Purchasing Power Parity (PPP) for the current year?,Scope 1,Number
+Environment,Q278,What are the total PM emissions for the Current Year (Unit: Metric Tonne)?,air emissions,Number
+Environment,Q277,What are the total SOx emissions for the Current Year (Unit: Metric Tonne)?,air emissions,Number
+Environment,Q279,What are the total NOx emissions for the Current Year (Unit: Metric Tonne)?,air emissions,Number
+Environment,Q289,What is the Water intensity per rupee of turnover in crores for the Current Year (in kilolitres)?,Water Intensity,Number
+Environment,Q1189,What is the % of untreated water discharge?,Water Discharge,Number
+Environment,Q66,What is the Total volume of fresh water withdrawal (in kilolitres) for the Current Year?,Water Withdrawal,Number
+Environment,Q67,What is the Total volume of fresh water discharge (in kilolitres) for the Current Year?,Water Discharge,Number
+Environment,Q281,What is the Total volume of water consumed (in kilolitres) in areas of water stress in the Current Year?,Water Stress,Number
+Environment,Q275,What is the Total Effluent Discharge in the Current Year?,Zero Liquid/Effluent Treatment Plant,Boolean
+Environment,Q285,How much was the Water intensity in Current Year (in kilolitres) for Physical Output?,Water intensity ,Number
+Environment,Q288,What is the Water intensity per rupee of turnover adjusted for Purchasing Power Parity (PPP) in Crores Current Year (in kilolitres) - PPP?,Water Consumption,Number
+Environment,Q306,What is the energy intensity turnover for the current year?,Energy Intensity,Number
+Environment,Q270,Percentage of energy consumed from renewable sources,Energy Intensity,Number
+Environment,Q272,What is the Energy intensity in terms of physical output?,Physical output,Number
+Environment,Q305,What is the Energy intensity adjusted for Purchasing Power Parity (PPP) for the current year?,Energy Intensity,Number
+Environment,Q301,What is the Waste intensity (Total waste generated /Revenue from operations) for the year?,Waste Intensity,Number
+Environment,Q294,How much was the Hazardous waste for the Current Year (in metric tonnes)?,Hazardous waste,Number
+Environment,Q300,What is the Waste Recycled/ Recovered Intensity for the current year?,Recycled,Number
+Environment,Q126,Percentage of recycled or reused input material used in production (for manufacturing industry) or providing services (for service industry),reused input material,Boolean
+Environment,Q297,What was the Total Waste intensity (Current Year) (Unit: Metric Tonne) - Physical Output?,Waste intensity ,Number
+Environment,Q302,What is the waste intensity adjusted for Purchasing Power Parity (PPP) for the current year?,Waste Intensity,Number
+Environment,Q6,Turnover of products and / services as a percentage of turnover from all products/service that carry information about the safe and responsible usage,Turnover of products,Number
+Environment,Q266,What is the clinker factor ratio?,Clinker,Number
+Environment,Q107,What is fly ash utilization % in Current Year?,fly ash,Boolean
+Environment,Q163,Is the company investing in New generation aircarft fleet? Has the number increased as compared to Previous year?,Aircarft Fleet,Number
+Environment,Q247,"What percentage of the total virgin raw material does the company produced and/or purchased covered by FSC, PEFC and/or SFI certification?","FSC, PEFC and/or SFI",Number
+Social,Q704,Total Lost time incident rate (LTIR)_Workers,"LTIFR, safety related incidents, Lost time ",Number
+Social,Q591,Total Lost time incident rate (LTIR)_Employees,"LTIFR, safety related incidents, Lost time ",Number
+Social,Q592,Total recordable work-related injuries for Employees as a % of the total employees in the company,work-related injuries ,Number
+Social,Q593,Total recordable work-related injuries for Workers  as a % of the total workers in the company,work-related injuries ,Number
+Social,Q594,Fatalities of employees,Fatalities ,Number
+Social,Q595,Fatalities of workers,Fatalities ,Number
+Social,Q622,Count of high consequence work-related injury or ill-health of employees (excluding fatalities),,Number
+Social,Q623,Count of high consequence work-related injury or ill-health of worker (excluding fatalities),,Number
+Social,Q585,Percentage of plants and offices that were assessed (by entity or statutory authorities or third parties) with respect to health and safety practices?,,Number
+Social,Q504,Provide percentage of total employees covered under health and safety measures training,,Number
+Social,Q543,Percentage of total permanent employees covered by health insurance,,Number
+Social,Q544,Percentage of total other than permanent employees covered by health insurance,,Number
+Social,Q545,Percentage of total permanent worker covered by health insurance,,Number
+Social,Q546,Percentage of total other than permanent worker covered by health insurance,,Number
+Social,Q548,Percentage of total permanent worker covered by accident insurance,,Number
+Social,Q549,Percentage of total other than permanent worker covered by accident insurance,,Number
+Social,Q547,Percentage of total permanent employees covered by accident insurance,,Number
+Social,Q510,What is the percentage of female employees in the workforce?,,Number
+Social,Q729,What is the turnover rate for permanent female employees in the Current Year?,,Number
+Social,Q728,What is the total turnover rate for permanent female worker in the Current Year?,,Number
+Social,Q501,Pay Parity between male and female employees,,Number
+Social,Q1194,Number of complaints on POSH as a % of female employees / workers for current year?,,Number
+Social,Q785,What is the  Gross wages paid to females as percentage of wages paid?,,Number
+Social,Q745,How many complaints were filed on discrimination at workplace in Current Year?,,Number
+Social,Q735,How many Complaints were filed by employees and workers or employees as a % of number of employees in the current year?,,Number
+Social,Q741,What is the number of pending/unresolved employees and workers grievances as % of total complaints filed in the Current Year?,,Number
+Social,Q720,How many complaints were filed on Wages in the current year?,,Number
+Social,Q571,Pending resolution of complaints as a % of total complaints filed by employees and workers pertaning to working conditions,,Number
+Social,Q739,What is the turnover rate for permanent workers for the Current Year?,,Number
+Social,Q737,What is the turnover rate for permanent employees for the Current Year?,,Number
+Social,Q782,What is the percentage of  cost incurred as a % of total revenue of the company with regards to spending on measures towards wellbeing of employees and workers ?,,Number
+Social,Q590,Percentage of workers or employees in association(s) or Unions recognised by the listed entity,,Number
+Social,Q742,What is the number of complaints filed by the customers as a % of revenue in Current Year?,,Number
+Social,Q698,Total instances of product recalls,,Number
+Social,Q627,% of value chain partners (by value of business done with such partners) that were assessed for Health and Safety practices,,Number
+Social,Q1165,What is the purchases from trading houses as % of total purchases?,,Number
+Social,Q1167,What is purchases from top 10 trading houses as % of total purchases from trading houses?,,Number
+Social,Q631,Number of complaints filed by communities stakeholders,,Number
+Social,Q632,Count of pending/unresolved communities grievances,,Number
+Social,Q522,Percentage of CSR obligation spent (Ratio of CSR spent to CSR obligation),,Number
+Social,Q786,What is the input material directly sourced from MSMEs/ small producers (In % terms – As % of total purchases by value)?,,Number
+Social,Q581,Percentage of capital expenditure (capex) investments in specific technologies to improve the environmental and social impacts of products and processes to total capex investments made by the entity.,,Number
+Social,Q787,What is the input material sourced directly from within India  as % of total purchases?,,Number
+Social,Q788,What is the % of Job creation in smaller towns – Wages paid to persons  employed in smaller towns (permanent or non-permanent /on contract) as % of total wage cost?,,Number
+Social,Q789,What are the number of days of accounts payable?,,Number
+Social,Q801,What is the sales to dealers / distributors as % of total sales?,,Number
+Social,Q803,What is the sales to top 10 dealers / distributors as % of total sales to dealers / distributors?,,Number
+Social,Q1195,% of data breaches involving PII data of customers,,Number
+Social,Q774,Share of buildings that are certified according to international building standards/ GRESB/IGBC?,,Boolean
+Governance,Q1001,Percentage of Independent Directors on the board ,,Number
+Governance,Q1060,Number of Independent women directors on the board,,Number
+Governance,Q1059,Number of women directors on the board,,Number
+Governance,Q1109,Average attendance for Board meeting in the current FY,,Number
+Governance,Q1007,Number of Directorships of all board members,,Number
+Governance,Q1136,Number of Directors against whom disciplinary action was taken by any law enforcement agency for the charges of bribery/ corruption,,Number
+Governance,Q1149,Number of complaints received in relation to issues of Conflict of Interest of the Directors / KMPs,,Number
+Governance,Q1003,Percentage of independent directors in Nomination and Remuneration Committee,,Number
+Governance,Q1004,Percentage of independent directors in Audit Committee,,Number
+Governance,Q1082,Number of independent directors in Risk Management Committee,,Number
+Governance,Q1089,Number of independent directors in CSR Committee,,Number
+Governance,Q1096,Percentage of subject matter experts appointed in the Audit Committee,,Number
+Governance,Q1021,Ratio of remuneration of MD / CEO to median remuneration of Employees,,Number
+Governance,Q1031,Percentage of non-audit fees as compared to total audit fees,,Number
+Governance,Q1102,Number of whistle blower complaints filed in the current year,,Number
+Governance,Q1150,Number of pending consumer compliant on unfair trade practices,,Number
+Governance,Q721,Number of Employees against whom disciplinary action was taken by any law enforcement agency for the charges of bribery/ corruption,,Number
+Governance,Q722,Number of Workers against whom disciplinary action was taken by any law enforcement agency for the charges of bribery/ corruption,,Number
+Governance,Q1171,What is the share of RPTs (as respective %age) in Purchases?,,Number
+Governance,Q1172,What is the Share of RPTs (as respective %age) in Sales?,,Number
+Governance,Q1173,What is the Share of RPTs (as respective %age) in Loans & Advances?,,Number
+Governance,Q1174,What is the Share of RPTs (as respective %age) in Investments?,,Number
+Environment,Q7,Are there any initiatives towards reduction in GHG Emissions?,Gas emission,Boolean
+Environment,Q276,What are the total VOC / POP / HAP emissions for the Current Year (Unit: Metric Tonne)?,VOC / POP / HAP,Number
+Environment,Q92,"What are the initaitives taken to reduce the Nox, Sox, PM, VOC, HAP and POP  air emissions?",air emissions,Boolean
+Environment,Q100,Does the company have facilities/ operations in water stress regions?,water stress,Boolean
+Environment,Q43,Has the entity implemented mechanism for Zero Liquid Discharge?,Zero Liquid,Boolean
+Environment,Q190,Third-party verification of water data,disclosures related to water,Boolean
+Environment,Q13,What are the goals/ targets/ commitments towards Energy Consumption?,Energy Consumption,Boolean
+Environment,Q271,"Does the entity have any sites/facilities identified as designated consumers (DCs) under the Performance, Achieve and Trade (PAT) Scheme of the Government of India? (Y/N) If yes, disclose whether targets set under the PAT scheme have been achieved. In case targets have not been achieved, provide the remedial action taken, if any.",Designated Consumers,Boolean
+Environment,Q49,Is there a disclosure regarding the energy management system? ISO 50001 Certification (Energy Management),ISO 50001,Boolean
+Environment,Q34,Waste management practices and strategies to reduce usage of hazardous and toxic chemicals from the products and processes,Waste management,Boolean
+Environment,Q38,"What are the processes to safely reclaim the products for reusing, recycling, and disposing at the end of life, for (a) Plastics (including packaging) (b) e-waste (c) hazardous waste and (d) other waste?",Safely Reclaim,Boolean
+Environment,Q128,"Whether Extended Producer Responsibility (EPR) is applicable to the entity’s activities (Yes / No). If yes, whether the waste collection plan is in line with the Extended Producer Responsibility (EPR) plan submitted to Pollution Control Boards?",Extended Producer Responsibility,Boolean
+Environment,Q187,Third-party verification of waste data,Waste Management,Boolean
+Environment,Q74,Is there presence of offices / manufacturing facilities in ecologically sensitive areas?,Ecologically,Boolean
+Environment,Q118,Provide details of significant direct & indirect impact of the entity on biodiversity in ecological sensitive areas along-with prevention and remediation activities,Sensitive areas,Boolean
+Environment,Q79,Does the company have a Biodiversity policy?,Biodiversity policy,Boolean
+Environment,Q209,Does the company's policy on Biodiversity extend to its value chain partners? (Yes/No),Biodiversity policy,Boolean
+Environment,Q82,Does the company take initiatives with regards to its Biodiversity conservation/ land rehabilitation and biodiversity restoration?,Biodiversity policy,Boolean
+Environment,Q5,Are there any goals/ targets/ commitments set towards carbon neutrality/ Net zero?,Carbon Neutrality,Boolean
+Environment,Q1114,Does the organisation report on CDP Disclosure as per Climate Change Module,"Carbon disclosure project, CDP ",Boolean
+Environment,Q110,"Does the company perform climate related scenario analysis (based on TCFD Framework); Based on the climate risk assessment, has the company set up a plan to adapt to the identified physical climate risks? ","TCFD, Task force, Climate risk assessment ",Boolean
+Environment,Q47,Presence of ISO 14001:2015 certification,ISO 14001,Boolean
+Environment,Q95,Does the entity implement carbon pricing mechanism/model?,carbon pricing,Boolean
+Environment,Q186,Does the company have a policy on environmental management and is it available publicly?,"Sustainability policy, Sustainability Guidelines, ESG Policy, Environment policy etc",Boolean
+Environment,Q68,"Is the entity compliant with the applicable environmental law/ regulations/ guidelines in India; such as the Water (Prevention and Control of Pollution) Act, Air (Prevention and Control of Pollution) Act, Environment protection act and rules thereunder (Y/N). If not, provide details of all such non-compliances","Environmental law, entity compliant, pollution, prevention and control of pollution ",Boolean
+Environment,Q116,Does the company have a strategy for climate change adaptation and mitigation?,climate Change,Boolean
+Environment,Q46,Discussion of the integration of environmental considerations into strategic planning for data centre needs,Data Centre,Boolean
+Environment,Q62,"Are there any social or environmental concerns and/or risks arising from production or disposal of products, as identified in the Life Cycle Perspective/Assessments (LCA)?","environmental concerns, risks arising, Life Cycle Perspective, LCA ",Boolean
+Environment,Q131,"Has the company taken initiatives to use reusable, recyclable or compCC?","initiatives taken, packaging, Recycle, recycling, compostable packaging, reuse ",Boolean
+Environment,Q77,What are the initiatives taken to reduce plastic packaging?,Plastic Packaging,Boolean
+Environment,Q50,Turnover of products and / services as a percentage of turnover from all products/service that carry information about the recycling and/or safe disposal,Turnover of products,Number
+Environment,Q106,Does your company have a publicly available no-deforestation policy or commitment that applies to your company's operational practices? ,"Deforestation, no-deforestation policy, net deforestation",Boolean
+Environment,Q201,Does the company owns/ leases/ manages forestland for its operations?,Forestland,Boolean
+Environment,Q135,Are there any initiatives taken with respect to sustainable agriculture by the company ?,Sustainable Agriculture,Boolean
+Environment,Q145,Is the company manufacturing smart farm equipments/machinery?,"IoT, Smart Farm",Boolean
+Environment,Q235,"Is the company exposed to animal products and are these certified or accredited by one or more independent third-party? If yes, does the company demand or monitor such certification or accreditation from its suppliers?",Animal Products,Boolean
+Environment,Q137,What are the intiatives taken with respect to Chemical Safety management?,"Chemical safety management, chemical safety, chemical handling, training on safety, training ",Boolean
+Environment,Q208,Does the Company have Waste Heat Recovery Systems (WHRS) for enhancing energy efficiency? (Cement),"WHRS, Waste Heat Recovery System",Boolean
+Environment,Q202,"Is the forestland certified as per international sustainable forest management standards such as FSC, PEFC, SFI?","FSC, PEFC, SFI",Boolean
+Environment,Q222,What measures are taken to reduce marine pollution and manage ballast water?,"marine pollution, ballast water, ballast ",Boolean
+Environment,Q162,Does the company comply with new regulation of Energy Efficiency Existing Ship (EEXI)?  (require all ships above 400 GT),Energy Efficiency Existing Ship (EEXI),Boolean
+Environment,Q232,Are there any initiatives to promote sustainable shipping practices or reduce the carbon footprint of port operations?,"carbon footprint, Low carbon, Low-carbon, Sustainable shipping ",Boolean
+Environment,Q265,Does the company manufacture electric or aternate fuel based vessel/ships or related components for the same? ,Fuel based vessel/ships,Boolean
+Environment,Q225,Is company using sustainable alternative fuels like SAF in its fleet?,sustainable alternative fuels,Boolean
+Environment,Q165,Is there any commitment or plan to shift to alternate fuels such as SAF?,sustainable alternative fuels,Boolean
+Environment,Q228,Has the company partnered with airframe and technology manufacturers to increase fuel efficiency and reduce environmental impact?,airframe,Boolean
+Environment,Q229,"Does the company measure or track the age of aircrafts? If yes, then what is the Average age of company's air fleet?",aircrafts,Boolean
+Environment,Q167,Does the company monitor and measure noise levels? Are they compliant with noise regulations?,"Generation, new generation  ",Boolean
+Environment,Q180,Does the company’s policy and measures align with International Civil Aviation Organization’s (ICAO) Balance Approach?,International Civil Aviation Organization’s (ICAO),Boolean
+Environment,Q172,Does the company have Oil Spill / Gas Leak Action plan?,"Oil spill, gas leak, spill management",Boolean
+Environment,Q173,Did the company experience any spills for the current and previous years?,spills,Boolean
+Environment,Q17,Does the entity have a system to finance sustainable projects?,finance sustainable,Boolean
+Environment,Q14,Are ESG factors incorporated in the lending and investment decisions? ,"ESG, ESG in business operations",Boolean
+Environment,Q96,Does the company follow sustainble mining practices?,"Sustainable mining, mining, responsible mining ",Boolean
+Environment,Q97,Does the company have tailing management system after mining?,mining,Boolean
+Environment,Q217,"Does the Company have a publicly available policy in place for mining from conflict-affected areas and high-risk areas? If yes, provide details","Conflict-affected areas, high-risk areas ",Boolean
+Environment,Q245,Does the company undertake initiatives or programs to raise awareness about sustainability challenges and opportunities in the natural rubber industry for suppliers?,"Supplier, natural rubber ",Boolean
+Environment,Q233,What measures are in place to ensure public safety and security at facilities? How are potential security threats and emergencies addressed?,"Public safety, public security, security threat, emergencies ",Boolean
+Environment,Q179,Is the company using low carbon vehicle and equipments in its ports to carry out operations?,ports,Boolean
+Environment,Q18,Are the ESG related factors being monitored in investee companies/ lending processes? ,"ESG Factors, Investee",Boolean
+Environment,Q22,Does the company lend towards Electric Vehicles (EVs)?,Electric Vehicles,Boolean
+Environment,Q195,"Does the company have ESG related products/ services? (example ESG GREEN INDEX, FIN-tech products)",ESG GREEN INDEX,Boolean
+Environment,Q197,Does the company integrate ESG aspects in its insurance underwriting process for non-life/ non-health insurance/ reinsurance?,"ESG, ESG in business operations",Boolean
+Environment,Q198,Does your company offer ESG based products within its non-life/ non-health insurance business segment. (to check description and revenues from these products),"ESG Product, EV Insurance, Fire Insurance, Climate risk insurance  ",Boolean
+Environment,Q236,Does the company participate in the GRESB for Real estate benchmark Assessment?,GRESB,Boolean
+Environment,Q171,Is the company currently operating/deploying low-carbon fleet (Evs or other vehicles)in its logistics business or do they have a plan to shift current fleet to low carbon alternative fleet?,low carbon alternative,Boolean
+Environment,Q147,Does the company have ELV (End-of-Life Vehicles) management?,"ELV, End-of-Life Vehicles ",Boolean
+Environment,Q246,What steps are taken by the company to mitigate any potential health impacts of tyre and rubber product manufacturing on local communities?,health impacts ,Boolean
+Environment,Q249,"Does the company have a strategy or initiative in place to encourage small forest owners and timber suppliers to adopt best practices for sustainable management in order to obtain certification from recognized systems such as PEFC, FSC, or equivalent?",forest owners,Boolean
+Environment,Q250,"Does the Company have commitment in place integrating circular fashion into all its operations? If yes, provide the details.",integrating circular fashion,Boolean
+Environment,Q154,"Does the company manufacture/sell sustainable apparel or garments? (Better Cotton Initiative, Global Organic Textile Standard - GOTS, Supima, Oeko-Tex certification,Fair Trade, STeP Certification)","sustainable apparel, sustainable garments ",Boolean
+Environment,Q151,Is the company using sustainable material in its tyre ( also state the type of material used) or has commited to use sustainable materials in  tyres?,sustainable material ,Boolean
+Environment,Q160,Is the company manufacturing sustainable/eco-friendly paint/coatings'?,"Eco-friendly paint, Sustainable paints ",Boolean
+Environment,Q161,Is the company manufacturing any energy-efficient products or is spending on R&D for manufacturing such products in near future?,"Energy efficient, spending on R&D, research and development, R&D, energy-efficient ",Boolean
+Environment,Q169,Is the company fulfilling International Maritime Organization (IMO) - MARPOL Air Pollution prevention guidelines?,MARPOL,Boolean
+Social,Q505,Whether an occupational health and safety management system is implemented by the entity?,occupational health and safety management system ,Boolean
+Social,Q573,What are the processes used to identify work-related hazards and assess risks on a routine and non-routine basis by the entity?,routine and non-routine ,Boolean
+Social,Q574,Does the company have processes for workers to report the work-relatedx` hazards and to remove themselves from such risks. (Y/N),work-related hazards,Boolean
+Social,Q541,Was there training given to Workers on Health and Safety measures in Current Year,"Health and safety, training given ",Boolean
+Social,Q626,Does the company mention that they have a Safety Committee / Policy in place with respect to accidents or misfortune events?,"Safety committee, safety policy ",Boolean
+Social,Q542,Does the entity have ISO 45001:2018 Certification (Occupational Health & Safety)?,"ISO 45001:2018 Certification, Occupational Health & safety ",Boolean
+Social,Q672,Are the entity's manufacturing facilities WRAP Certified?,"ISO 13485, Quality management systems ",Boolean
+Social,Q512,Does the company have a target to achieve gender diversity (Women percentage) in the workforce?,Gender diversity ,Boolean
+Social,Q507,Does the company have a diversity equality and inclusion (DEI) policy?,diversity equality and inclusion (DEI),Boolean
+Social,Q516,Does the company have policy for prevention to prevent sexual harassment at workplace (POSH policy)?,"POSH policy, POSH, Prevention of Sexual Harassment ",Boolean
+Social,Q725,Are all the complaints filed by the employees during current fiscal year closed?,"Complaints, Complaint/grievances on ",Boolean
+Social,Q509,Does the company have a human rights policy established? ,"Human rights policy, Human rights ",Boolean
+Social,Q506,"Does the company provide medical assistance (Ambulance service, Fixed medical checkups ) to the employees ?",non-occupational medical,Boolean
+Social,Q511,"Does the company take measures for the well-being of individuals other than permanent employees (which may include interns, contracts etc.)?","Health insurance, Accident insurance, Well-being ",Boolean
+Social,Q731,Does the organisation have opportunities for Paternal Leaves,"Paternity Benefits, Well-being ",Boolean
+Social,Q715,What all initiatives does the organization undertake for increase in the retention rate of employees?,Retention ,Boolean
+Social,Q733,Does the company have employee development programs that have been developed to upgrade and improve employee skills? ,"Skill upgradation, Skills upgradation ",Boolean
+Social,Q713,Did the company face any strike in the current year?,-,Boolean
+Social,Q736,Does the company conduct an employee satisfaction survey?,-,Boolean
+Social,Q518,Does the company have policy on offering employee stock option?,-,Boolean
+Social,Q527,Does the company have mechanisms to receive and respond to consumer complaints and feedback?,-,Boolean
+Social,Q657,"Did your entity carry out any survey with regard to consumer satisfaction relating to the major products / services of the entity, significant locations of operation of the entity or the entity as a whole?",-,Boolean
+Social,Q640,Steps taken to inform and educate consumers about safe and responsible usage of products and/or service,-,Boolean
+Social,Q551,ISO 9001:2015 Certification (Quality Management System),-,Boolean
+Social,Q624,Does the entity display product information on the product over and above what is mandated as per local laws?,-,Boolean
+Social,Q535,"When the onboarding of new vendors takes place, does the company have their Supplier code of conduct designed?",-,Boolean
+Social,Q805,Disclose any significant adverse impact on the environment arising from the value chain of the entity. Are there any mitigation or adaptation measures taken by the entity in this context?,-,Boolean
+Social,Q628,Provide details of any corrective actions taken or underway to address significant risks / concerns arising from assessments of health and safety practices and working conditions of value chain partners,-,Boolean
+Social,Q645,Does the entity have procedures in place for sustainable sourcing/strategy around sustainable / efficient / responsible supply chain?,-,Boolean
+Social,Q649,Is there a robust supplier assessment done by the company to avoid any conflicts with ESG requirements/ Sustainability / ESG Assessment for Suppliers?,-,Boolean
+Social,Q521,Does the company have a  documentated CSR policy in place?,-,Boolean
+Social,Q517,Whether there are mechanisms to receive and redress grievances of the community,-,Boolean
+Social,Q558,Does the entity disclose the details of beneficiaries of CSR Projects?,-,Boolean
+Social,Q711,Does the company conduct impact assessments for CSR projects? If yes provide details.,-,Boolean
+Social,Q613,Does the company conduct assessment of negative impacts of its operation on the communities,-,Boolean
+Social,Q612,Provide details of actions taken to mitigate any negative social impacts identified in the Social Impact Assessments,-,Boolean
+Social,Q523,Does the entity have a framework/ policy on cyber security and risks related to data privacy?,-,Boolean
+Social,Q724,Does the company's policy on cybersecurity and risks related to data privacy extend to its value chain partners?,-,Boolean
+Social,Q525,Provide number of instances of data breaches along-with their impact on the company,-,Number
+Social,Q718,Does the company conduct Cybersecurity assessment by a third party?,-,Boolean
+Social,Q524,"Does the entity comply with ISO 27001:2013, ISO 22301:2019 OR PCI DSS standards to safeguard the customer data?",-,Boolean
+Social,Q730,Does the organisation conduct training on data privacy and awareness programs for information security to its customers/ employees?,-,Boolean
+Social,Q709,Does the company have a communication plan for engaging with the communities affected with aircraft noise?,-,Boolean
+Social,Q708,Does the company comply with Maritime Labour Convention adopted by the International Labour Organization (ILO) in 2006?,-,Boolean
+Social,Q710,Is the company's training centre for its seafarers certified or has got validated by any institution?,-, 
+Social,Q642,Does the company have agreements which safegaurd their wellbeing of farm workers through the  Agricultural Labour Practices (ALP) Code?,-,Boolean
+Social,Q689,Does the company ensure its jewellery meets BIS hallmark standards for quality assurance?,-,Boolean
+Social,Q690,Is the education institute providing placement assistance to its students?,-,Number
+Social,Q758,Does the company have a Editorial Policy? ,-,Number
+Social,Q759,Does the company implement strategies to control and reduce the amount of construction and demolition waste from buildings that are constructed or are part of portfolio?,-,Boolean
+Social,Q777,Does the company have programs established to measure food loss and waste,-,Boolean
+Social,Q779,Does the company have any targets to reduce food waste,-,Boolean
+Social,Q769,What initiatives are undertaken to mitigate the health risks of smoking and tobacco use?,-,Boolean
+Social,Q596,Are any of its hospitals accredited with NABH or JIC? How many of the total hospitals are accredited with NABH or JIC?,-,Boolean
+Social,Q605,Does the company have a program or is taking efforts to increase the availability and affordability of the medicines in low income/developing markets?,-,Boolean
+Social,Q751,Does the company have publicly available programs to improve the accessibility to healthcare?,-,Boolean
+Social,Q659,Are the production units and R&D centers certified to International Aerospace Standard AS9100D and other required aviation standards?,"AS9100D, Quality Management System ",Boolean
+Social,Q706,"Has the company identified risk and threats it faces in ensuring the safety and security of its passengers, staff, and assets?",-,Boolean
+Social,Q767,Does the company collaborate with external agencies to reduce the amount of food loss and waste?,-,Boolean
+Social,Q697,Is the company promoting local tourism?,-,Boolean
+Social,Q606,"Does the company actively engage in the research collaborations with the universities, research institutions and other companies?",-,Boolean
+Social,Q607,"Provide details on development of Clinical Technology, Clinical Capabilities & Programmes",-,Boolean
+Social,Q703,"Does the entity have system/mechanism in place  to address issues (congestion, indoor coverage, call drops, modernisation and upgrade of data speeds, among others)",-,Boolean
+Social,Q615,"Does company have digital/smart substations or plans to have it in future? (If yes, provide the number of substation)",-, 
+Social,Q747,Does the company use smart meters in its distribution grid?,-,Boolean
+Social,Q664,Does the company have inhouse research & development facilities/centres and team?,-,Boolean
+Social,Q691,Is the company offering e-learning courses/certification to its students?,"E-Learning, Online courses ",Boolean
+Social,Q588,ISO 22000 (Food Safety Management System) FSSC,-,Boolean
+Social,Q634,Does the company confirm on its commitments to follow guidelines provided by Food Safety and Standards Authority of India (FSSAI) and National Institute of Nutrition (NIN)?,-,Boolean
+Social,Q675,Does the company conduct food safety audits?,-,Boolean
+Social,Q646,Does the company mention use of Natural ingredients in their products and are they approved by Government Norms?,-,Boolean
+Social,Q647,Does the company have a policy on Ingredient safety? Is there any mention of  no use of paraben in their products?,-,Boolean
+Social,Q587,ISO 13485 (Quality Management System for Medical Device Manufacturing),"ISO 13485, Quality management systems ",Number
+Social,Q598,Does the company have a policy for ensuring  quality and patient safety during clinical trials,-,Boolean
+Social,Q603,Does the entity displays relevant information on the product labels as per the requirements of national and international drug regulatory bodies,-,Boolean
+Social,Q609,How many labs are NABL accredited?,-,Boolean
+Social,Q610,How did the entity handles aliquots and provide details on reducing aliquots?,-,Boolean
+Social,Q600,Does the company have a dedicated ethics committee to oversee all the clinical trails?,-,Boolean
+Social,Q635,Does the company have a public policy committing it and/or its suppliers to animal welfare principles? ,-,Boolean
+Social,Q528,Does the company meet priority sector lending requirements as per RBI?,-,Boolean
+Social,Q584,Does the entity have a plan to lend to MSME? If yes provide details. ,-,Boolean
+Social,Q529,Does the company have a policy or commitment on financial inclusion?,-,Boolean
+Social,Q533,Does the company have programmes for listing designed to promote small businesses (MSME) and community development?,-,Boolean
+Social,Q534,Does the company have index for social enterprises that target underserved or less privileged population segments?,"Social Stock Exchange, Social Index ",Number
+Social,Q665,Does the company have its products in compliance with BIS standards?,-,Boolean
+Social,Q676,Is the company adhering to Food Safety Standards & Processes?,-,Boolean
+Social,Q604,Description of actions and initiatives to promote access to health care products for priority diseases ?,-,Boolean
+Social,Q752,Does the company focus on providing healthcare facilities to vulnerable portions of the population,-,Boolean
+Social,Q699,N-CAP Rating of 4 star or 5 star?,-,Boolean
+Social,Q677,"Is the company sourcing raw materials from the certified sustainable sources (such as Global GAP, RSPO, Rainforest, FSC)?",-,Boolean
+Social,Q641,Do the farmers have access to PPE kits to prevent themselves from exposure to pesticides while handling wet green tobacco leaves which could lead to Green Tobacco Sickness (GTS)?,-,Boolean
+Social,Q643,Does the company have any standards or programme related to Sustainable Tobacco during their supply chain process ?,-,Boolean
+Social,Q644,Are there any technicians appointed during the supply chain process to detect or monitor the agriculture or crop management process?,-,Boolean
+Social,Q597,Existence of management process for ensuring quality and patient safety during clinical trials,-,Boolean
+Social,Q625,Provide information on project(s) for which ongoing Rehabilitation and Resettlement (R&R) is being undertaken by the Company,-,Boolean
+Social,Q714,How many Patents were filed & granted during the current year?,-,Boolean
+Social,Q804,Does the company have policy/due diligence process for sourcing minerals as raw materials?,-,Boolean
+Social,Q1050,Has the entity performed audit by DoT &  maintain compliance with EMF radiation levels set by local regulations and ICNIRP (International Commission on Non-Ionizing Radiation Protection)?,-,Boolean
+Governance,Q1107,Does the organisation have Board Diversity Policy?,-,Boolean
+Governance,Q1014,Presence of policy on appointment or reappointment of board of directors,-,Boolean
+Governance,Q1052,Is the chairperson of the board an independent Director?,-,Boolean
+Governance,Q1125,Does the company have separate roles for Chairman and CEO?,-,Boolean
+Governance,Q1039,Does the company have lead independent Director on the Board?,-,Boolean
+Governance,Q1012,Does the company ensure effectiveness of the board through Internal or external evaluation or assessment?,-,Boolean
+Governance,Q1160,Does the company have processes in place to avoid/ manage conflict of interests involving members of the Board?,-,Boolean
+Governance,Q1148,Does the Company conduct training and awareness programmes on any of the NGBRC principles for BOD,-,Boolean
+Governance,Q1129,Independence of Chairperson of board committee (Risk Management),-,Boolean
+Governance,Q1142,Independence of Chairperson of board committee (NRC),-,Boolean
+Governance,Q1143,Independence of Chairperson of board committee (Audit),-,Boolean
+Governance,Q1022,Is there a claw-back mechanism/ policy for Senior Management / KMP?,-,Boolean
+Governance,Q1158,Is the independent director paid commissions / incentives other than board sitting fees,-,Boolean
+Governance,Q1147,Is the variable pay of executives linked to sustainability or ESG parameters?,-,Boolean
+Governance,Q1033,Does the company have a policy for the appointment or re-appointment of auditors?,-,Boolean
+Governance,Q1192,Discontinuation of the auditors before end of term,-,Boolean
+Governance,Q1027,Does the entity have a whistleblower Policy?,-,Boolean
+Governance,Q1159,Is the whistleblower Policy applicable to value chain (suppliers)?,-,Boolean
+Governance,Q1026,Does the entity have an Anti-Corruption or Anti-Bribery Policy?,-,Boolean
+Governance,Q1140,Does a company have code of conduct policy?,-,Boolean
+Governance,Q1141,Does the company have a policy on Anti-Money-laundering and/or insider trading/dealing?,-,Boolean
+Governance,Q1042,"Does the company provide training on code of conduct, anti-corruption and anti bribery policies to the employees?",-,Boolean
+Governance,Q1191,How does the company ensure that the minority shareholders effectively protect their interest and rights within company?,-,Boolean
+Governance,Q1101,Has the company undergone any fines / penalties /punishment/ award/ compounding fees/ settlement amount paid in proceedings with regulators/ law enforcement agencies/ judicial institution during the financial year?,-,Boolean
+Governance,Q1032,Does the company implement a comprehensive framework or Enterprise Risk Management Framework?,-,Boolean
+Governance,Q1138,"Has the Company taken any corrective action or underway on any issues related to anti-competitive conduct, based on adverse orders from regulatory authorities?  If yes, provide details.",-,Boolean
+Governance,Q1177,Does the entity have a business continuity and disaster management plan?,-,Boolean
+Governance,Q1034,Does the company have ESG or Sustainability or BRSR policy?,-,Boolean
+Governance,Q1038,Does the company perform materiality assessment and identify material ESG issues?,-,Boolean
+Governance,Q1035,Does the company conduct assurance for its ESG or sustainability data through a third party or external agency?,-,Boolean
+Governance,Q1144,Does the company conduct assurance for its supplier's (value chain) ESG or sustainability data through a third party or external agency?,-,Boolean
+Governance,Q1131,Does the company have a highest authority responsible for implementation and oversight of the Business Responsibility policy (ies) and ESG policy?,-,Boolean
+Governance,Q1132,Does the company have a specified Committee of the Board/ Director responsible for decision making on sustainability related issues? (Yes / No),-,Boolean
+Governance,Q1193,Were there any promoter-sponsored resolutions that were defeated during the current fiscal year?,-,Boolean
+Governance,Q1036,Does the company follow GRI standards?,-,Boolean
+Governance,Q1037,Is the company aligned with SDGs? Does the company set targets according to SDGs?,-,Boolean
+Governance,Q1133,Is your company a signatory/participant of the United Nations Global Compact?,-,Boolean
+Governance,Q1134,Does the Company have affiliations with trade and industry chambers/ associations?,-,Boolean
+Governance,Q1135,"Has the company advocated any public policy positions? If yes, provide details.",-,Boolean
+Governance,Q1176,Does the company disclose ESG engagement with investee company,-,Boolean
+Governance,Q1047,Does the entity have Stewardship Code?,-,Boolean
+Governance,Q1008,Is there a policy on Related party transactions?,-,Boolean
+Governance,Q1009,Disclosure of transactions with Related Parties during the year which are more than 10% of Revenue,-,Boolean

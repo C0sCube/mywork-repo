@@ -216,7 +216,7 @@ if (jsonPushBtn) {
     lockCard(jsonCard);
     showOverlay(jsonOverlay, "Pushing to Admin…");
     logStatus("Pushing JSON to Admin Panel…");
-    // console.log("Pushing JSON to Admin Panel…");
+    console.log("Pushing JSON to Admin Panel…");
     try {
       const fd = new FormData();
 
