@@ -182,6 +182,7 @@ def login():
         session["logged_in"] = True
         session["user"] = username
         session["role"] = "admin" if username in ADMIN_USERS else "user"
+        logger.info(f"{username} not in ADMIN_USERS")
         session.permanent = True
 
         init_session_workspace()
@@ -544,6 +545,7 @@ def list_files(year):
         return jsonify({"files": [], "error": str(e)})
 
 
+
 @app.route("/years")
 @admin_required(api=True)
 def get_years():
@@ -552,6 +554,7 @@ def get_years():
             name for name in os.listdir(CONFIG_PATH)
             if os.path.isdir(os.path.join(CONFIG_PATH, name))
         ]
+        logger.info(f"Config Folders: {folders}")
         # folders.sort(reverse=True)
 
         return jsonify(folders)
@@ -1510,7 +1513,9 @@ if __name__ == "__main__":
 
 
     LDAP_CONFIG = config["ldap_config"]
-    ADMIN_USERS = REGISTRY.get("admin_user", [])
+    WEB_CONFIG = REGISTRY["config_web"]
+    
+    ADMIN_USERS = WEB_CONFIG.get("admin_user", [])
     DB_CONFIG = config["db_config"]
 
     

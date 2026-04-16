@@ -3,12 +3,46 @@ const jsonInput = document.getElementById("jsonInput");
 const errorDisplay = document.getElementById("errorDisplay");
 const yearSelect = document.getElementById("yearSelect");
 const fileSelect = document.getElementById("fileSelect");
+const years = ["2026", "2025", "2024", "2023", "sidkim", "0000", "0001"];
+
+async function loadYears() {
+    try {
+        const res = await fetch("/years");
+        const years = await res.json();
+
+        yearSelect.innerHTML = "";
+
+        if (!years.length) return;
+
+        years.forEach((year, index) => {
+            const opt = document.createElement("option");
+            opt.value = year;
+            opt.textContent = year;
+            yearSelect.appendChild(opt);
+
+            // set first as default
+            if (index === 0) {
+                yearSelect.value = year;
+            }
+        });
+
+        // 🔥 trigger file loading after setting value
+        await loadFileList();
+
+    } catch (err) {
+        console.error("Failed to load years:", err);
+    }
+}
+
 
 // ---------------- INIT ----------------
 document.addEventListener("DOMContentLoaded", () => {
     enforceAuth();
-    loadYears(); // this already handles years + UI
+
+    loadYears(); // ← THIS is your entry point
+
     yearSelect.addEventListener("change", loadFileList);
+
     bindActions();
 });
 
@@ -38,31 +72,6 @@ async function loadFileList() {
     });
 }
 
-function loadYears() {
-    fetch("/years")
-        .then(res => res.json())
-        .then(years => {
-            const container = document.querySelector(".year-tabs");
-            container.innerHTML = "";
-
-            if (years.length === 0) return;
-
-            years.forEach((year, index) => {
-                const btn = document.createElement("button");
-                btn.textContent = year;
-
-                btn.onclick = () => loadYearData(year);
-
-                container.appendChild(btn);
-
-                // auto-load first year
-                if (index === 0) {
-                    loadYearData(year);
-                }
-            });
-        })
-        .catch(err => console.error("Failed to load years:", err));
-}
 
 // ---------------- CRUD ----------------
 async function loadConfig() {
