@@ -4,11 +4,15 @@ import random,string, inspect,datetime
 from dateutil import parser #type:ignore
 from datetime import datetime
 from app.utils import Helper
-from app.logger import log_exceptions
+from app.logger import log_exceptions, get_global_logger
 from app.konstant import get_registry, save_registry
 
 class FundRegex:
     def __init__(self, data):
+        
+        
+        self.logger = get_global_logger()
+        
         self.HEADER_PATTERNS = data.get("header_patterns", {})
         self.STOP_WORDS = data.get("stop_words", [])
         self.JSON_HEADER = data.get("json_headers", {})
@@ -278,6 +282,7 @@ class FundRegex:
 
     #MAPPER FINSTINCT
     def _format_to_finstinct(self,data,filename,file_type = "fs"):
+        self.logger.info("Formatting the data to final FS.json file")
         scheme_count = len(data)
         final_container = {
             "metadata":{
@@ -294,6 +299,7 @@ class FundRegex:
     
 
     def __generate_map_value(self,scheme_count:int,data:dict):
+        
         record_value, field_location_keys = {}, []
 
         page_list = data.get("page_number", [])
@@ -305,6 +311,9 @@ class FundRegex:
             # print(f"key: {key}")
             # Note: Only keys mentioned in default are allowed further ex. before.main_scheme_name will be skipped
             if key not in self.POPULATE_ALL_INDICE: ################################
+                self.logger.warning(data_value.get("main_scheme_name","NOT FOUND"))
+                self.logger.warning(f"Skipping key: {key} -> {data_value}")
+                self.logger.warning(f"Since not part of whitelisted keys")
                 continue ###########################################################
             
                 

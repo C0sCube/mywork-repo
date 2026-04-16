@@ -1,5 +1,45 @@
 
 // ---------------- AMC DATA RENDER ----------------
+// function loadAMCData() {
+//     const container = document.querySelector(".card-container");
+//     if (!container) return;
+
+//     fetch("/amc_data_registry")
+//         .then(res => res.json())
+//         .then(data => {
+//             Object.entries(data).forEach(([id, amc]) => {
+//                 const card = document.createElement("div");
+//                 card.className = "card";
+
+//                 card.innerHTML = `
+//                     <div class="editor-controls">
+//                         <div class="text">
+//                             <a href="${amc.amc_website}" target="_blank"
+//                                style="text-decoration:none; color:#fff">
+//                                 <span><strong>${amc.amc_name}</strong></span>
+//                             </a>
+//                             <p class="subtitle">AMC ID: ${id}</p>
+//                         </div>
+
+//                         <div class="right-controls">
+//                             <img src="/static/img/logo/${id}.png"
+//                                  alt="Logo"
+//                                  style="width:65px;height:65px;
+//                                         background-color:lightblue;
+//                                         margin-right:20px;
+//                                         border-radius:8px">
+//                         </div>
+//                     </div>
+//                 `;
+
+//                 container.appendChild(card);
+//             });
+//         })
+//         .catch(err => {
+//             console.error("Error loading AMC data:", err);
+//         });
+// }
+
 function loadAMCData() {
     const container = document.querySelector(".card-container");
     if (!container) return;
@@ -7,6 +47,8 @@ function loadAMCData() {
     fetch("/amc_data_registry")
         .then(res => res.json())
         .then(data => {
+            container.innerHTML = ""; // clear existing (optional but sane)
+
             Object.entries(data).forEach(([id, amc]) => {
                 const card = document.createElement("div");
                 card.className = "card";
@@ -22,8 +64,9 @@ function loadAMCData() {
                         </div>
 
                         <div class="right-controls">
-                            <img src="/static/img/logo/${id}.png"
+                            <img src="/logo/${id}"
                                  alt="Logo"
+                                 onerror="this.src='/static/default.png'"
                                  style="width:65px;height:65px;
                                         background-color:lightblue;
                                         margin-right:20px;

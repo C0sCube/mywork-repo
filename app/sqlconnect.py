@@ -341,10 +341,9 @@ def json_to_cog_db(json_path: str, db_config: dict) -> bool:
         conn.commit()
         return True
 
-    except Error as e:
+    except Exception:
         conn.rollback()
-        logger.error(f"SP execution failed: {e}")
-        logger.debug(traceback.format_exc())
+        logger.exception("SP execution failed inside json_to_cog_db")
         return False
 
     finally:

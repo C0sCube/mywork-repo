@@ -17,7 +17,7 @@ from flask import (
     Flask, render_template, request,
     redirect, url_for, session,
     send_from_directory, jsonify, send_file,
-    render_template_string
+    render_template_string,Response
     
 )
 
@@ -32,7 +32,7 @@ from app.sqlconnect import (
     json_to_cog_db, get_job_states
 )
 from app.konstant import (
-    get_processed_dir, get_failed_dir,
+    get_processed_dir, get_failed_dir, get_registry,
     get_json_dir, get_report_dir, get_log_dir,
     FINAL_LOG_NAME, FINAL_WEB_LOG_NAME
 )
@@ -542,6 +542,23 @@ def list_files(year):
         return jsonify({"files": files})
     except Exception as e:
         return jsonify({"files": [], "error": str(e)})
+
+
+@app.route("/years")
+@admin_required(api=True)
+def get_years():
+    try:
+        folders = [
+            name for name in os.listdir(CONFIG_PATH)
+            if os.path.isdir(os.path.join(CONFIG_PATH, name))
+        ]
+        # folders.sort(reverse=True)
+
+        return jsonify(folders)
+
+    except Exception as e:
+        logger.error(f"Error reading years: {e}")
+        return jsonify([])
 
 
 @app.route('/load-config', methods=['POST'])
@@ -1159,14 +1176,13 @@ def push_json_and_record(job_id, from_state, json_path):
             error=None,
             db_config=DB_CONFIG,
         )
-    except Exception as e:
-        logger.error("Job PUSH_FAILED")
-        logger.error(e)
+    except Exception:
+        logger.exception("Job PUSH_FAILED during SP call")
         transition_job_state(
             job_id=job_id,
             from_state=from_state,
             to_state=JobState.PUSH_FAILED,
-            error=str(e),
+            error="Push Job Failed. Chk Log.",
             db_config=DB_CONFIG,
         )
         raise
@@ -1314,11 +1330,14 @@ def load_daily_log():
     except ValueError:
         return jsonify(success=False, error="Invalid date format"), 400
     
+    logName = FINAL_WEB_LOG_NAME
+    
     #check for type of log
-    logName = FINAL_LOG_NAME
-    if logSelect == 'weblog':
+    if logSelect == "weblog":
         logName = FINAL_WEB_LOG_NAME
-
+    elif logSelect == "fslog":
+        logName = FINAL_LOG_NAME
+        
     log_file = os.path.join(
         DIRS["log_dir"](),
         date,
@@ -1410,6 +1429,8 @@ def serve_json_files(filename):
 # =====================================================
 # AMC - DATA
 # =====================================================
+import base64
+
 @app.route('/amc-data')
 @login_required()
 def amc_data():
@@ -1448,6 +1469,18 @@ def json_list():
 
     return jsonify(files=files[:20])
 
+@app.route("/logo/<int:logo_id>")
+@login_required(api=True)
+def get_logo(logo_id):
+    logos = REGISTRY.get("z_logos",{})
+    b64 = logos.get(str(logo_id), "")
+    if not b64:
+        return jsonify({"error": "Logo not found"}), 404
+
+    img_bytes = base64.b64decode(b64)
+    return Response(img_bytes, mimetype="image/png")
+
+
 
 # =====================================================
 # Run App
@@ -1458,6 +1491,8 @@ if __name__ == "__main__":
     TIME_ZONE = pytz.timezone("Asia/Kolkata")
     utils = Helper()
     config = utils.load_json(os.path.join(root_dir, "paths.json"))
+
+    
     INPUT_DIR = config["inp_path"]
     OUTPUT_DIR = config["out_path"]
     WEB_DIR = config["web_path"]
@@ -1470,15 +1505,15 @@ if __name__ == "__main__":
         "log_dir": get_log_dir
     }
 
-    LDAP_CONFIG = config["ldap_config"]
-    ADMIN_USERS = [u.lower() for u in LDAP_CONFIG.get("admin_user", [])]
-
-    DB_CONFIG = config["db_config"]
-
     CONFIG_PATH = os.path.join(config["base_path"],"config")
     REGISTRY = utils.load_json(os.path.join(CONFIG_PATH,"0000","registry.json"))
 
 
+    LDAP_CONFIG = config["ldap_config"]
+    ADMIN_USERS = REGISTRY.get("admin_user", [])
+    DB_CONFIG = config["db_config"]
+
+    
     logger = setup_logger(
         FINAL_WEB_LOG_NAME, 
         base_dir=DIRS["log_dir"](), 
