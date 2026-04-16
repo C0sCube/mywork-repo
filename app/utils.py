@@ -281,6 +281,12 @@ class Helper:
         text = re.sub(r"[^A-Za-z0-9\s\.\/\,\-\\]+"," ",text).strip()
         return self._normalize_whitespace(text)
     
+    def _normalize_ascii(self, text: str) -> str:
+        if not isinstance(text, str):
+            return text
+        text = re.sub(r"[^\x20-\x7E]+", " ", text)
+        return re.sub(r"\s+", " ", text).strip()
+
     def _normalize_alphanumeric(self, text: str) -> str:
         if not isinstance(text,str):
             return text

@@ -139,3 +139,4 @@ def get_log_dir():
 #log data
 
 FINAL_LOG_NAME = "fs_parse_log"
+FINAL_WEB_LOG_NAME = "fs_web_log"

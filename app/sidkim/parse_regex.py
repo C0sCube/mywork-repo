@@ -53,6 +53,13 @@ class SidKimRegex():
             return text
         return re.sub(r"\s+", " ", text).strip()
     
+
+    def _normalize_ascii(self, text: str) -> str:
+        if not isinstance(text, str):
+            return text
+        text = re.sub(r"[^\x20-\x7E]+", " ", text)
+        return re.sub(r"\s+", " ", text).strip()
+    
     def _clean_leading_specials(self, text: str) -> str:
         if not isinstance(text, str):
             return text
@@ -170,9 +177,21 @@ class SidKimRegex():
 
     def _final_json_construct(self,data:dict,doc_name:str, typez="")->dict:
         
-        data = {k:self._clean_leading_specials(self._normalize_unicode(v)) if isinstance(v,str) else v for k,v in data.items()}
+        data = {
+            k:self._clean_leading_specials(self._normalize_unicode(v)) 
+            if isinstance(v,str) else v 
+            for k,v in data.items()
+        }
         if typez == "SID" or typez == "sid": 
             file_type = typez
+            
+            # Note: Further this only keys which are there in SID_INDICES are allowed rest are filtered
+            # ex: before.nav_
+            data = {
+                k:v for k,v in data.items()
+                if k in self.POPULATE_ALL_SID_INDICE
+            }
+            
             return {
                 "metadata":{
                     "document_name": doc_name,
@@ -183,6 +202,14 @@ class SidKimRegex():
             }
         elif typez == "KIM" or typez == "kim": 
             file_type = typez
+            
+            # Note: Further this only keys which are there in SID_INDICES are allowed rest are filtered
+            # ex: before.nav_
+            data = {
+                k:v for k,v in data.items()
+                if k in self.POPULATE_ALL_KIM_INDICE
+            }        
+    
             return {
                 "metadata":{
                     "document_name": doc_name,

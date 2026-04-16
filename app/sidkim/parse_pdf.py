@@ -151,7 +151,7 @@ class ReaderSIDKIM:
         # pprint.pprint(data_rows)
         for row in data_rows:
             manager = {
-                key: self._regex._normalize_whitespace(row[col_idx])
+                key: self._regex._normalize_ascii(row[col_idx])
                 for key, col_idx in match_order.items()
             }
             manager_list.append(manager)
@@ -236,8 +236,7 @@ class ReaderSIDKIM:
             for load_key, load_value in load_data.items():
                 load_section = {"comment":None,"type":None,"value":""}
                 value = load_value if isinstance(load_value, str) else " ".join(load_value)
-                value = self._regex._normalize_whitespace(value)
-                value = self._regex._clean_leading_specials(value)
+                value = self._regex._normalize_ascii(value)
                 if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
                     load_section["comment"] = value
                     load_section["type"] = "entry_load"
@@ -265,7 +264,7 @@ class ReaderSIDKIM:
             for data in asset_data:
                 asset = {
                     "allocation": [{"type": key, "value": data.get(key, "")}for key in ["min", "max", "total"]],
-                    "instrument_type": self._regex._normalize_whitespace(data.get("instrument", "")),
+                    "instrument_type": self._regex._normalize_ascii(data.get("instrument", "")),
                     "risk_profile": data.get("risk_profile", "")
                 }
                 asset_alloc_data.append(asset)

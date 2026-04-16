@@ -288,12 +288,12 @@ class FundRegex:
             "records":[]
         }
         for key,content in data.items():
-            final_container["records"].append({"value":FundRegex.__generate_map_value(scheme_count,content)})
+            final_container["records"].append({"value":self.__generate_map_value(scheme_count,content)})
         
         return final_container
     
-    @staticmethod
-    def __generate_map_value(scheme_count:int,data:dict):
+
+    def __generate_map_value(self,scheme_count:int,data:dict):
         record_value, field_location_keys = {}, []
 
         page_list = data.get("page_number", [])
@@ -303,7 +303,11 @@ class FundRegex:
 
         for key, data_value in data.items():
             # print(f"key: {key}")
-                    
+            # Note: Only keys mentioned in default are allowed further ex. before.main_scheme_name will be skipped
+            if key not in self.POPULATE_ALL_INDICE: ################################
+                continue ###########################################################
+            
+                
             if isinstance(data_value, str) or key in ["riskometer","riskometer_benchmark"]:
                 insert_value = data_value
                 if key == "benchmark_index":
@@ -323,7 +327,8 @@ class FundRegex:
                 for item in data_value:
                     value = item.get("comment", "")
                     value = helper._clean_leading_noise(value)
-                    value = helper._normalize_whitespace(value)
+                    value = helper._normalize_ascii(value)
+                    # value = helper._normalize_whitespace(value)
                     load.append(
                         {
                             "type": item.get("type", ""),

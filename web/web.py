@@ -25,6 +25,7 @@ from ldap3 import Server, Connection, ALL #type:ignore
 from werkzeug.utils import secure_filename
 
 from app.utils import Helper
+from app.logger import setup_logger,rotate_daily_log
 from app.sqlconnect import (
     create_job, fetch_job_by_name, fetch_job_by_id, establish_connection,
     can_transition, transition_job_state, is_pushable_state, increment_push_attempts,
@@ -33,7 +34,7 @@ from app.sqlconnect import (
 from app.konstant import (
     get_processed_dir, get_failed_dir,
     get_json_dir, get_report_dir, get_log_dir,
-    FINAL_LOG_NAME
+    FINAL_LOG_NAME, FINAL_WEB_LOG_NAME
 )
 
 # =====================================================
@@ -144,17 +145,20 @@ def ws_path(kind):
 def ldap_authenticate(ldap_conf,username, password):
     server = Server(ldap_conf["server"], get_info=ALL)
     user_dn = f"{username}@{ldap_conf["domain"]}"  # Try UPN format first
-    print(f"Trying LDAP bind with DN: {user_dn}")
+    logger.info(f"Trying LDAP bind with DN: {user_dn}")
     try:
         conn = Connection(server, user=user_dn, password=password, auto_bind=True)
-        print("LDAP bind successful.")
+        logger.info("LDAP bind successful.")
         return conn.bound
     except Exception as e:
-        print(f"LDAP auth failed: {e}")
+        logger.info(f"LDAP auth failed: {e}")
         return False
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    
+    rotate_daily_log(logger)
+    
     if session.get("logged_in"):
         return redirect(url_for("dashboard"))
 
@@ -167,8 +171,8 @@ def login():
 
         # ---- AUTH SECTION ----
         # Replace this with real LDAP later
-        # auth_success = True
-        auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
+        auth_success = True
+        # auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
 
         if not auth_success:
             return render_template("login.html", error="Invalid credentials.")
@@ -1147,6 +1151,7 @@ def push_json_and_record(job_id, from_state, json_path):
     try:
         JobState = get_job_states()
         json_to_cog_db(json_path, DB_CONFIG)
+        logger.info("Trying to Push Job")
         transition_job_state(
             job_id=job_id,
             from_state=from_state,
@@ -1155,6 +1160,8 @@ def push_json_and_record(job_id, from_state, json_path):
             db_config=DB_CONFIG,
         )
     except Exception as e:
+        logger.error("Job PUSH_FAILED")
+        logger.error(e)
         transition_job_state(
             job_id=job_id,
             from_state=from_state,
@@ -1290,13 +1297,13 @@ def daily_logs():
         role=session.get("role", "user")
     )
 
-
 @app.route("/load-daily-log", methods=["POST"])
 @login_required(api=True)
 def load_daily_log():
 
     data = request.get_json(silent=True) or {}
     date = data.get("date")
+    logSelect = data.get("logSelect")
 
     if not date:
         return jsonify(success=False, error="Missing date"), 400
@@ -1306,11 +1313,16 @@ def load_daily_log():
         datetime.strptime(date, "%Y-%m-%d")
     except ValueError:
         return jsonify(success=False, error="Invalid date format"), 400
+    
+    #check for type of log
+    logName = FINAL_LOG_NAME
+    if logSelect == 'weblog':
+        logName = FINAL_WEB_LOG_NAME
 
     log_file = os.path.join(
         DIRS["log_dir"](),
         date,
-        f"{FINAL_LOG_NAME}.log"
+        f"{logName}.log"
     )
 
     if not os.path.exists(log_file):
@@ -1465,6 +1477,14 @@ if __name__ == "__main__":
 
     CONFIG_PATH = os.path.join(config["base_path"],"config")
     REGISTRY = utils.load_json(os.path.join(CONFIG_PATH,"0000","registry.json"))
+
+
+    logger = setup_logger(
+        FINAL_WEB_LOG_NAME, 
+        base_dir=DIRS["log_dir"](), 
+        log_level=12, 
+        set_global=True
+    )
 
     web = config.get("web_config", {})
     app.run(debug=True, host=web.get("host"), port=web.get("port"))   

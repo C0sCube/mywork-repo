@@ -1,19 +1,31 @@
 let currentDate = null;
+const logSelect = document.getElementById("LogSelect")
+const logType = [
+    "weblog","fslog"
+]
+
 
 // ---------------- LOG LOADING ----------------
 async function loadLog() {
     const date = document.getElementById("dateSelect").value;
+
+    
+
+    if (!logSelect) {
+        alert("Please select a log type: WEB or PARSER");
+        return;
+    }
+
     if (!date) {
         alert("Please select a date first.");
         return;
     }
 
     currentDate = date;
-
     const resp = await fetch("/load-daily-log", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ date })
+        body: JSON.stringify({ date , logSelect})
     });
 
     const data = await resp.json();
@@ -87,6 +99,14 @@ document.addEventListener("click", async (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   enforceAuth();
+
+  logType.forEach(y => {
+    const opt = document.createElement("option");
+    opt.value = y;
+    opt.textContent = y;
+    logSelect.appendChild(opt);
+  });
+
 
   // default to today
   const today = new Date();

@@ -61,7 +61,7 @@
     lumpsum: ".+?Application Amount(.+)Min.Addl.Investment(.+)$",
     min_amt: "\\.?\\s*([\\d,.]+).*?\\.?\\s*([\\d.,]+)\\)?.+$",
     metrics: {
-      key: "(\\bPE\\b|\\bPB\\b|Average\\s*Dividend|Annualised\\s*\\)|Turnover|Sharpe|Beta|Tracking Error\\s*1 year|Tracking Error\\s*3 year|Average Maturity|Macaulay Duration|Modified Duration|Portfolio\\s*YTM)",
+      key: "(\\bPE\\b|\\bPB\\b|Average\\s*Dividend|\\(Annuali[zs]ed\\s*\\)|Turnover|Sharpe|Beta|Tracking Error\\s*1 year|Tracking Error\\s*3 year|Average Maturity|Macaulay Duration|Modified Duration|Portfolio\\s*YTM)",
       value: "(\\-?\\d+\\.\\d*\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|[Tt]imes?|%)?)",
     },
     escape: "[^a-zA-Z0-9\\.\\,\\+\\s\\-\\(\\)\\%]+",
@@ -73,7 +73,7 @@
     ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*quantitative_indicators": ["_extract_metric_data", "metrics"],
+    // ".*quantitative_indicators": ["_extract_metric_data", "metrics"],
     ".*(monthly_aaum|closing_aum)$": ["_extract_generic_data", "aum"],
     ".*fund_managers": ["_extract_manager_data", "manager"],
     ".*benchmark$": ["_extract_generic_data", "benchmark"],
@@ -101,7 +101,7 @@
   ],
   MERGEKEYS: {
     load: [".*exit_load"],
-    metrics: ["^metrics", "^metrics_bravo", ".*quantitative_indicators"],
+    // metrics: ["^metrics", "^metrics_bravo", ".*quantitative_indicators"],
   },
   CLONEKEYS: {},
   PROMOTE_KEYS: {},
