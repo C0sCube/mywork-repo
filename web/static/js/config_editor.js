@@ -3,7 +3,7 @@ const jsonInput = document.getElementById("jsonInput");
 const errorDisplay = document.getElementById("errorDisplay");
 const yearSelect = document.getElementById("yearSelect");
 const fileSelect = document.getElementById("fileSelect");
-const years = ["2026", "2025", "2024", "2023", "sidkim", "0000", "0001"];
+// const years = ["2026", "2025", "2024", "2023", "sidkim", "0000", "0001"];
 
 async function loadYears() {
     try {
