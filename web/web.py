@@ -171,8 +171,8 @@ def login():
 
         # ---- AUTH SECTION ----
         # Replace this with real LDAP later
-        auth_success = True
-        # auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
+        # auth_success = True
+        auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
 
         if not auth_success:
             return render_template("login.html", error="Invalid credentials.")

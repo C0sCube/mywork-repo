@@ -310,6 +310,6 @@ class ReaderSIDKIM:
         temp = self._update_imp_data(temp, typez = sid_or_kim) #update default keys
         temp = self._regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
         temp = self._delete_fund_data_by_key(temp) #delete keys
-        temp = self._regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
+        temp = self._regex._final_json_onstruct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
         
         return dict(sorted(temp.items()))

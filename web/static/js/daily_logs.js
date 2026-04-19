@@ -12,6 +12,8 @@ const logType = [
 async function loadLog() {
     const date = document.getElementById("dateSelect").value;
 
+    console.log(logSelect);
+
     if (!logSelect) {
         alert("Please select a log type: WEB or PARSER");
         return;
@@ -112,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, "0");
     const dd = String(today.getDate()).padStart(2, "0");
+    
 
     document.getElementById("dateSelect").value = `${yyyy}-${mm}-${dd}`;
 
