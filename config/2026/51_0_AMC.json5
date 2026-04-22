@@ -11,7 +11,7 @@
       pattern: "(ITI.*?(?:Fund|ETF|Path|Index|Plan)\\s*(?:of Funds?|F[Oo]F|[Ff]und of [Ff]unds?|Funds?)?)",
       bbox: [0, 30, 450, 100],
     },
-    clip_bbox: [[0, 105, 180, 812]],
+    clip_bbox: [[0, 90, 245, 860]],
     line_x: 180.0,
     data: {
       size: [5, 8],
@@ -68,7 +68,7 @@
     escape: "[^A-Za-z0-9\\-\\(\\)\\.\\,\\+\\s\\%\\:]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(scheme.*|before)": ["_extract_scheme_data", "scheme"],
+    "^(dummy|before)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
     ".*aaum$": ["_extract_generic_data", "aum"],
@@ -79,7 +79,7 @@
       "metric",
     ],
     ".*benchmark$": ["_extract_bench_data", "bench"],
-    ".*inception_date": ["_extract_generic_data", "date"],
+    // ".*inception_date": ["_extract_generic_data", "date"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

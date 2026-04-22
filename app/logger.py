@@ -156,7 +156,7 @@ def log_exceptions(level="error", return_value=None):
 
                 log_func = getattr(logger, level, logger.error)
                 log_func(f"{context} {type(e).__name__}: {e}")
-                logger.debug(traceback.format_exc())
+                logger.error(traceback.format_exc())
                 return return_value
         return wrapper
     return decorator

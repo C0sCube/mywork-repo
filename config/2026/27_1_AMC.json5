@@ -62,7 +62,7 @@
       "_extract_amt_data",
       "min_amt",
     ],
-    // ".*fund_managers?": ["_extract_manager_data", "manager"],
+    ".*fund_managers?": ["_extract_manager_data", "manager"],
     ".*tracking_error": ["_extract_generic_data", "track"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},

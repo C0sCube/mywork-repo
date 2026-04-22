@@ -310,11 +310,11 @@ class FundRegex:
         for key, data_value in data.items():
             # print(f"key: {key}")
             # Note: Only keys mentioned in default are allowed further ex. before.main_scheme_name will be skipped
-            if key not in self.POPULATE_ALL_INDICE: ################################
-                self.logger.warning(data_value.get("main_scheme_name","NOT FOUND"))
-                self.logger.warning(f"Skipping key: {key} -> {data_value}")
-                self.logger.warning(f"Since not part of whitelisted keys")
-                continue ###########################################################
+            # if key not in self.POPULATE_ALL_INDICE: ################################
+            #     self.logger.warning(data_value.get("main_scheme_name","NOT FOUND"))
+            #     self.logger.warning(f"Skipping key: {key} -> {data_value}")
+            #     self.logger.warning(f"Since not part of whitelisted keys")
+            #     continue ###########################################################
             
                 
             if isinstance(data_value, str) or key in ["riskometer","riskometer_benchmark"]:
