@@ -26,7 +26,7 @@
     method: "clip",
     line_side: "both",
     max_financial_index_highlight: 4,
-    pdf_ocr: true,
+    pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
     update_min_add: false,
@@ -68,10 +68,10 @@
     ".*qualitative_data": ["_extract_generic_data", "metrics"],
     ".*min_investment": ["_extract_amt_data", "min_amt"],
     ".*benchmark": ["_extract_generic_data", "benchmark"],
-    ".*(fund_manager|returns_index|gold_etf)": [
-      "_extract_manager_data",
-      "manager",
-    ],
+    // ".*(fund_manager|returns_index|gold_etf)": [
+    //   "_extract_manager_data",
+    //   "manager",
+    // ],
     ".*monthly_average_aum": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},

@@ -1833,7 +1833,7 @@
           name: 0,
           qualification: 2,
         },
-        row_count: 6,
+        row_count: 3,
         threshold: 1,
       },
       page_zero: {
@@ -1842,13 +1842,11 @@
       },
       table_data: {
         keywords: [
-          "Name of the scheme",
-          "Category of the Scheme",
-          "Scheme type",
-          "Scheme code",
-          "Investment objective",
+          "Load Structure",
+          "Benchmark",
+          "Minimum Application",
         ],
-        threshold: 3,
+        threshold: 2,
       },
     },
     PATTERN_TO_FUNCTION: {

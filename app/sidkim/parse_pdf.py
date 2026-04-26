@@ -151,7 +151,7 @@ class ReaderSIDKIM:
         # pprint.pprint(data_rows)
         for row in data_rows:
             manager = {
-                key: self._regex._normalize_ascii(row[col_idx])
+                key: self._regex._normalize_whitespace(row[col_idx])
                 for key, col_idx in match_order.items()
             }
             manager_list.append(manager)
@@ -252,7 +252,10 @@ class ReaderSIDKIM:
         return df
     
     def _map_json_ops(self,df, typez:str)->dict:
-        return {self._regex._map_json_keys_to_dict(k,typez=typez) or k: v for k, v in df.items()}
+        return {
+            self._regex._map_json_keys_to_dict(k,typez=typez) or k: self._regex._normalize_ascii(v)
+            for k, v in df.items()
+        }
     
     def _asset_ops(self,df: dict) -> dict:
         asset_data = df.get("asset_allocation_pattern", [])
@@ -310,6 +313,6 @@ class ReaderSIDKIM:
         temp = self._update_imp_data(temp, typez = sid_or_kim) #update default keys
         temp = self._regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
         temp = self._delete_fund_data_by_key(temp) #delete keys
-        temp = self._regex._final_json_onstruct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
+        temp = self._regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
         
         return dict(sorted(temp.items()))
