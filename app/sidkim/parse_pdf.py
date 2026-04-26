@@ -4,6 +4,7 @@ from pathlib import Path
 
 from app.sidkim.parse_regex import SidKimRegex
 from app.konstant import get_output_path, get_json_dir
+from app.logger import get_global_logger,log_exceptions
 from app.parse_table import *
 from app.utils import Helper
 
@@ -15,6 +16,7 @@ class ReaderSIDKIM:
     def __init__(self,params:dict,path:str):
         
         self.PARAMS = params #amc specific paramaters
+        self.logger = get_global_logger()
         self.DOCUMENT_NAME = Path(path).name # docname requried later for json
         self.OUTPUTPATH = get_output_path()
         self.PDF_PATH = path #amc factsheet pdf path
@@ -29,7 +31,8 @@ class ReaderSIDKIM:
         self._table_parser = TableParser()
     
     def _ocr_pdf(self,path:str,pages)->str:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func} | file={path}")
         ocr_path = path.replace(".pdf", "_all_ocr.pdf")
         ocrmypdf.ocr(path, ocr_path, deskew=True, force_ocr=True, pages=pages)
         return ocr_path
@@ -100,219 +103,700 @@ class ReaderSIDKIM:
         return ",".join(str(p) for p in sorted_pages)
 
     def parse_page_zero(self, pages: str) -> dict:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        self.FIELD_LOCATION["page_zero"] = int(pages[0])
-        zero_params = self.PARAMS["page_zero"]
-        
-        path = self._ocr_pdf(self.PDF_PATH,pages) if zero_params["ocr"] else self.PDF_PATH
-        
-        fitz_pages = self.__resolve_page_index(pages,True) #True for 0 based indexing
-        # print(fitz_pages, pages)
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func}")
         final_dict = {
-            "risk_bbox": self._get_text_from_pages_and_bboxes(path=path,pages_csv=fitz_pages, bboxes=zero_params["bbox"]),
-            "other_text": self._get_full_text_from_pages(path=path,pages_csv=fitz_pages)
+            "risk_bbox": "",
+            "other_text": []
         }
-        return final_dict
-
-    def parse_scheme_table_data(self,pages:str)->dict:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        try:
+            self.FIELD_LOCATION["page_zero"] = 1
+            zero_params = self.PARAMS["page_zero"]
+            bboxes = zero_params["bbox"]     
+            use_ocr = zero_params["ocr"]
+            
+            
+            path = self._ocr_pdf(self.PDF_PATH,pages) if use_ocr else self.PDF_PATH
+            fitz_pages = self.__resolve_page_index(pages,True) #True for 0 based indexing
+            
+            final_dict = {
+                "risk_bbox": self._get_text_from_pages_and_bboxes(
+                    path=path,
+                    pages_csv=fitz_pages, 
+                    bboxes=bboxes
+                ),
+                "other_text": self._get_full_text_from_pages(
+                    path=path,
+                    pages_csv=fitz_pages
+                )
+            }
+            return final_dict
+        except Exception:
+            self.logger.exception("page_zero error")
+            return final_dict
         
-        self.FIELD_LOCATION["page_table"] = int(pages[0])
-        table_params = self.PARAMS["table_data"]
-        
-        dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
-        col_start = self._table_parser.get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
-        print(f"[COL START]: {col_start}") # _keys: {table_params['keywords']}
-        
-        dfs = self._table_parser.get_sub_dataframe(dfs,cs=col_start[0])
-        dfs = self._table_parser.clean_dataframe(dfs, ["newline_to_space"])
-        dfs.iloc[:, 0] = self._table_parser.clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"]).ffill()
     
-        dfs.columns = ['Title'] + [f'Data{i}' for i in range(1, dfs.shape[1])] #new col structure
-        return self._table_parser._group_and_collect(dfs,group_col="Title")
+    def parse_scheme_table_data(self, pages: str) -> dict:
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func}")
+
+ 
+        table_params = self.PARAMS["table_data"]
+        threshold = table_params["threshold"]
+        keywords = table_params["keywords"]
+
+        self.FIELD_LOCATION["page_table"] = int(pages.split(",")[0])
+
+        final_dict = {}
+
+        try:
+            dfs = self._table_parser.extract_tables_from_pdf(
+                path=self.PDF_PATH,
+                pages=pages
+            )
+
+            if not dfs:
+                self.logger.warning(f"{func}: No tables extracted")
+                return final_dict
+
+            col_start = self._table_parser.get_matching_col_indices(
+                dfs,
+                thresh=threshold,
+                keywords=keywords
+            )
+
+            self.logger.info(f"[COL START]: {col_start}")
+
+            if not col_start:
+                self.logger.warning(f"{func}: No matching column found")
+                return final_dict
+
+            dfs = self._table_parser.get_sub_dataframe(dfs, cs=col_start[0])
+
+            if dfs is None or dfs.empty:
+                self.logger.warning(f"{func}: Empty dataframe after subsetting")
+                return final_dict
+
+            dfs = self._table_parser.clean_dataframe(dfs, ["newline_to_space"])
+
+            if dfs.shape[1] > 0:
+                dfs.iloc[:, 0] = (
+                    self._table_parser
+                    .clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"])
+                    .ffill()
+                )
+
+            dfs.columns = ['Title'] + [f'Data{i}' for i in range(1, dfs.shape[1])]
+
+            return self._table_parser._group_and_collect(
+                dfs,
+                group_col="Title"
+            )
+
+        except Exception:
+            self.logger.exception(f"{func} runtime error")
+
+        return final_dict
     
     def parse_fund_manager_info(self, pages: str) -> dict:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        # self.FIELD_LOCATION["page_manager"] = int(pages[0])
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func}")
+
         manager_params = self.PARAMS["manager_data"]
-
-        dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
-        row_start = self._table_parser.get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
-        print(f"[ROW START]: {row_start}") #_keys: {manager_params['keywords']}
-        
-        dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_start[0])
-        dfs = self._table_parser.clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
-        dfs = dfs.dropna(axis=1, how="all").dropna(axis=0, how="all") #drop NA cols
-
+        threshold = manager_params["threshold"]
+        keywords = manager_params["keywords"]
         match_order = manager_params["order"]
-        # print(match_order)
-        manager_list = []
-        data_rows = [[str(item) if isinstance(item, str) else "" for item in row] for _, row in dfs.iterrows()] #row_count gets NA sometimes  if row.count() >= manager_params["row_count"]
-        # pprint.pprint(data_rows)
-        for row in data_rows:
-            manager = {
-                key: self._regex._normalize_whitespace(row[col_idx])
-                for key, col_idx in match_order.items()
-            }
-            manager_list.append(manager)
-        return {"fund_manager": manager_list}
+
+        # self.FIELD_LOCATION["page_manager"] = int(pages.split(",")[0])  # keep commented if intentional
+
+        final_dict = {"fund_manager": []}
+        try:
+            dfs = self._table_parser.extract_tables_from_pdf(
+                path=self.PDF_PATH,
+                pages=pages
+            )
+
+            if not dfs:
+                self.logger.warning(f"{func}: No tables extracted")
+                return final_dict
+
+            row_start = self._table_parser.get_matching_row_indices(
+                dfs,
+                thresh=threshold,
+                keywords=keywords
+            )
+
+            self.logger.info(f"[ROW START]: {row_start}")
+
+            if not row_start:
+                self.logger.warning(f"{func}: No matching row found")
+                return final_dict
+
+            dfs = self._table_parser.get_sub_dataframe(dfs, rs=row_start[0])
+
+            if dfs is None or dfs.empty:
+                self.logger.warning(f"{func}: Empty dataframe after subsetting")
+                return final_dict
+
+            dfs = self._table_parser.clean_dataframe(
+                dfs,
+                steps=["newline_to_space", "remove_extra_whitespace"]
+            )
+
+            dfs = dfs.dropna(axis=1, how="all").dropna(axis=0, how="all")
+            data_rows = [
+                [str(item).strip() if item is not None else "" for item in row]
+                for _, row in dfs.iterrows()
+            ]
+
+            manager_list = []
+
+            for row in data_rows:
+
+                if not any(row):
+                    continue
+
+                manager = {}
+
+                for key, col_idx in match_order.items():
+                    try:
+                        value = row[col_idx] if col_idx < len(row) else ""
+                        manager[key] = self._regex._normalize_whitespace(value)
+                    except Exception as e:
+                        self.logger.warning(
+                            f"[manager_parse] Failed for key={key}, col={col_idx}: {e}"
+                        )
+                        manager[key] = ""
+
+                manager_list.append(manager)
+
+            return {"fund_manager": manager_list}
+
+        except Exception:
+            self.logger.exception(f"{func} runtime error")
+
+        return final_dict
+    
       
     # =================== KIM ===================
     
-    def parse_KIM_data(self,pages:str, instrument_count = "2")->dict:
+    def parse_KIM_data(self, pages: str, instrument_count="2") -> dict:
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func}")
 
-        self.FIELD_LOCATION["kim"] = int(pages) if pages else 0
+        # safer page location (handles "1,2")
+        self.FIELD_LOCATION["kim"] = int(pages.split(",")[0]) if pages else 0
 
-        kim_params = self.PARAMS["kim"]
-        
-        dfs = self._table_parser.extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
-        dfs = self._table_parser.clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
-        
-        row_match = self._table_parser.get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
-        print(f"[ROW START]: {row_match}" )
-        
-        #range/offset
-        row_s,row_e = row_match[0]+1, row_match[0]+ 3 + int(instrument_count)
-        
-        dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_s, re=row_e)
-        dfs = self._table_parser.clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
-        # print(dfs)
-        final_data = {}
-        #fitz pages check params
-        final_data["main_scheme_name"] = self._get_text_from_pages_and_bboxes(self.PDF_PATH,kim_params["initial_page"], kim_params["bbox"])
-
-        asset_list = []
-        for _, row in dfs.iterrows():
-            row = list(row)
-            values = " ".join(str(item) for item in row)
-            values = self._regex._normalize_alphanumeric_and_symbol(values,"%&")
-            asset_list.append(values)
-        final_data["asset_allocation_pattern"] = asset_list
     
-            
+        kim_params = self.PARAMS["kim"]
+        row_keywords = kim_params["row_keywords"]
+        row_thresh = kim_params["row_match_threshold"]
+        initial_page = kim_params["initial_page"]
+        bbox = kim_params["bbox"]
+
+        final_data = {
+            "main_scheme_name": "",
+            "asset_allocation_pattern": []
+        }
+
+        try:
+            dfs = self._table_parser.extract_tables_from_pdf(self.PDF_PATH,pages=pages, stack=True,padding=1)
+
+            if dfs is None or len(dfs) == 0:
+                self.logger.warning(f"{func}: No tables extracted")
+                return final_data
+
+            dfs = self._table_parser.clean_dataframe(dfs, ['newline_to_space', 'str_to_pd_NA'])
+
+            row_match = self._table_parser.get_matching_row_indices(
+                dfs,
+                keywords=row_keywords,
+                thresh=row_thresh
+            )
+
+            self.logger.info(f"[ROW START]: {row_match}")
+
+            if not row_match:
+                self.logger.warning(f"{func}: No matching row found")
+                return final_data
+
+            try:
+                inst_count = int(instrument_count)
+            except Exception:
+                self.logger.warning(f"{func}: Invalid instrument_count={instrument_count}, defaulting to 2")
+                inst_count = 2
+
+            row_s = row_match[0] + 1
+            row_e = row_match[0] + 3 + inst_count
+
+            dfs = self._table_parser.get_sub_dataframe(dfs, rs=row_s, re=row_e)
+
+            if dfs is None or dfs.empty:
+                self.logger.warning(f"{func}: Empty dataframe after slicing")
+                return final_data
+
+            dfs = self._table_parser.clean_dataframe(dfs,['str_to_pd_NA', 'drop_all_na', 'NA_to_str'])
+
+            # main scheme name (safe assign)
+            final_data["main_scheme_name"] = self._get_text_from_pages_and_bboxes(self.PDF_PATH,initial_page,bbox)
+
+            asset_list = []
+
+            for _, row in dfs.iterrows():
+                row = list(row)
+
+                if not any(row):  # skip empty rows
+                    continue
+
+                values = " ".join(str(item) for item in row)
+                values = self._regex._normalize_alphanumeric_and_symbol(values, "%&")
+
+                if values:
+                    asset_list.append(values)
+
+            final_data["asset_allocation_pattern"] = asset_list
+
+        except Exception:
+            self.logger.exception(f"{func} runtime error")
+
         return final_data
     
-    def _refine_extracted_data(self,extracted_text:dict,level:str)->dict:
-        refine = {}
-        for raw_key, raw_values in extracted_text.items():
-            matched = self._match_with_patterns(raw_key, raw_values, level=level)
-            if matched:
-                key, value = next(iter(matched.items()))
-                refine[raw_key] = value
-            else:refine[raw_key] = raw_values  # fallback to original
-        
-        if level == "primary":
-            refine = self._regex._flatten_dict(refine) #flat_primary
-            refine = self._regex._transform_keys(refine)
-        
-        return refine
-        # pass
-        
+    
+    # =================== REFINE ===================
+    
     def refine_data(self, data: dict, levels=["primary", "secondary", "tertiary"]) -> dict:
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func}")
+
         for level in levels:
-           data = self._refine_extracted_data(data, level=level)
+            refined = {}
+
+            for raw_key, raw_values in data.items():
+                try:
+                    matched = self._match_with_patterns(raw_key, raw_values, level=level)
+
+                    if matched:
+                        key, value = next(iter(matched.items()))
+                        refined[raw_key] = value
+                    else:
+                        refined[raw_key] = raw_values  # fallback
+
+                except Exception as e:
+                    self.logger.warning(f"[refine_data] key={raw_key}, level={level}: {e}")
+                    refined[raw_key] = raw_values  # safe fallback
+
+            # apply primary-level transforms
+            if level == "primary":
+                try:
+                    refined = self._regex._flatten_dict(refined)
+                    refined = self._regex._transform_keys(refined)
+                except Exception as e:
+                    self.logger.warning(f"[refine_data] primary transform failed: {e}")
+
+            data = refined  # feed into next level
+
         return data
     
-    def _min_add_ops(self,df:dict):
+    def _min_add_ops(self, df: dict):
         try:
             new_values = {}
+
             for key in ["min_amt", "min_addl_amt"]:
-                if key in df:
-                    new_values[key] = df[key].get("amt", "")
-                    new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
+                value = df.get(key, {})
+
+                if isinstance(value, dict):
+                    new_values[key] = value.get("amt", "")
+                    new_values[f"{key}_multiple"] = value.get("thraftr", "")
+                else:
+                    self.logger.warning(f"_min_add_ops: {key} not dict")
+
             df.update(new_values)
-        except Exception as e:
-            print(f"Error in _min_add_ops ->Min/Add Error: {e}")
+
+        except Exception:
+            self.logger.exception("_min_add_ops failed")
+
         return df
     
-    def _load_ops(self,df:dict):
+    def _load_ops(self, df: dict):
         load_data = df.get("load", {})
+
         if not isinstance(load_data, dict):
-            print(f"Returning _load_ops -> Type Error")
+            self.logger.warning("_load_ops: load not dict")
             return df
+
+        new_load = []
+
         try:
-            new_load = []
             for load_key, load_value in load_data.items():
-                load_section = {"comment":None,"type":None,"value":""}
-                value = load_value if isinstance(load_value, str) else " ".join(load_value)
+
+                value = (
+                    load_value if isinstance(load_value, str)
+                    else " ".join(load_value) if isinstance(load_value, list)
+                    else str(load_value)
+                )
+
                 value = self._regex._normalize_ascii(value)
-                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
-                    load_section["comment"] = value
-                    load_section["type"] = "entry_load"
-                    new_load.append(load_section)
-                if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
-                    load_section["comment"] = value
-                    load_section["type"] = "exit_load"
-                    new_load.append(load_section)
-        except Exception as e:
-            print(f"Error in _load_ops ->Load Error: {e}")
-        
+
+                if not value:
+                    continue
+
+                if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE):
+                    new_load.append({
+                        "comment": value,
+                        "type": "entry_load",
+                        "value": ""
+                    })
+
+                if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE):
+                    new_load.append({
+                        "comment": value,
+                        "type": "exit_load",
+                        "value": ""
+                    })
+
+        except Exception:
+            self.logger.exception("_load_ops failed")
+
         df["load"] = new_load
         return df
-    
-    def _map_json_ops(self,df, typez:str)->dict:
-        return {
-            self._regex._map_json_keys_to_dict(k,typez=typez) or k: self._regex._normalize_ascii(v)
-            for k, v in df.items()
-        }
-    
-    def _asset_ops(self,df: dict) -> dict:
-        asset_data = df.get("asset_allocation_pattern", [])
-        if not isinstance(asset_data, list) or not asset_data:
-            print(f"[TYPE-ERROR] __asset_ops: NOT A LIST")
-            return df
+
+    def _map_json_ops(self, df, typez: str) -> dict:
         try:
-            asset_alloc_data = []
+            return {
+                self._regex._map_json_keys_to_dict(k, typez=typez) or k:
+                self._regex._normalize_ascii(v) if isinstance(v, str) else v
+                for k, v in df.items()
+            }
+        except Exception:
+            self.logger.exception("_map_json_ops failed")
+            return df
+        
+    def _asset_ops(self, df: dict) -> dict:
+        asset_data = df.get("asset_allocation_pattern", [])
+
+        if not isinstance(asset_data, list) or not asset_data:
+            self.logger.warning("_asset_ops: asset data not list or empty")
+            return df
+
+        asset_alloc_data = []
+
+        try:
             for data in asset_data:
-                asset = {
-                    "allocation": [{"type": key, "value": data.get(key, "")}for key in ["min", "max", "total"]],
-                    "instrument_type": self._regex._normalize_ascii(data.get("instrument", "")),
-                    "risk_profile": data.get("risk_profile", "")
-                }
-                asset_alloc_data.append(asset)
-        except Exception as e:
-            print(f"[ERROR] __asset_ops: {e}")
+
+                if isinstance(data, dict):
+                    asset_alloc_data.append({
+                        "allocation": [
+                            {"type": key, "value": data.get(key, "")}
+                            for key in ["min", "max", "total"]
+                        ],
+                        "instrument_type": self._regex._normalize_ascii(
+                            data.get("instrument", "")
+                        ),
+                        "risk_profile": data.get("risk_profile", "")
+                    })
+
+                elif isinstance(data, str):
+                    # fallback: keep raw string info
+                    asset_alloc_data.append({
+                        "allocation": [],
+                        "instrument_type": data,
+                        "risk_profile": ""
+                    })
+
+                else:
+                    self.logger.warning(f"_asset_ops: unknown type {type(data)}")
+
+        except Exception:
+            self.logger.exception("_asset_ops failed")
+
         df["asset_allocation_pattern"] = asset_alloc_data
         return df
-        
-    def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func = False):
-        print(f"Function Running: {inspect.currentframe().f_code.co_name}")
-        
-        temp = self._clone_fund_data(data)
-        temp = self._merge_fund_data(temp)
-        temp = self._clone_fund_data(temp)
-        temp = self._select_by_regex(temp) #select
-        
-        sid_or_kim = sid_or_kim.lower()
-        
-        #mapping typez:sid/kim
-        if sid_or_kim == "sid":
-            temp = self._map_json_ops(temp,typez=sid_or_kim)
-            temp = self._min_add_ops(temp)
-            temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
-            temp = self._load_ops(temp)
-        if sid_or_kim == "kim":
-            temp = self._map_json_ops(temp,typez=sid_or_kim)
-            temp = self._asset_ops(temp)
-            
-            temp.update({
-                "field_location":[{
-                    "asset_allocation_pattern": self.FIELD_LOCATION["kim"],
-                    "main_scheme_name": 1,
-                    "mutual_fund_name": 1
 
-                }]
-            })
-            temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
+    # =================== MERGE & SELECT ===================
+    
+    def merge_and_select_data(self, data: dict, sid_or_kim: str, special_func=False):
+        func = inspect.currentframe().f_code.co_name
+        self.logger.info(f"▶ Start {func}")
+
         
-        if special_func:
-            temp = self._apply_special_handling(temp)
-        
-        temp = self._promote_key_from_dict(temp)
-        temp = self._update_imp_data(temp, typez = sid_or_kim) #update default keys
-        temp = self._regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
-        temp = self._delete_fund_data_by_key(temp) #delete keys
-        temp = self._regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
-        
+        temp = data.copy() if isinstance(data, dict) else {}
+
+        # normalize type
+        sid_or_kim = sid_or_kim.lower()
+
+        if sid_or_kim not in ["sid", "kim"]:
+            raise ValueError(f"{func}: invalid type {sid_or_kim}")
+
+        try:
+            temp = self._clone_fund_data(temp)
+            temp = self._merge_fund_data(temp)
+            temp = self._clone_fund_data(temp)
+            temp = self._select_by_regex(temp)
+
+            # common step
+            temp = self._map_json_ops(temp, typez=sid_or_kim)
+
+            if sid_or_kim == "sid":
+                temp = self._min_add_ops(temp)
+                temp = self._regex._populate_all_indices_in_json(
+                    data=temp, typez=sid_or_kim
+                )
+                temp = self._load_ops(temp)
+
+            elif sid_or_kim == "kim":
+                temp = self._asset_ops(temp)
+
+                temp.update({
+                    "field_location": [{
+                        "asset_allocation_pattern": self.FIELD_LOCATION.get("kim", 0),
+                        "main_scheme_name": 1,
+                        "mutual_fund_name": 1
+                    }]
+                })
+
+                temp = self._regex._populate_all_indices_in_json(
+                    data=temp, typez=sid_or_kim
+                )
+
+            if special_func:
+                temp = self._apply_special_handling(temp)
+
+            temp = self._promote_key_from_dict(temp)
+            temp = self._update_imp_data(temp, typez=sid_or_kim)
+            temp = self._regex._field_locations(
+                temp, self.FIELD_LOCATION, typez=sid_or_kim
+            )
+            temp = self._delete_fund_data_by_key(temp)
+            temp = self._regex._final_json_construct(
+                temp, self.DOCUMENT_NAME, typez=sid_or_kim
+            )
+
+        except Exception:
+            self.logger.exception(f"{func} failed")
+            return {}
+
         return dict(sorted(temp.items()))
+    
+
+    # LEGACY : 26-04-2026
+    # def parse_scheme_table_data(self,pages:str)->dict:
+    #     func = inspect.currentframe().f_code.co_name
+    #     self.logger.info(f"▶ Start {func}")
+        
+        
+    #     self.FIELD_LOCATION["page_table"] = int(pages[0])
+    #     table_params = self.PARAMS["table_data"]
+        
+    #     dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
+    #     col_start = self._table_parser.get_matching_col_indices(dfs,thresh=table_params["threshold"],keywords=table_params["keywords"])
+    #     print(f"[COL START]: {col_start}") # _keys: {table_params['keywords']}
+        
+    #     dfs = self._table_parser.get_sub_dataframe(dfs,cs=col_start[0])
+    #     dfs = self._table_parser.clean_dataframe(dfs, ["newline_to_space"])
+    #     dfs.iloc[:, 0] = self._table_parser.clean_series(dfs.iloc[:, 0], ["str_to_pd_NA"]).ffill()
+    
+    #     dfs.columns = ['Title'] + [f'Data{i}' for i in range(1, dfs.shape[1])] #new col structure
+    #     return self._table_parser._group_and_collect(dfs,group_col="Title")
+    
+    # def parse_fund_manager_info(self, pages: str) -> dict:
+    #     print(f"Function Running: {inspect.currentframe().f_code.co_name}")
+    #     # self.FIELD_LOCATION["page_manager"] = int(pages[0])
+    #     manager_params = self.PARAMS["manager_data"]
+
+    #     dfs = self._table_parser.extract_tables_from_pdf(path=self.PDF_PATH,pages=pages)
+    #     row_start = self._table_parser.get_matching_row_indices(dfs,thresh=manager_params["threshold"],keywords=manager_params["keywords"])
+    #     print(f"[ROW START]: {row_start}") #_keys: {manager_params['keywords']}
+        
+    #     dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_start[0])
+    #     dfs = self._table_parser.clean_dataframe(dfs,steps=["newline_to_space","remove_extra_whitespace"])
+    #     dfs = dfs.dropna(axis=1, how="all").dropna(axis=0, how="all") #drop NA cols
+
+    #     match_order = manager_params["order"]
+        
+    #     manager_list = []
+    #     #row_count gets NA sometimes  if row.count() >= manager_params["row_count"]
+    #     data_rows = [[str(item) if isinstance(item, str) else "" for item in row] for _, row in dfs.iterrows()]
+
+    #     for row in data_rows:
+    #         manager = {}
+
+    #         for key, col_idx in match_order.items():
+    #             try:
+    #                 value = row[col_idx] if col_idx < len(row) else ""
+    #                 value = value if isinstance(value, str) else str(value)
+    #                 manager[key] = self._regex._normalize_whitespace(value)
+    #             except Exception as e:
+    #                 self.logger.warning(f"[manager_parse] Failed for key={key}, col={col_idx}: {e}")
+    #                 manager[key] = ""
+
+    #         manager_list.append(manager)
+
+    #     return {"fund_manager": manager_list}
+    
+    
+    
+    # def parse_KIM_data(self,pages:str, instrument_count = "2")->dict:
+    #     func = inspect.currentframe().f_code.co_name
+    #     self.logger.info(f"▶ Start {func}")
+        
+    #     self.FIELD_LOCATION["kim"] = int(pages) if pages else 0
+
+    #     kim_params = self.PARAMS["kim"]
+        
+    #     dfs = self._table_parser.extract_tables_from_pdf(self.PDF_PATH,pages=pages,stack=True,padding=1)
+    #     dfs = self._table_parser.clean_dataframe(dfs,['newline_to_space','str_to_pd_NA'])
+        
+    #     row_match = self._table_parser.get_matching_row_indices(dfs,keywords=kim_params["row_keywords"],thresh=kim_params["row_match_threshold"])
+    #     print(f"[ROW START]: {row_match}" )
+        
+    #     #range/offset
+    #     row_s,row_e = row_match[0]+1, row_match[0]+ 3 + int(instrument_count)
+        
+    #     dfs = self._table_parser.get_sub_dataframe(dfs,rs=row_s, re=row_e)
+    #     dfs = self._table_parser.clean_dataframe(dfs,['str_to_pd_NA','drop_all_na','NA_to_str'])
+    #     # print(dfs)
+    #     final_data = {}
+    #     #fitz pages check params
+    #     final_data["main_scheme_name"] = self._get_text_from_pages_and_bboxes(self.PDF_PATH,kim_params["initial_page"], kim_params["bbox"])
+
+    #     asset_list = []
+    #     for _, row in dfs.iterrows():
+    #         row = list(row)
+    #         values = " ".join(str(item) for item in row)
+    #         values = self._regex._normalize_alphanumeric_and_symbol(values,"%&")
+    #         asset_list.append(values)
+    #     final_data["asset_allocation_pattern"] = asset_list
+
+    #     return final_data
+    
+    
+    #HELPERS
+    # def _refine_extracted_data(self,extracted_text:dict,level:str)->dict:
+    #     refine = {}
+    #     for raw_key, raw_values in extracted_text.items():
+    #         matched = self._match_with_patterns(raw_key, raw_values, level=level)
+    #         if matched:
+    #             key, value = next(iter(matched.items()))
+    #             refine[raw_key] = value
+    #         else:refine[raw_key] = raw_values  # fallback to original
+        
+    #     if level == "primary":
+    #         refine = self._regex._flatten_dict(refine) #flat_primary
+    #         refine = self._regex._transform_keys(refine)
+        
+    #     return refine
+    #     # pass
+        
+    # def refine_data(self, data: dict, levels=["primary", "secondary", "tertiary"]) -> dict:
+    #     func = inspect.currentframe().f_code.co_name
+    #     self.logger.info(f"▶ Start {func}")
+        
+    #     for level in levels:
+    #        data = self._refine_extracted_data(data, level=level)
+    #     return data
+    
+    
+    
+    # def _min_add_ops(self,df:dict):
+    #     try:
+    #         new_values = {}
+    #         for key in ["min_amt", "min_addl_amt"]:
+    #             if key in df:
+    #                 new_values[key] = df[key].get("amt", "")
+    #                 new_values[f"{key}_multiple"] = df[key].get("thraftr", "")
+    #         df.update(new_values)
+    #     except Exception as e:
+    #         print(f"Error in _min_add_ops ->Min/Add Error: {e}")
+    #     return df
+    
+    # def _load_ops(self,df:dict):
+    #     load_data = df.get("load", {})
+    #     if not isinstance(load_data, dict):
+    #         print(f"Returning _load_ops -> Type Error")
+    #         return df
+    #     try:
+    #         new_load = []
+    #         for load_key, load_value in load_data.items():
+    #             load_section = {"comment":None,"type":None,"value":""}
+    #             value = load_value if isinstance(load_value, str) else " ".join(load_value)
+    #             value = self._regex._normalize_ascii(value)
+    #             if re.search(r"(entry|.*entry_load)", load_key, re.IGNORECASE) and value:
+    #                 load_section["comment"] = value
+    #                 load_section["type"] = "entry_load"
+    #                 new_load.append(load_section)
+    #             if re.search(r"(exit|.*exit_load)", load_key, re.IGNORECASE) and value:
+    #                 load_section["comment"] = value
+    #                 load_section["type"] = "exit_load"
+    #                 new_load.append(load_section)
+    #     except Exception as e:
+    #         print(f"Error in _load_ops ->Load Error: {e}")
+        
+    #     df["load"] = new_load
+    #     return df
+    
+    # def _map_json_ops(self,df, typez:str)->dict:
+    #     return {
+    #         self._regex._map_json_keys_to_dict(k,typez=typez) or k: self._regex._normalize_ascii(v)
+    #         for k, v in df.items()
+    #     }
+    
+    # def _asset_ops(self,df: dict) -> dict:
+    #     asset_data = df.get("asset_allocation_pattern", [])
+    #     if not isinstance(asset_data, list) or not asset_data:
+    #         print(f"[TYPE-ERROR] __asset_ops: NOT A LIST")
+    #         return df
+    #     try:
+    #         asset_alloc_data = []
+    #         for data in asset_data:
+    #             asset = {
+    #                 "allocation": [{"type": key, "value": data.get(key, "")}for key in ["min", "max", "total"]],
+    #                 "instrument_type": self._regex._normalize_ascii(data.get("instrument", "")),
+    #                 "risk_profile": data.get("risk_profile", "")
+    #             }
+    #             asset_alloc_data.append(asset)
+    #     except Exception as e:
+    #         print(f"[ERROR] __asset_ops: {e}")
+    #     df["asset_allocation_pattern"] = asset_alloc_data
+    #     return df
+        
+    # def merge_and_select_data(self, data:dict, sid_or_kim:str,special_func = False):
+    #     func = inspect.currentframe().f_code.co_name
+    #     self.logger.info(f"▶ Start {func}")
+        
+    #     temp = self._clone_fund_data(data)
+    #     temp = self._merge_fund_data(temp)
+    #     temp = self._clone_fund_data(temp)
+    #     temp = self._select_by_regex(temp) #select
+        
+    #     sid_or_kim = sid_or_kim.lower()
+        
+    #     #mapping typez:sid/kim
+    #     if sid_or_kim == "sid":
+    #         temp = self._map_json_ops(temp,typez=sid_or_kim)
+    #         temp = self._min_add_ops(temp)
+    #         temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
+    #         temp = self._load_ops(temp)
+    #     if sid_or_kim == "kim":
+    #         temp = self._map_json_ops(temp,typez=sid_or_kim)
+    #         temp = self._asset_ops(temp)
+            
+    #         temp.update({
+    #             "field_location":[{
+    #                 "asset_allocation_pattern": self.FIELD_LOCATION["kim"],
+    #                 "main_scheme_name": 1,
+    #                 "mutual_fund_name": 1
+
+    #             }]
+    #         })
+    #         temp = self._regex._populate_all_indices_in_json(data=temp,typez=sid_or_kim) #populate
+        
+    #     if special_func:
+    #         temp = self._apply_special_handling(temp)
+        
+    #     temp = self._promote_key_from_dict(temp)
+    #     temp = self._update_imp_data(temp, typez = sid_or_kim) #update default keys
+    #     temp = self._regex._field_locations(temp,self.FIELD_LOCATION,typez=sid_or_kim)
+    #     temp = self._delete_fund_data_by_key(temp) #delete keys
+    #     temp = self._regex._final_json_construct(temp, self.DOCUMENT_NAME, typez=sid_or_kim)
+        
+    #     return dict(sorted(temp.items()))
