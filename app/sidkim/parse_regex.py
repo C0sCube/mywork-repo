@@ -1,6 +1,6 @@
 import inspect, datetime, os,sys,re, unicodedata
 from dateutil import parser #type:ignore
-
+from datetime import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.konstant import *
 
@@ -146,15 +146,30 @@ class SidKimRegex():
                     return json_key
         return text
                 
-    def _populate_all_indices_in_json(self,data:dict, typez:str):
-        POPULATE_ALL_INDICE = self.POPULATE_ALL_SID_INDICE if typez == "sid" else self.POPULATE_ALL_KIM_INDICE
+
+    def _populate_all_indices_in_json(self, data: dict, typez: str):
+        POPULATE_ALL_INDICE = (
+            self.POPULATE_ALL_SID_INDICE
+            if typez == "sid"
+            else self.POPULATE_ALL_KIM_INDICE
+        )
+
         if not isinstance(data, dict):
             raise TypeError(f"Expected dict, got {type(data)}")
-            return
-        for key, value in POPULATE_ALL_INDICE.items():
+
+        for key, default_value in POPULATE_ALL_INDICE.items():
             if key not in data:
-                data[key] = value
-        return {k:data[k] for k in sorted(data)} #sorted
+                data[key] = default_value
+
+            # Only override if key is main_scheme_name AND value is empty
+            if key == "main_scheme_name" and not data.get(key):
+                data[key] = (
+                    f"UPDATE_B4_PUSH_"
+                    f"{datetime.now().strftime('%Y%m%d_%H_%M_%S')}"
+                )
+
+        return {k: data[k] for k in sorted(data)}
+
                 
     def _field_locations(self, data: dict, field_location: dict, typez: str) -> dict:
         

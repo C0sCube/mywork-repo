@@ -122,7 +122,7 @@ def execute_sidkim(path, amc_id, sid_or_kim):
         return {"json_path": save_path}
 
     except Exception as e:
-        logger.error(f"[SID/KIM ERROR] {file_name}: {e}")
+        logger.exception(f"[SID/KIM ERROR] {file_name}: {e}")
         logger.debug(traceback.format_exc())
         return {"error": str(e)}
 
