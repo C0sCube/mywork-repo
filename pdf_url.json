@@ -1,0 +1,203 @@
+{
+    "aditya_birla_1": {
+        "path": "ADI.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    13.92,
+                    101.56,
+                    306.32,
+                    841.96
+                ],
+                "x_lines": [
+                    104.02,
+                    279.29
+                ],
+                "anchor": "SECURITIES"
+            }
+        ]
+    },
+    "aditya_birla_2": {
+        "path": "ABI.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    4.35,
+                    186.34,
+                    208.98,
+                    777.57
+                ],
+                "x_lines": [
+                    80.07,
+                    171.53
+                ],
+                "anchor": "Corporate Debt"
+            },
+            {
+                "name": "table_2",
+                "bbox": [
+                    196.79,
+                    181.11,
+                    400.54,
+                    792
+                ],
+                "x_lines": [
+                    245,
+                    367.45
+                ],
+                "anchor": "Government Securities"
+            },
+            {
+                "name": "table_3",
+                "bbox": [
+                    397.93,
+                    185.47,
+                    581.65,
+                    706.17
+                ],
+                "x_lines": [
+                    415,
+                    555.53
+                ],
+                "anchor": "Equity"
+            }
+        ]
+    },
+    "star_health": {
+        "path": "STR_bbox_mask.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    4.1,
+                    116.3,
+                    268.64,
+                    724.84
+                ],
+                "x_lines": [
+                    72.89,
+                    239.16
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "shriram": {
+        "path": "SHRI.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    430,
+                    110.57,
+                    610.99,
+                    776
+                ],
+                "x_lines": [
+                    457.02,
+                    600
+                ],
+                "anchor": "TOP 10 Holdings"
+            }
+        ]
+    },
+    "hdfc_1": {
+        "path": "HDF1.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    15.56,
+                    138.42,
+                    353.82,
+                    787.9
+                ],
+                "x_lines": [
+                    101.56,
+                    306
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "hdfc_2": {
+        "path": "HDF2.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    15.56,
+                    98.28,
+                    353.0,
+                    778.08
+                ],
+                "x_lines": [
+                    96.65,
+                    306.32
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "icici_lombard": {
+        "path": "",
+        "tables": []
+    },
+    "bajaj_allianz": {
+        "path": "",
+        "tables": []
+    },
+    "tata_aig": {
+        "path": "",
+        "tables": []
+    },
+    "new_india": {
+        "path": "",
+        "tables": []
+    },
+    "oriental_insurance": {
+        "path": "",
+        "tables": []
+    },
+    "national_insurance": {
+        "path": "",
+        "tables": []
+    },
+    "united_india": {
+        "path": "",
+        "tables": []
+    },
+    "reliance_general": {
+        "path": "",
+        "tables": []
+    },
+    "future_generali": {
+        "path": "GEN.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    183.46,
+                    4.1,
+                    430.81,
+                    791.18
+                ],
+                "x_lines": [
+                    104.02,
+                    279.29
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "sbi_general": {
+        "path": "",
+        "tables": []
+    },
+    "star_union_daiichi": {
+        "path": "",
+        "tables": []
+    }
+}
