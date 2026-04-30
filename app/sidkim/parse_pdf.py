@@ -145,7 +145,7 @@ class ReaderSIDKIM:
         threshold = table_params["threshold"]
         keywords = table_params["keywords"]
 
-        self.FIELD_LOCATION["page_table"] = int(pages.split(",")[0])
+        self.FIELD_LOCATION["page_table"] = int(pages.split("-")[0])
 
         final_dict = {}
 
@@ -155,9 +155,11 @@ class ReaderSIDKIM:
                 pages=pages
             )
 
-            if not dfs:
-                self.logger.warning(f"{func}: No tables extracted")
+ 
+            if dfs is None or dfs.empty:
+                self.logger.warning(f"{func}: No tables extracted from PDF")
                 return final_dict
+
 
             col_start = self._table_parser.get_matching_col_indices(
                 dfs,
@@ -216,8 +218,8 @@ class ReaderSIDKIM:
                 pages=pages
             )
 
-            if not dfs:
-                self.logger.warning(f"{func}: No tables extracted")
+            if dfs is None or dfs.empty:
+                self.logger.warning(f"{func}: No tables extracted from PDF")
                 return final_dict
 
             row_start = self._table_parser.get_matching_row_indices(
@@ -285,7 +287,7 @@ class ReaderSIDKIM:
         self.logger.info(f"▶ Start {func}")
 
         # safer page location (handles "1,2")
-        self.FIELD_LOCATION["kim"] = int(pages.split(",")[0]) if pages else 0
+        self.FIELD_LOCATION["kim"] = int(pages.split("-")[0]) if pages else 0
 
     
         kim_params = self.PARAMS["kim"]

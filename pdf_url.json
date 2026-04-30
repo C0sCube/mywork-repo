@@ -141,37 +141,152 @@
             }
         ]
     },
-    "icici_lombard": {
-        "path": "",
-        "tables": []
+    "bajaj": {
+        "path": "BAJ.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    0,
+                    147.0,
+                    300,
+                    835
+                ],
+                "x_lines": [
+                    50,
+                    270
+                ],
+                "anchor": "Company/Issuer"
+            }
+        ]
     },
-    "bajaj_allianz": {
-        "path": "",
-        "tables": []
+    "pnb_metlife": {
+        "path": "PNB.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    430.68,
+                    231.23,
+                    831.35,
+                    1240.85
+                ],
+                "x_lines": [
+                    488.93,
+                    767.81
+                ],
+                "anchor": "Security Name"
+            }
+        ]
     },
-    "tata_aig": {
-        "path": "",
-        "tables": []
+    "canara": {
+        "path": "CAN.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    295.86,
+                    227.74,
+                    605.95,
+                    781
+                ],
+                "x_lines": [
+                    332,
+                    570
+                ],
+                "anchor": "TOP 10 HOLDINGS"
+            }
+        ]
     },
-    "new_india": {
-        "path": "",
-        "tables": []
+    "praamerica": {
+        "path": "PAR.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    296.87,
+                    64.05,
+                    590.7,
+                    762.52
+                ],
+                "x_lines": [
+                    360,
+                    505
+                ],
+                "anchor": "Security Name"
+            }
+        ]
     },
-    "oriental_insurance": {
-        "path": "",
-        "tables": []
+    "kotak_med": {
+        "path": "KOT.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    156.73,
+                    132.95,
+                    397.76,
+                    800
+                ],
+                "x_lines": [
+                    207.53,
+                    335
+                ],
+                "anchor": "Portfolio"
+            }
+        ]
     },
-    "national_insurance": {
-        "path": "",
-        "tables": []
+    "aviva_life": {
+        "path": "AVI.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    471.86,
+                    98.8,
+                    861.95,
+                    1323.59
+                ],
+                "x_lines": [
+                    567,
+                    778
+                ],
+                "anchor": "Security Name"
+            }
+        ]
     },
-    "united_india": {
-        "path": "",
-        "tables": []
-    },
-    "reliance_general": {
-        "path": "",
-        "tables": []
+    "bandhan_insr": {
+        "path": "BAND.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    2.16,
+                    150.24,
+                    296.16,
+                    916.58
+                ],
+                "x_lines": [
+                    96,
+                    270
+                ],
+                "anchor": "EQUITY HOLDINGS"
+            },
+            {
+                "name": "table_1",
+                "bbox": [
+                    288.91,
+                    147.06,
+                    588.23,
+                    792.55
+                ],
+                "x_lines": [
+                    391.72,
+                    538
+                ],
+                "anchor": "EQUITY HOLDINGS"
+            }
+        ]
     },
     "future_generali": {
         "path": "GEN.pdf",
@@ -192,12 +307,189 @@
             }
         ]
     },
-    "sbi_general": {
-        "path": "",
-        "tables": []
+    "ageas_life": {
+        "path": "AGE.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    2.97,
+                    255.21,
+                    277.47,
+                    985.22
+                ],
+                "x_lines": [
+                    69.74,
+                    256.69
+                ],
+                "anchor": ""
+            }
+        ]
     },
-    "star_union_daiichi": {
-        "path": "",
-        "tables": []
+    "india_first": {
+        "path": "IND.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    300,
+                    30,
+                    590.02,
+                    800
+                ],
+                "x_lines": [
+                    373,
+                    555
+                ],
+                "anchor": "Nature of Security"
+            }
+        ]
+    },
+    "axis_life": {
+        "path": "AXS.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    295.27,
+                    166.18,
+                    592.02,
+                    980
+                ],
+                "x_lines": [
+                    360,
+                    575
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "edl_life": {
+        "path": "EDL.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    3.24,
+                    203.2,
+                    291.84,
+                    842.0
+                ],
+                "x_lines": [
+                    60,
+                    250
+                ],
+                "anchor": "Top 10 holdings"
+            }
+        ]
+    },
+    "nippon_life": {
+        "path": "NIP.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    175.1,
+                    134.03,
+                    405.33,
+                    916.58
+                ],
+                "x_lines": [
+                    245,
+                    380
+                ],
+                "anchor": "Portfolio"
+            }
+        ]
+    },
+    "lic_corp": {
+        "path": "LIC.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    240.96,
+                    99.64,
+                    403.63,
+                    735.07
+                ],
+                "x_lines": [
+                    305,
+                    390
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "sbi_life": {
+        "path": "SBI.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    240.96,
+                    99.64,
+                    403.63,
+                    735.07
+                ],
+                "x_lines": [
+                    100,
+                    325
+                ],
+                "anchor": "ASSET CATEGORY"
+            }
+        ]
+    },
+    "tata_aia": {
+        "path": "TATA.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    268.68,
+                    101.35,
+                    460.77,
+                    537.37
+                ],
+                "x_lines": [
+                    320,
+                    440
+                ],
+                "anchor": ""
+            },
+            {
+                "name": "table_1",
+                "bbox": [
+                    456.05,
+                    102.52,
+                    650.5,
+                    529.12
+                ],
+                "x_lines": [
+                    500,
+                    625
+                ],
+                "anchor": ""
+            }
+        ]
+    },
+    "bharti_axa": {
+        "path": "AXA.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "bbox": [
+                    5.4,
+                    303.73,
+                    356.69,
+                    916.58
+                ],
+                "x_lines": [
+                    100,
+                    335
+                ],
+                "anchor": "Sector Allocation"
+            }
+        ]
     }
 }

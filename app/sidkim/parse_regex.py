@@ -211,7 +211,7 @@ class SidKimRegex():
                 "metadata":{
                     "document_name": doc_name,
                     "file_type": file_type,
-                    "process_date": f"{datetime.datetime.now().strftime('%Y%m%d')}"
+                    "process_date": f"{datetime.now().strftime('%Y%m%d')}"
                 },
                 "value":dict(sorted(data.items()))
             }
