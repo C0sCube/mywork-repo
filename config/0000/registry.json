@@ -481,6 +481,22 @@
             "sid_class": "GeneraliSIDKIM"
         }
     },
+    "default_if_headers": {
+        "amc_name": null,
+        "field_location": [
+            {}
+        ],
+        "sfin": null,
+        "benchmark_index": null,
+        "fund_manager": [],
+        "main_scheme_name": null,
+        "metrics": {},
+        "mutual_fund_name": null,
+        "monthly_aaum_date": null,
+        "monthly_aaum_value": null,
+        "scheme_launch_date": null,
+        "portfolio_data": null
+    },
     "default_fs_headers": {
         "field_location": [
             {}

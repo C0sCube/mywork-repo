@@ -5,7 +5,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta #type: ignore
 
 
-from app.insur.parse_pdf import ReaderInsurance
+from app.insur.parse_pdf import ReadrIns
 from app.parse_table import *
 from app.logger import get_global_logger, log_exceptions
 from app.utils import Helper
@@ -652,9 +652,30 @@ class GrandInsrData:
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
         })
         
-class BaseAMC(ReaderInsurance, GrandInsrData):
+class BaseAMC(ReadrIns, GrandInsrData):
     @log_exceptions()
-    def __init__(self, config: dict, regex: dict, path: str):
+    def __init__(self, config: dict, regex:dict, path: str):
         GrandInsrData.__init__(self, config)
-        ReaderInsurance.__init__(self, self.PARAMS, regex, path)
-       
+        ReadrIns.__init__(self, self.PARAMS,regex,path)
+
+
+
+
+class AdityaBirlaINSR(BaseAMC): pass
+class BajajLifeINSR(BaseAMC):pass
+class BandhanLifeINSR(BaseAMC):pass
+class AgeasLifeINSR(BaseAMC):pass
+class AvivaLifeINSR(BaseAMC):pass
+class ICICILifeINSR(BaseAMC):pass
+class BhartiAxaLifeINSR(BaseAMC):pass
+class CanaraHSBCLifeINSR(BaseAMC):pass
+class EdelweissLifeINSR(BaseAMC):pass
+class GeneraliLifeINSR(BaseAMC):pass
+class HDFCLifeINSR(BaseAMC):pass
+class IndiaFirstLifeINSR(BaseAMC):pass
+class KotakLifeINSR(BaseAMC):pass
+class LICINSR(BaseAMC):pass
+class ShriramLifeINSR(BaseAMC):pass
+class StarLifeINSR(BaseAMC):pass
+class TataLifeINSR(BaseAMC):pass
+class DigitLifeINSR(BaseAMC):pass

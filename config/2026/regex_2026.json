@@ -109,6 +109,11 @@
   },
   "escape_regex": "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\:]+",
   "json_headers": {
+    "sfin":[
+      ".*sfin_no",
+      ".*sfin$",
+      ".*sfin_number"
+    ],
     "amc_name": [
       "amc_name"
     ],
@@ -228,6 +233,7 @@
     ],
     "monthly_aaum_value": [
       ".*aaum$",
+      ".*asset_held",
       "^aaum$",
       "^average_aum$",
       "scheme_details.aum$",
@@ -261,6 +267,7 @@
       "mutual_fund_name"
     ],
     "scheme_launch_date": [
+      ".*launch_date",
       "inceptionallotment_date",
       "^date_of_allotment$",
       ".*date_of_allotment$",

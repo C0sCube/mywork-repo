@@ -257,3 +257,18 @@ if __name__ == "__main__":
 
     logger.info("Running FactSheet / SID / KIM Watcher")
     main()
+
+
+# @echo off
+
+# title FACTSHEET PARSER CMD
+# REM Change to the directory where your project and virtual environment are located
+# cd D:\Developers\Kaustubh\PROGRAM_FACTSHEET_PARSER
+
+# REM Activate the virtual environment
+# call .venv\Scripts\activate.bat
+
+# REM Run your Python script
+# python main.py
+
+# pause
