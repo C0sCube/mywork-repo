@@ -204,7 +204,6 @@ class TableParser:
 
         return final_dict
     
-    
 
 class PDFTablExtract:
     
@@ -236,7 +235,17 @@ class PDFTablExtract:
 
                     if bbox:
                         bx0, by0, bx1, by1 = bbox
-                        if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                        # if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                        #     continue
+                        
+                        #latest
+                        horizontal_overlap = not (x1 < bx0 or x0 > bx1)
+                        vertical_inside = (
+                            y0 >= by0 and
+                            y1 <= by1
+                        )
+
+                        if not (horizontal_overlap and vertical_inside):
                             continue
 
                     items.append({
@@ -250,17 +259,14 @@ class PDFTablExtract:
         
         return items
 
-
     def _extract_words(self):
         items = []
         bbox = self.bbox
-        words = self.page.get_text("words")  # KEY CHANGE
+        words = self.page.get_text("words")
         for w in words:
             x0, y0, x1, y1, text = w[:5]
 
             text = text.strip()
-            # print(text)
-
             if not text:
                 continue
 
@@ -280,8 +286,7 @@ class PDFTablExtract:
 
         return items
 
-
-    def extract_rows_sampling(self, iteration = 60, y_thresh = 0.6):
+    def extract_rows_sampling(self, iteration = 60, y_thresh = 0.7)->list[list[dict]]:
         """
         Sampling-based row detection
         Returns DataFrame with 1 column (each row = full text)
@@ -312,10 +317,13 @@ class PDFTablExtract:
         # STEP 2: cluster y_hits into row anchors
         y_hits.sort()
 
+        #goal: group nearby y coords into same cluster
+        #threshold: average text height * intensity decides tolderance, vvimp
         heights = [i["height"] for i in items]
         avg_height = sum(heights) / len(heights)
-        threshold = avg_height * y_thresh   # adaptive
+        threshold = avg_height * y_thresh   #alterable
 
+        
         rows_y = []
         current = [y_hits[0]]
 
@@ -343,7 +351,7 @@ class PDFTablExtract:
             row_sorted = sorted(row, key=lambda x: x["x0"])
             text = " ".join(i["text"] for i in row_sorted)
             table.append([text])
-            table.extend([""]*4)
+            table.extend([""]*4) #just empty space remove later
             # print([i["text"] for i in row]) <- shows output as it is 
 
         # return as single column df
@@ -351,7 +359,7 @@ class PDFTablExtract:
         # return df
         return rows
 
-    def assign_columns_from_rows(self,rows, x_lines, tol=10):
+    def assign_columns_from_rows(self,rows:list[list[dict]], x_lines:list, tolerance=10):
         """
         rows: [[item, item], ...]
         x_lines: [x1, x2, ...]
@@ -367,7 +375,7 @@ class PDFTablExtract:
 
                 # pass-through check
                 for idx, lx in enumerate(x_lines):
-                    if item["x0"] - tol <= lx <= item["x1"] + tol: # +/-
+                    if item["x0"] - tolerance <= lx <= item["x1"] + tolerance: # +/-
                         cols[idx].append(item)
                         assigned = True
                         break
@@ -415,7 +423,7 @@ class PDFTablExtract:
 
         return None
 
-    def cut_rows_above_anchor(rows, anchor_y):
+    def cut_rows_above_anchor(self,rows, anchor_y):
         if anchor_y is None:
             return rows
 
@@ -427,36 +435,7 @@ class PDFTablExtract:
                 new_rows.append(row)
 
         return new_rows
-    
-    
-    
-    @staticmethod
-    def page_handler(page,config)->pd.DataFrame:
-        
-        try:
-            df = pd.DataFrame()
-            
-            bbox = tuple(config["bbox"]) if config.get("bbox") else None
-            x_lines = config.get("support_lines", [])
-            anchor = config.get("anchor_t", None)
-            if not bbox or not x_lines:
-                return df
-            parser = PDFTablExtract(page,bbox)
-                
-            rows = parser.extract_rows_sampling()
-            if not rows:
-                return df
-
-            if anchor:
-                anchor_y = parser.find_anchor_y(anchor)
-                rows = parser.cut_rows_above_anchor(rows, anchor_y)  
-            df = parser.assign_columns_from_rows(rows, x_lines)            
-            return df
-            
-        except Exception:
-            raise    
-    
-    
+     
     @staticmethod
     def handler(path:str,config:dict, pages = None)->pd.DataFrame:
         try:
@@ -486,10 +465,14 @@ class PDFTablExtract:
                     rows = parser.extract_rows_sampling()
                     if not rows:
                         continue
-
+                        
+                    # This is a temp solution, needs robust cuz config
+                    # If masking is good then this solves itself
                     if anchor:
+                        #Note: search text, if found get y coord, anything above it is waste so remove
                         anchor_y = parser.find_anchor_y(anchor)
-                        rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+                        rows = parser.cut_rows_above_anchor(rows, anchor_y)
+                    
                     df = parser.assign_columns_from_rows(rows, x_lines)
 
                 # add extra data
@@ -498,17 +481,67 @@ class PDFTablExtract:
                     all_dfs.append(df)
 
             doc.close()
-            
+            final_df = pd.DataFrame()
             if all_dfs:
                 final_df = pd.concat(all_dfs, ignore_index=True)
-            else:
-                final_df = pd.DataFrame() 
-            
+
             return final_df # final_df.to_csv(path.replace(".pdf",".csv"))
 
         except Exception:
             raise
 
+
+    
+    
+    # @staticmethod
+    # def page_handler(path:str,config:list, fund_pages:dict)->dict:
+        
+    #     try:
+    #         doc = fitz.open(path)
+    #         empty_df = pd.DataFrame()
+            
+    #         final_content = {}
+            
+    #         for page_n, fund_n in fund_pages.items():
+                
+    #             page = doc[page_n]
+    #             all_dfs = []
+                
+    #             for idx, section in enumerate(config):
+    #                 df = pd.DataFrame()
+                    
+    #                 #configs
+    #                 bbox = tuple(section["bbox"]) if section.get("bbox") else None
+    #                 x_lines = section.get("support_lines", [])
+    #                 anchor = section.get("anchor_t", None)
+                    
+    #                 if not bbox or not x_lines:
+    #                     all_dfs.append(empty_df)
+                    
+    #                 parser = PDFTablExtract(page,bbox)
+                        
+    #                 rows = parser.extract_rows_sampling()
+    #                 if not rows:
+    #                     all_dfs.append(empty_df)
+
+    #                 if anchor:
+    #                     anchor_y = parser.find_anchor_y(anchor)
+    #                     rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+    #                 df = parser.assign_columns_from_rows(rows, x_lines)
+    #                 df["page"] = page_n + 1 #which page the df belongs to
+                    
+    #                 all_dfs.append(df)
+            
+    #             final_df = pd.concat(all_dfs, ignore_index=True)
+    #             result_json = final_df.to_dict(orient="records")
+                
+    #             final_content[fund_n] = result_json
+                 
+    #         return final_content
+            
+    #     except Exception:
+    #         raise    
+    
 
 #legacy 19-05-2026
 # class PDFTablExtract:

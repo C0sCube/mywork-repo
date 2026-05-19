@@ -605,98 +605,86 @@ class ReadrIns:
             
             self._update_imp_data(extracted_text[fund], fund, pgn)
 
-
-
         is_portfolio = self.PARAMS.get("port_bbox",None)
         if is_portfolio:
             
             path = self.CURR_PDF_PATH
             config = self.PARAMS["port_bbox"]  # config to pull pdf
-            wrk_pgs = self.CURR_WORKING_PAGES.values()
-            
-            
-            print(f"WORKING PAGES: {wrk_pgs}")
-            
-            # port_data = ReadrIns.extract_portfolio(wrk_pgs,cfg,pth)
-            doc = fitz.open(path)
-            port_data = {}
-            for page_n, fund_n in wrk_pgs.items():
-                
-                page = doc[page_n]
-                df1 = PDFTablExtract.page_handler(page,config)
-                df1.to_dict(orient="records")
-                port_data[fund_n] = df1
+            wrk_pgs = self.CURR_WORKING_PAGES
+
+            port_data = ReadrIns.extract_portfolio(wrk_pgs,config,path)
             
             for fund_n, value in extracted_text.items():
                 value["portfolio_data"] = port_data[fund_n]
             
         return extracted_text
 
-    # @staticmethod
-    # def extract_portfolio(working_pages:dict,cfg:dict,path:str):
-    #     """
-    #     Full pipeline:
-    #     - Opens PDF
-    #     - Extracts tables using config
-    #     - Returns JSON output (list of dicts)
+    @staticmethod
+    def extract_portfolio(working_pages:dict,config:dict,path:str):
+        """
+        Full pipeline:
+        - Opens PDF
+        - Extracts tables using config
+        - Returns JSON output (list of dicts)
 
-    #     Args:
-    #         configs (dict): full JSON config
-    #         key (str): config key (e.g., "star_health")
+        Args:
+            configs (dict): full JSON config
+            key (str): config key (e.g., "star_health")
 
-    #     Returns:
-    #         list[dict]
-    #     """
-    #     doc = fitz.open(path)
-    #     final_content = {}
+        Returns:
+            list[dict]
+        """
+        doc = fitz.open(path)
+        empty_df = pd.DataFrame()
+        final_content = {}
+        
+        try:
 
-    #     for page_no, fund_name in working_pages.items():
-    #         page = doc[page_no]
-    #         all_dfs = []
-            
-    #         for idx,table in enumerate(cfg):
+            for page_no, fund_name in working_pages.items():
+                page = doc[page_no]
+                all_dfs = []
+                
+                for idx,table in enumerate(config):
 
-    #             bbox = tuple(table["bbox"]) if table.get("bbox") else None
-    #             x_lines = table.get("support_lines", [])
-    #             anchor = table.get("anchor_t", "")
+                    bbox = tuple(table["bbox"]) if table.get("bbox") else None
+                    x_lines = table.get("support_lines", [])
+                    anchor = table.get("anchor_t", "")
 
-    #             # skip invalid config
-    #             if not bbox or not x_lines:
-    #                 continue
+                    # skip invalid config
+                    if not bbox or not x_lines:
+                        all_dfs.append(empty_df)
 
-    #             # --- extract rows ---
-    #             extractor = PDFTablExtract(page, bbox)
-    #             rows = extractor.extract()
+                    # --- extract rows ---
+                    extractor = PDFTablExtract(page, bbox)
+                    rows = extractor.extract_rows_sampling()
 
-    #             if not rows:
-    #                 continue
+                    if not rows:
+                        all_dfs.append(empty_df)
 
-    #             # --- apply anchor ---
-    #             if anchor:
-    #                 anchor_y = extractor.find_anchor_y(anchor)
-    #                 rows = extractor.cut_rows_above_anchor(rows, anchor_y)
+                    # --- apply anchor ---
+                    if anchor:
+                        anchor_y = extractor.find_anchor_y(anchor)
+                        rows = extractor.cut_rows_above_anchor(rows, anchor_y)
 
-    #             # --- assign columns ---
-    #             df = PDFTablExtract.assign_columns(rows, x_lines)
+                    # --- assign columns ---
+                    df = extractor.assign_columns_from_rows(rows, x_lines)
+                    df["table"] = f"tbl_{idx}"
+                    df["page"] = page_no + 1
+                    
+                    all_dfs.append(df)
 
-    #             df["table"] = f"tbl_{idx}"
-    #             # df["mutual_fund_name"] = fund_name
-    #             all_dfs.append(df)
+                # --- combine ---
+                final_df = pd.concat(all_dfs, ignore_index=True)
+                result_json = final_df.to_dict(orient="records")
+                
+                final_content[fund_name] = result_json
+                
+            doc.close()
 
-    #         # --- combine ---
-    #         if all_dfs:
-    #             final_df = pd.concat(all_dfs, ignore_index=True)
-    #         else:
-    #             final_df = pd.DataFrame()
-
-    #         #convert to JSON
-    #         result_json = final_df.to_dict(orient="records")
-            
-    #         final_content[fund_name] = result_json
-            
-    #     doc.close()
-
-    #     return final_content
+            return final_content
+        
+        except Exception:
+            raise
 
 
 
