@@ -206,22 +206,22 @@ class TableParser:
     
     
 
-
-
-
 class PDFTablExtract:
-
-    def __init__(self, page, bbox=None):
+    
+    def __init__(self,page,bbox, mode = "word"):
+        
         self.page = page
         self.bbox = bbox
-        self.items = self._extract_spans()
-
-    # -------------------------
-    # STEP 0: Extract all spans
-    # -------------------------
+        if mode == "word":
+            self.items = self._extract_words()
+        elif mode =="span":
+            self.items = self._extract_spans()
+        
     def _extract_spans(self):
+        
         items = []
-
+        bbox = self.bbox
+        
         for block in self.page.get_text("dict")["blocks"]:
             if "lines" not in block:
                 continue
@@ -234,8 +234,8 @@ class PDFTablExtract:
                     if not text:
                         continue
 
-                    if self.bbox:
-                        bx0, by0, bx1, by1 = self.bbox
+                    if bbox:
+                        bx0, by0, bx1, by1 = bbox
                         if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
                             continue
 
@@ -247,35 +247,74 @@ class PDFTablExtract:
                         "y_center": (y0 + y1) / 2,
                         "height": y1 - y0
                     })
+        
+        return items
+
+
+    def _extract_words(self):
+        items = []
+        bbox = self.bbox
+        words = self.page.get_text("words")  # KEY CHANGE
+        for w in words:
+            x0, y0, x1, y1, text = w[:5]
+
+            text = text.strip()
+            # print(text)
+
+            if not text:
+                continue
+
+            if bbox:
+                bx0, by0, bx1, by1 = bbox
+                if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                    continue
+
+            items.append({
+                "x0": x0, "y0": y0,
+                "x1": x1, "y1": y1,
+                "text": text,
+                "x_center": (x0 + x1) / 2,
+                "y_center": (y0 + y1) / 2,
+                "height": y1 - y0
+            })
 
         return items
 
-    # -------------------------
-    # STEP 1 + 2: Detect row anchors
-    # -------------------------
-    def detect_rows(self):
-        if not self.items:
+
+    def extract_rows_sampling(self, iteration = 60, y_thresh = 0.6):
+        """
+        Sampling-based row detection
+        Returns DataFrame with 1 column (each row = full text)
+        """
+
+        # items = _extract_spans(page,bbox)
+        items = self.items
+        
+        if not items:
+            # return pd.DataFrame()
             return []
 
+        # STEP 1: sample vertical lines
         page_width = self.page.rect.width
         y_hits = []
 
-        # sampling
-        for _ in range(60):
+        for _ in range(iteration):  # stable than 50
             x = random.uniform(0, page_width)
 
-            for item in self.items:
+            for item in items:
                 if item["x0"] <= x <= item["x1"]:
                     y_hits.append(item["y_center"])
 
         if not y_hits:
+            # There is no text data avalaible
             return []
 
-        # clustering
+        # STEP 2: cluster y_hits into row anchors
         y_hits.sort()
-        heights = [i["height"] for i in self.items]
+
+        heights = [i["height"] for i in items]
         avg_height = sum(heights) / len(heights)
-        threshold = avg_height * 0.6
+        threshold = avg_height * y_thresh   # adaptive
 
         rows_y = []
         current = [y_hits[0]]
@@ -289,39 +328,35 @@ class PDFTablExtract:
 
         rows_y.append(sum(current) / len(current))
 
-        return rows_y
-
-    # -------------------------
-    # STEP 3: Assign spans to rows
-    # -------------------------
-    def build_rows(self, rows_y):
+        # STEP 3: assign spans to nearest row
         rows = [[] for _ in rows_y]
 
-        for item in self.items:
+        for item in items:
             distances = [abs(item["y_center"] - y) for y in rows_y]
             idx = distances.index(min(distances))
             rows[idx].append(item)
 
-        return rows
-
-    # -------------------------
-    # STEP 4: Convert rows to text
-    # -------------------------
-    def rows_to_text(self, rows):
+        # STEP 4: convert rows → text
         table = []
 
         for row in rows:
             row_sorted = sorted(row, key=lambda x: x["x0"])
             text = " ".join(i["text"] for i in row_sorted)
-            table.append(text)
+            table.append([text])
+            table.extend([""]*4)
+            # print([i["text"] for i in row]) <- shows output as it is 
 
-        return pd.DataFrame(table, columns=["row_text"])
+        # return as single column df
+        # df = pd.DataFrame(table, columns=["row_text"])
+        # return df
+        return rows
 
-    # -------------------------
-    # COLUMN ASSIGNMENT
-    # -------------------------
-    @staticmethod
-    def assign_columns(rows, x_lines, tol=10):
+    def assign_columns_from_rows(self,rows, x_lines, tol=10):
+        """
+        rows: [[item, item], ...]
+        x_lines: [x1, x2, ...]
+        """
+
         table = []
 
         for row in rows:
@@ -330,20 +365,20 @@ class PDFTablExtract:
             for item in row:
                 assigned = False
 
-                # pass-through
+                # pass-through check
                 for idx, lx in enumerate(x_lines):
-                    if item["x0"] - tol <= lx <= item["x1"] + tol:
+                    if item["x0"] - tol <= lx <= item["x1"] + tol: # +/-
                         cols[idx].append(item)
                         assigned = True
                         break
 
-                # fallback
+                # proximity fallback
                 if not assigned:
                     dists = [abs(item["x_center"] - lx) for lx in x_lines]
                     idx = dists.index(min(dists))
                     cols[idx].append(item)
 
-            # join text
+            # join text per column
             row_text = []
             for col in cols:
                 col_sorted = sorted(col, key=lambda x: x["x0"])
@@ -354,15 +389,13 @@ class PDFTablExtract:
 
         return pd.DataFrame(table)
 
-    # -------------------------
-    # ANCHOR DETECTION
-    # -------------------------
     def find_anchor_y(self, keyword):
         def norm(s):
             return re.sub(r"\s+", " ", s).strip().lower()
 
         keyword = norm(keyword)
-
+        bbox = self.bbox
+        
         for block in self.page.get_text("dict")["blocks"]:
             if "lines" not in block:
                 continue
@@ -370,22 +403,18 @@ class PDFTablExtract:
             for line in block["lines"]:
                 x0, y0, x1, y1 = line["bbox"]
 
-                if self.bbox:
-                    bx0, by0, bx1, by1 = self.bbox
+                if bbox:
+                    bx0, by0, bx1, by1 = bbox
                     if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
                         continue
 
                 line_text = " ".join(span["text"] for span in line["spans"])
 
                 if keyword in norm(line_text):
-                    return y0
+                    return y0   # top of anchor line
 
         return None
 
-    # -------------------------
-    # REMOVE ROWS ABOVE ANCHOR
-    # -------------------------
-    @staticmethod
     def cut_rows_above_anchor(rows, anchor_y):
         if anchor_y is None:
             return rows
@@ -393,20 +422,366 @@ class PDFTablExtract:
         new_rows = []
 
         for row in rows:
+            # keep row if ANY item is below anchor
             if any(item["y1"] >= anchor_y for item in row):
                 new_rows.append(row)
 
         return new_rows
+    
+    
+    
+    @staticmethod
+    def page_handler(page,config)->pd.DataFrame:
+        
+        try:
+            df = pd.DataFrame()
+            
+            bbox = tuple(config["bbox"]) if config.get("bbox") else None
+            x_lines = config.get("support_lines", [])
+            anchor = config.get("anchor_t", None)
+            if not bbox or not x_lines:
+                return df
+            parser = PDFTablExtract(page,bbox)
+                
+            rows = parser.extract_rows_sampling()
+            if not rows:
+                return df
+
+            if anchor:
+                anchor_y = parser.find_anchor_y(anchor)
+                rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+            df = parser.assign_columns_from_rows(rows, x_lines)            
+            return df
+            
+        except Exception:
+            raise    
+    
+    
+    @staticmethod
+    def handler(path:str,config:dict, pages = None)->pd.DataFrame:
+        try:
+            doc = fitz.open(path)
+            fetch_pages = range(doc.page_count)
+            all_dfs = []
+            
+            if pages:
+                fetch_pages = pages
+
+            for page_no in fetch_pages:
+                page = doc[page_no]
+
+                for table in config["tables"]:
+
+                    bbox = tuple(table["bbox"]) if table.get("bbox") else None
+                    x_lines = table.get("support_lines", [])
+                    anchor = table.get("anchor_t", None)
+
+                    #skip if not there
+                    if not bbox or not x_lines:
+                        continue
+                        
+                    #call _init_
+                    parser = PDFTablExtract(page,bbox)
+                        
+                    rows = parser.extract_rows_sampling()
+                    if not rows:
+                        continue
+
+                    if anchor:
+                        anchor_y = parser.find_anchor_y(anchor)
+                        rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+                    df = parser.assign_columns_from_rows(rows, x_lines)
+
+                # add extra data
+                    df["page"] = page_no + 1
+                    # all_dfs[page_no] = df
+                    all_dfs.append(df)
+
+            doc.close()
+            
+            if all_dfs:
+                final_df = pd.concat(all_dfs, ignore_index=True)
+            else:
+                final_df = pd.DataFrame() 
+            
+            return final_df # final_df.to_csv(path.replace(".pdf",".csv"))
+
+        except Exception:
+            raise
+
+
+#legacy 19-05-2026
+# class PDFTablExtract:
+
+#     def __init__(self, page, bbox=None):
+#         self.page = page
+#         self.bbox = bbox
+#         self.items = self._extract_spans()
+
+#     # -------------------------
+#     # STEP 0: Extract all spans
+#     # -------------------------
+#     def _extract_spans(self):
+#         items = []
+
+#         for block in self.page.get_text("dict")["blocks"]:
+#             if "lines" not in block:
+#                 continue
+
+#             for line in block["lines"]:
+#                 for span in line["spans"]:
+#                     x0, y0, x1, y1 = span["bbox"]
+#                     text = span["text"].strip()
+
+#                     if not text:
+#                         continue
+
+#                     if self.bbox:
+#                         bx0, by0, bx1, by1 = self.bbox
+#                         if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+#                             continue
+
+#                     items.append({
+#                         "x0": x0, "y0": y0,
+#                         "x1": x1, "y1": y1,
+#                         "text": text,
+#                         "x_center": (x0 + x1) / 2,
+#                         "y_center": (y0 + y1) / 2,
+#                         "height": y1 - y0
+#                     })
+
+#         return items
+
+#     # -------------------------
+#     # STEP 1 + 2: Detect row anchors
+#     # -------------------------
+
+#     def extract_rows_sampling(self,iter = 60):
+#         """
+#         Sampling-based row detection
+#         Returns DataFrame with 1 column (each row = full text)
+#         """
+
+#         items = self.items
+#         page = self.page
+        
+#         if not items:
+#             return pd.DataFrame()
+
+#         # --- STEP 1: sample vertical lines ---
+#         page_width = page.rect.width
+#         y_hits = []
+
+#         for _ in range(iter):  # stable than 50
+#             x = random.uniform(0, page_width)
+
+#             for item in items:
+#                 if item["x0"] <= x <= item["x1"]:
+#                     y_hits.append(item["y_center"])
+
+#         if not y_hits:
+#             return pd.DataFrame()
+
+#         # --- STEP 2: cluster y_hits into row anchors ---
+#         y_hits.sort()
+
+#         heights = [i["height"] for i in items]
+#         avg_height = sum(heights) / len(heights)
+#         threshold = avg_height * 0.6   # adaptive
+
+#         rows_y = []
+#         current = [y_hits[0]]
+
+#         for i in range(1, len(y_hits)):
+#             if abs(y_hits[i] - current[-1]) < threshold:
+#                 current.append(y_hits[i])
+#             else:
+#                 rows_y.append(sum(current) / len(current))
+#                 current = [y_hits[i]]
+
+#         rows_y.append(sum(current) / len(current))
+
+#         # --- STEP 3: assign spans to nearest row ---
+#         rows = [[] for _ in rows_y]
+
+#         for item in items:
+#             distances = [abs(item["y_center"] - y) for y in rows_y]
+#             idx = distances.index(min(distances))
+#             rows[idx].append(item)
+
+#         # --- STEP 4: convert rows → text ---
+#         table = []
+
+#         for row in rows:
+#             row_sorted = sorted(row, key=lambda x: x["x0"])
+#             text = " ".join(i["text"] for i in row_sorted)
+#             table.append([text])
+#             table.extend([""]*4)
+
+#         # --- return as single column df ---
+#         # df = pd.DataFrame(table, columns=["row_text"])
+#         # return df
+#         return rows
+    
+
+
+#     # -------------------------
+#     # COLUMN ASSIGNMENT
+#     # -------------------------
+#     @staticmethod
+#     def assign_columns(rows, x_lines, tol=10):
+#         table = []
+
+#         for row in rows:
+#             cols = [[] for _ in range(len(x_lines))]
+
+#             for item in row:
+#                 assigned = False
+
+#                 # pass-through
+#                 for idx, lx in enumerate(x_lines):
+#                     if item["x0"] - tol <= lx <= item["x1"] + tol:
+#                         cols[idx].append(item)
+#                         assigned = True
+#                         break
+
+#                 # fallback
+#                 if not assigned:
+#                     dists = [abs(item["x_center"] - lx) for lx in x_lines]
+#                     idx = dists.index(min(dists))
+#                     cols[idx].append(item)
+
+#             # join text
+#             row_text = []
+#             for col in cols:
+#                 col_sorted = sorted(col, key=lambda x: x["x0"])
+#                 text = " ".join(i["text"] for i in col_sorted)
+#                 row_text.append(text)
+
+#             table.append(row_text)
+
+#         return pd.DataFrame(table)
+
+#     # -------------------------
+#     # ANCHOR DETECTION
+#     # -------------------------
+#     def find_anchor_y(self, keyword):
+#         def norm(s):
+#             return re.sub(r"\s+", " ", s).strip().lower()
+
+#         keyword = norm(keyword)
+
+#         for block in self.page.get_text("dict")["blocks"]:
+#             if "lines" not in block:
+#                 continue
+
+#             for line in block["lines"]:
+#                 x0, y0, x1, y1 = line["bbox"]
+
+#                 if self.bbox:
+#                     bx0, by0, bx1, by1 = self.bbox
+#                     if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+#                         continue
+
+#                 line_text = " ".join(span["text"] for span in line["spans"])
+
+#                 if keyword in norm(line_text):
+#                     return y0
+
+#         return None
+
+#     # -------------------------
+#     # REMOVE ROWS ABOVE ANCHOR
+#     # -------------------------
+#     @staticmethod
+#     def cut_rows_above_anchor(rows, anchor_y):
+#         if anchor_y is None:
+#             return rows
+
+#         new_rows = []
+
+#         for row in rows:
+#             if any(item["y1"] >= anchor_y for item in row):
+#                 new_rows.append(row)
+
+#         return new_rows
+
+#     # -------------------------
+#     # FULL PIPELINE
+#     # -------------------------
+#     def extract(self, keyword=None):
+#         rows_y = self.detect_rows()
+#         rows = self.build_rows(rows_y)
+
+#         if keyword:
+#             anchor_y = self.find_anchor_y(keyword)
+#             rows = self.cut_rows_above_anchor(rows, anchor_y)
+
+#         return rows
+    
+    
+    
+
+    # def detect_rows(self):
+    #     if not self.items:
+    #         return []
+
+    #     page_width = self.page.rect.width
+    #     y_hits = []
+
+    #     # sampling
+    #     for _ in range(60):
+    #         x = random.uniform(0, page_width)
+
+    #         for item in self.items:
+    #             if item["x0"] <= x <= item["x1"]:
+    #                 y_hits.append(item["y_center"])
+
+    #     if not y_hits:
+    #         return []
+
+    #     # clustering
+    #     y_hits.sort()
+    #     heights = [i["height"] for i in self.items]
+    #     avg_height = sum(heights) / len(heights)
+    #     threshold = avg_height * 0.6
+
+    #     rows_y = []
+    #     current = [y_hits[0]]
+
+    #     for i in range(1, len(y_hits)):
+    #         if abs(y_hits[i] - current[-1]) < threshold:
+    #             current.append(y_hits[i])
+    #         else:
+    #             rows_y.append(sum(current) / len(current))
+    #             current = [y_hits[i]]
+
+    #     rows_y.append(sum(current) / len(current))
+
+    #     return rows_y
 
     # -------------------------
-    # FULL PIPELINE
+    # STEP 3: Assign spans to rows
     # -------------------------
-    def extract(self, keyword=None):
-        rows_y = self.detect_rows()
-        rows = self.build_rows(rows_y)
+    # def build_rows(self, rows_y):
+    #     rows = [[] for _ in rows_y]
 
-        if keyword:
-            anchor_y = self.find_anchor_y(keyword)
-            rows = self.cut_rows_above_anchor(rows, anchor_y)
+    #     for item in self.items:
+    #         distances = [abs(item["y_center"] - y) for y in rows_y]
+    #         idx = distances.index(min(distances))
+    #         rows[idx].append(item)
 
-        return rows
+    #     return rows
+
+    # -------------------------
+    # STEP 4: Convert rows to text
+    # -------------------------
+    # def rows_to_text(self, rows):
+    #     table = []
+
+    #     for row in rows:
+    #         row_sorted = sorted(row, key=lambda x: x["x0"])
+    #         text = " ".join(i["text"] for i in row_sorted)
+    #         table.append(text)
+
+    #     return pd.DataFrame(table, columns=["row_text"])

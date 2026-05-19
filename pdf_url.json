@@ -1,16 +1,169 @@
 {
+    "ZEE": {
+        "path": "ZEE.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    69.36,
+                    136.97,
+                    501.34,
+                    810
+                ],
+                "column_lines": [
+                    329.25,
+                    397,
+                    474.12
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "JOHN": {
+        "path": "JOHN.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    91.31,
+                    159.8,
+                    548.75,
+                    604.06
+                ],
+                "column_lines": [
+                    295.01,
+                    367.0,
+                    420.56,
+                    475.0,
+                    515.38
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "FIN": {
+        "path": "FIN.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    51.19,
+                    111.05,
+                    494.52,
+                    703.6
+                ],
+                "column_lines": [
+                    294.97,
+                    389.54,
+                    452.87
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "oil": {
+        "path": "OIL.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    16.66,
+                    124.53,
+                    575.28,
+                    727.0
+                ],
+                "column_lines": [
+                    218.36,
+                    349.03,
+                    399.01,
+                    449.0,
+                    502.5,
+                    550.73
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "tatam": {
+        "path": "TATAM.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    54.44,
+                    107.12,
+                    559.28,
+                    605.82
+                ],
+                "column_lines": [
+                    235,
+                    295,
+                    344,
+                    390,
+                    436.36,
+                    487.29,
+                    535
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "apollo": {
+        "path": "SAMPLE.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    87.51,
+                    140.02,
+                    806.95,
+                    439.4
+                ],
+                "column_lines": [
+                    240.43,
+                    426.5,
+                    493.75,
+                    561.92,
+                    631.93,
+                    695.49,
+                    759.97
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "apollo2": {
+        "path": "SAM2.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    57.26,
+                    79.38,
+                    525.76,
+                    787.34
+                ],
+                "column_lines": [
+                    195.21,
+                    377.4,
+                    478.91
+                ],
+                "anchor": null
+            }
+        ]
+    },
     "aditya_birla_1": {
         "path": "ADI.pdf",
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     13.92,
                     101.56,
                     306.32,
                     841.96
                 ],
-                "x_lines": [
+                "column_lines": [
                     104.02,
                     279.29
                 ],
@@ -23,13 +176,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     4.35,
                     186.34,
                     208.98,
                     777.57
                 ],
-                "x_lines": [
+                "column_lines": [
                     80.07,
                     171.53
                 ],
@@ -37,13 +190,13 @@
             },
             {
                 "name": "table_2",
-                "bbox": [
+                "mask_bbox": [
                     196.79,
                     181.11,
                     400.54,
                     792
                 ],
-                "x_lines": [
+                "column_lines": [
                     245,
                     367.45
                 ],
@@ -51,13 +204,13 @@
             },
             {
                 "name": "table_3",
-                "bbox": [
+                "mask_bbox": [
                     397.93,
                     185.47,
                     581.65,
                     706.17
                 ],
-                "x_lines": [
+                "column_lines": [
                     415,
                     555.53
                 ],
@@ -66,17 +219,17 @@
         ]
     },
     "star_health": {
-        "path": "STR_bbox_mask.pdf",
+        "path": "STR_mask_bbox_mask.pdf",
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     4.1,
                     116.3,
                     268.64,
                     724.84
                 ],
-                "x_lines": [
+                "column_lines": [
                     72.89,
                     239.16
                 ],
@@ -89,13 +242,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     430,
                     110.57,
                     610.99,
                     776
                 ],
-                "x_lines": [
+                "column_lines": [
                     457.02,
                     600
                 ],
@@ -108,13 +261,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     15.56,
                     138.42,
                     353.82,
                     787.9
                 ],
-                "x_lines": [
+                "column_lines": [
                     101.56,
                     306
                 ],
@@ -127,13 +280,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     15.56,
                     98.28,
                     353.0,
                     778.08
                 ],
-                "x_lines": [
+                "column_lines": [
                     96.65,
                     306.32
                 ],
@@ -146,13 +299,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     0,
                     147.0,
                     300,
                     835
                 ],
-                "x_lines": [
+                "column_lines": [
                     50,
                     270
                 ],
@@ -165,13 +318,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     430.68,
                     231.23,
                     831.35,
                     1240.85
                 ],
-                "x_lines": [
+                "column_lines": [
                     488.93,
                     767.81
                 ],
@@ -184,13 +337,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     295.86,
                     227.74,
                     605.95,
                     781
                 ],
-                "x_lines": [
+                "column_lines": [
                     332,
                     570
                 ],
@@ -203,13 +356,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     296.87,
                     64.05,
                     590.7,
                     762.52
                 ],
-                "x_lines": [
+                "column_lines": [
                     360,
                     505
                 ],
@@ -222,13 +375,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     156.73,
                     132.95,
                     397.76,
                     800
                 ],
-                "x_lines": [
+                "column_lines": [
                     207.53,
                     335
                 ],
@@ -241,13 +394,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     471.86,
                     98.8,
                     861.95,
                     1323.59
                 ],
-                "x_lines": [
+                "column_lines": [
                     567,
                     778
                 ],
@@ -260,13 +413,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     2.16,
                     150.24,
                     296.16,
                     916.58
                 ],
-                "x_lines": [
+                "column_lines": [
                     96,
                     270
                 ],
@@ -274,13 +427,13 @@
             },
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     288.91,
                     147.06,
                     588.23,
                     792.55
                 ],
-                "x_lines": [
+                "column_lines": [
                     391.72,
                     538
                 ],
@@ -293,15 +446,15 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
-                    183.46,
-                    4.1,
-                    430.81,
-                    791.18
+                "mask_bbox": [
+                    182.52,
+                    60.29,
+                    407.15,
+                    665.64
                 ],
-                "x_lines": [
-                    104.02,
-                    279.29
+                "column_lines": [
+                    230,
+                    390
                 ],
                 "anchor": ""
             }
@@ -312,13 +465,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     2.97,
                     255.21,
                     277.47,
                     985.22
                 ],
-                "x_lines": [
+                "column_lines": [
                     69.74,
                     256.69
                 ],
@@ -331,13 +484,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     300,
                     30,
                     590.02,
                     800
                 ],
-                "x_lines": [
+                "column_lines": [
                     373,
                     555
                 ],
@@ -350,13 +503,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     295.27,
                     166.18,
                     592.02,
                     980
                 ],
-                "x_lines": [
+                "column_lines": [
                     360,
                     575
                 ],
@@ -369,13 +522,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     3.24,
                     203.2,
                     291.84,
                     842.0
                 ],
-                "x_lines": [
+                "column_lines": [
                     60,
                     250
                 ],
@@ -388,13 +541,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     175.1,
                     134.03,
                     405.33,
                     916.58
                 ],
-                "x_lines": [
+                "column_lines": [
                     245,
                     380
                 ],
@@ -407,13 +560,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     240.96,
                     99.64,
                     403.63,
                     735.07
                 ],
-                "x_lines": [
+                "column_lines": [
                     305,
                     390
                 ],
@@ -426,13 +579,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     240.96,
                     99.64,
                     403.63,
                     735.07
                 ],
-                "x_lines": [
+                "column_lines": [
                     100,
                     325
                 ],
@@ -445,13 +598,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     268.68,
                     101.35,
                     460.77,
                     537.37
                 ],
-                "x_lines": [
+                "column_lines": [
                     320,
                     440
                 ],
@@ -459,13 +612,13 @@
             },
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     456.05,
                     102.52,
                     650.5,
                     529.12
                 ],
-                "x_lines": [
+                "column_lines": [
                     500,
                     625
                 ],
@@ -478,13 +631,13 @@
         "tables": [
             {
                 "name": "table_1",
-                "bbox": [
+                "mask_bbox": [
                     5.4,
                     303.73,
                     356.69,
                     916.58
                 ],
-                "x_lines": [
+                "column_lines": [
                     100,
                     335
                 ],

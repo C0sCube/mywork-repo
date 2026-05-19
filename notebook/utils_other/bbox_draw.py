@@ -49,9 +49,11 @@ class Application(tk.Frame):
         Button(control_frame, text="Next >", command=self.next_page).pack(side="left")
 
         # mode buttons (store refs)
+        #rectangle mode
         self.rect_btn = Button(control_frame, text="Rect Mode", command=lambda: self.set_mode("rect"))
         self.rect_btn.pack(side="left")
 
+        #line mode
         self.line_btn = Button(control_frame, text="Line Mode", command=lambda: self.set_mode("line"))
         self.line_btn.pack(side="left")
 
@@ -60,12 +62,15 @@ class Application(tk.Frame):
 
         Checkbutton(control_frame, text="Fit", variable=self.fit_to_screen, command=self.load_page).pack(side="left")
 
-        self.page_label = tk.Label(control_frame, text="")
+        self.page_label = tk.Label(control_frame, text= self.pdf_path if self.pdf_path else "")
         self.page_label.pack(side="left")
 
         self.page_entry = Entry(control_frame, width=5)
         self.page_entry.pack(side="left")
         Button(control_frame, text="Go", command=self.jump_to_page).pack(side="left")
+        
+        self.pdf_name = tk.Label(control_frame,width=5, text="")
+        
 
         # coord panel
         self.coord_box = tk.Text(self, width=40)

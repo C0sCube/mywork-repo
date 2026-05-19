@@ -430,8 +430,8 @@ class Helper:
 
                         page.draw_rect(
                             bbox,
-                            color=(1, 0, 0),  # red
-                            width=1.5,
+                            color=(0, 1, int(64/255)),  # red
+                            width=0.5,
                             overlay=True
                         )
 
@@ -521,6 +521,64 @@ class Helper:
         doc.save(output_path)
         doc.close()
         return output_path
+    
+    
+    @staticmethod
+    def draw_word_boundaries(pdf_path: str):
+        doc = fitz.open(pdf_path)
+
+        for page in doc:
+            words = page.get_text("words")
+
+            for w in words:
+                x0, y0, x1, y1, text = w[:5]
+
+                page.draw_rect(
+                    (x0, y0, x1, y1),
+                    color=(int(191/255), 0, 1),  # red
+                    width=.6,
+                    overlay=True
+                )
+
+        output_path = pdf_path.replace('.pdf', '_word_hltd.pdf')
+        doc.save(output_path)
+        doc.close()
+        return output_path
+
+
+    @staticmethod
+    def compare_span_vs_word(pdf_path: str):
+        doc = fitz.open(pdf_path)
+
+        for page in doc:
+
+            # SPANS → green
+            blocks = page.get_text("dict")["blocks"]
+            for block in blocks:
+                for line in block.get("lines", []):
+                    for span in line.get("spans", []):
+                        page.draw_rect(
+                            span["bbox"],
+                            color=(0, 1, 0),
+                            width=1,
+                            overlay=True
+                        )
+
+            # WORDS → red
+            words = page.get_text("words")
+            for w in words:
+                x0, y0, x1, y1 = w[:4]
+                page.draw_rect(
+                    (x0, y0, x1, y1),
+                    color=(1, 0, 0),
+                    width=1,
+                    overlay=True
+                )
+
+        out = pdf_path.replace(".pdf", "_compare.pdf")
+        doc.save(out)
+        doc.close()
+        return out
 
     @staticmethod
     def draw_bboxes_on_pdf(pdf_path:str, bbox:tuple):
