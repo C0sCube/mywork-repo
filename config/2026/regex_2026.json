@@ -112,7 +112,8 @@
     "sfin":[
       ".*sfin_no",
       ".*sfin$",
-      ".*sfin_number"
+      ".*sfin_number",
+      ".*_sfin_for.*"
     ],
     "amc_name": [
       "amc_name"

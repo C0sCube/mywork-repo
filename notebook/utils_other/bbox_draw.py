@@ -33,6 +33,7 @@ class Application(tk.Frame):
         # drawing state
         self.draw_mode = "rect"
         self.drawn_items = []
+        self.annotations = []
         self.start_x = None
         self.start_y = None
         self.rect = None

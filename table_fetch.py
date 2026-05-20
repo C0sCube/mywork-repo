@@ -37,8 +37,19 @@ class FetchTable:
 
                     if bbox:
                         bx0, by0, bx1, by1 = bbox
-                        if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                        # if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                        #     continue
+
+                        #latest
+                        horizontal_overlap = not (x1 < bx0 or x0 > bx1)
+                        vertical_inside = (
+                            y0 >= by0 and
+                            y1 <= by1
+                        )
+
+                        if not (horizontal_overlap and vertical_inside):
                             continue
+
 
                     items.append({
                         "x0": x0, "y0": y0,
@@ -50,7 +61,6 @@ class FetchTable:
                     })
         
         return items
-
 
     def _extract_words(self):
         items = []
@@ -67,7 +77,17 @@ class FetchTable:
 
             if bbox:
                 bx0, by0, bx1, by1 = bbox
-                if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                # if not (x0 >= bx0 and y0 >= by0 and x1 <= bx1 and y1 <= by1):
+                #     continue
+                
+                #latest
+                horizontal_overlap = not (x1 < bx0 or x0 > bx1)
+                vertical_inside = (
+                    y0 >= by0 and
+                    y1 <= by1
+                )
+
+                if not (horizontal_overlap and vertical_inside):
                     continue
 
             items.append({
@@ -79,8 +99,11 @@ class FetchTable:
                 "height": y1 - y0
             })
 
+        import pprint
+        
+        pprint.pprint(items)
+        
         return items
-
 
     def extract_rows_sampling(self, iteration = 60, y_thresh = 0.6):
         """
@@ -144,13 +167,13 @@ class FetchTable:
             row_sorted = sorted(row, key=lambda x: x["x0"])
             text = " ".join(i["text"] for i in row_sorted)
             table.append([text])
-            table.extend([""]*4)
+            # table.extend([""]*4)
             # print([i["text"] for i in row]) <- shows output as it is 
 
         # return as single column df
         # df = pd.DataFrame(table, columns=["row_text"])
         # return df
-        return rows
+        return rows, rows_y
 
     def assign_columns_from_rows(self,rows, x_lines, tol=10):
         """
@@ -282,6 +305,92 @@ class FetchTable:
 
         except Exception:
             raise
+
+    @staticmethod
+    def new_handler(path:str,config:dict)->pd.DataFrame:
+        doc = fitz.open(path)
+        all_dfs = []        
+        final_df = pd.DataFrame() 
         
+        try:
+            for _, page_config in config.items():
+                
+                page_no = int(page_config["page_number"]) - 1
+                bbox = page_config["table_rect"]
+                x_lines = page_config["columns"]
+                anchor = None
+                
+                #fetch page
+                page = doc[page_no]
+                
+                if not bbox or not x_lines:
+                        continue
+                
+                parser = FetchTable(page,bbox)
+                rows = parser.extract_rows_sampling()
+                if not rows:
+                    continue
+
+                if anchor:
+                    anchor_y = parser.find_anchor_y(anchor)
+                    rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+                df = parser.assign_columns_from_rows(rows, x_lines)
+
+                # add extra data
+                df["page"] = page_no + 1
+                all_dfs.append(df)
+
+            doc.close()
+            
+            if all_dfs:
+                final_df = pd.concat(all_dfs, ignore_index=True)
+            return final_df
+        except Exception:
+            raise
         
+    @staticmethod
+    def renew_handler(path:str,config:dict)->pd.DataFrame:
+        doc = fitz.open(path)
+        all_dfs = {}       
+        final_df = pd.DataFrame() 
         
+        try:
+            for _, page_config in config.items():
+                
+                page_no = int(page_config["page_number"]) - 1
+                bbox = page_config["table_rect"]
+                x_lines = page_config["columns"]
+                anchor = None
+                
+                #fetch page
+                page = doc[page_no]
+                
+                if not bbox or not x_lines:
+                        continue
+                
+                parser = FetchTable(page,bbox)
+                rows, rows_y = parser.extract_rows_sampling()
+                # print(f"Page: {page_no}")
+                print(rows_y)
+                
+                if not rows:
+                    continue
+
+                if anchor:
+                    anchor_y = parser.find_anchor_y(anchor)
+                    rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+                df = parser.assign_columns_from_rows(rows, x_lines)
+
+                # add extra data if any
+                
+                all_dfs[page_no + 1] = df
+
+            doc.close()
+            
+            # if all_dfs:
+            #     final_df = pd.concat(all_dfs, ignore_index=True)
+            # return final_df
+            
+            return all_dfs
+        except Exception:
+            raise

@@ -405,7 +405,7 @@ class Helper:
                     # Set the rectangle's fill and stroke color
                     shape = page.new_shape()
                     shape.draw_rect(rect)  
-                    shape.finish(color=(1,0,0), fill=(1, 0.75, 0.8), width=0.8, fill_opacity = .3)  # Pink fill, no border color
+                    shape.finish(color=(0.4,0,0), fill=(1, 0.75, 0.8), width=0.8, fill_opacity = .3)  # Pink fill, no border color
                     shape.commit()
             
 
