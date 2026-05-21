@@ -41,7 +41,7 @@
     title: {
       bbox: [0, 0, 500, 55],
       ocr: false,
-      pattern: "(CANARA\\s*ROBECO.*?)\\(CR",
+      pattern: "(CANARA\\s*ROBECO.*?)\\(",
     },
     update_min_add: false,
   },

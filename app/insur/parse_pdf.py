@@ -751,13 +751,15 @@ class ReadrIns:
         try:
             new_metrics = {}
             metrics = df.get("metrics", {})
+            # print(metrics)
+            
             for metric_key, metric_value in metrics.items():
                 new_key = self.PARAM_REGEX._map_metric_keys_to_dict(metric_key) or metric_key
                 new_metrics[new_key] = metric_value
 
             df["metrics"] = self.PARAM_REGEX._populate_all_metrics_in_json(new_metrics)
         except Exception as e:
-            self.logger.error(f"__metric_ops → {fund} Metric Error: {e}", exc_info=True)
+            self.log.error(f"__metric_ops → {fund} Metric Error: {e}", exc_info=True)
 
         return df
     
