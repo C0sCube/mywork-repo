@@ -345,7 +345,7 @@ class FetchTable:
                     #call _init_
                     parser = FetchTable(page,bbox,x_lines)
                         
-                    rows = parser.row_detect_sampling()
+                    rows,rows_y = parser.row_detect_sampling()
                     if not rows:
                         continue
 
@@ -370,92 +370,41 @@ class FetchTable:
         except Exception:
             raise
 
-    # @staticmethod
-    # def new_handler(path:str,config:dict)->pd.DataFrame:
-    #     doc = fitz.open(path)
-    #     all_dfs = []        
-    #     final_df = pd.DataFrame() 
-        
-    #     try:
-    #         for _, page_config in config.items():
-                
-    #             page_no = int(page_config["page_number"]) - 1
-    #             bbox = page_config["table_rect"]
-    #             x_lines = page_config["columns"]
-    #             anchor = None
-                
-    #             #fetch page
-    #             page = doc[page_no]
-                
-    #             if not bbox or not x_lines:
-    #                     continue
-                
-    #             parser = FetchTable(page,bbox,x_lines)
-    #             rows = parser.row_detect_sampling()
-    #             if not rows:
-    #                 continue
-
-    #             if anchor:
-    #                 anchor_y = parser.find_anchor_y(anchor)
-    #                 rows = parser.cut_rows_above_anchor(rows, anchor_y)
-                    
-    #             df = parser.col_definite_assign(rows)
-
-    #             # add extra data
-    #             df["page"] = page_no + 1
-    #             all_dfs.append(df)
-
-    #         doc.close()
-            
-    #         if all_dfs:
-    #             final_df = pd.concat(all_dfs, ignore_index=True)
-    #         return final_df
-    #     except Exception:
-    #         raise
         
     @staticmethod
-    def renew_handler(path:str,config:dict)->pd.DataFrame:
+    def renew_handler(path:str, config:dict) -> pd.DataFrame:
+
         doc = fitz.open(path)
-        all_dfs = {}       
-        final_df = pd.DataFrame() 
-        
+        final_df = pd.DataFrame()
+
         try:
+
             for _, page_config in config.items():
-                
                 page_no = int(page_config["page_number"]) - 1
                 bbox = page_config["table_rect"]
                 x_lines = page_config["columns"]
                 anchor = None
-                
-                #fetch page
+
                 page = doc[page_no]
-                
+
                 if not bbox or not x_lines:
-                        continue
-                
-                parser = FetchTable(page,bbox,x_lines)
+                    continue
+
+                parser = FetchTable(page, bbox, x_lines)
                 rows, rows_y = parser.row_detect_sampling()
-                # print(f"Page: {page_no}")
-                # print(rows_y)
-                
+
                 if not rows:
                     continue
 
                 if anchor:
                     anchor_y = parser.find_anchor_y(anchor)
-                    rows = parser.cut_rows_above_anchor(rows, anchor_y)
-                    
-                df = parser.col_definite_assign(rows)
+                    rows = parser.cut_rows_above_anchor(
+                        rows,
+                        anchor_y
+                    )
 
-                # add extra data if any
-                all_dfs[page_no + 1] = df
+                final_df = parser.col_definite_assign(rows)
+            return final_df
 
+        finally:
             doc.close()
-            
-            # if all_dfs:
-            #     final_df = pd.concat(all_dfs, ignore_index=True)
-            # return final_df
-            
-            return all_dfs
-        except Exception:
-            raise
