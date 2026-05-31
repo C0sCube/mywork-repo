@@ -56,7 +56,7 @@
     ],
     load: "Entry Load\\s*(.*?)Exit Load\\s*(.*?)$",
     min_amt: "([\\d,]+).*?([\\d,]+)",
-    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\&]+|\\(Annualised\\)",
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\&\\:]+|\\(Annualised\\)|\\(TRI\\)|TRI",
   },
   PATTERN_TO_FUNCTION: { "^before.*": ["_extract_scheme_data", "scheme"] },
   SECONDARY_PATTERN_TO_FUNCTION: {

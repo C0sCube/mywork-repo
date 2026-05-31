@@ -1,19 +1,152 @@
 {
+    "ZEENEW": {
+        "path": "ZEENEW.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox":[53, 111, 531, 315],
+                "column_lines": [53, 272, 423, 531],
+                "anchor": null
+            }
+        ]
+    },
+    "NEST": {
+        "path": "NEST.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    37.99,
+                    118.92,
+                    574.8,
+                    588.01
+                ],
+                "column_lines": [
+                    37.99,
+                    90.84,
+                    139.57,
+                    187.47,
+                    465.79,
+                    516.99,
+                    570.67
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "CST": {
+        "path": "CST.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    39.7,
+                    159.67,
+                    520.48,
+                    607.81
+                ],
+                "column_lines": [
+                    41.46,
+                    263.77,
+                    331.7,
+                    393.45,
+                    456.96,
+                    520.48
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "FORT": {
+        "path": "C:\\Users\\kaustubh.keny\\Projects\\OFFICE PROJECTS\\rep_fsparse\\FORT.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    54.5,
+                    151.19,
+                    540.61,
+                    748
+                ],
+                "column_lines": [
+                    56.26,
+                    210.97,
+                    305.91,
+                    383.26,
+                    461.5,
+                    537.09
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "LTI": {
+        "path": "LTI.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    9.66,
+                    179.11,
+                    582.11,
+                    710.3
+                ],
+                "column_lines": [
+                    35.12,
+                    359.98,
+                    417.05,
+                    474.12,
+                    524.16,
+                    577.72
+                ],
+                "anchor": null
+            }
+        ]
+    },
     "ZEE": {
         "path": "ZEE.pdf",
         "tables": [
             {
                 "name": "table_1",
                 "mask_bbox": [
-                    69.36,
-                    136.97,
-                    501.34,
-                    810
+                    14,
+                    161,
+                    581,
+                    618
                 ],
                 "column_lines": [
-                    329.25,
-                    397,
-                    474.12
+                    14,
+                    306,
+                    372,
+                    427,
+                    480,
+                    531,
+                    581
+                ],
+                "anchor": null
+            }
+        ]
+    },
+    "TIPS": {
+        "path": "TIPS.pdf",
+        "tables": [
+            {
+                "name": "table_1",
+                "mask_bbox": [
+                    84.24,
+                    104.88,
+                    560.76,
+                    474.87
+                ],
+                "column_lines": [
+                    87.54,
+                    109.84,
+                    313.83,
+                    361.73,
+                    412.93,
+                    460.83,
+                    510.38,
+                    559.93
                 ],
                 "anchor": null
             }

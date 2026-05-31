@@ -4,6 +4,8 @@ import re
 import random
 import pandas as pd
 import fitz #type:ignore
+import numpy as np
+from sklearn.cluster import DBSCAN
 
 
 
@@ -13,10 +15,10 @@ class FetchTable:
             self,
             page,
             bbox,
-            x_lines,
+            x_lines = None,
             mode:str = "word",
             row_sample_iter:int = 60,
-            row_sample_thresh:int = 0.6,
+            row_sample_thresh:int = 0.7,
             col_sample_iter:int = 60
         ):
         
@@ -114,8 +116,7 @@ class FetchTable:
                 "height": y1 - y0
             })
 
-        # import pprint
-        # pprint.pprint(items)
+        print(f"THE ITEMS:{items[:5]}")
         
         return items
 
@@ -235,36 +236,81 @@ class FetchTable:
 
             table.append(row_text)
 
-        return pd.DataFrame(table)
+        return pd.DataFrame(table), self.items
     
-    def col_assign(self,rows, tol=10):
-        """
-        rows: [[item, item], ...]
-        x_lines: [x1, x2, ...]
-        """
-        x_lines = self.x_lines
+
+    def auto_column_assign(self,rows, bbox, eps=15, min_samples=5):
+
+        # ---- flatten all items ----
+        items = [item for row in rows for item in row]
+
+        if not items:
+            print("There are no items.")
+            return pd.DataFrame(), []
+
+        # ---- extract x_centers ----
+        xs = np.array([i["x_center"] for i in items])
+
+        # ---- DBSCAN clustering ----
+        X = xs.reshape(-1, 1)
+        model = DBSCAN(eps=eps, min_samples=min_samples).fit(X)
+        labels = model.labels_
+
+        # ---- build clusters ----
+        clusters = {}
+        for item, label in zip(items, labels):
+            if label == -1:
+                continue
+            clusters.setdefault(label, []).append(item)
+
+        # ---- compute percentile spreads ----
+        col_spans = []
+
+        for label, cluster_items in clusters.items():
+            c_xs = np.array([i["x_center"] for i in cluster_items])
+
+            left = np.percentile(c_xs, 5)
+            right = np.percentile(c_xs, 95)
+            center = np.mean(c_xs)
+
+            col_spans.append({
+                "center": center,
+                "left": left,
+                "right": right
+            })
+
+        # ---- sort columns left → right ----
+        col_spans = sorted(col_spans, key=lambda x: x["center"])
+
+        # ---- build x_lines using bbox ----
+        x0, _, x1, _ = bbox
+
+        x_lines = [x0]
+
+        for i in range(len(col_spans) - 1):
+            right_current = col_spans[i]["right"]
+            left_next = col_spans[i + 1]["left"]
+
+            boundary = (right_current + left_next) / 2
+            x_lines.append(boundary)
+
+        x_lines.append(x1)
+
+        # ---- assign items into columns ----
         table = []
 
         for row in rows:
-            cols = [[] for _ in range(len(x_lines))]
+            cols = [[] for _ in range(len(x_lines) - 1)]
 
             for item in row:
-                assigned = False
+                xc = item["x_center"]
 
-                # pass-through check
-                for idx, lx in enumerate(x_lines):
-                    if item["x0"] - tol <= lx <= item["x1"] + tol: # +/-
-                        cols[idx].append(item)
-                        assigned = True
+                for i in range(len(x_lines) - 1):
+                    if x_lines[i] <= xc < x_lines[i+1]:
+                        cols[i].append(item)
                         break
 
-                # proximity fallback
-                if not assigned:
-                    dists = [abs(item["x_center"] - lx) for lx in x_lines]
-                    idx = dists.index(min(dists))
-                    cols[idx].append(item)
-
-            # join text per column
+            # convert to text
             row_text = []
             for col in cols:
                 col_sorted = sorted(col, key=lambda x: x["x0"])
@@ -273,8 +319,102 @@ class FetchTable:
 
             table.append(row_text)
 
-        return pd.DataFrame(table)
+        df = pd.DataFrame(table)
 
+        items = self.items
+        
+        return df, x_lines, col_spans, items
+    
+    
+    def row_assign_debug(self, rows):
+        """
+        Returns raw structured data instead of flattened text.
+        Useful for debugging alignment & coordinates.
+        """
+
+        debug_table = []
+
+        x_lines = self.x_lines
+
+        for r_idx, row in enumerate(rows):
+
+            cols = [[] for _ in range(len(x_lines) - 1)]
+
+            for item in row:
+                xc = item["x_center"]
+
+                for idx in range(len(x_lines) - 1):
+                    left = x_lines[idx]
+                    right = x_lines[idx + 1]
+
+                    if left <= xc < right:
+                        cols[idx].append(item)
+                        break
+
+            # preserve full structure
+            debug_row = {
+                "row_index": r_idx,
+                "columns": []
+            }
+
+            for c_idx, col in enumerate(cols):
+                col_sorted = sorted(col, key=lambda x: x["x0"])
+
+                debug_row["columns"].append({
+                    "col_index": c_idx,
+                    "items": col_sorted   # FULL RAW ITEMS ✅
+                })
+
+            debug_table.append(debug_row)
+
+        return debug_table
+
+    def col_assign_debug(self, rows):
+        """
+        Column-first debug structure:
+        {
+            col_index: [
+                { row_index: i, items: [...] },
+                ...
+            ]
+        }
+        """
+
+        x_lines = self.x_lines
+        n_cols = len(x_lines) - 1
+
+        # initialize column container
+        debug_cols = {
+            c_idx: [] for c_idx in range(n_cols)
+        }
+
+        for r_idx, row in enumerate(rows):
+
+            # temporary storage for this row per column
+            row_cols = [[] for _ in range(n_cols)]
+
+            for item in row:
+                xc = item["x_center"]
+
+                for c_idx in range(n_cols):
+                    left = x_lines[c_idx]
+                    right = x_lines[c_idx + 1]
+
+                    if left <= xc < right:
+                        row_cols[c_idx].append(item)
+                        break
+
+            # push row-wise data into column-wise structure
+            for c_idx in range(n_cols):
+                col_items = sorted(row_cols[c_idx], key=lambda x: x["x0"])
+
+                debug_cols[c_idx].append({
+                    "row_index": r_idx,
+                    "items": col_items
+                })
+
+        return debug_cols
+    
     def find_anchor_y(self, keyword):
         
         # Further improvement is regular expressions
@@ -318,59 +458,158 @@ class FetchTable:
                 new_rows.append(row)
 
         return new_rows
-    
-    @staticmethod
-    def handler(path:str,config:dict, pages = None)->pd.DataFrame:
-        try:
-            doc = fitz.open(path)
-            fetch_pages = range(doc.page_count)
-            all_dfs = []
             
-            if pages:
-                fetch_pages = pages
+    @staticmethod
+    def automate_handler(path:str, config:dict) -> pd.DataFrame:
 
-            for page_no in fetch_pages:
+        doc = fitz.open(path)
+        final_df = pd.DataFrame()
+
+        try:
+
+            for _, page_config in config.items():
+                   
+                page_no = int(page_config["page_number"]) - 1
+                bbox = page_config["table_rect"]
+                x_lines = page_config["columns"]
+                anchor = None
+
                 page = doc[page_no]
+                
+                
+                print(f"PAGE NO: {page_no + 1}\n")
+                print(f"BBOX: {bbox}")
+                print(f"X_LINES: {x_lines}")
+                
+        
+                if not bbox or not x_lines:
+                    continue
 
-                for table in config["tables"]:
+                parser = FetchTable(page, bbox, x_lines)
+                
+                if not parser.items:
+                    print("There are not ITEMS in PDF.")
+                    continue
+                
+                rows, rows_y = parser.row_detect_sampling()
+                # rows = parser.row_detect_sampling()
+                
+                if not rows:
+                    print("There are no ROWS.")
+                    continue
+                
+                print(rows)
+                
+                if anchor:
+                    anchor_y = parser.find_anchor_y(anchor)
+                    rows = parser.cut_rows_above_anchor(rows,anchor_y)
+                    
+                # final_df, items = parser.col_definite_assign(rows)
+                
+                print("USING AUTO COLUMN")
+                final_df, x_lines, col_spans, items = parser.auto_column_assign(
+                    rows,
+                    bbox,
+                    eps=15
+                )
 
-                    bbox = tuple(table["mask_bbox"]) if table.get("mask_bbox") else None
-                    x_lines = table.get("column_lines", [])
-                    anchor = table.get("anchor", "")
+                
+                print(f"X_LINES FOUND: {x_lines}")
+                print(f"COLSPANS FOUND: {col_spans}")
+                
+                debug_c = parser.col_assign_debug(rows)
+                debug_r = parser.row_assign_debug(rows)
+                
+                
+            return final_df, debug_c, debug_r, items
+        finally:
+            doc.close()
 
-                    #skip if not there
+
+    @staticmethod
+    def excel_handler(path:str, config:dict) -> pd.DataFrame:
+
+        doc = fitz.open(path)
+        final_data = {}    
+
+        try:
+
+            for _, conf in config.items():
+                
+                for tbl, page_config in enumerate(conf):
+                    
+                    print(f"CONFIG DUDE: {page_config}")
+                    # final_df = pd.DataFrame()
+                    page_no = int(page_config["page_number"]) - 1
+                    bbox = page_config["table_rect"]
+                    x_lines = page_config["columns"]
+                    anchor = None
+
+                    page = doc[page_no]
+                    print(f"PAGE NO: {page_no}, TBLE: {tbl}")
+                    print(f"BBOX: {bbox}")
+                    # print(f"X_LINES: {x_lines}")
+                    
+            
                     if not bbox or not x_lines:
                         continue
-                        
-                    #call _init_
-                    parser = FetchTable(page,bbox,x_lines)
-                        
-                    rows,rows_y = parser.row_detect_sampling()
-                    if not rows:
-                        continue
 
+                    parser = FetchTable(page, bbox, x_lines)
+                    rows, rows_y = parser.row_detect_sampling()
+                    # # rows = parser.row_detect_sampling()
+                    
+                    if not rows:
+                        print("There are no ROWS.")
+                        continue
+                    
+                    # print(rows)
+                    
                     if anchor:
                         anchor_y = parser.find_anchor_y(anchor)
-                        rows = parser.cut_rows_above_anchor(rows, anchor_y)  
-                    df = parser.col_definite_assign(rows)
+                        rows = parser.cut_rows_above_anchor(rows,anchor_y)
+                        
+                    # final_df, items = parser.col_definite_assign(rows)
+                    
+                    print("USING AUTO COLUMN")
+                    final_df, x_lines, col_spans, items = parser.auto_column_assign(
+                        rows,
+                        bbox,
+                        eps=15
+                    )
 
-                # add extra data
-                    df["page"] = page_no + 1
-                    all_dfs.append(df)
-
+                    
+                    print(f"X_LINES FOUND: {x_lines}")
+                    print(f"COLSPANS FOUND: {col_spans}")
+                    
+                    debug_c = parser.col_assign_debug(rows)
+                    debug_r = parser.row_assign_debug(rows)
+                    print(f"DEBUG: {debug_c}")
+                    
+                    if page_no not in final_data:
+                        final_data[page_no] = [
+                            {   
+                                "page":page_no,
+                                "table":tbl+1,
+                                "df": final_df,
+                                "debug_c":debug_c,
+                                "items":items
+                            }
+                        ]
+                    else:
+                        final_data[page_no].append(
+                            {   
+                                "page":page_no,
+                                "table":tbl+1,
+                                "df": final_df,
+                                "debug_c":debug_c,
+                                "items":items
+                            }
+                        )
+                                    
+            return final_data
+        finally:
             doc.close()
-            
-            if all_dfs:
-                final_df = pd.concat(all_dfs, ignore_index=True)
-            else:
-                final_df = pd.DataFrame() 
-            
-            return final_df # final_df.to_csv(path.replace(".pdf",".csv"))
 
-        except Exception:
-            raise
-
-        
     @staticmethod
     def renew_handler(path:str, config:dict) -> pd.DataFrame:
 
@@ -380,31 +619,134 @@ class FetchTable:
         try:
 
             for _, page_config in config.items():
+                   
                 page_no = int(page_config["page_number"]) - 1
                 bbox = page_config["table_rect"]
                 x_lines = page_config["columns"]
                 anchor = None
 
                 page = doc[page_no]
-
+                
+                
+                print(f"PAGE NO: {page_no}\n")
+                print(f"BBOX: {bbox}")
+                print(f"X_LINES: {x_lines}")
+                
+        
                 if not bbox or not x_lines:
                     continue
 
                 parser = FetchTable(page, bbox, x_lines)
                 rows, rows_y = parser.row_detect_sampling()
+                # rows = parser.row_detect_sampling()
+                
+                # print(rows)
 
                 if not rows:
+                    print("There are no ROWS.")
                     continue
 
                 if anchor:
                     anchor_y = parser.find_anchor_y(anchor)
-                    rows = parser.cut_rows_above_anchor(
-                        rows,
-                        anchor_y
-                    )
-
-                final_df = parser.col_definite_assign(rows)
-            return final_df
-
+                    rows = parser.cut_rows_above_anchor(rows,anchor_y)
+                    
+                final_df, items = parser.col_definite_assign(rows)
+                
+                debug_c = parser.col_assign_debug(rows)
+                debug_r = parser.row_assign_debug(rows)
+                
+                
+            return final_df, debug_c, debug_r, items
         finally:
             doc.close()
+            
+            
+    # @staticmethod
+    # def handler(path:str,config:dict, pages = None)->pd.DataFrame:
+    #     try:
+    #         doc = fitz.open(path)
+    #         fetch_pages = range(doc.page_count)
+    #         all_dfs = []
+            
+    #         if pages:
+    #             fetch_pages = pages
+
+    #         for page_no in fetch_pages:
+    #             page = doc[page_no]
+
+    #             for table in config["tables"]:
+
+    #                 bbox = tuple(table["mask_bbox"]) if table.get("mask_bbox") else None
+    #                 x_lines = table.get("column_lines", [])
+    #                 anchor = table.get("anchor", "")
+
+    #                 #skip if not there
+    #                 if not bbox or not x_lines:
+    #                     continue
+                        
+    #                 #call _init_
+    #                 parser = FetchTable(page,bbox,x_lines)
+                        
+    #                 rows,rows_y = parser.row_detect_sampling()
+    #                 if not rows:
+    #                     continue
+
+    #                 if anchor:
+    #                     anchor_y = parser.find_anchor_y(anchor)
+    #                     rows = parser.cut_rows_above_anchor(rows, anchor_y)  
+    #                 df = parser.col_definite_assign(rows)
+
+    #             # add extra data
+    #                 df["page"] = page_no + 1
+    #                 all_dfs.append(df)
+
+    #         doc.close()
+            
+    #         if all_dfs:
+    #             final_df = pd.concat(all_dfs, ignore_index=True)
+    #         else:
+    #             final_df = pd.DataFrame() 
+            
+    #         return final_df
+
+    #     except Exception:
+    #         raise
+    
+    
+    # def col_assign(self,rows, tol=10):
+    #     """
+    #     rows: [[item, item], ...]
+    #     x_lines: [x1, x2, ...]
+    #     """
+    #     x_lines = self.x_lines
+    #     table = []
+
+    #     for row in rows:
+    #         cols = [[] for _ in range(len(x_lines))]
+
+    #         for item in row:
+    #             assigned = False
+
+    #             # pass-through check
+    #             for idx, lx in enumerate(x_lines):
+    #                 if item["x0"] - tol <= lx <= item["x1"] + tol: # +/-
+    #                     cols[idx].append(item)
+    #                     assigned = True
+    #                     break
+
+    #             # proximity fallback
+    #             if not assigned:
+    #                 dists = [abs(item["x_center"] - lx) for lx in x_lines]
+    #                 idx = dists.index(min(dists))
+    #                 cols[idx].append(item)
+
+    #         # join text per column
+    #         row_text = []
+    #         for col in cols:
+    #             col_sorted = sorted(col, key=lambda x: x["x0"])
+    #             text = " ".join(i["text"] for i in col_sorted)
+    #             row_text.append(text)
+
+    #         table.append(row_text)
+
+    #     return pd.DataFrame(table)

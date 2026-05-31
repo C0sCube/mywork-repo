@@ -679,3 +679,5 @@ class ShriramLifeINSR(BaseAMC):pass
 class StarLifeINSR(BaseAMC):pass
 class TataLifeINSR(BaseAMC):pass
 class DigitLifeINSR(BaseAMC):pass
+class ParmericaLifeINSR(BaseAMC):pass
+class IndusNipponLifeINSR(BaseAMC):pass

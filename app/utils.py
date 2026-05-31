@@ -671,10 +671,80 @@ class Helper:
         doc.save(output_path)
         doc.close()
         return output_path
+
+    @staticmethod    
+    def extract_sections_as_images(pdf_path, bboxes, vertical_lines, scale=2):
+        doc = fitz.open(pdf_path)
+
+        output_paths = []
+
+        for page_index, page in enumerate(doc):
+
+            for b_idx, (x0, y0, x1, y1) in enumerate(bboxes):
+
+                # build vertical splits inside bbox
+                xs = [x0] + sorted([x for x in vertical_lines if x0 < x < x1]) + [x1]
+
+                for i in range(len(xs) - 1):
+                    sx0 = xs[i]
+                    sx1 = xs[i+1]
+
+                    rect = fitz.Rect(sx0, y0, sx1, y1)
+
+                    # render clipped region
+                    pix = page.get_pixmap(
+                        matrix=fitz.Matrix(scale, scale),
+                        clip=rect
+                    )
+
+                    output_path = f"section_p{page_index}_b{b_idx}_c{i}.png"
+                    pix.save(output_path)
+
+                    output_paths.append(output_path)
+
+        doc.close()
+        return output_paths
+
+    @staticmethod
+    def extract_sections_from_pairs(pdf_path, bbox_line_pairs, scale=2, out_dir="output"):
+        os.makedirs(out_dir, exist_ok=True)
+
+        doc = fitz.open(pdf_path)
+        output_paths = []
+
+        for page_idx, page in enumerate(doc):
+
+            for b_idx, (bbox, v_lines) in enumerate(bbox_line_pairs):
+                x0, y0, x1, y1 = bbox
+
+                # ✅ FULL vertical boundaries = bbox edges + inner lines
+                xs = [x0] + sorted(v_lines) + [x1]
+
+                # ✅ create sections between consecutive x's
+                for i in range(len(xs) - 1):
+                    sx0 = xs[i]
+                    sx1 = xs[i + 1]
+
+                    rect = fitz.Rect(sx0, y0, sx1, y1)
+
+                    pix = page.get_pixmap(
+                        matrix=fitz.Matrix(scale, scale),
+                        clip=rect
+                    )
+
+                    output_path = os.path.join(
+                        out_dir,
+                        f"p{page_idx}_b{b_idx}_c{i}.png"
+                    )
+                    pix.save(output_path)
+
+                    output_paths.append(output_path)
+
+        doc.close()
+        return output_paths
+
     
-    
-    
-    import random
+import random
 
 import fitz
 import pandas as pd
