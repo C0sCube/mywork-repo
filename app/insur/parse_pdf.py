@@ -10,7 +10,7 @@ from pathlib import Path
 from app.insur.parse_regex import *
 from app.insur.fund_data import *
 from app.utils import Helper
-from app.parse_table import PDFTablExtract
+from app.extract_table import PDFTablExtract
 from app.logger import get_global_logger, log_exceptions
 from app.konstant import (
     get_output_path, get_report_dir,
@@ -281,60 +281,6 @@ class ReadrIns:
 
         return finalData
 
-    @log_exceptions()
-    def extract_data_relative_line(self, path: str,title: dict)->list:
-      
-        finalData,fund_seen = [],{}
-        line_x,side = self.PARAMS['line_x'],self.PARAMS['line_side']
-        # try:
-        with fitz.open(path) as doc:
-            
-            for pgn in title:
-                page, fundName = doc[pgn],title.get(pgn,"")
-                left_blocks, right_blocks, seen_blocks = [],[], set()
-                page_blocks = page.get_text("dict")["blocks"]
-                
-                for block in page_blocks:
-                    if block['type'] == 0 and 'lines' in block:
-                        block_key = id(block) #hash_key
-
-                        for line in block["lines"]:
-                            for span in line["spans"]:
-                                x0, _ = span["origin"]
-
-                                if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
-                                    seen_blocks.add(block_key)
-                                    left_blocks.append(block)
-
-                                if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
-                                    seen_blocks.add(block_key)
-                                    right_blocks.append(block)
-
-                left_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))  
-                right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
-                
-                #adding dummy data
-                fontz,colorz = self.PARAMS['data']['font'][0],self.PARAMS['data']['color'][0]
-                left_blocks.append(self.PARAM_REGEX._dummy_block(fontz,colorz,1))
-                right_blocks.append(self.PARAM_REGEX._dummy_block(fontz,colorz,1))
-                
-                if side == "both": left_blocks.extend(right_blocks)
-                sorted_blocks = left_blocks if side != "right" else right_blocks
-                
-                if fundName in fund_seen:
-                    fund_seen[fundName]["block"].extend(sorted_blocks)
-                    fund_seen[fundName]["page"].append(pgn)
-                else:
-                    new_entry = {"page": [pgn], "fundname": fundName, "block": sorted_blocks}
-                    finalData.append(new_entry)
-                    fund_seen[fundName] = new_entry
-                        
-        # except Exception as e:
-        #     # self.log.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
-        #     pass
-            
-        return finalData
-
     def extract_span_data(self, data: list,*args)->list:  # all
       
         finalData = []
@@ -463,16 +409,11 @@ class ReadrIns:
         func = inspect.currentframe().f_code.co_name
         self.log.info(f"▶ Start {func} | file={self.FILE_NAME}")
 
-        sanitize_fund,method = self.PARAMS["sanitize_fund"],self.PARAMS['method']
+        #sanitize fund removed, clip/line removed    
         extracted_data = []
         
-        if method in ["line", "both"]:
-            data = self.extract_data_relative_line(path, titles)
-            extracted_data.extend(self.extract_span_data(data, []))
-        
-        if method in ["clip", "both"]:
-            data = self.extract_clipped_data(path, titles,*args)
-            extracted_data.extend(self.extract_span_data(data, []))
+        data = self.extract_clipped_data(path, titles,*args)
+        extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean
         nested_data = self.create_nested_dict(clean_data)
@@ -480,11 +421,7 @@ class ReadrIns:
         for page in nested_data:
             page_text = {}
             page_blocks,fundname = page['block'],page['fundname']
-            
-            if sanitize_fund: #map to clear fund names
-                fundname = self.PARAM_REGEX._sanitize_fund(fundname,self.FUND_NAME)
-            page['fundname'] = fundname
-            
+
             for key, content in page_blocks.items():
                 page_text[key] = [txt[1] for txt in content]
             self.TEXT_ONLY[fundname] = page_text
@@ -601,7 +538,7 @@ class ReadrIns:
             pgn, fund, blocks = content['page'], content['fundname'], content['block']
             pdf_path = self._generate_pdf_from_data(blocks,self.DRYPATH)
             extracted_text[fund] = self._extract_data_from_pdf(pdf_path, fund)
-            # extracted_text[fund] = self._extract_data_from_pdf(pdf_bytes, fund)
+            
             
             self._update_imp_data(extracted_text[fund], fund, pgn)
 
@@ -609,7 +546,7 @@ class ReadrIns:
         if is_portfolio:
             
             path = self.CURR_PDF_PATH
-            config = self.PARAMS["port_bbox"]  # config to pull pdf
+            config = self.PARAMS["port_bbox"]
             wrk_pgs = self.CURR_WORKING_PAGES
 
             port_data = ReadrIns.extract_portfolio(wrk_pgs,config,path)
@@ -653,27 +590,35 @@ class ReadrIns:
                     # skip invalid config
                     if not bbox or not x_lines:
                         all_dfs.append(empty_df)
+                        continue
+                    
+                    # if not bbox:
+                    #     all_dfs.append(empty_df)
 
-                    # --- extract rows ---
-                    extractor = PDFTablExtract(page, bbox)
-                    rows = extractor.extract_rows_sampling()
+                    # extract rows
+                    extractor = PDFTablExtract(page, bbox, x_lines)
+                    rows = extractor.extract_row()
 
+                    # print(f"ROW:{rows}")
+                    
                     if not rows:
                         all_dfs.append(empty_df)
+                        continue
 
-                    # --- apply anchor ---
+                    # apply anchor
                     if anchor:
                         anchor_y = extractor.find_anchor_y(anchor)
                         rows = extractor.cut_rows_above_anchor(rows, anchor_y)
 
                     # --- assign columns ---
-                    df = extractor.assign_columns_from_rows(rows, x_lines)
+                    # df = extractor.extract_col(rows)
+                    df = extractor.col_assign(rows)
                     df["table"] = f"tbl_{idx}"
                     df["page"] = page_no + 1
                     
                     all_dfs.append(df)
 
-                # --- combine ---
+                
                 final_df = pd.concat(all_dfs, ignore_index=True)
                 result_json = final_df.to_dict(orient="records")
                 

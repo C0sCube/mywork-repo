@@ -24,7 +24,7 @@ class GrandInsrData:
         self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS", {})
         self.IMP_DATA = fund_config.get("IMP_DATA", {})
         self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT", [])
-        self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS", {})
+        # self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS", {})
         self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS", {})
         self.PATTERN = {
             "primary": fund_config.get("PATTERN_TO_FUNCTION", {}),
@@ -34,7 +34,7 @@ class GrandInsrData:
         self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
         #mutual fund data
-        self.MUTUAL_FUND_DATA = fund_config.get("Z_MUTUAL_FUND_DATA",{})
+        # self.MUTUAL_FUND_DATA = fund_config.get("Z_MUTUAL_FUND_DATA",{})
         
         self.LOGGER = get_global_logger()
         self.UTILS = Helper()
@@ -681,3 +681,7 @@ class TataLifeINSR(BaseAMC):pass
 class DigitLifeINSR(BaseAMC):pass
 class ParmericaLifeINSR(BaseAMC):pass
 class IndusNipponLifeINSR(BaseAMC):pass
+class PNBLifeINSR(BaseAMC):pass
+class ShriramINSR(BaseAMC):pass
+class AxisMaxINSR(BaseAMC):pass
+class SBILifeINSR(BaseAMC):pass

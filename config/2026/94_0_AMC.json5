@@ -1,6 +1,10 @@
 {
   AMC_NAME: "TATA AIA Life Insurance Fund",
-  MAIN_MAP: { select: true, map: true, special: true },
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
+  },
   IMP_DATA: {
     amc_name: "TATA AIA Life Insurance AMC Limited",
     mutual_fund_name: "TATA AIA Life Insurance Fund",
@@ -9,42 +13,86 @@
     title: {
       ocr: false,
       pattern: ".+?FUND",
-      bbox: [0, 0, 430, 110],
+      bbox: [
+        0,
+        0,
+        430,
+        110,
+      ],
     },
-    clip_bbox: [[0, 0, 275, 860]],
+    clip_bbox: [
+      [
+        0,
+        0,
+        275,
+        860,
+      ],
+    ],
     port_bbox: [
       {
-        bbox: [275, 90, 465, 641],
-        support_lines: [338, 437],
+        bbox: [
+          275,
+          90,
+          465,
+          641,
+        ],
+        support_lines: [
+          338,
+          437,
+        ],
         anchor_t: "Instrument",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
+        anchor: {
+          anchor_t: "Instrument",
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
       },
       {
-        bbox: [458, 88, 649, 627],
-        support_lines: [557, 622],
+        bbox: [
+          458,
+          88,
+          649,
+          627,
+        ],
+        support_lines: [
+          557,
+          622,
+        ],
         anchor_t: "Instrument",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
+        anchor: {
+          anchor_t: "Instrument",
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
       },
     ],
-    line_x: 200.0,
     data: {
-      size: [6, 18],
-      color: [23],
+      size: [
+        6,
+        18,
+      ],
+      color: [
+        23,
+      ],
       update_size: 30.0,
-      font: ["Ubuntu-Bold"],
+      font: [
+        "Ubuntu-Bold",
+      ],
     },
-    content_size: [30.0, 18.0],
-    method: "clip",
-    line_side: "",
+    content_size: [
+      30.0,
+      18.0,
+    ],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -55,13 +103,13 @@
     scheme: [
       ".+?FUND",
       "Fund\\s*Details",
-     "Investment\\s*Objective",
-     "NAV as on",
-     "Benchmark",
-     "Corpus as on",
-     "Fund\\s*Manager",
-     "Asset\\s*Allocation",
-     "AUM\\s*Equity",
+      "Investment\\s*Objective",
+      "NAV as on",
+      "Benchmark",
+      "Corpus as on",
+      "Fund\\s*Manager",
+      "Asset\\s*Allocation",
+      "AUM\\s*Equity",
       "EOL",
     ],
     metric: {
@@ -70,18 +118,27 @@
     },
     manager: {
       pattern: "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s*[A-Za-z]+)",
-      fields: ["name"],
+      fields: [
+        "name",
+      ],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/\\&]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+    "^(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme",
+    ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    "before.fund_manager": ["_extract_manager_data", "manager"],
-    ".*corpus_as_on": ["_extract_generic_data", "aum"],
-    // ".*date_of_inception": ["_extract_generic_data", "date"],
-    // ".*quantitative_indicators": ["_extract_metric_data", "metric"],
+    "before.fund_manager": [
+      "_extract_manager_data",
+      "manager",
+    ],
+    ".*corpus_as_on": [
+      "_extract_generic_data",
+      "aum",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

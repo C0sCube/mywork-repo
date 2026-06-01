@@ -1,1 +1,147 @@
-{}
+{
+  AMC_NAME: "Shriram Life Insurance Fund",
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
+  },
+  IMP_DATA: {
+    amc_name: "Shriram Life Insurance AMC Limited",
+    mutual_fund_name: "Shriram Life Insurance Fund",
+  },
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(^.+?)SFIN",
+      bbox: [
+        120,
+        0,
+        495,
+        160,
+      ],
+    },
+    clip_bbox: [
+      [
+        0,
+        95,
+        200,
+        825,
+      ],
+      [
+        120,
+        0,
+        495,
+        160,
+      ],
+    ],
+    port_bbox: [
+      {
+        bbox: [
+          445,
+          60,
+          615,
+          790,
+        ],
+        support_lines: [
+          577,
+        ],
+        anchor_t: null,
+        anchor_b: null,
+        anchor_r: null,
+        anchor_l: null,
+        anchor: {
+          anchor_t: null,
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
+      },
+    ],
+    data: {
+      size: [
+        6,
+        18,
+      ],
+      color: [
+        23,
+      ],
+      update_size: 30.0,
+      font: [
+        "Ubuntu-Bold",
+      ],
+    },
+    content_size: [
+      30.0,
+      18.0,
+    ],
+    max_financial_index_highlight: 4,
+    pdf_ocr: false,
+  },
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: "Rs.\\s*([\\d,.]+)",
+    date: "\\d{2}-[A-Za-z]+-\\d{2}",
+    benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
+    scheme: [
+      "SFIN",
+      "EOL",
+      "INVESTMENT\\s+OBJECTIVE",
+      "Fund\\s+Type",
+      "Month\\s+of\\s+Inception",
+      "NAV",
+      "AUM\\s+in\\s+Crs?",
+      "Modified\\s+Duration",
+      "Fund\\s+Manager",
+      "Benchmark",
+      "PERFORMANCE\\s+METER",
+      "EOL",
+    ],
+    metric: {
+      key: "(Std\\s+Dev|Sharpe\\s+Ratio|Portfolio\\s+Beta)",
+      value: "([\\d.]+\\s*(?:%)?)",
+    },
+    manager: {
+      pattern: "(?:MR|MRS|MS)\\.?\\s*([A-Za-z]+\\s*[A-Za-z]+)",
+      fields: [
+        "name",
+      ],
+    },
+    escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
+  },
+  PATTERN_TO_FUNCTION: {
+    "^(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme",
+    ],
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    ".*fund_manager": [
+      "_extract_manager_data",
+      "manager",
+    ],
+  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
+    ".*(sfin|benchmark)",
+    ".*fund_manager",
+    "metric",
+    "main_scheme_name",
+    "monthly_aaum_date",
+    "monthly_aaum_value",
+    "page_number",
+    "mutual_fund_name",
+    "amc_name",
+    "portfolio_data",
+    "scheme_launch_date",
+  ],
+  MERGEKEYS: {},
+  CLONEKEYS: {
+    scheme_launch_date: ".*month_of_inception$",
+    monthly_aaum_value: ".*aum_in_crs$",
+    metric: ".*quantitative_indicators",
+  },
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
+}

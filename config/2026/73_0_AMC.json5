@@ -1,6 +1,10 @@
 {
   AMC_NAME: "Aditya Birla Sun Life Insurance Fund",
-  MAIN_MAP: { select: true, map: true, special: true },
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
+  },
   IMP_DATA: {
     amc_name: "Aditya Birla Sun Life AMC Limited",
     mutual_fund_name: "Aditya Birla Sun Life Insurance Fund",
@@ -9,34 +13,64 @@
     title: {
       ocr: false,
       pattern: ".+?Fund",
-      bbox: [0, 0, 580, 45],
+      bbox: [
+        0,
+        0,
+        580,
+        45,
+      ],
     },
-    clip_bbox: [[0, 0, 600, 280]],
+    clip_bbox: [
+      [
+        0,
+        0,
+        600,
+        280,
+      ],
+    ],
     port_bbox: [
       {
-        bbox: [13.92, 101.56, 306.32, 841.96],
-        support_lines: [104.02, 279.29],
+        bbox: [
+          13.92,
+          101.56,
+          306.32,
+          841.96,
+        ],
+        support_lines: [
+          104.02,
+          279.29,
+        ],
         anchor_t: "SECURITIES",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
+        anchor: {
+          anchor_t: "SECURITIES",
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
       },
     ],
-    line_x: 200.0,
     data: {
-      size: [6, 15],
-      color: [23],
+      size: [
+        6,
+        15,
+      ],
+      color: [
+        23,
+      ],
       update_size: 30.0,
-      font: ["Ubuntu-Bold"],
+      font: [
+        "Ubuntu-Bold",
+      ],
     },
-    content_size: [30.0, 15.0],
-    method: "clip",
-    line_side: "",
+    content_size: [
+      30.0,
+      15.0,
+    ],
     max_financial_index_highlight: 5,
     pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -57,19 +91,25 @@
     ],
     manager: {
       pattern: "([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:\\(.+?\\))?\\s*(?:Nearly|Over)\\s*(\\d{1,2}\\s*[Yy]ears?)",
-      fields: ["name", "exp"],
+      fields: [
+        "name",
+        "exp",
+      ],
     },
-
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+|\\(Annualized\\)|\u00b7",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+    "^(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme",
+    ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    // ".*fund_mana": ["_extract_manager_data", "manager"],
-    // ".*benchmark": ["_extract_generic_data", "benchmark"],
-    ".*(asset_held)": ["_extract_generic_data", "aum"],
+    ".*(asset_held)": [
+      "_extract_generic_data",
+      "aum",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -83,7 +123,7 @@
     "page_number",
     "mutual_fund_name",
     "amc_name",
-    "portfolio_data"
+    "portfolio_data",
   ],
   MERGEKEYS: {},
   CLONEKEYS: {},

@@ -1,6 +1,10 @@
 {
   AMC_NAME: "HDFC Life Insurance Fund",
-  MAIN_MAP: { select: true, map: true, special: true },
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
+  },
   IMP_DATA: {
     amc_name: "HDFC Life Insurance AMC Limited",
     mutual_fund_name: "HDFC Life Insurance Fund",
@@ -9,42 +13,75 @@
     title: {
       ocr: false,
       pattern: "(.+)\\s*as\\s*on\\s*[A-Za-z]+",
-      bbox: [0, 0, 525, 65],
+      bbox: [
+        0,
+        0,
+        525,
+        65,
+      ],
     },
     clip_bbox: [
-      [0, 75, 345, 800],
-      [335, 75, 525, 515],
+      [
+        0,
+        75,
+        345,
+        800,
+      ],
+      [
+        335,
+        75,
+        525,
+        515,
+      ],
     ],
     port_bbox: [
       {
-        bbox: [185.1, 71.26, 407.88, 563.49],
-        support_lines: [298.13, 384.94],
+        bbox: [
+          185.1,
+          71.26,
+          407.88,
+          563.49,
+        ],
+        support_lines: [
+          298.13,
+          384.94,
+        ],
         anchor_t: "PORTFOLIO AS ON",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
+        anchor: {
+          anchor_t: "PORTFOLIO AS ON",
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
       },
     ],
-    line_x: 200.0,
     data: {
-      size: [6, 15],
-      color: [23],
+      size: [
+        6,
+        15,
+      ],
+      color: [
+        23,
+      ],
       update_size: 30.0,
-      font: ["Ubuntu-Bold"],
+      font: [
+        "Ubuntu-Bold",
+      ],
     },
-    content_size: [30.0, 15.0],
-    method: "clip",
-    line_side: "",
+    content_size: [
+      30.0,
+      15.0,
+    ],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
   REGEX: {
-    aum:  ".+\\s+(\\d+\\,?\\d*\\.\\d+)",
+    aum: ".+\\s+(\\d+\\,?\\d*\\.\\d+)",
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
       "SFIN\\s*Code",
@@ -56,22 +93,32 @@
       "AUM.+?Equity.+?Total",
       "Equity\\s+Fund\\s+Debt\\s+Fund\\s+Hybrid\\s+Fund",
       "Asset\\s+Category",
-      "EOL"
+      "EOL",
     ],
     manager: {
       pattern: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z]+\\s*[A-Za-z]+)",
-      fields: ["name"],
+      fields: [
+        "name",
+      ],
     },
-
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+    "^(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme",
+    ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*equity_fund_debt":["_extract_manager_data", "manager"],
-    ".*aum.+total$":["_extract_generic_data", "aum"]
+    ".*equity_fund_debt": [
+      "_extract_manager_data",
+      "manager",
+    ],
+    ".*aum.+total$": [
+      "_extract_generic_data",
+      "aum",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

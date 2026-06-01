@@ -1,6 +1,10 @@
 {
   AMC_NAME: "IndiaFirst Life Insurance Fund",
-  MAIN_MAP: { select: true, map: true, special: true },
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
+  },
   IMP_DATA: {
     amc_name: "IndiaFirst Life Insurance AMC Limited",
     mutual_fund_name: "IndiaFirst Life Insurance Fund",
@@ -9,42 +13,70 @@
     title: {
       ocr: false,
       pattern: "((?:Large|Equity|Balanced|Debt|Liquid|Dynamic|Value|Flexi|Macro|Sustain).+)\\s*\\(\\s*SFIN",
-      bbox: [0, 0, 600, 45],
+      bbox: [
+        0,
+        0,
+        600,
+        45,
+      ],
     },
     clip_bbox: [
-      [0.0, 0.0, 315, 785],
+      [
+        0.0,
+        0.0,
+        315,
+        785,
+      ],
     ],
     port_bbox: [
       {
-        bbox: [305.57, 0.0, 593.79, 788.7],
-        support_lines: [435,555],
+        bbox: [
+          305.57,
+          0.0,
+          593.79,
+          788.7,
+        ],
+        support_lines: [
+          435,
+          555,
+        ],
         anchor_t: null,
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
+        anchor: {
+          anchor_t: null,
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
       },
     ],
-    line_x: 200.0,
     data: {
-      size: [6, 15],
-      color: [23],
+      size: [
+        6,
+        15,
+      ],
+      color: [
+        23,
+      ],
       update_size: 30.0,
-      font: ["Ubuntu-Bold"],
+      font: [
+        "Ubuntu-Bold",
+      ],
     },
-    content_size: [30.0, 15.0],
-    method: "clip",
-    line_side: "",
+    content_size: [
+      30.0,
+      15.0,
+    ],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
   REGEX: {
-    aum:  "Rs.\\s*([\\d,.]+)",
-    date:"\\d{2}-[A-Za-z]+-\\d{2}",
+    aum: "Rs.\\s*([\\d,.]+)",
+    date: "\\d{2}-[A-Za-z]+-\\d{2}",
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
       "SFIN",
@@ -58,24 +90,41 @@
       "Quantitative Indicators",
       "EOL",
     ],
-    metric:{
-      key:"(Std\\s+Dev|Sharpe\\s+Ratio|Portfolio\\s+Beta)",
-      value:"([\\d.]+\\s*(?:%)?)"
+    metric: {
+      key: "(Std\\s+Dev|Sharpe\\s+Ratio|Portfolio\\s+Beta)",
+      value: "([\\d.]+\\s*(?:%)?)",
     },
     manager: {
       pattern: "([A-Za-z]+\\s*[A-Za-z]+)",
-      fields: ["name"],
+      fields: [
+        "name",
+      ],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+    "^(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme",
+    ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*crore":["_extract_manager_data", "manager"],
-    "before.aum$":["_extract_generic_data", "aum"],
-    ".*date_of_inception":["_extract_generic_data", "date"],
-    ".*quantitative_indicators":["_extract_metric_data", "metric"]
+    ".*crore": [
+      "_extract_manager_data",
+      "manager",
+    ],
+    "before.aum$": [
+      "_extract_generic_data",
+      "aum",
+    ],
+    ".*date_of_inception": [
+      "_extract_generic_data",
+      "date",
+    ],
+    ".*quantitative_indicators": [
+      "_extract_metric_data",
+      "metric",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -94,7 +143,7 @@
   CLONEKEYS: {
     monthly_aaum_value: ".*aum$",
     fund_manager: ".*crore",
-    metric:".*quantitative_indicators"
+    metric: ".*quantitative_indicators",
   },
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},

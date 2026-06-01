@@ -1,6 +1,10 @@
 {
   AMC_NAME: "Aviva Life Insurance Fund",
-  MAIN_MAP: { select: true, map: true, special: true },
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
+  },
   IMP_DATA: {
     amc_name: "Aviva Life Insurance AMC Limited",
     mutual_fund_name: "Aviva Life Insurance Fund",
@@ -9,34 +13,64 @@
     title: {
       ocr: false,
       pattern: ".+?(?:FUND|Fund)\\s*\\-?\\s*[I]{0,3}",
-      bbox: [0, 0, 365, 95],
+      bbox: [
+        0,
+        0,
+        365,
+        95,
+      ],
     },
-    clip_bbox: [[0, 0, 470, 1000]],
+    clip_bbox: [
+      [
+        0,
+        0,
+        470,
+        1000,
+      ],
+    ],
     port_bbox: [
       {
-        bbox: [470, 5, 850, 1000],
-        support_lines: [580, 770],
+        bbox: [
+          470,
+          5,
+          850,
+          1000,
+        ],
+        support_lines: [
+          580,
+          770,
+        ],
         anchor_t: "Security Name",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
+        anchor: {
+          anchor_t: "Security Name",
+          anchor_b: null,
+          anchor_r: null,
+          anchor_l: null,
+        },
       },
     ],
-    line_x: 200.0,
     data: {
-      size: [5, 18],
-      color: [23],
+      size: [
+        5,
+        18,
+      ],
+      color: [
+        23,
+      ],
       update_size: 30.0,
-      font: ["Ubuntu-Bold"],
+      font: [
+        "Ubuntu-Bold",
+      ],
     },
-    content_size: [30.0, 18.0],
-    method: "clip",
-    line_side: "",
+    content_size: [
+      30.0,
+      18.0,
+    ],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
-    update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -58,19 +92,28 @@
     ],
     manager: {
       pattern: "([A-Z]{1}[a-z]+\\s*[A-Z]{1}[a-z]+)",
-      fields: ["name"],
+      fields: [
+        "name",
+      ],
     },
-
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+    "^(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme",
+    ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": ["_extract_manager_data", "manager"],
-    // ".*benchmark": ["_extract_generic_data", "benchmark"],
-    ".*asset_class_wise": ["_extract_generic_data", "aum"],
+    ".*fund_mana": [
+      "_extract_manager_data",
+      "manager",
+    ],
+    ".*asset_class_wise": [
+      "_extract_generic_data",
+      "aum",
+    ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

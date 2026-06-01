@@ -1,57 +1,62 @@
 {
-  AMC_NAME: "Pramerica Life Insurance Fund",
+  AMC_NAME: "SBI Life Insurance Fund",
   MAIN_MAP: {
     select: true,
     map: true,
     special: true,
   },
   IMP_DATA: {
-    amc_name: "Pramerica Life Insurance AMC Limited",
-    mutual_fund_name: "Pramerica Life Insurance Fund",
+    amc_name: "SBI Life Insurance AMC Limited",
+    mutual_fund_name: "SBI Life Insurance Fund",
   },
   PARAMS: {
     title: {
       ocr: false,
-      pattern: "(.+)SFIN",
+      pattern: "[A-Z][a-z]+\\s+[0-9]{4}\\s+(.+FUND\\s+(?:I{1,3})?)",
       bbox: [
         0,
         0,
-        465,
-        80,
+        470,
+        94,
       ],
     },
     clip_bbox: [
       [
-        0,
-        0,
-        305,
-        795,
+        20,
+        100,
+        355,
+        806,
       ],
       [
-        290,
-        60,
-        590,
-        780,
+        350,
+        80,
+        600,
+        685,
+      ],
+      [
+        0,
+        0,
+        470,
+        94,
       ],
     ],
     port_bbox: [
       {
         bbox: [
-          290,
-          60,
-          590,
-          780,
+          20,
+          100,
+          355,
+          806,
         ],
         support_lines: [
-          445,
-          505,
+          295,
         ],
-        anchor_t: "Security Name",
+        anchor_t: "ASSET CATEGORY",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
         anchor: {
-          anchor_t: "Security Name",
+          anchor_t: "ASSET CATEGORY",
           anchor_b: null,
           anchor_r: null,
           anchor_l: null,
@@ -81,17 +86,21 @@
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
   REGEX: {
-    aum: "\\d+\\,?\\d+\\.\\d+",
-    sfin: "\\((.+?)\\)",
+    aum: "Rs.\\s*([\\d,.]+)",
+    date: "\\d{2}-[A-Za-z]+-\\d{2}",
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
       "SFIN",
-      "[A-Za-z]+\\s+[0-9]{4}",
-      "Investment Objective",
+      "as\\s+on",
+      "Assets\\s+Mix",
+      "Total\\s+100",
+      "FUND\\s+PERFORMANCE",
+      "EOL",
+      "Fund\\s+Manager\\s+Name",
+      "Launch\\s+Date",
+      "Benchmark",
+      "Risk\\s+Profile",
       "NAV\\s+as\\s+on",
-      "Inception\\s+[dD]ate",
-      "Fund Manager",
-      "Fund\\s*v/s\\s*Benchmark",
       "EOL",
     ],
     metric: {
@@ -99,7 +108,7 @@
       value: "([\\d.]+\\s*(?:%)?)",
     },
     manager: {
-      pattern: "([A-Za-z]+\\s+[A-Za-z]+)",
+      pattern: "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s+[A-Za-z]+)",
       fields: [
         "name",
       ],
@@ -113,23 +122,15 @@
     ],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
+    ".*fund_manager": [
       "_extract_manager_data",
       "manager",
-    ],
-    ".*investment_insight": [
-      "_extract_generic_data",
-      "sfin",
-    ],
-    ".*nav_as_on": [
-      "_extract_generic_data",
-      "aum",
     ],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
-    ".*(inception_date|fund_manager)",
-    ".*sfin",
+    ".*(sfin|launch_date)",
+    ".*fund_manager",
     "metric",
     "main_scheme_name",
     "monthly_aaum_date",
@@ -138,10 +139,12 @@
     "mutual_fund_name",
     "amc_name",
     "portfolio_data",
+    "scheme_launch_date",
   ],
   MERGEKEYS: {},
   CLONEKEYS: {
-    monthly_aaum_value: ".*nav_as_on",
+    monthly_aaum_value: ".*total_100",
+    benchmark_index: "dummy.+benchmark",
   },
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
