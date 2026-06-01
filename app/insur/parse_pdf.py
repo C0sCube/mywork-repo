@@ -160,7 +160,7 @@ class ReadrIns:
                 data.append({
                     "page": pgn,
                     "title": detected_titles.get(pgn, ""),
-                    "highlight_count": highlight_count,
+                    "hc": highlight_count,
                     "indices": found_indices
                 })
 
@@ -178,13 +178,13 @@ class ReadrIns:
         if save_report:
             ReadrIns.__pdf_report(data, self.REPORTPATH, self.FILE_NAME)
 
-        self.log.info(f"{func} done | total_pages={len(data)}, highlights={sum(d['highlight_count'] for d in data)}")
+        self.log.info(f"{func} done | total_pages={len(data)}, highlights={sum(d['hc'] for d in data)}")
         
         
         self.CURR_WORKING_PAGES = {
             d["page"]: d["title"]
             for d in data
-            if d["title"] and d["highlight_count"] >= self.PARAMS["max_financial_index_highlight"]
+            if d["title"] and d["hc"] >= self.PARAMS["max_financial_index_highlight"]
         }
         
         # print(self.CURR_WORKING_PAGES)
@@ -303,7 +303,7 @@ class ReadrIns:
     
     def process_text_data(self, data: list)->list:
       
-        stop_words,finalData = self.PARAM_REGEX.STOP_WORDS,[]
+        finalData = []
         #checkers
         data_cond = self.PARAMS['data']
         size_checker = data_cond['size']
@@ -311,8 +311,6 @@ class ReadrIns:
         color_checker = data_cond['color']
         font_change = data_cond['update_size']
         
-        amc_stop_words = self.PARAMS['stop_words']
-        combined_stop_words = set(stop_words) | set(amc_stop_words) #set union
         
         for content in data:
             pgn,fundName,blocks = content['page'],content['fundname'],content['block']
@@ -320,8 +318,7 @@ class ReadrIns:
             cleaned_blocks = [] #remove stop words
             for block in blocks:
                 size, text, *_ = block
-                if text.lower() not in combined_stop_words:
-                    cleaned_blocks.append(block)
+                cleaned_blocks.append(block)
 
             processed_blocks = [] #update size
             for block in cleaned_blocks:
@@ -523,9 +520,9 @@ class ReadrIns:
 
                 header,content_lines = lines[0],lines[1:]
                 if header not in final_data:
-                    if self._get_prev_text(header) and fund in self.TEXT_ONLY and header in self.TEXT_ONLY[fund]:final_data[header] = self.TEXT_ONLY[fund][header]
-                    else:final_data[header] = content_lines
-                else:final_data[header].extend(content_lines)
+                    final_data[header] = content_lines
+                else:
+                    final_data[header].extend(content_lines)
         return final_data
     
     @log_exceptions()
@@ -585,15 +582,12 @@ class ReadrIns:
 
                     bbox = tuple(table["bbox"]) if table.get("bbox") else None
                     x_lines = table.get("support_lines", [])
-                    anchor = table.get("anchor_t", "")
+                    anchor = table.get("anchor", {})
 
                     # skip invalid config
                     if not bbox or not x_lines:
                         all_dfs.append(empty_df)
                         continue
-                    
-                    # if not bbox:
-                    #     all_dfs.append(empty_df)
 
                     # extract rows
                     extractor = PDFTablExtract(page, bbox, x_lines)
@@ -607,12 +601,23 @@ class ReadrIns:
 
                     # apply anchor
                     if anchor:
-                        anchor_y = extractor.find_anchor_y(anchor)
-                        rows = extractor.cut_rows_above_anchor(rows, anchor_y)
-
+                        
+                        nrows = None
+                        
+                        if "anchor_t" in anchor and anchor["anchor_t"]:
+                            value = anchor["anchor_t"]
+                            # print(f"TOP ANCHOR VALUE: {value}")
+                            anc_y = extractor.find_anchor(value, bottom = False)
+                            nrows = extractor.cut_rows(rows=rows,anchor_y=anc_y, mode = "below")
+                        
+                        if "anchor_b" in anchor and anchor["anchor_b"]:
+                            value = anchor["anchor_b"]
+                            # print(f"TOP ANCHOR VALUE: {value}")
+                            anc_y = extractor.find_anchor(value, bottom = True)
+                            nrows =  extractor.cut_rows(rows = nrows, anchor_y=anc_y, mode = "above")
+                            
                     # --- assign columns ---
-                    # df = extractor.extract_col(rows)
-                    df = extractor.col_assign(rows)
+                    df = extractor.col_assign(nrows)
                     df["table"] = f"tbl_{idx}"
                     df["page"] = page_no + 1
                     
@@ -630,6 +635,84 @@ class ReadrIns:
         
         except Exception:
             raise
+
+
+
+
+    # @staticmethod
+    # def extract_portfolio(working_pages:dict,config:dict,path:str):
+    #     """
+    #     Full pipeline:
+    #     - Opens PDF
+    #     - Extracts tables using config
+    #     - Returns JSON output (list of dicts)
+
+    #     Args:
+    #         configs (dict): full JSON config
+    #         key (str): config key (e.g., "star_health")
+
+    #     Returns:
+    #         list[dict]
+    #     """
+    #     doc = fitz.open(path)
+    #     empty_df = pd.DataFrame()
+    #     final_content = {}
+        
+    #     try:
+
+    #         for page_no, fund_name in working_pages.items():
+    #             page = doc[page_no]
+    #             all_dfs = []
+                
+    #             for idx,table in enumerate(config):
+
+    #                 bbox = tuple(table["bbox"]) if table.get("bbox") else None
+    #                 x_lines = table.get("support_lines", [])
+    #                 anchor = table.get("anchor_t", "")
+
+    #                 # skip invalid config
+    #                 if not bbox or not x_lines:
+    #                     all_dfs.append(empty_df)
+    #                     continue
+                    
+    #                 # if not bbox:
+    #                 #     all_dfs.append(empty_df)
+
+    #                 # extract rows
+    #                 extractor = PDFTablExtract(page, bbox, x_lines)
+    #                 rows = extractor.extract_row()
+
+    #                 # print(f"ROW:{rows}")
+                    
+    #                 if not rows:
+    #                     all_dfs.append(empty_df)
+    #                     continue
+
+    #                 # apply anchor
+    #                 if anchor:
+    #                     anchor_y = extractor.find_anchor_y(anchor)
+    #                     rows = extractor.cut_rows_above_anchor(rows, anchor_y)
+
+    #                 # --- assign columns ---
+    #                 # df = extractor.extract_col(rows)
+    #                 df = extractor.col_assign(rows)
+    #                 df["table"] = f"tbl_{idx}"
+    #                 df["page"] = page_no + 1
+                    
+    #                 all_dfs.append(df)
+
+                
+    #             final_df = pd.concat(all_dfs, ignore_index=True)
+    #             result_json = final_df.to_dict(orient="records")
+                
+    #             final_content[fund_name] = result_json
+                
+    #         doc.close()
+
+    #         return final_content
+        
+    #     except Exception:
+    #         raise
 
 
 
@@ -677,6 +760,8 @@ class ReadrIns:
                     content_dict.update(content)
 
             secondary_refine[fund] = content_dict
+
+        # return secondary_refine
             
         tertiary_refine = {}
         for fund, item in secondary_refine.items():
@@ -734,9 +819,6 @@ class ReadrIns:
             temp = regex._populate_all_indices_in_json(temp) #populate all keys
             temp = regex._transform_keys(temp) #lowercase
             temp = self.__metric_ops(fund,temp)
-            
-            if self.MAIN_MAP['special']:
-                temp = self._apply_special_handling(temp)
                 
             temp = self._promote_key_from_dict(temp)
                         

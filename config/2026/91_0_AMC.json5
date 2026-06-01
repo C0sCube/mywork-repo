@@ -13,73 +13,36 @@
     title: {
       ocr: false,
       pattern: "[A-Z][a-z]+\\s+[0-9]{4}\\s+(.+FUND\\s+(?:I{1,3})?)",
-      bbox: [
-        0,
-        0,
-        470,
-        94,
-      ],
+      bbox: [0, 0, 470, 94],
     },
     clip_bbox: [
-      [
-        20,
-        100,
-        355,
-        806,
-      ],
-      [
-        350,
-        80,
-        600,
-        685,
-      ],
-      [
-        0,
-        0,
-        470,
-        94,
-      ],
+      [20, 100, 355, 806],
+      [350, 80, 600, 685],
+      [0, 0, 470, 94],
     ],
     port_bbox: [
       {
-        bbox: [
-          20,
-          100,
-          355,
-          806,
-        ],
-        support_lines: [
-          295,
-        ],
-        anchor_t: "ASSET CATEGORY",
+        bbox: [20, 100, 355, 806],
+        support_lines: [295],
+        anchor_t: "ASSET\\s+CATEGORY",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
         anchor: {
-          anchor_t: "ASSET CATEGORY",
-          anchor_b: null,
+          anchor_t: "ASSET\\s+CATEGORY",
+          anchor_b: "Grand\\s+Total",
           anchor_r: null,
           anchor_l: null,
         },
       },
     ],
     data: {
-      size: [
-        6,
-        18,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 18],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      18.0,
-    ],
+    content_size: [30.0, 18.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
   },
@@ -109,23 +72,15 @@
     },
     manager: {
       pattern: "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s+[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager",
-    ],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
