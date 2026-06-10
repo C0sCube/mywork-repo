@@ -1,65 +1,43 @@
 {
-  "AMC_NAME": "Groww Mutual Fund",
-  "MAIN_MAP": {
-    "select": true,
-    "map": true,
-    "special": true
+  AMC_NAME: "Groww Mutual Fund",
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
   },
-  "IMP_DATA": {
-    "amc_name": "Groww Asset Management Limited",
-    "mutual_fund_name": "Groww Mutual Fund"
+  IMP_DATA: {
+    amc_name: "Groww Asset Management Limited",
+    mutual_fund_name: "Groww Mutual Fund",
   },
-  "PARAMS": {
-    "title": {
-      "ocr": false,
-      "pattern": "(GROWW.*?(?:FUNDS?|Funds?|ETF|PLAN|PATH)\\s*(?:F[oO]F|FUND OF FUNDS?|OF FUNDS?|FUNDS?)?)",
-      "bbox": [
-        0,
-        0,
-        470,
-        60
-      ]
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "(GROWW.*?(?:FUNDS?|Funds?|ETF|PLAN|PATH)\\s*(?:F[oO]F|FUND OF FUNDS?|OF FUNDS?|FUNDS?)?)",
+      bbox: [0, 0, 470, 60],
     },
-    "clip_bbox": [
-      [
-        0,
-        100,
-        180,
-        812
-      ]
-    ],
-    "line_x": 220.0,
-    "data": {
-      "size": [
-        6,
-        10
-      ],
-      "color": [
-        -1
-      ],
-      "update_size": 30.0,
-      "font": [
-        "NunitoSans7pt-ExtraBold"
-      ]
+    clip_bbox: [[0, 100, 180, 812]],
+    line_x: 220.0,
+    data: {
+      size: [6, 10],
+      color: [-1],
+      update_size: 30.0,
+      font: ["NunitoSans7pt-ExtraBold"],
     },
-    "content_size": [
-      30.0,
-      10.0
-    ],
-    "method": "line",
-    "line_side": "left",
-    "max_financial_index_highlight": 5,
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "update_min_add": false
+    content_size: [30.0, 10.0],
+    method: "line",
+    line_side: "left",
+    max_financial_index_highlight: 5,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    update_min_add: false,
   },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "PRE_DATA_SELECT": [],
-  "REGEX": {
-    "aum": "(Monthly Average AUM|Month end AUM)\\s*([\\d,.]+\\s*crore)",
-    "date": "\\(Date of Allotment\\)\\s*(.+)$",
-    "scheme": [
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: "(Monthly Average AUM|Month end AUM)\\s*([\\d,.]+\\s*crore)",
+    date: "\\(Date of Allotment\\)\\s*(.+)$",
+    scheme: [
       "Date\\s*[Oo]f\\s*[Aa]llotment",
       "Benchmark",
       "Fund Manager",
@@ -68,58 +46,39 @@
       "Load Structure",
       "Monthly\\s*[aA]verage\\s*[aA]UM",
       "Month\\s*[eE]nd\\s*AUM",
-      "EOL"
+      "EOL",
     ],
-    "scheme2": [
-      "Volatility\\s*Measures?",
-      "EOL"
-    ],
-    "min_amt": "([\\d,]+).*?([\\d,]+)",
-    "metrics": {
-      "key": "(Standard|Sharpe|Portfolio|Beta|R\\s*Square|Modi?\\s*(?:fi)?ed|Average|Macaulay|Annualized|Direct)",
-      "value": "(-?\\d+\\.?\\d+\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|%|[Tt]imes?)?)"
+    scheme2: ["Volatility\\s*Measures?", "EOL"],
+    min_amt: "([\\d,]+).*?([\\d,]+)",
+    metrics: {
+      key: "(Standard|Sharpe|Portfolio|Beta|R\\s*Square|Modi?\\s*(?:fi)?ed|Average|Macaulay|Annualized|Direct)",
+      value: "(-?\\d+\\.?\\d+\\s*(?:[Dd]ays?|[Yy]ears?|[Mm]onths?|%|[Tt]imes?)?)",
     },
-    "manager": {
-      "pattern": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<name>[A-Za-z\\s]+)(?:\\s*\\(.+?\\))?\\s*\\(Managing\\s*(?:Fund)?\\s*(?:Since)?\\s*(?P<managing_since>[\\w\\d\\s,]+)\\)?\\s*Total experience\\s*-\\s*over\\s*(?P<experience>\\d+\\s+years)",
-      "fields": [
-        "name",
-        "since",
-        "exp"
-      ]
+    manager: {
+      pattern: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s+(?P<name>[A-Za-z\\s]+)(?:\\s*\\(.+?\\))?\\s*\\(Managing\\s*(?:Fund)?\\s*(?:Since)?\\s*(?P<managing_since>[\\w\\d\\s,]+)\\)?\\s*Total experience\\s*-\\s*over\\s*(?P<experience>\\d+\\s+years)",
+      fields: ["name", "since", "exp"],
     },
-    "load": "Entry Load\\s*(.+?)\\s*Exit Load\\s*(.+)$",
-    "escape": "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\:]+"
+    load: "Entry Load\\s*(.+?)\\s*Exit Load\\s*(.+)$",
+    escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
   },
-  "PATTERN_TO_FUNCTION": {
-    "^before": [
-      "_extract_scheme_data",
-      "scheme"
-    ],
-    "^dummy.*one": [
-      "_extract_scheme_data",
-      "scheme2"
-    ]
+  PATTERN_TO_FUNCTION: {
+    "^before": ["_extract_scheme_data", "scheme"],
+    "^dummy.*one": ["_extract_scheme_data", "scheme2"],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
+  SECONDARY_PATTERN_TO_FUNCTION: {
     ".*(minimum_investment|minimum_additional).*$": [
       "_extract_amt_data",
-      "min_amt"
+      "min_amt",
     ],
-    ".*load_structure": [
-      "_extract_load_data",
-      "load"
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
+    ".*load_structure": ["_extract_load_data", "load"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
     ".*(month_end_aum|volatility_measures|portfolio_details|total_expense_ratio)$": [
       "_extract_iter_data",
-      "metrics"
-    ]
+      "metrics",
+    ],
   },
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "SELECTKEYS": [
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
     ".*(minimum_investment_amount|minimum_additional_investment|load_structure)",
     "amc_name",
     ".*fund_manager",
@@ -129,15 +88,15 @@
     "monthly_aaum_date",
     "page_number",
     "mutual_fund_name",
-    "metrics"
+    "metrics",
   ],
-  "MERGEKEYS": {
-    "metrics": [
-      ".*(volatility_measures?|portfolio_details?|total_expense_ratio|month_end_aum)"
-    ]
+  MERGEKEYS: {
+    metrics: [
+      ".*(volatility_measures?|portfolio_details?|total_expense_ratio|month_end_aum)",
+    ],
   },
-  "CLONEKEYS": {},
-  "PROMOTE_KEYS": {},
-  "SPECIAL_FUNCTIONS": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  CLONEKEYS: {},
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

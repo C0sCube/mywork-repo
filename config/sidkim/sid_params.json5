@@ -3717,16 +3717,28 @@
         row_match_threshold: 1,
       },
       manager_data: {
+        keywords: ["Age", "qualification", "experience", "name\\s*of"],
         order: {
           experience: 2,
-          name: 1,
+          name: 0,
           qualification: 1,
         },
-        row_count: 2,
+        row_count: 4,
+        threshold: 2,
       },
       page_zero: {
-        bbox: [],
+        bbox: [[0, 85, 250, 356]],
         ocr: false,
+      },
+      table_data: {
+        keywords: [
+          "Name\\s+[Oo]f\\s+the\\s+Scheme",
+          "Category\\s+[Oo]f\\s+the\\s+Scheme",
+          "Scheme\\s+Type",
+          "Scheme\\s+Code",
+          "Investment Objective",
+        ],
+        threshold: 3,
       },
     },
     PATTERN_TO_FUNCTION: {
@@ -3742,8 +3754,23 @@
       escape: "[^A-Za-z0-9\\s\\-_&\\+\\(\\)\\%]+",
       main_scheme: "(WhiteOak.+?(?:Funds?|Path|Index|Duration|Plan)\\s*(?:Funds?|of Funds?|Fund of Funds?|F[oO]F)?)",
     },
-    SECONDARY_PATTERN_TO_FUNCTION: {},
-    SELECTKEYS: ["main_scheme_name", "asset_allocation_pattern"],
+    SECONDARY_PATTERN_TO_FUNCTION: {
+      "^(name_of_the_scheme|category_of_the_scheme|scheme_type|scheme_code|investment_objective)": [
+        "_extract_str_data",
+        null,
+      ],
+    },
+    SELECTKEYS: [
+      "main_scheme_name", 
+      "asset_allocation_pattern",
+      "name_of_the_scheme",
+      "category_of_the_scheme",
+      "scheme_type",
+      "scheme_code",
+      "investment_objective",
+      "fund_manager"
+    
+    ],
     SPECIAL_FUNCTIONS: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
   },
@@ -6764,7 +6791,13 @@
         row_match_threshold: 1,
       },
       manager_data: {
-        keywords: ["Name\\s*of\\s*the", "Qualifications?", "Experience","Designation","Age"],
+        keywords: [
+          "Name\\s*of\\s*the",
+          "Qualifications?",
+          "Experience",
+          "Designation",
+          "Age",
+        ],
         order: {
           experience: 4,
           name: 0,
@@ -6882,7 +6915,13 @@
         row_match_threshold: 1,
       },
       manager_data: {
-        keywords: ["Name\\s*of\\s*the", "Qualifications?", "Experience","Designation","Age"],
+        keywords: [
+          "Name\\s*of\\s*the",
+          "Qualifications?",
+          "Experience",
+          "Designation",
+          "Age",
+        ],
         order: {
           experience: 4,
           name: 0,
@@ -6976,16 +7015,16 @@
     SPECIAL_FUNCTIONS: {},
     TERTIARY_PATTERN_TO_FUNCTION: {},
   },
-   "115": {
-    AMC: "Wealth Company AMC Pvt. Limited",
+  "115": {
+    AMC: "Union Asset Management Company Private Limited",
     CLONEKEYS: {},
     COMBINEKEYS: {},
     DELETEKEYS: [],
     IMP_DATA: {
-      amc_name: "Wealth Company Asset Management Holdings Private Limited",
+      amc_name: "Union Asset Management Company Private Limited",
       close_date: "",
       face_value: "Rs.10",
-      mutual_fund_name: "WSIF",
+      mutual_fund_name: "Arthaya SIF",
       offer_price: "Rs.10",
       open_date: "",
     },
@@ -7000,13 +7039,19 @@
         row_match_threshold: 1,
       },
       manager_data: {
-        keywords: ["Name\\s*of\\s*the", "Qualifications?", "Experience","Designation","Age"],
+        keywords: [
+          "Name\\s*of\\s*the",
+          "Qualifications?",
+          "Experience",
+          "Designation",
+          "Age",
+        ],
         order: {
-          experience: 4,
+          experience: 3,
           name: 0,
-          qualification: 3,
+          qualification: 2,
         },
-        row_count: 6,
+        row_count: 5,
         threshold: 1,
       },
       page_zero: {
@@ -7038,7 +7083,7 @@
       "^other_text": ["_extract_scheme_data", "scheme"],
       "^risk_bbox": ["_extract_scheme_data", "scheme2"],
       asset_allocation_pattern: ["_extract_asset_data", "asset"],
-      // fund_manager: ["_extract_manager_data", "manager"],
+      fund_manager: ["_extract_manager_data", "manager"],
       main_scheme_name: ["_extract_generic_data", "main_scheme"],
     },
     PROMOTEKEYS: {},

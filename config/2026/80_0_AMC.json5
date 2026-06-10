@@ -13,39 +13,16 @@
     title: {
       ocr: false,
       pattern: "(?i)(?:PE|EQUITY|PENSION|GROUP|LONG|MONEY|GILT|MANAGED|BOND).+?(?:FUND|Fund)",
-      bbox: [
-        0,
-        0,
-        380,
-        95,
-      ],
+      bbox: [0, 0, 380, 95],
     },
     clip_bbox: [
-      [
-        0,
-        0,
-        290,
-        470,
-      ],
-      [
-        280,
-        60,
-        595,
-        475,
-      ],
+      [0, 0, 290, 470],
+      [280, 60, 595, 475],
     ],
     port_bbox: [
       {
-        bbox: [
-          0.88,
-          95.7,
-          284.47,
-          831.46,
-        ],
-        support_lines: [
-          122,
-          250,
-        ],
+        bbox: [9.51, 146.95, 278.04, 731.57],
+        support_lines: [219.89],
         anchor_t: "Top 10 Holdings",
         anchor_b: null,
         anchor_r: null,
@@ -59,24 +36,15 @@
       },
     ],
     data: {
-      size: [
-        5,
-        25,
-      ],
-      color: [
-        23,
-      ],
+      size: [5, 25],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      25.0,
-    ],
+    content_size: [30.0, 25.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -97,28 +65,17 @@
     ],
     manager: {
       pattern: "([A-Za-z]+\\s+[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*aum_as_on": [
-      "_extract_generic_data",
-      "aum",
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager",
-    ],
+    ".*aum_as_on": ["_extract_generic_data", "aum"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

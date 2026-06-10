@@ -1,74 +1,47 @@
 {
-  "AMC_NAME": "Edelweiss Mutual Fund",
-  "MAIN_MAP": {
-    "select": true,
-    "map": true,
-    "special": true
+  AMC_NAME: "Edelweiss Mutual Fund",
+  MAIN_MAP: {
+    select: true,
+    map: true,
+    special: true,
   },
-  "IMP_DATA": {
-    "amc_name": "Edelweiss Asset Management Limited",
-    "mutual_fund_name": "Edelweiss Mutual Fund"
+  IMP_DATA: {
+    amc_name: "Edelweiss Asset Management Limited",
+    mutual_fund_name: "Edelweiss Mutual Fund",
   },
-  "PARAMS": {
-    "title": {
-      "ocr": false,
-      "pattern": "((?:Edelweiss|Bharat|BHARAT)\\s*.+?(?:F[Oo]F|Fund\\s*(?:of\\s*[fF]unds?)?|ETF\\s*(?:FOF|Fund\\s*of\\s*Fund)?)\\s*(?:\\-\\s*April\\s*\\d{4})?)",
-      "bbox": [
-        0.0,
-        0.0,
-        400,
-        90
-      ]
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "((?:Edelweiss|Bharat|BHARAT)\\s*.+?(?:F[Oo]F|Fund\\s*(?:of\\s*[fF]unds?)?|ETF\\s*(?:FOF|Fund\\s*of\\s*Fund)?)\\s*(?:\\-\\s*April\\s*\\d{4})?)",
+      bbox: [0.0, 0.0, 400, 90],
     },
-    "clip_bbox": [
-      [
-        0,
-        80,
-        205,
-        840
-      ],
-      [
-        205,
-        120,
-        580,
-        810
-      ]
+    clip_bbox: [
+      [0, 80, 205, 840],
+      [205, 120, 580, 810],
     ],
-    "line_x": 410.0,
-    "data": {
-      "size": [
-        5,
-        15
-      ],
-      "color": [
-        666
-      ],
-      "update_size": 30.0,
-      "font": [
-        "Roboto-Bold"
-      ]
+    line_x: 410.0,
+    data: {
+      size: [5, 15],
+      color: [666],
+      update_size: 30.0,
+      font: ["Roboto-Bold"],
     },
-    "content_size": [
-      30.0,
-      15.0
-    ],
-    "method": "clip",
-    "line_side": "right",
-    "max_financial_index_highlight": 5,
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "update_min_add": false
+    content_size: [30.0, 15.0],
+    method: "clip",
+    line_side: "right",
+    max_financial_index_highlight: 5,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    update_min_add: false,
   },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "PRE_DATA_SELECT": [
-    "^before.*"
-  ],
-  "REGEX": {
-    "date": "(\\d{1,2}\\-\\w{3}\\-\\d{2})",
-    "min_amt": "([\\d,]+).*?([\\d,]+)",
-    "aum": "([\\d,.]+\\s+Cr\\.?)",
-    "scheme": [
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    date: "(\\d{1,2}\\-\\w{3}\\-\\d{2})",
+    min_amt: "([\\d,]+).*?([\\d,]+)",
+    aum: "([\\d,.]+\\s+Cr\\.?)",
+    scheme: [
       "Inception Date",
       "NAV",
       "Fund Size",
@@ -77,67 +50,44 @@
       "Minimum\\s*[iI]nvestment\\s*[aA]mount",
       "Exit Load",
       "Quantitative Indicators|Market Capitalization|Portfolio Metrics",
-      "EOL"
+      "EOL",
     ],
-    "scheme2": [
-      "Quantitative\\s*[Ii]ndicators?",
-      "All Holdings",
-      "EOL"
-    ],
-    "offset_metrics": {
-      "key": "(Tracking Error|Modified Duration|Macaulay Duration|Yield to [Mm]aturity|Average Maturity)",
-      "value": "(\\d+\\.\\d+(?:%|[Da]ays?|[Mm]onths?|[Yy]ears?)?)"
+    scheme2: ["Quantitative\\s*[Ii]ndicators?", "All Holdings", "EOL"],
+    offset_metrics: {
+      key: "(Tracking Error|Modified Duration|Macaulay Duration|Yield to [Mm]aturity|Average Maturity)",
+      value: "(\\d+\\.\\d+(?:%|[Da]ays?|[Mm]onths?|[Yy]ears?)?)",
     },
-    "metrics": "(Information Ratio|Standard\\s*Deviation|Sharpe\\s*Ratio|Beta|Portfolio\\s*Turnover\\s*Ratio|Modified Duration|Macaulay Duration|Yield to [Mm]aturity|Average Maturity|P\\s*E|P\\s*B)\\s*(\\-?[\\d,.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|[Tt]imes?)?)",
-    "sub": "\\d{1,2}-\\w{3}-\\d{2,4}|\\bBenchmark\\b",
-    "manager": {
-      "pattern": "(?:Mr\\.|Ms\\.|mrs\\.)\\s*([A-Za-z\\s]+)\\s*(\\d{1,2}\\s*years)\\s*(\\d{1,2}\\s*\\-\\s*[A-Za-z]+\\s*\\-\\s*\\d{1,2})",
-      "fields": [
-        "name",
-        "exp",
-        "since"
-      ]
+    metrics: "(Information Ratio|Standard\\s*Deviation|Sharpe\\s*Ratio|Beta|Portfolio\\s*Turnover\\s*Ratio|Modified Duration|Macaulay Duration|Yield to [Mm]aturity|Average Maturity|P\\s*E|P\\s*B)\\s*(\\-?[\\d,.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|[Tt]imes?)?)",
+    sub: "\\d{1,2}-\\w{3}-\\d{2,4}|\\bBenchmark\\b",
+    manager: {
+      pattern: "(?:Mr\\.|Ms\\.|mrs\\.)\\s*([A-Za-z\\s]+)\\s*(\\d{1,2}\\s*years)\\s*(\\d{1,2}\\s*\\-\\s*[A-Za-z]+\\s*\\-\\s*\\d{1,2})",
+      fields: ["name", "exp", "since"],
     },
-    "escape": "[^A-Za-z0-9\\s\\-\\(\\).,\\+\\%\\:\\&]+"
+    escape: "[^A-Za-z0-9\\s\\-\\(\\).,\\+\\%\\:\\&]+",
   },
-  "PATTERN_TO_FUNCTION": {
-    "^before.*": [
-      "_extract_scheme_data",
-      "scheme"
-    ],
-    "^dummy.*": [
-      "_extract_scheme_data",
-      "scheme2"
-    ]
+  PATTERN_TO_FUNCTION: {
+    "^before.*": ["_extract_scheme_data", "scheme"],
+    "^dummy.*": ["_extract_scheme_data", "scheme2"],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
+  SECONDARY_PATTERN_TO_FUNCTION: {
     ".*(minimum_investment|additional_investment)": [
       "_extract_amt_data",
-      "min_amt"
+      "min_amt",
     ],
-    ".*monthly_average_aum": [
-      "_extract_generic_data",
-      "aum"
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
-    "dummy.*(all_holdings)": [
-      "_extract_generic_data",
-      "metrics"
-    ],
+    ".*monthly_average_aum": ["_extract_generic_data", "aum"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    "dummy.*(all_holdings)": ["_extract_generic_data", "metrics"],
     "^dummy.*quantitative_indicators": [
       "_extract_metric_data",
-      "offset_metrics"
+      "offset_metrics",
     ],
     "before.*(quantitative_indicators|market_capitalization|portfolio_metrics)": [
       "_extract_generic_data",
-      "metrics"
-    ]
+      "metrics",
+    ],
   },
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "SELECTKEYS": [
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
     "scheme_launch_date",
     "benchmark_index",
     "fund_manager",
@@ -150,28 +100,24 @@
     "main_scheme_name",
     "monthly_aaum_date",
     "page_number",
-    "mutual_fund_name"
+    "mutual_fund_name",
   ],
-  "MERGEKEYS": {
-    "load": [
-      ".*exit_load"
-    ],
-    "fund_manager": [
-      ".*fund_manager"
-    ],
-    "metrics": [
+  MERGEKEYS: {
+    load: [".*exit_load"],
+    fund_manager: [".*fund_manager"],
+    metrics: [
       "^before.*(quantitative_indicators|market_capitalization|portfolio_metrics)",
-      ".*all_holdings"
-    ]
+      ".*all_holdings",
+    ],
   },
-  "CLONEKEYS": {
-    "benchmark_index": ".*inception_date$",
-    "scheme_launch_date": ".*inception_date$"
+  CLONEKEYS: {
+    benchmark_index: ".*inception_date$",
+    scheme_launch_date: ".*inception_date$",
   },
-  "PROMOTE_KEYS": {},
-  "SPECIAL_FUNCTIONS": {
-    "scheme_launch_date": "_update_date_data",
-    "benchmark_index": "_update_bench_sub_data"
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {
+    scheme_launch_date: "_update_date_data",
+    benchmark_index: "_update_bench_sub_data",
   },
-  "Z_MUTUAL_FUND_DATA": {}
+  Z_MUTUAL_FUND_DATA: {},
 }

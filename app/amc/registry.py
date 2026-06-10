@@ -29,6 +29,7 @@ def check_amc_file(path: str, file_name: str) -> tuple[str | None, str | None, s
     logger = get_global_logger()
 
     fs_pattern = re.compile(r"^(?P<code>\d{1,3})_(?P<date>\d{2}-[A-Za-z]{3}-\d{2})(?:_(?P<rev>\d))?_FS\.pdf$")
+    if_pattern = re.compile(r"^(?P<code>\d{1,3})_(?P<date>\d{2}-[A-Za-z]{3}-\d{2})(?:_(?P<rev>\d))?_IF\.pdf$")
     sidkim_pattern = re.compile(r"^(?P<code>\d{1,3})_.*?_(?P<type>SID|KIM)\.pdf$")
 
     # ---------- FACTSHEET ----------
@@ -49,6 +50,27 @@ def check_amc_file(path: str, file_name: str) -> tuple[str | None, str | None, s
 
         except Exception as e:
             logger.warning(f"FS parse failed for {file_name}: {e}")
+            return None, None, None
+        
+        
+    # ---------- INSURANCE ----------
+    m = if_pattern.match(file_name)
+    if m:
+        try:
+            code = m.group("code")
+            dateval = m.group("date")
+            rev = m.group("rev")
+
+            date_obj = datetime.strptime(dateval, "%d-%b-%y")
+
+            final_code = f"{code}_{1 if rev else 0}"
+            year = str(date_obj.year)
+
+            logger.debug(f"Detected IF PDF: {file_name}")
+            return final_code, year, "IF"
+
+        except Exception as e:
+            logger.warning(f"IF parse failed for {file_name}: {e}")
             return None, None, None
 
     # ---------- SID / KIM ----------

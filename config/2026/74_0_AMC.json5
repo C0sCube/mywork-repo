@@ -13,61 +13,45 @@
     title: {
       ocr: false,
       pattern: ".+?FUND",
-      bbox: [
-        40,
-        0,
-        535,
-        75,
-      ],
+      bbox: [40, 0, 535, 95],
     },
-    clip_bbox: [
-      [
-        20,
-        0,
-        545,
-        160,
-      ],
-    ],
+    clip_bbox: [[20, 0, 545, 160]],
     port_bbox: [
       {
-        bbox: [
-          2.16,
-          150.24,
-          296.16,
-          916.58,
-        ],
-        support_lines: [
-          96,
-          270,
-        ],
-        anchor_t: "EQUITY HOLDINGS",
-        anchor_b: null,
-        anchor_r: null,
-        anchor_l: null,
+        bbox: [0, 133, 292, 744.54],
+        support_lines: [242],
         anchor: {
-          anchor_t: "EQUITY HOLDINGS",
+          anchor_t: "EQUITY\\s+HOLDINGS",
+          anchor_b: "INDUSTRY",
+          anchor_r: null,
+          anchor_l: null,
+        },
+      },
+      {
+        bbox: [291.5, 149.26, 593.53, 719.08],
+        support_lines: [520],
+        anchor: {
+          anchor_t: "EQUITY\\s+HOLDINGS",
+          anchor_b: "INDUSTRY",
+          anchor_r: null,
+          anchor_l: null,
+        },
+      },
+      {
+        bbox: [0.0, 378.42, 293.25, 838.49],
+        support_lines: [242],
+        anchor: {
+          anchor_t: "INDUSTRY",
           anchor_b: null,
           anchor_r: null,
           anchor_l: null,
         },
       },
       {
-        bbox: [
-          288.91,
-          147.06,
-          588.23,
-          792.55,
-        ],
-        support_lines: [
-          391.72,
-          538,
-        ],
-        anchor_t: "EQUITY HOLDINGS",
-        anchor_b: null,
-        anchor_r: null,
-        anchor_l: null,
+        bbox: [293.25, 403.88, 589.14, 842.8],
+        support_lines: [520],
         anchor: {
-          anchor_t: "EQUITY HOLDINGS",
+          anchor_t: "INDUSTRY",
           anchor_b: null,
           anchor_r: null,
           anchor_l: null,
@@ -75,24 +59,15 @@
       },
     ],
     data: {
-      size: [
-        6,
-        15,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 15],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      15.0,
-    ],
+    content_size: [30.0, 15.0],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -109,28 +84,17 @@
     ],
     manager: {
       pattern: "([A-Z]{1}[a-z]+\\s*[A-Z]{1}[a-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
-      "_extract_manager_data",
-      "manager",
-    ],
-    ".*aum$": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
+    ".*aum$": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

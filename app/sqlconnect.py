@@ -8,7 +8,7 @@ from app.logger import get_global_logger
 from app.konstant import get_registry, load_json_as_string
 from types import SimpleNamespace
 
-TABLE_REPORT = "mf_status_report"
+TABLE_REPORT = "mf_status_report_test"
 # =====================================================
 # Job State Machine (CONFIG-DRIVEN)
 # =====================================================
@@ -112,7 +112,6 @@ def is_pushable_state(state: str) -> bool:
     return state in pushable
 
 
-TABLE_REPORT = "mf_status_report"
 # =====================================================
 # DB CONNECTION
 # =====================================================
@@ -358,8 +357,8 @@ def increment_push_attempts(job_id: int, db_config: dict):
 
     cur = conn.cursor()
     cur.execute(
-        """
-        UPDATE mf_status_report
+       f"""
+        UPDATE {TABLE_REPORT}
         SET push_attempts = push_attempts + 1
         WHERE id = %s
         """,

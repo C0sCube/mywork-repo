@@ -312,6 +312,7 @@ class PDFTablExtract:
 
         #STOP AT FIRST SIGHT
         for line in lines_data:
+            # print(line)
             if regex.search(line["text"]):
                 return line["y1"] if bottom else line["y0"]
 

@@ -45,6 +45,7 @@
     content_size: [30.0, 18.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],

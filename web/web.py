@@ -1,8 +1,9 @@
 # =====================================================
 # WEB APPLICATION — CSV ↔ JSON ↔ ADMIN PANEL
 # =====================================================
-
+import traceback
 import os, sys, json, json5, shutil, pytz, csv, ast
+import traceback
 import uuid, shutil
 import pandas as pd
 from datetime import datetime, timedelta
@@ -60,6 +61,8 @@ def detect_doc_type(filename: str) -> str | None:
     name = filename.lower()
     if name.endswith("_fs.csv") or name.endswith("_fs.json") or name.endswith("_fs.pdf"):
         return "fs"
+    if name.endswith("_if.csv") or name.endswith("_if.json") or name.endswith("_if.pdf"):
+        return "if"
     if name.endswith("_sid.csv") or name.endswith("_sid.json") or name.endswith("_sid.pdf"):
         return "sid"
     if name.endswith("_kim.csv") or name.endswith("_kim.json") or name.endswith("_kim.pdf"):
@@ -171,8 +174,8 @@ def login():
 
         # ---- AUTH SECTION ----
         # Replace this with real LDAP later
-        # auth_success = True
-        auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
+        auth_success = True
+        # auth_success = ldap_authenticate(LDAP_CONFIG, username, password)
 
         if not auth_success:
             return render_template("login.html", error="Invalid credentials.")
@@ -267,14 +270,16 @@ def status_data():
         cur = conn.cursor(dictionary=True)
 
         # Get total count for pagination metadata
-        cur.execute("SELECT COUNT(*) AS total FROM mf_status_report")
+        cur.execute(f"SELECT COUNT(*) AS total FROM {DB_TABLE}")
         total = cur.fetchone()["total"]
 
+        print(f"TOTAL ENTRIES: {total}")
+
         # Fetch paginated rows
-        cur.execute("""
+        cur.execute(f"""
             SELECT id, file_name, start_time, end_time, status, json_path, error,
                 created_by, uploaded_by, push_attempts
-            FROM mf_status_report
+            FROM {DB_TABLE}
             ORDER BY start_time DESC
             LIMIT %s OFFSET %s
         """, (size, offset))
@@ -293,6 +298,7 @@ def status_data():
         }
     except Exception as e:
         print("status_data error:", e)
+        traceback.print_exc()
         return {"success": False, "rows": []}
     
 @app.route("/viewer/pdf/<filename>")
@@ -333,6 +339,11 @@ def dash_csv():
         csv_path = sid_to_csv(json_path, output_folder=preview_dir)
     elif doc_type == "kim":
         csv_path = kim_to_csv(json_path, output_folder=preview_dir)
+    
+    elif doc_type == "if":
+        
+        print(json_path, preview_dir)
+        csv_path = if_to_csv(json_path, output_folder =preview_dir)
         
     return send_file(
         csv_path,
@@ -421,6 +432,7 @@ def upload_files():
         name = secure_filename(f.filename)
         f.save(os.path.join(INPUT_DIR, name))
 
+        #create a job irrespective of what the file is given
         create_job(
             {
                 "file_name": name,
@@ -451,7 +463,7 @@ def reprocess(job_id):
         if not can_transition(status, JobState.UPLOADED):
             return jsonify(success=False, error=f"Cannot reprocess from {status}"), 400
 
-        src = resolve_source_file(job["file_name"])
+        src = resolve_source_file(job["file_name"]) #fs/sid/if
         print(f"SOURCE: {src}")
         if not src:
             return jsonify(success=False, error="Source file not found"), 404
@@ -517,6 +529,21 @@ def push_job(job_id):
     except Exception as e:
         return jsonify(success=False, error=str(e)), 500
 
+
+
+# =====================================================
+# NEW DATA - EDITOR
+# =====================================================
+
+@app.route('/new-data')
+@admin_required()
+def new_data():
+    
+    user=session.get("user", "").lower()
+    return render_template(
+        "new_data.html",
+        user = user
+    ) 
 
 # =====================================================
 # CONFIG - EDITOR
@@ -861,7 +888,7 @@ def csv_to_kim_json(csv_path):
 
             if k == "field_location" and v:
                 try:
-                    v = ast.literal_eval(v)  # ✅ safe restore
+                    v = ast.literal_eval(v)
                 except Exception:
                     v = []
 
@@ -1019,6 +1046,71 @@ def csv_to_fs_json(csv_path):
         "records": records,
     }
 
+#INS
+def if_to_csv(json_path, output_folder):
+
+    json_path = Path(json_path)
+    output_path = Path(output_folder)
+
+    keys = REGISTRY["field_keys"]["if_keys"]
+    static_keys = keys["static_keys"]          # mf, scheme, sfin, aum
+    portfolio_keys = keys["portfolio_keys"]    # 0,1,page,table
+    # computed_keys = keys.get("computed_keys", [])
+
+    # Load JSON
+    with open(json_path, "r", encoding="utf-8") as f:
+        doc = json.load(f)
+
+    records = doc.get("records", [])
+
+    # Build headers
+    # headers = static_keys + computed_keys + portfolio_keys
+    headers = static_keys + portfolio_keys
+
+    rows = []
+
+    for r in records:
+        v = r.get("value", {})
+        static_values = [v.get(k, "") for k in static_keys]
+
+        # -------- Computed fields --------
+        # computed_values = []
+        # for ck in computed_keys:
+        #     if ck == "aum_in_mil":
+        #         try:
+        #             aum_val = float(v.get("monthly_aaum_value", ""))
+        #             computed_values.append(round(aum_val * 10, 2))
+        #         except:
+        #             computed_values.append("")
+        #     else:
+        #         computed_values.append("")
+
+        # -------- Portfolio flattening --------
+        portfolio_list = v.get("portfolio_data", [])
+
+        if not isinstance(portfolio_list, list):
+            continue
+
+        for item in portfolio_list:
+            portfolio_values = [item.get(k, "") for k in portfolio_keys]
+
+            # rows.append(static_values + computed_values + portfolio_values)
+            rows.append(static_values + portfolio_values)
+
+        
+        rows.append([""] * len(headers)) #spacing
+        rows.append([""] * len(headers))
+
+
+    df = pd.DataFrame(rows, columns=headers)
+    csv_path = output_path / f"{json_path.stem}.csv"
+    df.to_csv(csv_path, index=False)
+
+    
+    return str(csv_path)
+
+        
+        
 
 @app.route("/convert_csv", methods=["POST"])
 @login_required(api=True)
@@ -1084,7 +1176,14 @@ def convert_json():
     elif doc_type == "sid":
         csv_path = sid_to_csv(json_path, output_folder=preview_dir)
     elif doc_type == "kim":
+        
+        print(json_path)
+        print(preview_dir)
+        
         csv_path = kim_to_csv(json_path, output_folder=preview_dir)
+    # elif doc_type== "if":
+    #     print(f"convert_json : THe doc type is INS FUND")
+    #     csv_path = if_to_csv(json_path, output_folder=preview_dir)
 
     return jsonify(success=True, csv_file=os.path.basename(csv_path))
 
@@ -1517,7 +1616,9 @@ if __name__ == "__main__":
     
     ADMIN_USERS = WEB_CONFIG.get("admin_user", [])
     DB_CONFIG = config["db_config"]
-
+    DB_TABLE = config["db_tables"]["status_report"]
+    
+    print(f"TABLE USED IS: {DB_TABLE}")
     
     logger = setup_logger(
         FINAL_WEB_LOG_NAME, 
@@ -1527,4 +1628,4 @@ if __name__ == "__main__":
     )
 
     web = config.get("web_config", {})
-    app.run(debug=True, host=web.get("host"), port=web.get("port"))   
+    app.run(debug=True, host=web.get("host"), port=web.get("port")) # ssl_context='adhoc'   

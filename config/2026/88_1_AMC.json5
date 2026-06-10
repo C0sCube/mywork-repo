@@ -13,38 +13,16 @@
     title: {
       ocr: false,
       pattern: "(^.+)SFIN",
-      bbox: [
-        0,
-        0,
-        560,
-        121,
-      ],
+      bbox: [0, 0, 560, 121],
     },
     clip_bbox: [
-      [
-        408,
-        98,
-        825,
-        1310,
-      ],
-      [
-        0,
-        0,
-        560,
-        121,
-      ],
+      [408, 98, 825, 1310],
+      [0, 0, 560, 121],
     ],
     port_bbox: [
       {
-        bbox: [
-          440,
-          240,
-          835,
-          1350,
-        ],
-        support_lines: [
-          720,
-        ],
+        bbox: [440, 240, 835, 1350],
+        support_lines: [720],
         anchor_t: "Security Name",
         anchor_b: null,
         anchor_r: null,
@@ -58,24 +36,15 @@
       },
     ],
     data: {
-      size: [
-        6,
-        20,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 20],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      20.0,
-    ],
+    content_size: [30.0, 20.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -98,17 +67,12 @@
     },
     manager: {
       pattern: "([A-Za-z]+\\s*[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {},
   TERTIARY_PATTERN_TO_FUNCTION: {},

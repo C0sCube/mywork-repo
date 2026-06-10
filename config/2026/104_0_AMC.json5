@@ -45,7 +45,7 @@
   PATTERN_TO_FUNCTION: {
     "^before": ["_extract_scheme_data", "scheme"],
   },
-  PRE_DATA_SELECT: ["^dummy.*"],
+  PRE_DATA_SELECT: [],
   PROMOTE_KEYS: {},
   REGEX: {
     aum: "([\\d,.]+\\s*[Cc]r?)",

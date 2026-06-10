@@ -1,107 +1,66 @@
 {
-  "AMC_NAME": "Pgim India Mutual Fund",
-  "CLONEKEYS": {
-    "scheme_launch_date": "dummy.*regular_plan"
+  AMC_NAME: "Pgim India Mutual Fund",
+  CLONEKEYS: {
+    scheme_launch_date: "dummy.*regular_plan",
   },
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "IMP_DATA": {
-    "amc_name": "PGIM India Asset Management Private Limited",
-    "mutual_fund_name": "PGIM India Mutual Fund"
+  DUPLICATE_MUTUAL_FUNDS: {},
+  IMP_DATA: {
+    amc_name: "PGIM India Asset Management Private Limited",
+    mutual_fund_name: "PGIM India Mutual Fund",
   },
-  "MAIN_MAP": {
-    "map": true,
-    "select": true,
-    "special": true
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
   },
-  "MERGEKEYS": {
-    "metrics": [
-      ".*aum_as_on"
-    ]
+  MERGEKEYS: {
+    metrics: [".*aum_as_on"],
   },
-  "PARAMS": {
-    "clip_bbox": [
-      [
-        0,
-        115,
-        210,
-        812
-      ],
-      [
-        0,
-        680,
-        570,
-        812
-      ]
+  PARAMS: {
+    clip_bbox: [
+      [0, 115, 210, 812],
+      [0, 680, 570, 812],
     ],
-    "content_size": [
-      30,
-      10
-    ],
-    "data": {
-      "color": [
-        -1
-      ],
-      "font": [
-        "PrudentialModern-Bold"
-      ],
-      "size": [
-        6,
-        12
-      ],
-      "update_size": 30
+    content_size: [30, 10],
+    data: {
+      color: [-1],
+      font: ["PrudentialModern-Bold"],
+      size: [6, 12],
+      update_size: 30,
     },
-    "line_side": "",
-    "line_x": 210,
-    "max_financial_index_highlight": 7,
-    "method": "clip",
-    "pdf_ocr": false,
-    "sanitize_fund": true,
-    "stop_words": [],
-    "title": {
-      "bbox": [
-        0,
-        0,
-        300,
-        80
-      ],
-      "ocr": false,
-      "pattern": "([A-Z0-9\\s\\-]+\\s*PGIM INDIA)"
+    line_side: "",
+    line_x: 210,
+    max_financial_index_highlight: 7,
+    method: "clip",
+    pdf_ocr: false,
+    sanitize_fund: true,
+    stop_words: [],
+    title: {
+      bbox: [0, 0, 300, 80],
+      ocr: false,
+      pattern: "([A-Z0-9\\s\\-]+\\s*PGIM INDIA)",
     },
-    "update_min_add": true
+    update_min_add: false,
   },
-  "PATTERN_TO_FUNCTION": {
-    "^(before)": [
-      "_extract_scheme_data",
-      "scheme"
-    ],
-    "^(dummy.*)": [
-      "_extract_scheme_data",
-      "scheme2"
-    ]
+  PATTERN_TO_FUNCTION: {
+    "^(before)": ["_extract_scheme_data", "scheme"],
+    "^(dummy.*)": ["_extract_scheme_data", "scheme2"],
   },
-  "PRE_DATA_SELECT": [
-    "fund_details",
-    "^regular_plan_and_direct_plan.*",
-    "for_subscription_as_*"
-  ],
-  "PROMOTE_KEYS": {},
-  "REGEX": {
-    "aum": ".*Monthly Average AUM.*?([\\d,.]+)$",
-    "benchmark": "((?:Nifty|BSE|NYSE|Domestic|CRISIL).+?(?:Gold|Silver|TRI|Index))",
-    "date": "(\\d+\\/\\d+\\/\\d{3,4})",
-    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\/\\:]+",
-    "load": "Entry Load(.+)Exit Load(.+)$",
-    "manager": {
-      "fields": [
-        "since",
-        "name",
-        "exp"
-      ],
-      "pattern": "(?:\\(w\\.e\\.f\\.?\\s*(.*?)\\)?)?\\s*(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:\\(.+?\\))?\\s*\\(.*?([0-9]+ years) of experience.*?\\)"
+  PRE_DATA_SELECT: [],
+  PROMOTE_KEYS: {},
+  REGEX: {
+    aum: ".*Monthly Average AUM.*?([\\d,.]+)$",
+    benchmark: "((?:Nifty|BSE|NYSE|Domestic|CRISIL).+?(?:Gold|Silver|TRI|Index))",
+    date: "(\\d+\\/\\d+\\/\\d{3,4})",
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\/\\:]+|\\(TRI\\)|TRI|Total\\s+Returns?\\s+Index",
+    load: "Entry Load(.+)Exit Load(.+)$",
+    manager: {
+      fields: ["since", "name", "exp"],
+      pattern: "(?:\\(w\\.e\\.f\\.?\\s*(.*?)\\)?)?\\s*(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([\\w\\s]+)\\s*(?:\\(.+?\\))?\\s*\\(.*?([0-9]+ years) of experience.*?\\)",
     },
-    "metrics": "(Portfolio Turnover|Standard Deviation of Fund|Beta|Sharpe Ratio| Average Maturity|Modified Duration|Macaulay Duration|Portfolio Yield).*?\\s*(-?[\\d.,]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]e?a?rs|%)?)",
-    "min_amt": "([\\d,.]+)\\s*\\/?\\s*\\-?\\s*and in multiples of\\s*([\\d,.]+)\\s*\\/?\\s*\\-?\\s*thereafter\\.?",
-    "scheme": [
+    metrics: "(Portfolio Turnover|Standard Deviation of Fund|Beta|Sharpe Ratio| Average Maturity|Modified Duration|Macaulay Duration|Portfolio Yield).*?\\s*(-?[\\d.,]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]e?a?rs|%)?)",
+    min_amt: "([\\d,.]+)\\s*\\/?\\s*\\-?\\s*and in multiples of\\s*([\\d,.]+)\\s*\\/?\\s*\\-?\\s*thereafter\\.?",
+    scheme: [
       "Investment Objective",
       "Fund Manager",
       "Benchmark",
@@ -112,45 +71,30 @@
       "NAV",
       "Load Structure",
       "IDCW\\s*History",
-      "EOL"
+      "EOL",
     ],
-    "scheme2": [
+    scheme2: [
       "Regular Plan",
       "Direct Plan",
       "EOL",
       "Application Amount",
       "Additional Purchase",
       "SIP",
-      "EOL"
-    ]
+      "EOL",
+    ],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
-    ".*aum_as_on$": [
-      "_extract_generic_data",
-      "metrics"
-    ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
-    ".*inception_date": [
-      "_extract_generic_data",
-      "date"
-    ],
-    ".*load_structure": [
-      "_extract_load_data",
-      "load"
-    ],
-    "^for_subscription.*": [
-      "_extract_amt_data",
-      "min_amt"
-    ],
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    ".*aum_as_on$": ["_extract_generic_data", "metrics"],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    ".*inception_date": ["_extract_generic_data", "date"],
+    ".*load_structure": ["_extract_load_data", "load"],
+    "^for_subscription.*": ["_extract_amt_data", "min_amt"],
     "regular_plan.*(application_amount|additional_purchase)$": [
       "_extract_amt_data",
-      "min_amt"
-    ]
+      "min_amt",
+    ],
   },
-  "SELECTKEYS": [
+  SELECTKEYS: [
     ".*(additional_purchase|application_amount)$",
     ".*(fund_manager|average_aum|benchmark)",
     ".*load_structure",
@@ -160,150 +104,9 @@
     "mutual_fund_name",
     "page_number",
     "monthly_aaum_date",
-    "scheme_launch_date"
+    "scheme_launch_date",
   ],
-  "SPECIAL_FUNCTIONS": {},
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "Z_MUTUAL_FUND_DATA": {
-    "PGIM INDIA ARBITRAGE FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "ARBITRAGE",
-      "risk": ""
-    },
-    "PGIM INDIA BALANCED ADVANTAGE FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "BALANCED ADVANTAGE",
-      "risk": ""
-    },
-    "PGIM INDIA CORPORATE BOND FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "CORPORATE BOND",
-      "risk": ""
-    },
-    "PGIM INDIA CRISIL IBX GILT INDEX - APR 2028 FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "CRISIL IBX GILT INDEX.+?APR 2028",
-      "risk": ""
-    },
-    "PGIM INDIA DYNAMIC BOND FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "DYNAMIC BOND",
-      "risk": ""
-    },
-    "PGIM INDIA ELSS TAX SAVER FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "ELSS TAX SAVER",
-      "risk": ""
-    },
-    "PGIM INDIA EMERGING MARKETS EQUITY FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "EMERGING MARKETS",
-      "risk": ""
-    },
-    "PGIM INDIA EQUITY SAVINGS FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "EQUITY SAVINGS",
-      "risk": ""
-    },
-    "PGIM INDIA FLEXI CAP FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "FLEXI CAP",
-      "risk": ""
-    },
-    "PGIM INDIA GILT FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "GILT",
-      "risk": ""
-    },
-    "PGIM INDIA GLOBAL EQUITY OPPORTUNITIES FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "GLOBAL EQUITY OPPORTUNITIES",
-      "risk": ""
-    },
-    "PGIM INDIA GLOBAL SELECT REAL ESTATE SECURITIES FUND OF FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "REAL ESTATE SECURITIES",
-      "risk": ""
-    },
-    "PGIM INDIA HEALTHCARE FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "HEALTHCARE",
-      "risk": ""
-    },
-    "PGIM INDIA HYBRID EQUITY FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "HYBRID EQUITY",
-      "risk": ""
-    },
-    "PGIM INDIA LARGE AND MID CAP FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "LARGE.*?MID CAP",
-      "risk": ""
-    },
-    "PGIM INDIA LARGE CAP FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "LARGE CAP",
-      "risk": ""
-    },
-    "PGIM INDIA LIQUID FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "LIQUID",
-      "risk": ""
-    },
-    "PGIM INDIA LOW ARBITRAGE FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "ARBITRAGE",
-      "risk": ""
-    },
-    "PGIM INDIA LOW EQUITY SAVINGS FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "EQUITY SAVINGS",
-      "risk": ""
-    },
-    "PGIM INDIA MIDCAP OPPORTUNITIES FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "OPPORTUNITIES",
-      "risk": ""
-    },
-    "PGIM INDIA MIDCAP FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "MIDCAP FUND$",
-      "risk": ""
-    },
-    "PGIM INDIA MONEY MARKET FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "MONEY MARKET",
-      "risk": ""
-    },
-    "PGIM INDIA MULTI ASSET ALLOCATION FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "MULTI ASSET ALLOCATION",
-      "risk": ""
-    },
-    "PGIM INDIA MULTICAP FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "MULTICAP",
-      "risk": ""
-    },
-    "PGIM INDIA OVERNIGHT FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "OVERNIGHT",
-      "risk": ""
-    },
-    "PGIM INDIA RETIREMENT FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "RETIREMENT",
-      "risk": ""
-    },
-    "PGIM INDIA SMALL CAP FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "SMALL CAP",
-      "risk": ""
-    },
-    "PGIM INDIA ULTRA SHORT DURATION FUND": {
-      "min_add": "5000,1,1000,1",
-      "regex": "ULTRA SHORT",
-      "risk": ""
-    }
-  }
+  SPECIAL_FUNCTIONS: {},
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

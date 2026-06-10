@@ -57,6 +57,9 @@ class ReadrIns:
                     else:
                         title_text = " ".join(page.get_text("text", clip=bbox).split("\n"))
                     title_text = re.sub(escape_regex, "", title_text).strip()
+                    
+                    print(f"PAGE {pgn}: {title_text}")
+                    
                     title_match = re.findall(title_regex, title_text, re.DOTALL)
                     title = (
                         " ".join([_ for _ in title_match[0].strip().split(" ") if _])
@@ -176,13 +179,13 @@ class ReadrIns:
         )
 
         if save_report:
-            ReadrIns.__pdf_report(data, self.REPORTPATH, self.FILE_NAME)
+            ReadrIns.__pdf_report(data, self.REPORT_PATH, self.FILE_NAME)
 
         self.log.info(f"{func} done | total_pages={len(data)}, highlights={sum(d['hc'] for d in data)}")
         
         
         self.CURR_WORKING_PAGES = {
-            d["page"]: d["title"]
+            d["page"]: self.UTILS._normalize_alphanumeric(d["title"])
             for d in data
             if d["title"] and d["hc"] >= self.PARAMS["max_financial_index_highlight"]
         }
@@ -241,6 +244,8 @@ class ReadrIns:
 
                 page,all_blocks = doc[pgn],[]
                 page_bboxes = bboxes.get(str(pgn),[]) if isinstance(bboxes,dict) else bboxes
+
+                                
                 for count,bbox in enumerate(page_bboxes): #count for dummy block
                     blocks, seen_blocks = [], set()
                     page_blocks = page.get_text('dict', clip=bbox)['blocks']
@@ -263,8 +268,7 @@ class ReadrIns:
                     sorted_blocks = sorted(blocks, key=lambda x: (x['bbox'][1], x['bbox'][0]))
 
                     # dummy data
-                    fontz,colorz = self.PARAMS['data']['font'][0],self.PARAMS['data']['color'][0]
-                    sorted_blocks.append(self.PARAM_REGEX._dummy_block(fontz, colorz,count+1))
+                    sorted_blocks.append(self.PARAM_REGEX._dummy_block(count+1))
                     all_blocks.extend(sorted_blocks)
 
                 if fundName in fund_seen:
@@ -280,6 +284,66 @@ class ReadrIns:
             # pass
 
         return finalData
+    
+    @log_exceptions()
+    def extract_data_relative_line(self, path: str,title: dict)->list:
+      
+        finalData,fund_seen = [],{}
+        line_x,side = self.PARAMS['line_x'],self.PARAMS['line_side']
+        # try:
+        with fitz.open(path) as doc:
+            
+            for pgn in title:
+                page, fundName = doc[pgn],title.get(pgn,"")
+                left_blocks, right_blocks, seen_blocks = [],[], set()
+                page_blocks = page.get_text("dict")["blocks"]
+                
+            
+                
+                for block in page_blocks:
+                    if block['type'] == 0 and 'lines' in block:
+                        block_key = id(block) #hash_key
+
+                        for line in block["lines"]:
+                            for span in line["spans"]:
+                                x0, _ = span["origin"]
+
+                                if side in ["left", "both"] and x0 < line_x and block_key not in seen_blocks:
+                                    seen_blocks.add(block_key)
+                                    left_blocks.append(block)
+
+                                if side in ["right", "both"] and x0 > line_x and block_key not in seen_blocks:
+                                    seen_blocks.add(block_key)
+                                    right_blocks.append(block)
+
+                left_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))  
+                right_blocks.sort(key=lambda x: (x["bbox"][1], x["bbox"][0]))
+                
+                #adding dummy data
+                # fontz,colorz = self.PARAMS['data']['font'][0],self.PARAMS['data']['color'][0]
+                # left_blocks.append(self.PARAM_REGEX._dummy_block(fontz,colorz,1))
+                # right_blocks.append(self.PARAM_REGEX._dummy_block(fontz,colorz,1))
+                
+                #new 
+                left_blocks.append(self.PARAM_REGEX._dummy_block(1))
+                right_blocks.append(self.PARAM_REGEX._dummy_block(1))
+                
+                if side == "both": left_blocks.extend(right_blocks)
+                sorted_blocks = left_blocks if side != "right" else right_blocks
+                
+                if fundName in fund_seen:
+                    fund_seen[fundName]["block"].extend(sorted_blocks)
+                    fund_seen[fundName]["page"].append(pgn)
+                else:
+                    new_entry = {"page": [pgn], "fundname": fundName, "block": sorted_blocks}
+                    finalData.append(new_entry)
+                    fund_seen[fundName] = new_entry
+                        
+        # except Exception as e:
+        #     # self.log.error(f"Error in 'extract_data_relative_line' ",exc_info=True)
+        #     pass
+            
+        return finalData    
 
     def extract_span_data(self, data: list,*args)->list:  # all
       
@@ -298,107 +362,119 @@ class ReadrIns:
 
         return finalData
 
+
     #CLEAN
     def _random_suffix(self,length=4): return ''.join(random.choices(string.ascii_lowercase, k=length))
-    
-    def process_text_data(self, data: list)->list:
+  
+    # def create_nested_dict(self,data: list,*args)->list:
       
-        finalData = []
-        #checkers
-        data_cond = self.PARAMS['data']
-        size_checker = data_cond['size']
-        font_checker = data_cond['font']
-        color_checker = data_cond['color']
-        font_change = data_cond['update_size']
-        
-        
-        for content in data:
-            pgn,fundName,blocks = content['page'],content['fundname'],content['block']
-    
-            cleaned_blocks = [] #remove stop words
-            for block in blocks:
-                size, text, *_ = block
-                cleaned_blocks.append(block)
-
-            processed_blocks = [] #update size
-            for block in cleaned_blocks:
-                size, text, color, origin, bbox, font = block
-                conditions = [round(size) in range(size_checker[0], size_checker[1]),color in color_checker,font in font_checker]
+    #     header_size, content_size = self.PARAMS['content_size']
+    #     finalData = []
+    #     for content in data:
+    #         pgn,fundName,blocks = content['page'],content['fundname'], content['block']
+    #         nested_dict = {}
+    #         curr_head = "before"
+            
+    #         if curr_head not in nested_dict:
+    #             nested_dict[curr_head] = []
                 
-                if all(conditions):
-                    size = font_change  # Update size
-                processed_blocks.append([size, text.strip(), color, origin, bbox,font])
-
+    #         for block in blocks:
+    #             size,text, *open = block
+    #             if size == header_size:
+    #             # if  abs(size - header_size) <= 1:
+    #                 base_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
+                    
+    #                 # Protect reserved key "before"
+    #                 # if base_head in ["before"]:
+    #                 #     base_head = f"{base_head}_{self._random_suffix()}"
+                    
+    #                 curr_head = base_head
+    #                 while curr_head in nested_dict:
+    #                     curr_head = f"{base_head}_{self._random_suffix()}"
+    #                 nested_dict[curr_head] = []
+    #             elif size<= content_size and curr_head:
+    #                 nested_dict[curr_head].append(block)
             
-            temp_nested_blocks, seperate_blocks = [], [] #nest list based on dummy
-            for block in processed_blocks:
-                size, text, *rest = block
-                seperate_blocks.append(block)
-
-                if text.startswith("DUMMY"): 
-                    temp_nested_blocks.append(seperate_blocks[:])
-                    seperate_blocks = []
-
-            if seperate_blocks:
-                temp_nested_blocks.append(seperate_blocks)
-
-            grand_combined_blocks = [] #group & combine
-            for select_blocks in temp_nested_blocks:
-                grouped_blocks = defaultdict(list)
-
-                for block in select_blocks:
-                    y_coord = math.ceil(block[3][1])
-                    size = block[0]
-                    grouped_blocks[(y_coord, size)].append(block)
-
-                combined_blocks = []
-                for key, group in grouped_blocks.items():
-                    if key[1] == font_change:
-                        combined_text = " ".join(item[1] for item in group).strip()
-                        if combined_text: 
-                            size, _, color, origin, bbox, font = group[0]
-                            combined_blocks.append([size, combined_text, color, origin, bbox, font])
-                    else:
-                        combined_blocks.extend(group)
-
-                grand_combined_blocks.append(combined_blocks)
-            
-            flatten_blocks = [block for group in grand_combined_blocks for block in group]
-            finalData.append(self._create_data_entry(pgn,fundName,flatten_blocks))
-
-        return finalData
-
-    def create_nested_dict(self,data: list,*args)->list:
-      
-        header_size, content_size = self.PARAMS['content_size']
+    #         if nested_dict['before'] == []: del nested_dict['before']    
+    #         finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
+    #     return finalData
+    
+    
+    def process_text_data(self, data: list) -> list:
         finalData = []
+
+        from collections import defaultdict
+        import math
+        
+        # sanitize_fund = self.PARAMS["sanitize_fund"]
+        sanitize_fund = False #for now
+
         for content in data:
-            pgn,fundName,blocks = content['page'],content['fundname'], content['block']
+            pgn,fundName,blocks  = content['page'],content['fundname'],content['block']
+            
+            # fundName = self.PARAM_REGEX._sanitize_fund(fundName,self.FUND_NAME,sanitize_fund)
+            # fundName = self.UTILS._normalize_alphanumeric(fundName)
+        
             nested_dict = {}
-            curr_head = "before"
-            
-            if curr_head not in nested_dict:
-                nested_dict[curr_head] = []
-                
+            current_key = "before"
+            nested_dict[current_key] = []
+
+
+            temp_group = []
             for block in blocks:
-                size,text, *open = block
-                if size == header_size:
-                # if  abs(size - header_size) <= 1:
-                    base_head = "_".join([i for i in text.strip().split(" ") if i != '']).lower()
+                size, text, *rest = block
+                if text.startswith("DUMMY"):
+
+                    if temp_group:
+                        grouped = defaultdict(list)
+
+                        for b in temp_group:
+                            y = math.ceil(b[3][1])  # Y coordinate
+                            grouped[y].append(b)
+
+                        for y, g in grouped.items():
+                            if len(g) == 1:
+                                nested_dict[current_key].append(g[0])
+                            else:
+                                # sort left to right
+                                g = sorted(g, key=lambda x: x[3][0])
+                                combined_text = " ".join(x[1] for x in g).strip()
+                                size, _, color, origin, bbox, font = g[0]
+                                nested_dict[current_key].append([size,combined_text,color,origin,bbox,font])
+
+                        temp_group = []  # reset after processing
+
                     
-                    # Protect reserved key "before"
-                    # if base_head in ["before"]:
-                    #     base_head = f"{base_head}_{self._random_suffix()}"
+                    current_key = text.strip()
+
+                    if current_key not in nested_dict:
+                        nested_dict[current_key] = []
+
+                else:
                     
-                    curr_head = base_head
-                    while curr_head in nested_dict:
-                        curr_head = f"{base_head}_{self._random_suffix()}"
-                    nested_dict[curr_head] = []
-                elif size<= content_size and curr_head:
-                    nested_dict[curr_head].append(block)
+                    temp_group.append(block)
+
+            if temp_group:
+                grouped = defaultdict(list)
+
+                for b in temp_group:
+                    y = math.ceil(b[3][1])
+                    grouped[y].append(b)
+
+                for y, g in grouped.items():
+                    if len(g) == 1:
+                        nested_dict[current_key].append(g[0])
+                    else:
+                        g = sorted(g, key=lambda x: x[3][0])
+                        combined_text = " ".join(x[1] for x in g).strip()
+                        size, _, color, origin, bbox, font = g[0]
+                        nested_dict[current_key].append([size,combined_text,color,origin,bbox,font])
+
             
-            if nested_dict['before'] == []: del nested_dict['before']    
-            finalData.append(self._create_data_entry(pgn,fundName,nested_dict))
+            if not nested_dict["before"]:
+                del nested_dict["before"]
+
+            finalData.append(self._create_data_entry(pgn, fundName, nested_dict))
         return finalData
     
     @log_exceptions()
@@ -406,26 +482,22 @@ class ReadrIns:
         func = inspect.currentframe().f_code.co_name
         self.log.info(f"▶ Start {func} | file={self.FILE_NAME}")
 
-        #sanitize fund removed, clip/line removed    
+        method = self.PARAMS['method']
         extracted_data = []
         
-        data = self.extract_clipped_data(path, titles,*args)
-        extracted_data.extend(self.extract_span_data(data, []))
+        if method in ["line", "both"]:
+            data = self.extract_data_relative_line(path, titles)
+            extracted_data.extend(self.extract_span_data(data, []))
+        
+        if method in ["clip", "both"]:
+            data = self.extract_clipped_data(path, titles,*args)
+            extracted_data.extend(self.extract_span_data(data, []))
         
         clean_data = self.process_text_data(extracted_data) #process & clean
-        nested_data = self.create_nested_dict(clean_data)
-        
-        for page in nested_data:
-            page_text = {}
-            page_blocks,fundname = page['block'],page['fundname']
+        return clean_data
 
-            for key, content in page_blocks.items():
-                page_text[key] = [txt[1] for txt in content]
-            self.TEXT_ONLY[fundname] = page_text
-        return nested_data
-    
 
-    def _generate_pdf_from_data(self, data: dict, output_path: str) -> None:
+    def _generate_pdf_from_data(self, data: dict) -> None:
         """Generate PDF from extracted data, page-wise left normalization + safe font fallback."""
 
         def _to_rgb_tuple(color_int):
@@ -436,14 +508,15 @@ class ReadrIns:
             return (r / 255.0, g / 255.0, b / 255.0)
         
         pdf_conf = self.PARAM_REGEX.PDF_CONF
-
+        output_path = self.DRYPATH
+        
         with fitz.open() as doc:
             for header, content_blocks in data.items():
                 if not content_blocks:
                     continue
 
-                page = doc.new_page()
-
+                # page = doc.new_page()
+                page = doc.new_page(width=1000, height=1200)
                 try:
                     page.insert_text(
                         (int(pdf_conf["LEFT_MARGIN"]),int(pdf_conf["TITLE_POSITION"])),
@@ -507,10 +580,14 @@ class ReadrIns:
                                 color=_to_rgb_tuple(color),
                             )
 
-            doc.save(output_path)
-        return output_path
+        
+        
+        #     doc.save(output_path)
+        # return output_path
+            pdf_bytes = doc.tobytes()
+        return pdf_bytes
 
-    def _extract_data_from_pdf(self, pdf_path: str, fund: str):
+    def _extract_data_from_pdf(self, pdf_path: str):
         final_data = {}
         with fitz.open(pdf_path) as doc:  # open from path
             for page in doc:
@@ -525,6 +602,21 @@ class ReadrIns:
                     final_data[header].extend(content_lines)
         return final_data
     
+    def _extract_data_from_pdf_bytes(self, bytes):
+        final_data = {}
+        with fitz.open(stream = bytes, filetype="pdf") as doc:
+            for page in doc:
+                lines = page.get_text("text").split("\n")
+                if not lines: continue
+
+                header,content_lines = lines[0],lines[1:]
+                if header not in final_data:
+                    final_data[header] = content_lines
+                else:
+                    final_data[header].extend(content_lines)
+                    
+        return final_data
+
     @log_exceptions()
     def get_generated_content(self, data: list):
         func = inspect.currentframe().f_code.co_name
@@ -533,11 +625,14 @@ class ReadrIns:
 
         for content in data:
             pgn, fund, blocks = content['page'], content['fundname'], content['block']
-            pdf_path = self._generate_pdf_from_data(blocks,self.DRYPATH)
-            extracted_text[fund] = self._extract_data_from_pdf(pdf_path, fund)
             
-            
-            self._update_imp_data(extracted_text[fund], fund, pgn)
+            # width = content["page_width"]
+            # height = content["page_height"]
+            pdf_bytes = self._generate_pdf_from_data(blocks)
+            extracted_text[fund] = self._extract_data_from_pdf_bytes(pdf_bytes)
+            # path = self._generate_pdf_from_data(blocks)
+            # extracted_text[fund] = self._extract_data_from_pdf(path)
+            extracted_text[fund]["page_number"] = pgn
 
         is_portfolio = self.PARAMS.get("port_bbox",None)
         if is_portfolio:
@@ -552,6 +647,34 @@ class ReadrIns:
                 value["portfolio_data"] = port_data[fund_n]
             
         return extracted_text
+
+    # @log_exceptions()
+    # def get_generated_content(self, data: list):
+    #     func = inspect.currentframe().f_code.co_name
+    #     self.log.info(f"▶ Start {func} | file={self.FILE_NAME}")
+    #     extracted_text = {}
+
+    #     for content in data:
+    #         pgn, fund, blocks = content['page'], content['fundname'], content['block']
+    #         pdf_path = self._generate_pdf_from_data(blocks,self.DRYPATH)
+    #         extracted_text[fund] = self._extract_data_from_pdf(pdf_path, fund)
+            
+            
+    #         self._update_imp_data(extracted_text[fund], fund, pgn)
+
+    #     is_portfolio = self.PARAMS.get("port_bbox",None)
+    #     if is_portfolio:
+            
+    #         path = self.CURR_PDF_PATH
+    #         config = self.PARAMS["port_bbox"]
+    #         wrk_pgs = self.CURR_WORKING_PAGES
+
+    #         port_data = ReadrIns.extract_portfolio(wrk_pgs,config,path)
+            
+    #         for fund_n, value in extracted_text.items():
+    #             value["portfolio_data"] = port_data[fund_n]
+            
+    #     return extracted_text
 
     @staticmethod
     def extract_portfolio(working_pages:dict,config:dict,path:str):
@@ -635,84 +758,6 @@ class ReadrIns:
         
         except Exception:
             raise
-
-
-
-
-    # @staticmethod
-    # def extract_portfolio(working_pages:dict,config:dict,path:str):
-    #     """
-    #     Full pipeline:
-    #     - Opens PDF
-    #     - Extracts tables using config
-    #     - Returns JSON output (list of dicts)
-
-    #     Args:
-    #         configs (dict): full JSON config
-    #         key (str): config key (e.g., "star_health")
-
-    #     Returns:
-    #         list[dict]
-    #     """
-    #     doc = fitz.open(path)
-    #     empty_df = pd.DataFrame()
-    #     final_content = {}
-        
-    #     try:
-
-    #         for page_no, fund_name in working_pages.items():
-    #             page = doc[page_no]
-    #             all_dfs = []
-                
-    #             for idx,table in enumerate(config):
-
-    #                 bbox = tuple(table["bbox"]) if table.get("bbox") else None
-    #                 x_lines = table.get("support_lines", [])
-    #                 anchor = table.get("anchor_t", "")
-
-    #                 # skip invalid config
-    #                 if not bbox or not x_lines:
-    #                     all_dfs.append(empty_df)
-    #                     continue
-                    
-    #                 # if not bbox:
-    #                 #     all_dfs.append(empty_df)
-
-    #                 # extract rows
-    #                 extractor = PDFTablExtract(page, bbox, x_lines)
-    #                 rows = extractor.extract_row()
-
-    #                 # print(f"ROW:{rows}")
-                    
-    #                 if not rows:
-    #                     all_dfs.append(empty_df)
-    #                     continue
-
-    #                 # apply anchor
-    #                 if anchor:
-    #                     anchor_y = extractor.find_anchor_y(anchor)
-    #                     rows = extractor.cut_rows_above_anchor(rows, anchor_y)
-
-    #                 # --- assign columns ---
-    #                 # df = extractor.extract_col(rows)
-    #                 df = extractor.col_assign(rows)
-    #                 df["table"] = f"tbl_{idx}"
-    #                 df["page"] = page_no + 1
-                    
-    #                 all_dfs.append(df)
-
-                
-    #             final_df = pd.concat(all_dfs, ignore_index=True)
-    #             result_json = final_df.to_dict(orient="records")
-                
-    #             final_content[fund_name] = result_json
-                
-    #         doc.close()
-
-    #         return final_content
-        
-    #     except Exception:
-    #         raise
 
 
 
@@ -812,9 +857,10 @@ class ReadrIns:
             temp = self._merge_fund_data(temp)
             temp = self._clone_fund_data(temp)
             temp = self._select_by_regex(temp)
+            temp = self._update_imp_data(temp, fund)
             
-            if self.MAIN_MAP['map']:
-                temp = self.__map_json_ops(temp) #map proper keys
+            # if self.MAIN_MAP['map']:
+            temp = self.__map_json_ops(temp) #map proper keys
             
             temp = regex._populate_all_indices_in_json(temp) #populate all keys
             temp = regex._transform_keys(temp) #lowercase

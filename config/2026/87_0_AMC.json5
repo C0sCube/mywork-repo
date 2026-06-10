@@ -13,38 +13,16 @@
     title: {
       ocr: false,
       pattern: "(^.+)ULI",
-      bbox: [
-        5.01,
-        74.08,
-        582.61,
-        127.13,
-      ],
+      bbox: [5.01, 74.08, 582.61, 127.13],
     },
     clip_bbox: [
-      [
-        0,
-        0,
-        295,
-        320,
-      ],
-      [
-        290,
-        320,
-        587,
-        970,
-      ],
+      [0, 0, 295, 320],
+      [290, 320, 587, 970],
     ],
     port_bbox: [
       {
-        bbox: [
-          290,
-          320,
-          587,
-          970,
-        ],
-        support_lines: [
-          535,
-        ],
+        bbox: [290, 320, 587, 970],
+        support_lines: [535],
         anchor_t: "Security Name",
         anchor_b: null,
         anchor_r: null,
@@ -58,24 +36,15 @@
       },
     ],
     data: {
-      size: [
-        6,
-        20,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 20],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      20.0,
-    ],
+    content_size: [30.0, 20.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -99,31 +68,17 @@
     metric: "(Beta|Yield\\s+[tT]o\\s+Maturity|Average\\s+Maturity|Modified\\s+Duration)\\s+(?:\\(.+\\))?\\s+([\\d,.]+\\s+%)",
     manager: {
       pattern: "([A-Za-z]+\\s+[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager",
-    ],
-    ".*aum_rs": [
-      "_extract_generic_data",
-      "aum",
-    ],
-    ".*fund_profile": [
-      "_extract_generic_data",
-      "metric",
-    ],
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    ".*aum_rs": ["_extract_generic_data", "aum"],
+    ".*fund_profile": ["_extract_generic_data", "metric"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

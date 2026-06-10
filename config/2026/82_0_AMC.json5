@@ -13,70 +13,28 @@
     title: {
       ocr: false,
       pattern: "(.+)\\s*as\\s*on\\s*[A-Za-z]+",
-      bbox: [
-        0,
-        0,
-        525,
-        65,
-      ],
+      bbox: [0, 0, 525, 65],
     },
     clip_bbox: [
-      [
-        0,
-        75,
-        345,
-        800,
-      ],
-      [
-        335,
-        75,
-        525,
-        515,
-      ],
+      [0, 75, 345, 800],
+      [335, 75, 565, 515],
     ],
     port_bbox: [
       {
-        bbox: [
-          185.1,
-          71.26,
-          407.88,
-          563.49,
-        ],
-        support_lines: [
-          298.13,
-          384.94,
-        ],
-        anchor_t: "PORTFOLIO AS ON",
-        anchor_b: null,
-        anchor_r: null,
-        anchor_l: null,
+        bbox: [0, 180, 340, 800],
+        support_lines: [274.19],
         anchor: {
-          anchor_t: "PORTFOLIO AS ON",
+          anchor_t: "Portfolio",
           anchor_b: null,
           anchor_r: null,
           anchor_l: null,
         },
       },
     ],
-    data: {
-      size: [
-        6,
-        15,
-      ],
-      color: [
-        23,
-      ],
-      update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
-    },
-    content_size: [
-      30.0,
-      15.0,
-    ],
+    content_size: [30.0, 15.0],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
+    method: "clip",
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -97,28 +55,17 @@
     ],
     manager: {
       pattern: "(?:Mr|Mrs|Ms)\\.?\\s*([A-Za-z]+\\s*[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*equity_fund_debt": [
-      "_extract_manager_data",
-      "manager",
-    ],
-    ".*aum.+total$": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*equity_fund_debt": ["_extract_manager_data", "manager"],
+    ".*aum.+total$": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

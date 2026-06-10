@@ -1,40 +1,69 @@
 {
   AMC_NAME: "Union Mutual Fund",
-  MAIN_MAP: { select: true, map: true, special: true },
+  CLONEKEYS: {},
+  DUPLICATE_MUTUAL_FUNDS: {},
   IMP_DATA: {
     amc_name: "Union Asset Management Company Private Limited",
     mutual_fund_name: "Union Mutual Fund",
   },
-  PARAMS: {
-    title: {
-      ocr: false,
-      pattern: "(Union\\s*[A-Z&\\s]+(?:FUND|PATH|ETF|FOF|PLAN|SAVER)\\s*(?:FUND\\s*OF\\s*FUNDS?|F[Oo]F|OF\\s*FUNDS?)?)",
-      bbox: [0, 0, 180, 150],
-    },
-    clip_bbox: [
-      [0, 140, 180, 812],
-      [370, 145, 600, 850],
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
+  },
+  MERGEKEYS: {
+    metrics: [
+      ".*quantitative_indicators?",
+      ".*market_cap",
+      ".*fixed_income_portion",
     ],
-    line_x: 180.0,
+  },
+  PARAMS: {
+    clip_bbox: [
+      [0, 150, 175, 790],
+      [370, 145, 590, 850]
+    ],
+    content_size: [30, 12],
     data: {
-      size: [6, 11],
       color: [696969],
-      update_size: 30.0,
       font: ["Swiss721BT-Bold"],
+      size: [6, 11],
+      update_size: 30,
     },
-    content_size: [30.0, 12.0],
-    method: "clip",
     line_side: "",
+    line_x: 180,
     max_financial_index_highlight: 6,
+    method: "clip",
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: [],
-    update_min_add: true,
+    title: {
+      bbox: [0, 0, 180, 150],
+      ocr: false,
+      pattern: "(Union\\s*[A-Z&\\s]+(?:FUND|PATH|ETF|FOF|PLAN|SAVER)\\s*(?:FUND\\s*OF\\s*FUNDS?|F[Oo]F|OF\\s*FUNDS?)?)",
+    },
+    update_min_add: false,
   },
-  DUPLICATE_MUTUAL_FUNDS: {},
+  PATTERN_TO_FUNCTION: {
+    "^(before)": ["_extract_scheme_data", "scheme"],
+    "^dummy.*one": ["_extract_scheme_data", "scheme2"],
+  },
   PRE_DATA_SELECT: [],
+  PROMOTE_KEYS: {},
   REGEX: {
     aum: ".*average for\\s*[A-Za-z\\s]+\\.?\\s*[0-9]+\\s*([\\d,.]+\\s*crore)",
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+|\\(TRI\\)|TRI",
+    load: "Entry Load(.*)Exit Load(.*)$",
+    benchmark:"((?:(?:\\d{1,2}\\s*\\%)?\\s*BSE|(?:\\d{1,2}\\s*\\%)?Nifty|(?:\\d{1,2}\\s*\\%)?NIFTY|CRISIL|(?:\\d{1,2}\\s*\\%)?NSE|Domestic).+(?:Index|Gold|Silver|Consumption))",
+    manager: {
+      fields: ["name", "exp", "desig", "since"],
+      pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
+    },
+    metrics: {
+      key: "(Std|Sharpe|Beta|Turnover Ratio|Macaulay|Annualised|Modified|Yield\\s*(?:Maturity)?|Average)",
+      value: "(-?\\d+\\.\\d+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Tt]imes?|[Tt]imes?)?)",
+    },
+    ptr: "(Portfolio Turnover Ratio\\D*?)\\s*([\\d.]+\\s*times)",
     scheme: [
       "Investment Objective",
       "Co\\-?Fund Managers?",
@@ -56,33 +85,18 @@
       "Fixed\\s*[iI]ncome\\s*[pP]ortion",
       "EOL",
     ],
-    ptr: "(Portfolio Turnover Ratio\\D*?)\\s*([\\d.]+\\s*times)",
-    metrics: {
-      key: "(Std|Sharpe|Beta|Turnover Ratio|Macaulay|Annualised|Modified|Yield\\s*(?:Maturity)?|Average)",
-      value: "(-?\\d+\\.\\d+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|[Tt]imes?|[Tt]imes?)?)",
-    },
-    load: "Entry Load(.*)Exit Load(.*)$",
-    manager: {
-      pattern: "([\\w\\s]+?)\\s*(?:Over|Around)\\s*([0-9]+\\s*years).*?\\s*Managing this\\s+scheme\\s+since\\s+([A-Za-z]+\\s*\\d{1,2},?\\s*\\d{4}|inception)",
-      fields: ["name", "exp", "desig", "since"],
-    },
-    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%]+|\\(For disclaimers refer page no\\.\\s*[0-9]+\\)",
-  },
-  PATTERN_TO_FUNCTION: {
-    "^(before)": ["_extract_scheme_data", "scheme"],
-    "^dummy.*one": ["_extract_scheme_data", "scheme2"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*load_structure": ["_extract_load_data", "load"],
     ".*(quantitative_indicators|market_cap|fixed_income_portion)": [
       "_extract_metric_data",
       "metrics",
     ],
     ".*assets_under.*": ["_extract_generic_data", "aum"],
     ".*fund_managers?": ["_extract_manager_data", "manager"],
+    ".*load_structure": ["_extract_load_data", "load"],
     ".*market_cap": ["_extract_generic_data", "ptr"],
+    ".*benchmark":["_extract_generic_data","benchmark"]
   },
-  TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
     ".*load_structure",
     "metrics",
@@ -93,171 +107,7 @@
     "monthly_aaum_date",
     "mutual_fund_name",
   ],
-  MERGEKEYS: {
-    metrics: [
-      ".*quantitative_indicators?",
-      ".*market_cap",
-      ".*fixed_income_portion",
-    ],
-  },
-  CLONEKEYS: {},
-  PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},
-  Z_MUTUAL_FUND_DATA: {
-    "Union ACTIVE MOMENTUM FUND": {
-      regex: "ACTIVE MOMENTUM",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union Diversified Equity All Cap Active FOF": {
-      regex: "Diversified Equity\\s*[Aa]ll\\s*[cC]ap Active\\s*FOF$",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union AGGRESSIVE HYBRID FUND": {
-      regex: "AGGRESSIVE HYBRID",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union ARBITRAGE FUND": {
-      regex: "ARBITRAGE",
-      min_add: "500,1,500,1",
-      risk: "",
-    },
-    "Union BALANCED ADVANTAGE FUND": {
-      regex: "BALANCED ADVANTAGE",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union BUSINESS CYCLE FUND": {
-      regex: "BUSINESS CYCLE",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union CHILDRENS FUND": {
-      regex: "CHILDRENS",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union CORPORATE BOND FUND": {
-      regex: "CORPORATE BOND",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union DYNAMIC BOND FUND": {
-      regex: "DYNAMIC BOND",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union ELSS TAX SAVER FUND": {
-      regex: "ELSS TAX SAVER",
-      min_add: "500,500,500,500",
-      risk: "",
-    },
-    "Union EQUITY SAVINGS FUND": {
-      regex: "EQUITY SAVINGS",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union FLEXI CAP FUND": {
-      regex: "FLEXI CAP",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union FOCUSED FUND": {
-      regex: "FOCUSED",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union GILT FUND": {
-      regex: "GILT",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union GOLD ETF": {
-      regex: "GOLD ETF\\s*FUND$",
-      min_add: "500,1,500,1",
-      risk: "",
-    },
-    "Union GOLD ETF FUND OF FUND": {
-      regex: "GOLD ETF\\s*FUND\\s*OF\\s*FUND",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union INNOVATION & OPPORTUNITIES FUND": {
-      regex: "INNOVATION OPPORTUNITIES",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union LARGE & MIDCAP FUND": {
-      regex: "LARG.+?MIDCAP",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union LARGECAP FUND": {
-      regex: "LARGECAP",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union LIQUID FUND": {
-      regex: "LIQUID",
-      min_add: "5000,1,1000,1",
-      risk: "",
-    },
-    "Union MIDCAP FUND": {
-      regex: "Union\\s*MIDCAP\\s*FUND",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union MONEY MARKET FUND": {
-      regex: "MONEY MARKET",
-      min_add: "5000,1,1000,1",
-      risk: "",
-    },
-    "Union MULTI ASSET ALLOCATION FUND": {
-      regex: "MULTI ASSET ALLOCATION",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union MULTICAP FUND": {
-      regex: "MULTICAP",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union OVERNIGHT FUND": {
-      regex: "OVERNIGHT",
-      min_add: "5000,1,1000,1",
-      risk: "",
-    },
-    "Union RETIREMENT FUND": {
-      regex: "RETIREMENT",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union SHORT DURATION FUND": {
-      regex: "SHORT DURATION",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union LOW DURATION FUND": {
-      regex: "LOW DURATION",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union SMALL CAP FUND": {
-      regex: "SMALL CAP",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union Income Plus Arbitrage Active FOF": {
-      regex: "Income\\s*Plus\\s*Arbitrage\\s*Active\\s*FOF$",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-    "Union VALUE FUND": {
-      regex: "VALUE\\s*FUND$",
-      min_add: "1000,1,1000,1",
-      risk: "",
-    },
-  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

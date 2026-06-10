@@ -13,39 +13,16 @@
     title: {
       ocr: false,
       pattern: "INVESTMENT\\s+INSIGHT\\s+(.+?)\\s+\\(",
-      bbox: [
-        0,
-        0,
-        585,
-        150,
-      ],
+      bbox: [0, 0, 585, 150],
     },
     clip_bbox: [
-      [
-        0,
-        0,
-        585,
-        150,
-      ],
-      [
-        0,
-        145,
-        180,
-        825,
-      ],
+      [0, 0, 585, 150],
+      [0, 145, 180, 825],
     ],
     port_bbox: [
       {
-        bbox: [
-          177.36,
-          138.72,
-          403.0,
-          845.51,
-        ],
-        support_lines: [
-          311,
-          375,
-        ],
+        bbox: [177.36, 138.72, 403.0, 845.51],
+        support_lines: [311, 375],
         anchor_t: null,
         anchor_b: null,
         anchor_r: null,
@@ -59,24 +36,15 @@
       },
     ],
     data: {
-      size: [
-        6,
-        25,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 25],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      25.0,
-    ],
+    content_size: [30.0, 25.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -104,31 +72,17 @@
     },
     manager: {
       pattern: "(?:Mr|Mrs|Ms)\\.\\s+([A-Za-z]+\\s*[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
-      "_extract_manager_data",
-      "manager",
-    ],
-    ".*investment_insight": [
-      "_extract_generic_data",
-      "sfin",
-    ],
-    ".*aum_as_on": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
+    ".*investment_insight": ["_extract_generic_data", "sfin"],
+    ".*aum_as_on": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

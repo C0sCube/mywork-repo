@@ -12,8 +12,8 @@
       bbox: [0, 30, 600, 105],
     },
     clip_bbox: [
-      [20, 105, 300, 835],
-      [300, 105, 580, 835],
+      [.66, 101.85, 297.64, 902.58],
+      [291.5, 102.73, 580.36, 831.46],
     ],
     line_x: 200.0,
     data: {
@@ -25,7 +25,7 @@
     content_size: [30.0, 10.0],
     method: "clip",
     line_side: "",
-    max_financial_index_highlight: 7,
+    max_financial_index_highlight: 3,
     pdf_ocr: false,
     sanitize_fund: false,
     stop_words: ["(Fixed Income Portion of Portfolio)"],
@@ -57,8 +57,8 @@
       "EOL",
     ],
     manager: {
-      pattern: "(?:mr|ms|mrs)\\.?\\s*(.+?)(?:,\\s*([\\w\\s,]+?))?\\(Managing.+?scheme since(.*?)\\)\\s*Total Experience\\s*(?:Over|Around)\\s*(\\d+ years?)",
-      fields: ["name", "desig", "since", "exp"],
+      pattern:  "(?:mr|ms|mrs)\\.?\\s*([A-Za-z]+\\s+[A-Za-z]+)", //"(?:mr|ms|mrs)\\.?\\s*(.+?)(?:,\\s*([\\w\\s,]+?))?\\(Managing.+?scheme since(.*?)\\)\\s*Total Experience\\s*(?:Over|Around)\\s*(\\d+ years?)",
+      fields: ["name"], //"desig", "since", "exp"
     },
     escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\%]+",
   },
@@ -72,7 +72,7 @@
       "min_amt",
     ],
     ".*average_aum": ["_extract_generic_data", "aum"],
-    ".*inception_date": ["_extract_generic_data", "date"],
+    // ".*inception_date": ["_extract_generic_data", "date"],
     ".*fund_manager": ["_extract_manager_data", "manager"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},

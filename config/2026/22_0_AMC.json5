@@ -33,7 +33,7 @@
     update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
-  PRE_DATA_SELECT: ["^before", "^dummy.*"],
+  PRE_DATA_SELECT: [],
   REGEX: {
     aum: "\\D*\\s*([\\d,.]+\\s*crore)",
     benchmark: "(.+?)Additional Benchmark",

@@ -13,57 +13,29 @@
     title: {
       ocr: false,
       pattern: ".+?Fund",
-      bbox: [
-        0,
-        0,
-        580,
-        45,
-      ],
+      bbox: [0, 0, 580, 45],
     },
-    clip_bbox: [
-      [
-        0,
-        0,
-        600,
-        280,
-      ],
-    ],
+    clip_bbox: [[0.0, 0.0, 800, 210]],
     port_bbox: [
       {
-        bbox: [
-          4.35,
-          186.34,
-          208.98,
-          777.57,
-        ],
-        support_lines: [
-          80.07,
-          171.53,
-        ],
+        bbox: [4.35, 186.34, 208.98, 777.57],
+        support_lines: [156],
         anchor_t: "Corporate Debt",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
         anchor: {
-          anchor_t: "Corporate Debt",
-          anchor_b: null,
+          anchor_t: "Corporate\\s+Debt",
+          anchor_b: "Other\\s+Corporate\\s+Debt",
           anchor_r: null,
           anchor_l: null,
         },
       },
       {
-        bbox: [
-          196.79,
-          181.11,
-          400.54,
-          792,
-        ],
-        support_lines: [
-          245,
-          367.45,
-        ],
-        anchor_t: "Government Securities",
-        anchor_b: null,
+        bbox: [196.79, 181.11, 400.54, 792],
+        support_lines: [345],
+        anchor_t: "Government\\s+Securities",
+        anchor_b: "Other\\s+Government",
         anchor_r: null,
         anchor_l: null,
         anchor: {
@@ -74,18 +46,10 @@
         },
       },
       {
-        bbox: [
-          397.93,
-          185.47,
-          581.65,
-          706.17,
-        ],
-        support_lines: [
-          415,
-          555.53,
-        ],
+        bbox: [397.93, 185.47, 581.65, 706.17],
+        support_lines: [538],
         anchor_t: "Equity",
-        anchor_b: null,
+        anchor_b: "Asset\\s+Allocation",
         anchor_r: null,
         anchor_l: null,
         anchor: {
@@ -97,24 +61,15 @@
       },
     ],
     data: {
-      size: [
-        6,
-        15,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 15],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      15.0,
-    ],
+    content_size: [30.0, 15.0],
     max_financial_index_highlight: 5,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -123,37 +78,27 @@
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
       "SFIN\\s*No.?",
-      "About\\s*The\\s*Fund",
+      "Fund\\s+Manager",
+      "Portfolio\\s+as\\s+on",
       "Date\\s*[Oo]f\\s*Inception",
-      "OBJECTIVE",
-      "STRATEGY",
-      "NAV\\s*as\\s*on",
-      "BENCHMARK:",
-      "Asset held",
-      "FUND\\s*MANAGER",
+      "Objective",
+      "Asset\\s+held\\s+as\\s+on",
+      "NAV\\s+as\\s+on",
+      "Benchmark",
       "EOL",
     ],
     manager: {
       pattern: "([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:\\(.+?\\))?\\s*(?:Nearly|Over)\\s*(\\d{1,2}\\s*[Yy]ears?)",
-      fields: [
-        "name",
-        "exp",
-      ],
+      fields: ["name", "exp"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+|\\(Annualized\\)|\u00b7",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*(asset_held)": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*(asset_held)": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

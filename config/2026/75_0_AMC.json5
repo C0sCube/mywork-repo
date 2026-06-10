@@ -13,113 +13,75 @@
     title: {
       ocr: false,
       pattern: ".+?(?:FUND|Fund)\\s*[I]{0,3}\\s*(?:\\(.+?\\))?",
-      bbox: [
-        0,
-        0,
-        650,
-        130,
-      ],
+      bbox: [0, 0, 650, 130],
     },
     clip_bbox: [
-      [
-        0,
-        75,
-        530,
-        260,
-      ],
-      [
-        0,
-        815,
-        250,
-        925,
-      ],
+      [0, 75, 530, 260],
+      [0, 815, 250, 1200],
     ],
     port_bbox: [
       {
-        bbox: [
-          5.96,
-          239.26,
-          270.03,
-          808.11,
-        ],
-        support_lines: [
-          60,
-          255,
-        ],
+        bbox: [0, 240, 270, 810],
+        support_lines: [230],
         anchor_t: "Companies",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
         anchor: {
           anchor_t: "Companies",
-          anchor_b: null,
+          anchor_b: "Total",
           anchor_r: null,
           anchor_l: null,
         },
       },
     ],
-    data: {
-      size: [
-        4,
-        25,
-      ],
-      color: [
-        23,
-      ],
-      update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
-    },
-    content_size: [
-      30.0,
-      15.0,
-    ],
+    // data: {
+    //   size: [4, 25],
+    //   color: [23],
+    //   update_size: 30.0,
+    //   font: ["Ubuntu-Bold"],
+    // },
+    // content_size: [30.0, 15.0],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
   REGEX: {
-    aum: "([\\d,.]+\\s*[Cc]r)",
+    aum: "[A-Za-z\\s]+([\\d,.]+)\\s+",
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
-      "FUND\\s*\\(.+?\\)",
+      "INDIVIDUAL\\s+(?:LIFE|PENSION)",
       "Inception\\s*Date",
       "Fixed\\s*[iI]ncome",
       "Fund\\s*[mM]anager",
       "Investment\\s*[oO]bjective",
       "EOL",
+      "NAV\\s+1\\s+Month",
       "AUM\\s*\\(in",
+      "Fund\\s+Benchmark",
       "EOL",
     ],
     manager: {
       pattern: "([A-Z]{1}[a-z]+\\s*[A-Z]{1}[a-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
-      "_extract_manager_data",
-      "manager",
-    ],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
+    ".*fund_benchmark":["_extract_generic_data", "aum"]
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
-    ".*sfin",
+    "sfin",
     ".*fund_manager",
-    ".*benchmark",
-    ".*launch_date",
+    ".*(launch_date|inception_date)",
     "main_scheme_name",
     "monthly_aaum_date",
     "monthly_aaum_value",
@@ -130,7 +92,8 @@
   ],
   MERGEKEYS: {},
   CLONEKEYS: {
-    monthly_aaum_value: ".*aum$",
+    monthly_aaum_value: ".*fund_benchmark$",
+    sfin:".*(individual_life|individual_pension)$"
   },
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},

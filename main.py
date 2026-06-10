@@ -6,7 +6,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 from app.konstant import (
-    get_input_path, get_output_path, create_dir,
+    get_input_path, get_output_path,
     load_db_config,get_config, get_regex,
     get_processed_dir, get_failed_dir,
     get_json_dir, get_log_dir, FINAL_LOG_NAME
@@ -15,6 +15,7 @@ from app.konstant import (
 from app.logger import setup_logger, rotate_daily_log
 from app.utils import Helper
 from app.amc.registry import load_registry,check_amc_file
+from app.insur.registry import load_ifregistry
 from app.sidkim.registry import load_sidkim_registry
 from app.sqlconnect import (
     fetch_latest_uploaded_job,
@@ -125,6 +126,45 @@ def execute_sidkim(path, amc_id, sid_or_kim):
         logger.exception(f"[SID/KIM ERROR] {file_name}: {e}")
         logger.debug(traceback.format_exc())
         return {"error": str(e)}
+      
+# --------------------------------------------------
+# FS PARSER
+# --------------------------------------------------
+def execute_if(path, amc_id, year):
+    file_name = os.path.basename(path)
+    logger.info(f"Parsing IF: {file_name}")
+
+    try:
+        registry = load_ifregistry()
+        if amc_id not in registry:
+            raise ValueError("Unknown AMC ID")
+
+        config = get_config(year, amc_id)
+        regex = get_regex(year)
+
+        obj = registry[amc_id](config, regex, path)
+
+        title, path_pdf = obj.check_and_highlight(path, save_report=True)
+        data = obj.get_data(path_pdf, title)
+        extracted = obj.get_generated_content(data)
+        refined = obj.refine_extracted_data(extracted)
+        dfs = obj.merge_and_select_data(refined)
+
+        if not dfs:
+            raise ValueError("No parsed data")
+
+        save_path = os.path.join(
+            JSON_DIR,
+            file_name.replace(".pdf", ".json")
+        )
+
+        Helper.save_json(dfs, save_path)
+        return {"json_path": save_path}
+
+    except Exception as e:
+        logger.error(f"[IF ERROR] {file_name}: {e}")
+        logger.debug(traceback.format_exc())
+        return {"error": str(e)}
 
 # --------------------------------------------------
 # PROCESS FILE
@@ -167,6 +207,8 @@ def process_file(file_name, db_config):
     # ---------- Parse ----------
     if file_type == "FS":
         result = execute_fs(file_path, amc_code, tag)
+    elif file_type == "IF":
+        result = execute_if(file_path, amc_code, tag)
     else:  # SID / KIM
         result = execute_sidkim(file_path, amc_code, tag)
 
@@ -182,6 +224,7 @@ def process_file(file_name, db_config):
 
         archive_dir = (
             FST_DIR if file_name.endswith("_FS.pdf")
+            else INS_DIR if file_name.endswith("_IF.pdf")
             else SID_DIR if file_name.endswith("_SID.pdf")
             else KIM_DIR
         )
@@ -250,6 +293,7 @@ if __name__ == "__main__":
     FST_DIR = get_processed_dir("fs")
     SID_DIR = get_processed_dir("sid")
     KIM_DIR = get_processed_dir("kim")
+    INS_DIR = get_processed_dir("if")
     FAILED_DIR = get_failed_dir()
     
 

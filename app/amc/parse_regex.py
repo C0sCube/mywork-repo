@@ -115,14 +115,17 @@ class FundRegex:
                 
         return {k:data[k] for k in sorted(data)} #sorted
     
-    def _sanitize_fund(self,fund:str,fund_name:str):
+    def _sanitize_fund(self,fund:str,fund_name:str, sanitize:bool):
         fund = re.sub(self.ESCAPE, '', fund)
         fund = self.UTILS._normalize_whitespace(fund)
-        for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
-            if re.findall(regex,fund,re.IGNORECASE):
-                # print(f"{fund} --> {key}")
-                fund = key
-                break
+        
+        if sanitize:
+            for key,regex in self.MAIN_SCHEME_NAME[fund_name].items():
+                if re.findall(regex,fund,re.IGNORECASE):
+                    # print(f"{fund} --> {key}")
+                    fund = key
+                    break
+        
         return fund
     
     def _convert_date_format(self,data, output_format="%Y%m%d"):
@@ -356,7 +359,7 @@ class FundRegex:
         record_value["field_location"] = [dict(sorted(field_location.items()))]
         return dict(sorted(record_value.items()))
     
-    def _dummy_block(self,fontz:str,colorz:str, count:int):
+    def _dummy_block(self, count:int): #fontz:str,colorz:str, 
         num_to_str = {1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine"}
         random_val = "".join(random.choices(string.ascii_letters,k=15))
         return {
@@ -369,8 +372,8 @@ class FundRegex:
                             {
                                 "size": 30.0,
                                 "flags": 20,
-                                "font": fontz, #set this
-                                "color": colorz, #set this
+                                "font": "helvetica", #fontz, #set this
+                                "color": 100, #colorz, #set this
                                 "ascender": 1.0429999828338623,
                                 "descender": -0.2619999945163727,
                                 "text": f"DUMMY{random_val}{num_to_str[count]}", #garbage val

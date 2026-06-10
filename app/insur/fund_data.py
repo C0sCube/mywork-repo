@@ -31,8 +31,6 @@ class GrandInsrData:
         }
         self.MAIN_MAP = fund_config.get("MAIN_MAP", {})
         
-        #mutual fund data
-        # self.MUTUAL_FUND_DATA = fund_config.get("Z_MUTUAL_FUND_DATA",{})
         
         self.LOGGER = get_global_logger()
         self.UTILS = Helper()
@@ -353,14 +351,16 @@ class GrandInsrData:
             "total_exp": exp.title().strip()
         }
     
-    def _update_imp_data(self,data:dict,main_scheme:str, pgn:list):
-        return data.update({
+    def _update_imp_data(self,data:dict,main_scheme:str):
+        
+        data.update({
             "amc_name":self.IMP_DATA['amc_name'],
             "main_scheme_name":main_scheme,
             "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%Y%m%d"),
-            "page_number":pgn,
             "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
         })
+        
+        return data
         
 class BaseAMC(ReadrIns, GrandInsrData):
     @log_exceptions()

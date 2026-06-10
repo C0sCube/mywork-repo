@@ -37,7 +37,7 @@
     update_min_add: false,
   },
   DUPLICATE_MUTUAL_FUNDS: {},
-  PRE_DATA_SELECT: ["^dummy.*"],
+  PRE_DATA_SELECT: [],
   REGEX: {
     scheme: [
       "INCEPTION DATE",

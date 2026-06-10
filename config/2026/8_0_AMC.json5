@@ -50,7 +50,9 @@
     "^dummy.*": ["_extract_scheme_data", "scheme"],
     minimum_investment: ["_extract_generic_data", "lumpsum"],
   },
-  PRE_DATA_SELECT: ["^before.*", "^dummy.*"],
+  PRE_DATA_SELECT: [
+    //"^before.*", "^dummy.*"
+  ],
   PROMOTE_KEYS: {
     metrics: {
       monthly_aaum_value: ".*(monthly_aver?a?g?e?)",

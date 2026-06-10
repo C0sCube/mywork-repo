@@ -13,64 +13,31 @@
     title: {
       ocr: false,
       pattern: ".+?(?:FUND|Fund)\\s*\\-?\\s*[I]{0,3}",
-      bbox: [
-        0,
-        0,
-        365,
-        95,
-      ],
+      bbox: [0, 0, 365, 95],
     },
-    clip_bbox: [
-      [
-        0,
-        0,
-        470,
-        1000,
-      ],
-    ],
+    clip_bbox: [[0, 0, 470, 1000]],
     port_bbox: [
       {
-        bbox: [
-          470,
-          5,
-          850,
-          1000,
-        ],
-        support_lines: [
-          580,
-          770,
-        ],
-        anchor_t: "Security Name",
-        anchor_b: null,
-        anchor_r: null,
-        anchor_l: null,
+        bbox: [470, 5, 850, 1000],
+        support_lines: [748],
         anchor: {
-          anchor_t: "Security Name",
-          anchor_b: null,
+          anchor_t: "Security\\s+Name",
+          anchor_b: "Portfolio\\s+Total",
           anchor_r: null,
           anchor_l: null,
         },
       },
     ],
     data: {
-      size: [
-        5,
-        18,
-      ],
-      color: [
-        23,
-      ],
+      size: [5, 18],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      18.0,
-    ],
+    content_size: [30.0, 18.0],
     max_financial_index_highlight: 3,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -78,7 +45,7 @@
     aum: "[Tt]otal\\s*([\\d,.]+)",
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
-      "Life Unit Linked\\s*[A-Za-z]+\\s*\\d{4}",
+      "(?:February|March|January|April|May|June|July|August|September|October|November|December)\\s+\\d{4}",
       "Fund\\s*[dD]etails",
       "Investment\\s*[oO]bjective",
       "NAV\\s*as\\s*on",
@@ -92,28 +59,17 @@
     ],
     manager: {
       pattern: "([A-Z]{1}[a-z]+\\s*[A-Z]{1}[a-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
-      "_extract_manager_data",
-      "manager",
-    ],
-    ".*asset_class_wise": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
+    ".*asset_class_wise": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [
@@ -131,7 +87,7 @@
   MERGEKEYS: {},
   CLONEKEYS: {
     monthly_aaum_value: ".*asset_class_wise_aum$",
-    sfin: ".*life_unit_linked",
+    sfin: "before.(?:february|march|january|april|may|june|july|august|september|october|november|december)_\\d{4}$",
   },
   PROMOTE_KEYS: {},
   SPECIAL_FUNCTIONS: {},

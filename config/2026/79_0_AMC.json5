@@ -13,39 +13,16 @@
     title: {
       ocr: false,
       pattern: "(?:PENSION|MIDCAP|MULTICAP|NIFTY|DISCONTINUED|INDIA|EQUITY|EMERGING|BALANCED|LARGE|LIQUID|DEBT|NextGen|GROWTH|DEBT).+?(?:FUND|Fund)\\s*\\-?\\s*[I]{0,3}",
-      bbox: [
-        0,
-        0,
-        700,
-        53,
-      ],
+      bbox: [0, 0, 700, 53],
     },
     clip_bbox: [
-      [
-        288.43,
-        47.28,
-        609.96,
-        776.63,
-      ],
-      [
-        2.36,
-        44.92,
-        294.34,
-        393.64,
-      ],
+      [288.43, 47.28, 609.96, 776.63],
+      [2.36, 44.92, 294.34, 393.64],
     ],
     port_bbox: [
       {
-        bbox: [
-          288.43,
-          238.78,
-          606.41,
-          776.63,
-        ],
-        support_lines: [
-          436,
-          566,
-        ],
+        bbox: [288.43, 238.78, 606.41, 776.63],
+        support_lines: [436, 566],
         anchor_t: "TOP 10 HOLDINGS",
         anchor_b: null,
         anchor_r: null,
@@ -59,24 +36,15 @@
       },
     ],
     data: {
-      size: [
-        5,
-        25,
-      ],
-      color: [
-        23,
-      ],
+      size: [5, 25],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      25.0,
-    ],
+    content_size: [30.0, 25.0],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -96,24 +64,16 @@
     ],
     manager: {
       pattern: "([A-Z]+\\s+[A-Z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
-      "_extract_manager_data",
-      "manager",
-    ],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

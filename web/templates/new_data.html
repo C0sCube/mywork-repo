@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>New Data</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='img/NSE.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/copy.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json5@2/dist/index.min.js"></script>
+
+
+    <style>
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .key {
+            flex: 1;
+            padding-right: 12px;
+            margin-right: 6px
+        }
+
+        .input-box {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .level-1 {
+            padding-left: 0px;
+        }
+
+        .level-2 {
+            padding-left: 16px;
+        }
+
+        .level-3 {
+            padding-left: 32px;
+        }
+
+        .level-4 {
+            padding-left: 48px;
+        }
+
+        /* FIXED */
+
+
+
+        input,
+        select,
+        textarea {
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            min-height: 60px;
+        }
+
+        .card {
+            margin-bottom: 6px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="hero">
+            <a href="{{ url_for('dashboard') }}" data-action="back">
+                <img src="{{ url_for('static', filename='img/logo_nse.png') }}" alt="Logo">
+            </a>
+            <h1>NEW DATA</h1>
+        </div>
+
+        <div class="user-section editor-controls">
+            <div id="errorDisplay" class="error-message"></div>
+
+            <label><strong>Year:</strong></label>
+            <select id="yearSelect" class="input"></select>
+
+            <label><strong>File:</strong></label>
+            <select id="fileSelect" class="input"></select>
+
+            <button class="nav-btn" data-action="load" title="Load">
+                <span class="material-symbols-outlined">cached</span>
+            </button>
+
+            <button class="nav-btn" data-action="save" title="Save">
+                <span class="material-symbols-outlined">save</span>
+            </button>
+
+            <button class="nav-btn" data-action="create" title="Create">
+                <span class="material-symbols-outlined">add_box</span>
+            </button>
+
+            <button class="nav-btn" data-action="delete" title="Delete">
+                <span class="material-symbols-outlined">delete</span>
+            </button>
+
+            <button class="nav-btn" data-action="backup" title="Backup">
+                <span class="material-symbols-outlined">backup</span>
+            </button>
+
+            <a href="{{ url_for('dashboard') }}" class="nav-btn" data-action="back">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= PAGE ================= -->
+    <div class="page page-editor1">
+
+        <div class="editor-panel1">
+
+            <div class="card">
+                <div class="form-row level-1">
+                    <input type="checkbox">
+                    <div class="key">NAME OF THE AMC</div>
+                    <input class="input-box" type="text" name="AMC_NAME">
+                </div>
+            </div>
+
+            <div class="card">
+
+
+                <!-- LEVEL 1 -->
+                <div class="form-row level-1">
+                    <input type="checkbox">
+                    <div class="key">UPDATE DATA FOR AMC</div>
+                </div>
+
+                <!-- LEVEL 2 -->
+                <div class="form-row level-2">
+                    <div class="key">amc name</div>
+                    <input class="input-box" type="text" name="IMP_DATA.amc_name">
+                </div>
+                <div class="form-row level-2">
+                    <div class="key">mf name</div>
+                    <input class="input-box" type="text" name="IMP_DATA.mutual_fund_name">
+                </div>
+            </div>
+
+            <div class="card">
+                <!-- PARAMS -->
+                <div class="form-row level-1">
+                    <input type="checkbox">
+                    <div class="key">PARAMETERS OF AMC</div>
+                </div>
+                <div class="form-row level-2">
+                    <div class="key">method</div>
+                    <select class="input-box" name="PARAMS.method">
+                        <option>CLIP</option>
+                        <option>LINE</option>
+                    </select>
+                </div>
+                <div class="form-row level-2">
+                    <div class="key">line</div>
+                    <input class="input-box" type="int" name="PARAMS.method">
+                </div>
+                <div class="form-row level-2">
+                    <div class="key">line-side</div>
+                    <input class="input-box" type="text" name="PARAMS.method">
+                </div>
+                <div class="form-row level-2">
+                    <div class="key">sanitize-fund</div>
+                    <select class="input-box" name="PARAMS.sanitize_fund">
+                        <option>true</option>
+                        <option>false</option>
+                    </select>
+                </div>
+                <div class="form-row level-2">
+                    <div class="key">pdf-ocr</div>
+                    <select class="input-box" name="PARAMS.pdf_ocr">
+                        <option>true</option>
+                        <option>false</option>
+                    </select>
+                </div>
+
+                <!-- LEVEL 3 (SPECIAL PARAMS) -->
+                <div class="form-row level-2">
+                    <div class="key">title</div>
+                </div>
+
+                <div class="form-row level-3">
+                    <div class="key">bbox</div>
+                    <textarea class="input-box" name="PARAMS.title.bbox"></textarea>
+                </div>
+
+                <div class="form-row level-3">
+                    <div class="key">ocr</div>
+                    <select class="input-box" name="PARAMS.title.ocr">
+                        <option>true</option>
+                        <option>false</option>
+                    </select>
+                </div>
+
+                <div class="form-row level-3">
+                    <div class="key">pattern</div>
+                    <input class="input-box" type="text" name="PARAMS.title.pattern">
+                </div>
+
+
+            </div>
+
+            <div class="card">
+
+                <!-- LEVEL 1 -->
+                <div class="form-row level-1">
+                    <input type="checkbox">
+                    <div class="key">PTF PRIMARY</div>
+                </div>
+
+                <!-- cards because they can we added / removed with key:text-area , value: [string,string|true] -->
+                <div class="form-row level-2">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                </div>
+                <div class="form-row level-2">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                </div>
+            </div>
+            <div class="card">
+
+                <!-- LEVEL 1 -->
+                <div class="form-row level-1">
+                    <input type="checkbox">
+                    <div class="key">PTF SECONDARY</div>
+                </div>
+                <!-- cards because they can we added / removed with key:text-area , value: [string,string|true] -->
+                <div class="form-row level-2">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                </div>
+                <div class="form-row level-2">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                    <input class="input-box" type="text" name="">
+                </div>
+            </div>
+            <div class="card">
+
+                <!-- LEVEL 1 -->
+                <div class="form-row level-1">
+                    <input type="checkbox">
+                    <div class="key">PTF TERTIARY</div>
+                </div>
+                <!-- cards because they can we added / removed with key:text-area , value: [string,string|true] -->
+            </div>
+
+        </div>
+
+        <div class="editor-panel1">
+            <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/new_data.js') }}"></script>
+</body>
+
+</html>

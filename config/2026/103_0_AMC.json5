@@ -1,97 +1,61 @@
 {
-  "AMC_NAME": "Quant Mutual Fund",
-  "CLONEKEYS": {},
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "IMP_DATA": {
-    "amc_name": "Quant Money Managers Limited",
-    "mutual_fund_name": "Quant Mutual Fund"
+  AMC_NAME: "Quant Mutual Fund",
+  CLONEKEYS: {},
+  DUPLICATE_MUTUAL_FUNDS: {},
+  IMP_DATA: {
+    amc_name: "Quant Money Managers Limited",
+    mutual_fund_name: "Quant Mutual Fund",
   },
-  "MAIN_MAP": {
-    "map": true,
-    "select": true,
-    "special": true
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
   },
-  "MERGEKEYS": {},
-  "PARAMS": {
-    "clip_bbox": [
-      [
-        0,
-        60,
-        175,
-        900
-      ],
-      [
-        460,
-        0,
-        600,
-        110
-      ]
+  MERGEKEYS: {},
+  PARAMS: {
+    clip_bbox: [
+      [0, 60, 175, 900],
+      [460, 0, 600, 110],
     ],
-    "content_size": [
-      30,
-      14
-    ],
-    "data": {
-      "color": [
-        -1
-      ],
-      "font": [
-        "Calibri,Bold",
-        "Inter-Bold"
-      ],
-      "size": [
-        7,
-        20
-      ],
-      "update_size": 30
+    content_size: [30, 14],
+    data: {
+      color: [-1],
+      font: ["Calibri,Bold", "Inter-Bold"],
+      size: [7, 20],
+      update_size: 30,
     },
-    "line_side": "",
-    "line_x": 175,
-    "max_financial_index_highlight": 5,
-    "method": "clip",
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "title": {
-      "bbox": [
-        0,
-        0,
-        490,
-        60
-      ],
-      "ocr": false,
-      "pattern": "((?:[Qq]uant|[Qq]sif).*?(?:FUNDS?|Funds?|ETF|Index|Plan|Path)\\s*(?:of [Ff]unds?|F[oO]F|Funds?|Fund of [Ff]unds?)?)"
+    line_side: "",
+    line_x: 175,
+    max_financial_index_highlight: 5,
+    method: "clip",
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    title: {
+      bbox: [0, 0, 490, 60],
+      ocr: false,
+      pattern: "((?:[Qq]uant|[Qq]sif).*?(?:FUNDS?|Funds?|ETF|Index|Plan|Path)\\s*(?:of [Ff]unds?|F[oO]F|Funds?|Fund of [Ff]unds?)?)",
     },
-    "update_min_add": false
+    update_min_add: false,
   },
-  "PATTERN_TO_FUNCTION": {
-    ".*dummy": [
-      "_extract_scheme_data",
-      "scheme2"
-    ],
-    "^before": [
-      "_extract_scheme_data",
-      "scheme"
-    ]
+  PATTERN_TO_FUNCTION: {
+    ".*dummy": ["_extract_scheme_data", "scheme2"],
+    "^before": ["_extract_scheme_data", "scheme"],
   },
-  "PRE_DATA_SELECT": [
-    "^dummy.*"
-  ],
-  "PROMOTE_KEYS": {},
-  "REGEX": {
-    "aum": "([\\d,.]+\\s*[Cc]r?)",
-    "date": "([0-9]+\\s*[A-Za-z]+\\s*[0-9]+)",
-    "escape": "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
-    "load": "Entry(.+?)Exit(.+?)\\s*(?=NAV Details|BENCHMARK INDEX|$)",
-    "manager": {
-      "fields": [
-        "name"
-      ],
-      "pattern": "([A-Za-z]+\\s+[A-Za-z]+)"
+  PRE_DATA_SELECT: [],
+  PROMOTE_KEYS: {},
+  REGEX: {
+    aum: "([\\d,.]+\\s*[Cc]r?)",
+    date: "([0-9]+\\s*[A-Za-z]+\\s*[0-9]+)",
+    escape: "[^A-Za-z0-9\\s\\-\\(\\)\\.\\,\\+\\%\\:]+",
+    load: "Entry(.+?)Exit(.+?)\\s*(?=NAV Details|BENCHMARK INDEX|$)",
+    manager: {
+      fields: ["name"],
+      pattern: "([A-Za-z]+\\s+[A-Za-z]+)",
     },
-    "metrics": "(Sharpe\\s*Ratio|Sortino\\s*Ratio|Jensen\\s*s?\\s*Alpha|R-?\\s*Squared|Downside\\s*Deviation|Upside\\s*Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|%|[Tt]imes?)?)",
-    "min_amt": "([\\d,]+).*?([\\d,]+)",
-    "scheme": [
+    metrics: "(Sharpe\\s*Ratio|Sortino\\s*Ratio|Jensen\\s*s?\\s*Alpha|R-?\\s*Squared|Downside\\s*Deviation|Upside\\s*Deviation|Average Maturity| Modified Duration|Macaulay Duration|Yield to Maturity)\\s*\\:?\\s*(-?[\\d,.]+\\s*(?:[Dd]ays?|[Mm]onths?|[Yy]ears?|%|[Tt]imes?)?)",
+    min_amt: "([\\d,]+).*?([\\d,]+)",
+    scheme: [
       "INVESTMENT STYLE",
       "INCEPTION DATE",
       "RELATIVE WEIGHTS",
@@ -100,42 +64,27 @@
       "LOAD STRUCTURE",
       "NAV Details",
       "INVESTMENT OBJECTIVE",
-      "EOL"
+      "EOL",
     ],
-    "scheme2": [
+    scheme2: [
       "MINIMUM INVESTMENT",
       "SUBSEQUENT INVESTMENT",
       "FUND SIZE",
-      "EOL"
-    ]
+      "EOL",
+    ],
   },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
+  SECONDARY_PATTERN_TO_FUNCTION: {
     ".*(subsequent_investment|minimum_investment)$": [
       "_extract_amt_data",
-      "min_amt"
+      "min_amt",
     ],
-    ".*fund_manager": [
-      "_extract_manager_data",
-      "manager"
-    ],
-    ".*fund_size": [
-      "_extract_generic_data",
-      "aum"
-    ],
-    ".*inception_date": [
-      "_extract_generic_data",
-      "date"
-    ],
-    ".*load_structure": [
-      "_extract_load_data",
-      "load"
-    ],
-    ".*risk_adjusted_measures": [
-      "_extract_generic_data",
-      "metrics"
-    ]
+    ".*fund_manager": ["_extract_manager_data", "manager"],
+    ".*fund_size": ["_extract_generic_data", "aum"],
+    ".*inception_date": ["_extract_generic_data", "date"],
+    ".*load_structure": ["_extract_load_data", "load"],
+    ".*risk_adjusted_measures": ["_extract_generic_data", "metrics"],
   },
-  "SELECTKEYS": [
+  SELECTKEYS: [
     "amc_name",
     "main_scheme_name",
     "mutual_fund_name",
@@ -145,9 +94,9 @@
     ".*fund_managers",
     ".*load_structure",
     ".*risk.*measures$",
-    ".*fund_size"
+    ".*fund_size",
   ],
-  "SPECIAL_FUNCTIONS": {},
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  SPECIAL_FUNCTIONS: {},
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }

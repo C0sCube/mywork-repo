@@ -12,65 +12,36 @@
   PARAMS: {
     title: {
       ocr: false,
-      pattern: ".+?Fund",
-      bbox: [
-        0,
-        0,
-        580,
-        45,
-      ],
+      pattern: ".+?(?:Plus|Fund)",
+      bbox: [0, 0, 580, 45],
     },
-    clip_bbox: [
-      [
-        0,
-        0,
-        600,
-        280,
-      ],
-    ],
+    clip_bbox: [[0, 0, 600, 280]],
     port_bbox: [
       {
-        bbox: [
-          13.92,
-          101.56,
-          306.32,
-          841.96,
-        ],
-        support_lines: [
-          104.02,
-          279.29,
-        ],
+        bbox: [13.92, 101.56, 306.32, 841.96],
+        support_lines: [253],
         anchor_t: "SECURITIES",
         anchor_b: null,
         anchor_r: null,
         anchor_l: null,
         anchor: {
           anchor_t: "SECURITIES",
-          anchor_b: null,
+          anchor_b: "MMI\\s*,\\s*Deposits",
           anchor_r: null,
           anchor_l: null,
         },
       },
     ],
     data: {
-      size: [
-        6,
-        15,
-      ],
-      color: [
-        23,
-      ],
+      size: [6, 15],
+      color: [23],
       update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
+      font: ["Ubuntu-Bold"],
     },
-    content_size: [
-      30.0,
-      15.0,
-    ],
+    content_size: [30.0, 15.0],
     max_financial_index_highlight: 5,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -78,7 +49,7 @@
     aum: "([\\d,.]+\\s*(?:crores?|[cC]r))",
     benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
     scheme: [
-      "SFIN\\s*No.?",
+      "(?:Fund)?SFIN\\s*No.?",
       "About\\s*The\\s*Fund",
       "Date\\s*[Oo]f\\s*Inception",
       "OBJECTIVE",
@@ -86,30 +57,21 @@
       "NAV\\s*as\\s*on",
       "BENCHMARK:",
       "Asset held",
-      "FUND\\s*MANAGER",
+      // "FUND\\s*MANAGER",
       "EOL",
     ],
     manager: {
       pattern: "([A-Za-z]+\\s*[A-Za-z]+)\\s*(?:\\(.+?\\))?\\s*(?:Nearly|Over)\\s*(\\d{1,2}\\s*[Yy]ears?)",
-      fields: [
-        "name",
-        "exp",
-      ],
+      fields: ["name", "exp"],
     },
     date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
-    escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/]+|\\(Annualized\\)|\u00b7",
+    escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\/\\&]+|\\(Annuali[sz]ed\\)",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*(asset_held)": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*(asset_held)": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

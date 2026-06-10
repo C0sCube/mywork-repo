@@ -420,6 +420,65 @@ a.logout-btn:focus-visible {
 }
 
 
+/* ===============================
+   NEW EDITOR TAB
+   =============================== */
+
+.page-editor1 {
+    display: flex;
+}
+
+   
+.editor-panel1 {
+    height: calc(100vh - 120px);
+    /* header height */
+    padding: 12px;
+    width:100%
+}
+
+.form-panel {
+    height: calc(100vh - 120px);
+    /* header height */
+    padding: 12px;
+    width:100%
+}
+
+#jsonInput {
+    height: calc(100vh - 120px);
+    /* header height */
+    padding: 12px;
+    width: 100%;
+}
+
+.check-bar-container {
+    position: absolute;
+    left: 0px;
+    top: -4px;
+    z-index: 69;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 0.5em;
+}
+
+.check {
+    border-radius: 1em;
+    height: 1.5em;
+    width: 1.5em;
+    padding: 3px;
+    background-color: #535353;
+    transform: scale(0.75);
+}
+
+.check-bar-container .check:nth-of-type(2) {
+    animation: checkScale1 6s linear infinite;
+}
+
+.check-bar-container .check:nth-of-type(3) {
+    animation: checkScale2 6s linear infinite;
+}
+
+
 
 /* ===============================
    LOGIN PAGE (INTENTIONALLY DISTINCT)

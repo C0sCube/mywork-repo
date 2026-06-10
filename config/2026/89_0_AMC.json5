@@ -1,10 +1,5 @@
 {
   AMC_NAME: "Pramerica Life Insurance Fund",
-  MAIN_MAP: {
-    select: true,
-    map: true,
-    special: true,
-  },
   IMP_DATA: {
     amc_name: "Pramerica Life Insurance AMC Limited",
     mutual_fund_name: "Pramerica Life Insurance Fund",
@@ -13,70 +8,27 @@
     title: {
       ocr: false,
       pattern: "(.+)SFIN",
-      bbox: [
-        0,
-        0,
-        465,
-        80,
-      ],
+      bbox: [0, 0, 465, 80],
     },
     clip_bbox: [
-      [
-        0,
-        0,
-        305,
-        795,
-      ],
-      [
-        290,
-        60,
-        590,
-        780,
-      ],
+      [0, 0, 305, 795],
+      [290, 60, 590, 780],
     ],
     port_bbox: [
       {
-        bbox: [
-          290,
-          60,
-          590,
-          780,
-        ],
-        support_lines: [
-          445,
-          505,
-        ],
-        anchor_t: "Security Name",
-        anchor_b: null,
-        anchor_r: null,
-        anchor_l: null,
+        bbox: [290, 60, 590, 780],
+        support_lines: [480],
         anchor: {
-          anchor_t: "Security Name",
-          anchor_b: null,
+          anchor_t: "Security\\s+Name",
+          anchor_b: "Portfolio\\s+Total",
           anchor_r: null,
           anchor_l: null,
         },
       },
     ],
-    data: {
-      size: [
-        6,
-        18,
-      ],
-      color: [
-        23,
-      ],
-      update_size: 30.0,
-      font: [
-        "Ubuntu-Bold",
-      ],
-    },
-    content_size: [
-      30.0,
-      18.0,
-    ],
     max_financial_index_highlight: 4,
     pdf_ocr: false,
+    method:"clip"
   },
   DUPLICATE_MUTUAL_FUNDS: {},
   PRE_DATA_SELECT: [],
@@ -100,31 +52,17 @@
     },
     manager: {
       pattern: "([A-Za-z]+\\s+[A-Za-z]+)",
-      fields: [
-        "name",
-      ],
+      fields: ["name"],
     },
     escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\/]+",
   },
   PATTERN_TO_FUNCTION: {
-    "^(before|dummy.*)": [
-      "_extract_scheme_data",
-      "scheme",
-    ],
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
   SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*fund_mana": [
-      "_extract_manager_data",
-      "manager",
-    ],
-    ".*investment_insight": [
-      "_extract_generic_data",
-      "sfin",
-    ],
-    ".*nav_as_on": [
-      "_extract_generic_data",
-      "aum",
-    ],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
+    ".*investment_insight": ["_extract_generic_data", "sfin"],
+    ".*nav_as_on": ["_extract_generic_data", "aum"],
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
   SELECTKEYS: [

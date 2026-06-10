@@ -21,8 +21,8 @@ class GrandFundData:
         self.CLONEKEYS = fund_config.get("CLONEKEYS", [])
         self.PROMOTEKEYS = fund_config.get("PROMOTE_KEYS", {})
         self.IMP_DATA = fund_config.get("IMP_DATA", {})
-        self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT", [])
-        self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS", {})
+        # self.PREV_KEY_DATA = fund_config.get("PRE_DATA_SELECT", [])
+        # self.DUPLICATE_FUNDS = fund_config.get("DUPLICATE_MUTUAL_FUNDS", {})
         self.SPECIAL_FUNCTIONS = fund_config.get("SPECIAL_FUNCTIONS", {})
         self.PATTERN = {
             "primary": fund_config.get("PATTERN_TO_FUNCTION", {}),
@@ -598,11 +598,11 @@ class GrandFundData:
 
         return data
     
-    def _get_prev_text(self,key:str):
-        for pattern in self.PREV_KEY_DATA:
-            if re.match(pattern, key,re.IGNORECASE):
-                return True
-        return False
+    # def _get_prev_text(self,key:str):
+    #     for pattern in self.PREV_KEY_DATA:
+    #         if re.match(pattern, key,re.IGNORECASE):
+    #             return True
+    #     return False
     
     # def _update_duplicate_fund_data(self, data: dict):
     #     final_data = data.copy()
@@ -641,14 +641,22 @@ class GrandFundData:
             "total_exp": exp.title().strip()
         }
     
-    def _update_imp_data(self,data:dict,main_scheme:str, pgn:list):
-        return data.update({
-            "amc_name":self.IMP_DATA['amc_name'],
+    def _update_imp_data(self,data:dict,main_scheme:str):
+
+        data.update({
             "main_scheme_name":main_scheme,
             "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%Y%m%d"),
-            "page_number":pgn,
-            "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
         })
+        data.update(self.IMP_DATA)
+        return data
+    
+        # return data.update({
+        #     "amc_name":self.IMP_DATA['amc_name'],
+        #     "main_scheme_name":main_scheme,
+        #     "monthly_aaum_date": (datetime.today().replace(day=1) - relativedelta(days=1)).strftime("%Y%m%d"),
+        #     "page_number":pgn,
+        #     "mutual_fund_name":self.IMP_DATA['mutual_fund_name'],
+        # })
 
 class BaseAMC(Reader, GrandFundData):
     @log_exceptions()
@@ -792,29 +800,29 @@ class BajajFinServ(BaseAMC):
 
         return data
     
-class Bandhan(BaseAMC):  
+class Bandhan(BaseAMC):  pass
     
-    def _extract_manager_data(self, main_key: str, manager_data, pattern: str):
-        manager_data = " ".join(manager_data.values()) if isinstance(manager_data, dict) else manager_data
-        manager_data = re.sub(self.REGEX["escape"], "", manager_data, re.IGNORECASE)
+    # def _extract_manager_data(self, main_key: str, manager_data, pattern: str):
+    #     manager_data = " ".join(manager_data.values()) if isinstance(manager_data, dict) else manager_data
+    #     manager_data = re.sub(self.REGEX["escape"], "", manager_data, re.IGNORECASE)
 
-        names = re.findall(self.REGEX[pattern]['name'], manager_data, re.IGNORECASE)
-        since = re.findall(self.REGEX[pattern]['since'], manager_data, re.IGNORECASE)
+    #     names = re.findall(self.REGEX[pattern]['name'], manager_data, re.IGNORECASE)
+    #     since = re.findall(self.REGEX[pattern]['since'], manager_data, re.IGNORECASE)
 
-        if not names:
-            return {main_key: []}
+    #     if not names:
+    #         return {main_key: []}
 
-        n_len, s_len = len(names), len(since)
+    #     n_len, s_len = len(names), len(since)
 
-        if s_len == 0:
-            since = [""] * n_len
-        elif s_len == 1 and n_len > 1:
-            since = since * n_len
-        elif s_len < n_len:
-            since += [since[-1]] * (n_len - s_len)
+    #     if s_len == 0:
+    #         since = [""] * n_len
+    #     elif s_len == 1 and n_len > 1:
+    #         since = since * n_len
+    #     elif s_len < n_len:
+    #         since += [since[-1]] * (n_len - s_len)
 
-        final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
-        return {main_key: final_list}
+    #     final_list = [self._return_manager_data(name=n, since=s) for n, s in zip(names, since)]
+    #     return {main_key: final_list}
 
 class DSP(BaseAMC):
         

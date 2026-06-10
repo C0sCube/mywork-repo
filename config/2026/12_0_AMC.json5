@@ -1,14 +1,16 @@
 {
   AMC_NAME: "Hdfc Mutual Fund",
   CLONEKEYS: {
-    'before.benchmark_index':"benchmark_index"
+    "before.benchmark_index": "benchmark_index",
   },
-  DUPLICATE_MUTUAL_FUNDS: {},
+  DUPLICATE_MUTUAL_FUNDS: {}, //red
   IMP_DATA: {
     amc_name: "HDFC Asset Management Company Limited",
     mutual_fund_name: "HDFC Mutual Fund",
+    min_addl_amt: "100",
+    min_amt: "100",
   },
-  MAIN_MAP: {
+  MAIN_MAP: { //red
     map: true,
     select: true,
     special: true,
@@ -22,8 +24,8 @@
       [0, 70, 190, 812],
       [370, 100, 570, 812],
     ],
-    content_size: [30, 10],
-    data: {
+    content_size: [30, 10], //red
+    data: { //red
       color: [666],
       font: ["Taz-SemiBold", "Cambria-Bold"],
       size: [5, 13],
@@ -34,23 +36,23 @@
     max_financial_index_highlight: 7,
     method: "clip",
     pdf_ocr: false,
-    sanitize_fund: false,
-    stop_words: [],
+    sanitize_fund: false, 
+    stop_words: [], //red
     title: {
       bbox: [0, 0, 400, 60],
       ocr: false,
       pattern: "(HDFC.*?(?:[Ss]aver|FUND|Fund|ETF|F[Oo]F|Index)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
     },
-    update_min_add: true,
+    update_min_add: false, //red
   },
   PATTERN_TO_FUNCTION: {
-    "(before|dummy.*)": ["_extract_scheme_non_esc_data", "scheme"],
+    "(before|dummy.*)": ["_extract_scheme_data", "scheme"],
   },
-  PRE_DATA_SELECT: [],
+  PRE_DATA_SELECT: [], //red
   PROMOTE_KEYS: {},
   REGEX: {
     aum: "([\\d,.]+\\s*Cr)",
-    escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\&]+",
+    escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\&\\:]+|\\([tT]otal\\s*[rR]eturns?\\s*[iI]ndex\\)|\\(TRI\\)|TRI|Total\\s*Returns?\\s*Index",
     load: "",
     manager: "",
     metric: "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
@@ -94,256 +96,4 @@
     fund_manager: "_update_manager_data",
   },
   TERTIARY_PATTERN_TO_FUNCTION: {},
-  Z_MUTUAL_FUND_DATA: {
-    "HDFC Arbitrage Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+arbitrage\\s+fund",
-      risk: "",
-    },
-    "HDFC Balanced Advantage Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+balanced\\s+advantage\\s+fund",
-      risk: "",
-    },
-    "HDFC Banking & Financial Services Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+banking\\s+(and|&)\\s+financial\\s+services\\s+fund",
-      risk: "",
-    },
-    "HDFC Banking and PSU Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+banking\\s+(and|&)\\s+psu\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Business Cycle Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+business\\s+cycle\\s+fund",
-      risk: "",
-    },
-    "HDFC Childrens Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+childrens\\s+fund",
-      risk: "",
-    },
-    "HDFC Corporate Bond Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+corporate\\s+bond\\s+fund",
-      risk: "",
-    },
-    "HDFC Credit Risk Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+credit\\s+risk\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Defence Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+defence\\s+fund",
-      risk: "",
-    },
-    "HDFC Diversified Equity All Cap Active FOF": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+diversified\\s+equity\\s+all\\s+cap\\s+active\\s+fof",
-      risk: "",
-    },
-    "HDFC Dividend Yield Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+dividend\\s+yield\\s+fund",
-      risk: "",
-    },
-    "HDFC Dynamic Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+dynamic\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC ELSS Tax Saver": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+elss\\s+tax\\s+saver",
-      risk: "",
-    },
-    "HDFC Equity Savings Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+equity\\s+savings\\s+fund",
-      risk: "",
-    },
-    "HDFC Flexi Cap Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+flexi\\s+cap\\s+fund",
-      risk: "",
-    },
-    "HDFC Floating Rate Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+floating\\s+rate\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Focused Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+focused\\s+fund",
-      risk: "",
-    },
-    "HDFC Gilt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+gilt\\s+fund",
-      risk: "",
-    },
-    "HDFC Housing Opportunities Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+housing\\s+opportunities\\s+fund",
-      risk: "",
-    },
-    "HDFC Hybrid Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+hybrid\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Hybrid Equity Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+hybrid\\s+equity\\s+fund",
-      risk: "",
-    },
-    "HDFC Income Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+income\\s+fund",
-      risk: "",
-    },
-    "HDFC Income Plus Arbitrage Active FOF": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+income\\s+plus\\s+arbitrage\\s+active\\s+fof",
-      risk: "",
-    },
-    "HDFC Infrastructure Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+infrastructure\\s+fund",
-      risk: "",
-    },
-    "HDFC Innovation Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+innovation\\s+fund",
-      risk: "",
-    },
-    "HDFC Large Cap Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+large\\s+cap\\s+fund",
-      risk: "",
-    },
-    "HDFC Large and Mid Cap Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+large\\s+(and|&)\\s+mid\\s+cap\\s+fund",
-      risk: "",
-    },
-    "HDFC Liquid Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+liquid\\s+fund",
-      risk: "",
-    },
-    "HDFC Long Duration Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+long\\s+duration\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Low Duration Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+low\\s+duration\\s+fund",
-      risk: "",
-    },
-    "HDFC MNC Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+mnc\\s+fund",
-      risk: "",
-    },
-    "HDFC Manufacturing Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+manufacturing\\s+fund",
-      risk: "",
-    },
-    "HDFC Medium Term Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+medium\\s+term\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Mid Cap Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+mid\\s+cap\\s+fund",
-      risk: "",
-    },
-    "HDFC Money Market Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+money\\s+market\\s+fund",
-      risk: "",
-    },
-    "HDFC Multi Cap Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+multi\\s+cap\\s+fund",
-      risk: "",
-    },
-    "HDFC Multi-Asset Active FOF": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+multi[-\\s]?asset\\s+active\\s+fof",
-      risk: "",
-    },
-    "HDFC Multi-Asset Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+multi[-\\s]?asset\\s+fund",
-      risk: "",
-    },
-    "HDFC Non-Cyclical Consumer Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+non[-\\s]?cyclical\\s+consumer\\s+fund",
-      risk: "",
-    },
-    "HDFC Overnight Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+overnight\\s+fund",
-      risk: "",
-    },
-    "HDFC Pharma and Healthcare Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+pharma\\s+(and|&)\\s+healthcare\\s+fund",
-      risk: "",
-    },
-    "HDFC Retirement Savings Fund - Equity Plan": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+retirement\\s+savings\\s+fund\\s*-\\s*equity\\s+plan",
-      risk: "",
-    },
-    "HDFC Retirement Savings Fund - Hybrid Debt Plan": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+retirement\\s+savings\\s+fund\\s*-\\s*hybrid\\s+debt\\s+plan",
-      risk: "",
-    },
-    "HDFC Retirement Savings Fund - Hybrid Equity Plan": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+retirement\\s+savings\\s+fund\\s*-\\s*hybrid\\s+equity\\s+plan",
-      risk: "",
-    },
-    "HDFC Short Term Debt Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+short\\s+term\\s+debt\\s+fund",
-      risk: "",
-    },
-    "HDFC Small Cap Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+small\\s+cap\\s+fund",
-      risk: "",
-    },
-    "HDFC Technology Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+technology\\s+fund",
-      risk: "",
-    },
-    "HDFC Transportation and Logistics Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+transportation\\s+(and|&)\\s+logistics\\s+fund",
-      risk: "",
-    },
-    "HDFC Ultra Short Term Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+ultra\\s+short\\s+term\\s+fund",
-      risk: "",
-    },
-    "HDFC Value Fund": {
-      min_add: "100,,100,",
-      regex: "(?i)hdfc\\s+value\\s+fund",
-      risk: "",
-    },
-  },
 }
