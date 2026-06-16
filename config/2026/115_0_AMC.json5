@@ -1,0 +1,98 @@
+{
+  AMC_NAME: "Union Mutual Fund",
+  MAIN_MAP: { select: true, map: true, special: true },
+  IMP_DATA: {
+    amc_name: "Union Asset Management Company Private Limited",
+    mutual_fund_name: "Arthaya SIF",
+  },
+  PARAMS: {
+    title: {
+      ocr: false,
+      pattern: "Arthaya.+?Fund",
+      bbox: [0, 0,180, 145],
+    },
+    clip_bbox: [[16.92, 143.15, 205.62, 830.29]],
+    line_x: 200.0,
+    data: {
+      size: [6, 9],
+      color: [23],
+      update_size: 30.0,
+      font: ["Ubuntu-Bold"],
+    },
+    content_size: [30.0, 10.0],
+    method: "clip",
+    line_side: "",
+    max_financial_index_highlight: 5,
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    update_min_add: false,
+  },
+  DUPLICATE_MUTUAL_FUNDS: {},
+  PRE_DATA_SELECT: [],
+  REGEX: {
+    aum: "([\\d,.]+\\s*[Cc]rores?)",
+    benchmark: "((?:Russell|Nifty?|BSE|CRISIL|Domestic|\\bICE\\b).+(?:TRI|Index|Silver|Gold))",
+    scheme: [
+      "Investment Objective",
+      "Fund Managers?",
+      "Date\\s+[Oo]f\\s+[Aa]llotment",
+      "Minimum Application Amount",
+      "Assets Under Management",
+      "As on",
+      "Average for",
+      "NAV as on",
+      "Benchmark\\s+Index",
+      "Disclaimer",
+      "Entry\\s+Load",
+      "Exit\\s+Load",
+      "Note:",
+      "EOL"
+    ],
+    manager: {
+      pattern: "(?:Mr|Mrs|Ms)\\.?\\s+([A-Za-z]+\\s*[A-Za-z]+)",
+      fields: ["name"],
+    },
+    min_amt: "([\\d,]+).*?([\\d,]+)",
+    date: "([A-Za-z]+\\s*\\d{2}\\,?\\s*\\d{3,4})",
+    metric: "(Aggregate|Beta|R\\s*Squared|Standard Deviation|Sharpe\\*?|Modified Duration|Average Maturity|Macaulay Duration|Y?ield to Maturity|Information Ratio|Tracking\\s*Error.+?)\\s*\\:?\\s*(-?[\\d.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?|%|[Tt]imes?)?|NA|Nil)",
+    ptr: "(Equity|Aggregate|Tracking Error)\\s*(-?[\\d.]+)",
+    escape: "[^a-zA-Z0-9.,\\s\\(\\)\\-\\+\\%\\:\\&]+",
+  },
+  PATTERN_TO_FUNCTION: {
+    "^(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    ".*minimum_application": ["_extract_amt_data", "min_amt"],
+    ".*fund_mana": ["_extract_manager_data", "manager"],
+    ".*average_for":["_extract_generic_data","aum"]
+  },
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  SELECTKEYS: [
+    ".*date_of_allotment",
+    ".*fund_manager",
+    // "metrics",
+    ".*benchmark",
+    ".*minimum_application",
+    ".*monthly_avg_aum",
+    "main_scheme_name",
+    "monthly_aaum_date",
+    "page_number",
+    "mutual_fund_name",
+    "amc_name",
+    "load",
+  ],
+  MERGEKEYS: {
+    load: [".*(entry_load|exit_load)"],
+    // metrics: [
+    //   "metrics",
+    //   ".*(total_expense_ratio|portfolio_turnover_ratio|other_parameter)",
+    // ],
+  },
+  CLONEKEYS: {
+    "monthly_avg_aum":".*average_for"
+  },
+  PROMOTE_KEYS: {},
+  SPECIAL_FUNCTIONS: {},
+  Z_MUTUAL_FUND_DATA: {},
+}
