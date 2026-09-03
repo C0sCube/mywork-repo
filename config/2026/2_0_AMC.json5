@@ -13,7 +13,7 @@
   },
   MERGEKEYS: {
     load: [".*(exit_?load|entry_?load)"],
-    metrics: [".*key_statistics$", ".*quantitative.*$", ".*expense_ratio$"],
+    // metrics: [".*key_statistics$", ".*quantitative.*$", ".*expense_ratio$"],
   },
   PARAMS: {
     clip_bbox: [[0, 100, 205, 800]],
@@ -58,10 +58,10 @@
       "NAV\\s+Details",
       "Benchmark Index",
       "Date\\s+[Oo]f\\s+[aA]llotment",
-      "Monthly\\s*AAUM",
-      "AUM",
-      "Fund Manager",
-      "Load Structure",
+      "Monthly\\s+AAUM\\s+[Aa]s\\s+[Oo]n",
+      "AUM\\s+[Aa]s\\s+[Oo]n",
+      "Fund\\s+Manager",
+      "Load\\s+Structure",
       "Exit\\s*[Ll]oad",
       "Expense\\s+[rR]atio",
       "Minimum\\s*[aA]mount",
@@ -82,7 +82,7 @@
       "metric",
     ],
     ".*fund_manager": ["_extract_manager_data", "manager"],
-    ".*monthly_aaum$": ["_extract_generic_data", "aum"],
+    ".*monthly_aaum": ["_extract_generic_data", "aum"],
   },
   SELECTKEYS: [
     ".*benchmark_index",

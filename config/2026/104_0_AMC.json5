@@ -36,7 +36,7 @@
     sanitize_fund: false,
     stop_words: [],
     title: {
-      bbox: [0, 0, 580, 460],
+      bbox: [0, 305, 590, 570],
       ocr: false,
       pattern: "((?:Altiva).*?(?:FUNDS?|Funds?|ETF|Index|Plan|Path)\\s*(?:of [Ff]unds?|F[oO]F|Funds?|Fund of [Ff]unds?)?)",
     },

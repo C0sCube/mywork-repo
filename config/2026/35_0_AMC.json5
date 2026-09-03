@@ -1,130 +1,101 @@
 {
-  "AMC_NAME": "Sbi Mutual Fund",
-  "CLONEKEYS": {},
-  "DUPLICATE_MUTUAL_FUNDS": {},
-  "IMP_DATA": {
-    "amc_name": "SBI Funds Management Limited",
-    "mutual_fund_name": "SBI Mutual Fund"
+  AMC_NAME: "Sbi Mutual Fund",
+  CLONEKEYS: {
+    min_amt: "minimum_investment",
+    min_addl_amt: "additional_purchase",
   },
-  "MAIN_MAP": {
-    "map": true,
-    "select": true,
-    "special": true
+  DUPLICATE_MUTUAL_FUNDS: {},
+  IMP_DATA: {
+    amc_name: "SBI Funds Management Limited",
+    mutual_fund_name: "SBI Mutual Fund",
   },
-  "MERGEKEYS": {
-    "load": [
-      ".*exit_load",
-      ".*entry_load"
-    ]
+  MAIN_MAP: {
+    map: true,
+    select: true,
+    special: true,
   },
-  "PARAMS": {
-    "clip_bbox": [
-      [
-        0,
-        120,
-        165,
-        812
-      ]
-    ],
-    "content_size": [
-      30,
-      10
-    ],
-    "data": {
-      "color": [
-        -16763806,
-        -14206313,
-        -10398813
-      ],
-      "font": [
-        "LucidaSans-Bold"
-      ],
-      "size": [
-        7,
-        12
-      ],
-      "update_size": 30
+  MERGEKEYS: {
+    load: [".*exit_load", ".*entry_load"],
+    metrics: [".*(quantitative_indicators|expense_ratio)"],
+  },
+  PARAMS: {
+    clip_bbox: [[0, 0, 175, 820]],
+    content_size: [30, 10],
+    data: {
+      color: [-16763806, -14206313, -10398813],
+      font: ["LucidaSans-Bold"],
+      size: [7, 12],
+      update_size: 30,
     },
-    "line_side": "",
-    "line_x": 165,
-    "max_financial_index_highlight": 7,
-    "method": "clip",
-    "pdf_ocr": false,
-    "sanitize_fund": false,
-    "stop_words": [],
-    "title": {
-      "bbox": [
-        160,
-        640,
-        600,
-        812
-      ],
-      "ocr": false,
-      "pattern": "((?:SBI|i\\s*_|S35).*?(?:Fund\\s*(?:\\-?\\s*Investment\\s*Plan|\\-?\\s*Savings\\s*Plan)?|Index|Saver|ETF|FTF|F[oO]F)\\s*(?:of [Ff]unds?|.*?Aggressive\\s*Plan|.*?Hybrid\\s*Plan|.*?Conservative\\s*Plan)?)"
+    line_side: "",
+    line_x: 165,
+    max_financial_index_highlight: 7,
+    method: "clip",
+    pdf_ocr: false,
+    sanitize_fund: false,
+    stop_words: [],
+    title: {
+      bbox: [100, 0, 500, 55],
+      ocr: false,
+      pattern: "((?:SBI).+?(?:FUND|F[Oo]F)(?:.+?PLAN)?)",
     },
-    "update_min_add": false
+    update_min_add: false,
   },
-  "PATTERN_TO_FUNCTION": {
-    "^(investment_objective|metrics)": [
-      "_extract_str_data",
-      null
-    ],
-    "before": [
-      "_extract_scheme_data",
-      "scheme"
-    ]
+  PATTERN_TO_FUNCTION: {
+    "^(investment_objective|metrics)": ["_extract_str_data", null],
+    before: ["_extract_scheme_data", "scheme"],
   },
-  "PRE_DATA_SELECT": [],
-  "PROMOTE_KEYS": {},
-  "REGEX": {
-    "aum": "([\\d,.]+)\\s*crores",
-    "benchmark": "((?:Nifty|Domestic|Price|CRISIL|BSE).+?(?:TRI|Index|Silver|Gold))",
-    "escape": "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\%\\/]+",
-    "manager": {
-      "exp": "([0-9]+ years)",
-      "name": "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z.]+\\s*[A-Za-z]+)",
-      "since": "((?:\\(w.e.f\\.?)?[A-Za-z]+\\s*\\d{4}\\s*(?:\\()?)"
+  PRE_DATA_SELECT: [],
+  PROMOTE_KEYS: {},
+  REGEX: {
+    aum: "(\\d+\\,?\\d+\\.\\d+).+$",
+    benchmark: "((?:Nifty|Domestic|Price|CRISIL|BSE).+?(?:TRI|Index|Silver|Gold))",
+    escape: "[^a-zA-Z0-9\\.\\,\\+\\(\\)\\s\\%\\/]+",
+    manager: {
+      exp: "([0-9]+ years)",
+      name: "(?:Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([A-Za-z.]+\\s*[A-Za-z]+)",
+      since: "((?:\\(w.e.f\\.?)?[A-Za-z]+\\s*\\d{4}\\s*(?:\\()?)",
     },
-    "metrics": "(Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity|Standard Deviation|Beta|Sharpe Ratio|Total Turnover)\\s*([\\d,.]+\\s*(?:years|months|days|day|year|month)?)",
-    "min_amt": "\\b([\\d,]+(?:\\.\\d+)?)\\b.*?\\b([\\d,]+(?:\\.\\d+)?)\\b",
-    "scheme": [
-      "Type of Scheme",
-      "Date of Allotment",
-      "Report As On",
-      "AAUM",
-      "AUM as on",
-      "Fund Manager",
-      "First Tier Benchmark",
-      "Exit Load",
-      "Entry Load",
-      "Plans Available",
-      "Minimum Investment",
-      "Additional Investment",
-      "Quantitative Data",
-      "EOL"
-    ]
-  },
-  "SECONDARY_PATTERN_TO_FUNCTION": {
-    ".*(minimum_investment|additional_investment)": [
-      "_extract_amt_data",
-      "min_amt"
+    metrics: "(Modified Duration|Average Maturity|Macaulay Duration|Yield to Maturity|Standard Deviation|Beta|Information Ratio|Sharpe Ratio|Portfolio Turnover Total)\\s*(?:\\(.+\\)|:)?\\s*([\\d,.]+\\s*(?:[Yy]ears?|[Mm]onths?|[Dd]ays?)?)",
+    min_amt: "(\\d+)",
+    scheme: [
+      "Investment\\s+Objective",
+      "Date\\s+of\\s+Allotment",
+      "Benchmark",
+      "Additional\\s+Benchmark",
+      "Fund\\s+Size",
+      "Month\\s+[Ee]nd\\s+AUM",
+      "Monthly\\s+Av.+?AUM",
+      "Fund\\s+Manager",
+      "NAV\\s+Details",
+      "Minimum\\s+Investment",
+      "Additional\\s+Purchase",
+      "SIP",
+      "Expense\\s+Ratio",
+      "Entry\\s+[Ll]oad",
+      "Exit\\s+[Ll]oad",
+      "Quantitative\\s+Indicators?",
+      "EOL",
     ],
-    ".*aaum$": [
+  },
+  SECONDARY_PATTERN_TO_FUNCTION: {
+    // ".*(minimum_investment|additional_investment)": [
+    //   "_extract_generic_data",
+    //   "min_amt",
+    // ],
+    ".*aum$": ["_extract_generic_data", "aum"],
+    ".*(quantitative_indicators|expense_ratio)": [
       "_extract_generic_data",
-      "aum"
+      "metrics",
     ],
-    ".*quantitative_data": [
-      "_extract_generic_data",
-      "metrics"
-    ]
   },
-  "SELECTKEYS": [
+  SELECTKEYS: [
     ".*date_of_allotment",
-    ".*aaum",
-    ".*first_tier_benchmark",
+    ".*monthly_avg",
+    "before.benchmark",
     ".*fund_manager",
     ".*(exit_load|entry_load)",
-    ".*(minimum_investment|additional_investment)",
+    "(min_amt|min_addl_amt)",
     "metrics",
     ".*quantitative_data",
     "amc_name",
@@ -132,11 +103,11 @@
     "monthly_aaum_value",
     "page_number",
     "mutual_fund_name",
-    "load"
+    "load",
   ],
-  "SPECIAL_FUNCTIONS": {
-    "fund_manager": "_update_manager_data"
+  SPECIAL_FUNCTIONS: {
+    fund_manager: "_update_manager_data",
   },
-  "TERTIARY_PATTERN_TO_FUNCTION": {},
-  "Z_MUTUAL_FUND_DATA": {}
+  TERTIARY_PATTERN_TO_FUNCTION: {},
+  Z_MUTUAL_FUND_DATA: {},
 }
