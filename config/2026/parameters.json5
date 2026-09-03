@@ -5113,11 +5113,19 @@
       title: {
         ocr: false,
         pattern: "(Angel\\s*One.+?(?:Fund|ETF|Plan|Duration|Saver|Index|F[Oo]F)\\s*(?:.+?Growth|Fund of Funds?|of Funds|Funds?|F[Oo]F)?)",
+<<<<<<< HEAD:config/2026/parameters.json5
         bbox: [0, 0, 500, 170],
       },
       clip_bbox: [
         [0, 160, 300, 812],
         [300, 160, 600, 812],
+=======
+        bbox: [0, 0, 700, 100],
+      },
+      clip_bbox: [
+        [0, 120, 300, 812],
+        [300, 120, 600, 812],
+>>>>>>> 87018d22c2bb76f65d12955ac5864f9dd7619c6f:config/parameters.json5
       ],
       line_x: 300.0,
       data: {
@@ -5141,7 +5149,7 @@
       benchmark: "((?:Nifty|BSE|Domestic|CRISIL).+?(?:Index|TRI|Silver|Gold))",
       load: "Entry Load(.*?)\\s*Exit Load(.*)$",
       scheme: [
-        "Inception Date",
+        "Inception\\s*[dD]ate|[Dd]ate\\s*of\\s*[Aa]llotment",
         "Benchmark Index",
         "ISIN",
         "NAV",
