@@ -1,0 +1,4 @@
+{% extends 'webapp/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block header_actions %}<a href="{% url 'dashboard' %}" class="btn btn-outline-light"><span class="material-symbols-outlined">arrow_back</span></a>{% endblock %}
+{% block content %}<div class="card tool-card"><div class="card-body"><h1 class="h5">{{ title }}</h1><div class="list-group list-group-flush">{% for f in files %}<a class="list-group-item list-group-item-action" href="{% if kind == 'json' %}{% url 'serve_json_files' f %}{% else %}{% url 'serve_csv_files' f %}{% endif %}" target="_blank">{{ f }}</a>{% empty %}<div class="text-secondary py-3">No files found.</div>{% endfor %}</div></div></div>{% endblock %}

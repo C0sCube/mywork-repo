@@ -1,0 +1,23 @@
+{% extends 'webapp/base.html' %}
+{% block title %}Dashboard | Factsheet Parser{% endblock %}
+{% block header_actions %}
+<div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
+  <a href="{% url 'new_data' %}" class="btn btn-outline-light btn-sm" data-action="new-tab"><span class="material-symbols-outlined">dataset</span></a>
+  <button class="btn btn-primary btn-sm" data-action="open-upload"><span class="material-symbols-outlined">upload_file</span> Upload</button>
+  <a href="{% url 'sid_data' %}" class="btn btn-outline-light btn-sm" data-action="new-tab">SID-KIM</a>
+  <a href="{% url 'csv_to_json' %}" class="btn btn-outline-light btn-sm" data-action="new-tab"><span class="material-symbols-outlined">transform</span></a>
+  <a href="{% url 'daily_logs' %}" class="btn btn-outline-light btn-sm" data-action="new-tab"><span class="material-symbols-outlined">book_2</span></a>
+  {% if role == 'admin' %}<a href="{% url 'config_editor' %}" class="btn btn-outline-light btn-sm" data-action="new-tab"><span class="material-symbols-outlined">handyman</span></a>{% endif %}
+  <a href="{% url 'amc_data' %}" class="btn btn-outline-light btn-sm" data-action="new-tab">AMC</a>
+  <span class="text-white-50 small d-none d-lg-inline">{{ user|capfirst }}</span>
+  <a href="{% url 'logout' %}" class="btn btn-danger btn-sm"><span class="material-symbols-outlined">logout</span></a>
+</div>
+{% endblock %}
+{% block content %}
+<div class="card tool-card dashboard-panel"><div class="card-body d-flex flex-column">
+  <div class="d-flex justify-content-between align-items-center mb-3"><div><h2 class="h5 mb-1">Status Report</h2><p class="text-secondary small mb-0">Pipeline jobs and parser activity</p></div><button class="btn btn-light border" data-action="refresh-logs"><span class="material-symbols-outlined">refresh</span></button></div>
+  <div id="logsConsole" class="flex-grow-1"></div><div id="logpagination" class="pagination justify-content-center gap-1 mt-3"></div>
+</div></div>
+<div id="uploadModal" class="modal fade" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Upload Factsheets</h5><button type="button" class="btn-close" data-action="close-upload"></button></div><form id="uploadForm" enctype="multipart/form-data"><div class="modal-body"><label for="pdfs" class="drop-zone flex-column gap-2 text-secondary"><span class="material-symbols-outlined fs-1">upload_file</span><span>Select PDF files</span><input id="pdfs" name="pdfs" type="file" accept="application/pdf" multiple hidden></label><div id="sizeDisplay" class="small text-secondary mt-2">Size 0.00 Mb / 50 Mb</div><div id="uploadConsole" class="bg-body-tertiary rounded p-2 mt-3 mono small" style="min-height:100px"></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="close-upload">Cancel</button><button class="btn btn-primary" type="submit">Upload PDF</button></div></form></div></div></div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'webapp/js/dashboard.js' %}"></script>{% endblock %}
