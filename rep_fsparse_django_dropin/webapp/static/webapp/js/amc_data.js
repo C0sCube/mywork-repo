@@ -1,44 +1,52 @@
-
 // ---------------- AMC DATA RENDER ----------------
 
 function loadAMCData() {
-    const container = document.querySelector(".card-container");
-    if (!container) return;
+    const tbody = document.getElementById("amc-table-body");
+    if (!tbody) return;
 
     fetch("/amc_data_registry")
         .then(res => res.json())
         .then(data => {
-            container.innerHTML = ""; // clear existing (optional but sane)
 
-            Object.entries(data).forEach(([id, amc]) => {
-                const col = document.createElement("div");
-                col.className = "col-12 col-md-6 col-xl-4";
-                const card = document.createElement("div");
-                card.className = "card tool-card h-100";
+            tbody.innerHTML = "";
 
-                card.innerHTML = `
-                    <div class="card-body d-flex align-items-center justify-content-between gap-3">
-                        <div class="text">
-                            <a href="${amc.amc_website}" target="_blank"
-                               style="text-decoration:none; color:#fff">
-                                <span><strong>${amc.amc_name}</strong></span>
-                            </a>
-                            <p class="text-secondary small mb-0">AMC ID: ${id}</p>
-                        </div>
+            // View returns registry directly
+            const registry = data || {};
 
-                        <div class="right-controls">
-                            <img src="/logo/${id}"
-                                 alt="Logo"
-                                 onerror="this.onerror=null; this.src='/static/default.png';"
-                                 class="amc-logo"
-                                 style="margin-right:0">
-                        </div>
-                    </div>
+            console.log("Registry:", registry);
+            console.log("Registry Count:", Object.keys(registry).length);
+
+            Object.entries(registry).forEach(([id, amc]) => {
+
+                console.log("AMC:", id, amc);
+
+                const fs0 = amc.fs_class?.["0"] || "-";
+                const fs1 = amc.fs_class?.["1"] || "-";
+                const sidClass = amc.sid_class || "-";
+
+                let website = "-";
+
+                if (amc.amc_website && amc.amc_website.trim()) {
+                    website = `
+                        <a href="${amc.amc_website}" target="_blank">Open</a>
+                    `;
+                }
+
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${id}</td>
+                    <td>${amc.amc_name || "-"}</td>
+                    <td>${fs0}</td>
+                    <td>${fs1}</td>
+                    <td>${sidClass}</td>
+                    <td>${website}</td>
                 `;
 
-                col.appendChild(card);
-                container.appendChild(col);
+                tbody.appendChild(row);
             });
+
+            console.log("Rows Rendered:", tbody.children.length);
         })
         .catch(err => {
             console.error("Error loading AMC data:", err);
@@ -46,6 +54,7 @@ function loadAMCData() {
 }
 
 // ---------------- INIT ----------------
+
 document.addEventListener("DOMContentLoaded", () => {
     enforceAuth();
     loadAMCData();
@@ -56,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ---------------- AUTH CHECK ----------------
+
 async function enforceAuth() {
     try {
         const r = await fetch("/auth-check");

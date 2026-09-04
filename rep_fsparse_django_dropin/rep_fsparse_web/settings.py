@@ -12,13 +12,19 @@ REPO_ROOT = Path(os.environ.get("REPO_FS_ROOT", BASE_DIR)).resolve()
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "change-me-in-production")
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
-ALLOWED_HOSTS = [h for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if h]
+ALLOWED_HOSTS = ['NCOG-LPT-TCH-32.Cogencis.com', 'localhost', '127.0.0.1']
+
+
+# DEFAULT_HOST = "NCOG-LPT-TCH-32.Cogencis.com"
+# DEFAULT_PORT = 5000
+
 
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.staticfiles",
     "webapp",
+    "django_extensions"
 ]
 
 MIDDLEWARE = [

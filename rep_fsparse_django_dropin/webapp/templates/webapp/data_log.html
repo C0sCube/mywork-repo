@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "head.html" %}
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="hero">
+      {% include "logo.html" %}
+      <h1>DAILY LOGS</h1>
+    </div>
+
+    <div class="user-section editor-controls">
+      {% if role == 'admin' %}
+      <button class="nav-btn" title="JSON FILES" data-action="json">
+        <span class="material-symbols-outlined">file_json</span>
+      </button>
+      <button class="nav-btn" title="CHECK REPORTS" data-action="report">
+        <span class="material-symbols-outlined">monitoring</span>
+      </button>
+       <div class="space"> | </div>
+      {% endif %}
+
+      <label><strong>Log Type:</strong></label>
+      <select id="LogSelect" class="input"></select>
+
+      <label><strong>Date:</strong></label>
+      <input type="date" id="dateSelect" class="input">
+
+      <button class="nav-btn" data-action="load">Load</button>
+
+      <button class="nav-btn" data-action="refresh" title="Refresh">
+        <span class="material-symbols-outlined">autorenew</span>
+      </button>
+
+      <a href="{% url 'dashboard' %}" class="nav-btn" data-action="back">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+      <span class="user-name">{{ user|capfirst }}</span>
+
+      <a href="{% url 'logout' %}" class="logout-btn">
+          <span class="material-symbols-outlined">exit_to_app</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= PAGE ================= -->
+  <div class="page page-logs">
+
+    <div class="panel">
+      <div class="log-wrapper">
+        <div id="lineNumbers" class="line-numbers">1</div>
+
+        <div id="logViewer" class="log-content">
+          Select a date to load logs…
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="{% static 'webapp/js/daily_logs.js' %}"></script>
+</body>
+
+</html>

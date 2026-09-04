@@ -1,5 +1,104 @@
-{% extends 'webapp/base.html' %}{% load static %}
-{% block title %}CSV ↔ JSON ↔ Admin{% endblock %}
-{% block header_actions %}<a href="{% url 'dashboard' %}" class="btn btn-outline-light" data-action="back"><span class="material-symbols-outlined">arrow_back</span></a>{% endblock %}
-{% block content %}<div class="row g-4 justify-content-center align-items-stretch py-lg-5"><div class="col-md-6 col-xl-4"><div class="card pipeline-card"><div class="card-body p-4"><span class="badge text-bg-primary align-self-start">STEP 1</span><h2 class="h5 mt-3" id="csvTitle">CSV SECTION</h2><label class="drop-zone flex-column gap-2 my-3"><span class="material-symbols-outlined fs-1">table_view</span><span>Upload CSV</span><input type="file" id="csvInput" accept=".csv" hidden></label><div class="card-actions d-flex gap-2"><button class="btn btn-outline-secondary" id="csvDldBtn" disabled><span class="material-symbols-outlined">download</span></button><button class="btn btn-primary flex-grow-1" id="csvConvertBtn" disabled>Convert to JSON</button></div><div class="card-overlay hidden"><span class="spinner-border text-light"></span><span class="overlay-text text-white">Converting…</span></div></div></div></div><div class="col-md-6 col-xl-4"><div class="card pipeline-card"><div class="card-body p-4"><span class="badge text-bg-secondary align-self-start">STEP 2</span><h2 class="h5 mt-3" id="jsonTitle">JSON SECTION</h2><label class="drop-zone flex-column gap-2 my-3"><span class="material-symbols-outlined fs-1">data_object</span><span>Upload JSON</span><input type="file" id="inputJson" accept=".json" hidden></label><div class="card-actions d-flex gap-2 flex-wrap"><button class="btn btn-primary" id="jsnConvertBtn" disabled>Convert to CSV</button><button class="btn btn-outline-secondary" id="jsonDldBtn" disabled><span class="material-symbols-outlined">download</span></button><button class="btn btn-outline-secondary" id="jsonViewBtn" disabled><span class="material-symbols-outlined">open_in_new</span></button></div><div class="card-overlay hidden"><span class="spinner-border text-light"></span><span class="overlay-text text-white">Processing…</span></div></div></div></div><div class="col-md-6 col-xl-4"><div class="card pipeline-card"><div class="card-body p-4"><span class="badge text-bg-success align-self-start">STEP 3</span><h2 class="h5 mt-3">ADMIN PANEL</h2><div class="bg-dark text-light rounded-3 p-3 mono flex-grow-1 d-flex align-items-center"><pre id="statusConsole" class="mb-0 w-100 text-wrap">Waiting for input…</pre></div><div class="card-actions mt-3"><button class="btn btn-success w-100" id="jsonPushBtn" disabled>Push to Admin Panel</button></div></div></div></div></div>{% endblock %}
-{% block scripts %}<script src="{% static 'webapp/js/csv_flow.js' %}"></script>{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "head.html" %}
+
+<body>
+    <header class="header">
+        <div class="hero">
+            {% include "logo.html" %}
+            <h1> CSV <span class="material-symbols-outlined">swap_horiz</span> JSON <span
+                    class="material-symbols-outlined">line_end_arrow</span> ADMIN </h1>
+        </div>
+
+        <div class="user-section editor-controls">
+            <a href="{% url 'dashboard' %}" class="nav-btn" data-action="back">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <span class="user-name">{{ user|capfirst }}</span>
+
+            <a href="{% url 'logout' %}" class="logout-btn">
+                <span class="material-symbols-outlined">exit_to_app</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="page csvtojson">
+        <div class="csv-container">
+
+            <!-- CARD 1: CSV -->
+            <div class="csv-card" data-card="csv" data-state="idle">
+                <h3 class="title" id="csvTitle">CSV SECTION</h3>
+
+                <label class="csv-upload">
+                    Click Here to Upload: <span class="material-symbols-outlined">csv</span>
+                    <input type="file" id="csvInput" accept=".csv" hidden>
+                </label>
+
+                <div class="card-actions">
+                    <button class="nav-btn secondary" id="csvDldBtn" disabled>
+                        <span class="material-symbols-outlined">download_2</span>
+                    </button>
+                    <button class="nav-btn" id="csvConvertBtn" title = "convert to json" disabled>CONVERT TO JSON</button>
+                    <!-- <span class="material-symbols-outlined"> g_translate </span> -->
+                    <!-- <span class="material-symbols-outlined" title = "convert to json">convert_to_text</span> -->
+                </div>
+
+                <!-- overlay -->
+                <div class="card-overlay hidden">
+                    <span class="spinner"></span>
+                    <span class="overlay-text">Uploading CSV…</span>
+                </div>
+            </div>
+
+            <!-- CARD 2: JSON -->
+            <div class="csv-card" data-card="json" data-state="waiting">
+                <h3 class="title" id="jsonTitle">JSON SECTION</h3>
+
+                <label class="csv-upload">
+                    Click Here to Upload:<span class="material-symbols-outlined">file_json</span>
+                    <input type="file" id="inputJson" accept=".json" hidden>
+                </label>
+
+                <div class="card-actions">
+                    <button class="nav-btn" id="jsnConvertBtn" title = "convert to csv" disabled>CONVERT TO CSV</button>
+                    <!-- <span class="material-symbols-outlined" title = "convert to csv">table_convert</span> -->
+
+
+                    <button class="nav-btn secondary" id="jsonDldBtn" disabled>
+                        <span class="material-symbols-outlined">download_2</span>
+                    </button>
+
+                    <button class="nav-btn secondary" id="jsonViewBtn" disabled>
+                        <span class="material-symbols-outlined">open_in_new</span>
+                    </button>
+                </div>
+
+                <div class="card-overlay hidden">
+                    <span class="spinner"></span>
+                    <span class="overlay-text">Processing JSON…</span>
+                </div>
+            </div>
+
+            <!-- CARD 3: STATUS -->
+            <div class="csv-card" data-card="status" data-state="waiting">
+                <h3 class="title">ADMIN PANEL</h3>
+
+                <label class="csv-upload">
+                    <pre id="statusConsole" class="mono"> Waiting for input…</pre>
+                </label>
+
+                <div class="card-actions">
+                    <button class="nav-btn" id="jsonPushBtn" disabled>
+                        to Admin Panel
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="{% static 'webapp/js/csv_flow.js' %}"></script>
+</html>

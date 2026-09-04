@@ -15,7 +15,8 @@ urlpatterns = [
     path("upload", views.upload_files, name="upload_files"),
     path("reprocess/<int:job_id>", views.reprocess, name="reprocess"),
     path("push_job/<int:job_id>", views.push_job, name="push_job"),
-    path("new-data", views.new_data, name="new_data"),
+    
+    #config editor paths
     path("config-editor", views.config_editor, name="config_editor"),
     path("list-files/<str:year>", views.list_files, name="list_files"),
     path("years", views.get_years, name="years"),
@@ -32,8 +33,12 @@ urlpatterns = [
     path("cleanup_pipeline", views.cleanup_pipeline, name="cleanup_pipeline"),
     path("viewer/json/<str:source>/<str:filename>", views.view_json, name="view_json"),
     path("push_json_sp", views.push_json_sp, name="push_json_sp"),
+    
+    #sidkim paths
     path("sid-data", views.sid_data, name="sid_data"),
     path("upload-sid-kim", views.upload_sid_kim, name="upload_sid_kim"),
+    
+    #logging paths
     path("daily-log", views.daily_logs, name="daily_logs"),
     path("load-daily-log", views.load_daily_log, name="load_daily_log"),
     path("files/json/", views.list_json_files, name="list_json_files"),
@@ -44,5 +49,7 @@ urlpatterns = [
     path("company_registry", views.company_registry, name="company_registry"),
     path("amc_data_registry", views.amc_data_registry, name="amc_data_registry"),
     path("json_list", views.json_list, name="json_list"),
-    path("logo/<int:logo_id>", views.get_logo, name="get_logo"),
+    # path("logo/<int:logo_id>", views.get_logo, name="get_logo"),
+    
+    path("validate-data", views.validate_data, name="validate_data"),
 ]

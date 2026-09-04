@@ -9,8 +9,8 @@ from app.amc.parse_regex import *
 from app.amc.fund_data import *
 from app.utils import Helper
 from app.konstant import (
-    get_output_path, get_report_dir,
-    get_json_dir
+    OUTPUT_DIR, REPORT_DIR,
+    JSON_DIR
 )
 
 class Reader:
@@ -22,11 +22,11 @@ class Reader:
         self.UTILS = Helper()
         
         self.FILE_NAME = Path(path).name
-        self.OUTPUTPATH = get_output_path()
+        self.OUTPUTPATH = OUTPUT_DIR
         self.PDF_PATH = path
         # self.DRYPATH = os.path.join("app","temp","dry.pdf")
-        self.REPORTPATH = get_report_dir()
-        self.JSONPATH = get_json_dir()
+        self.REPORTPATH = REPORT_DIR
+        self.JSONPATH = JSON_DIR
         # self.TEXT_ONLY = {}
         self.PDF_BYTES = None
         

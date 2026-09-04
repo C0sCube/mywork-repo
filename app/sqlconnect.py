@@ -5,13 +5,16 @@ import mysql.connector  # type: ignore
 from mysql.connector import Error  # type: ignore
 
 from app.logger import get_global_logger
-from app.konstant import get_registry, load_json_as_string
+from app.konstant import get_registry, utils
+
 from types import SimpleNamespace
+
 
 TABLE_REPORT = "mf_status_report_test"
 # =====================================================
 # Job State Machine (CONFIG-DRIVEN)
 # =====================================================
+
 
 def _load_job_config() -> dict:
     registry = get_registry()
@@ -19,37 +22,37 @@ def _load_job_config() -> dict:
         raise RuntimeError("job_config missing from registry")
     return registry["config_job"]
 
+
 def _job_snapshot():
     states = _get_job_states()
     initial = _get_initial_state()
     allowed = _get_allowed_transitions()
     if not states:
         raise RuntimeError("job_config.states cannot be empty")
-    
+
     if initial not in states:
         raise RuntimeError(
             f"Invalid job_config: initial_state '{initial}' not in states"
         )
-        
+
     unknown_transition_states = set(allowed.keys()) - states
     if unknown_transition_states:
         raise RuntimeError(
             f"Invalid job_config: transitions defined for unknown states "
             f"{unknown_transition_states}"
-        ) 
+        )
+
 
 def _get_job_states():
     conf = _load_job_config()
-    return set(
-        conf.get("states", [])
-    )
+    return set(conf.get("states", []))
+
 
 def _get_allowed_transitions():
     conf = _load_job_config()
-    return{
-         k: set(v) for k, v in conf.get("transitions", {}).items()
-    }
-    
+    return {k: set(v) for k, v in conf.get("transitions", {}).items()}
+
+
 def _get_initial_state():
     conf = _load_job_config()
     return conf.get("initial_state", "UPLOADED")
@@ -57,9 +60,7 @@ def _get_initial_state():
 
 def _get_pushable_states():
     conf = _load_job_config()
-    return set(
-        conf.get("pushable_states", [])
-    )
+    return set(conf.get("pushable_states", []))
 
 
 def is_valid_state(state: str) -> bool:
@@ -75,6 +76,7 @@ def can_transition(from_state: str, to_state: str) -> bool:
 def is_pushable_state(state: str) -> bool:
     pushable = _get_pushable_states()
     return state in pushable
+
 
 def get_job_states():
     """
@@ -93,9 +95,11 @@ def get_job_states():
         setattr(ns, state, state)
     return ns
 
+
 # =====================================================
 # STATE HELPERS (FOR WEB / UI LAYERS)
 # =====================================================
+
 
 def is_valid_state(state: str) -> bool:
     states = _get_job_states()
@@ -116,6 +120,7 @@ def is_pushable_state(state: str) -> bool:
 # DB CONNECTION
 # =====================================================
 
+
 def establish_connection(db_config: dict | None = None):
     logger = get_global_logger()
     try:
@@ -131,6 +136,7 @@ def establish_connection(db_config: dict | None = None):
 # =====================================================
 # JOB CREATION
 # =====================================================
+
 
 def create_job(data: dict, db_config: dict) -> int:
     """
@@ -155,7 +161,7 @@ def create_job(data: dict, db_config: dict) -> int:
             data["start_time"],
             data.get("created_by", ""),
             data.get("uploaded_by", ""),
-        )
+        ),
     )
 
     job_id = cur.lastrowid
@@ -168,6 +174,7 @@ def create_job(data: dict, db_config: dict) -> int:
 # =====================================================
 # JOB FETCHING
 # =====================================================
+
 
 def fetch_job_by_id(job_id: int, db_config: dict) -> dict:
     conn = establish_connection(db_config)
@@ -252,6 +259,7 @@ def fetch_latest_uploaded_job(file_name: str, db_config: dict) -> dict | None:
 # STATE TRANSITION (SINGLE SOURCE OF TRUTH)
 # =====================================================
 
+
 def transition_job_state(
     job_id: int,
     from_state: str,
@@ -261,7 +269,7 @@ def transition_job_state(
     error: str | None = None,
     db_config: dict,
 ) -> None:
-    
+
     allowed_transitions = _get_allowed_transitions()
     if to_state not in allowed_transitions.get(from_state, set()):
         raise ValueError(f"Illegal transition {from_state} → {to_state}")
@@ -301,6 +309,7 @@ def transition_job_state(
 # ADMIN PANEL PUBLISHING
 # =====================================================
 
+
 def json_to_cog_db(json_path: str, db_config: dict) -> bool:
     logger = get_global_logger()
 
@@ -311,7 +320,7 @@ def json_to_cog_db(json_path: str, db_config: dict) -> bool:
     }
 
     file_name = os.path.basename(json_path)
-    json_string = load_json_as_string(json_path)
+    json_string = utils.load_json_as_string(json_path)
 
     sp_name = None
     lower = file_name.lower()
@@ -357,7 +366,7 @@ def increment_push_attempts(job_id: int, db_config: dict):
 
     cur = conn.cursor()
     cur.execute(
-       f"""
+        f"""
         UPDATE {TABLE_REPORT}
         SET push_attempts = push_attempts + 1
         WHERE id = %s
@@ -368,22 +377,4 @@ def increment_push_attempts(job_id: int, db_config: dict):
     cur.close()
     conn.close()
 
-
-# JOB_CONFIG = _load_job_config()
-# JOB_STATES = set(JOB_CONFIG.get("states", []))
-# ALLOWED_TRANSITIONS = {
-#     k: set(v) for k, v in JOB_CONFIG.get("transitions", {}).items()
-# }
-# INITIAL_STATE = JOB_CONFIG.get("initial_state", "UPLOADED")
-# PUSHABLE_STATES = set(JOB_CONFIG.get("pushable_states", []))
-
-# ---------- Backward-compatible state namespace ----------
-
-# class JobState:
-#     """Dynamic namespace for job states (JobState.PARSED, etc.)"""
-#     pass
-
-
-# for state in JOB_STATES:
-#     setattr(JobState, state, state)
 

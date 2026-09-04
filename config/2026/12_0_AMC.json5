@@ -1,62 +1,97 @@
 {
-  AMC_NAME: "Hdfc Mutual Fund",
-  CLONEKEYS: {
-    "before.benchmark_index": "benchmark_index",
+  "AMC_NAME": "Hdfc Mutual Fund",
+  "CLONEKEYS": {
+    "before.benchmark_index": "benchmark_index"
   },
-  DUPLICATE_MUTUAL_FUNDS: {}, //red
-  IMP_DATA: {
-    amc_name: "HDFC Asset Management Company Limited",
-    mutual_fund_name: "HDFC Mutual Fund",
-    min_addl_amt: "100",
-    min_amt: "100",
+  "DUPLICATE_MUTUAL_FUNDS": {},
+  "IMP_DATA": {
+    "amc_name": "HDFC Asset Management Company Limited",
+    "mutual_fund_name": "HDFC Mutual Fund",
+    "min_addl_amt": "100",
+    "min_amt": "100"
   },
-  MAIN_MAP: { //red
-    map: true,
-    select: true,
-    special: true,
+  "MAIN_MAP": {
+    "map": true,
+    "select": true,
+    "special": true
   },
-  MERGEKEYS: {
-    load: ["exit_load"],
-    metrics: ["metrics", "tracking_error", ".*quantitative_data"],
-  },
-  PARAMS: {
-    clip_bbox: [
-      [0, 70, 190, 812],
-      [370, 100, 570, 812],
+  "MERGEKEYS": {
+    "load": [
+      "exit_load"
     ],
-    content_size: [30, 10], //red
-    data: { //red
-      color: [666],
-      font: ["Taz-SemiBold", "Cambria-Bold"],
-      size: [5, 13],
-      update_size: 30,
-    },
-    line_side: "",
-    line_x: 200,
-    max_financial_index_highlight: 7,
-    method: "clip",
-    pdf_ocr: false,
-    sanitize_fund: false, 
-    stop_words: [], //red
-    title: {
-      bbox: [0, 0, 400, 60],
-      ocr: false,
-      pattern: "(HDFC.*?(?:[Ss]aver|FUND|Fund|ETF|F[Oo]F|Index)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)",
-    },
-    update_min_add: false, //red
+    "metrics": [
+      "metrics",
+      "tracking_error",
+      ".*quantitative_data"
+    ]
   },
-  PATTERN_TO_FUNCTION: {
-    "(before|dummy.*)": ["_extract_scheme_data", "scheme"],
+  "PARAMS": {
+    "clip_bbox": [
+      [
+        0,
+        70,
+        190,
+        812
+      ],
+      [
+        370,
+        100,
+        570,
+        812
+      ]
+    ],
+    "content_size": [
+      30,
+      10
+    ],
+    "data": {
+      "color": [
+        666
+      ],
+      "font": [
+        "Taz-SemiBold",
+        "Cambria-Bold"
+      ],
+      "size": [
+        5,
+        13
+      ],
+      "update_size": 30
+    },
+    "line_side": "",
+    "line_x": 200,
+    "max_financial_index_highlight": 7,
+    "method": "clip",
+    "pdf_ocr": false,
+    "sanitize_fund": false,
+    "stop_words": [],
+    "title": {
+      "bbox": [
+        0,
+        0,
+        400,
+        60
+      ],
+      "ocr": false,
+      "pattern": "(HDFC.*?(?:[Ss]aver|FUND|Fund|ETF|F[Oo]F|Index)\\s*(?:of Funds?|.+?Plan|Fund of Funds?|Fund)?)"
+    },
+    "update_min_add": false
   },
-  PRE_DATA_SELECT: [], //red
-  PROMOTE_KEYS: {},
-  REGEX: {
-    aum: "([\\d,.]+\\s*Cr)",
-    escape: "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\&\\:]+|\\([tT]otal\\s*[rR]eturns?\\s*[iI]ndex\\)|\\(TRI\\)|TRI|Total\\s*Returns?\\s*Index",
-    load: "",
-    manager: "",
-    metric: "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
-    scheme: [
+  "PATTERN_TO_FUNCTION": {
+    "(before|dummy.*)": [
+      "_extract_scheme_data",
+      "scheme"
+    ]
+  },
+  "PRE_DATA_SELECT": [],
+  "PROMOTE_KEYS": {},
+  "REGEX": {
+    "aum": "([\\d,.]+\\s*Cr)",
+    "escape": "[^A-Za-z0-9\\/\\s\\-\\(\\)\\.\\,\\+\\%\\&\\:]+|\\([tT]otal\\s*[rR]eturns?\\s*[iI]ndex\\)|\\(TRI\\)|TRI|Total\\s*Returns?\\s*Index",
+    "load": "",
+    "manager": "",
+    "metric": "(Total Turnover|Standard Deviation|Beta|Sharpe Ratio|Residual Maturity|Macaulay Duration|Modified Duration|Annualized Portfolio YTM)\\s*([\\d,.]+\\s*(?:years|days|months)?)",
+    "scheme": [
       "INVESTMENT OBJECTIVE",
       "FUND MANAGER",
       "DATE OF ALLOTMENT.+?INCEPTION DATE",
@@ -68,16 +103,25 @@
       "BENCHMARK\\s*INDEX",
       "ADDL.\\s+BENCHMARK\\s*INDEX",
       "EXIT LOAD",
-      "EOL",
+      "EOL"
     ],
-    track: ".+?months\\s*(?:regular)?\\s*([\\d.]+)",
+    "track": ".+?months\\s*(?:regular)?\\s*([\\d.]+)"
   },
-  SECONDARY_PATTERN_TO_FUNCTION: {
-    ".*average_for_month": ["_extract_generic_data", "aum"],
-    ".*quantitative_data": ["_extract_generic_data", "metric"],
-    tracking_error: ["_extract_generic_data", "track"],
+  "SECONDARY_PATTERN_TO_FUNCTION": {
+    ".*average_for_month": [
+      "_extract_generic_data",
+      "aum"
+    ],
+    ".*quantitative_data": [
+      "_extract_generic_data",
+      "metric"
+    ],
+    "tracking_error": [
+      "_extract_generic_data",
+      "track"
+    ]
   },
-  SELECTKEYS: [
+  "SELECTKEYS": [
     ".*fund_manager",
     ".*average_for_month$",
     "metrics",
@@ -90,10 +134,10 @@
     "page_number",
     "mutual_fund_name",
     "tracking_error",
-    "load",
+    "load"
   ],
-  SPECIAL_FUNCTIONS: {
-    fund_manager: "_update_manager_data",
+  "SPECIAL_FUNCTIONS": {
+    "fund_manager": "_update_manager_data"
   },
-  TERTIARY_PATTERN_TO_FUNCTION: {},
+  "TERTIARY_PATTERN_TO_FUNCTION": {}
 }
