@@ -11,10 +11,10 @@ from pathlib import Path
 import json5
 import pandas as pd
 import pytz
-from django.conf import settings #type: ignore
-from django.http import FileResponse, HttpResponse, JsonResponse #type: ignore
-from django.shortcuts import redirect, render #type: ignore
-from django.views.decorators.csrf import csrf_exempt #type: ignore
+from django.conf import settings  # type: ignore
+from django.http import FileResponse, HttpResponse, JsonResponse  # type: ignore
+from django.shortcuts import redirect, render  # type: ignore
+from django.views.decorators.csrf import csrf_exempt  # type: ignore
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
 
@@ -174,6 +174,7 @@ def login_required(view=None, *, api=False):
 
     return decorator(view) if view else decorator
 
+
 def admin_required(view=None, *, api=False):
     def decorator(func):
         @wraps(func)
@@ -199,12 +200,11 @@ def admin_required(view=None, *, api=False):
 
 def page_context(request, **kwargs):
     context = {
-        'user': request.session.get('user', ''),
-        'role': request.session.get('role', 'user'), # Defaults to 'user' if not found
+        "user": request.session.get("user", ""),
+        "role": request.session.get("role", "user"),  # Defaults to 'user' if not found
     }
     context.update(kwargs)
     return context
-
 
 
 @csrf_exempt
@@ -463,6 +463,7 @@ def reprocess(request, job_id):
     except Exception as exc:
         return JsonResponse({"success": False, "message": str(exc)}, status=500)
 
+
 @csrf_exempt
 @login_required(api=True)
 def push_job(request, job_id):
@@ -693,6 +694,7 @@ def download_csv(request, filename):
         filename=path.name,
         content_type="text/csv",
     )
+
 
 @login_required
 def download_pipeline_json(request, filename):
@@ -935,7 +937,7 @@ def company_registry(request):
 
 @login_required(api=True)
 def amc_data_registry(request):
-    
+
     reg = REGISTRY.get("amc_registry", {})
     # print(reg)
     return JsonResponse(reg)
@@ -961,6 +963,7 @@ def json_list(request):
 
 # ---------- Render functions ----------
 
+
 @admin_required
 def config_editor(request):
     return render(request, "webapp/data_config.html", page_context(request))
@@ -985,7 +988,12 @@ def daily_logs(request):
 def amc_data(request):
     return render(request, "webapp/data_amc.html", page_context(request))
 
+
 @login_required
 def validate_data(request):
     return render(request, "webapp/data_validate.html", page_context(request))
 
+
+@login_required
+def test_html(request):
+    return render(request, "webapp/test_html.html", page_context(request))

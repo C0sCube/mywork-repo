@@ -1,0 +1,860 @@
+:root {
+
+    /* Colors */
+    --color-bg: #e6e9ee;
+    --color-panel: #ffffff;
+
+    --color-dark: #0f172a;
+    --color-dark-2: #1e293b;
+
+    --color-button: #334155;
+
+    --color-primary: #2563eb;
+    --color-danger: #dc2626;
+
+    --color-text: #0f172a;
+    --color-text-light: #e5e7eb;
+    --color-text-muted: #64748b;
+
+    --color-border: #cbd5e1;
+
+    --color-success: #2e7d32;
+    --color-error: #c62828;
+
+
+    /* Typography */
+    --font-sans:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    --font-mono:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        monospace;
+
+
+    /* Shape */
+    --radius: 12px;
+    --radius-sm: 8px;
+
+
+    /* Effects */
+    --shadow:
+        0 6px 18px rgba(2, 6, 23, 0.15);
+}
+
+
+/* =========================================================
+   02. BASE
+   ========================================================= */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+
+    margin: 0;
+
+    background: var(--color-bg);
+    color: var(--color-text);
+
+    font-family: var(--font-sans);
+}
+
+
+/* =========================================================
+   03. ELEMENT DEFAULTS
+   ========================================================= */
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   PAGE LAYOUT
+========================================================= */
+
+main {
+    min-height: 0;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    margin-inline: auto;
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+@media (min-width: 768px) {
+    .page-container {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page-container {
+        padding: 2rem;
+    }
+}
+
+.data-container {
+    width: 100%;
+    max-width: 100%;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: #64748b #e2e8f0;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: #e2e8f0;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: #64748b;
+    border-radius: 6px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+
+/* =========================
+   HEADER / NAVBAR
+   ========================= */
+
+.header {
+    height: 74px;
+    min-height: 74px;
+    flex: 0 0 74px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    background: var(--color-dark-2);
+    color: #fff;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.hero a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.hero img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero h1 {
+    margin: 0;
+
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    color: var(--color-text-light);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   NAV BUTTONS
+   ========================= */
+
+.nav-btn,
+.logout-btn,
+.btn,
+.icon-btn {
+    min-width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 0 14px;
+
+    border: 0;
+    border-radius: var(--radius);
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    text-decoration: none;
+
+    box-shadow: 0 2px 6px rgba(2, 6, 23, .18);
+
+    transition:
+        background-color .15s ease,
+        transform .15s ease;
+}
+
+.nav-btn {
+    background: var(--color-button);
+    color: #fff;
+}
+
+.nav-btn:hover {
+    background: var(--color-dark);
+    color: #fff;
+}
+
+.logout-btn {
+    background: var(--color-danger);
+    color: #fff;
+    padding: 0;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+    color: #fff;
+}
+
+.nav-btn .material-symbols-outlined,
+.logout-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+
+/* =========================
+   RESPONSIVE HEADER
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: auto;
+        min-height: 64px;
+        padding: 10px 14px;
+    }
+
+    .hero h1 {
+        font-size: 18px;
+    }
+
+    .hero img {
+        height: 34px;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .user-section {
+        gap: 6px;
+    }
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+
+    background-color: var(--color-dark);
+
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.15) 2px,
+            transparent 0);
+
+    background-size: 30px 30px;
+}
+
+
+/* Login wrapper */
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+
+/* Logo + title */
+
+.login-header img {
+    height: 56px;
+}
+
+.login-header h1 {
+    margin: 0;
+
+    color: var(--color-text-light);
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* Login card */
+
+.login-card {
+    padding: 28px 24px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(8px);
+}
+
+.login-card h2 {
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+
+/* Login inputs */
+
+.login-card .form-control {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+
+    background: #ffffff;
+
+    color: var(--color-text);
+}
+
+.login-card .form-control:focus {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+}
+
+
+/* Login button */
+
+.login-btn {
+    width: 100%;
+
+    background: var(--color-button);
+    color: #ffffff;
+
+    border: 0;
+    border-radius: var(--radius);
+
+    font-weight: 700;
+}
+
+.login-btn:hover {
+    background: var(--color-dark);
+    color: #ffffff;
+}
+
+
+/* Error */
+
+.login-error {
+    margin-bottom: 10px;
+
+    color: #fecaca;
+
+    font-weight: 600;
+    text-align: center;
+}
+
+/* =========================================================
+   AMC DATA
+   ========================================================= */
+
+.amc-page {
+    background: var(--color-bg);
+}
+
+.amc-table-wrapper {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    background: #cbd5e1;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.amc-table-wrapper .table {
+    --bs-table-bg: #cbd5e1;
+    --bs-table-bg-state: #cbd5e1;
+
+    --bs-table-striped-bg: #cbd5e1;
+    --bs-table-striped-bg-state: #cbd5e1;
+
+    --bs-table-hover-bg: #cbd5e1;
+    --bs-table-hover-bg-state: #cbd5e1;
+
+    --bs-table-color: #cbd5e1;
+
+    --bs-table-color: var(--color-text);
+    --bs-table-bg: var(--color-dark-2);
+
+}
+
+.amc-table-wrapper .table td,
+.amc-table-wrapper .table th {
+    color: var(--color-text);
+}
+
+.amc-table-wrapper .table-responsive {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding-left: 16px;
+    overflow: auto;
+
+
+}
+
+
+/* =========================
+   DAILY LOGS
+   ========================= */
+
+.log-wrapper {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    overflow: hidden;
+    background-color: var(--color-dark-2);
+}
+
+.line-numbers {
+    flex: 0 0 52px;
+
+    padding: 10px 12px;
+
+    border-right: 1px solid #cbd5e1;
+
+    overflow: hidden;
+    user-select: none;
+
+    color: #cbd5e1;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-align: right;
+}
+
+.log-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+
+    padding: 10px 15px;
+
+    overflow: auto;
+
+    color: #cbd5e1;
+    font-family: "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+    font-size: 0.88rem;
+    line-height: 1.55;
+
+    white-space: pre;
+    overflow-wrap: normal;
+    word-break: normal;
+
+    tab-size: 4;
+}
+
+/* =========================================================
+   CSV / JSON CARDS
+========================================================= */
+
+.csv-top-row {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.csv-top-row>[class*="col-"] {
+    min-width: 0;
+}
+
+.csv-card {
+    width: 320px;
+    height: 320px;
+
+    min-width: 0;
+    min-height: 0;
+
+    background: var(--color-dark-2);
+    color: #cbd5e1;
+
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+/* ---------- CARD HEADER ---------- */
+
+.csv-card-header {
+    padding: 5px 18px;
+
+    background: var(--color-dark-2);
+    color: #cbd5e1;
+
+
+    text-align: center;
+}
+
+.csv-card-header h2 {
+    margin: 0;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+
+/* ---------- CARD BODY ---------- */
+
+.csv-card-body {
+    padding: 20px 24px;
+
+    color: #cbd5e1;
+    background: var(--color-dark-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* ---------- CARD FOOTER ---------- */
+
+.csv-card-footer {
+    padding: 14px 18px;
+
+    background: var(--color-dark-2);
+
+    display: flex;
+    justify-content: center;
+}
+
+.custum-file-upload {
+    width: 230px;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    border: 2px dashed var(--color-border);
+    border-radius: 10px;
+
+    background: var(--color-dark-2);
+    color: var(--color-text-light);
+
+    padding: 1.5rem;
+
+    transition: border-color .2s ease,
+        background-color .2s ease;
+}
+
+.custum-file-upload:hover {
+    border-color: var(--color-text-light);
+    background: var(--color-dark);
+}
+
+.custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .icon .material-symbols-outlined {
+    font-size: 56px;
+    color: var(--color-text-light);
+}
+
+.custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .text span {
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+/* =========================================================
+   DATA VALIDATION
+========================================================= */
+
+.validation-workspace {
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.validation-pane {
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+}
+
+
+/* ---------- DIVIDER ---------- */
+
+.validation-pdf {
+    border-right: 3px solid var(--color-border);
+}
+
+
+/* ---------- CARD ---------- */
+
+.validation-card {
+    width: 90%;
+    height: 90%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--color-panel);
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.validation-card-header {
+    flex: 0 0 auto;
+
+    padding: 14px 18px;
+
+    background: var(--color-dark-2);
+    color: var(--color-text-light);
+
+    border-bottom: 1px solid var(--color-border);
+
+    text-align: center;
+}
+
+.validation-card-header h2 {
+    margin: 0;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+
+/* ---------- BODY ---------- */
+
+.validation-card-body {
+    flex: 1 1 auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    background: var(--color-dark-2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+
+/* ---------- UPLOAD ---------- */
+
+.validation-upload {
+    width: 80%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    border: 2px dashed var(--color-border);
+    border-radius: 10px;
+
+    background: var(--color-dark-2);
+    color: var(--color-text-light);
+
+    padding: 1.5rem;
+}
+
+.validation-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.validation-upload .icon .material-symbols-outlined {
+    font-size: 56px;
+    color: var(--color-text-light);
+}
+
+.validation-upload .text span {
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   POST-UPLOAD STATE
+========================================================= */
+
+.validation-card.is-loaded {
+    width: 100%;
+    height: 100%;
+}
+
+.validation-card.is-loaded .validation-card-body {
+    padding: 0;
+    overflow: hidden;
+}
+
+
+/* ---------- FULL PDF / DATA AREA ---------- */
+
+.validation-content {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+.validation-content iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

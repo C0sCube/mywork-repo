@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}CSV ↔ JSON → ADMIN{% endblock %}
+
+{% block header_actions %}
+<a href="{% url 'dashboard' %}"
+   class="nav-btn"
+   data-action="back"
+   title="Back to Dashboard">
+    <span class="material-symbols-outlined">arrow_back</span>
+</a>
+{% endblock %}
+
+{% block main_class %}
+{% endblock %}
+
+{% block content %}
+<div class="data-container">
+
+    <!-- TOP ROW -->    
+    <div class="row g-4 mx-0 csv-top-row">
+
+        <!-- CSV -->
+        <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center">
+        <section
+            class="card csv-card"
+            data-card="csv"
+            data-state="idle"
+        >
+            <div class="card-header csv-card-header">
+                <h3 class="title" id="csvTitle">
+                    Csv Section
+                </h3>
+            </div>
+
+            <div class="card-body csv-card-body">
+
+                <label class="custum-file-upload">
+                    <span class="text">
+                        Click Here to Upload:
+                    </span>
+
+                    <span class="icon">
+                        <span class="material-symbols-outlined">file_present</span>
+                    </span>
+
+                    <input
+                        type="file"
+                        id="csvInput"
+                        accept=".csv"
+                        hidden
+                    >
+                </label>
+
+            </div>
+
+            <div class="card-footer csv-card-footer">
+                <div class="card-actions">
+
+                    <button
+                        class="nav-btn secondary"
+                        id="csvDldBtn"
+                        disabled
+                    >
+                        <span class="material-symbols-outlined">
+                            download_2
+                        </span>
+                    </button>
+
+                    <button
+                        class="nav-btn"
+                        id="csvConvertBtn"
+                        title="convert to json"
+                        disabled
+                    >
+                        CONVERT TO JSON
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card-overlay hidden">
+                <span class="spinner"></span>
+                <span class="overlay-text">
+                    Uploading CSV…
+                </span>
+            </div>
+        </section>
+        </div>
+
+
+        <!-- JSON -->
+        <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center">
+            <section
+                class="card csv-card"
+                data-card="json"
+                data-state="waiting"
+            >
+                <div class="card-header csv-card-header">
+                    <h3 class="title" id="jsonTitle">
+                        Json Section
+                    </h3>
+                </div>
+
+                <div class="card-body csv-card-body">
+
+                    <label class="custum-file-upload">
+                        <span class="text">
+                            Click Here to Upload:
+                        </span>
+
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                data_object
+                            </span>
+                        </span>
+
+                        <input
+                            type="file"
+                            id="inputJson"
+                            accept=".json"
+                            hidden
+                        >
+                    </label>
+
+                </div>
+
+                <div class="card-footer csv-card-footer">
+                    <div class="card-actions">
+
+                        <button
+                            class="nav-btn"
+                            id="jsnConvertBtn"
+                            title="convert to csv"
+                            disabled
+                        >
+                            CONVERT TO CSV
+                        </button>
+
+                        <button
+                            class="nav-btn secondary"
+                            id="jsonDldBtn"
+                            disabled
+                        >
+                            <span class="material-symbols-outlined">
+                                download_2
+                            </span>
+                        </button>
+
+                        <button
+                            class="nav-btn secondary"
+                            id="jsonViewBtn"
+                            disabled
+                        >
+                            <span class="material-symbols-outlined">
+                                open_in_new
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="card-overlay hidden">
+                    <span class="spinner"></span>
+                    <span class="overlay-text">
+                        Processing JSON…
+                    </span>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- STATUS -->
+        <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center">
+            <section class="card csv-card">
+
+                 <div class="card-header csv-card-header">
+                    <h3>
+                        Status
+                    </h3>
+                </div>
+
+                <div class="card-body csv-card-body">
+
+                    <div id="csvStatus" class="csv-status">
+                        Ready
+                    </div>
+
+                </div>
+
+                <div class="card-footer csv-card-footer">
+                    <div class="card-actions">
+
+                        <button
+                            class="nav-btn"
+                            id="csvRefreshBtn"
+                            type="button"
+                        >
+                            <span class="material-symbols-outlined">
+                                refresh
+                            </span>
+                            Refresh
+                        </button>
+
+                        <button
+                            class="nav-btn"
+                            id="jsonPushBtn"
+                            type="button"
+                            disabled
+                        >
+                            to Admin Panel
+                        </button>
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+    <!-- BOTTOM ROW -->
+    <div class="row g-4">
+        <div class="col-12">
+
+            <!-- lower section goes here -->
+
+        </div>
+    </div>
+
+</div>
+
+<div id="csvOverlay" class="csv-overlay d-none">
+    <div class="csv-spinner"></div>
+    <div id="csvOverlayText">Processing...</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'webapp/js/csv_flow.js' %}"></script>
+{% endblock %}

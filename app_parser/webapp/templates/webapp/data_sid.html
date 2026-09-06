@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    SID & KIM PROCESS
+{% endblock %}
+
+{% block header_actions %}
+
+<a
+    href="{% url 'dashboard' %}"
+    class="nav-btn"
+    data-action="back"
+    title="Back to Dashboard"
+>
+    <span class="material-symbols-outlined">
+        arrow_back
+    </span>
+</a>
+
+{% endblock %}
+
+
+{% block main_class %}
+    container-fluid flex-grow-1
+{% endblock %}
+
+
+{% block content %}
+
+<div class="sid-page h-100 py-3">
+
+    <div class="row h-100 g-3">
+
+        <!-- ================= PDF PANEL ================= -->
+
+        <div class="col-12 col-lg-8 h-100">
+
+            <div
+                class="sid-pdf-panel h-100"
+                id="pdfPanel"
+            >
+
+                <!-- Upload State -->
+
+                <label
+                    class="sid-upload"
+                    id="uploadBox"
+                >
+                    <span class="material-symbols-outlined">
+                        upload_file
+                    </span>
+
+                    <p class="mb-0">
+                        Upload SID/KIM PDF
+                    </p>
+
+                    <input
+                        type="file"
+                        id="sidPdfInput"
+                        accept="application/pdf"
+                        hidden
+                    >
+                </label>
+
+
+                <!-- Viewer State -->
+
+                <iframe
+                    id="pdfViewer"
+                    hidden
+                ></iframe>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= INPUT PANEL ================= -->
+
+        <div class="col-12 col-lg-4">
+
+            <div class="sid-input-panel">
+
+                <div
+                    class="sid-input-grid"
+                    id="sidInputGrid"
+                >
+
+                    <!-- SID / KIM common -->
+
+                    <div
+                        class="sid-field"
+                        id="field-1"
+                    >
+                        <input
+                            type="text"
+                            id="input1"
+                        >
+
+                        <label id="label1"></label>
+                    </div>
+
+
+                    <div
+                        class="sid-field"
+                        id="field-2"
+                    >
+                        <input
+                            type="text"
+                            id="input2"
+                        >
+
+                        <label id="label2"></label>
+                    </div>
+
+
+                    <!-- SID only -->
+
+                    <div
+                        class="sid-field"
+                        id="field-3"
+                    >
+                        <input
+                            type="text"
+                            id="input3"
+                        >
+
+                        <label id="label3"></label>
+                    </div>
+
+
+                    <!-- Process -->
+
+                    <button
+                        type="button"
+                        id="sidProcessBtn"
+                        disabled
+                    >
+                        Process
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script src="{% static 'webapp/js/sid_data.js' %}"></script>
+
+{% endblock %}

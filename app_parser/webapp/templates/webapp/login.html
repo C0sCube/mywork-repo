@@ -1,0 +1,57 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block body_class %} login-page {% endblock %} 
+{% block header %}{% endblock %} 
+ 
+{% block content %}
+
+<div
+  class="container min-vh-100 d-flex align-items-center justify-content-center"
+>
+  <div class="login-container">
+    <div
+      class="login-header d-flex align-items-center justify-content-center gap-3 mb-4"
+    >
+      <img src="{% static 'webapp/img/logo_nse.png' %}" alt="NSE Logo" />
+
+      <h1>FACTSHEET PARSER</h1>
+    </div>
+
+    <div class="login-card">
+      <h2>Log In</h2>
+
+      {% if error %}
+      <div class="login-error">{{ error }}</div>
+      {% endif %}
+
+      <form method="POST" action="{% url 'login' %}" autocomplete="off">
+        {% csrf_token %}
+
+        <div class="d-flex flex-column gap-3">
+          <input
+            type="text"
+            name="username"
+            class="form-control"
+            placeholder="Username"
+            autocomplete="username"
+            required
+            autofocus
+          />
+
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Password"
+            autocomplete="current-password"
+            required
+          />
+
+          <button type="submit" class="btn login-btn">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

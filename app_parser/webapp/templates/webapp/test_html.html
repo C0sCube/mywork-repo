@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Mutual Fund Data
+{% endblock %}
+
+{% block header_actions %}
+<a
+    href="{% url 'dashboard' %}"
+    class="nav-btn"
+    data-action="back"
+    title="Back to Dashboard"
+>
+    <span class="material-symbols-outlined">arrow_back</span>
+</a>
+{% endblock %}
+
+{% block main_class %}
+{% endblock %}
+
+{% block content %}
+
+<div class="data-container">
+
+    <div class="test-data">
+
+        {% for i in "1234567890123456789012345678901234567890" %}
+            <p>Dummy data row {{ forloop.counter }} — this should stay inside the data container.</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

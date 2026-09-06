@@ -1,0 +1,68 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FactSheet Parser</title>
+
+    <link rel="icon" href="{% static 'webapp/img/NSE.ico' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="{% static 'webapp/css/app.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json5@2/dist/index.min.js"></script>
+  </head>
+
+  <body class="d-flex flex-column vh-100 {% block body_class %}{% endblock %}">
+    <!-- ================= HEADER ================= -->
+    {% block header %}
+
+    <header class="header">
+      <div class="hero">
+        {% include "logo.html" %}
+
+        <h1>{% block page_title %} FACTSHEET PARSER {% endblock %}</h1>
+      </div>
+
+      <div class="user-section">
+        {% block header_actions %} {% endblock %}
+
+        <span class="user-name"> {{ user|capfirst }} </span>
+
+        <a href="{% url 'logout' %}" class="logout-btn">
+          <span class="material-symbols-outlined"> exit_to_app </span>
+        </a>
+      </div>
+    </header>
+
+    {% endblock %}
+
+    <!-- ================= PAGE CONTENT ================= -->
+    <main class="container-fluid flex-grow-1 d-flex flex-column {% block main_class %}{% endblock %}">
+        <div class="page-container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- ================= PAGE SCRIPTS ================= -->
+    {% block scripts %} {% endblock %}
+  </body>
+</html>

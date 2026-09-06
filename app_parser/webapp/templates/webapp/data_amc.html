@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Mutual Fund Data
+{% endblock %}
+
+{% block header_actions %}
+<a
+    href="{% url 'dashboard' %}"
+    class="nav-btn"
+    data-action="back"
+    title="Back to Dashboard"
+>
+    <span class="material-symbols-outlined">arrow_back</span>
+</a>
+{% endblock %}
+
+{% block main_class %}
+amc-page
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="data-container">
+
+    <div class="amc-table-wrapper scrollable">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle mb-0">
+
+                <thead>
+                    <tr>
+                        <th scope="col">AMC ID</th>
+                        <th scope="col">AMC Name</th>
+                        <th scope="col">FS Class 0</th>
+                        <th scope="col">FS Class 1</th>
+                        <th scope="col">SID Class</th>
+                        <th scope="col">Website</th>
+                    </tr>
+                </thead>
+
+                <tbody id="amc-table-body">
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'webapp/js/amc_data.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    DATA VALIDATION
+{% endblock %}
+
+{% block header_actions %}
+<a
+    href="{% url 'dashboard' %}"
+    class="nav-btn"
+    data-action="back"
+    title="Back to Dashboard"
+>
+    <span class="material-symbols-outlined">arrow_back</span>
+</a>
+{% endblock %}
+
+{% block main_class %}
+validation-page
+{% endblock %}
+
+{% block content %}
+<div class="data-container">
+
+    <div class="row h-100 gx-0 validation-workspace">
+
+        <!-- PDF SIDE -->
+        <div class="col-6 validation-pane validation-pdf">
+
+            <section class="card validation-card">
+
+
+                <div class="card-body validation-card-body">
+
+                    <label
+                        for="pdfInput"
+                        class="custum-file-upload validation-upload"
+                    >
+                        <div class="icon">
+                            <span class="material-symbols-outlined">
+                                picture_as_pdf
+                            </span>
+                        </div>
+
+                        <div class="text">
+                            <span>Select PDF File</span>
+                        </div>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="pdfInput"
+                        accept=".pdf"
+                        hidden
+                    >
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- CSV SIDE -->
+        <div class="col-6 validation-pane validation-csv">
+
+            <section class="card validation-card">
+
+     
+
+                <div class="card-body validation-card-body">
+
+                    <label
+                        for="csvInput"
+                        class="custum-file-upload validation-upload"
+                    >
+                        <div class="icon">
+                            <span class="material-symbols-outlined">
+                                csv
+                            </span>
+                        </div>
+
+                        <div class="text">
+                            <span>Select CSV File</span>
+                        </div>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="csvInput"
+                        accept=".csv"
+                        hidden
+                    >
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'webapp/js/data_validate.js' %}"></script>
+{% endblock %}
