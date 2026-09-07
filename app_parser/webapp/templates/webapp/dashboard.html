@@ -50,84 +50,110 @@
 
 <div class="data-container">
 
-    <div class="row h-100">
+    <div class="table-wrapper scrollable">
 
-        <div class="col-12 h-100">
+        <div class="logs-bar d-flex align-items-center justify-content-between">
+            <h3>Status Report</h3>
 
-            <div class="panel h-100">
-
-                <div class="logs-bar d-flex align-items-center justify-content-between">
-                    <h3>Status Report</h3>
-
-                    <div class="right-controls">
-
-                        <button class="icon-btn" data-action="refresh-logs">
-                            <span class="material-symbols-outlined">refresh</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div id="logsConsole" class="mono flex-grow-1">
-                    <p>Loading status…</p>
-                </div>
-
-                <div id="logpagination" class="pagination">
-                    <a href="#" class="arrow">‹</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#" class="arrow">›</a>
-                </div>
-
+            <div class="right-controls">
+                <button class="icon-btn" data-action="refresh-logs">
+                    <span class="material-symbols-outlined">refresh</span>
+                </button>
             </div>
+        </div>
 
+        <div id="logsConsole" class="mono">
+            <p>Loading status…</p>
+        </div>
+
+        <div id="logpagination" class="pagination">
+            <a href="#" class="arrow">‹</a>
+            <a href="#" class="active">1</a>
+            <a href="#" class="arrow">›</a>
         </div>
 
     </div>
 
 </div>
-<!-- ================= UPLOAD MODAL ================= -->
 
-<div id="uploadModal" class="modal">
+<div
+    id="uploadModal"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="uploadModalTitle"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered">
 
-    <div class="modal-content">
+        <div class="modal-content upload-modal">
 
-        <div class="flex-between">
+            <!-- HEADER -->
+            <div class="modal-header upload-modal-header">
 
-            <h3>UPLOAD FACTSHEET (NOT SID/KIM)</h3>
+                <h5 id="uploadModalTitle" class="modal-title">
+                    UPLOAD FACTSHEET
+                </h5>
 
-            <button class="icon-btn" data-action="close-upload">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-
-        </div>
-
-        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-
-            <div class="flex-between" style="margin-top:12px">
-
-                <label for="pdfs" class="nav-btn">
-                    <!-- <span class="material-symbols-outlined">upload_file</span> -->
-                    Select PDF
-                </label>
-
-                <div id="sizeDisplay">
-                    <strong>Size 0 Mb / 50 Mb</strong>
+                <div
+                    class="upload-modal-close"
+                    data-action="close-upload"
+                >
+                    <span class="material-symbols-outlined">close</span>
                 </div>
-
-                <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple hidden>
 
             </div>
 
-            <div class="upload-console" id="uploadConsole"></div>
+            <!-- BODY -->
+            <form
+                id="uploadForm"
+                action="/upload"
+                method="POST"
+                enctype="multipart/form-data"
+            >
 
-            <button type="submit" class="nav-btn">
-                <!-- <span class="material-symbols-outlined">upload</span> -->
-                Upload PDF
-            </button>
+                <div class="modal-body upload-modal-body">
 
-        </form>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
 
+                        <label for="pdfs" class="nav-btn">
+                            Select PDF
+                        </label>
+
+                        <input
+                            type="file"
+                            name="pdfs"
+                            id="pdfs"
+                            accept="application/pdf"
+                            multiple
+                            hidden
+                        >
+
+                        <div id="sizeDisplay" class="upload-size">
+                            <strong>Size 0 Mb / 50 Mb</strong>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="uploadConsole"
+                        class="upload-console"
+                    ></div>
+
+                </div>
+
+                <!-- FOOTER -->
+                <div class="modal-footer upload-modal-footer">
+
+                    <button type="submit" class="nav-btn">
+                        Upload PDF
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
     </div>
-
 </div>
 
 {% endblock %}

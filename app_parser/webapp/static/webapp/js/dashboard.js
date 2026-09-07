@@ -110,13 +110,43 @@ function updateUploadDisplay() {
 
     selectedFiles.forEach((f, i) => {
         total += f.size;
+
         const d = document.createElement("div");
-        d.innerHTML = `${f.name} (${(f.size / 1048576).toFixed(2)} MB)`;
+        d.className = "upload-file-row";
+
+        d.innerHTML = `
+            <span>${f.name} (${(f.size / 1048576).toFixed(2)} MB)</span>
+
+            <button
+                type="button"
+                class="upload-file-remove"
+                data-index="${i}"
+                aria-label="Remove ${f.name}"
+            >
+                ×
+            </button>
+        `;
+
         consoleDiv.appendChild(d);
     });
 
-    sizeDiv.textContent = `Size ${(total / 1048576).toFixed(2)} Mb / 50 Mb`;
+    sizeDiv.textContent =
+        `Size ${(total / 1048576).toFixed(2)} Mb / 50 Mb`;
 }
+
+document.addEventListener("click", e => {
+    const button = e.target.closest(".upload-file-remove");
+
+    if (!button) return;
+
+    const index = Number(button.dataset.index);
+
+    selectedFiles.splice(index, 1);
+
+    updateUploadDisplay();
+});
+
+
 
 /* ================= LOGS ================= */
 async function loadLogs() {

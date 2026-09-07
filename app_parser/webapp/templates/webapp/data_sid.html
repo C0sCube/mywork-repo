@@ -20,88 +20,105 @@ validation-page
 
     <div class="row h-100 gx-0 validation-workspace">
 
-        <div class="col-6 col-md-8 validation-pane">
+<!-- PDF SIDE -->
+<div class="col-6 col-md-8 validation-pane">
 
-            <section class="card validation-card h-100">
+    <section class="card validation-card h-100">
 
-                <!-- CARD BODY -->
-                <div class="card-body validation-card-body">
+        <div class="card-body validation-card-body">
 
-                    <!-- Upload Section -->
-                    <div id="uploadSection">
+            <!-- Upload Section -->
+            <div id="uploadSection" class="h-100">
 
-                        <label id="uploadBox" for="sidPdfInput" class="custum-file-upload validation-upload">
-                            <div class="icon">
-                                <span class="material-symbols-outlined">
-                                    picture_as_pdf
-                                </span>
-                            </div>
-
-                            <div class="text">
-                                <span>Upload SID/KIM PDF</span>
-                            </div>
-                        </label>
-
-                        <input type="file" id="sidPdfInput" accept=".pdf" hidden>
-
+                <label
+                    id="uploadBox"
+                    for="sidPdfInput"
+                    class="custum-file-upload validation-upload"
+                >
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            picture_as_pdf
+                        </span>
                     </div>
 
-                    <!-- PDF Viewer -->
-                    <iframe id="pdfViewer" hidden style="
-                            width:100%;
-                            height:100%;
-                            border:none;
-                            border-radius:12px;
-                        "></iframe>
+                    <div class="text">
+                        <span>Upload SID/KIM PDF</span>
+                    </div>
+                </label>
 
-                </div>
+                <input
+                    type="file"
+                    id="sidPdfInput"
+                    accept=".pdf"
+                    hidden
+                >
 
-                <!-- CARD FOOTER -->
-                <div id="actionFooter" class="card-footer">
+            </div>
 
-                    <form class="row g-3">
-
-                        <!-- Field 1 -->
-                        <div class="col-12 col-md-3" id="field-1">
-                            <div class="mb-3">
-                                <label for="input1" id="label1" class="form-label">Field 1</label>
-                                <input type="text" id="input1" class="form-control" disabled>
-                            </div>
-                        </div>
-
-                        <!-- Field 2 -->
-                        <div class="col-12 col-md-3" id="field-2">
-                            <div class="mb-3">
-                                <label for="input2" id="label2" class="form-label">Field 2</label>
-                                <input type="text" id="input2" class="form-control" disabled>
-                            </div>
-                        </div>
-
-                        <!-- Field 3 -->
-                        <div class="col-12 col-md-3" id="field-3">
-                            <div class="mb-3">
-                                <label for="input3" id="label3" class="form-label">Field 3</label>
-                                <input type="text" id="input3" class="form-control" disabled>
-                            </div>
-                        </div>
-
-                        <!-- Process Button -->
-                        <div class="col-12 col-md-3">
-                            <label class="form-label">&nbsp;</label>
-                            <button id="sidProcessBtn" class="nav-btn w-100" disabled>
-                                Process
-                            </button>
-                        </div>
-
-                    </form>
-
-                </div>
-
-
-
-            </section>
+            <!-- PDF Viewer -->
+            <iframe
+                id="pdfViewer"
+                hidden
+                style="
+                    width:100%;
+                    height:100%;
+                    border:none;
+                    border-radius:12px;
+                "
+            ></iframe>
 
         </div>
+
+        <!-- CARD FOOTER -->
+        <div id="actionFooter" class="card-footer">
+
+            <form class="row g-3">
+
+                <div class="col-12 col-md-3" id="field-1">
+                    <div class="mb-3">
+                        <label for="input1" id="label1" class="form-label">
+                            Field 1
+                        </label>
+                        <input type="text" id="input1" class="form-control" disabled>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3" id="field-2">
+                    <div class="mb-3">
+                        <label for="input2" id="label2" class="form-label">
+                            Field 2
+                        </label>
+                        <input type="text" id="input2" class="form-control" disabled>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3" id="field-3">
+                    <div class="mb-3">
+                        <label for="input3" id="label3" class="form-label">
+                            Field 3
+                        </label>
+                        <input type="text" id="input3" class="form-control" disabled>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <label class="form-label">&nbsp;</label>
+                    <button
+                        id="sidProcessBtn"
+                        class="nav-btn w-100"
+                        disabled
+                    >
+                        Process
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
 
     </div>
 
