@@ -305,8 +305,8 @@ class FundRegex:
         
         record_value, field_location_keys = {}, []
 
-        page_list = data.get("page_number", [])
-        page_number = str(page_list[0] + 1) if page_list else "0"
+        page_list = data.get("page_number", "")
+        page_number = str(int(page_list) + 1) if page_list else "0"
         
         helper = Helper()
 
@@ -357,6 +357,7 @@ class FundRegex:
         field_location = {k: page_number for k in field_location_keys}
         field_location["count"] = scheme_count
         record_value["field_location"] = [dict(sorted(field_location.items()))]
+        record_value["page_number"] = page_number
         return dict(sorted(record_value.items()))
     
     def _dummy_block(self, count:int): #fontz:str,colorz:str, 

@@ -1,48 +1,17 @@
 // ---------------- STATE ----------------
-const jsonInput = document.getElementById("jsonInput");
 const errorDisplay = document.getElementById("errorDisplay");
 const yearSelect = document.getElementById("yearSelect");
 const fileSelect = document.getElementById("fileSelect");
-// const years = ["2026", "2025", "2024", "2023", "sidkim", "0000", "0001"];
 
-async function loadYears() {
-    try {
-        const res = await fetch("/years");
-        const years = await res.json();
-
-        yearSelect.innerHTML = "";
-
-        if (!years.length) return;
-
-        years.forEach((year, index) => {
-            const opt = document.createElement("option");
-            opt.value = year;
-            opt.textContent = year;
-            yearSelect.appendChild(opt);
-
-            // set first as default
-            if (index === 0) {
-                yearSelect.value = year;
-            }
-        });
-
-        // 🔥 trigger file loading after setting value
-        await loadFileList();
-
-    } catch (err) {
-        console.error("Failed to load years:", err);
-    }
-}
-
+// init JSONEditor
+const container = document.getElementById("jsonEditor");
+const editor = new JSONEditor(container, { mode: "tree" });
 
 // ---------------- INIT ----------------
 document.addEventListener("DOMContentLoaded", () => {
     enforceAuth();
-
-    loadYears(); // ← THIS is your entry point
-
+    loadYears(); // entry point
     yearSelect.addEventListener("change", loadFileList);
-
     bindActions();
 });
 
@@ -56,6 +25,29 @@ function bindActions() {
     document.querySelector("[data-action='create']")?.addEventListener("click", createConfig);
     document.querySelector("[data-action='delete']")?.addEventListener("click", deleteConfig);
     document.querySelector("[data-action='backup']")?.addEventListener("click", backupConfig);
+}
+
+// ---------------- YEARS ----------------
+async function loadYears() {
+    try {
+        const res = await fetch("/years");
+        const years = await res.json();
+
+        yearSelect.innerHTML = "";
+        if (!years.length) return;
+
+        years.forEach((year, index) => {
+            const opt = document.createElement("option");
+            opt.value = year;
+            opt.textContent = year;
+            yearSelect.appendChild(opt);
+            if (index === 0) yearSelect.value = year;
+        });
+
+        await loadFileList();
+    } catch (err) {
+        console.error("Failed to load years:", err);
+    }
 }
 
 // ---------------- FILE LIST ----------------
@@ -72,7 +64,6 @@ async function loadFileList() {
     });
 }
 
-
 // ---------------- CRUD ----------------
 async function loadConfig() {
     const year = yearSelect.value;
@@ -84,24 +75,29 @@ async function loadConfig() {
     });
     const result = await resp.json();
     if (result.success) {
-        jsonInput.value = JSON.stringify(result.data, null, 2);
-        validateJSON();
+        editor.set(result.data);   // load JSON into viewer
+        errorDisplay.textContent = "";
     } else alert(result.error);
 }
 
 async function saveConfig() {
     if (!validateJSON()) return;
-    const resp = await fetch("/save-config", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            year: yearSelect.value,
-            filename: fileSelect.value,
-            content: jsonInput.value
-        })
-    });
-    const r = await resp.json();
-    alert(r.success ? "Saved" : r.error);
+    try {
+        const json = editor.get(); // get JSON from viewer
+        const resp = await fetch("/save-config", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                year: yearSelect.value,
+                filename: fileSelect.value,
+                content: JSON.stringify(json, null, 2)
+            })
+        });
+        const r = await resp.json();
+        alert(r.success ? "Saved" : r.error);
+    } catch (e) {
+        errorDisplay.textContent = e.message;
+    }
 }
 
 async function createConfig() {
@@ -133,7 +129,7 @@ async function deleteConfig() {
     }).then(r => r.json());
 
     alert(r.success ? "Deleted" : r.error);
-    jsonInput.value = "";
+    editor.set({}); // clear viewer
     loadFileList();
 }
 
@@ -153,38 +149,27 @@ async function backupConfig() {
 // ---------------- VALIDATION ----------------
 function validateJSON() {
     try {
-        JSON.parse(jsonInput.value);
+        editor.get(); // throws if invalid
         errorDisplay.textContent = "";
         return true;
-    } catch {
-        try {
-            JSON5.parse(jsonInput.value);
-            errorDisplay.textContent = "";
-            return true;
-        } catch (e) {
-            errorDisplay.textContent = e.message;
-            return false;
-        }
+    } catch (e) {
+        errorDisplay.textContent = e.message;
+        return false;
     }
 }
-
 
 // ---------------- AUTH ----------------
 async function enforceAuth() {
     try {
         const r = await fetch("/auth-check");
-
         if (!r.ok) {
             window.location = "/login";
             return;
         }
-
         const data = await r.json();
-
         if (!data.logged_in) {
             window.location = "/login";
         }
-
     } catch (err) {
         window.location = "/login";
     }
@@ -198,6 +183,5 @@ function goBackToMain(e) {
         window.close();
     } else {
         window.location.href = "/dashboard";
-
     }
 }

@@ -1,66 +1,65 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-{% include "head.html" %}
 
-<body>
+{% block page_title %}
+Config Editor
+{% endblock %}
 
-  <!-- ================= HEADER ================= -->
-  <header class="header">
-    <div class="hero">
-      {% include "logo.html" %}
-      <h1>CONFIG EDITOR</h1>
-    </div>
+{% block header_actions %}
 
-    <div class="user-section editor-controls">
-      <div id="errorDisplay" class="error-message"></div>
+<div id="errorDisplay" class="error-message"></div>
+<label><strong>Year:</strong></label>
+<select id="yearSelect" class="input"></select>
 
-      <label><strong>Year:</strong></label>
-      <select id="yearSelect" class="input"></select>
+<label><strong>File:</strong></label>
+<select id="fileSelect" class="input"></select>
 
-      <label><strong>File:</strong></label>
-      <select id="fileSelect" class="input"></select>
+<button class="nav-btn" data-action="load" title="Load">
+  <span class="material-symbols-outlined">cached</span>
+</button>
 
-      <button class="nav-btn" data-action="load" title="Load">
-        <span class="material-symbols-outlined">cached</span>
-      </button>
+<button class="nav-btn" data-action="save" title="Save">
+  <span class="material-symbols-outlined">save</span>
+</button>
 
-      <button class="nav-btn" data-action="save" title="Save">
-        <span class="material-symbols-outlined">save</span>
-      </button>
+<button class="nav-btn" data-action="create" title="Create">
+  <span class="material-symbols-outlined">add_box</span>
+</button>
 
-      <button class="nav-btn" data-action="create" title="Create">
-        <span class="material-symbols-outlined">add_box</span>
-      </button>
+<button class="nav-btn" data-action="delete" title="Delete">
+  <span class="material-symbols-outlined">delete</span>
+</button>
 
-      <button class="nav-btn" data-action="delete" title="Delete">
-        <span class="material-symbols-outlined">delete</span>
-      </button>
+<button class="nav-btn" data-action="backup" title="Backup">
+  <span class="material-symbols-outlined">backup</span>
+</button>
 
-      <button class="nav-btn" data-action="backup" title="Backup">
-        <span class="material-symbols-outlined">backup</span>
-      </button>
+<a href="{% url 'dashboard' %}" class="nav-btn" data-action="back">
+  <span class="material-symbols-outlined">arrow_back</span>
+</a>
 
-      <a href="{% url 'dashboard' %}" class="nav-btn" data-action="back">
-        <span class="material-symbols-outlined">arrow_back</span>
-      </a>
-      <span class="user-name">{{ user|capfirst }}</span>
+{% endblock %}
 
-      <a href="{% url 'logout' %}" class="logout-btn">
-        <span class="material-symbols-outlined">exit_to_app</span>
-      </a>
-    </div>
-  </header>
+{% block main_class %}
+{% endblock %}
 
-  <!-- ================= PAGE ================= -->
-  <div class="page page-editor">
+{% block content %}
 
-    <div class="editor-panel">
+<div class="data-container">
+
+  <!-- <div class="log-wrapper scrollable">
       <textarea id="jsonInput" placeholder="Edit JSON here..."></textarea>
-    </div>
+  </div> -->
 
+  <div class="editor-panel">
+    <div id="jsonEditor"></div>
   </div>
-  <script src="{% static 'webapp/js/config_editor.js' %}"></script>
-</body>
 
-</html>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.10.0/dist/jsoneditor.min.js"></script>
+<script src="{% static 'webapp/js/config_editor.js' %}"></script>
+{% endblock %}

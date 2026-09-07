@@ -44,44 +44,39 @@
 {% endblock %}
 
 {% block main_class %}
-container-fluid h-100
 {% endblock %}
 
 {% block content %}
 
-<div class="row h-100">
+<div class="data-container">
 
-    <div class="col-12 h-100">
+    <div class="row h-100">
 
-        <div class="panel h-100">
+        <div class="col-12 h-100">
 
-            <div class="logs-bar d-flex align-items-center justify-content-between">
-                <h3>Status Report</h3>
+            <div class="panel h-100">
 
-                <div class="right-controls">
-                    <!--
-                    <label class="auto-refresh">
-                        <input type="checkbox" id="autoRefresh">
-                        <strong>auto-reload</strong>
-                    </label>
-                    -->
+                <div class="logs-bar d-flex align-items-center justify-content-between">
+                    <h3>Status Report</h3>
 
-                    <button class="icon-btn" data-action="refresh-logs">
-                        <span class="material-symbols-outlined">refresh</span>
-                    </button>
+                    <div class="right-controls">
+
+                        <button class="icon-btn" data-action="refresh-logs">
+                            <span class="material-symbols-outlined">refresh</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div id="logsConsole" class="mono flex-grow-1">
-                <p>Loading status…</p>
-            </div>
+                <div id="logsConsole" class="mono flex-grow-1">
+                    <p>Loading status…</p>
+                </div>
 
-            <!-- <div id="logpagination"></div> -->
+                <div id="logpagination" class="pagination">
+                    <a href="#" class="arrow">‹</a>
+                    <a href="#" class="active">1</a>
+                    <a href="#" class="arrow">›</a>
+                </div>
 
-            <div id="logpagination" class="pagination">
-                <a href="#" class="arrow">‹</a>
-                <a href="#" class="active">1</a>
-                <a href="#" class="arrow">›</a>
             </div>
 
         </div>
@@ -89,8 +84,6 @@ container-fluid h-100
     </div>
 
 </div>
-
-
 <!-- ================= UPLOAD MODAL ================= -->
 
 <div id="uploadModal" class="modal">
@@ -107,12 +100,7 @@ container-fluid h-100
 
         </div>
 
-        <form
-            id="uploadForm"
-            action="/upload"
-            method="POST"
-            enctype="multipart/form-data"
-        >
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
 
             <div class="flex-between" style="margin-top:12px">
 
@@ -125,14 +113,7 @@ container-fluid h-100
                     <strong>Size 0 Mb / 50 Mb</strong>
                 </div>
 
-                <input
-                    type="file"
-                    name="pdfs"
-                    id="pdfs"
-                    accept="application/pdf"
-                    multiple
-                    hidden
-                >
+                <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple hidden>
 
             </div>
 

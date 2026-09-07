@@ -148,54 +148,77 @@ async function loadLogs() {
 /* ================= TABLE RENDER ================= */
 function renderTable(rows) {
     const logsConsole = document.getElementById("logsConsole");
+
+    // wrapper structure
+    const wrapper = document.createElement("div");
+    wrapper.className = "amc-table-wrapper scrollable";
+
+    const responsive = document.createElement("div");
+    responsive.className = "table-responsive";
+
     const table = document.createElement("table");
-    table.className = "status-table";
+    table.className = "table table-striped table-hover align-middle mb-0";
 
+    // table head
     table.innerHTML = `
-    <tr>
-      <th style = "width:40px">#</th>
-      <th class ="file-tab">File</th>
-      <th style = "width:150px" >User</th>
-      <th style = "width:120px" >Start Time</th>
-      <th style = "width:110px" >Status</th>
-      <th class ="error-tab">Error</th>
-      <th style = "width:75px" >JSON</th>
-      <th style = "width:45px" >CSV</th>
-      <th style = "width:65px" >Push</th>
-      <th style = "width:40px" >Rpr</th>
-    </tr>`;
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">File</th>
+          <th scope="col">User</th>
+          <th scope="col">Start Time</th>
+          <th scope="col">Status</th>
+          <th scope="col">Error</th>
+          <th scope="col">JSON</th>
+          <th scope="col">CSV</th>
+          <th scope="col">Push</th>
+          <th scope="col">Rpr</th>
+        </tr>
+      </thead>
+      <tbody id="logs-table-body"></tbody>
+    `;
 
+    // fill tbody
+    const tbody = table.querySelector("#logs-table-body");
 
     rows.forEach((row, i) => {
         const tr = document.createElement("tr");
         const isPushed = row.status === "PUSHED";
         const jsonName = row.file_name.replace(".pdf", ".json");
 
-        const pushCell = row.json_path ? `<label class="switch">
-            <input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}><span></span>
-            </label>`: "-";
+        const pushCell = row.json_path ? `
+            <label class="switch">
+              <input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}>
+              <span></span>
+            </label>` : "-";
 
-        
         const isNonReprocessable = row.file_name?.endsWith("_SID.pdf") || row.file_name?.endsWith("_KIM.pdf");
 
-
         tr.innerHTML = `
-        <td>${(currentPage - 1) * pageSize + i + 1}</td>
-        <td><a href="/viewer/pdf/${row.file_name}" target="_blank">${row.file_name}</a></td>
-        <td>${formatUser(row.uploaded_by)}</td>
-        <td>${formatUTCDate(row.end_time)}</td>
-        <td class="${getStatusClass(row.status)}">${row.status|| "-"}</td>
-        <td lass="error-tab">${row.error || "-"}</td>
-        <td>${row.json_path ? `<a href="/viewer/json/dashboard/${jsonName}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""} ${row.json_path ? `<a href="/download_dashboard_json/${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}</td>
-        <td>${row.json_path ? `<a href="/dash_csv?file=${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
-        <td>${pushCell}</td>
-        <td><span class="material-symbols-outlined icon-action ${isNonReprocessable ? "repr-disabled" : ""}" ${isNonReprocessable ? "" : `onclick="confirmReprocess(${row.id})"`}>autorenew</span></td>`;
-        table.appendChild(tr);
+          <td>${(currentPage - 1) * pageSize + i + 1}</td>
+          <td><a href="/viewer/pdf/${row.file_name}" target="_blank">${row.file_name}</a></td>
+          <td>${formatUser(row.uploaded_by)}</td>
+          <td>${formatUTCDate(row.end_time)}</td>
+          <td class="${getStatusClass(row.status)}">${row.status || "-"}</td>
+          <td class="error-tab">${row.error || "-"}</td>
+          <td>
+            ${row.json_path ? `<a href="/viewer/json/dashboard/${jsonName}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""}
+            ${row.json_path ? `<a href="/download_dashboard_json/${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}
+          </td>
+          <td>${row.json_path ? `<a href="/dash_csv?file=${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
+          <td>${pushCell}</td>
+          <td><span class="material-symbols-outlined icon-action ${isNonReprocessable ? "repr-disabled" : ""}" ${isNonReprocessable ? "" : `onclick="confirmReprocess(${row.id})"`}>autorenew</span></td>
+        `;
+        tbody.appendChild(tr);
     });
 
+    responsive.appendChild(table);
+    wrapper.appendChild(responsive);
+
     logsConsole.innerHTML = "";
-    logsConsole.appendChild(table);
+    logsConsole.appendChild(wrapper);
 }
+
 
 /* ================= PAGINATION ================= */
 function renderPagination(totalPages) {
@@ -373,14 +396,3 @@ async function confirmReprocess(jobId) {
 //     }
 // }
 
-// ---------------- NAV ----------------
-// function goBackToMain(e) {
-//   e.preventDefault();
-//   if (window.opener) {
-//     window.opener.focus();
-//     window.close();
-//   } else {
-//    window.location.href = "/dashboard";
-
-//   }
-// }

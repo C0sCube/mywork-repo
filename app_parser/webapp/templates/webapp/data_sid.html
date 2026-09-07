@@ -1,147 +1,105 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block page_title %}
-    SID & KIM PROCESS
+SID/KIM UPLOAD
 {% endblock %}
 
 {% block header_actions %}
-
-<a
-    href="{% url 'dashboard' %}"
-    class="nav-btn"
-    data-action="back"
-    title="Back to Dashboard"
->
-    <span class="material-symbols-outlined">
-        arrow_back
-    </span>
+<a href="{% url 'dashboard' %}" class="nav-btn" data-action="back" s>
+    <span class="material-symbols-outlined">arrow_back</span>
 </a>
-
 {% endblock %}
-
 
 {% block main_class %}
-    container-fluid flex-grow-1
+validation-page
 {% endblock %}
-
-
 {% block content %}
 
-<div class="sid-page h-100 py-3">
+<div class="data-container">
 
-    <div class="row h-100 g-3">
+    <div class="row h-100 gx-0 validation-workspace">
 
-        <!-- ================= PDF PANEL ================= -->
+        <div class="col-6 col-md-8 validation-pane">
 
-        <div class="col-12 col-lg-8 h-100">
+            <section class="card validation-card h-100">
 
-            <div
-                class="sid-pdf-panel h-100"
-                id="pdfPanel"
-            >
+                <!-- CARD BODY -->
+                <div class="card-body validation-card-body">
 
-                <!-- Upload State -->
+                    <!-- Upload Section -->
+                    <div id="uploadSection">
 
-                <label
-                    class="sid-upload"
-                    id="uploadBox"
-                >
-                    <span class="material-symbols-outlined">
-                        upload_file
-                    </span>
+                        <label id="uploadBox" for="sidPdfInput" class="custum-file-upload validation-upload">
+                            <div class="icon">
+                                <span class="material-symbols-outlined">
+                                    picture_as_pdf
+                                </span>
+                            </div>
 
-                    <p class="mb-0">
-                        Upload SID/KIM PDF
-                    </p>
+                            <div class="text">
+                                <span>Upload SID/KIM PDF</span>
+                            </div>
+                        </label>
 
-                    <input
-                        type="file"
-                        id="sidPdfInput"
-                        accept="application/pdf"
-                        hidden
-                    >
-                </label>
+                        <input type="file" id="sidPdfInput" accept=".pdf" hidden>
 
-
-                <!-- Viewer State -->
-
-                <iframe
-                    id="pdfViewer"
-                    hidden
-                ></iframe>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= INPUT PANEL ================= -->
-
-        <div class="col-12 col-lg-4">
-
-            <div class="sid-input-panel">
-
-                <div
-                    class="sid-input-grid"
-                    id="sidInputGrid"
-                >
-
-                    <!-- SID / KIM common -->
-
-                    <div
-                        class="sid-field"
-                        id="field-1"
-                    >
-                        <input
-                            type="text"
-                            id="input1"
-                        >
-
-                        <label id="label1"></label>
                     </div>
 
-
-                    <div
-                        class="sid-field"
-                        id="field-2"
-                    >
-                        <input
-                            type="text"
-                            id="input2"
-                        >
-
-                        <label id="label2"></label>
-                    </div>
-
-
-                    <!-- SID only -->
-
-                    <div
-                        class="sid-field"
-                        id="field-3"
-                    >
-                        <input
-                            type="text"
-                            id="input3"
-                        >
-
-                        <label id="label3"></label>
-                    </div>
-
-
-                    <!-- Process -->
-
-                    <button
-                        type="button"
-                        id="sidProcessBtn"
-                        disabled
-                    >
-                        Process
-                    </button>
+                    <!-- PDF Viewer -->
+                    <iframe id="pdfViewer" hidden style="
+                            width:100%;
+                            height:100%;
+                            border:none;
+                            border-radius:12px;
+                        "></iframe>
 
                 </div>
 
-            </div>
+                <!-- CARD FOOTER -->
+                <div id="actionFooter" class="card-footer">
+
+                    <form class="row g-3">
+
+                        <!-- Field 1 -->
+                        <div class="col-12 col-md-3" id="field-1">
+                            <div class="mb-3">
+                                <label for="input1" id="label1" class="form-label">Field 1</label>
+                                <input type="text" id="input1" class="form-control" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Field 2 -->
+                        <div class="col-12 col-md-3" id="field-2">
+                            <div class="mb-3">
+                                <label for="input2" id="label2" class="form-label">Field 2</label>
+                                <input type="text" id="input2" class="form-control" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Field 3 -->
+                        <div class="col-12 col-md-3" id="field-3">
+                            <div class="mb-3">
+                                <label for="input3" id="label3" class="form-label">Field 3</label>
+                                <input type="text" id="input3" class="form-control" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Process Button -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button id="sidProcessBtn" class="nav-btn w-100" disabled>
+                                Process
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+
+            </section>
 
         </div>
 
@@ -151,9 +109,6 @@
 
 {% endblock %}
 
-
 {% block scripts %}
-
 <script src="{% static 'webapp/js/sid_data.js' %}"></script>
-
 {% endblock %}

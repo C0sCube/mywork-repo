@@ -254,9 +254,9 @@ class Reader:
 
                 if fundName in fund_seen:
                     fund_seen[fundName]["block"].extend(all_blocks)
-                    fund_seen[fundName]["page"].append(pgn)
+                    # fund_seen[fundName]["page"].append(pgn)
                 else:
-                    new_entry = {"page": [pgn], "fundname": fundName, "block": all_blocks}
+                    new_entry = {"page": pgn, "fundname": fundName, "block": all_blocks}
                     finalData.append(new_entry)
                     fund_seen[fundName] = new_entry
                         
@@ -312,9 +312,9 @@ class Reader:
                 
                 if fundName in fund_seen:
                     fund_seen[fundName]["block"].extend(sorted_blocks)
-                    fund_seen[fundName]["page"].append(pgn)
+                    # fund_seen[fundName]["page"].append(pgn)
                 else:
-                    new_entry = {"page": [pgn], "fundname": fundName, "block": sorted_blocks}
+                    new_entry = {"page": pgn, "fundname": fundName, "block": sorted_blocks}
                     finalData.append(new_entry)
                     fund_seen[fundName] = new_entry
                         

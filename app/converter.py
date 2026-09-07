@@ -1,8 +1,8 @@
 import json, csv, ast
 from pathlib import Path
 from datetime import datetime
-from pandas import pd
-from numpy import np
+import pandas as pd
+import numpy as np
 
 
 from app.konstant import get_registry

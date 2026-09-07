@@ -19,6 +19,7 @@ from django.views.decorators.csrf import csrf_exempt  # type: ignore
 ROOT_DIR = Path(__file__).resolve().parents[2]
 
 # Existing parser/domain code is deliberately reused rather than duplicated.
+
 from app.utils import Helper
 from app.logger import setup_logger, rotate_daily_log
 from app.sqlconnect import (
@@ -44,7 +45,7 @@ from app.konstant import (
     INPUT_DIR,
     OUTPUT_DIR,
 )
-
+from app.converter import ConverterFunctions
 TIME_ZONE = pytz.timezone("Asia/Kolkata")
 # ROOT_DIR = Path(getattr(settings, "REPO_ROOT", settings.BASE_DIR))
 
@@ -323,6 +324,10 @@ def view_pdf(request, filename):
 @login_required(api=True)
 def dash_csv(request):
     filename = clean_filename(request.GET.get("file"))
+    
+    
+    conv = ConverterFunctions()
+    
     if not filename:
         return JsonResponse(
             {"success": False, "error": "Missing File Name."}, status=400
@@ -337,10 +342,10 @@ def dash_csv(request):
         )
     preview_dir = ws_path(request, "preview")
     converter = {
-        "fs": json_to_csv,
-        "sid": sid_to_csv,
-        "kim": kim_to_csv,
-        "if": if_to_csv,
+        "fs": conv.json_to_csv,
+        "sid": conv.sid_to_csv,
+        "kim": conv.kim_to_csv,
+        "if": conv.if_to_csv,
     }.get(doc_type)
     if not converter:
         return JsonResponse(
@@ -366,6 +371,8 @@ def apply_csv(request):
         )
     try:
         job = fetch_job_by_id(int(job_id), DB_CONFIG)
+        conv = ConverterFunctions()
+        
         if not job:
             return JsonResponse(
                 {"success": False, "error": "Job not found"}, status=404
@@ -380,7 +387,7 @@ def apply_csv(request):
             for chunk in csv_file.chunks():
                 dest.write(chunk)
         backup_path = backup_json(json_path)
-        new_json = csv_to_fs_json(str(csv_path))
+        new_json = conv.csv_to_fs_json(str(csv_path))
         Path(json_path).write_text(
             json.dumps(new_json, indent=2, ensure_ascii=False), encoding="utf-8"
         )
@@ -624,6 +631,9 @@ def delete_config(request):
 def convert_csv(request):
     init_session_workspace(request)
     f = request.FILES.get("csv")
+    
+    conv = ConverterFunctions()
+    
     if not f:
         return JsonResponse({"success": False, "error": "No CSV uploaded"}, status=400)
     filename, doc_type = clean_filename(f.name), detect_doc_type(f.name)
@@ -636,9 +646,9 @@ def convert_csv(request):
         for chunk in f.chunks():
             dest.write(chunk)
     converter = {
-        "fs": csv_to_fs_json,
-        "sid": csv_to_sid_json,
-        "kim": csv_to_kim_json,
+        "fs": conv.csv_to_fs_json,
+        "sid": conv.csv_to_sid_json,
+        "kim": conv.csv_to_kim_json,
     }.get(doc_type)
     if not converter:
         return JsonResponse(
@@ -658,6 +668,9 @@ def convert_csv(request):
 def convert_json(request):
     init_session_workspace(request)
     f = request.FILES.get("json")
+    
+    conv = ConverterFunctions()
+    
     if not f:
         return JsonResponse({"success": False, "error": "No JSON uploaded"}, status=400)
     filename, doc_type = clean_filename(f.name), detect_doc_type(f.name)
@@ -670,10 +683,10 @@ def convert_json(request):
         for chunk in f.chunks():
             dest.write(chunk)
     converter = {
-        "fs": json_to_csv,
-        "sid": sid_to_csv,
-        "kim": kim_to_csv,
-        "if": if_to_csv,
+        "fs": conv.json_to_csv,
+        "sid": conv.sid_to_csv,
+        "kim": conv.kim_to_csv,
+        "if": conv.if_to_csv,
     }.get(doc_type)
     if not converter:
         return JsonResponse(

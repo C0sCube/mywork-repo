@@ -330,7 +330,7 @@ main {
 
 /* =========================================================
    LOGIN
-   ========================================================= */
+========================================================= */
 
 .login-page {
     min-height: 100vh;
@@ -416,13 +416,10 @@ main {
 
 .login-btn {
     width: 100%;
-
     background: var(--color-button);
     color: #ffffff;
-
     border: 0;
     border-radius: var(--radius);
-
     font-weight: 700;
 }
 
@@ -436,9 +433,7 @@ main {
 
 .login-error {
     margin-bottom: 10px;
-
     color: #fecaca;
-
     font-weight: 600;
     text-align: center;
 }
@@ -464,7 +459,7 @@ main {
 }
 
 .amc-table-wrapper .table {
-    --bs-table-bg: #cbd5e1;
+    /* --bs-table-bg: #cbd5e1; */
     --bs-table-bg-state: #cbd5e1;
 
     --bs-table-striped-bg: #cbd5e1;
@@ -473,10 +468,10 @@ main {
     --bs-table-hover-bg: #cbd5e1;
     --bs-table-hover-bg-state: #cbd5e1;
 
-    --bs-table-color: #cbd5e1;
+    /* --bs-table-color: #cbd5e1; */
 
-    --bs-table-color: var(--color-text);
-    --bs-table-bg: var(--color-dark-2);
+    /* --bs-table-color: var(--color-text); */
+    /* --bs-table-bg: var(--color-dark-2); */
 
 }
 
@@ -484,6 +479,13 @@ main {
 .amc-table-wrapper .table th {
     color: var(--color-text);
 }
+
+.amc-table-wrapper .table thead th {
+  background-color: #1e293b !important;
+  color: #f8fafc;            /* light text */
+  font-weight: 600;
+}
+
 
 .amc-table-wrapper .table-responsive {
     width: 100%;
@@ -857,4 +859,29 @@ main {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+
+/* =========================================================
+   SID-KIM UPLOAD
+========================================================= */
+
+#uploadSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: inherit; 
+}
+
+#uploadBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #cbd5f5;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 2rem;
 }

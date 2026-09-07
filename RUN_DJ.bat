@@ -6,7 +6,7 @@ cd /d "C:\Users\kaustubh.keny\Projects\OFFICE PROJECTS\working_fsparse"
 call .venv\Scripts\activate.bat
 
 :: Run the Django development server on your specific host and port
-cd /d "C:\Users\kaustubh.keny\Projects\OFFICE PROJECTS\working_fsparse\rep_fsparse_django_dropin"
+cd /d "C:\Users\kaustubh.keny\Projects\OFFICE PROJECTS\working_fsparse\app_parser"
 python manage.py runserver NCOG-LPT-TCH-32.Cogencis.com:5000
 
 pause

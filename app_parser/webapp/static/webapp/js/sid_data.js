@@ -1,14 +1,15 @@
 /* =========================================================
-   SID / KIM DATA PAGE — FINAL REFACTOR
+   SID / KIM DATA PAGE
    ========================================================= */
 
 /* ================= DOM ================= */
 
-const pdfInput   = document.getElementById("sidPdfInput");
-const uploadBox  = document.getElementById("uploadBox");
-const pdfViewer  = document.getElementById("pdfViewer");
+const pdfInput = document.getElementById("sidPdfInput");
+const uploadSection = document.getElementById("uploadSection");
+const pdfViewer = document.getElementById("pdfViewer");
 const processBtn = document.getElementById("sidProcessBtn");
-const grid       = document.querySelector(".sid-input-grid");
+const actionFooter = document.getElementById("actionFooter");
+const grid = document.querySelector(".sid-input-grid");
 
 // fields
 const field1 = document.getElementById("field-1");
@@ -25,7 +26,7 @@ const label3 = document.getElementById("label3");
 
 /* ================= STATE ================= */
 
-let currentMode = null;   // "SID" | "KIM" | null
+let currentMode = null;
 let currentFile = null;
 
 /* ================= INIT ================= */
@@ -35,226 +36,230 @@ processBtn.disabled = true;
 /* ================= PDF UPLOAD ================= */
 
 pdfInput.addEventListener("change", () => {
-  const file = pdfInput.files?.[0];
-  if (!file) return;
+    const file = pdfInput.files?.[0];
+    if (!file) return;
 
-  currentFile = file;
+    currentFile = file;
 
-  // UI swap
-  uploadBox.hidden = true;
-  pdfViewer.hidden = false;
-  pdfViewer.src = URL.createObjectURL(file);
+    uploadSection.hidden = true;
+    pdfViewer.hidden = false;
+    pdfViewer.src = URL.createObjectURL(file);
 
-  configureFromFilename(file.name);
+    actionFooter.hidden = false;
+
+    configureFromFilename(file.name);
 });
 
 /* ================= MODE CONFIG ================= */
 
 function configureFromFilename(filename) {
-  const name = filename.toUpperCase();
+    const name = filename.toUpperCase();
 
-  resetInputs();
-  hideAllFields();
-  currentMode = null;
+    resetInputs();
+    hideAllFields();
 
-  if (name.endsWith("_SID.PDF")) {
-    currentMode = "SID";
-    setupSID();
-  } 
-  else if (name.endsWith("_KIM.PDF")) {
-    currentMode = "KIM";
-    setupKIM();
-  } 
-  else {
-    setupFallback();
-  }
+    currentMode = null;
 
-  validateInputs();
+    if (name.endsWith("_SID.PDF")) {
+        currentMode = "SID";
+        setupSID();
+    } else if (name.endsWith("_KIM.PDF")) {
+        currentMode = "KIM";
+        setupKIM();
+    } else {
+        setupFallback();
+    }
+
+    validateInputs();
 }
 
 /* ---------- SID MODE ---------- */
 
 function setupSID() {
-  show(field1);
-  show(field2);
-  show(field3);
+    show(field1);
+    show(field2);
+    show(field3);
 
-  label1.textContent = "Front Page";
-  label2.textContent = "Data Page";
-  label3.textContent = "Manager Page";
+    enableInputs();
+
+    label1.textContent = "Front Page";
+    label2.textContent = "Data Page";
+    label3.textContent = "Manager Page";
 }
 
 /* ---------- KIM MODE ---------- */
 
 function setupKIM() {
-  show(field1);
-  show(field2);
-  hide(field3);
+    show(field1);
+    show(field2);
+    hide(field3);
 
-  label1.textContent = "Instrument Page";
-  label2.textContent = "Instrument Count";
+    label1.textContent = "Instrument Page";
+    label2.textContent = "Instrument Count";
 }
 
 /* ---------- FALLBACK ---------- */
 
 function setupFallback() {
-  show(field1);
-  show(field2);
-  hide(field3);
+    show(field1);
+    show(field2);
+    hide(field3);
 
-  label1.textContent = "Field 1";
-  label2.textContent = "Field 2";
+    label1.textContent = "Field 1";
+    label2.textContent = "Field 2";
 }
 
 /* ================= HELPERS ================= */
 
 function show(el) {
-  el.classList.remove("hidden");
+    el.classList.remove("hidden");
 }
-
 function hide(el) {
-  el.classList.add("hidden");
+    el.classList.add("hidden");
 }
 
 function hideAllFields() {
-  hide(field1);
-  hide(field2);
-  hide(field3);
+    hide(field1);
+    hide(field2);
+    hide(field3);
 }
 
 function resetInputs() {
-  input1.value = "";
-  input2.value = "";
-  input3.value = "";
+    input1.value = "";
+    input2.value = "";
+    input3.value = "";
 }
+
+function enableInputs() {
+  input1.disabled = false;
+  input2.disabled = false;
+  input3.disabled = false;
+}
+
 
 /* ================= VALIDATION ================= */
 
 function validateInputs() {
-  if (!currentFile || pdfViewer.hidden || !currentMode) {
-    processBtn.disabled = true;
-    return;
-  }
+    if (!currentFile || !currentMode) {
+        processBtn.disabled = true;
+        return;
+    }
 
-  const visibleInputs = [
-    ...grid.querySelectorAll(".sid-field:not(.hidden) input")
-  ];
+    const visibleInputs = [
+        ...grid.querySelectorAll(".sid-field:not(.hidden) input")
+    ];
 
-  const allFilled = visibleInputs.every(
-    i => i.value.trim().length > 0
-  );
+    const allFilled = visibleInputs.every(
+        input => input.value.trim().length > 0
+    );
 
-  processBtn.disabled = !allFilled;
+    processBtn.disabled = !allFilled;
 }
 
 document
-  .querySelectorAll(".sid-field input")
-  .forEach(i => i.addEventListener("input", validateInputs));
+    .querySelectorAll(".sid-field input")
+    .forEach(input =>
+        input.addEventListener("input", validateInputs)
+    );
 
 /* ================= PROCESS ================= */
 
 processBtn.addEventListener("click", async () => {
-  if (processBtn.disabled) return;
+    if (processBtn.disabled) return;
 
-  const meta = buildPayload();
+    const meta = buildPayload();
 
-  const fd = new FormData();
-  fd.append("pdf", currentFile);
-  fd.append("meta", JSON.stringify(meta));
+    const fd = new FormData();
+    fd.append("pdf", currentFile);
+    fd.append("meta", JSON.stringify(meta));
 
-  processBtn.disabled = true;
-  processBtn.textContent = "Uploading...";
+    processBtn.disabled = true;
+    processBtn.textContent = "Uploading...";
 
-  try {
-    const res = await fetch("/upload-sid-kim", {
-      method: "POST",
-      body: fd
-    });
+    try {
+        const res = await fetch("/upload-sid-kim", {
+            method: "POST",
+            body: fd
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    if (!data.success) {
-      throw new Error(data.error || "Upload failed");
+        if (!data.success) {
+            throw new Error(data.error || "Upload failed");
+        }
+
+        alert("PDF queued successfully for processing");
+        location.reload();
+
+    } catch (err) {
+        alert(err.message);
+        processBtn.disabled = false;
+        processBtn.textContent = "Process";
     }
-
-    alert("PDF queued successfully for processing");
-    location.reload();
-
-
-  } catch (err) {
-    alert(err.message);
-    processBtn.disabled = false;
-    processBtn.textContent = "Process";
-  }
 });
-
 
 /* ================= PAYLOAD BUILDER ================= */
 
 function buildPayload() {
-  const base = {
-    filename: currentFile?.name || "",
-    mode: currentMode
-  };
-
-  if (currentMode === "SID") {
-    return {
-      ...base,
-      front_page: input1.value.trim(),
-      data_page: input2.value.trim(),
-      manager_page: input3.value.trim()
+    const base = {
+        filename: currentFile?.name || "",
+        mode: currentMode
     };
-  }
 
-  if (currentMode === "KIM") {
-    return {
-      ...base,
-      instr_page: input1.value.trim(),
-      instr_count: input2.value.trim()
-    };
-  }
+    if (currentMode === "SID") {
+        return {
+            ...base,
+            front_page: input1.value.trim(),
+            data_page: input2.value.trim(),
+            manager_page: input3.value.trim()
+        };
+    }
 
-  return base;
+    if (currentMode === "KIM") {
+        return {
+            ...base,
+            instr_page: input1.value.trim(),
+            instr_count: input2.value.trim()
+        };
+    }
+
+    return base;
 }
 
-// ---------------- AUTH ----------------
+/* ================= AUTH ================= */
+
 async function enforceAuth() {
     try {
-        const r = await fetch("/auth-check");
+        const response = await fetch("/auth-check");
 
-        if (!r.ok) {
+        if (!response.ok) {
             window.location = "/login";
             return;
         }
 
-        const data = await r.json();
+        const data = await response.json();
 
         if (!data.logged_in) {
             window.location = "/login";
         }
-
-    } catch (err) {
+    } catch {
         window.location = "/login";
     }
 }
 
-// ---------------- NAV ----------------
+/* ================= NAV ================= */
+
 function goBackToMain(e) {
-  e.preventDefault();
-  if (window.opener) {
-    window.opener.focus();
-    window.close();
-  } else {
-   window.location.href = "/dashboard";
-  }
+    e.preventDefault();
+
+    if (window.opener) {
+        window.opener.focus();
+        window.close();
+    } else {
+        window.location.href = "/dashboard";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  enforceAuth();
-
-  document
-    .querySelectorAll("[data-action='back']")
-    .forEach(el => el.addEventListener("click", goBackToMain));
+    enforceAuth();
 });
-
-

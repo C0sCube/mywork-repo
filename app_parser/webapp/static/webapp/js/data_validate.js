@@ -50,7 +50,6 @@ function initValidation() {
 
     const pdfInput = document.getElementById("pdfInput");
     const csvInput = document.getElementById("csvInput");
-
     pdfInput?.addEventListener("change", () => {
         if (!pdfInput.files.length) {
             return;
@@ -102,9 +101,7 @@ function setLoadedState(input, type) {
     }
 
     card.classList.add("is-loaded");
-
     const upload = card.querySelector(".validation-upload");
-
     if (upload) {
         upload.remove();
     }
