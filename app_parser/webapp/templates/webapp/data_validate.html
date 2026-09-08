@@ -2,29 +2,21 @@
 {% load static %}
 
 {% block page_title %}
-    DATA VALIDATION
+DATA VALIDATION
 {% endblock %}
 
 {% block header_actions %}
-<a
-    href="{% url 'dashboard' %}"
-    class="nav-btn"
-    data-action="back"
-    title="Back to Dashboard"
->
+<a href="{% url 'dashboard' %}" class="nav-btn" data-action="back" title="Back to Dashboard">
     <span class="material-symbols-outlined">arrow_back</span>
 </a>
 {% endblock %}
 
 {% block main_class %}
-validation-page
 {% endblock %}
 
 {% block content %}
 <div class="data-container">
-
     <div class="row h-100 gx-0 validation-workspace">
-
         <!-- PDF SIDE -->
         <div class="col-6 validation-pane validation-pdf">
 
@@ -32,10 +24,7 @@ validation-page
 
                 <div class="card-body validation-card-body">
 
-                    <label
-                        for="pdfInput"
-                        class="custum-file-upload validation-upload"
-                    >
+                    <label for="pdfInput" class="custum-file-upload validation-upload">
                         <div class="icon">
                             <span class="material-symbols-outlined">
                                 picture_as_pdf
@@ -47,12 +36,7 @@ validation-page
                         </div>
                     </label>
 
-                    <input
-                        type="file"
-                        id="pdfInput"
-                        accept=".pdf"
-                        hidden
-                    >
+                    <input type="file" id="pdfInput" accept=".pdf" hidden>
 
                 </div>
 
@@ -60,328 +44,120 @@ validation-page
 
         </div>
 
-
         <!-- CSV SIDE -->
         <div class="col-6 validation-pane validation-csv">
-
-<section class="card validation-card">
-
-<div class="validation-card-body">
-
-    <!-- INITIAL CSV UPLOAD -->
-    <div id="csvUploadSection">
-
-        <label
-            for="csvInput"
-            class="custum-file-upload validation-upload"
-        >
-            <div class="icon">
-                <span class="material-symbols-outlined">
-                    csv
-                </span>
-            </div>
-
-            <div class="text">
-                <span>Select CSV File</span>
-            </div>
-        </label>
-
-        <input
-            type="file"
-            id="csvInput"
-            accept=".csv"
-            hidden
-        >
-
-    </div>
-
-
-<div id="validationContent" class="h-100" hidden>
-
-    <div class="row h-100 gx-0">
-
-        <!-- FORM : 95% -->
-        <div class="col-11 h-100">
-
-            <form
-                id="validationForm"
-                class="h-100 overflow-auto"
-            >
-
-                <!-- SCHEME NAME -->
-                <div class="mb-3">
-
-                    <label
-                        for="main_scheme_name"
-                        class="form-label"
-                    >
-                        Scheme Name
+            <section class="card validation-card">
+                <div class="card-body validation-card-body">
+                    <label for="csvInput" class="custum-file-upload validation-upload">
+                        <div class="icon">
+                            <span class="material-symbols-outlined">csv</span>
+                        </div>
+                        <div class="text">
+                            <span>Select CSV File</span>
+                        </div>
                     </label>
+                    <input type="file" id="csvInput" accept=".csv" hidden>
+                    <!-- sidebar for page numbers -->
 
-                    <input
-                        type="text"
-                        id="main_scheme_name"
-                        class="form-control validation-field"
-                    >
+                    <div class="row">
 
-                </div>
+                        <div class="col">
+                            <template id="csvFormTemplate" hidden>
+                                <div class="validation-content">
+                                    <form id="csvValidationForm" class="h-100 px-3 py-3 overflow-y-auto">
+
+                                        <!-- Scheme Basics -->
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-6">
+                                                <label for="main_scheme_name" class="form-label">scheme_name</label>
+                                                <input type="text" id="main_scheme_name"
+                                                    class="form-control validation-field">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="benchmark_index" class="form-label">benchmark</label>
+                                                <input type="text" id="benchmark_index"
+                                                    class="form-control validation-field">
+                                            </div>
+                                        </div>
+
+                                        <!-- Dates & AAUM -->
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-3">
+                                                <label for="monthly_aaum_value" class="form-label">aaum_val</label>
+                                                <input type="text" id="monthly_aaum_value"
+                                                    class="form-control validation-field">
+                                            </div>
+                                            <div class="col-3">
+                                                <label for="monthly_aaum_date" class="form-label">aaum_date</label>
+                                                <input type="text" id="monthly_aaum_date"
+                                                    class="form-control validation-field">
+                                            </div>
+                                            <div class="col-3">
+                                                <label for="scheme_launch_date" class="form-label">launch_date</label>
+                                                <input type="text" id="scheme_launch_date"
+                                                    class="form-control validation-field">
+                                            </div>
+                                            <div class="col-3">
+                                                <label for="min_amounts" class="form-label">min/add amt</label>
+                                                <input type="text" id="min_amounts"
+                                                    class="form-control validation-field">
+                                            </div>
+                                        </div>
+
+                                        <div class="row g-3 mb-3">
+
+                                            
+                                            <!-- Metrics column spans full height -->
+                                            <div class="col-4 d-flex flex-column">
+                                                <!-- <label for="metricsGrid" class="form-label">Metrics</label> -->
+                                                <textarea id="metricsGrid"
+                                                    class="form-control validation-field flex-grow-1" rows="22"
+                                                    placeholder="nil--std_dev&#10;23.34--information_ratio"></textarea>
+                                            </div>
+
+                                            <!-- Right column with Fund Managers (top) and Load (bottom) -->
+                                            <div class="col-8 d-flex flex-column">
+                                                <div class="mb-3">
+                                                    <!-- <label for="fundManagerText" class="form-label">Fund Managers</label> -->
+                                                    <textarea id="fundManagerText" class="form-control validation-field"
+                                                        rows="5"
+                                                        placeholder="anand k--23rd August 2025--23--nil"></textarea>
+                                                </div>
+
+                                                <div class="flex-grow-1">
+                                                    <!-- <label class="form-label">Load</label> -->
+                                                    <table class="table mb-0">
+                                                        <tbody id="loadBody">
+                                                            <tr>
+                                                                <td class="text-muted small">Entry</td>
+                                                                <td><textarea class="form-control validation-field"
+                                                                        rows="1" id="entry"></textarea></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted small">Exit</td>
+                                                                <td><textarea class="form-control validation-field"
+                                                                        rows="5" id="exit"></textarea></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-                <!-- LAUNCH DATE / AAUM DATE / AAUM VALUE -->
-                <div class="row g-3 mb-3">
-
-                    <div class="col-4">
-
-                        <label
-                            for="scheme_launch_date"
-                            class="form-label"
-                        >
-                            Launch Date
-                        </label>
-
-                        <input
-                            type="text"
-                            id="scheme_launch_date"
-                            class="form-control validation-field"
-                        >
-
-                    </div>
-
-
-                    <div class="col-4">
-
-                        <label
-                            for="monthly_aaum_date"
-                            class="form-label"
-                        >
-                            AAUM Date
-                        </label>
-
-                        <input
-                            type="text"
-                            id="monthly_aaum_date"
-                            class="form-control validation-field"
-                        >
-
-                    </div>
-
-
-                    <div class="col-4">
-
-                        <label
-                            for="monthly_aaum_value"
-                            class="form-label"
-                        >
-                            AAUM Value
-                        </label>
-
-                        <input
-                            type="text"
-                            id="monthly_aaum_value"
-                            class="form-control validation-field"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <!-- MINIMUM AMOUNT -->
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Minimum Amount
-                    </label>
-
-                    <div class="row g-3">
-
-                        <div class="col-3">
-
-                            <input
-                                type="text"
-                                id="min_amt"
-                                class="form-control validation-field"
-                                placeholder="Min Amount"
-                            >
-
+                                    </form>
+                                </div>
+                            </template>
                         </div>
-
-
-                        <div class="col-3">
-
-                            <input
-                                type="text"
-                                id="min_amt_multiple"
-                                class="form-control validation-field"
-                                placeholder="Min Amount Multiple"
-                            >
-
+                        <div class="col-auto">
+                            <div id="pageList" class="page-list d-flex flex-column gap-2"></div>
                         </div>
-
-
-                        <div class="col-3">
-
-                            <input
-                                type="text"
-                                id="min_addl_amt"
-                                class="form-control validation-field"
-                                placeholder="Min Additional Amount"
-                            >
-
-                        </div>
-
-
-                        <div class="col-3">
-
-                            <input
-                                type="text"
-                                id="min_addl_amt_multiple"
-                                class="form-control validation-field"
-                                placeholder="Min Additional Multiple"
-                            >
-
-                        </div>
-
                     </div>
 
                 </div>
-
-
-                <!-- BENCHMARK -->
-                <div class="mb-3">
-
-                    <label
-                        for="benchmark_index"
-                        class="form-label"
-                    >
-                        Benchmark
-                    </label>
-
-                    <input
-                        type="text"
-                        id="benchmark_index"
-                        class="form-control validation-field"
-                    >
-
-                </div>
-
-
-                <!-- METRICS -->
-                <div class="mb-3">
-
-                    <h3>Metrics</h3>
-
-                    <div id="metricsGrid"></div>
-
-                </div>
-
-
-                <!-- FUND MANAGERS -->
-                <div class="mb-3">
-
-                    <h3>Fund Managers</h3>
-
-                    <div class="table-wrapper">
-
-                        <div class="table-responsive">
-
-                            <table class="table mb-0">
-
-                                <thead>
-
-                                    <tr>
-
-                                        <th>Name</th>
-
-                                        <th>
-                                            Managing Fund Since
-                                        </th>
-
-                                        <th>
-                                            Qualification
-                                        </th>
-
-                                        <th>
-                                            Total Experience
-                                        </th>
-
-                                    </tr>
-
-                                </thead>
-
-
-                                <tbody id="fundManagerBody">
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- LOAD -->
-                <div class="mb-3">
-
-                    <h3>Load</h3>
-
-                    <div class="table-wrapper">
-
-                        <div class="table-responsive">
-
-                            <table class="table mb-0">
-
-                                <thead>
-
-                                    <tr>
-
-                                        <th>Type</th>
-
-                                        <th>Value</th>
-
-                                    </tr>
-
-                                </thead>
-
-
-                                <tbody id="loadBody">
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </form>
-
+            </section>
         </div>
 
-
-        <!-- PAGE SIDEBAR : 5% -->
-        <div class="col-1 h-100">
-
-            <div
-                id="pageList"
-                class="h-100 overflow-auto d-flex flex-column"
-            >
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</div>
-
-</section>
-
-        </div>
 
     </div>
 
@@ -389,9 +165,7 @@ validation-page
 {% endblock %}
 
 {% block scripts %}
-
+<script src="https://cdnjs.cloudflare/pdf.js/4.7.76/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-
 <script src="{% static 'webapp/js/data_validate.js' %}"></script>
-
 {% endblock %}

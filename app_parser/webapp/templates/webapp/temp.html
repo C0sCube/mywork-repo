@@ -1,0 +1,133 @@
+        <!-- CSV SIDE -->
+        <div class="col-6 validation-pane validation-csv">
+            <section class="card validation-card">
+                <div class="validation-card-body">
+
+                    <!-- INITIAL CSV UPLOAD -->
+                    <div id="csvUploadSection" class="custum-file-upload validation-upload">
+                        <label for="csvInput">
+                            <div class="icon">
+                                <span class="material-symbols-outlined">
+                                    csv
+                                </span>
+                            </div>
+                            <div class="text">
+                                <span>Select CSV File</span>
+                            </div>
+                        </label>
+
+                        <input type="file" id="csvInput" accept=".csv" hidden>
+
+                    </div>
+
+
+                    <div id="validationContent" class="h-100" hidden>
+
+                        <div class="row h-100 gx-0">
+
+                            <!-- FORM : 95% -->
+                            <div class="col h-100">
+                                <form id="validationForm" class="h-100 overflow-auto">
+                                    <div class="row g-3 mb-3">
+                                        <!-- Scheme Name -->
+                                        <div class="col-6">
+                                            <label for="main_scheme_name" class="form-label">
+                                                Scheme Name
+                                            </label>
+                                            <input type="text" id="main_scheme_name" class="form-control validation-field">
+                                        </div>
+
+                                        <!-- Benchmark -->
+                                        <div class="col-6">
+                                            <label for="benchmark_index" class="form-label">
+                                                Benchmark
+                                            </label>
+                                            <input type="text" id="benchmark_index" class="form-control validation-field">
+                                        </div>
+                                    </div>
+
+                                    <!-- LAUNCH DATE / AAUM DATE / AAUM VALUE -->
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-3">
+                                            <label for="scheme_launch_date" class="form-label">
+                                                Launch Date
+                                            </label>
+                                            <input type="text" id="scheme_launch_date"
+                                                class="form-control validation-field">
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label for="monthly_aaum_date" class="form-label">
+                                                AAUM Date
+                                            </label>
+                                            <input type="text" id="monthly_aaum_date"
+                                                class="form-control validation-field">
+
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label for="monthly_aaum_value" class="form-label">
+                                                AAUM Value
+                                            </label>
+                                            <input type="text" id="monthly_aaum_value"
+                                                class="form-control validation-field">
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label for="min_amounts" class="form-label">
+                                                Minimum Amount
+                                            </label>
+                                            <input type="text" id="min_amounts" class="form-control validation-field"
+                                                placeholder="MinAmt, MinMult, AddAmt, AddMult">
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- METRICS -->
+                                    <div class="mb-3">
+                                        <div id="metricsGrid"></div>
+                                    </div>
+                                    <!-- FUND MANAGERS -->
+                                    <div class="mb-3">
+                                        <div class="table-wrapper">
+                                            <div class="table-responsive">
+                                                <!-- Just one textarea instead of a table -->
+                                                <textarea id="fundManagerText" class="form-control validation-field"
+                                                    rows="6"
+                                                    placeholder="name,since,qual,exp&#10;Manager1,...&#10;Manager2,..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- LOAD -->
+                                    <div class="mb-3">
+                                        <!-- <h4>Load</h4> -->
+                                        <div class="table-wrapper">
+                                            <div class="table-responsive">
+                                                <table class="table mb-0">
+                                                    <tbody id="loadBody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- PAGE SIDEBAR : 5% -->
+                            <div class="col-auto h-100">
+                                <div id="pageList" class="h-100 overflow-auto d-flex flex-column">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
