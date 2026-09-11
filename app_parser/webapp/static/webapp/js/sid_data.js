@@ -262,4 +262,7 @@ function goBackToMain(e) {
 
 document.addEventListener("DOMContentLoaded", () => {
     enforceAuth();
+    document.querySelectorAll("[data-action='back']").forEach(el => {
+        el.addEventListener("click", goBackToMain);
+    });
 });

@@ -6,115 +6,119 @@ const pageSize = 25;
 
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", async () => {
-    bindActions();
-    await loadRegistry();
-    await loadLogs();
+  bindActions();
+  await loadRegistry();
+  await loadLogs();
 
-    // setInterval(() => {
-    //     const auto = document.getElementById("autoRefresh");
-    //     if (auto?.checked) loadLogs();
-    // }, 15000);
+  // setInterval(() => {
+  //     const auto = document.getElementById("autoRefresh");
+  //     if (auto?.checked) loadLogs();
+  // }, 15000);
 });
 
 /* ================= ACTION BINDINGS ================= */
 function bindActions() {
-    document.querySelector("[data-action='open-upload']")
-        ?.addEventListener("click", () => toggleModal(true));
+  document
+    .querySelector("[data-action='open-upload']")
+    ?.addEventListener("click", () => toggleModal(true));
 
-    document.querySelector("[data-action='close-upload']")
-        ?.addEventListener("click", () => toggleModal(false));
+  document
+    .querySelector("[data-action='close-upload']")
+    ?.addEventListener("click", () => toggleModal(false));
 
-    document.querySelectorAll("[data-action='new-tab']")
-        .forEach(a => a.addEventListener("click", openInNewTab));
+  document
+    .querySelectorAll("[data-action='new-tab']")
+    .forEach((a) => a.addEventListener("click", openInNewTab));
 
-    document.querySelector("[data-action='refresh-logs']")
-        ?.addEventListener("click", () => loadLogs());
+  document
+    .querySelector("[data-action='refresh-logs']")
+    ?.addEventListener("click", () => loadLogs());
 
-    document.getElementById("pdfs")
-        ?.addEventListener("change", onFileSelect);
+  document.getElementById("pdfs")?.addEventListener("change", onFileSelect);
 
-    document.getElementById("uploadForm")
-        ?.addEventListener("submit", uploadFiles);
+  document
+    .getElementById("uploadForm")
+    ?.addEventListener("submit", uploadFiles);
 }
 
 /* ================= NAV ================= */
 function openInNewTab(e) {
-    e.preventDefault();
-    window.open(e.currentTarget.href, "_blank");
+  e.preventDefault();
+  window.open(e.currentTarget.href, "_blank");
 }
 
 /* ================= MODAL ================= */
 function toggleModal(state) {
-    const modal = document.getElementById("uploadModal");
-    if (!modal) return;
-    const instance = bootstrap.Modal.getOrCreateInstance(modal);
-    state ? instance.show() : instance.hide();
+  const modal = document.getElementById("uploadModal");
+  if (!modal) return;
+  const instance = bootstrap.Modal.getOrCreateInstance(modal);
+  state ? instance.show() : instance.hide();
 }
 
 /* ================= REGISTRY ================= */
 async function loadRegistry() {
-    try {
-        const resp = await fetch("/company_registry");
-        amcRegistry = await resp.json();
-    } catch {
-        amcRegistry = {};
-    }
+  try {
+    const resp = await fetch("/company_registry");
+    amcRegistry = await resp.json();
+  } catch {
+    amcRegistry = {};
+  }
 }
 
 /* ================= FILE UPLOAD ================= */
 function onFileSelect(e) {
-    const sizeDiv = document.getElementById("sizeDisplay");
-    const files = Array.from(e.target.files);
+  const sizeDiv = document.getElementById("sizeDisplay");
+  const files = Array.from(e.target.files);
 
-    files.forEach(f => {
-        if (!selectedFiles.some(x => x.name === f.name && x.size === f.size)) {
-            selectedFiles.push(f);
-        }
-    });
+  files.forEach((f) => {
+    if (!selectedFiles.some((x) => x.name === f.name && x.size === f.size)) {
+      selectedFiles.push(f);
+    }
+  });
 
-    updateUploadDisplay();
-    e.target.value = "";
+  updateUploadDisplay();
+  e.target.value = "";
 }
 
 async function uploadFiles(ev) {
-    ev.preventDefault();
-    if (!selectedFiles.length) return alert("No files selected.");
+  ev.preventDefault();
+  if (!selectedFiles.length) return alert("No files selected.");
 
-    const consoleDiv = document.getElementById("uploadConsole");
+  const consoleDiv = document.getElementById("uploadConsole");
 
-    for (let i = 0; i < selectedFiles.length; i++) {
-        const fd = new FormData();
-        fd.append("pdfs", selectedFiles[i]);
+  for (let i = 0; i < selectedFiles.length; i++) {
+    const fd = new FormData();
+    fd.append("pdfs", selectedFiles[i]);
 
-        const row = consoleDiv.children[i];
-        row.textContent = `Uploading… (${i + 1}/${selectedFiles.length})`;
+    const row = consoleDiv.children[i];
+    row.textContent = `Uploading… (${i + 1}/${selectedFiles.length})`;
 
-        try {
-            await fetch("/upload", { method: "POST", body: fd });
-            row.textContent = `${selectedFiles[i].name} ✔`;
-        } catch {
-            row.textContent = `${selectedFiles[i].name} ❌`;
-        }
+    try {
+      await fetch("/upload", { method: "POST", body: fd });
+      row.textContent = `${selectedFiles[i].name} ✔`;
+    } catch {
+      row.textContent = `${selectedFiles[i].name} ❌`;
     }
+  }
 
-    alert("All uploads submitted.");
-    window.location.reload();
+  alert("All uploads submitted.");
+  window.location.reload();
 }
 
 function updateUploadDisplay() {
-    const consoleDiv = document.getElementById("uploadConsole");
-    const sizeDiv = document.getElementById("sizeDisplay");
+  const consoleDiv = document.getElementById("uploadConsole");
+  const sizeDiv = document.getElementById("sizeDisplay");
 
-    consoleDiv.innerHTML = "";
-    let total = 0;
+  consoleDiv.innerHTML = "";
+  let total = 0;
 
-    selectedFiles.forEach((f, i) => {
-        total += f.size;
+  selectedFiles.forEach((f, i) => {
+    total += f.size;
 
-        const d = document.createElement("div");
-        d.className = "upload-file-row";
+    const d = document.createElement("div");
+    d.className = "upload-file-row";
 
-        d.innerHTML = `
+    d.innerHTML = `
             <span>${f.name} (${(f.size / 1048576).toFixed(2)} MB)</span>
 
             <button
@@ -127,178 +131,152 @@ function updateUploadDisplay() {
             </button>
         `;
 
-        consoleDiv.appendChild(d);
-    });
+    consoleDiv.appendChild(d);
+  });
 
-    sizeDiv.textContent =
-        `Size ${(total / 1048576).toFixed(2)} Mb / 50 Mb`;
+  sizeDiv.textContent = `Size ${(total / 1048576).toFixed(2)} Mb / 50 Mb`;
 }
 
-document.addEventListener("click", e => {
-    const button = e.target.closest(".upload-file-remove");
+document.addEventListener("click", (e) => {
+  const button = e.target.closest(".upload-file-remove");
 
-    if (!button) return;
+  if (!button) return;
 
-    const index = Number(button.dataset.index);
+  const index = Number(button.dataset.index);
 
-    selectedFiles.splice(index, 1);
+  selectedFiles.splice(index, 1);
 
-    updateUploadDisplay();
+  updateUploadDisplay();
 });
-
-
 
 /* ================= LOGS ================= */
 async function loadLogs() {
-    const logsConsole = document.getElementById("logsConsole");
-    logsConsole.innerHTML = "<p>Loading…</p>";
+  const tbody = document.getElementById("logs-table-body");
+  if (!tbody) return;
 
-    try {
-        const resp = await fetch(
-            `/status_data?page=${currentPage}&size=${pageSize}`
-        );
-        const data = await resp.json();
+  // show loading state
+  tbody.innerHTML = `<tr><td colspan="10" class="text-center">Loading…</td></tr>`;
 
-        if (!data.success || !data.rows.length) {
-            logsConsole.innerHTML = "<p>No status yet.</p>";
-            renderPagination(1);
-            return;
-        }
+  try {
+    const resp = await fetch(`/status_data?page=${currentPage}&size=${pageSize}`);
+    const data = await resp.json();
 
-        renderTable(data.rows);
-        renderPagination(data.totalPages);
-
-    } catch (err) {
-        console.error(err);
-        console.log(err);
-        logsConsole.innerHTML = "<p>Error loading logs.</p>";
+    if (!data.success || !data.rows.length) {
+      tbody.innerHTML = `<tr><td colspan="10" class="text-center">No status yet.</td></tr>`;
+      renderPagination(1);
+      return;
     }
+
+    renderTable(data.rows);   // success
+    renderPagination(data.totalPages);
+  } catch (err) {
+    console.error(err);
+    tbody.innerHTML = `<tr><td colspan="10" class="text-center text-danger">Error loading logs.</td></tr>`;
+  }
 }
+
+
 
 /* ================= TABLE RENDER ================= */
+
 function renderTable(rows) {
-    const logsConsole = document.getElementById("logsConsole");
+  const tbody = document.getElementById("logs-table-body");
+  tbody.innerHTML = ""; // clear old rows
 
-    // wrapper structure
-    const wrapper = document.createElement("div");
-    wrapper.className = "amc-table-wrapper scrollable";
+  rows.forEach((row, i) => {
+    const tr = document.createElement("tr");
+    const isPushed = row.status === "PUSHED";
+    const jsonName = row.file_name.replace(".pdf", ".json");
 
-    const responsive = document.createElement("div");
-    responsive.className = "table-responsive";
+    const pushCell = row.json_path
+      ? `<label class="switch">
+           <input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}>
+           <span></span>
+         </label>`
+      : "-";
 
-    const table = document.createElement("table");
-    table.className = "table table-striped table-hover align-middle mb-0";
+    const isNonReprocessable =
+      row.file_name?.endsWith("_SID.pdf") ||
+      row.file_name?.endsWith("_KIM.pdf");
 
-    // table head
-    table.innerHTML = `
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">File</th>
-          <th scope="col">User</th>
-          <th scope="col">Start Time</th>
-          <th scope="col">Status</th>
-          <th scope="col">Error</th>
-          <th scope="col">JSON</th>
-          <th scope="col">CSV</th>
-          <th scope="col">Push</th>
-          <th scope="col">Rpr</th>
-        </tr>
-      </thead>
-      <tbody id="logs-table-body"></tbody>
+    tr.innerHTML = `
+      <td>${(currentPage - 1) * pageSize + i + 1}</td>
+      <td><a href="/viewer/pdf/${row.file_name}" target="_blank">${row.file_name}</a></td>
+      <td>${formatUser(row.uploaded_by)}</td>
+      <td>${formatUTCDate(row.end_time)}</td>
+      <td class="${getStatusClass(row.status)}">${row.status || "-"}</td>
+      <td class="error-tab">${row.error || "-"}</td>
+      <td>
+        ${row.json_path ? `<a href="/viewer/json/dashboard/${jsonName}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""}
+        ${row.json_path ? `<a href="/download_dashboard_json/${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}
+      </td>
+      <td>${row.json_path ? `<a href="/dash_csv?file=${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
+      <td>${pushCell}</td>
+      <td><span class="material-symbols-outlined icon-action ${isNonReprocessable ? "repr-disabled" : ""}" ${isNonReprocessable ? "" : `onclick="confirmReprocess(${row.id})"`}>autorenew</span></td>
     `;
-
-    // fill tbody
-    const tbody = table.querySelector("#logs-table-body");
-
-    rows.forEach((row, i) => {
-        const tr = document.createElement("tr");
-        const isPushed = row.status === "PUSHED";
-        const jsonName = row.file_name.replace(".pdf", ".json");
-
-        const pushCell = row.json_path ? `
-            <label class="switch">
-              <input type="checkbox" data-action="push-slider" data-job-id="${row.id}" ${isPushed ? "checked disabled" : ""}>
-              <span></span>
-            </label>` : "-";
-
-        const isNonReprocessable = row.file_name?.endsWith("_SID.pdf") || row.file_name?.endsWith("_KIM.pdf");
-
-        tr.innerHTML = `
-          <td>${(currentPage - 1) * pageSize + i + 1}</td>
-          <td><a href="/viewer/pdf/${row.file_name}" target="_blank">${row.file_name}</a></td>
-          <td>${formatUser(row.uploaded_by)}</td>
-          <td>${formatUTCDate(row.end_time)}</td>
-          <td class="${getStatusClass(row.status)}">${row.status || "-"}</td>
-          <td class="error-tab">${row.error || "-"}</td>
-          <td>
-            ${row.json_path ? `<a href="/viewer/json/dashboard/${jsonName}" target="_blank" class="menu__link"><span class="material-symbols-outlined">file_json</span></a>` : ""}
-            ${row.json_path ? `<a href="/download_dashboard_json/${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">download</span></a>` : ""}
-          </td>
-          <td>${row.json_path ? `<a href="/dash_csv?file=${encodeURIComponent(jsonName)}" class="menu__link"><span class="material-symbols-outlined">docs</span></a>` : "-"}</td>
-          <td>${pushCell}</td>
-          <td><span class="material-symbols-outlined icon-action ${isNonReprocessable ? "repr-disabled" : ""}" ${isNonReprocessable ? "" : `onclick="confirmReprocess(${row.id})"`}>autorenew</span></td>
-        `;
-        tbody.appendChild(tr);
-    });
-
-    responsive.appendChild(table);
-    wrapper.appendChild(responsive);
-
-    logsConsole.innerHTML = "";
-    logsConsole.appendChild(wrapper);
+    tbody.appendChild(tr);
+  });
 }
-
 
 /* ================= PAGINATION ================= */
 function renderPagination(totalPages) {
-    const pag = document.getElementById("logpagination");
-    pag.innerHTML = "";
+  const pag = document.getElementById("logpagination");
+  if (!pag) return;
 
-    const prev = document.createElement("a");
-    prev.textContent = "‹";
-    prev.dataset.page = Math.max(1, currentPage - 1);
-    pag.appendChild(prev);
+  pag.innerHTML = ""; // clear old buttons
 
-    for (let p = 1; p <= totalPages; p++) {
-        const a = document.createElement("a");
-        a.textContent = p;
-        a.dataset.page = p;
-        if (p === currentPage) a.classList.add("active");
-        pag.appendChild(a);
-    }
+  // Prev arrow
+  const prev = document.createElement("a");
+  prev.textContent = "‹";
+  prev.classList.add("nav-btn", "arrow");
+  prev.dataset.page = Math.max(1, currentPage - 1);
+  pag.appendChild(prev);
 
-    const next = document.createElement("a");
-    next.textContent = "›";
-    next.dataset.page = Math.min(totalPages, currentPage + 1);
-    pag.appendChild(next);
+  // Page numbers
+  for (let p = 1; p <= totalPages; p++) {
+    const a = document.createElement("a");
+    a.textContent = p;
+    a.classList.add("nav-btn");
+    a.dataset.page = p;
+    if (p === currentPage) a.classList.add("active");
+    pag.appendChild(a);
+  }
+
+  // Next arrow
+  const next = document.createElement("a");
+  next.textContent = "›";
+  next.classList.add("nav-btn", "arrow");
+  next.dataset.page = Math.min(totalPages, currentPage + 1);
+  pag.appendChild(next);
 }
 
 /* pagination click */
-document.addEventListener("click", e => {
-    const link = e.target.closest("#logpagination a[data-page]");
-    if (!link) return;
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("#logpagination a[data-page]");
+  if (!link) return;
 
-    e.preventDefault();
-    const page = Number(link.dataset.page);
-    if (page === currentPage) return;
+  e.preventDefault();
+  const page = Number(link.dataset.page);
+  if (page === currentPage) return;
 
-    currentPage = page;
-    loadLogs();
+  currentPage = page;
+  loadLogs();
 });
 
 /* ================= UTILS ================= */
 function formatUTCDate(dateString) {
-    if (!dateString) return "-";
-    return new Date(dateString).toLocaleString("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: "UTC"
-    }).replace(",", "");
+  if (!dateString) return "-";
+  return new Date(dateString)
+    .toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "UTC",
+    })
+    .replace(",", "");
 }
 
 function getStatusClass(status) {
@@ -306,7 +284,11 @@ function getStatusClass(status) {
     return "status-green";
   }
 
-  if (status === "PARSE_FAILED" || status === "PUSH_FAILED" || status === "INVALID_TYPE") {
+  if (
+    status === "PARSE_FAILED" ||
+    status === "PUSH_FAILED" ||
+    status === "INVALID_TYPE"
+  ) {
     return "status-red";
   }
 
@@ -319,11 +301,10 @@ function formatUser(u) {
   const parts = u.split(".");
   if (parts.length !== 2) return u;
 
-  const cap = s => s[0].toUpperCase() + s.slice(1).toLowerCase();
+  const cap = (s) => s[0].toUpperCase() + s.slice(1).toLowerCase();
 
   return `${cap(parts[0])}.${cap(parts[1])}`;
 }
-
 
 /* ================= PUSH HANDLER ================= */
 
@@ -338,7 +319,7 @@ document.addEventListener("change", async (e) => {
 
   const ok = confirm("Are you sure you want to push this JSON to Admin Panel?");
   if (!ok) {
-    slider.checked = false;   // rollback UI
+    slider.checked = false; // rollback UI
     slider.disabled = false;
     return;
   }
@@ -346,7 +327,7 @@ document.addEventListener("change", async (e) => {
   try {
     const resp = await fetch(`/push_job/${jobId}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     });
 
     const result = await resp.json();
@@ -358,14 +339,12 @@ document.addEventListener("change", async (e) => {
     // ✅ success → freeze ON
     slider.checked = true;
     slider.disabled = true;
-
   } catch (err) {
     alert("Push failed: " + err.message);
-    slider.checked = false;   // rollback
+    slider.checked = false; // rollback
     slider.disabled = false;
   }
 });
-
 
 /* ================= REPROCESS ================= */
 
@@ -378,8 +357,8 @@ async function confirmReprocess(jobId) {
       method: "POST",
       credentials: "same-origin",
       headers: {
-        "Accept": "application/json"
-      }
+        Accept: "application/json",
+      },
     });
 
     const contentType = resp.headers.get("content-type");
@@ -397,13 +376,11 @@ async function confirmReprocess(jobId) {
 
     alert("Reprocess triggered successfully.");
     loadLogs();
-
   } catch (err) {
     console.error(err);
     alert("Reprocess error: " + err.message);
   }
 }
-
 
 // ---------------- AUTH ----------------
 // async function enforceAuth() {
@@ -425,4 +402,3 @@ async function confirmReprocess(jobId) {
 //         window.location = "/login";
 //     }
 // }
-

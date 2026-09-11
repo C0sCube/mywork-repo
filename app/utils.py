@@ -1,4 +1,4 @@
-import os, re, json, string, shutil, json5, random
+import os, re, json, string, shutil, json5, random, time
 import fitz  # type: ignore
 from datetime import datetime
 from collections import defaultdict
@@ -10,6 +10,20 @@ from uuid import uuid4
 class Helper:
     def __init__(self):
         pass
+
+    @staticmethod
+    def timer(logger, fun_n=None):
+        def decorator(func):
+            def wrapper(*args, **kwargs):
+                start = time.time()
+                result = func(*args, **kwargs)
+                logger.info(
+                    f"{fun_n or func.__name__} took {time.time() - start:.2f} sec"
+                )
+                return result
+            return wrapper
+        return decorator
+
 
     @staticmethod
     def delete_file_by_suffix(

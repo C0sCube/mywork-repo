@@ -441,6 +441,43 @@ main {
     text-align: center;
 }
 
+
+/* dashboard pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    /* or flex-end if you prefer right */
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.pagination a,
+.pagination button {
+    min-width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #e5e7eb;
+    color: var(--dark);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagination a:hover {
+    background: #cbd5e1;
+}
+
+.pagination .active {
+    background: var(--dark);
+    color: #fff;
+}
+
+
+
 /* =========================================================
    AMC DATA
    ========================================================= */
@@ -448,6 +485,32 @@ main {
 .amc-page {
     background: var(--color-border);
 }
+
+/* Shared row styles */
+.top-row,
+.bottom-row {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  background: #cbd5e1;
+}
+
+/* Specific differences */
+.top-row {
+  justify-content: space-between;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.bottom-row {
+  justify-content: center; /* center pagination */
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+
+
 
 .table-wrapper {
     width: 100%;
@@ -476,6 +539,11 @@ main {
     border-color: var(--color-border);
 }
 
+
+.table-wrapper table {
+  flex: 1;              /* table takes available space */
+  margin-bottom: 1rem;  /* spacing before pagination */
+}
 
 /* =========================
    DAILY LOGS

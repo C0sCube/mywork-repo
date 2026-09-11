@@ -3,8 +3,6 @@
 {% block page_title %}FACTSHEET PARSER{% endblock %}
 
 {% block header_actions %}
-
-
 <a href="{% url 'test_html' %}" class="nav-btn" data-action="new-tab">
     <span class="material-symbols-outlined" title="csv-json-sp">convert_to_text</span>
 </a>
@@ -40,49 +38,70 @@
 <a href="{% url 'amc_data' %}" class="nav-btn" data-action="new-tab" title="check-amc">
     <strong>AMC</strong>
 </a>
-
 {% endblock %}
 
 {% block main_class %}
 {% endblock %}
 
 {% block content %}
-
 <div class="data-container">
 
-    <div class="table-wrapper scrollable">
+    <div class="table-container d-flex flex-column h-100">
 
-        <div class="logs-bar d-flex align-items-center justify-content-between">
-            <h4>Status Report</h4>
-
-            <div class="right-controls">
-                <button class="nav-btn" data-action="refresh-logs">
+        <!-- Top row -->
+        <div class="top-row d-flex align-items-center justify-content-between pt-2 pb-2">
+            <div class="top-left">
+                <!-- Left-aligned icons/text -->
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Status Report</span>
+            </div>
+            <div class="top-right">
+                <!-- Fixed space, right-aligned -->
+                <button class="nav-btn">
                     <span class="material-symbols-outlined">refresh</span>
                 </button>
             </div>
         </div>
 
-        <div id="logsConsole" class="mono">
-            <p>Loading status…</p>
+        <!-- Mid row (scrollable table) -->
+        <div class="mid-row table-wrapper flex-grow-1 overflow-auto">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>File</th>
+                            <th>User</th>
+                            <th>Start Time</th>
+                            <th>Status</th>
+                            <th>Error</th>
+                            <th>JSON</th>
+                            <th>CSV</th>
+                            <th>Push</th>
+                            <th>Rpr</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs-table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <div id="logpagination" class="pagination">
-            <a href="#" class="arrow">‹</a>
-            <a href="#" class="active">1</a>
-            <a href="#" class="arrow">›</a>
+        <!-- Bottom row -->
+        <div class="bottom-row d-flex align-items-center justify-content-center pt-2" id="logpagination">
+            <!-- Center-aligned icons/text -->
+            <a href="#" class="nav-btn arrow">‹</a>
+            <a href="#" class="nav-btn active">1</a>
+            <a href="#" class="nav-btn arrow">›</a>
         </div>
 
     </div>
 
+
 </div>
 
-<div
-    id="uploadModal"
-    class="modal fade"
-    tabindex="-1"
-    aria-labelledby="uploadModalTitle"
-    aria-hidden="true"
->
+<div id="uploadModal" class="modal fade" tabindex="-1" aria-labelledby="uploadModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
 
         <div class="modal-content upload-modal">
@@ -94,22 +113,14 @@
                     UPLOAD FACTSHEET
                 </h5>
 
-                <div
-                    class="upload-modal-close"
-                    data-action="close-upload"
-                >
+                <div class="upload-modal-close" data-action="close-upload">
                     <span class="material-symbols-outlined">close</span>
                 </div>
 
             </div>
 
             <!-- BODY -->
-            <form
-                id="uploadForm"
-                action="/upload"
-                method="POST"
-                enctype="multipart/form-data"
-            >
+            <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
 
                 <div class="modal-body upload-modal-body">
 
@@ -119,14 +130,7 @@
                             Select PDF
                         </label>
 
-                        <input
-                            type="file"
-                            name="pdfs"
-                            id="pdfs"
-                            accept="application/pdf"
-                            multiple
-                            hidden
-                        >
+                        <input type="file" name="pdfs" id="pdfs" accept="application/pdf" multiple hidden>
 
                         <div id="sizeDisplay" class="upload-size">
                             <strong>Size 0 Mb / 50 Mb</strong>
@@ -134,10 +138,7 @@
 
                     </div>
 
-                    <div
-                        id="uploadConsole"
-                        class="upload-console"
-                    ></div>
+                    <div id="uploadConsole" class="upload-console"></div>
 
                 </div>
 

@@ -35,13 +35,13 @@ function logStatus(msg) {
 function lockCard(card) {
   if (!card) return;
   card.dataset.state = "locked";
-  card.querySelectorAll("button,input").forEach(el => el.disabled = true);
+  card.querySelectorAll("button,input").forEach((el) => (el.disabled = true));
 }
 
 function unlockCard(card) {
   if (!card) return;
   card.dataset.state = "active";
-  card.querySelectorAll("button,input").forEach(el => el.disabled = false);
+  card.querySelectorAll("button,input").forEach((el) => (el.disabled = false));
 }
 
 function showOverlay(overlay, text) {
@@ -61,11 +61,11 @@ function disable(el, val = true) {
 
 // ---------------- PIPELINE STATE ----------------
 const pipeline = {
-  csvFile: null,     // File
-  jsonFile: null,    // File (only when uploaded directly)
-  csvName: null,     // server-side CSV name
-  jsonName: null,    // server-side JSON name
-  jsonSource: null   // "upload" | "csv"
+  csvFile: null, // File
+  jsonFile: null, // File (only when uploaded directly)
+  csvName: null, // server-side CSV name
+  jsonName: null, // server-side JSON name
+  jsonSource: null, // "upload" | "csv"
 };
 
 // =====================================================
@@ -114,7 +114,6 @@ if (csvConvertBtn) {
 
       unlockCard(jsonCard);
       logStatus("CSV → JSON done. Ready for Admin push.");
-
     } catch (err) {
       logStatus("❌ " + err.message);
     } finally {
@@ -137,12 +136,9 @@ if (jsonDldBtn) {
   jsonDldBtn.addEventListener("click", () => {
     if (!pipeline.jsonName) return;
 
-    window.location.href =
-      `/download_pipeline_json/${encodeURIComponent(pipeline.jsonName)}`;
+    window.location.href = `/download_pipeline_json/${encodeURIComponent(pipeline.jsonName)}`;
   });
 }
-
-
 
 // =====================================================
 // JSON UPLOAD → JSON → CSV
@@ -192,7 +188,6 @@ if (jsonConvertBtn) {
       disable(csvConvertBtn, true);
 
       logStatus("JSON → CSV completed.");
-
     } catch (err) {
       logStatus("❌ " + err.message);
     } finally {
@@ -234,7 +229,6 @@ if (jsonPushBtn) {
       // console.log("✅ JSON pushed successfully.");
       disable(jsonPushBtn, true);
       jsonPushBtn.style.display = "none";
-
     } catch (err) {
       logStatus("❌ Push error: " + err.message);
       console.log(err);
@@ -249,23 +243,22 @@ if (jsonPushBtn) {
 // =====================================================
 // ---------------- AUTH ----------------
 async function enforceAuth() {
-    try {
-        const r = await fetch("/auth-check");
+  try {
+    const r = await fetch("/auth-check");
 
-        if (!r.ok) {
-            window.location = "/login";
-            return;
-        }
-
-        const data = await r.json();
-
-        if (!data.logged_in) {
-            window.location = "/login";
-        }
-
-    } catch (err) {
-        window.location = "/login";
+    if (!r.ok) {
+      window.location = "/login";
+      return;
     }
+
+    const data = await r.json();
+
+    if (!data.logged_in) {
+      window.location = "/login";
+    }
+  } catch (err) {
+    window.location = "/login";
+  }
 }
 
 // ---------------- NAV ----------------
@@ -291,10 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
   disable(jsonPushBtn, true);
   disable(jsonViewBtn, true);
 
-  document.querySelectorAll("[data-action='back']").forEach(el => {
-    el.addEventListener("click", async () => {
-      await fetch("/cleanup_pipeline", { method: "POST" });
-      goBackToMain();
-    });
+  document.querySelectorAll("[data-action='back']").forEach((el) => {
+    el.addEventListener("click", goBackToMain);
   });
 });
